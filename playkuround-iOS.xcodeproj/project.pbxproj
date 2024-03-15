@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C953D2F52BA47B0700318869 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C953D2F32BA47B0700318869 /* Pretendard-Regular.otf */; };
+		C953D2F62BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C953D2F42BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf */; };
+		C953D2F92BA47B4B00318869 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2F82BA47B4B00318869 /* Font.swift */; };
 		C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */; };
 		C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E92BA3251A009A8762 /* ContentView.swift */; };
 		C9F694EC2BA3251B009A8762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9F694EB2BA3251B009A8762 /* Assets.xcassets */; };
@@ -14,6 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C953D2F32BA47B0700318869 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		C953D2F42BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeoDunggeunmoPro-Regular.ttf"; sourceTree = "<group>"; };
+		C953D2F72BA47B1C00318869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C953D2F82BA47B4B00318869 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		C9F694E42BA3251A009A8762 /* playkuround-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "playkuround-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playkuround_iOSApp.swift; sourceTree = "<group>"; };
 		C9F694E92BA3251A009A8762 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +39,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C953D2F12BA477F700318869 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C953D2F22BA4780200318869 /* Fonts */,
+				C953D2F82BA47B4B00318869 /* Font.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C953D2F22BA4780200318869 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C953D2F42BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf */,
+				C953D2F32BA47B0700318869 /* Pretendard-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		C9F694DB2BA3251A009A8762 = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +76,8 @@
 		C9F694E62BA3251A009A8762 /* playkuround-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C953D2F72BA47B1C00318869 /* Info.plist */,
+				C953D2F12BA477F700318869 /* Resources */,
 				C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */,
 				C9F694E92BA3251A009A8762 /* ContentView.swift */,
 				C9F694EB2BA3251B009A8762 /* Assets.xcassets */,
@@ -126,7 +153,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9F694EF2BA3251B009A8762 /* Preview Assets.xcassets in Resources */,
+				C953D2F52BA47B0700318869 /* Pretendard-Regular.otf in Resources */,
 				C9F694EC2BA3251B009A8762 /* Assets.xcassets in Resources */,
+				C953D2F62BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +168,7 @@
 			files = (
 				C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */,
 				C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */,
+				C953D2F92BA47B4B00318869 /* Font.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +305,7 @@
 				DEVELOPMENT_TEAM = 9SVDHQS4M3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "playkuround-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +335,7 @@
 				DEVELOPMENT_TEAM = 9SVDHQS4M3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "playkuround-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
