@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LoginView: View {
+    @State private var userId: String = ""
+    @FocusState private var focusField: Bool
+    
     var body: some View {
         ZStack {
             Color.kuBackground.ignoresSafeArea(.all)
@@ -25,6 +28,18 @@ struct LoginView: View {
                     .padding(.bottom, 48)
                 
                 Image(.longButtonWhite)
+                    .overlay {
+                        TextField("", text: $userId)
+                            .focused($focusField)
+                            .padding(.leading, 20)
+                            .overlay(
+                                Text(StringLiterals.Login.email)
+                                    .font(.pretendard15R)
+                                    .foregroundStyle(.gray)
+                                    .opacity(userId.isEmpty && !focusField ? 0 : 1)
+                                    .padding(.leading, 190)  // 눈대중값
+                            )
+                    }
                 
                 Image(.longButtonGray)
                     .overlay {
