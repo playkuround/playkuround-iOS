@@ -14,7 +14,8 @@ enum StringLiterals {
     }
     
     enum Login {
-        static let description = "안녕하세요!\n건국대학교 이메일을 인증해주세요."
+        static let hello = "안녕하세요!"
+        static let description = "건국대학교 이메일을 인증해주세요."
         static let requestCode = "인증코드 요청"
     }
 }
