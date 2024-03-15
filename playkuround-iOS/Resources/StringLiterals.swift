@@ -9,6 +9,7 @@ import SwiftUI
 
 enum StringLiterals {
     enum Main {
+        static let introduction = "건국대 안의 놀이터,"
         static let login = "로그인"
     }
     
