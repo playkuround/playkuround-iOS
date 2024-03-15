@@ -11,6 +11,7 @@
 		C953D2F62BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C953D2F42BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf */; };
 		C953D2F92BA47B4B00318869 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2F82BA47B4B00318869 /* Font.swift */; };
 		C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2FA2BA47F2C00318869 /* StringLiterals.swift */; };
+		C953D2FE2BA4807400318869 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2FD2BA4807400318869 /* LoginView.swift */; };
 		C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */; };
 		C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E92BA3251A009A8762 /* ContentView.swift */; };
 		C9F694EC2BA3251B009A8762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9F694EB2BA3251B009A8762 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		C953D2F72BA47B1C00318869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C953D2F82BA47B4B00318869 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		C953D2FA2BA47F2C00318869 /* StringLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLiterals.swift; sourceTree = "<group>"; };
+		C953D2FD2BA4807400318869 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C9F694E42BA3251A009A8762 /* playkuround-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "playkuround-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playkuround_iOSApp.swift; sourceTree = "<group>"; };
 		C9F694E92BA3251A009A8762 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +62,23 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		C953D2FC2BA4806900318869 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C953D2FF2BA4809800318869 /* Login */,
+				C9F694E92BA3251A009A8762 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C953D2FF2BA4809800318869 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C953D2FD2BA4807400318869 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		C9F694DB2BA3251A009A8762 = {
 			isa = PBXGroup;
 			children = (
@@ -79,10 +98,10 @@
 		C9F694E62BA3251A009A8762 /* playkuround-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C953D2FC2BA4806900318869 /* Views */,
 				C953D2F72BA47B1C00318869 /* Info.plist */,
 				C953D2F12BA477F700318869 /* Resources */,
 				C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */,
-				C9F694E92BA3251A009A8762 /* ContentView.swift */,
 				C9F694EB2BA3251B009A8762 /* Assets.xcassets */,
 				C9F694ED2BA3251B009A8762 /* Preview Content */,
 			);
@@ -172,6 +191,7 @@
 				C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */,
 				C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */,
 				C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */,
+				C953D2FE2BA4807400318869 /* LoginView.swift in Sources */,
 				C953D2F92BA47B4B00318869 /* Font.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
