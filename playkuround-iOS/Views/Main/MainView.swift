@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// enum으로 배경 이미지 관리
 enum mainBackgroundImage: String, CaseIterable {
     case mainBackground1
     case mainBackground2
