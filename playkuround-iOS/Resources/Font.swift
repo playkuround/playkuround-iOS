@@ -15,4 +15,5 @@ extension Font {
     static let neo24: Font = .custom("NeoDunggeunmoPro-Regular", size: 24)
     static let neo50: Font = .custom("NeoDunggeunmoPro-Regular", size: 50)
     static let pretendard15R: Font = .custom("Pretendard-Regular", size: 15)
+    static let pretendard12R: Font = .custom("Pretendard-Regular", size: 12)
 }
