@@ -15,13 +15,11 @@ enum mainBackgroundImage: String, CaseIterable {
 }
 
 struct MainView: View {
-    let backgroundImages = mainBackgroundImage.allCases
-
     var body: some View {
         NavigationStack {
             ZStack {
                 AnimationCustomView(
-                    imageArray: ["mainBackground1", "mainBackground2", "mainBackground3", "mainBackground4"],
+                    imageArray: mainBackgroundImage.allCases.map { $0.rawValue },
                     delayTime: 0.7)
                 
                 VStack {
