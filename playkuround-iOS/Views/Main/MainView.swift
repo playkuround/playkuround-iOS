@@ -21,6 +21,9 @@ struct MainView: View {
                 AnimationCustomView(
                     imageArray: mainBackgroundImage.allCases.map { $0.rawValue },
                     delayTime: 0.7)
+                .aspectRatio(contentMode: .fill)
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .ignoresSafeArea(.all)
                 
                 VStack {
                     Text(StringLiterals.Main.introduction)

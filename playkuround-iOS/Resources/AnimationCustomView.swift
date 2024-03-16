@@ -22,10 +22,6 @@ struct AnimationCustomView: View {
     
     var body: some View {
         Image(imageArray[currentIndex])
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .ignoresSafeArea(.all)
             .onReceive(timer) { _ in
                 self.currentIndex = (self.currentIndex + 1) % self.imageArray.count
             }
