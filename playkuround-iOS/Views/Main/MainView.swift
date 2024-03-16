@@ -15,21 +15,14 @@ enum mainBackgroundImage: String, CaseIterable {
 }
 
 struct MainView: View {
-    private let backgroundImages = mainBackgroundImage.allCases
-    private let timer = Timer.publish(every: 0.7, on: .main, in: .common).autoconnect()
-    @State private var currentIndex = 0
-    
+    let backgroundImages = mainBackgroundImage.allCases
+
     var body: some View {
         NavigationStack {
             ZStack {
-                Image(backgroundImages[currentIndex].rawValue)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .ignoresSafeArea(.all)
-                    .onReceive(timer) { _ in
-                        self.currentIndex = (self.currentIndex + 1) % self.backgroundImages.count
-                    }
+                AnimationCustomView(
+                    imageArray: ["mainBackground1", "mainBackground2", "mainBackground3", "mainBackground4"],
+                    delayTime: 0.7)
                 
                 VStack {
                     Text(StringLiterals.Main.introduction)
