@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct MainView: View {
+    private let backgroundImages = ["mainBackground1", "mainBackground2", "mainBackground3", "mainBackground4"]
+    let timer = Timer.publish(every: 0.7, on: .main, in: .common).autoconnect()
+    @State private var currentIndex = 0
+    
     var body: some View {
         NavigationStack {
             ZStack {
-                Image(.mainBackground)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(minWidth: 0, maxWidth: .infinity)
+                Image(backgroundImages[currentIndex])
                     .ignoresSafeArea(.all)
+                    .onReceive(timer) { _ in
+                        self.currentIndex = (self.currentIndex + 1) % self.backgroundImages.count
+                    }
+                    
                 
                 VStack {
                     Text(StringLiterals.Main.introduction)
