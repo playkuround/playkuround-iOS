@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C6AA4BB2BA4A33E0032AB24 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4BA2BA4A33E0032AB24 /* NetworkManager.swift */; };
+		0C6AA4BD2BA553D80032AB24 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4BC2BA553D80032AB24 /* APIManager.swift */; };
 		C953D2F52BA47B0700318869 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C953D2F32BA47B0700318869 /* Pretendard-Regular.otf */; };
 		C953D2F62BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C953D2F42BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf */; };
 		C953D2F92BA47B4B00318869 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2F82BA47B4B00318869 /* Font.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		0C6AA4BA2BA4A33E0032AB24 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		0C6AA4BC2BA553D80032AB24 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		C953D2F32BA47B0700318869 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		C953D2F42BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeoDunggeunmoPro-Regular.ttf"; sourceTree = "<group>"; };
 		C953D2F72BA47B1C00318869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				0C6AA4BA2BA4A33E0032AB24 /* NetworkManager.swift */,
+				0C6AA4BC2BA553D80032AB24 /* APIManager.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */,
 				C953D2FE2BA4807400318869 /* LoginView.swift in Sources */,
 				C953D2F92BA47B4B00318869 /* Font.swift in Sources */,
+				0C6AA4BD2BA553D80032AB24 /* APIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
