@@ -29,7 +29,7 @@ struct LoginView: View {
                 
                 Image(.longButtonWhite)
                     .overlay {
-                        TextField("포탈 아이디", text: $userId)
+                        TextField(StringLiterals.Login.placeHolder, text: $userId)
                             .font(.pretendard15R)
                             .kerning(-0.41)
                             .focused($focusField)
@@ -39,7 +39,7 @@ struct LoginView: View {
                                     .font(.pretendard15R)
                                     .foregroundStyle(.gray)
                                     .opacity(userId.isEmpty && !focusField ? 0 : 1)
-                                    .padding(.leading, 190)  // 눈대중값
+                                    .padding(.leading, 190)
                             )
                     }
                 
