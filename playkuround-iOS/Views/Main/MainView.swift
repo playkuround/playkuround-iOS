@@ -23,6 +23,9 @@ struct MainView: View {
         NavigationStack {
             ZStack {
                 Image(backgroundImages[currentIndex].rawValue)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(minWidth: 0, maxWidth: .infinity)
                     .ignoresSafeArea(.all)
                     .onReceive(timer) { _ in
                         self.currentIndex = (self.currentIndex + 1) % self.backgroundImages.count
