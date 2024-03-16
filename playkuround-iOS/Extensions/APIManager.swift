@@ -115,14 +115,24 @@ final class APIManager {
         if endpoint == .landmarksHighest || endpoint == .scoresRankLandmark {
             // landmarkID가 nil이 아니라면
             if let landmarkID = landmarkID {
-                components = URLComponents(string: "\(shared.baseURL)\(String(format: endpoint.rawValue, landmarkID))")!
+                if let urlComponents = URLComponents(string: "\(shared.baseURL)\(endpoint.rawValue)") {
+                    components = urlComponents
+                } else {
+                    // URL을 생성할 수 없는 경우 오류 반환
+                    return Fail(error: APIError.unknown).eraseToAnyPublisher()
+                }
             } else {
-                // landmarkID가 nil이므로 실패 반환
+                // landmarkID가 nil이므로 오류 반환
                 return Fail(error: APIError.unknown).eraseToAnyPublisher()
             }
         } else {
             // 일반 요청 URL
-            components = URLComponents(string: "\(shared.baseURL)\(endpoint.rawValue)")!
+            if let urlComponents = URLComponents(string: "\(shared.baseURL)\(endpoint.rawValue)") {
+                components = urlComponents
+            } else {
+                // URL을 생성할 수 없는 경우 오류 반환
+                return Fail(error: APIError.unknown).eraseToAnyPublisher()
+            }
         }
         
         // Query Item 추가
