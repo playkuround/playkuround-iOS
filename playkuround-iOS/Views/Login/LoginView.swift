@@ -29,7 +29,9 @@ struct LoginView: View {
                 
                 Image(.longButtonWhite)
                     .overlay {
-                        TextField("", text: $userId)
+                        TextField("포탈 아이디", text: $userId)
+                            .font(.pretendard15R)
+                            .kerning(-0.41)
                             .focused($focusField)
                             .padding(.leading, 20)
                             .overlay(
@@ -41,7 +43,7 @@ struct LoginView: View {
                             )
                     }
                 
-                Image(.longButtonGray)
+                Image(userId.isEmpty ? .longButtonGray : .longButtonBlue)
                     .overlay {
                         Text(StringLiterals.Login.requestCode)
                             .font(.neo15)
