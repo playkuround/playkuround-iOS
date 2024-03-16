@@ -16,6 +16,8 @@ struct LoginView: View {
     
     @State private var userRequestCode: String = ""
     
+    private let mailSystemURL = URL(string: StringLiterals.Login.mailSystemURL)
+    
     var body: some View {
         ZStack {
             Color.kuBackground.ignoresSafeArea(.all)
@@ -71,6 +73,14 @@ struct LoginView: View {
                     .font(.pretendard12R)
                     .foregroundStyle(.kuDarkBlue).underline()
                     .padding(.top, 6)
+                    .onTapGesture {
+                        if let mailSystemURL = mailSystemURL {
+                            UIApplication.shared.open(mailSystemURL)
+                        } 
+                        else {
+                            print("url error")
+                        }
+                    }
                 
                 Image(.longButtonWhite)
                     .overlay {

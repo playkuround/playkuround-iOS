@@ -22,6 +22,7 @@ enum StringLiterals {
         static let email = "@konkuk.ac.kr"
         
         static let goEmail = "건국대학교 이메일 바로가기"
+        static let mailSystemURL = "https://kumail.konkuk.ac.kr/adfs/ls/?lc=1042&wa=wsignin1.0&wtrealm=urn%3afederation%3aMicrosoftOnline"
         
         static let code = "인증코드"
         static let certification = "인증하기"
