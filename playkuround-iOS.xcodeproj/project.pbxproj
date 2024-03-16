@@ -53,7 +53,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C6AA4C52BA566C40032AB24 /* Data */ = {
+		0C6AA4C52BA566C40032AB24 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				0C6AA4C62BA566CE0032AB24 /* Badge.swift */,
@@ -61,7 +61,7 @@
 				0C6AA4CC2BA56E230032AB24 /* UserNotification.swift */,
 				0C6AA4CE2BA56FB30032AB24 /* ScoreType.swift */,
 			);
-			path = Data;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C953D2F12BA477F700318869 /* Resources */ = {
@@ -128,7 +128,7 @@
 		C9F694E62BA3251A009A8762 /* playkuround-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				0C6AA4C52BA566C40032AB24 /* Data */,
+				0C6AA4C52BA566C40032AB24 /* Models */,
 				C953D2FC2BA4806900318869 /* Views */,
 				C953D2F72BA47B1C00318869 /* Info.plist */,
 				C953D2F12BA477F700318869 /* Resources */,
