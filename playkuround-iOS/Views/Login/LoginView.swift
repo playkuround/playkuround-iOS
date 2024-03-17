@@ -17,6 +17,8 @@ struct LoginView: View {
     @State private var certificationCode: String = ""
     @State private var certificationButtonClicked = false
     
+    @State private var isShowingBottomSheet = false
+    
     private let mailSystemURL = URL(string: StringLiterals.Login.mailSystemURL)
     
     var body: some View {
@@ -55,6 +57,7 @@ struct LoginView: View {
                 Image(userId.isEmpty ? "longButtonGray" : "longButtonBlue")
                     .onTapGesture {
                         mailButtonClicked.toggle()
+                        isShowingBottomSheet.toggle()
                         
                         if mailButtonClicked {
                             mailButtonName = StringLiterals.Login.reRequestCode
@@ -87,7 +90,7 @@ struct LoginView: View {
                         
                         Image(.longButtonWhite)
                             .overlay {
-                                TextField(StringLiterals.Login.code, text: $certificationCode)
+                                TextField(StringLiterals.Login.authenticationCode, text: $certificationCode)
                                     .font(.pretendard15R)
                                     .kerning(-0.41)
                                     .padding(.leading, 20)
@@ -106,7 +109,7 @@ struct LoginView: View {
                                 }
                             }
                             .overlay {
-                                Text(StringLiterals.Login.certification)
+                                Text(StringLiterals.Login.authentication)
                                     .font(.neo15)
                                     .foregroundStyle(.kuText)
                                     .kerning(-0.41)
@@ -117,6 +120,8 @@ struct LoginView: View {
                 Spacer()
             }
             .padding(.top, 80)
+            
+            LoginBottomSheetView(isShowing: $isShowingBottomSheet)
         }
     }
 }
