@@ -9,11 +9,17 @@
 /* Begin PBXBuildFile section */
 		0C6AA4BB2BA4A33E0032AB24 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4BA2BA4A33E0032AB24 /* NetworkManager.swift */; };
 		0C6AA4BD2BA553D80032AB24 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4BC2BA553D80032AB24 /* APIManager.swift */; };
+		0C6AA4C72BA566CE0032AB24 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4C62BA566CE0032AB24 /* Badge.swift */; };
+		0C6AA4CB2BA56B510032AB24 /* Major.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4CA2BA56B510032AB24 /* Major.swift */; };
+		0C6AA4CD2BA56E230032AB24 /* UserNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4CC2BA56E230032AB24 /* UserNotification.swift */; };
+		0C6AA4CF2BA56FB30032AB24 /* ScoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4CE2BA56FB30032AB24 /* ScoreType.swift */; };
+		C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */; };
 		C953D2F52BA47B0700318869 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C953D2F32BA47B0700318869 /* Pretendard-Regular.otf */; };
 		C953D2F62BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C953D2F42BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf */; };
 		C953D2F92BA47B4B00318869 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2F82BA47B4B00318869 /* Font.swift */; };
 		C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2FA2BA47F2C00318869 /* StringLiterals.swift */; };
 		C953D2FE2BA4807400318869 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2FD2BA4807400318869 /* LoginView.swift */; };
+		C953D3042BA49BB300318869 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D3032BA49BB300318869 /* MainView.swift */; };
 		C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */; };
 		C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E92BA3251A009A8762 /* ContentView.swift */; };
 		C9F694EC2BA3251B009A8762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9F694EB2BA3251B009A8762 /* Assets.xcassets */; };
@@ -23,12 +29,18 @@
 /* Begin PBXFileReference section */
 		0C6AA4BA2BA4A33E0032AB24 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0C6AA4BC2BA553D80032AB24 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		0C6AA4C62BA566CE0032AB24 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		0C6AA4CA2BA56B510032AB24 /* Major.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Major.swift; sourceTree = "<group>"; };
+		0C6AA4CC2BA56E230032AB24 /* UserNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotification.swift; sourceTree = "<group>"; };
+		0C6AA4CE2BA56FB30032AB24 /* ScoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreType.swift; sourceTree = "<group>"; };
+		C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCustomView.swift; sourceTree = "<group>"; };
 		C953D2F32BA47B0700318869 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		C953D2F42BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeoDunggeunmoPro-Regular.ttf"; sourceTree = "<group>"; };
 		C953D2F72BA47B1C00318869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C953D2F82BA47B4B00318869 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		C953D2FA2BA47F2C00318869 /* StringLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLiterals.swift; sourceTree = "<group>"; };
 		C953D2FD2BA4807400318869 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C953D3032BA49BB300318869 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C9F694E42BA3251A009A8762 /* playkuround-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "playkuround-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playkuround_iOSApp.swift; sourceTree = "<group>"; };
 		C9F694E92BA3251A009A8762 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +66,17 @@
 				0C6AA4BC2BA553D80032AB24 /* APIManager.swift */,
 			);
 			path = Extensions;
+      sourceTree = "<group>";
+		};
+		0C6AA4C52BA566C40032AB24 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0C6AA4C62BA566CE0032AB24 /* Badge.swift */,
+				0C6AA4CA2BA56B510032AB24 /* Major.swift */,
+				0C6AA4CC2BA56E230032AB24 /* UserNotification.swift */,
+				0C6AA4CE2BA56FB30032AB24 /* ScoreType.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C953D2F12BA477F700318869 /* Resources */ = {
@@ -62,6 +85,7 @@
 				C953D2F22BA4780200318869 /* Fonts */,
 				C953D2F82BA47B4B00318869 /* Font.swift */,
 				C953D2FA2BA47F2C00318869 /* StringLiterals.swift */,
+				C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -78,6 +102,7 @@
 		C953D2FC2BA4806900318869 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C953D3022BA49BAB00318869 /* Main */,
 				C953D2FF2BA4809800318869 /* Login */,
 				C9F694E92BA3251A009A8762 /* ContentView.swift */,
 			);
@@ -90,6 +115,14 @@
 				C953D2FD2BA4807400318869 /* LoginView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		C953D3022BA49BAB00318869 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C953D3032BA49BB300318869 /* MainView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		C9F694DB2BA3251A009A8762 = {
@@ -112,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				0C6AA4B92BA4A32A0032AB24 /* Extensions */,
+				0C6AA4C52BA566C40032AB24 /* Models */,
 				C953D2FC2BA4806900318869 /* Views */,
 				C953D2F72BA47B1C00318869 /* Info.plist */,
 				C953D2F12BA477F700318869 /* Resources */,
@@ -203,12 +237,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C6AA4BB2BA4A33E0032AB24 /* NetworkManager.swift in Sources */,
+				0C6AA4C72BA566CE0032AB24 /* Badge.swift in Sources */,
 				C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */,
+				0C6AA4CD2BA56E230032AB24 /* UserNotification.swift in Sources */,
+				C953D3042BA49BB300318869 /* MainView.swift in Sources */,
 				C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */,
 				C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */,
+				0C6AA4CF2BA56FB30032AB24 /* ScoreType.swift in Sources */,
 				C953D2FE2BA4807400318869 /* LoginView.swift in Sources */,
 				C953D2F92BA47B4B00318869 /* Font.swift in Sources */,
 				0C6AA4BD2BA553D80032AB24 /* APIManager.swift in Sources */,
+				0C6AA4CB2BA56B510032AB24 /* Major.swift in Sources */,
+				C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +391,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -381,6 +422,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
