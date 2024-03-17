@@ -11,10 +11,11 @@ struct LoginView: View {
     @State private var userId: String = ""
     @FocusState private var focusField: Bool
     
-    @State private var requestButtonName = StringLiterals.Login.requestCode
-    @State private var isButtonClicked = false
+    @State private var mailButtonName = StringLiterals.Login.requestCode
+    @State private var mailButtonClicked = false
     
-    @State private var userRequestCode: String = ""
+    @State private var certificationCode: String = ""
+    @State private var certificationButtonClicked = false
     
     private let mailSystemURL = URL(string: StringLiterals.Login.mailSystemURL)
     
@@ -51,53 +52,67 @@ struct LoginView: View {
                     }
                 
                 
-                Image(isButtonClicked || userId.isEmpty ? "longButtonGray" : "longButtonBlue")
+                Image(userId.isEmpty ? "longButtonGray" : "longButtonBlue")
                     .onTapGesture {
-                        isButtonClicked.toggle()
-                        if isButtonClicked {
-                            // 클릭되었을 때, 텍스트와 이미지 변경
-                            requestButtonName = StringLiterals.Login.reRequestCode
-                        } else {
-                            // 클릭 해제되었을 때, 원래 텍스트로 변경
-                            requestButtonName = StringLiterals.Login.requestCode
+                        mailButtonClicked.toggle()
+                        
+                        if mailButtonClicked {
+                            mailButtonName = StringLiterals.Login.reRequestCode
                         }
-                    }
-                    .overlay {
-                        Text(requestButtonName)
-                            .font(.neo15)
-                            .foregroundStyle(.kuText)
-                            .kerning(-0.41)
-                    }
-                
-                Text(StringLiterals.Login.goEmail)
-                    .font(.pretendard12R)
-                    .foregroundStyle(.kuDarkBlue).underline()
-                    .padding(.top, 6)
-                    .onTapGesture {
-                        if let mailSystemURL = mailSystemURL {
-                            UIApplication.shared.open(mailSystemURL)
-                        } 
                         else {
-                            print("url error")
+                            mailButtonName = StringLiterals.Login.requestCode
                         }
                     }
-                
-                Image(.longButtonWhite)
                     .overlay {
-                        TextField(StringLiterals.Login.code, text: $userRequestCode)
-                            .font(.pretendard15R)
-                            .kerning(-0.41)
-                            .padding(.leading, 20)
-                    }
-                    .padding(.top, 46)
-                
-                Image(.longButtonGray)
-                    .overlay {
-                        Text(StringLiterals.Login.certification)
+                        Text(mailButtonName)
                             .font(.neo15)
                             .foregroundStyle(.kuText)
                             .kerning(-0.41)
                     }
+                
+                if mailButtonClicked {
+                    VStack(alignment: .leading) {
+                        Text(StringLiterals.Login.goEmail)
+                            .font(.pretendard12R)
+                            .foregroundStyle(.kuDarkBlue).underline()
+                            .padding(.top, 6)
+                            .onTapGesture {
+                                if let mailSystemURL = mailSystemURL {
+                                    UIApplication.shared.open(mailSystemURL)
+                                }
+                                else {
+                                    print("url error")
+                                }
+                            }
+                        
+                        Image(.longButtonWhite)
+                            .overlay {
+                                TextField(StringLiterals.Login.code, text: $certificationCode)
+                                    .font(.pretendard15R)
+                                    .kerning(-0.41)
+                                    .padding(.leading, 20)
+                            }
+                            .padding(.top, 46)
+                        
+                        Image(certificationCode.isEmpty ? "longButtonGray" : "longButtonBlue")
+                            .onTapGesture {
+                                certificationButtonClicked.toggle()
+                                
+                                if certificationButtonClicked {
+                                    
+                                }
+                                else {
+                                    
+                                }
+                            }
+                            .overlay {
+                                Text(StringLiterals.Login.certification)
+                                    .font(.neo15)
+                                    .foregroundStyle(.kuText)
+                                    .kerning(-0.41)
+                            }
+                    }
+                }
                 
                 Spacer()
             }
