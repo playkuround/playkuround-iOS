@@ -24,7 +24,13 @@ enum StringLiterals {
         static let goEmail = "건국대학교 이메일 바로가기"
         static let mailSystemURL = "https://kumail.konkuk.ac.kr/adfs/ls/?lc=1042&wa=wsignin1.0&wtrealm=urn%3afederation%3aMicrosoftOnline"
         
-        static let code = "인증코드"
-        static let certification = "인증하기"
+        static let authenticationCode = "인증코드"
+        static let authentication = "인증하기"
+        
+        enum BottomSheet {
+            static let title = "인증코드 입력 시간 초과"
+            static let description = "인증코드 입력 시간이 초과되었습니다.\n인증코드를 다시 요청해주세요."
+            static let ok = "확인"
+        }
     }
 }
