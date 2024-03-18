@@ -8,7 +8,7 @@
 import AVKit
 import SwiftUI
 
-final class SoundManager: ObservableObject {
+final class SoundManager {
     static let shared = SoundManager()
     
     var player: AVAudioPlayer?
