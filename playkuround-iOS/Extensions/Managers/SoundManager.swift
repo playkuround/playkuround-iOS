@@ -8,7 +8,7 @@
 import AVKit
 import SwiftUI
 
-class SoundManager: ObservableObject {
+final class SoundManager: ObservableObject {
     static let shared = SoundManager()
     
     var player: AVAudioPlayer?
@@ -79,4 +79,4 @@ enum Sound: String {
     case timerButtonClicked
     case timerCorrect
     case timerIncorrect
-    }
+}

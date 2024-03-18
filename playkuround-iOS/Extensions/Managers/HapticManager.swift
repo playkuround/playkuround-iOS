@@ -7,8 +7,7 @@
 
 import UIKit
 
-class HapticManager {
-    // 싱글톤 생성
+final class HapticManager {
     static let shared = HapticManager()
     
     // warning, error, success
