@@ -13,6 +13,7 @@
 		0C6AA4CB2BA56B510032AB24 /* Major.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4CA2BA56B510032AB24 /* Major.swift */; };
 		0C6AA4CD2BA56E230032AB24 /* UserNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4CC2BA56E230032AB24 /* UserNotification.swift */; };
 		0C6AA4CF2BA56FB30032AB24 /* ScoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4CE2BA56FB30032AB24 /* ScoreType.swift */; };
+		0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4D02BA6DA340032AB24 /* TokenManager.swift */; };
 		C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */; };
 		C953D2F52BA47B0700318869 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C953D2F32BA47B0700318869 /* Pretendard-Regular.otf */; };
 		C953D2F62BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C953D2F42BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf */; };
@@ -33,6 +34,7 @@
 		0C6AA4CA2BA56B510032AB24 /* Major.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Major.swift; sourceTree = "<group>"; };
 		0C6AA4CC2BA56E230032AB24 /* UserNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotification.swift; sourceTree = "<group>"; };
 		0C6AA4CE2BA56FB30032AB24 /* ScoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreType.swift; sourceTree = "<group>"; };
+		0C6AA4D02BA6DA340032AB24 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCustomView.swift; sourceTree = "<group>"; };
 		C953D2F32BA47B0700318869 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		C953D2F42BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeoDunggeunmoPro-Regular.ttf"; sourceTree = "<group>"; };
@@ -64,9 +66,10 @@
 			children = (
 				0C6AA4BA2BA4A33E0032AB24 /* NetworkManager.swift */,
 				0C6AA4BC2BA553D80032AB24 /* APIManager.swift */,
+				0C6AA4D02BA6DA340032AB24 /* TokenManager.swift */,
 			);
 			path = Extensions;
-      sourceTree = "<group>";
+			sourceTree = "<group>";
 		};
 		0C6AA4C52BA566C40032AB24 /* Models */ = {
 			isa = PBXGroup;
@@ -249,6 +252,7 @@
 				0C6AA4BD2BA553D80032AB24 /* APIManager.swift in Sources */,
 				0C6AA4CB2BA56B510032AB24 /* Major.swift in Sources */,
 				C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */,
+				0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
