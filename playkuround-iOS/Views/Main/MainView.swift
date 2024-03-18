@@ -49,6 +49,12 @@ struct MainView: View {
                     }
                 }
             }
+            .onAppear {
+                SoundManager.shared.playSound(sound: .backgroundMusic, loop: true)
+            }
+            .onDisappear {
+                SoundManager.shared.stopSound()
+            }
         }
     }
 }

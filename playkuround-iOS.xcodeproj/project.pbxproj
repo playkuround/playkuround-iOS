@@ -22,12 +22,12 @@
 		C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2FA2BA47F2C00318869 /* StringLiterals.swift */; };
 		C953D2FE2BA4807400318869 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2FD2BA4807400318869 /* LoginView.swift */; };
 		C953D3042BA49BB300318869 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D3032BA49BB300318869 /* MainView.swift */; };
-		C98078912BA8703000C04B2D /* buttonClickedSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078902BA8703000C04B2D /* buttonClickedSound.mp3 */; };
+		C98078912BA8703000C04B2D /* buttonClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078902BA8703000C04B2D /* buttonClicked.mp3 */; };
 		C98078962BA870E400C04B2D /* timerButtonClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078932BA870E400C04B2D /* timerButtonClicked.mp3 */; };
 		C98078972BA870E400C04B2D /* timerCorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078942BA870E400C04B2D /* timerCorrect.mp3 */; };
 		C98078982BA870E400C04B2D /* timerIncorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078952BA870E400C04B2D /* timerIncorrect.mp3 */; };
-		C980789C2BA8712700C04B2D /* bad.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C980789A2BA8712700C04B2D /* bad.mp3 */; };
-		C980789D2BA8712700C04B2D /* goodOrPerfect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C980789B2BA8712700C04B2D /* goodOrPerfect.mp3 */; };
+		C980789C2BA8712700C04B2D /* cupidBad.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C980789A2BA8712700C04B2D /* cupidBad.mp3 */; };
+		C980789D2BA8712700C04B2D /* cupidGoodOrPerfect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C980789B2BA8712700C04B2D /* cupidGoodOrPerfect.mp3 */; };
 		C98078A12BA8715900C04B2D /* quizCorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C980789F2BA8715900C04B2D /* quizCorrect.mp3 */; };
 		C98078A22BA8715900C04B2D /* quizIncorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078A02BA8715900C04B2D /* quizIncorrect.mp3 */; };
 		C98078A82BA871A000C04B2D /* cardIncorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078A42BA871A000C04B2D /* cardIncorrect.mp3 */; };
@@ -44,7 +44,7 @@
 		C98078BF2BA872A300C04B2D /* duckkuClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078BC2BA872A300C04B2D /* duckkuClicked.mp3 */; };
 		C98078C32BA872DF00C04B2D /* moonHundredClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C12BA872DF00C04B2D /* moonHundredClicked.mp3 */; };
 		C98078C42BA872DF00C04B2D /* moonClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C22BA872DF00C04B2D /* moonClicked.mp3 */; };
-		C983DF2A2BA86F3F003523E9 /* backgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = C983DF292BA86F3F003523E9 /* backgroundMusic.wav */; };
+		C98078C62BA8816B00C04B2D /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */; };
 		C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */; };
 		C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E92BA3251A009A8762 /* ContentView.swift */; };
 		C9F694EC2BA3251B009A8762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9F694EB2BA3251B009A8762 /* Assets.xcassets */; };
@@ -68,12 +68,12 @@
 		C953D2FA2BA47F2C00318869 /* StringLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLiterals.swift; sourceTree = "<group>"; };
 		C953D2FD2BA4807400318869 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C953D3032BA49BB300318869 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		C98078902BA8703000C04B2D /* buttonClickedSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonClickedSound.mp3; sourceTree = "<group>"; };
+		C98078902BA8703000C04B2D /* buttonClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonClicked.mp3; sourceTree = "<group>"; };
 		C98078932BA870E400C04B2D /* timerButtonClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timerButtonClicked.mp3; sourceTree = "<group>"; };
 		C98078942BA870E400C04B2D /* timerCorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timerCorrect.mp3; sourceTree = "<group>"; };
 		C98078952BA870E400C04B2D /* timerIncorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timerIncorrect.mp3; sourceTree = "<group>"; };
-		C980789A2BA8712700C04B2D /* bad.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bad.mp3; sourceTree = "<group>"; };
-		C980789B2BA8712700C04B2D /* goodOrPerfect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = goodOrPerfect.mp3; sourceTree = "<group>"; };
+		C980789A2BA8712700C04B2D /* cupidBad.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cupidBad.mp3; sourceTree = "<group>"; };
+		C980789B2BA8712700C04B2D /* cupidGoodOrPerfect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cupidGoodOrPerfect.mp3; sourceTree = "<group>"; };
 		C980789F2BA8715900C04B2D /* quizCorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = quizCorrect.mp3; sourceTree = "<group>"; };
 		C98078A02BA8715900C04B2D /* quizIncorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = quizIncorrect.mp3; sourceTree = "<group>"; };
 		C98078A42BA871A000C04B2D /* cardIncorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardIncorrect.mp3; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 		C98078BC2BA872A300C04B2D /* duckkuClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = duckkuClicked.mp3; sourceTree = "<group>"; };
 		C98078C12BA872DF00C04B2D /* moonHundredClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = moonHundredClicked.mp3; sourceTree = "<group>"; };
 		C98078C22BA872DF00C04B2D /* moonClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = moonClicked.mp3; sourceTree = "<group>"; };
-		C983DF292BA86F3F003523E9 /* backgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundMusic.wav; sourceTree = "<group>"; };
+		C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
 		C9F694E42BA3251A009A8762 /* playkuround-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "playkuround-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playkuround_iOSApp.swift; sourceTree = "<group>"; };
 		C9F694E92BA3251A009A8762 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -199,8 +199,8 @@
 		C98078992BA870FD00C04B2D /* Cupid */ = {
 			isa = PBXGroup;
 			children = (
-				C980789A2BA8712700C04B2D /* bad.mp3 */,
-				C980789B2BA8712700C04B2D /* goodOrPerfect.mp3 */,
+				C980789A2BA8712700C04B2D /* cupidBad.mp3 */,
+				C980789B2BA8712700C04B2D /* cupidGoodOrPerfect.mp3 */,
 			);
 			path = Cupid;
 			sourceTree = "<group>";
@@ -266,6 +266,7 @@
 		C983DF282BA86F31003523E9 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */,
 				C98078C02BA872BF00C04B2D /* Moon */,
 				C98078B92BA8726A00C04B2D /* Duckku */,
 				C98078B32BA8722400C04B2D /* Microbe */,
@@ -274,8 +275,7 @@
 				C980789E2BA8713200C04B2D /* Quiz */,
 				C98078992BA870FD00C04B2D /* Cupid */,
 				C98078922BA8705600C04B2D /* Timer */,
-				C98078902BA8703000C04B2D /* buttonClickedSound.mp3 */,
-				C983DF292BA86F3F003523E9 /* backgroundMusic.wav */,
+				C98078902BA8703000C04B2D /* buttonClicked.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -380,15 +380,14 @@
 				C98078BD2BA872A300C04B2D /* blackDuckkuClicked.mp3 in Resources */,
 				C98078A12BA8715900C04B2D /* quizCorrect.mp3 in Resources */,
 				C98078A92BA871A000C04B2D /* cardClicked.mp3 in Resources */,
-				C980789C2BA8712700C04B2D /* bad.mp3 in Resources */,
+				C980789C2BA8712700C04B2D /* cupidBad.mp3 in Resources */,
 				C98078B22BA8720D00C04B2D /* classEnd.mp3 in Resources */,
 				C98078A82BA871A000C04B2D /* cardIncorrect.mp3 in Resources */,
 				C98078B12BA8720D00C04B2D /* classMinusHeart.mp3 in Resources */,
 				C98078AB2BA871A000C04B2D /* cardAllCorrect.mp3 in Resources */,
-				C98078912BA8703000C04B2D /* buttonClickedSound.mp3 in Resources */,
+				C98078912BA8703000C04B2D /* buttonClicked.mp3 in Resources */,
 				C98078972BA870E400C04B2D /* timerCorrect.mp3 in Resources */,
 				C9F694EF2BA3251B009A8762 /* Preview Assets.xcassets in Resources */,
-				C983DF2A2BA86F3F003523E9 /* backgroundMusic.wav in Resources */,
 				C98078BE2BA872A300C04B2D /* duckkuWindowOpenAndClose.mp3 in Resources */,
 				C98078982BA870E400C04B2D /* timerIncorrect.mp3 in Resources */,
 				C98078BF2BA872A300C04B2D /* duckkuClicked.mp3 in Resources */,
@@ -398,10 +397,11 @@
 				C98078B02BA8720D00C04B2D /* classCorrect.mp3 in Resources */,
 				C98078C32BA872DF00C04B2D /* moonHundredClicked.mp3 in Resources */,
 				C98078B62BA8725400C04B2D /* microbeHit.mp3 in Resources */,
+				C98078C62BA8816B00C04B2D /* backgroundMusic.mp3 in Resources */,
 				C98078B72BA8725400C04B2D /* microbeEnd.mp3 in Resources */,
 				C953D2F52BA47B0700318869 /* Pretendard-Regular.otf in Resources */,
 				C98078A22BA8715900C04B2D /* quizIncorrect.mp3 in Resources */,
-				C980789D2BA8712700C04B2D /* goodOrPerfect.mp3 in Resources */,
+				C980789D2BA8712700C04B2D /* cupidGoodOrPerfect.mp3 in Resources */,
 				C9F694EC2BA3251B009A8762 /* Assets.xcassets in Resources */,
 				C953D2F62BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf in Resources */,
 			);
