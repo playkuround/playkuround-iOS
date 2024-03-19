@@ -37,16 +37,18 @@ struct MainView: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: LoginView()) {
-                        Image(.shortButtonBlue)
-                            .overlay {
-                                Text(StringLiterals.Main.login)
-                                    .font(.neo20)
-                                    .foregroundStyle(.kuText)
-                                    .kerning(-0.41)
+                    NavigationLink(
+                        destination: LoginView()
+                            .navigationBarBackButtonHidden()) {
+                                Image(.shortButtonBlue)
+                                    .overlay {
+                                        Text(StringLiterals.Main.login)
+                                            .font(.neo20)
+                                            .foregroundStyle(.kuText)
+                                            .kerning(-0.41)
+                                    }
+                                    .padding(.bottom, 98)
                             }
-                            .padding(.bottom, 98)
-                    }
                 }
             }
         }
