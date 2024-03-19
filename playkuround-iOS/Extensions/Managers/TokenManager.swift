@@ -17,6 +17,7 @@ final class TokenManager {
         case .authVerify:
             // auth verify token을 반환
             if let token = UserDefaults.standard.string(forKey: "AUTH_VERIFY_TOKEN") {
+                print("Auth Verify Token is Loaded: " + token)
                 return token
             } else {
                 // 값이 없다면 빈 값을 반환합니다
@@ -25,6 +26,7 @@ final class TokenManager {
         case .access:
             // access token을 반환
             if let token = UserDefaults.standard.string(forKey: "ACCESS_TOKEN") {
+                print("Access Token is Loaded: " + token)
                 return token
             } else {
                 // 값이 없다면 빈 값을 반환합니다
@@ -33,6 +35,7 @@ final class TokenManager {
         case .refresh:
             // refresh token을 반환
             if let token = UserDefaults.standard.string(forKey: "REFRESH_TOKEN") {
+                print("Refresh Token is Loaded: " + token)
                 return token
             } else {
                 // 값이 없다면 빈 값을 반환합니다
@@ -48,33 +51,40 @@ final class TokenManager {
         case .authVerify:
             // auth verify token을 저장
             UserDefaults.standard.setValue(token, forKey: "AUTH_VERIFY_TOKEN")
+            print("Auth Verify Token is Saved Successfully: " + token)
         case .access:
             // access token을 저장
             UserDefaults.standard.setValue(token, forKey: "ACCESS_TOKEN")
+            print("Access Token is Successfully: " + token)
         case .refresh:
             // refresh token을 저장
             UserDefaults.standard.setValue(token, forKey: "REFRESH_TOKEN")
+            print("Refresh Token is Successfully: " + token)
         }
     }
     
     // 로그아웃 시 모든 토큰 정보 삭제
     // 특정 토큰 타입을 명시할 경우 해당 토큰 데이터만 삭제
-    static func reset(tokenType: TokenType?) {
+    static func reset(tokenType: TokenType? = nil) {
         switch tokenType {
         case .authVerify:
             // auth verify token을 저장
             UserDefaults.standard.removeObject(forKey: "AUTH_VERIFY_TOKEN")
+            print("Auth Verify Token is Removed Successfully")
         case .access:
             // access token을 저장
             UserDefaults.standard.removeObject(forKey: "ACCESS_TOKEN")
+            print("Access Token is Removed Successfully")
         case .refresh:
             // refresh token을 저장
             UserDefaults.standard.removeObject(forKey: "REFRESH_TOKEN")
+            print("Refresh Token is Removed Successfully")
         case nil:
             // token type이 명시되지 않아 nil인 경우 모든 토큰 정보 삭제
             UserDefaults.standard.removeObject(forKey: "AUTH_VERIFY_TOKEN")
             UserDefaults.standard.removeObject(forKey: "ACCESS_TOKEN")
             UserDefaults.standard.removeObject(forKey: "REFRESH_TOKEN")
+            print("All Tokens are Removed Successfully")
         }
     }
 }
