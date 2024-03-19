@@ -12,7 +12,7 @@ final class TokenManager {
     static let shared = TokenManager()
     
     // 현재 토큰 정보를 반환합니다
-    func token(tokenType: TokenType) -> String {
+    static func token(tokenType: TokenType) -> String {
         switch tokenType {
         case .authVerify:
             // auth verify token을 반환
@@ -43,7 +43,7 @@ final class TokenManager {
     
     // 토큰 정보를 새로 저장합니다
     // 토큰 정보를 지우려면 빈 문자열 ""를 저장하면 됩니다
-    func setToken(tokenType: TokenType, token: String) {
+    static func setToken(tokenType: TokenType, token: String) {
         switch tokenType {
         case .authVerify:
             // auth verify token을 저장
@@ -54,6 +54,27 @@ final class TokenManager {
         case .refresh:
             // refresh token을 저장
             UserDefaults.standard.setValue(token, forKey: "REFRESH_TOKEN")
+        }
+    }
+    
+    // 로그아웃 시 모든 토큰 정보 삭제
+    // 특정 토큰 타입을 명시할 경우 해당 토큰 데이터만 삭제
+    static func reset(tokenType: TokenType?) {
+        switch tokenType {
+        case .authVerify:
+            // auth verify token을 저장
+            UserDefaults.standard.removeObject(forKey: "AUTH_VERIFY_TOKEN")
+        case .access:
+            // access token을 저장
+            UserDefaults.standard.removeObject(forKey: "ACCESS_TOKEN")
+        case .refresh:
+            // refresh token을 저장
+            UserDefaults.standard.removeObject(forKey: "REFRESH_TOKEN")
+        case nil:
+            // token type이 명시되지 않아 nil인 경우 모든 토큰 정보 삭제
+            UserDefaults.standard.removeObject(forKey: "AUTH_VERIFY_TOKEN")
+            UserDefaults.standard.removeObject(forKey: "ACCESS_TOKEN")
+            UserDefaults.standard.removeObject(forKey: "REFRESH_TOKEN")
         }
     }
 }
@@ -99,13 +120,13 @@ struct TokenManagerTestView: View {
             
             // 저장 버튼 (토큰을 저장 후 Text Field를 초기화
             Button("save") {
-                TokenManager.shared.setToken(tokenType: selectedTokenType, token: selectedTokenValue)
+                TokenManager.setToken(tokenType: selectedTokenType, token: selectedTokenValue)
                 selectedTokenValue = ""
             }
             
             // 선택된 Token Type의 저장된 값을 불러옴
             Button("Load") {
-                selectedTokenValue = TokenManager.shared.token(tokenType: selectedTokenType)
+                selectedTokenValue = TokenManager.token(tokenType: selectedTokenType)
             }
             
             // Text Field를 지움
