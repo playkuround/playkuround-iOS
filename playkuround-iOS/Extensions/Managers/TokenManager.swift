@@ -14,9 +14,9 @@ final class TokenManager {
     // 현재 토큰 정보를 반환합니다
     func token(tokenType: TokenType) -> String {
         switch tokenType {
-        case .authority:
-            // authority token을 반환
-            if let token = UserDefaults.standard.string(forKey: "AUTHORITY_TOKEN") {
+        case .authVerify:
+            // auth verify token을 반환
+            if let token = UserDefaults.standard.string(forKey: "AUTH_VERIFY_TOKEN") {
                 return token
             } else {
                 // 값이 없다면 빈 값을 반환합니다
@@ -45,9 +45,9 @@ final class TokenManager {
     // 토큰 정보를 지우려면 빈 문자열 ""를 저장하면 됩니다
     func setToken(tokenType: TokenType, token: String) {
         switch tokenType {
-        case .authority:
-            // authority token을 저장
-            UserDefaults.standard.setValue(token, forKey: "AUTHORITY_TOKEN")
+        case .authVerify:
+            // auth verify token을 저장
+            UserDefaults.standard.setValue(token, forKey: "AUTH_VERIFY_TOKEN")
         case .access:
             // access token을 저장
             UserDefaults.standard.setValue(token, forKey: "ACCESS_TOKEN")
@@ -60,8 +60,8 @@ final class TokenManager {
 
 /// 토큰 종류를 나타내는 enum, RawValue는 Description
 enum TokenType: String {
-    // 이메일 인증 시 사용되는 authority token
-    case authority = "authority"
+    // 이메일 인증 시 사용되는 auth verify token
+    case authVerify = "authVerify"
     // access token
     case access = "access"
     // refresh token
@@ -70,7 +70,7 @@ enum TokenType: String {
 
 /// Token Manager 테스트용 뷰
 struct TokenManagerTestView: View {
-    @State private var selectedTokenType: TokenType = .authority
+    @State private var selectedTokenType: TokenType = .authVerify
     @State private var selectedTokenValue: String = ""
     
     var body: some View {
@@ -80,8 +80,8 @@ struct TokenManagerTestView: View {
             
             // Token Type 선택
             Menu("token type: " + selectedTokenType.rawValue) {
-                Button("authority") {
-                    selectedTokenType = .authority
+                Button("authVerify") {
+                    selectedTokenType = .authVerify
                 }
                 Button("access") {
                     selectedTokenType = .access
