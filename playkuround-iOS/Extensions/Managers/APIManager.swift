@@ -103,7 +103,7 @@ final class APIManager {
     
     /// GET API 요청 함수
     /// 정상 응답 시 response가 담긴 Dictionary를 반환하고, 오류 발생 시 nil을 반환합니다.
-    static func fetchDataGET(from endpoint: GETAPICollections, querys: [String: Any]? = nil, landmarkID: Int? = nil, completion: @escaping (Result<Any, Error>) -> Void) {
+    private static func fetchDataGET(from endpoint: GETAPICollections, querys: [String: Any]? = nil, landmarkID: Int? = nil, completion: @escaping (Result<Any, Error>) -> Void) {
         // URL과 쿼리 파라미터를 포함하여 URLRequest 생성
         var urlComponents: URLComponents
         
@@ -230,7 +230,7 @@ final class APIManager {
     // MARK: - POST Request
     
     /// POST API 요청 함수
-    static func fetchDataPOST(from endpoint: POSTAPICollections, parameters: [String: Any]? = nil, completion: @escaping (Result<Any, Error>) -> Void) {
+    private static func fetchDataPOST(from endpoint: POSTAPICollections, parameters: [String: Any]? = nil, completion: @escaping (Result<Any, Error>) -> Void) {
         // URL 생성
         let urlString = APIManager.shared.serverType.rawValue + endpoint.rawValue
         print("URL String: " + urlString)
@@ -329,10 +329,12 @@ final class APIManager {
     }
 }
 
+// 아래 두 함수만 호출 가능
+// 아래 두 함수는 Wrapping 함수로, 오류 발생, 토큰 만료 등을 처리합니다
 extension APIManager {
     /// GET API를 호출합니다.
     /// access Token이 만료되었다면 재발급 후 API를 재요청합니다.
-    static func callGETAPI(endpoint: GETAPICollections, querys: [String: Any]? = nil, depth: Int = 0, completion: @escaping (Result<Any, Error>) -> Void) {
+    static func callGETAPI(endpoint: GETAPICollections, querys: [String: Any]? = nil, depth: Int = 0, landmarkID: Int? = nil, completion: @escaping (Result<Any, Error>) -> Void) {
         // max depth reached return with error
         if depth >= 2 {
             completion(.failure(NSError(domain: "Reached to Max Depth of Call Recursion", code: 999)))
@@ -347,7 +349,7 @@ extension APIManager {
         }
         
         // API 요청 함수 호출
-        APIManager.fetchDataGET(from: endpoint, querys: querys, completion: { result in
+        fetchDataGET(from: endpoint, querys: querys, landmarkID: landmarkID, completion: { result in
             switch result {
             case .success(let data):
                 // 성공 시 데이터 반환
@@ -371,7 +373,8 @@ extension APIManager {
                         return
                     }
                     
-                    APIManager.fetchDataPOST(from: .reissue, parameters: ["refreshToken": refreshToken], completion: { result in
+                    // reissue API 호출하여 token 재발급
+                    fetchDataPOST(from: .reissue, parameters: ["refreshToken": refreshToken], completion: { result in
                         switch result {
                         case .success(let tokenData):
                             // 토큰 갱신 후 다시 API 호출
@@ -386,7 +389,7 @@ extension APIManager {
                                 }
                                 
                                 // 다시 API 호출
-                                self.callGETAPI(endpoint: endpoint, querys: querys, depth: depth + 1, completion: completion)
+                                callGETAPI(endpoint: endpoint, querys: querys, depth: depth + 1, completion: completion)
                             } else {
                                 completion(.failure(NSError(domain: "Failed to Get New Tokens from Server", code: 0, userInfo: nil)))
                                 return
@@ -421,7 +424,7 @@ extension APIManager {
         }
         
         // API 요청 함수 호출
-        APIManager.fetchDataPOST(from: endpoint, parameters: parameters, completion: { result in
+        fetchDataPOST(from: endpoint, parameters: parameters, completion: { result in
             switch result {
             case .success(let data):
                 // 성공 시 데이터 반환
@@ -445,7 +448,7 @@ extension APIManager {
                         return
                     }
                     
-                    APIManager.fetchDataPOST(from: .reissue, parameters: ["refreshToken": refreshToken], completion: { result in
+                    fetchDataPOST(from: .reissue, parameters: ["refreshToken": refreshToken], completion: { result in
                         switch result {
                         case .success(let tokenData):
                             // 토큰 갱신 후 다시 API 호출
@@ -460,7 +463,7 @@ extension APIManager {
                                 }
                                 
                                 // 다시 API 호출
-                                self.callPOSTAPI(endpoint: endpoint, parameters: parameters, depth: depth + 1, completion: completion)
+                                callPOSTAPI(endpoint: endpoint, parameters: parameters, depth: depth + 1, completion: completion)
                             } else {
                                 completion(.failure(NSError(domain: "Failed to Get New Tokens from Server", code: 0, userInfo: nil)))
                                 return
@@ -487,52 +490,22 @@ struct APIManagerTestView: View {
         ZStack {
             VStack {
                 List {
-                    // callGETAPI 함수 테스트
-                    Section("CallGETAPI Function Test") {
-                        Button("callTest") {
-                            APIManager.callGETAPI(endpoint: .landmarks, querys: ["latitude": 37.54040, "longitude": 127.07920], completion: { result in
-                                switch result {
-                                case .success(let data):
-                                    print("API Call Success: \(data)")
-                                case .failure(let error):
-                                    print("API Call Failure: \(error)")
-                                }
-                            })
-                        }
-                    }
-                    
-                    // callPOSTAPI 함수 테스트
-                    Section("CallPOSTAPI Function Test") {
-                        Button("callTest") {
-                            APIManager.callPOSTAPI(endpoint: .adventures, parameters: ["landmarkId": 25, "latitude": 37.54040, "longitude": 127.07920, "score": 100, "scoreType": "QUIZ"], completion: { result in
-                                switch result {
-                                case .success(let data):
-                                    print("API Call Success: \(data)")
-                                case .failure(let error):
-                                    print("API Call Failure: \(error)")
-                                }
-                            })
-                        }
-                    }
-                                      
                     // MARK: - GET
                     
                     Section("GET") {
                         Button("가장 가까운 랜드마크 - /api/landmarks") {
-                            APIManager.fetchDataGET(from: .landmarks, querys: ["latitude": 37.54040, "longitude": 127.07920]) { result in
+                            APIManager.callGETAPI(endpoint: .landmarks, querys: ["latitude": 37.54040, "longitude": 127.07920]) { result in
                                 switch result {
                                 case .success(let data):
-                                    print("SUCCESS!!\n\n")
                                     print("Data received in View: \(data)")
                                 case .failure(let error):
-                                    print("FAIL!!\n\n")
                                     print("Error in View: \(error)")
                                 }
                             }
                         }
                         
                         Button("뱃지 조회하기 - /api/badegs") {
-                            APIManager.fetchDataGET(from: .badges) { result in
+                            APIManager.callGETAPI(endpoint: .badges) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
@@ -543,7 +516,7 @@ struct APIManagerTestView: View {
                         }
                         
                         Button("출석 조회하기 - /api/attendances") {
-                            APIManager.fetchDataGET(from: .attendances) { result in
+                            APIManager.callGETAPI(endpoint: .attendances) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
@@ -555,7 +528,7 @@ struct APIManagerTestView: View {
                         }
                         
                         Button("랜드마크 최고점 사용자 - /api/landmarks/25/highest") {
-                            APIManager.fetchDataGET(from: .landmarksHighest, landmarkID: 25) { result in
+                            APIManager.callGETAPI(endpoint: .landmarksHighest, landmarkID: 25) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
@@ -566,7 +539,7 @@ struct APIManagerTestView: View {
                         }
                         
                         Button("종합 TOP100 - /api/scores/rank") {
-                            APIManager.fetchDataGET(from: .scoresRank) { result in
+                            APIManager.callGETAPI(endpoint: .scoresRank) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
@@ -577,7 +550,7 @@ struct APIManagerTestView: View {
                         }
                         
                         Button("랜드마크 TOP100 - /api/scores/rank/25") {
-                            APIManager.fetchDataGET(from: .scoresRankLandmark, landmarkID: 25) { result in
+                            APIManager.callGETAPI(endpoint: .scoresRankLandmark, landmarkID: 25) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
@@ -588,7 +561,7 @@ struct APIManagerTestView: View {
                         }
                         
                         Button("유저 프로필 - /api/users") {
-                            APIManager.fetchDataGET(from: .users) { result in
+                            APIManager.callGETAPI(endpoint: .users) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
@@ -599,7 +572,7 @@ struct APIManagerTestView: View {
                         }
                         
                         Button("유저 알림 - /api/users/notifications") {
-                            APIManager.fetchDataGET(from: .notification, querys: ["version": "2.0.2"]) { result in
+                            APIManager.callGETAPI(endpoint: .notification, querys: ["version": "2.0.2"]) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
@@ -610,7 +583,7 @@ struct APIManagerTestView: View {
                         }
                         
                         Button("닉네임 사용가능 - /api/users/availability") {
-                            APIManager.fetchDataGET(from: .availability, querys: ["nickname": "leehe228"]) { result in
+                            APIManager.callGETAPI(endpoint: .availability, querys: ["nickname": "leehe228"]) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
@@ -621,7 +594,7 @@ struct APIManagerTestView: View {
                         }
                         
                         Button("게임별 최고 점수 - /api/users/game-score") {
-                            APIManager.fetchDataGET(from: .gameScore) { result in
+                            APIManager.callGETAPI(endpoint: .gameScore) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
@@ -632,7 +605,7 @@ struct APIManagerTestView: View {
                         }
                         
                         Button("인증 코드 확인 - /api/auth/emails") {
-                            APIManager.fetchDataGET(from: .emails, querys: ["code": "BF51fR", "email": "leehe228@konkuk.ac.kr"]) { result in
+                            APIManager.callGETAPI(endpoint: .emails, querys: ["code": "dflMt5", "email": "leehe228@konkuk.ac.kr"]) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
@@ -647,7 +620,7 @@ struct APIManagerTestView: View {
                     
                     Section("POST") {
                         Button("탐험하기 - /api/adventures") {
-                            APIManager.fetchDataPOST(from: .adventures, parameters: ["landmarkId": 25, "latitude": 37.54040, "longitude": 127.07920, "score": 100, "scoreType": "QUIZ"]) { result in
+                            APIManager.callPOSTAPI(endpoint: .adventures, parameters: ["landmarkId": 25, "latitude": 37.54040, "longitude": 127.07920, "score": 100, "scoreType": "QUIZ"]) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
@@ -658,7 +631,7 @@ struct APIManagerTestView: View {
                         }
                         
                         Button("출석하기 - /api/attendances") {
-                            APIManager.fetchDataPOST(from: .attendances, parameters: ["latitude": 37.54040, "longitude": 127.07920]) { result in
+                            APIManager.callPOSTAPI(endpoint: .attendances, parameters: ["latitude": 37.54040, "longitude": 127.07920]) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
@@ -669,7 +642,7 @@ struct APIManagerTestView: View {
                         }
                         
                         Button("오리의꿈 뱃지 - /api/badges/dream-of-duck") {
-                            APIManager.fetchDataPOST(from: .dreamOfDuck) { result in
+                            APIManager.callPOSTAPI(endpoint: .dreamOfDuck) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
@@ -681,7 +654,7 @@ struct APIManagerTestView: View {
                         
                         Button("인증코드 재발급 - /api/auth/reissue") {
                             let refreshToken = TokenManager.token(tokenType: .refresh)
-                            APIManager.fetchDataPOST(from: .reissue, parameters: ["refreshToken": refreshToken]) { result in
+                            APIManager.callPOSTAPI(endpoint: .reissue, parameters: ["refreshToken": refreshToken]) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
@@ -692,7 +665,7 @@ struct APIManagerTestView: View {
                         }
                         
                         Button("인증메일 전송 - /api/auth/emails") {
-                            APIManager.fetchDataPOST(from: .emails, parameters: ["target": "leehe228@konkuk.ac.kr"]) { result in
+                            APIManager.callPOSTAPI(endpoint: .emails, parameters: ["target": "leehe228@konkuk.ac.kr"]) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
@@ -704,7 +677,7 @@ struct APIManagerTestView: View {
                         
                         Button("회원가입 - /api/users/register") {
                             let authVerifyToken = TokenManager.token(tokenType: .authVerify)
-                            APIManager.fetchDataPOST(from: .register, parameters: ["email": "leehe228@konkuk.ac.kr", "nickname": "leehe228", "major": "컴퓨터공학부", "authVerifyToken": authVerifyToken]) { result in
+                            APIManager.callPOSTAPI(endpoint: .register, parameters: ["email": "leehe228@konkuk.ac.kr", "nickname": "leehe228", "major": "컴퓨터공학부", "authVerifyToken": authVerifyToken]) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
@@ -715,7 +688,7 @@ struct APIManagerTestView: View {
                         }
                         
                         Button("로그아웃 - /api/users/logout") {
-                            APIManager.fetchDataPOST(from: .logout) { result in
+                            APIManager.callPOSTAPI(endpoint: .logout) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
