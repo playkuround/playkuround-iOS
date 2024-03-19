@@ -22,6 +22,7 @@ struct AnimationCustomView: View {
     
     var body: some View {
         Image(imageArray[currentIndex])
+            .resizable()
             .onReceive(timer) { _ in
                 self.currentIndex = (self.currentIndex + 1) % self.imageArray.count
             }
