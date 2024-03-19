@@ -13,6 +13,8 @@ struct AuthenticationCodeView: View {
     @State private var certificationCode: String = ""
     @State private var certificationButtonClicked = false
     
+    @State private var authCodeIncorrect = false
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(StringLiterals.Login.goEmail)
@@ -45,10 +47,7 @@ struct AuthenticationCodeView: View {
                     certificationButtonClicked.toggle()
                     
                     if certificationButtonClicked {
-                        
-                    }
-                    else {
-                        
+                        // 인증코드 확인 서버 통신 코드가 들어갑니다.
                     }
                 }
                 .overlay {
@@ -57,6 +56,13 @@ struct AuthenticationCodeView: View {
                         .foregroundStyle(.kuText)
                         .kerning(-0.41)
                 }
+            
+            if authCodeIncorrect {
+                Text(StringLiterals.Login.authIncorrect)
+                    .font(.pretendard12R)
+                    .foregroundStyle(.kuRed)
+                    .padding(.top, 7)
+            }
         }
     }
     

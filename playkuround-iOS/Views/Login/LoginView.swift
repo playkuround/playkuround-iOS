@@ -48,11 +48,9 @@ struct LoginView: View {
                             )
                     }
                 
-                
                 Image(userId.isEmpty ? "longButtonGray" : "longButtonBlue")
                     .onTapGesture {
                         mailButtonClicked.toggle()
-                        isShowingBottomSheet.toggle()
                         
                         if mailButtonClicked {
                             mailButtonName = StringLiterals.Login.reRequestCode

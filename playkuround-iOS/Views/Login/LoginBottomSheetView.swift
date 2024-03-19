@@ -40,6 +40,9 @@ struct LoginBottomSheetView: View {
                                 .foregroundStyle(.kuText)
                                 .kerning(-0.41)
                         }
+                        .onTapGesture {
+                            isShowing.toggle()
+                        }
                         .padding(.top, 41)
                 }
                 .padding(.bottom, 79)
