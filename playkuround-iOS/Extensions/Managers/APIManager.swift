@@ -108,7 +108,7 @@ final class APIManager {
         var urlComponents: URLComponents
         
         // URL String
-        var urlString = self.shared.serverType.rawValue + endpoint.rawValue
+        var urlString = APIManager.shared.serverType.rawValue + endpoint.rawValue
         
         // 두 API는 landmarkID가 필요
         if endpoint == .landmarksHighest || endpoint == .scoresRankLandmark {
@@ -118,10 +118,12 @@ final class APIManager {
         }
         print("URL String: " + urlString)
         
+        // URL Component 생성
         if let component = URLComponents(string: urlString) {
             urlComponents = component
         } else {
-            print("Error: Invalid URL")
+            // URL Component 생성 실패
+            completion(.failure(NSError(domain: "Invalied URL", code: 0)))
             return
         }
         
@@ -137,7 +139,7 @@ final class APIManager {
         
         // URLComponents에서 완전한 URL을 가져와서 사용
         guard let url = urlComponents.url else {
-            print("Error: Invalid URL")
+            completion(.failure(NSError(domain: "Invalied URL", code: 0)))
             return
         }
         
@@ -147,9 +149,8 @@ final class APIManager {
         // 인증 헤더 추가
         // 닉네임 체크 availability API는 토큰 필요 X
         if endpoint != .availability && endpoint != .emails {
-            // let accessToken = TokenManager.shared.token(tokenType: .access)
-            // request.addValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
-            request.addValue("Bearer " + "eyJ0eXAiOiJKV1QiLCJ0b2tlbnR5cGUiOiJBQ0NFU1MiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwbGF5a3Vyb3VuZCIsImV4cCI6MTcxMDgxNDIwNCwic3ViIjoibGVlaGUyMjhAa29ua3VrLmFjLmtyIn0.bItv13upQSvSLcc1RtYa39d_ooaoT_Ut8w_JtvzDbNM", forHTTPHeaderField: "Authorization")
+            let accessToken = TokenManager.token(tokenType: .access)
+            request.addValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
         }
 
         // HTTP 메소드 설정
@@ -164,20 +165,22 @@ final class APIManager {
             }
             
             // 응답 처리
-//            guard let httpResponse = response as? HTTPURLResponse else {
-//                completion(.failure(NSError(domain: "Invalid response", code: 0, userInfo: nil)))
-//                return
-//            }
+            guard let httpResponse = response as? HTTPURLResponse else {
+                // 응답이 올바르지 않은 경우
+                completion(.failure(NSError(domain: "Invalid response", code: 0, userInfo: nil)))
+                return
+            }
             
-            // HTTP 응답 코드 확인
-//            guard (200...299).contains(httpResponse.statusCode) else {
-//                completion(.failure(NSError(domain: "HTTP Error: \(httpResponse.statusCode)", code: httpResponse.statusCode, userInfo: nil)))
-//                return
-//            }
+            // access token 토큰 만료
+            if httpResponse.statusCode == 401 {
+                completion(.failure(NSError(domain: "Access Token is Fired, New Token is needed", code: 401)))
+                return
+            }
             
             // 데이터 파싱 및 출력
             guard let data = data else {
-                completion(.failure(NSError(domain: "No data received", code: 0, userInfo: nil)))
+                // 데이터가 없는 경우
+                completion(.failure(NSError(domain: "No data received", code: 0)))
                 return
             }
             
@@ -229,11 +232,11 @@ final class APIManager {
     /// POST API 요청 함수
     static func fetchDataPOST(from endpoint: POSTAPICollections, parameters: [String: Any]? = nil, completion: @escaping (Result<Any, Error>) -> Void) {
         // URL 생성
-        let urlString = shared.serverType.rawValue + endpoint.rawValue
+        let urlString = APIManager.shared.serverType.rawValue + endpoint.rawValue
         print("URL String: " + urlString)
         
         guard let url = URL(string: urlString) else {
-            print("Error: Invalid URL")
+            completion(.failure(NSError(domain: "Invalied URL", code: 0)))
             return
         }
         
@@ -244,11 +247,10 @@ final class APIManager {
         request.httpMethod = "POST"
         
         // 인증 헤더 추가
-        // reissue API는 토큰 필요 없음
+        // reissue, emails, register API는 토큰 필요 없음
         if endpoint != .reissue && endpoint != .emails && endpoint != .register {
-            // let accessToken = TokenManager.shared.token(tokenType: .access)
-            // request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-            request.addValue("Bearer " + "eyJ0eXAiOiJKV1QiLCJ0b2tlbnR5cGUiOiJBQ0NFU1MiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwbGF5a3Vyb3VuZCIsImV4cCI6MTcxMDg0NjMyMiwic3ViIjoibGVlaGUyMjhAa29ua3VrLmFjLmtyIn0.Igwqg1zHNnIjUj_eqUmsu680ynrlKOiREEHmbFSOJmE", forHTTPHeaderField: "Authorization")
+            let accessToken = TokenManager.token(tokenType: .access)
+            request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         }
         
         // JSON으로 인코딩된 데이터 설정
@@ -258,7 +260,7 @@ final class APIManager {
                 request.httpBody = jsonData
                 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             } catch {
-                print("Error: Failed to serialize parameters")
+                // JSON Parsing 에러 발생
                 completion(.failure(error))
                 return
             }
@@ -273,16 +275,22 @@ final class APIManager {
             }
             
             // 응답 처리
-//            guard let httpResponse = response as? HTTPURLResponse else {
-//                completion(.failure(NSError(domain: "Invalid response", code: 0, userInfo: nil)))
-//                return
-//            }
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.failure(NSError(domain: "Invalid response", code: 0, userInfo: nil)))
+                return
+            }
             
-            // HTTP 응답 코드 확인
-//            guard (200...299).contains(httpResponse.statusCode) else {
-//                completion(.failure(NSError(domain: "HTTP Error: \(httpResponse.statusCode)", code: httpResponse.statusCode, userInfo: nil)))
-//                return
-//            }
+            // reissue 했는데 토큰이 만료된 경우 refresh token을 재발급 받아야 함 (로그아웃)
+            if httpResponse.statusCode == 401 && endpoint == .reissue {
+                completion(.failure(NSError(domain: "Refresh Token is Fired, Do Logout Process", code: 998, userInfo: nil)))
+                return
+            }
+            
+            // Access Token이 만료된 경우
+            else if httpResponse.statusCode == 401 {
+                completion(.failure(NSError(domain: "Access Token is Fired", code: 401, userInfo: nil)))
+                return
+            }
             
             // 데이터 파싱 및 출력
             guard let data = data else {
@@ -321,172 +329,315 @@ final class APIManager {
     }
 }
 
+extension APIManager {
+    /// GET API를 호출합니다.
+    /// access Token이 만료되었다면 재발급 후 API를 재요청합니다.
+    static func callGETAPI(endpoint: GETAPICollections, querys: [String: Any]? = nil, depth: Int = 0, completion: @escaping (Result<Any, Error>) -> Void) {
+        // max depth reached return with error
+        if depth >= 2 {
+            completion(.failure(NSError(domain: "Reached to Max Depth of Call Recursion", code: 999)))
+            return
+        }
+        
+        // 토큰 불러오기
+        let accessToken = TokenManager.token(tokenType: .access)
+        if accessToken.isEmpty {
+            completion(.failure(NSError(domain: "No Access Token Found", code: 401)))
+            return
+        }
+        
+        // API 요청 함수 호출
+        APIManager.fetchDataGET(from: endpoint, querys: querys, completion: { result in
+            switch result {
+            case .success(let data):
+                // 성공 시 데이터 반환
+                completion(.success(data))
+            case .failure(let error):
+                // 토큰 만료로 인한 거절 시, reissue API 호출하여 토큰 갱신 후 다시 API 호출
+                // refresh token이 만료된 경우 로그아웃
+                if let apiError = error as NSError?, apiError.code == 998 {
+                    // 만료된 토큰 전부 삭제
+                    TokenManager.reset()
+                    completion(.failure(NSError(domain: "Refresh Token is Fired, Do Logout Process", code: 998)))
+                    return
+                }
+                
+                // access token이 만료된 경우 재발급 시도
+                if let apiError = error as NSError?, apiError.code == 401 {
+                    let refreshToken = TokenManager.token(tokenType: .refresh)
+                    
+                    if refreshToken.isEmpty {
+                        completion(.failure(NSError(domain: "No Refresh Token Found, Do Logout Process", code: 998, userInfo: nil)))
+                        return
+                    }
+                    
+                    APIManager.fetchDataPOST(from: .reissue, parameters: ["refreshToken": refreshToken], completion: { result in
+                        switch result {
+                        case .success(let tokenData):
+                            // 토큰 갱신 후 다시 API 호출
+                            if let response = tokenData as? APIResponse {
+                                // 토큰 저장
+                                if let accessToken = response.response?.accessToken {
+                                    TokenManager.setToken(tokenType: .access, token: accessToken)
+                                }
+                                
+                                if let refreshToken = response.response?.refreshToken {
+                                    TokenManager.setToken(tokenType: .refresh, token: refreshToken)
+                                }
+                                
+                                // 다시 API 호출
+                                self.callGETAPI(endpoint: endpoint, querys: querys, depth: depth + 1, completion: completion)
+                            } else {
+                                completion(.failure(NSError(domain: "Failed to Get New Tokens from Server", code: 0, userInfo: nil)))
+                                return
+                            }
+                            
+                        case .failure(let newError):
+                            completion(.failure(newError))
+                        }
+                    })
+                } else {
+                    completion(.failure(error))
+                }
+            }
+        })
+    }
+    
+    /// POST API를 호출합니다.
+    /// access Token이 만료되었다면 재발급 후 API를 재요청합니다.
+    static func callPOSTAPI(endpoint: POSTAPICollections, parameters: [String: Any]? = nil, depth: Int = 0, completion: @escaping (Result<Any, Error>) -> Void) {
+        // max depth reached return with error
+        if depth >= 2 {
+            completion(.failure(NSError(domain: "Reached to Max Depth of Call Recursion", code: 999)))
+            return
+        }
+        
+        // 토큰 불러오기
+        let accessToken = TokenManager.token(tokenType: .access)
+        print("accessToken: " + accessToken)
+        if accessToken.isEmpty {
+            completion(.failure(NSError(domain: "No Access Token Found", code: 401)))
+            return
+        }
+        
+        // API 요청 함수 호출
+        APIManager.fetchDataPOST(from: endpoint, parameters: parameters, completion: { result in
+            switch result {
+            case .success(let data):
+                // 성공 시 데이터 반환
+                completion(.success(data))
+            case .failure(let error):
+                // 토큰 만료로 인한 거절 시, reissue API 호출하여 토큰 갱신 후 다시 API 호출
+                // refresh token이 만료된 경우 로그아웃
+                if let apiError = error as NSError?, apiError.code == 998 {
+                    // 만료된 토큰 전부 삭제
+                    TokenManager.reset()
+                    completion(.failure(NSError(domain: "Refresh Token is Fired, Do Logout Process", code: 998)))
+                    return
+                }
+                
+                // access token이 만료된 경우 재발급 시도
+                if let apiError = error as NSError?, apiError.code == 401 {
+                    let refreshToken = TokenManager.token(tokenType: .refresh)
+                    
+                    if refreshToken.isEmpty {
+                        completion(.failure(NSError(domain: "No Refresh Token Found, Do Logout Process", code: 998, userInfo: nil)))
+                        return
+                    }
+                    
+                    APIManager.fetchDataPOST(from: .reissue, parameters: ["refreshToken": refreshToken], completion: { result in
+                        switch result {
+                        case .success(let tokenData):
+                            // 토큰 갱신 후 다시 API 호출
+                            if let response = tokenData as? APIResponse {
+                                // 토큰 저장
+                                if let accessToken = response.response?.accessToken {
+                                    TokenManager.setToken(tokenType: .access, token: accessToken)
+                                }
+                                
+                                if let refreshToken = response.response?.refreshToken {
+                                    TokenManager.setToken(tokenType: .refresh, token: refreshToken)
+                                }
+                                
+                                // 다시 API 호출
+                                self.callPOSTAPI(endpoint: endpoint, parameters: parameters, depth: depth + 1, completion: completion)
+                            } else {
+                                completion(.failure(NSError(domain: "Failed to Get New Tokens from Server", code: 0, userInfo: nil)))
+                                return
+                            }
+                            
+                        case .failure(let newError):
+                            completion(.failure(newError))
+                        }
+                    })
+                } else {
+                    completion(.failure(error))
+                }
+            }
+        })
+    }
+}
+
 /// API Manager Test View
 struct APIManagerTestView: View {
     // 선택한 POST API
     @State private var selectedPOSTAPI: APIManager.POSTAPICollections = .adventures
-    @State private var isLoading: Bool = false
     
     var body: some View {
         ZStack {
             VStack {
                 List {
+                    // callGETAPI 함수 테스트
+                    Section("CallGETAPI Function Test") {
+                        Button("callTest") {
+                            APIManager.callGETAPI(endpoint: .landmarks, querys: ["latitude": 37.54040, "longitude": 127.07920], completion: { result in
+                                switch result {
+                                case .success(let data):
+                                    print("API Call Success: \(data)")
+                                case .failure(let error):
+                                    print("API Call Failure: \(error)")
+                                }
+                            })
+                        }
+                    }
                     
+                    // callPOSTAPI 함수 테스트
+                    Section("CallPOSTAPI Function Test") {
+                        Button("callTest") {
+                            APIManager.callPOSTAPI(endpoint: .adventures, parameters: ["landmarkId": 25, "latitude": 37.54040, "longitude": 127.07920, "score": 100, "scoreType": "QUIZ"], completion: { result in
+                                switch result {
+                                case .success(let data):
+                                    print("API Call Success: \(data)")
+                                case .failure(let error):
+                                    print("API Call Failure: \(error)")
+                                }
+                            })
+                        }
+                    }
+                                      
                     // MARK: - GET
                     
                     Section("GET") {
                         Button("가장 가까운 랜드마크 - /api/landmarks") {
-                            isLoading = true
                             APIManager.fetchDataGET(from: .landmarks, querys: ["latitude": 37.54040, "longitude": 127.07920]) { result in
                                 switch result {
                                 case .success(let data):
                                     print("SUCCESS!!\n\n")
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("FAIL!!\n\n")
                                     print("Error in View: \(error)")
-                                    isLoading = false
                                 }
                             }
                         }
                         
                         Button("뱃지 조회하기 - /api/badegs") {
-                            isLoading = true
                             APIManager.fetchDataGET(from: .badges) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("Error in View: \(error)")
-                                    isLoading = false
                                 }
                             }
                         }
                         
                         Button("출석 조회하기 - /api/attendances") {
-                            isLoading = true
                             APIManager.fetchDataGET(from: .attendances) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("Error in View: \(error)")
-                                    isLoading = false
+                                    
                                 }
                             }
                         }
                         
                         Button("랜드마크 최고점 사용자 - /api/landmarks/25/highest") {
-                            isLoading = true
                             APIManager.fetchDataGET(from: .landmarksHighest, landmarkID: 25) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("Error in View: \(error)")
-                                    isLoading = false
                                 }
                             }
                         }
                         
                         Button("종합 TOP100 - /api/scores/rank") {
-                            isLoading = true
                             APIManager.fetchDataGET(from: .scoresRank) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("Error in View: \(error)")
-                                    isLoading = false
                                 }
                             }
                         }
                         
                         Button("랜드마크 TOP100 - /api/scores/rank/25") {
-                            isLoading = true
                             APIManager.fetchDataGET(from: .scoresRankLandmark, landmarkID: 25) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("Error in View: \(error)")
-                                    isLoading = false
                                 }
                             }
                         }
                         
                         Button("유저 프로필 - /api/users") {
-                            isLoading = true
                             APIManager.fetchDataGET(from: .users) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("Error in View: \(error)")
-                                    isLoading = false
                                 }
                             }
                         }
                         
                         Button("유저 알림 - /api/users/notifications") {
-                            isLoading = true
                             APIManager.fetchDataGET(from: .notification, querys: ["version": "2.0.2"]) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("Error in View: \(error)")
-                                    isLoading = false
                                 }
                             }
                         }
                         
                         Button("닉네임 사용가능 - /api/users/availability") {
-                            isLoading = true
                             APIManager.fetchDataGET(from: .availability, querys: ["nickname": "leehe228"]) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("Error in View: \(error)")
-                                    isLoading = false
                                 }
                             }
                         }
                         
                         Button("게임별 최고 점수 - /api/users/game-score") {
-                            isLoading = true
                             APIManager.fetchDataGET(from: .gameScore) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("Error in View: \(error)")
-                                    isLoading = false
                                 }
                             }
                         }
                         
                         Button("인증 코드 확인 - /api/auth/emails") {
-                            isLoading = true
-                            APIManager.fetchDataGET(from: .emails, querys: ["code": "Tgr06x", "email": "leehe228@konkuk.ac.kr"]) { result in
+                            APIManager.fetchDataGET(from: .emails, querys: ["code": "BF51fR", "email": "leehe228@konkuk.ac.kr"]) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("Error in View: \(error)")
-                                    isLoading = false
                                 }
                             }
                         }
@@ -496,109 +647,85 @@ struct APIManagerTestView: View {
                     
                     Section("POST") {
                         Button("탐험하기 - /api/adventures") {
-                            isLoading = true
                             APIManager.fetchDataPOST(from: .adventures, parameters: ["landmarkId": 25, "latitude": 37.54040, "longitude": 127.07920, "score": 100, "scoreType": "QUIZ"]) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("Error in View: \(error)")
-                                    isLoading = false
                                 }
                             }
                         }
                         
                         Button("출석하기 - /api/attendances") {
-                            isLoading = true
                             APIManager.fetchDataPOST(from: .attendances, parameters: ["latitude": 37.54040, "longitude": 127.07920]) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("Error in View: \(error)")
-                                    isLoading = false
                                 }
                             }
                         }
                         
                         Button("오리의꿈 뱃지 - /api/badges/dream-of-duck") {
-                            isLoading = true
                             APIManager.fetchDataPOST(from: .dreamOfDuck) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("Error in View: \(error)")
-                                    isLoading = false
                                 }
                             }
                         }
                         
                         Button("인증코드 재발급 - /api/auth/reissue") {
-                            isLoading = true
-                            APIManager.fetchDataPOST(from: .reissue, parameters: ["refreshToken": "eyJ0eXAiOiJKV1QiLCJ0b2tlbnR5cGUiOiJSRUZSRVNIIiwiYWxnIjoiSFMyNTYifQ.eyJpc3MiOiJwbGF5a3Vyb3VuZCIsImV4cCI6MTcxMTk4NjU3Miwic3ViIjoibGVlaGUyMjhAa29ua3VrLmFjLmtyIn0.vgBZIDPT7UQ0WAPggqGpVn8YAMucYtqJbF6z-jDw1ZI"]) { result in
+                            let refreshToken = TokenManager.token(tokenType: .refresh)
+                            APIManager.fetchDataPOST(from: .reissue, parameters: ["refreshToken": refreshToken]) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("Error in View: \(error)")
-                                    isLoading = false
                                 }
                             }
                         }
                         
                         Button("인증메일 전송 - /api/auth/emails") {
-                            isLoading = true
                             APIManager.fetchDataPOST(from: .emails, parameters: ["target": "leehe228@konkuk.ac.kr"]) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("Error in View: \(error)")
-                                    isLoading = false
                                 }
                             }
                         }
                         
                         Button("회원가입 - /api/users/register") {
-                            isLoading = true
-                            APIManager.fetchDataPOST(from: .register, parameters: ["email": "leehe228@konkuk.ac.kr", "nickname": "leehe228", "major": "컴퓨터공학부", "authVerifyToken": "721d5d22-f654-4ef4-ad07-c327938d8454"]) { result in
+                            let authVerifyToken = TokenManager.token(tokenType: .authVerify)
+                            APIManager.fetchDataPOST(from: .register, parameters: ["email": "leehe228@konkuk.ac.kr", "nickname": "leehe228", "major": "컴퓨터공학부", "authVerifyToken": authVerifyToken]) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("Error in View: \(error)")
-                                    isLoading = false
                                 }
                             }
                         }
                         
                         Button("로그아웃 - /api/users/logout") {
-                            isLoading = true
                             APIManager.fetchDataPOST(from: .logout) { result in
                                 switch result {
                                 case .success(let data):
                                     print("Data received in View: \(data)")
-                                    isLoading = false
                                 case .failure(let error):
                                     print("Error in View: \(error)")
-                                    isLoading = false
                                 }
                             }
                         }
                     }
                 }
-            }
-            
-            // API 호출 시 Loading 띄움
-            if isLoading {
-                ProgressView()
             }
         }
     }
@@ -703,13 +830,14 @@ struct BadgeListResponse: Codable {
     let response: [BadgeResponse]
 }
 
-// 오리의 꿈 뱃지 획득, 닉네임 가능한지 체크 (/api/badges/dream-of-duck,
+// 오리의 꿈 뱃지 획득, 닉네임 가능한지 체크 (/api/badges/dream-of-duck, availability)
 // 아래 두 API는 response가 Bool type임
 struct BoolResponse: Codable {
     let isSuccess: Bool
     let response: Bool
 }
 
+// 사용자 알림 (/api/users/notifications)
 struct NotificationResponse: Codable {
     let isSuccess: Bool
     let response: [String]
