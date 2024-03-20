@@ -19,7 +19,7 @@ struct TermsView: View {
     enum TermsType: String {
         // 서비스 이용 약관
         case service = "service"
-        // 아래 두 약관은 현재 정보가 없음
+        // 아래 두 약관은 현재 정보가 없음 (기획팀 문의 후 추가 예정)
         // 개인정보 수집 및 이용 약관
         // case privacy = "privacy"
         // 위치기반 서비스 이용 약관
@@ -33,11 +33,10 @@ struct TermsView: View {
             do {
                 markdown = try String(contentsOf: fileURL)
             } catch {
-                markdown = "이용 약관을 불러올 수 없습니다."
-                print("파일을 읽어오는 데 문제가 발생했습니다: \(error)")
+                markdown = StringLiterals.Register.termsErrorMessage
             }
         } else {
-            markdown = "이용 약관을 불러올 수 없습니다."
+            markdown = StringLiterals.Register.termsErrorMessage
         }
         
         // 제목
@@ -81,6 +80,8 @@ struct TermsView: View {
                         .foregroundStyle(.kuText)
                         .padding()
                 }
+                // bar와 가리지 않도록 패딩 줌
+                .padding(.bottom)
             }
         }
     }
@@ -94,6 +95,7 @@ struct TermsView: View {
 // MARK: - 아래는 markdown 텍스트에 format을 적용해주는 extension
 
 extension String {
+    // Markdown 텍스트 렌더링
     func renderMarkdown() -> Text {
         var output = Text("")
         let lines = self.components(separatedBy: "\n")
