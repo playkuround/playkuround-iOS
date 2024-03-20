@@ -46,7 +46,7 @@ struct RegisterTermsView: View {
                             HStack {
                                 Image(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .blackCheck : .whiteCheck)
                                     .padding(.trailing, 10)
-                                Text("서비스 이용약관 동의")
+                                Text(StringLiterals.Register.agreeAllTerms)
                                     .font(.neo15)
                                     .foregroundStyle(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .kuText : .white)
                                 Spacer()
@@ -74,11 +74,14 @@ struct RegisterTermsView: View {
                             HStack {
                                 Image(isServiceTermAgreed ? .blackCheck : .whiteCheck)
                                     .padding(.trailing, 10)
-                                Text("개인정보 수집 및 이용 동의")
+                                Text(StringLiterals.Register.agreeServiceTerms)
                                     .font(.neo15)
                                     .foregroundStyle(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .kuText : .white)
                                 Spacer()
                                 Image(isServiceTermAgreed ? .rightBlackArrow : .rightWhiteArrow)
+                                    // 버튼 잘 눌릴 수 있게 왼쪽, 위아래로 패딩을 줌
+                                    .padding(.leading, 15)
+                                    .padding(.vertical, 6)
                                     .onTapGesture {
                                         // TermsView 보여줌
                                         isTermsViewPresented = true
@@ -101,15 +104,19 @@ struct RegisterTermsView: View {
                             HStack {
                                 Image(isPrivacyTermAgreed ? .blackCheck : .whiteCheck)
                                     .padding(.trailing, 10)
-                                Text("개인정보 수집 및 이용 동의")
+                                Text(StringLiterals.Register.agreePrivacyTerms)
                                     .font(.neo15)
                                     .foregroundStyle(isPrivacyTermAgreed ? .kuText : .white)
                                 Spacer()
                                 Image(isPrivacyTermAgreed ? .rightBlackArrow : .rightWhiteArrow)
+                                    // 버튼 잘 눌릴 수 있게 왼쪽, 위아래로 패딩을 줌
+                                    .padding(.leading, 15)
+                                    .padding(.vertical, 6)
                                     .onTapGesture {
                                         // TermsView 보여줌
                                         isTermsViewPresented = true
                                     }
+                                
                             }
                             .padding(20)
                         }
@@ -128,11 +135,14 @@ struct RegisterTermsView: View {
                             HStack {
                                 Image(isLocationTermAgreed ? .blackCheck : .whiteCheck)
                                     .padding(.trailing, 10)
-                                Text("위치기반 서비스 이용약관 동의")
+                                Text(StringLiterals.Register.agreeLocationTerms)
                                     .font(.neo15)
                                     .foregroundStyle(isLocationTermAgreed ? .kuText : .white)
                                 Spacer()
                                 Image(isLocationTermAgreed ? .rightBlackArrow : .rightWhiteArrow)
+                                    // 버튼 잘 눌릴 수 있게 왼쪽, 위아래로 패딩을 줌
+                                    .padding(.leading, 15)
+                                    .padding(.vertical, 6)
                                     .onTapGesture {
                                         // TermsView 보여줌
                                         isTermsViewPresented = true
@@ -153,7 +163,7 @@ struct RegisterTermsView: View {
                         .scaledToFit()
                         .frame(width: .infinity)
                         .overlay {
-                            Text("다음")
+                            Text(StringLiterals.Register.next)
                                 .font(.neo15)
                                 .foregroundStyle(.kuText)
                         }
