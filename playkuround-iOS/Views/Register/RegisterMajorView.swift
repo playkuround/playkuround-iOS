@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct RegisterView: View {
+    // 단과대 및 학과 선택 여부
     @State private var isCollegeMenuPresented: Bool = false
     @State private var isMajorMenuPresented: Bool = false
     
+    // 선택한 단과대 및 학과 struct를 저장
     @State private var selectedCollege: College? = nil
     @State private var selectedMajor: Major? = nil
     
@@ -34,6 +36,7 @@ struct RegisterView: View {
                     .font(.neo15)
                     .foregroundStyle(.kuText)
                 
+                // 단과대 Menu Button
                 Button {
                     withAnimation(.spring) {
                         isCollegeMenuPresented.toggle()
@@ -65,6 +68,7 @@ struct RegisterView: View {
                     .font(.neo15)
                     .foregroundStyle(.kuText)
                 
+                // 학과 Menu Button
                 Button {
                     if selectedCollege != nil {
                         withAnimation(.spring) {
@@ -89,11 +93,13 @@ struct RegisterView: View {
                             .padding()
                         }
                 }
+                // 버튼 애니메이션 제거
                 .buttonStyle(PlainButtonStyle())
                 .disabled(selectedCollege == nil)
                 
                 Spacer()
                 
+                // 다음 버튼
                 Button {
                     // TODO: 다음으로 넘어가는 transition 구현
                 } label: {
@@ -102,11 +108,12 @@ struct RegisterView: View {
                         .scaledToFit()
                         .frame(width: .infinity)
                         .overlay {
-                            Text("다음")
+                            Text(StringLiterals.Register.next)
                                 .font(.neo15)
                                 .foregroundStyle(.kuText)
                         }
                 }
+                // 버튼 애니메이션 제거
                 .buttonStyle(PlainButtonStyle())
             }
             .padding(.horizontal)
