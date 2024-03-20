@@ -35,5 +35,7 @@ enum StringLiterals {
         static let duplicatedNickname = "중복되는 닉네임입니다."
         static let next = "다음"
         static let termsTitle = "이용약관"
+        static let college = "대학"
+        static let major = "학과"
     }
 }
