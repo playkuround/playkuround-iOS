@@ -103,7 +103,10 @@ final class APIManager {
     
     /// GET API 요청 함수
     /// 정상 응답 시 response가 담긴 Dictionary를 반환하고, 오류 발생 시 nil을 반환합니다.
-    private static func fetchDataGET(from endpoint: GETAPICollections, querys: [String: Any]? = nil, landmarkID: Int? = nil, completion: @escaping (Result<Any, Error>) -> Void) {
+    private static func fetchDataGET(from endpoint: GETAPICollections, 
+                                     querys: [String: Any]? = nil,
+                                     landmarkID: Int? = nil,
+                                     completion: @escaping (Result<Any, Error>) -> Void) {
         // URL과 쿼리 파라미터를 포함하여 URLRequest 생성
         var urlComponents: URLComponents
         
@@ -230,7 +233,9 @@ final class APIManager {
     // MARK: - POST Request
     
     /// POST API 요청 함수
-    private static func fetchDataPOST(from endpoint: POSTAPICollections, parameters: [String: Any]? = nil, completion: @escaping (Result<Any, Error>) -> Void) {
+    private static func fetchDataPOST(from endpoint: POSTAPICollections, 
+                                      parameters: [String: Any]? = nil,
+                                      completion: @escaping (Result<Any, Error>) -> Void) {
         // URL 생성
         let urlString = APIManager.shared.serverType.rawValue + endpoint.rawValue
         print("URL String: " + urlString)
@@ -334,7 +339,11 @@ final class APIManager {
 extension APIManager {
     /// GET API를 호출합니다.
     /// access Token이 만료되었다면 재발급 후 API를 재요청합니다.
-    static func callGETAPI(endpoint: GETAPICollections, querys: [String: Any]? = nil, depth: Int = 0, landmarkID: Int? = nil, completion: @escaping (Result<Any, Error>) -> Void) {
+    static func callGETAPI(endpoint: GETAPICollections,
+                           querys: [String: Any]? = nil,
+                           depth: Int = 0,
+                           landmarkID: Int? = nil,
+                           completion: @escaping (Result<Any, Error>) -> Void) {
         // max depth reached return with error
         if depth >= 2 {
             completion(.failure(NSError(domain: "Reached to Max Depth of Call Recursion", code: 999)))
@@ -349,7 +358,10 @@ extension APIManager {
         }
         
         // API 요청 함수 호출
-        fetchDataGET(from: endpoint, querys: querys, landmarkID: landmarkID, completion: { result in
+        fetchDataGET(from: endpoint, 
+                     querys: querys,
+                     landmarkID: landmarkID,
+                     completion: { result in
             switch result {
             case .success(let data):
                 // 성공 시 데이터 반환
@@ -369,12 +381,14 @@ extension APIManager {
                     let refreshToken = TokenManager.token(tokenType: .refresh)
                     
                     if refreshToken.isEmpty {
-                        completion(.failure(NSError(domain: "No Refresh Token Found, Do Logout Process", code: 998, userInfo: nil)))
+                        completion(.failure(NSError(domain: "No Refresh Token Found, Do Logout Process", code: 998)))
                         return
                     }
                     
                     // reissue API 호출하여 token 재발급
-                    fetchDataPOST(from: .reissue, parameters: ["refreshToken": refreshToken], completion: { result in
+                    fetchDataPOST(from: .reissue, 
+                                  parameters: ["refreshToken": refreshToken],
+                                  completion: { result in
                         switch result {
                         case .success(let tokenData):
                             // 토큰 갱신 후 다시 API 호출
@@ -389,9 +403,12 @@ extension APIManager {
                                 }
                                 
                                 // 다시 API 호출
-                                callGETAPI(endpoint: endpoint, querys: querys, depth: depth + 1, completion: completion)
+                                callGETAPI(endpoint: endpoint, 
+                                           querys: querys,
+                                           depth: depth + 1,
+                                           completion: completion)
                             } else {
-                                completion(.failure(NSError(domain: "Failed to Get New Tokens from Server", code: 0, userInfo: nil)))
+                                completion(.failure(NSError(domain: "Failed to Get New Tokens from Server", code: 0)))
                                 return
                             }
                             
@@ -408,7 +425,10 @@ extension APIManager {
     
     /// POST API를 호출합니다.
     /// access Token이 만료되었다면 재발급 후 API를 재요청합니다.
-    static func callPOSTAPI(endpoint: POSTAPICollections, parameters: [String: Any]? = nil, depth: Int = 0, completion: @escaping (Result<Any, Error>) -> Void) {
+    static func callPOSTAPI(endpoint: POSTAPICollections, 
+                            parameters: [String: Any]? = nil,
+                            depth: Int = 0,
+                            completion: @escaping (Result<Any, Error>) -> Void) {
         // max depth reached return with error
         if depth >= 2 {
             completion(.failure(NSError(domain: "Reached to Max Depth of Call Recursion", code: 999)))
@@ -444,11 +464,13 @@ extension APIManager {
                     let refreshToken = TokenManager.token(tokenType: .refresh)
                     
                     if refreshToken.isEmpty {
-                        completion(.failure(NSError(domain: "No Refresh Token Found, Do Logout Process", code: 998, userInfo: nil)))
+                        completion(.failure(NSError(domain: "No Refresh Token Found, Do Logout Process", code: 998)))
                         return
                     }
                     
-                    fetchDataPOST(from: .reissue, parameters: ["refreshToken": refreshToken], completion: { result in
+                    fetchDataPOST(from: .reissue, 
+                                  parameters: ["refreshToken": refreshToken],
+                                  completion: { result in
                         switch result {
                         case .success(let tokenData):
                             // 토큰 갱신 후 다시 API 호출
@@ -463,9 +485,12 @@ extension APIManager {
                                 }
                                 
                                 // 다시 API 호출
-                                callPOSTAPI(endpoint: endpoint, parameters: parameters, depth: depth + 1, completion: completion)
+                                callPOSTAPI(endpoint: endpoint, 
+                                            parameters: parameters,
+                                            depth: depth + 1,
+                                            completion: completion)
                             } else {
-                                completion(.failure(NSError(domain: "Failed to Get New Tokens from Server", code: 0, userInfo: nil)))
+                                completion(.failure(NSError(domain: "Failed to Get New Tokens from Server", code: 0)))
                                 return
                             }
                             
@@ -483,9 +508,6 @@ extension APIManager {
 
 /// API Manager Test View
 struct APIManagerTestView: View {
-    // 선택한 POST API
-    @State private var selectedPOSTAPI: APIManager.POSTAPICollections = .adventures
-    
     var body: some View {
         ZStack {
             VStack {
@@ -736,7 +758,7 @@ struct Response: Codable {
     // 가장 가까운 랜드마크 (/api/landmarks)
     let name: String?
     let distance: Double?
-    let landmarkId: Int? // 서버 API 반환 타입명과 맞추어야 하므로 컨벤션 에외
+    let landmarkId: Int? // 서버 API 반환 타입명과 맞추어야 하므로 컨벤션 예외
     
     // 랜드마크 최고점 사용자 (/api/landmarks/0)
     let nickname: String?
