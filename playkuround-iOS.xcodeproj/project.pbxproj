@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C5979B82BAB25EE00E8156D /* service.md in Resources */ = {isa = PBXBuildFile; fileRef = 0C5979B72BAB25EE00E8156D /* service.md */; };
+		0C5979BC2BAB26A800E8156D /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5979BB2BAB26A800E8156D /* TermsView.swift */; };
 		0C6AA4BB2BA4A33E0032AB24 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4BA2BA4A33E0032AB24 /* NetworkManager.swift */; };
 		0C6AA4BD2BA553D80032AB24 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4BC2BA553D80032AB24 /* APIManager.swift */; };
 		0C6AA4C72BA566CE0032AB24 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4C62BA566CE0032AB24 /* Badge.swift */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		0C5979B72BAB25EE00E8156D /* service.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = service.md; sourceTree = "<group>"; };
+		0C5979BB2BAB26A800E8156D /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		0C6AA4BA2BA4A33E0032AB24 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0C6AA4BC2BA553D80032AB24 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		0C6AA4C62BA566CE0032AB24 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
@@ -113,6 +115,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C5979B32BAB213C00E8156D /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				0C5979BB2BAB26A800E8156D /* TermsView.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		0C5979B62BAB25CB00E8156D /* Texts */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +156,7 @@
 				0C6AA4BA2BA4A33E0032AB24 /* NetworkManager.swift */,
 				0C6AA4BC2BA553D80032AB24 /* APIManager.swift */,
         0C6AA4D02BA6DA340032AB24 /* TokenManager.swift */,
+				0C6AA4D02BA6DA340032AB24 /* TokenManager.swift */,
 				C918F4042BA7149A00C0BFDA /* SoundManager.swift */,
 				C918F4062BA7177800C0BFDA /* HapticManager.swift */,
 			);
@@ -155,6 +166,7 @@
 		C953D2F12BA477F700318869 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0C5979B62BAB25CB00E8156D /* Texts */,
 				C983DF282BA86F31003523E9 /* Sounds */,
 				C953D2F22BA4780200318869 /* Fonts */,
 				C953D2F82BA47B4B00318869 /* Font.swift */,
@@ -437,6 +449,7 @@
 				C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */,
 				C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */,
 				C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */,
+				0C5979BC2BAB26A800E8156D /* TermsView.swift in Sources */,
 				0C6AA4CF2BA56FB30032AB24 /* ScoreType.swift in Sources */,
 				C953D2FE2BA4807400318869 /* LoginView.swift in Sources */,
 				C953D2F92BA47B4B00318869 /* Font.swift in Sources */,
