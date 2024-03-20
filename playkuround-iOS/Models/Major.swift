@@ -47,8 +47,8 @@ let majorList: [College] = [
         Major(name: "전기전자공학부"),
         Major(name: "화학공학부"),
         Major(name: "컴퓨터공학부"),
-        Major(name: "산업경영공학부_산업공학과"),
-        Major(name: "산업경영공학부_신산업융합학과"),
+        Major(name: "산업경영공학부 산업공학과"),
+        Major(name: "산업경영공학부 신산업융합학과"),
         Major(name: "생물공학과"),
         Major(name: "K뷰티산업융합학과")
     ]),
