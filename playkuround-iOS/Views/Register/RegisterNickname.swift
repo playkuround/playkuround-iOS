@@ -36,11 +36,14 @@ struct RegisterNickname: View {
                     .padding(.bottom, 60)
                 
                 HStack {
+                    // 닉네임이 올바르지 않은 경우
                     if !isNicknameVaild {
                         Text(StringLiterals.Register.invalidNickname)
                             .font(.pretendard14R)
                             .foregroundStyle(.kuRed)
-                    } else if isNicknameDuplicated {
+                    } 
+                    // 닉네임이 중복된 경우
+                    else if isNicknameDuplicated {
                         Text(StringLiterals.Register.duplicatedNickname)
                             .font(.pretendard14R)
                             .foregroundStyle(.kuRed)
@@ -70,6 +73,7 @@ struct RegisterNickname: View {
                                 .foregroundStyle(.kuText)
                                 .padding()
                                 .onChange(of: nickname) { newValue in
+                                    // 닉네임이 영문/한글로만 구성, 공백문자 없음, 2~8자 사이 (비어있는 경우는 제외)
                                     if nicknameValidate(newValue) && newValue.count >= 2 && newValue.count <= 8 && !nickname.contains(" ") || nickname.isEmpty {
                                         withAnimation(.spring) {
                                             isNicknameVaild = true
@@ -80,7 +84,7 @@ struct RegisterNickname: View {
                                         }
                                     }
                                     
-                                    // 닉네임 수정 시 초기화
+                                    // 닉네임 수정 시 중복 체크 flag 초기화
                                     isNicknameChecked = false
                                     isNicknameDuplicated = false
                                 }
@@ -127,16 +131,22 @@ struct RegisterNickname: View {
                         }
                     }
                 } label: {
-                    // .longButtonBlue : .longButtonGray
+                    // if 닉네임이 검사된 경우
+                    //     if 닉네임이 중복된 경우 deactivate
+                    //     else activate
+                    // else (닉네임이 검사되기 전)
+                    //     if 닉네임이 valid한 경우 active
+                    //     else deactivate
                     Image(isNicknameChecked ? (isNicknameDuplicated ? .longButtonGray : .longButtonBlue) : (isNicknameVaild && nickname.count >= 2 ? .longButtonBlue : .longButtonGray))
                         .resizable()
                         .scaledToFit()
                         .frame(width: .infinity)
                         .overlay {
                             if isLoading {
+                                // API 요청한 경우
                                 ProgressView()
                             } else {
-                                Text("다음")
+                                Text(StringLiterals.Register.next)
                                     .font(.neo15)
                                     .foregroundStyle(.kuText)
                             }
@@ -150,6 +160,7 @@ struct RegisterNickname: View {
         }
     }
     
+    // 닉네임 체크 (한글, 영어만 가능)
     func nicknameValidate(_ input: String) -> Bool {
         let pattern = "^[가-힣a-zA-Z\\s]*$"
         if let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive) {
