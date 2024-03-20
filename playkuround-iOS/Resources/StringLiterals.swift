@@ -22,7 +22,7 @@ enum StringLiterals {
         static let title = "회원가입"
         static let termsDescription = "서비스 이용을 위한 약관에 동의해주세요."
         static let agreeAllTerms = "약관 전체 동의"
-        static let agreeTerms = "이용약관 동의"
+        static let agreeServiceTerms = "이용약관 동의"
         static let agreePrivacyTerms = "개인정보 수집 및 이용 동의"
         static let agreeLocationTerms = "위치기반 서비스 이용약관 동의"
         static let majorSelectionDescription = "소속 대학 및 학과를 선택해주세요."
@@ -37,5 +37,6 @@ enum StringLiterals {
         static let termsTitle = "이용약관"
         static let college = "대학"
         static let major = "학과"
+        static let termsErrorMessage = "이용약관을 불러올 수 없습니다."
     }
 }
