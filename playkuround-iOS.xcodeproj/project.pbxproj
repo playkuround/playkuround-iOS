@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C5979B52BAB215300E8156D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5979B42BAB215300E8156D /* RegisterView.swift */; };
 		0C5979B82BAB25EE00E8156D /* service.md in Resources */ = {isa = PBXBuildFile; fileRef = 0C5979B72BAB25EE00E8156D /* service.md */; };
 		0C5979BC2BAB26A800E8156D /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5979BB2BAB26A800E8156D /* TermsView.swift */; };
 		0C6AA4BB2BA4A33E0032AB24 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4BA2BA4A33E0032AB24 /* NetworkManager.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C5979B42BAB215300E8156D /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		0C5979B72BAB25EE00E8156D /* service.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = service.md; sourceTree = "<group>"; };
 		0C5979BB2BAB26A800E8156D /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		0C6AA4BA2BA4A33E0032AB24 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		0C5979B32BAB213C00E8156D /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				0C5979B42BAB215300E8156D /* RegisterView.swift */,
 				0C5979BB2BAB26A800E8156D /* TermsView.swift */,
 			);
 			path = Register;
@@ -190,6 +193,7 @@
 			children = (
 				C953D3022BA49BAB00318869 /* Main */,
 				C953D2FF2BA4809800318869 /* Login */,
+				0C5979B32BAB213C00E8156D /* Register */,
 				C9F694E92BA3251A009A8762 /* ContentView.swift */,
 			);
 			path = Views;
@@ -448,6 +452,7 @@
 				C953D3042BA49BB300318869 /* MainView.swift in Sources */,
 				C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */,
 				C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */,
+				0C5979B52BAB215300E8156D /* RegisterView.swift in Sources */,
 				C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */,
 				0C5979BC2BAB26A800E8156D /* TermsView.swift in Sources */,
 				0C6AA4CF2BA56FB30032AB24 /* ScoreType.swift in Sources */,
