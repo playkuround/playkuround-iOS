@@ -17,6 +17,7 @@
 		0C6AA4CD2BA56E230032AB24 /* UserNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4CC2BA56E230032AB24 /* UserNotification.swift */; };
 		0C6AA4CF2BA56FB30032AB24 /* ScoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4CE2BA56FB30032AB24 /* ScoreType.swift */; };
 		0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4D02BA6DA340032AB24 /* TokenManager.swift */; };
+		0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD06A282BAB459500845B24 /* RegisterTermsView.swift */; };
 		C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */; };
 		C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4042BA7149A00C0BFDA /* SoundManager.swift */; };
 		C918F4072BA7177800C0BFDA /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4062BA7177800C0BFDA /* HapticManager.swift */; };
@@ -66,6 +67,7 @@
 		0C6AA4CC2BA56E230032AB24 /* UserNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotification.swift; sourceTree = "<group>"; };
 		0C6AA4CE2BA56FB30032AB24 /* ScoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreType.swift; sourceTree = "<group>"; };
 		0C6AA4D02BA6DA340032AB24 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		0CD06A282BAB459500845B24 /* RegisterTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTermsView.swift; sourceTree = "<group>"; };
 		C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCustomView.swift; sourceTree = "<group>"; };
 		C918F4042BA7149A00C0BFDA /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		C918F4062BA7177800C0BFDA /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				0C5979B42BAB215300E8156D /* RegisterView.swift */,
 				0C5979BB2BAB26A800E8156D /* TermsView.swift */,
+				0CD06A282BAB459500845B24 /* RegisterTermsView.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				C953D2F92BA47B4B00318869 /* Font.swift in Sources */,
 				0C6AA4BD2BA553D80032AB24 /* APIManager.swift in Sources */,
 				0C6AA4CB2BA56B510032AB24 /* Major.swift in Sources */,
+				0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */,
 				C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */,
 				0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */,
 			);
