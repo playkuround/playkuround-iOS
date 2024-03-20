@@ -12,6 +12,9 @@ struct TermsView: View {
     private let title: String
     private let markdown: String
     
+    // environment dismiss
+    @Environment(\.dismiss) var dismiss
+    
     /// 이용 약관 종류, RawValue는 파일명
     enum TermsType: String {
         // 서비스 이용 약관
@@ -50,7 +53,8 @@ struct TermsView: View {
                 HStack {
                     Spacer()
                     Button {
-                        // TODO: close this view
+                        // close this view
+                        dismiss()
                     } label: {
                         Image(.closeButton)
                             .resizable()
