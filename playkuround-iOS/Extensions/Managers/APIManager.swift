@@ -351,10 +351,13 @@ extension APIManager {
         }
         
         // 토큰 불러오기
-        let accessToken = TokenManager.token(tokenType: .access)
-        if accessToken.isEmpty {
-            completion(.failure(NSError(domain: "No Access Token Found", code: 401)))
-            return
+        // availability, emails API는 토큰 필요 없음
+        if endpoint != .availability && endpoint != .emails {
+            let accessToken = TokenManager.token(tokenType: .access)
+            if accessToken.isEmpty {
+                completion(.failure(NSError(domain: "No Access Token Found", code: 401)))
+                return
+            }
         }
         
         // API 요청 함수 호출
@@ -436,11 +439,14 @@ extension APIManager {
         }
         
         // 토큰 불러오기
-        let accessToken = TokenManager.token(tokenType: .access)
-        print("accessToken: " + accessToken)
-        if accessToken.isEmpty {
-            completion(.failure(NSError(domain: "No Access Token Found", code: 401)))
-            return
+        // reissue, emails, register API는 토큰 없이 호출 가능
+        if endpoint != .reissue && endpoint != .emails && endpoint != .register {
+            let accessToken = TokenManager.token(tokenType: .access)
+            print("accessToken: " + accessToken)
+            if accessToken.isEmpty {
+                completion(.failure(NSError(domain: "No Access Token Found", code: 401)))
+                return
+            }
         }
         
         // API 요청 함수 호출
@@ -722,6 +728,10 @@ struct APIManagerTestView: View {
                     }
                 }
             }
+        }
+        .onAppear {
+            // 테스트 하기 위해 토큰을 제거
+            TokenManager.reset()
         }
     }
 }
