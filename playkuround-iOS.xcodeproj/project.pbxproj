@@ -13,7 +13,10 @@
 		0C6AA4CB2BA56B510032AB24 /* Major.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4CA2BA56B510032AB24 /* Major.swift */; };
 		0C6AA4CD2BA56E230032AB24 /* UserNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4CC2BA56E230032AB24 /* UserNotification.swift */; };
 		0C6AA4CF2BA56FB30032AB24 /* ScoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4CE2BA56FB30032AB24 /* ScoreType.swift */; };
+		0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4D02BA6DA340032AB24 /* TokenManager.swift */; };
 		C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */; };
+		C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4042BA7149A00C0BFDA /* SoundManager.swift */; };
+		C918F4072BA7177800C0BFDA /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4062BA7177800C0BFDA /* HapticManager.swift */; };
 		C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4082BA741F300C0BFDA /* LoginBottomSheetView.swift */; };
 		C918F40B2BA7507800C0BFDA /* AuthenticationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F40A2BA7507800C0BFDA /* AuthenticationCodeView.swift */; };
 		C918F40D2BA753B400C0BFDA /* AuthenticationTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F40C2BA753B400C0BFDA /* AuthenticationTimerView.swift */; };
@@ -23,6 +26,29 @@
 		C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2FA2BA47F2C00318869 /* StringLiterals.swift */; };
 		C953D2FE2BA4807400318869 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2FD2BA4807400318869 /* LoginView.swift */; };
 		C953D3042BA49BB300318869 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D3032BA49BB300318869 /* MainView.swift */; };
+		C98078912BA8703000C04B2D /* buttonClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078902BA8703000C04B2D /* buttonClicked.mp3 */; };
+		C98078962BA870E400C04B2D /* timerButtonClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078932BA870E400C04B2D /* timerButtonClicked.mp3 */; };
+		C98078972BA870E400C04B2D /* timerCorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078942BA870E400C04B2D /* timerCorrect.mp3 */; };
+		C98078982BA870E400C04B2D /* timerIncorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078952BA870E400C04B2D /* timerIncorrect.mp3 */; };
+		C980789C2BA8712700C04B2D /* cupidBad.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C980789A2BA8712700C04B2D /* cupidBad.mp3 */; };
+		C980789D2BA8712700C04B2D /* cupidGoodOrPerfect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C980789B2BA8712700C04B2D /* cupidGoodOrPerfect.mp3 */; };
+		C98078A12BA8715900C04B2D /* quizCorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C980789F2BA8715900C04B2D /* quizCorrect.mp3 */; };
+		C98078A22BA8715900C04B2D /* quizIncorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078A02BA8715900C04B2D /* quizIncorrect.mp3 */; };
+		C98078A82BA871A000C04B2D /* cardIncorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078A42BA871A000C04B2D /* cardIncorrect.mp3 */; };
+		C98078A92BA871A000C04B2D /* cardClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078A52BA871A000C04B2D /* cardClicked.mp3 */; };
+		C98078AA2BA871A000C04B2D /* cardCorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078A62BA871A000C04B2D /* cardCorrect.mp3 */; };
+		C98078AB2BA871A000C04B2D /* cardAllCorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078A72BA871A000C04B2D /* cardAllCorrect.mp3 */; };
+		C98078B02BA8720D00C04B2D /* classCorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078AD2BA8720D00C04B2D /* classCorrect.mp3 */; };
+		C98078B12BA8720D00C04B2D /* classMinusHeart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078AE2BA8720D00C04B2D /* classMinusHeart.mp3 */; };
+		C98078B22BA8720D00C04B2D /* classEnd.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078AF2BA8720D00C04B2D /* classEnd.mp3 */; };
+		C98078B62BA8725400C04B2D /* microbeHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078B42BA8725400C04B2D /* microbeHit.mp3 */; };
+		C98078B72BA8725400C04B2D /* microbeEnd.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078B52BA8725400C04B2D /* microbeEnd.mp3 */; };
+		C98078BD2BA872A300C04B2D /* blackDuckkuClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078BA2BA872A200C04B2D /* blackDuckkuClicked.mp3 */; };
+		C98078BE2BA872A300C04B2D /* duckkuWindowOpenAndClose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078BB2BA872A300C04B2D /* duckkuWindowOpenAndClose.mp3 */; };
+		C98078BF2BA872A300C04B2D /* duckkuClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078BC2BA872A300C04B2D /* duckkuClicked.mp3 */; };
+		C98078C32BA872DF00C04B2D /* moonHundredClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C12BA872DF00C04B2D /* moonHundredClicked.mp3 */; };
+		C98078C42BA872DF00C04B2D /* moonClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C22BA872DF00C04B2D /* moonClicked.mp3 */; };
+		C98078C62BA8816B00C04B2D /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */; };
 		C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */; };
 		C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E92BA3251A009A8762 /* ContentView.swift */; };
 		C9F694EC2BA3251B009A8762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9F694EB2BA3251B009A8762 /* Assets.xcassets */; };
@@ -36,10 +62,13 @@
 		0C6AA4CA2BA56B510032AB24 /* Major.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Major.swift; sourceTree = "<group>"; };
 		0C6AA4CC2BA56E230032AB24 /* UserNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotification.swift; sourceTree = "<group>"; };
 		0C6AA4CE2BA56FB30032AB24 /* ScoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreType.swift; sourceTree = "<group>"; };
+		0C6AA4D02BA6DA340032AB24 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCustomView.swift; sourceTree = "<group>"; };
 		C918F4082BA741F300C0BFDA /* LoginBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBottomSheetView.swift; sourceTree = "<group>"; };
 		C918F40A2BA7507800C0BFDA /* AuthenticationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCodeView.swift; sourceTree = "<group>"; };
 		C918F40C2BA753B400C0BFDA /* AuthenticationTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTimerView.swift; sourceTree = "<group>"; };
+		C918F4042BA7149A00C0BFDA /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		C918F4062BA7177800C0BFDA /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		C953D2F32BA47B0700318869 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		C953D2F42BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeoDunggeunmoPro-Regular.ttf"; sourceTree = "<group>"; };
 		C953D2F72BA47B1C00318869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +76,29 @@
 		C953D2FA2BA47F2C00318869 /* StringLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLiterals.swift; sourceTree = "<group>"; };
 		C953D2FD2BA4807400318869 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C953D3032BA49BB300318869 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		C98078902BA8703000C04B2D /* buttonClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonClicked.mp3; sourceTree = "<group>"; };
+		C98078932BA870E400C04B2D /* timerButtonClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timerButtonClicked.mp3; sourceTree = "<group>"; };
+		C98078942BA870E400C04B2D /* timerCorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timerCorrect.mp3; sourceTree = "<group>"; };
+		C98078952BA870E400C04B2D /* timerIncorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timerIncorrect.mp3; sourceTree = "<group>"; };
+		C980789A2BA8712700C04B2D /* cupidBad.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cupidBad.mp3; sourceTree = "<group>"; };
+		C980789B2BA8712700C04B2D /* cupidGoodOrPerfect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cupidGoodOrPerfect.mp3; sourceTree = "<group>"; };
+		C980789F2BA8715900C04B2D /* quizCorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = quizCorrect.mp3; sourceTree = "<group>"; };
+		C98078A02BA8715900C04B2D /* quizIncorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = quizIncorrect.mp3; sourceTree = "<group>"; };
+		C98078A42BA871A000C04B2D /* cardIncorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardIncorrect.mp3; sourceTree = "<group>"; };
+		C98078A52BA871A000C04B2D /* cardClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardClicked.mp3; sourceTree = "<group>"; };
+		C98078A62BA871A000C04B2D /* cardCorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardCorrect.mp3; sourceTree = "<group>"; };
+		C98078A72BA871A000C04B2D /* cardAllCorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardAllCorrect.mp3; sourceTree = "<group>"; };
+		C98078AD2BA8720D00C04B2D /* classCorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = classCorrect.mp3; sourceTree = "<group>"; };
+		C98078AE2BA8720D00C04B2D /* classMinusHeart.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = classMinusHeart.mp3; sourceTree = "<group>"; };
+		C98078AF2BA8720D00C04B2D /* classEnd.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = classEnd.mp3; sourceTree = "<group>"; };
+		C98078B42BA8725400C04B2D /* microbeHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = microbeHit.mp3; sourceTree = "<group>"; };
+		C98078B52BA8725400C04B2D /* microbeEnd.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = microbeEnd.mp3; sourceTree = "<group>"; };
+		C98078BA2BA872A200C04B2D /* blackDuckkuClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = blackDuckkuClicked.mp3; sourceTree = "<group>"; };
+		C98078BB2BA872A300C04B2D /* duckkuWindowOpenAndClose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = duckkuWindowOpenAndClose.mp3; sourceTree = "<group>"; };
+		C98078BC2BA872A300C04B2D /* duckkuClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = duckkuClicked.mp3; sourceTree = "<group>"; };
+		C98078C12BA872DF00C04B2D /* moonHundredClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = moonHundredClicked.mp3; sourceTree = "<group>"; };
+		C98078C22BA872DF00C04B2D /* moonClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = moonClicked.mp3; sourceTree = "<group>"; };
+		C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
 		C9F694E42BA3251A009A8762 /* playkuround-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "playkuround-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playkuround_iOSApp.swift; sourceTree = "<group>"; };
 		C9F694E92BA3251A009A8762 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,8 +120,7 @@
 		0C6AA4B92BA4A32A0032AB24 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0C6AA4BA2BA4A33E0032AB24 /* NetworkManager.swift */,
-				0C6AA4BC2BA553D80032AB24 /* APIManager.swift */,
+				C918F4032BA7148800C0BFDA /* Managers */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -85,9 +136,22 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		C918F4032BA7148800C0BFDA /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0C6AA4BA2BA4A33E0032AB24 /* NetworkManager.swift */,
+				0C6AA4BC2BA553D80032AB24 /* APIManager.swift */,
+        0C6AA4D02BA6DA340032AB24 /* TokenManager.swift */,
+				C918F4042BA7149A00C0BFDA /* SoundManager.swift */,
+				C918F4062BA7177800C0BFDA /* HapticManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		C953D2F12BA477F700318869 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C983DF282BA86F31003523E9 /* Sounds */,
 				C953D2F22BA4780200318869 /* Fonts */,
 				C953D2F82BA47B4B00318869 /* Font.swift */,
 				C953D2FA2BA47F2C00318869 /* StringLiterals.swift */,
@@ -132,6 +196,100 @@
 				C953D3032BA49BB300318869 /* MainView.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		C98078922BA8705600C04B2D /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				C98078932BA870E400C04B2D /* timerButtonClicked.mp3 */,
+				C98078942BA870E400C04B2D /* timerCorrect.mp3 */,
+				C98078952BA870E400C04B2D /* timerIncorrect.mp3 */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		C98078992BA870FD00C04B2D /* Cupid */ = {
+			isa = PBXGroup;
+			children = (
+				C980789A2BA8712700C04B2D /* cupidBad.mp3 */,
+				C980789B2BA8712700C04B2D /* cupidGoodOrPerfect.mp3 */,
+			);
+			path = Cupid;
+			sourceTree = "<group>";
+		};
+		C980789E2BA8713200C04B2D /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				C980789F2BA8715900C04B2D /* quizCorrect.mp3 */,
+				C98078A02BA8715900C04B2D /* quizIncorrect.mp3 */,
+			);
+			path = Quiz;
+			sourceTree = "<group>";
+		};
+		C98078A32BA8715F00C04B2D /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				C98078A72BA871A000C04B2D /* cardAllCorrect.mp3 */,
+				C98078A52BA871A000C04B2D /* cardClicked.mp3 */,
+				C98078A62BA871A000C04B2D /* cardCorrect.mp3 */,
+				C98078A42BA871A000C04B2D /* cardIncorrect.mp3 */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		C98078AC2BA871BC00C04B2D /* ClassRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				C98078AD2BA8720D00C04B2D /* classCorrect.mp3 */,
+				C98078AF2BA8720D00C04B2D /* classEnd.mp3 */,
+				C98078AE2BA8720D00C04B2D /* classMinusHeart.mp3 */,
+			);
+			path = ClassRegistration;
+			sourceTree = "<group>";
+		};
+		C98078B32BA8722400C04B2D /* Microbe */ = {
+			isa = PBXGroup;
+			children = (
+				C98078B52BA8725400C04B2D /* microbeEnd.mp3 */,
+				C98078B42BA8725400C04B2D /* microbeHit.mp3 */,
+			);
+			path = Microbe;
+			sourceTree = "<group>";
+		};
+		C98078B92BA8726A00C04B2D /* Duckku */ = {
+			isa = PBXGroup;
+			children = (
+				C98078BA2BA872A200C04B2D /* blackDuckkuClicked.mp3 */,
+				C98078BC2BA872A300C04B2D /* duckkuClicked.mp3 */,
+				C98078BB2BA872A300C04B2D /* duckkuWindowOpenAndClose.mp3 */,
+			);
+			path = Duckku;
+			sourceTree = "<group>";
+		};
+		C98078C02BA872BF00C04B2D /* Moon */ = {
+			isa = PBXGroup;
+			children = (
+				C98078C22BA872DF00C04B2D /* moonClicked.mp3 */,
+				C98078C12BA872DF00C04B2D /* moonHundredClicked.mp3 */,
+			);
+			path = Moon;
+			sourceTree = "<group>";
+		};
+		C983DF282BA86F31003523E9 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */,
+				C98078C02BA872BF00C04B2D /* Moon */,
+				C98078B92BA8726A00C04B2D /* Duckku */,
+				C98078B32BA8722400C04B2D /* Microbe */,
+				C98078AC2BA871BC00C04B2D /* ClassRegistration */,
+				C98078A32BA8715F00C04B2D /* Card */,
+				C980789E2BA8713200C04B2D /* Quiz */,
+				C98078992BA870FD00C04B2D /* Cupid */,
+				C98078922BA8705600C04B2D /* Timer */,
+				C98078902BA8703000C04B2D /* buttonClicked.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		C9F694DB2BA3251A009A8762 = {
@@ -231,8 +389,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C98078BD2BA872A300C04B2D /* blackDuckkuClicked.mp3 in Resources */,
+				C98078A12BA8715900C04B2D /* quizCorrect.mp3 in Resources */,
+				C98078A92BA871A000C04B2D /* cardClicked.mp3 in Resources */,
+				C980789C2BA8712700C04B2D /* cupidBad.mp3 in Resources */,
+				C98078B22BA8720D00C04B2D /* classEnd.mp3 in Resources */,
+				C98078A82BA871A000C04B2D /* cardIncorrect.mp3 in Resources */,
+				C98078B12BA8720D00C04B2D /* classMinusHeart.mp3 in Resources */,
+				C98078AB2BA871A000C04B2D /* cardAllCorrect.mp3 in Resources */,
+				C98078912BA8703000C04B2D /* buttonClicked.mp3 in Resources */,
+				C98078972BA870E400C04B2D /* timerCorrect.mp3 in Resources */,
 				C9F694EF2BA3251B009A8762 /* Preview Assets.xcassets in Resources */,
+				C98078BE2BA872A300C04B2D /* duckkuWindowOpenAndClose.mp3 in Resources */,
+				C98078982BA870E400C04B2D /* timerIncorrect.mp3 in Resources */,
+				C98078BF2BA872A300C04B2D /* duckkuClicked.mp3 in Resources */,
+				C98078AA2BA871A000C04B2D /* cardCorrect.mp3 in Resources */,
+				C98078C42BA872DF00C04B2D /* moonClicked.mp3 in Resources */,
+				C98078962BA870E400C04B2D /* timerButtonClicked.mp3 in Resources */,
+				C98078B02BA8720D00C04B2D /* classCorrect.mp3 in Resources */,
+				C98078C32BA872DF00C04B2D /* moonHundredClicked.mp3 in Resources */,
+				C98078B62BA8725400C04B2D /* microbeHit.mp3 in Resources */,
+				C98078C62BA8816B00C04B2D /* backgroundMusic.mp3 in Resources */,
+				C98078B72BA8725400C04B2D /* microbeEnd.mp3 in Resources */,
 				C953D2F52BA47B0700318869 /* Pretendard-Regular.otf in Resources */,
+				C98078A22BA8715900C04B2D /* quizIncorrect.mp3 in Resources */,
+				C980789D2BA8712700C04B2D /* cupidGoodOrPerfect.mp3 in Resources */,
 				C9F694EC2BA3251B009A8762 /* Assets.xcassets in Resources */,
 				C953D2F62BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf in Resources */,
 			);
@@ -246,11 +427,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C6AA4BB2BA4A33E0032AB24 /* NetworkManager.swift in Sources */,
+				C918F4072BA7177800C0BFDA /* HapticManager.swift in Sources */,
 				0C6AA4C72BA566CE0032AB24 /* Badge.swift in Sources */,
 				C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */,
 				0C6AA4CD2BA56E230032AB24 /* UserNotification.swift in Sources */,
 				C918F40D2BA753B400C0BFDA /* AuthenticationTimerView.swift in Sources */,
 				C953D3042BA49BB300318869 /* MainView.swift in Sources */,
+				C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */,
 				C918F40B2BA7507800C0BFDA /* AuthenticationCodeView.swift in Sources */,
 				C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */,
 				C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */,
@@ -260,6 +443,7 @@
 				0C6AA4BD2BA553D80032AB24 /* APIManager.swift in Sources */,
 				0C6AA4CB2BA56B510032AB24 /* Major.swift in Sources */,
 				C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */,
+				0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */,
 				C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
