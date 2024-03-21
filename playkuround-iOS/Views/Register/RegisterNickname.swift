@@ -162,7 +162,7 @@ struct RegisterNickname: View {
     
     // 닉네임 체크 (한글, 영어만 가능)
     func nicknameValidate(_ input: String) -> Bool {
-        let pattern = "^[가-힣a-zA-Z\\s]*$"
+        let pattern = "^[가-힣a-zA-Z0-9\\s]*$"
         if let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive) {
             let range = NSRange(location: 0, length: input.utf16.count)
             if regex.firstMatch(in: input, options: [], range: range) != nil {
