@@ -17,7 +17,7 @@ struct LoginView: View {
     @State private var mailButtonClicked: Bool = false
     
     // 인증시간 초과 바텀시트
-    @State private var isBottomSheetShown: Bool = false
+    @State private var isBottomSheetPresented: Bool = false
     
     var body: some View {
         ZStack {
@@ -77,7 +77,7 @@ struct LoginView: View {
             }
             .padding(.top, 80)
             
-            LoginBottomSheetView(isShown: $isBottomSheetShown)
+            LoginBottomSheetView(isPresented: $isBottomSheetPresented)
             
         }
         .onAppear {
