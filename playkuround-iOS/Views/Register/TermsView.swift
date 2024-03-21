@@ -10,33 +10,24 @@ import SwiftUI
 struct TermsView: View {
     // 이용 약관 내용
     private let title: String
-    private let markdown: String
+    private let text: String
     
     // environment dismiss
     @Environment(\.dismiss) var dismiss
     
-    /// 이용 약관 종류, RawValue는 파일명
-    enum TermsType: String {
-        // 서비스 이용 약관
-        case service = "service"
-        // 아래 두 약관은 현재 정보가 없음 (기획팀 문의 후 추가 예정)
-        // 개인정보 수집 및 이용 약관
-        // case privacy = "privacy"
-        // 위치기반 서비스 이용 약관
-        // case location = "location"
-    }
-    
     // 이용 약관을 불러옴
     init(title: String, termsType: TermsType) {
         // md 파일을 읽어 텍스트를 불러옴
-        if let fileURL = Bundle.main.url(forResource: termsType.rawValue, withExtension: "md") {
+        if let fileURL = Bundle.main.url(forResource: termsType.rawValue, withExtension: "txt") {
             do {
-                markdown = try String(contentsOf: fileURL)
+                text = try String(contentsOf: fileURL)
             } catch {
-                markdown = StringLiterals.Register.termsErrorMessage
+                text = StringLiterals.Register.termsErrorMessage
+                print("txt 파일 읽는 도중 오류 발생")
             }
         } else {
-            markdown = StringLiterals.Register.termsErrorMessage
+            text = StringLiterals.Register.termsErrorMessage
+            print("파일을 찾을 수 없음")
         }
         
         // 제목
@@ -75,8 +66,8 @@ struct TermsView: View {
                     .padding(.bottom, 20)
                     
                     // Terms Text
-                    Text(markdown: markdown)
-                        .font(.neo22)
+                    Text(text)
+                        .font(.pretendard15R)
                         .foregroundStyle(.kuText)
                         .padding()
                 }
@@ -89,36 +80,25 @@ struct TermsView: View {
 
 #Preview {
     // 다른 뷰에서 호출 시 termsType을 명시해줌
-    TermsView(title: StringLiterals.Register.termsTitle, termsType: .service)
+    TermsView(title: StringLiterals.Register.serviceTermsTitle, termsType: .service)
 }
 
-// MARK: - 아래는 markdown 텍스트에 format을 적용해주는 extension
-
-extension String {
-    // Markdown 텍스트 렌더링
-    func renderMarkdown() -> Text {
-        var output = Text("")
-        let lines = self.components(separatedBy: "\n")
-        
-        for line in lines {
-            if line.hasPrefix("**") && line.hasSuffix("**") {
-                output = output + Text(line.trimmingCharacters(in: .init(charactersIn: "*")))
-                    .bold()
-                    .font(.body)
-            } else {
-                output = output + Text(line)
-                    .font(.body)
-            }
-            output = output + Text("\n")
-        }
-        
-        return output
-    }
+#Preview {
+    // 다른 뷰에서 호출 시 termsType을 명시해줌
+    TermsView(title: StringLiterals.Register.privacyTermsTitle, termsType: .privacy)
 }
 
-extension Text {
-    // Text에 markdown 인자로 문자열을 주면 파싱헤서 보옂
-    init(markdown: String) {
-        self = markdown.renderMarkdown()
-    }
+#Preview {
+    // 다른 뷰에서 호출 시 termsType을 명시해줌
+    TermsView(title: StringLiterals.Register.locationTermsTitle, termsType: .location)
+}
+
+/// 이용 약관 종류, RawValue는 파일명
+enum TermsType: String {
+    // 서비스 이용 약관
+    case service = "service"
+    // 개인정보 수집 및 이용 약관
+    case privacy = "privacy"
+    // 위치기반 서비스 이용 약관
+    case location = "location"
 }
