@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct LoginView: View {
+    // 포탈 아이디
     @State private var userId: String = ""
     @FocusState private var focusField: Bool
     
-    @State private var mailButtonName = StringLiterals.Login.requestCode
-    @State private var mailButtonClicked = false
+    // 인증코드 요청
+    @State private var mailButtonTitle = StringLiterals.Login.requestCode
+    @State private var mailButtonClicked: Bool = false
     
-    @State private var isShowingBottomSheet = false
+    // 인증시간 초과 바텀시트
+    @State private var isBottomSheetShown: Bool = false
     
     var body: some View {
         ZStack {
@@ -48,25 +51,25 @@ struct LoginView: View {
                             )
                     }
                 
-                Image(userId.isEmpty ? "longButtonGray" : "longButtonBlue")
+                Image(userId.isEmpty ? .longButtonGray : .longButtonBlue)
                     .onTapGesture {
                         mailButtonClicked.toggle()
                         
-                        if mailButtonClicked {
-                            mailButtonName = StringLiterals.Login.reRequestCode
+                        if !userId.isEmpty && mailButtonClicked {
+                            mailButtonTitle = StringLiterals.Login.reRequestCode
                         }
                         else {
-                            mailButtonName = StringLiterals.Login.requestCode
+                            mailButtonTitle = StringLiterals.Login.requestCode
                         }
                     }
                     .overlay {
-                        Text(mailButtonName)
+                        Text(mailButtonTitle)
                             .font(.neo15)
                             .foregroundStyle(.kuText)
                             .kerning(-0.41)
                     }
                 
-                if mailButtonClicked {
+                if mailButtonClicked && !userId.isEmpty {
                     AuthenticationCodeView()
                 }
                 
@@ -74,7 +77,13 @@ struct LoginView: View {
             }
             .padding(.top, 80)
             
-            LoginBottomSheetView(isShowing: $isShowingBottomSheet)
+            LoginBottomSheetView(isShown: $isBottomSheetShown)
+            
+        }
+        .onAppear {
+            if userId.isEmpty {
+                mailButtonClicked = false
+            }
         }
     }
 }

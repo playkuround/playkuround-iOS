@@ -10,9 +10,8 @@ import SwiftUI
 struct AuthenticationCodeView: View {
     private let mailSystemURL = URL(string: StringLiterals.Login.mailSystemURL)
     
-    @State private var certificationCode: String = ""
-    @State private var certificationButtonClicked = false
-    
+    @State private var authCode: String = ""
+    @State private var authButtonClicked = false
     @State private var authCodeIncorrect = false
     
     var body: some View {
@@ -32,7 +31,7 @@ struct AuthenticationCodeView: View {
             
             Image(.longButtonWhite)
                 .overlay {
-                    TextField(StringLiterals.Login.authenticationCode, text: $certificationCode)
+                    TextField(StringLiterals.Login.authenticationCode, text: $authCode)
                         .font(.pretendard15R)
                         .kerning(-0.41)
                         .padding(.leading, 20)
@@ -42,11 +41,11 @@ struct AuthenticationCodeView: View {
                 }
                 .padding(.top, 46)
             
-            Image(certificationCode.isEmpty ? "longButtonGray" : "longButtonBlue")
+            Image(authCode.isEmpty ? .longButtonGray : .longButtonBlue )
                 .onTapGesture {
-                    certificationButtonClicked.toggle()
+                    authButtonClicked.toggle()
                     
-                    if certificationButtonClicked {
+                    if authButtonClicked {
                         // 인증코드 확인 서버 통신 코드가 들어갑니다.
                     }
                 }
@@ -65,12 +64,4 @@ struct AuthenticationCodeView: View {
             }
         }
     }
-    
-    
-}
-
-
-
-#Preview {
-    AuthenticationCodeView()
 }
