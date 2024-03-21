@@ -15,6 +15,7 @@ struct RegisterTermsView: View {
     
     // 이용약관 뷰 sheet 표시 여부
     @State private var isTermsViewPresented: Bool = false
+    @State private var selectedTermsType: TermsType = .service
     
     var body: some View {
         ZStack {
@@ -84,6 +85,7 @@ struct RegisterTermsView: View {
                                     .padding(.vertical, 6)
                                     .onTapGesture {
                                         // TermsView 보여줌
+                                        selectedTermsType = .service
                                         isTermsViewPresented = true
                                     }
                             }
@@ -114,6 +116,7 @@ struct RegisterTermsView: View {
                                     .padding(.vertical, 6)
                                     .onTapGesture {
                                         // TermsView 보여줌
+                                        selectedTermsType = .privacy
                                         isTermsViewPresented = true
                                     }
                                 
@@ -145,6 +148,7 @@ struct RegisterTermsView: View {
                                     .padding(.vertical, 6)
                                     .onTapGesture {
                                         // TermsView 보여줌
+                                        selectedTermsType = .location
                                         isTermsViewPresented = true
                                     }
                             }
@@ -175,7 +179,14 @@ struct RegisterTermsView: View {
             .padding(.bottom, 10)
         }
         .fullScreenCover(isPresented: $isTermsViewPresented) {
-            TermsView(title: StringLiterals.Register.termsTitle, termsType: .service)
+            switch selectedTermsType {
+            case .service:
+                TermsView(title: StringLiterals.Register.serviceTermsTitle, termsType: .service)
+            case .privacy:
+                TermsView(title: StringLiterals.Register.privacyTermsTitle, termsType: .privacy)
+            case .location:
+                TermsView(title: StringLiterals.Register.locationTermsTitle, termsType: .location)
+            }
         }
     }
 }
