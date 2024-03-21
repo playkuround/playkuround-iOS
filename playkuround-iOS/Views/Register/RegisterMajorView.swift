@@ -30,7 +30,7 @@ struct RegisterView: View {
                 Text(StringLiterals.Register.majorSelectionDescription)
                     .font(.pretendard15R)
                     .foregroundStyle(.kuText)
-                    .padding(.bottom, 30)
+                    .padding(.bottom, 47)
                 
                 Text(StringLiterals.Register.college)
                     .font(.neo15)
@@ -62,7 +62,7 @@ struct RegisterView: View {
                 .buttonStyle(PlainButtonStyle())
                 
                 Spacer()
-                    .frame(height: 60)
+                    .frame(height: 70)
                 
                 Text(StringLiterals.Register.major)
                     .font(.neo15)
@@ -123,7 +123,7 @@ struct RegisterView: View {
             // Menu Dropdown for College Selection
             VStack {
                 Spacer()
-                    .frame(height: 210)
+                    .frame(height: 227)
                 
                 Image(.menuBackground)
                     .resizable()
@@ -174,7 +174,7 @@ struct RegisterView: View {
             if let college = selectedCollege {
                 VStack {
                     Spacer()
-                        .frame(height: 345)
+                        .frame(height: 372)
                     
                     Image(.menuBackground)
                         .resizable()
