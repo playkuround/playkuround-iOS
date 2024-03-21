@@ -56,6 +56,7 @@ struct LoginView: View {
                         mailButtonClicked.toggle()
                         
                         if !userId.isEmpty && mailButtonClicked {
+                            callPOSTAPIemails(target: userId + StringLiterals.Login.email)
                             mailButtonTitle = StringLiterals.Login.reRequestCode
                         }
                         else {
@@ -70,7 +71,7 @@ struct LoginView: View {
                     }
                 
                 if mailButtonClicked && !userId.isEmpty {
-                    AuthenticationCodeView()
+                    AuthenticationCodeView(userEmail: userId + StringLiterals.Login.email)
                 }
                 
                 Spacer()
@@ -78,12 +79,23 @@ struct LoginView: View {
             .padding(.top, 80)
             
             LoginBottomSheetView(isPresented: $isBottomSheetPresented)
-            
         }
         .onAppear {
             if userId.isEmpty {
                 mailButtonClicked = false
             }
+        }
+    }
+}
+
+private func callPOSTAPIemails(target: String) {
+    APIManager.callPOSTAPI(endpoint: .emails, 
+                           parameters: ["target" : target]) { result in
+        switch result {
+        case .success(let data):
+            print("Data received in View: \(data)")
+        case .failure(let error):
+            print("Error in View: \(error)")
         }
     }
 }
