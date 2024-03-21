@@ -24,6 +24,9 @@
 		C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */; };
 		C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4042BA7149A00C0BFDA /* SoundManager.swift */; };
 		C918F4072BA7177800C0BFDA /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4062BA7177800C0BFDA /* HapticManager.swift */; };
+		C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4082BA741F300C0BFDA /* LoginBottomSheetView.swift */; };
+		C918F40B2BA7507800C0BFDA /* AuthenticationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F40A2BA7507800C0BFDA /* AuthenticationCodeView.swift */; };
+		C918F40D2BA753B400C0BFDA /* AuthenticationTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F40C2BA753B400C0BFDA /* AuthenticationTimerView.swift */; };
 		C953D2F52BA47B0700318869 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C953D2F32BA47B0700318869 /* Pretendard-Regular.otf */; };
 		C953D2F62BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C953D2F42BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf */; };
 		C953D2F92BA47B4B00318869 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2F82BA47B4B00318869 /* Font.swift */; };
@@ -75,6 +78,9 @@
 		0C6B77F72BABCCCD0033CEEF /* privacy.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = privacy.txt; sourceTree = "<group>"; };
 		0CD06A282BAB459500845B24 /* RegisterTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTermsView.swift; sourceTree = "<group>"; };
 		C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCustomView.swift; sourceTree = "<group>"; };
+		C918F4082BA741F300C0BFDA /* LoginBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBottomSheetView.swift; sourceTree = "<group>"; };
+		C918F40A2BA7507800C0BFDA /* AuthenticationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCodeView.swift; sourceTree = "<group>"; };
+		C918F40C2BA753B400C0BFDA /* AuthenticationTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTimerView.swift; sourceTree = "<group>"; };
 		C918F4042BA7149A00C0BFDA /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		C918F4062BA7177800C0BFDA /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		C953D2F32BA47B0700318869 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -214,6 +220,9 @@
 			isa = PBXGroup;
 			children = (
 				C953D2FD2BA4807400318869 /* LoginView.swift */,
+				C918F4082BA741F300C0BFDA /* LoginBottomSheetView.swift */,
+				C918F40A2BA7507800C0BFDA /* AuthenticationCodeView.swift */,
+				C918F40C2BA753B400C0BFDA /* AuthenticationTimerView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -462,8 +471,10 @@
 				0C6AA4C72BA566CE0032AB24 /* Badge.swift in Sources */,
 				C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */,
 				0C6AA4CD2BA56E230032AB24 /* UserNotification.swift in Sources */,
+				C918F40D2BA753B400C0BFDA /* AuthenticationTimerView.swift in Sources */,
 				C953D3042BA49BB300318869 /* MainView.swift in Sources */,
 				C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */,
+				C918F40B2BA7507800C0BFDA /* AuthenticationCodeView.swift in Sources */,
 				C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */,
 				0C5979B52BAB215300E8156D /* RegisterMajorView.swift in Sources */,
 				C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */,
@@ -477,6 +488,7 @@
 				0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */,
 				C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */,
 				0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */,
+				C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
