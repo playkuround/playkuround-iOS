@@ -14,8 +14,9 @@ struct RegisterTermsView: View {
     @State private var isLocationTermAgreed: Bool = false
     
     // 이용약관 뷰 sheet 표시 여부
-    @State private var isTermsViewPresented: Bool = false
-    @State private var selectedTermsType: TermsType = .service
+    @State private var isServiceTermsViewPresented: Bool = false
+    @State private var isPrivacyTermsViewPresented: Bool = false
+    @State private var isLocationTermsViewPresented: Bool = false
     
     var body: some View {
         ZStack {
@@ -85,8 +86,7 @@ struct RegisterTermsView: View {
                                     .padding(.vertical, 6)
                                     .onTapGesture {
                                         // TermsView 보여줌
-                                        selectedTermsType = .service
-                                        isTermsViewPresented = true
+                                        isServiceTermsViewPresented = true
                                     }
                             }
                             .padding(20)
@@ -116,8 +116,7 @@ struct RegisterTermsView: View {
                                     .padding(.vertical, 6)
                                     .onTapGesture {
                                         // TermsView 보여줌
-                                        selectedTermsType = .privacy
-                                        isTermsViewPresented = true
+                                        isPrivacyTermsViewPresented = true
                                     }
                                 
                             }
@@ -148,8 +147,7 @@ struct RegisterTermsView: View {
                                     .padding(.vertical, 6)
                                     .onTapGesture {
                                         // TermsView 보여줌
-                                        selectedTermsType = .location
-                                        isTermsViewPresented = true
+                                        isLocationTermsViewPresented = true
                                     }
                             }
                             .padding(20)
@@ -178,15 +176,14 @@ struct RegisterTermsView: View {
             .padding(.top, 30)
             .padding(.bottom, 10)
         }
-        .fullScreenCover(isPresented: $isTermsViewPresented) {
-            switch selectedTermsType {
-            case .service:
-                TermsView(title: StringLiterals.Register.serviceTermsTitle, termsType: .service)
-            case .privacy:
-                TermsView(title: StringLiterals.Register.privacyTermsTitle, termsType: .privacy)
-            case .location:
-                TermsView(title: StringLiterals.Register.locationTermsTitle, termsType: .location)
-            }
+        .fullScreenCover(isPresented: $isServiceTermsViewPresented) {
+            TermsView(title: StringLiterals.Register.serviceTermsTitle, termsType: .service)
+        }
+        .fullScreenCover(isPresented: $isPrivacyTermsViewPresented) {
+            TermsView(title: StringLiterals.Register.privacyTermsTitle, termsType: .privacy)
+        }
+        .fullScreenCover(isPresented: $isLocationTermsViewPresented) {
+            TermsView(title: StringLiterals.Register.locationTermsTitle, termsType: .location)
         }
     }
 }
