@@ -88,7 +88,7 @@ struct RegisterView: View {
                                 
                                 Spacer()
                                 
-                                Image(isCollegeMenuPresented ? .menuUpArrow : .menuDownArrow)
+                                Image(isMajorMenuPresented ? .menuUpArrow : .menuDownArrow)
                             }
                             .padding()
                         }
