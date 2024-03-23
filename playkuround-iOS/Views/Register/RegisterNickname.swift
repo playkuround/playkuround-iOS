@@ -124,39 +124,45 @@ struct RegisterNickname: View {
                         // 닉네임 올바른지 검사
                         if !isNicknameChecked && isNicknameVaild && nickname.count >= 2 {
                             isLoading = true
-                            APIManager.callGETAPI(endpoint: .availability, querys: ["nickname": nickname]) { result in
-                                switch result {
-                                case .success(let data):
-                                    if let response = data as? BoolResponse {
-                                        print("nickname availability: ", response.response)
-                                        if response.response {
-                                            // TODO: 다음 뷰로 이동
-                                            isLoading = false
-                                            print("nickname is available, transfer to next view")
-                                            // TODO: 회원가입 프로세스 진행
-                                        } else {
-                                            isNicknameDuplicated = true
-                                            isNicknameChecked = true
-                                            isLoading = false
-                                        }
-                                    } else {
-                                        isNicknameDuplicated = true
-                                        isNicknameChecked = true
-                                        isLoading = false
-                                    }
-                                case .failure(let error):
-                                    print("Error in View: \(error)")
-                                    isNicknameDuplicated = true
-                                    isNicknameChecked = true
-                                    isLoading = false
-                                }
-                            }
+                            // 서버에 API 요청해서 닉네임 올바른지 검사
+                            checkNicknameAvailability()
                         }
                     }
             }
             .padding(.horizontal)
             .padding(.top, 30)
             .padding(.bottom, 10)
+        }
+    }
+    
+    // 서버 API 통해 닉네임이 사용 가능한지 검사
+    func checkNicknameAvailability() {
+        APIManager.callGETAPI(endpoint: .availability, querys: ["nickname": nickname]) { result in
+            switch result {
+            case .success(let data):
+                if let response = data as? BoolResponse {
+                    print("nickname availability: ", response.response)
+                    if response.response {
+                        // TODO: 다음 뷰로 이동
+                        isLoading = false
+                        print("nickname is available, transfer to next view")
+                        // TODO: 회원가입 프로세스 진행
+                    } else {
+                        isNicknameDuplicated = true
+                        isNicknameChecked = true
+                        isLoading = false
+                    }
+                } else {
+                    isNicknameDuplicated = true
+                    isNicknameChecked = true
+                    isLoading = false
+                }
+            case .failure(let error):
+                print("Error in View: \(error)")
+                isNicknameDuplicated = true
+                isNicknameChecked = true
+                isLoading = false
+            }
         }
     }
     
