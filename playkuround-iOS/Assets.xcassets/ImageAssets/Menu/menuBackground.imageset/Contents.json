@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "menuBackground.png",
+      "filename" : "menuBackground.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
