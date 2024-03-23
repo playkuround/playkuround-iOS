@@ -55,41 +55,40 @@ struct LoginView: View {
                                     .padding(.leading, 190)
                             )
                     }
-                
-                Image(userId.isEmpty ? .longButtonGray : .longButtonBlue)
-                    .onTapGesture {
-                        mailButtonClicked.toggle()
-                        
-                        if mailButtonClicked {
-                            mailButtonTitle = userId.isEmpty ? StringLiterals.Login.requestCode : StringLiterals.Login.reRequestCode
+
+                Button(action: {
+                    mailButtonClicked.toggle()
+                    
+                    if mailButtonClicked {
+                        mailButtonTitle = userId.isEmpty ? StringLiterals.Login.requestCode : StringLiterals.Login.reRequestCode
+                    }
+                    
+                    self.isAuthCodeViewVisible = true
+                    
+                    callPOSTAPIemails(target: userId + StringLiterals.Login.email)
+                    
+                }, label: {
+                    Image(userId.isEmpty ? .longButtonGray : .longButtonBlue)
+                        .overlay {
+                            Text(mailButtonTitle)
+                                .font(.neo15)
+                                .foregroundStyle(.kuText)
+                                .kerning(-0.41)
                         }
-                        
-                        self.isAuthCodeViewVisible = true
-                        
-                        callPOSTAPIemails(target: userId + StringLiterals.Login.email)
-                    }
-                    .overlay {
-                        Text(mailButtonTitle)
-                            .font(.neo15)
-                            .foregroundStyle(.kuText)
-                            .kerning(-0.41)
-                    }
+                    
+                })
+                .disabled(userId.isEmpty)
                 
                 if isAuthCodeViewVisible {
-                    AuthenticationCodeView(userEmail: userId + StringLiterals.Login.email,
-                                           userSendingCount: userSendingCount)
+                    AuthenticationCodeView(userSendingCount: $userSendingCount, userEmail: userId + StringLiterals.Login.email)
                 }
                 
                 Spacer()
             }
             .padding(.top, 80)
             
+            
             LoginBottomSheetView(isPresented: $isBottomSheetPresented)
-        }
-        .onAppear {
-            if userId.isEmpty {
-                mailButtonClicked = false
-            }
         }
     }
     
@@ -104,6 +103,7 @@ struct LoginView: View {
                     if response.isSuccess {
                         if let count = response.response?.sendingCount {
                             userSendingCount = count
+                            print("🧡🧡\(count)번 시도했습니다.🧡🧡")
                         }
                     }
                     else {
