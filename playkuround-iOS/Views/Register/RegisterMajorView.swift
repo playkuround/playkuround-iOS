@@ -34,6 +34,7 @@ struct RegisterView: View {
                 
                 Text(StringLiterals.Register.college)
                     .font(.neo15)
+                    .kerning(-0.41)
                     .foregroundStyle(.kuText)
                 
                 // 단과대 Menu Button
@@ -66,6 +67,7 @@ struct RegisterView: View {
                 
                 Text(StringLiterals.Register.major)
                     .font(.neo15)
+                    .kerning(-0.41)
                     .foregroundStyle(.kuText)
                 
                 // 학과 Menu Button
@@ -100,21 +102,19 @@ struct RegisterView: View {
                 Spacer()
                 
                 // 다음 버튼
-                Button {
-                    // TODO: 다음으로 넘어가는 transition 구현
-                } label: {
-                    Image((selectedCollege != nil && selectedMajor != nil) ? .longButtonBlue : .longButtonGray)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: .infinity)
-                        .overlay {
-                            Text(StringLiterals.Register.next)
-                                .font(.neo15)
-                                .foregroundStyle(.kuText)
-                        }
-                }
-                // 버튼 애니메이션 제거
-                .buttonStyle(PlainButtonStyle())
+                Image((selectedCollege != nil && selectedMajor != nil) ? .longButtonBlue : .longButtonGray)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: .infinity)
+                    .overlay {
+                        Text(StringLiterals.Register.next)
+                            .font(.neo15)
+                            .kerning(-0.41)
+                            .foregroundStyle(.kuText)
+                    }
+                    .onTapGesture {
+                        // TODO: 다음으로 넘어가는 transition 구현
+                    }
             }
             .padding(.horizontal)
             .padding(.top, 30)

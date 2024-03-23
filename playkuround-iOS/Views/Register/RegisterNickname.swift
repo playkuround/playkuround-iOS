@@ -98,61 +98,36 @@ struct RegisterNickname: View {
                 
                 Spacer()
                 
-                Button {
-                    // 닉네임 올바른지 검사
-                    if !isNicknameChecked {
-                        isLoading = true
-                        APIManager.callGETAPI(endpoint: .availability, querys: ["nickname": nickname]) { result in
-                            switch result {
-                            case .success(let data):
-                                if let response = data as? BoolResponse {
-                                    print("nickname availability: ", response.response)
-                                    if response.response {
-                                        // TODO: 다음 뷰로 이동
-                                        isLoading = false
-                                        print("nickname is available, transfer to next view")
-                                        // TODO: 회원가입 프로세스 진행
-                                    } else {
-                                        isNicknameDuplicated = true
-                                        isNicknameChecked = true
-                                        isLoading = false
-                                    }
-                                } else {
-                                    isNicknameDuplicated = true
-                                    isNicknameChecked = true
-                                    isLoading = false
-                                }
-                            case .failure(let error):
-                                print("Error in View: \(error)")
-                                isNicknameDuplicated = true
-                                isNicknameChecked = true
-                                isLoading = false
-                            }
+                // 다음 버튼
+                // if 닉네임이 검사된 경우
+                //     if 닉네임이 중복된 경우 deactivate
+                //     else activate
+                // else (닉네임이 검사되기 전)
+                //     if 닉네임이 valid한 경우 active
+                //     else deactivate
+                Image(isNicknameChecked ? (isNicknameDuplicated ? .longButtonGray : .longButtonBlue) : (isNicknameVaild && nickname.count >= 2 ? .longButtonBlue : .longButtonGray))
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: .infinity)
+                    .overlay {
+                        if isLoading {
+                            // API 요청한 경우
+                            ProgressView()
+                        } else {
+                            Text(StringLiterals.Register.next)
+                                .font(.neo15)
+                                .kerning(-0.41)
+                                .foregroundStyle(.kuText)
                         }
                     }
-                } label: {
-                    // if 닉네임이 검사된 경우
-                    //     if 닉네임이 중복된 경우 deactivate
-                    //     else activate
-                    // else (닉네임이 검사되기 전)
-                    //     if 닉네임이 valid한 경우 active
-                    //     else deactivate
-                    Image(isNicknameChecked ? (isNicknameDuplicated ? .longButtonGray : .longButtonBlue) : (isNicknameVaild && nickname.count >= 2 ? .longButtonBlue : .longButtonGray))
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: .infinity)
-                        .overlay {
-                            if isLoading {
-                                // API 요청한 경우
-                                ProgressView()
-                            } else {
-                                Text(StringLiterals.Register.next)
-                                    .font(.neo15)
-                                    .foregroundStyle(.kuText)
-                            }
+                    .onTapGesture {
+                        // 닉네임 올바른지 검사
+                        if !isNicknameChecked && isNicknameVaild && nickname.count >= 2 {
+                            isLoading = true
+                            // 서버에 API 요청해서 닉네임 올바른지 검사
+                            checkNicknameAvailability()
                         }
-                }
-                .buttonStyle(PlainButtonStyle())
+                    }
             }
             .padding(.horizontal)
             .padding(.top, 30)
@@ -160,8 +135,39 @@ struct RegisterNickname: View {
         }
     }
     
+    // 서버 API 통해 닉네임이 사용 가능한지 검사
+    private func checkNicknameAvailability() {
+        APIManager.callGETAPI(endpoint: .availability, querys: ["nickname": nickname]) { result in
+            switch result {
+            case .success(let data):
+                if let response = data as? BoolResponse {
+                    print("nickname availability: ", response.response)
+                    if response.response {
+                        // TODO: 다음 뷰로 이동
+                        isLoading = false
+                        print("nickname is available, transfer to next view")
+                        // TODO: 회원가입 프로세스 진행
+                    } else {
+                        isNicknameDuplicated = true
+                        isNicknameChecked = true
+                        isLoading = false
+                    }
+                } else {
+                    isNicknameDuplicated = true
+                    isNicknameChecked = true
+                    isLoading = false
+                }
+            case .failure(let error):
+                print("Error in View: \(error)")
+                isNicknameDuplicated = true
+                isNicknameChecked = true
+                isLoading = false
+            }
+        }
+    }
+    
     // 닉네임 체크 (한글, 영어만 가능)
-    func nicknameValidate(_ input: String) -> Bool {
+    private func nicknameValidate(_ input: String) -> Bool {
         let pattern = "^[가-힣a-zA-Z0-9\\s]*$"
         if let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive) {
             let range = NSRange(location: 0, length: input.utf16.count)
