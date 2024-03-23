@@ -19,6 +19,11 @@ struct LoginView: View {
     // 인증시간 초과 바텀시트
     @State private var isBottomSheetPresented: Bool = false
     
+    @State private var isMaximumCount: Bool = false
+    @State private var userSendingCount: Int?
+    
+    @State private var isAuthCodeViewVisible: Bool = false
+    
     var body: some View {
         ZStack {
             Color.kuBackground.ignoresSafeArea(.all)
@@ -55,13 +60,13 @@ struct LoginView: View {
                     .onTapGesture {
                         mailButtonClicked.toggle()
                         
-                        if !userId.isEmpty && mailButtonClicked {
-                            callPOSTAPIemails(target: userId + StringLiterals.Login.email)
-                            mailButtonTitle = StringLiterals.Login.reRequestCode
+                        if mailButtonClicked {
+                            mailButtonTitle = userId.isEmpty ? StringLiterals.Login.requestCode : StringLiterals.Login.reRequestCode
                         }
-                        else {
-                            mailButtonTitle = StringLiterals.Login.requestCode
-                        }
+                        
+                        self.isAuthCodeViewVisible = true
+                        
+                        callPOSTAPIemails(target: userId + StringLiterals.Login.email)
                     }
                     .overlay {
                         Text(mailButtonTitle)
@@ -70,8 +75,9 @@ struct LoginView: View {
                             .kerning(-0.41)
                     }
                 
-                if mailButtonClicked && !userId.isEmpty {
-                    AuthenticationCodeView(userEmail: userId + StringLiterals.Login.email)
+                if isAuthCodeViewVisible {
+                    AuthenticationCodeView(userEmail: userId + StringLiterals.Login.email,
+                                           userSendingCount: userSendingCount)
                 }
                 
                 Spacer()
@@ -86,19 +92,34 @@ struct LoginView: View {
             }
         }
     }
-}
-
-private func callPOSTAPIemails(target: String) {
-    APIManager.callPOSTAPI(endpoint: .emails, 
-                           parameters: ["target" : target]) { result in
-        switch result {
-        case .success(let data):
-            print("Data received in View: \(data)")
-        case .failure(let error):
-            print("Error in View: \(error)")
+    
+    private func callPOSTAPIemails(target: String) {
+        APIManager.callPOSTAPI(endpoint: .emails,
+                               parameters: ["target" : target]) { result in
+            switch result {
+            case .success(let data):
+                print("Data received in View: \(data)")
+                
+                if let response = data as? APIResponse {
+                    if response.isSuccess {
+                        if let count = response.response?.sendingCount {
+                            userSendingCount = count
+                        }
+                    }
+                    else {
+                        if response.errorResponse?.code == "E004" {
+                            isMaximumCount = true
+                        }
+                    }
+                }
+            case .failure(let error):
+                print("Error in View: \(error)")
+            }
         }
     }
 }
+
+
 
 #Preview {
     LoginView()
