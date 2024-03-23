@@ -136,7 +136,7 @@ struct RegisterNickname: View {
     }
     
     // 서버 API 통해 닉네임이 사용 가능한지 검사
-    func checkNicknameAvailability() {
+    private func checkNicknameAvailability() {
         APIManager.callGETAPI(endpoint: .availability, querys: ["nickname": nickname]) { result in
             switch result {
             case .success(let data):
@@ -167,7 +167,7 @@ struct RegisterNickname: View {
     }
     
     // 닉네임 체크 (한글, 영어만 가능)
-    func nicknameValidate(_ input: String) -> Bool {
+    private func nicknameValidate(_ input: String) -> Bool {
         let pattern = "^[가-힣a-zA-Z0-9\\s]*$"
         if let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive) {
             let range = NSRange(location: 0, length: input.utf16.count)
