@@ -45,6 +45,7 @@ struct RegisterTermsView: View {
                                 .padding(.trailing, 10)
                             Text(StringLiterals.Register.agreeAllTerms)
                                 .font(.neo15)
+                                .kerning(-0.41)
                                 .foregroundStyle(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .kuText : .white)
                             Spacer()
                         }
@@ -75,6 +76,7 @@ struct RegisterTermsView: View {
                                 .padding(.trailing, 10)
                             Text(StringLiterals.Register.agreeServiceTerms)
                                 .font(.neo15)
+                                .kerning(-0.41)
                                 .foregroundStyle(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .kuText : .white)
                             Spacer()
                             Image(isServiceTermAgreed ? .rightBlackArrow : .rightWhiteArrow)
@@ -105,6 +107,7 @@ struct RegisterTermsView: View {
                                 .padding(.trailing, 10)
                             Text(StringLiterals.Register.agreePrivacyTerms)
                                 .font(.neo15)
+                                .kerning(-0.41)
                                 .foregroundStyle(isPrivacyTermAgreed ? .kuText : .white)
                             Spacer()
                             Image(isPrivacyTermAgreed ? .rightBlackArrow : .rightWhiteArrow)
@@ -136,6 +139,7 @@ struct RegisterTermsView: View {
                                 .padding(.trailing, 10)
                             Text(StringLiterals.Register.agreeLocationTerms)
                                 .font(.neo15)
+                                .kerning(-0.41)
                                 .foregroundStyle(isLocationTermAgreed ? .kuText : .white)
                             Spacer()
                             Image(isLocationTermAgreed ? .rightBlackArrow : .rightWhiteArrow)
@@ -165,6 +169,7 @@ struct RegisterTermsView: View {
                     .overlay {
                         Text(StringLiterals.Register.next)
                             .font(.neo15)
+                            .kerning(-0.41)
                             .foregroundStyle(.kuText)
                     }
                     .onTapGesture {

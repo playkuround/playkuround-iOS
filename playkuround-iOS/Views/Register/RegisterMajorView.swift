@@ -34,6 +34,7 @@ struct RegisterView: View {
                 
                 Text(StringLiterals.Register.college)
                     .font(.neo15)
+                    .kerning(-0.41)
                     .foregroundStyle(.kuText)
                 
                 // 단과대 Menu Button
@@ -66,6 +67,7 @@ struct RegisterView: View {
                 
                 Text(StringLiterals.Register.major)
                     .font(.neo15)
+                    .kerning(-0.41)
                     .foregroundStyle(.kuText)
                 
                 // 학과 Menu Button
@@ -107,6 +109,7 @@ struct RegisterView: View {
                     .overlay {
                         Text(StringLiterals.Register.next)
                             .font(.neo15)
+                            .kerning(-0.41)
                             .foregroundStyle(.kuText)
                     }
                     .onTapGesture {

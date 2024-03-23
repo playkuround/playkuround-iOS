@@ -116,6 +116,7 @@ struct RegisterNickname: View {
                         } else {
                             Text(StringLiterals.Register.next)
                                 .font(.neo15)
+                                .kerning(-0.41)
                                 .foregroundStyle(.kuText)
                         }
                     }
