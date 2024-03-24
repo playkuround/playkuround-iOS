@@ -19,6 +19,7 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
     // 사용자의 최신 위치 데이터
     @Published var userLatitude: Double = 0
     @Published var userLongitude: Double = 0
+    @Published var userHeading: Double = 0
     
     // MapViewModel Instance화 시 권한 요청하려면 아래 initializer 사용
     /* override init() {
@@ -27,15 +28,14 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
     }*/
     
     func requestLocationAuthorization() {
-        if locationManager == nil {
-            locationManager = CLLocationManager()
-            locationManager?.delegate = self
-        }
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
         
         DispatchQueue.global().async {
             guard let locationManager = self.locationManager else { return }
             locationManager.requestWhenInUseAuthorization()
             locationManager.startUpdatingLocation()
+            locationManager.startUpdatingHeading()
         }
     }
     
@@ -71,12 +71,14 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
     
     // 이 함수 호출 시 사용자 위치 정보 업데이트 시작
     func startUpdatingLocation() {
-         self.locationManager?.startUpdatingLocation()
+        self.locationManager?.startUpdatingLocation()
+        self.locationManager?.startUpdatingHeading()
     }
     
     // 이 함수 호출 시 사용자 위치 정보 업데이트 중지
     func stopUpdatingLocation() {
         self.locationManager?.stopUpdatingLocation()
+        self.locationManager?.stopUpdatingHeading()
     }
     
     // 사용자의 위치 정보 실시간으로 업데이트
@@ -84,6 +86,11 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         guard let location = locations.last else { return }
         userLatitude = location.coordinate.latitude
         userLongitude = location.coordinate.longitude
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading heading: CLHeading) {
+        userHeading = heading.trueHeading
     }
     
     // 사용자가 권한 거부 시 설정으로 직접 이동하는 함수
@@ -104,6 +111,7 @@ struct MapViewTestView: View {
         VStack(spacing: 20) {
             Text("isAuthorized: \(vm.isAuthorized.rawValue.description)")
             Text("Location: (\(vm.userLatitude), \(vm.userLongitude))")
+            Text("Heading: \(vm.userHeading)")
             
             Button("권한 체크 및 요청") {
                 // 위치 권한 체크, 권한 없는 경우 요청
