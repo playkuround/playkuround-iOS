@@ -23,6 +23,7 @@
 		0C7FE6992BB1259800D94162 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE6982BB1259800D94162 /* NetworkErrorView.swift */; };
 		0C7FE69B2BB1290A00D94162 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE69A2BB1290A00D94162 /* LoadingView.swift */; };
 		0C7FE6A12BB1983A00D94162 /* AnimationImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */; };
+		0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */; };
 		0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD06A282BAB459500845B24 /* RegisterTermsView.swift */; };
 		C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */; };
 		C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4042BA7149A00C0BFDA /* SoundManager.swift */; };
@@ -82,6 +83,7 @@
 		0C7FE6982BB1259800D94162 /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
 		0C7FE69A2BB1290A00D94162 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationImages.swift; sourceTree = "<group>"; };
+		0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		0CD06A282BAB459500845B24 /* RegisterTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTermsView.swift; sourceTree = "<group>"; };
 		C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCustomView.swift; sourceTree = "<group>"; };
 		C918F4042BA7149A00C0BFDA /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
@@ -192,6 +194,12 @@
 				0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */,
 			);
 			path = Images;
+		0CBB058E2BB07A0000EB56BE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		C918F4032BA7148800C0BFDA /* Managers */ = {
@@ -376,6 +384,7 @@
 				0C6AA4B92BA4A32A0032AB24 /* Extensions */,
 				0C6AA4C52BA566C40032AB24 /* Models */,
 				C953D2FC2BA4806900318869 /* Views */,
+				0CBB058E2BB07A0000EB56BE /* ViewModels */,
 				C953D2F72BA47B1C00318869 /* Info.plist */,
 				C953D2F12BA477F700318869 /* Resources */,
 				C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */,
@@ -517,6 +526,7 @@
 				C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */,
 				0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */,
 				C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */,
+				0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,6 +664,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "playkuround-iOS/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "플레이쿠라운드는 사용자의 위치를 기반으로 게임이 진행됩니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -685,6 +696,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "playkuround-iOS/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "플레이쿠라운드는 사용자의 위치를 기반으로 게임이 진행됩니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
