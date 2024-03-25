@@ -19,9 +19,9 @@ struct LoginView: View {
     // 인증시간 초과 바텀시트
     @State private var isBottomSheetPresented: Bool = false
     
+    // 인증코드 검사
     @State private var isMaximumCount: Bool = false
     @State private var userSendingCount: Int?
-    
     @State private var isAuthCodeViewVisible: Bool = false
     
     var body: some View {
@@ -55,7 +55,7 @@ struct LoginView: View {
                                     .padding(.leading, 190)
                             )
                     }
-
+                
                 Button(action: {
                     mailButtonClicked.toggle()
                     
@@ -63,9 +63,11 @@ struct LoginView: View {
                         mailButtonTitle = userId.isEmpty ? StringLiterals.Login.requestCode : StringLiterals.Login.reRequestCode
                     }
                     
-                    self.isAuthCodeViewVisible = true
-                    
                     callPOSTAPIemails(target: userId + StringLiterals.Login.email)
+                    
+                    if !isMaximumCount {
+                        self.isAuthCodeViewVisible = true
+                    }
                     
                 }, label: {
                     Image(userId.isEmpty ? .longButtonGray : .longButtonBlue)
@@ -79,18 +81,27 @@ struct LoginView: View {
                 })
                 .disabled(userId.isEmpty)
                 
+                if isMaximumCount {
+                    Text(StringLiterals.Login.countOver)
+                        .font(.pretendard12R)
+                        .kerning(-0.41)
+                        .foregroundStyle(.kuRed)
+                        .padding(.top, 7)
+                }
+                
                 if isAuthCodeViewVisible {
-                    AuthenticationCodeView(userSendingCount: $userSendingCount, userEmail: userId + StringLiterals.Login.email)
+                    AuthenticationCodeView(userSendingCount: $userSendingCount,
+                                           userEmail: userId + StringLiterals.Login.email)
                 }
                 
                 Spacer()
             }
             .padding(.top, 80)
             
-            
             LoginBottomSheetView(isPresented: $isBottomSheetPresented)
         }
     }
+    
     
     private func callPOSTAPIemails(target: String) {
         APIManager.callPOSTAPI(endpoint: .emails,
@@ -102,13 +113,19 @@ struct LoginView: View {
                 if let response = data as? APIResponse {
                     if response.isSuccess {
                         if let count = response.response?.sendingCount {
+                            isAuthCodeViewVisible = true
+                            isMaximumCount = false
+                
                             userSendingCount = count
                             print("🧡🧡\(count)번 시도했습니다.🧡🧡")
                         }
                     }
                     else {
+                        // 하루 인증 횟수를 초과했을 때
                         if response.errorResponse?.code == "E004" {
+                            isAuthCodeViewVisible = false
                             isMaximumCount = true
+                            mailButtonClicked = false
                         }
                     }
                 }

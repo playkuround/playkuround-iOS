@@ -16,6 +16,7 @@ struct AuthenticationCodeView: View {
     @State private var authButtonClicked: Bool = false
     
     @State private var isAuthCodeWrong: Bool = false
+    
     @State private var isEmailValid: Bool = false
     @State private var isEmailSuccess: Bool = false
     @State private var isCountVisible: Bool = false
@@ -47,7 +48,7 @@ struct AuthenticationCodeView: View {
                         .kerning(-0.41)
                         .padding(.leading, 20)
                     
-                    AuthenticationTimerView()
+                    AuthenticationTimer(authButtonClicked: $authButtonClicked)
                         .padding(.leading, 250)
                 }
                 .padding(.top, 46)
@@ -69,6 +70,7 @@ struct AuthenticationCodeView: View {
             })
             .disabled(authCode.isEmpty)
             
+            // 유저의 남은 인증 횟수 확인
             if let temp = userSendingCount {
                 let calculatedValue = 5 - temp
                 
@@ -99,18 +101,11 @@ struct AuthenticationCodeView: View {
                     if response.isSuccess {
                         // 회원가입뷰로 전환
                         isAuthCodeWrong = false
-                        
                     }
                     else {
-                        // 인증 횟수 몇번 남았습니다.
-                        
                         // 잘못된 인증코드를 입력했을 때
                         if response.errorResponse?.code == "E005" {
                             isAuthCodeWrong = true
-                        }
-                        
-                        if response.response?.sendingCount == 5 {
-                            // 인증 메일 전송 횟수를 초과하였습니다.
                         }
                     }
                 }
