@@ -194,6 +194,8 @@
 				0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
 		0CBB058E2BB07A0000EB56BE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
