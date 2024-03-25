@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+enum LoadingColor {
+    case white
+    case black
+}
+
 struct LoadingView: View {
     let loadingColor: LoadingColor
     
@@ -22,6 +27,7 @@ struct LoadingView: View {
     }
 }
 
+// 로딩 이미지 애니메이션화
 struct LoadingImage: View {
     let loadingColor: LoadingColor
     
@@ -46,8 +52,5 @@ struct LoadingImage: View {
 }
 
 #Preview {
-    ZStack {
-        Color.black.opacity(0.3)
-        LoadingView(loadingColor: .white)
-    }
+    LoadingView(loadingColor: .white)
 }

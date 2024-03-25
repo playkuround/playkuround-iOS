@@ -7,23 +7,6 @@
 
 import SwiftUI
 
-enum loadingWhiteImage: String, CaseIterable {
-    case loadingWhite1
-    case loadingWhite2
-    case loadingWhite3
-}
-
-enum loadingBlackImage: String, CaseIterable {
-    case loadingBlack1
-    case loadingBlack2
-    case loadingBlack3
-}
-
-enum LoadingColor {
-    case white
-    case black
-}
-
 struct NetworkErrorView: View {
     let loadingColor: LoadingColor
     
