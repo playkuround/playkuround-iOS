@@ -24,6 +24,8 @@ struct AuthenticationCodeView: View {
     @Binding var userSendingCount: Int?
     @Binding var isTimerFinished: Bool
     
+    @Binding var currentView: ViewType
+    
     // 유저 이메일 받아오는 값
     let userEmail: String
     
@@ -102,14 +104,42 @@ struct AuthenticationCodeView: View {
             case .success(let data):
                 print("Data received in View: \(data)")
                 
-                if let response = data as? APIResponse {
-                    if response.isSuccess {
+                if let apiResponse = data as? APIResponse {
+                    if apiResponse.isSuccess {
                         // 회원가입뷰로 전환
                         isAuthCodeWrong = false
+                        // TODO: 만약 AuthVerifyToken이 오면 회원가입 화면으로 전환
+                        // TODO: refreshToken과 accessToken이 오면 TokenManager에 저장 후 로그인
+                        if let response = apiResponse.response {
+                            // AuthVerifyToken이 발급된 경우
+                            // 저장 후 회원가입 뷰로 이동
+                            if let authVerifyToken = response.authVerifyToken {
+                                print("AuthVerifyToken: \(authVerifyToken)")
+                                
+                                TokenManager.setToken(tokenType: .authVerify, token: authVerifyToken)
+                                
+                                withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
+                                    currentView = .registerTerms
+                                }
+                            }
+                            
+                            // refresh, access token이 발급된 경우 홈으로 이동
+                            else if let refreshToken = response.refreshToken, let accessToken = response.accessToken {
+                                TokenManager.setToken(tokenType: .refresh, token: refreshToken)
+                                TokenManager.setToken(tokenType: .access, token: accessToken)
+                                
+                                // 저장한 이메일 제거
+                                UserDefaults.standard.removeObject(forKey: "email")
+                                
+                                withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
+                                    currentView = .home
+                                }
+                            }
+                        }
                     }
                     else {
                         // 잘못된 인증코드를 입력했을 때
-                        if response.errorResponse?.code == "E005" {
+                        if apiResponse.errorResponse?.code == "E005" {
                             isAuthCodeWrong = true
                         }
                     }

@@ -94,6 +94,7 @@ struct LoginView: View {
                 if isAuthCodeViewVisible {
                     AuthenticationCodeView(userSendingCount: $userSendingCount,
                                            isTimerFinished: $isBottomSheetPresented,
+                                           currentView: $currentView,
                                            userEmail: userId + StringLiterals.Login.email)
                 }
                 
