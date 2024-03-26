@@ -75,7 +75,7 @@ struct AuthenticationCodeView: View {
             if let temp = userSendingCount {
                 let calculatedValue = 5 - temp
                 
-                Text("오늘 인증 요청 횟수가 \(calculatedValue)회 남았습니다.")
+                Text(String(format: StringLiterals.Login.authRemained, "\(calculatedValue)"))
                     .font(.pretendard12R)
                     .foregroundStyle(.kuGray2)
                     .padding(.top, 7)
