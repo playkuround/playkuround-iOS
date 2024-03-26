@@ -12,15 +12,15 @@ struct MyPageView: View {
         ZStack {
             Color(.kuBackground).ignoresSafeArea(.all)
             
-            VStack(alignment: .leading) {
-                Text("건대콜럼버스스스님")
-                    .font(.neo20)
-                    .foregroundStyle(.kuText)
+            VStack {
+                MyPageProfileView()
                 
-                Text("컴퓨터공학부")
-                    .font(.neo15)
-                    .foregroundStyle(.kuText)
-                    .padding(.top, 8)
+                Rectangle()
+                    .fill(.kuBlue3)
+                    .frame(height: 11)
+                    .padding(.top, 17)
+                
+                Spacer()
             }
         }
     }

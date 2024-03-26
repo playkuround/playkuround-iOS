@@ -63,4 +63,9 @@ enum StringLiterals {
     enum Network {
         static let message = "네트워크 오류가 발생했습니다.\n잠시만 기다려주세요!"
     }
+    
+    enum MyPage {
+        static let currentScore = "현재 점수"
+        static let highestScore = "최고 점수"
+    }
 }
