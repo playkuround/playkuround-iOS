@@ -37,6 +37,7 @@
 		C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2FA2BA47F2C00318869 /* StringLiterals.swift */; };
 		C953D2FE2BA4807400318869 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2FD2BA4807400318869 /* LoginView.swift */; };
 		C953D3042BA49BB300318869 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D3032BA49BB300318869 /* MainView.swift */; };
+		C97543F02BB31CEC00CD6479 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543EF2BB31CEC00CD6479 /* MyPageView.swift */; };
 		C98078912BA8703000C04B2D /* buttonClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078902BA8703000C04B2D /* buttonClicked.mp3 */; };
 		C98078962BA870E400C04B2D /* timerButtonClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078932BA870E400C04B2D /* timerButtonClicked.mp3 */; };
 		C98078972BA870E400C04B2D /* timerCorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078942BA870E400C04B2D /* timerCorrect.mp3 */; };
@@ -98,6 +99,7 @@
 		C953D2FA2BA47F2C00318869 /* StringLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLiterals.swift; sourceTree = "<group>"; };
 		C953D2FD2BA4807400318869 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C953D3032BA49BB300318869 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		C97543EF2BB31CEC00CD6479 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		C98078902BA8703000C04B2D /* buttonClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonClicked.mp3; sourceTree = "<group>"; };
 		C98078932BA870E400C04B2D /* timerButtonClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timerButtonClicked.mp3; sourceTree = "<group>"; };
 		C98078942BA870E400C04B2D /* timerCorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timerCorrect.mp3; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 		C953D2FC2BA4806900318869 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C97543EE2BB31CE100CD6479 /* MyPage */,
 				0C7FE6952BB1256300D94162 /* Root */,
 				C953D3022BA49BAB00318869 /* Main */,
 				C953D2FF2BA4809800318869 /* Login */,
@@ -268,6 +271,14 @@
 				C953D3032BA49BB300318869 /* MainView.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		C97543EE2BB31CE100CD6479 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				C97543EF2BB31CEC00CD6479 /* MyPageView.swift */,
+			);
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		C98078922BA8705600C04B2D /* Timer */ = {
@@ -523,6 +534,7 @@
 				0C6AA4BD2BA553D80032AB24 /* APIManager.swift in Sources */,
 				0C6AA4CB2BA56B510032AB24 /* Major.swift in Sources */,
 				0C6396E82BAB4BB8008E046F /* RegisterNickname.swift in Sources */,
+				C97543F02BB31CEC00CD6479 /* MyPageView.swift in Sources */,
 				0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */,
 				0C7FE6992BB1259800D94162 /* NetworkErrorView.swift in Sources */,
 				C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */,
