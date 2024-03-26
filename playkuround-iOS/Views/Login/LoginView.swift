@@ -112,6 +112,9 @@ struct LoginView: View {
     }
     
     private func callPOSTAPIemails(target: String) {
+        // Save target email to UserDefaults
+        UserDefaults.standard.set(target, forKey: "email")
+        
         APIManager.callPOSTAPI(endpoint: .emails,
                                parameters: ["target" : target.lowercased()]) { result in
             switch result {
