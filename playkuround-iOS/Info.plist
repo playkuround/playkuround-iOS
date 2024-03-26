@@ -12,5 +12,16 @@
 		<string>NeoDunggeunmoPro-Regular.ttf</string>
 		<string>Pretendard-Regular.otf</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>kuBackground</string>
+		<key>UIImageName</key>
+		<string>loadingIcon</string>
+		<key>UIImageRespectsSafeAreaInsets</key>
+		<true/>
+		<key>UILaunchScreen</key>
+		<string></string>
+	</dict>
 </dict>
 </plist>
