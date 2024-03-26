@@ -115,7 +115,16 @@ struct RegisterView: View {
                             .foregroundStyle(.kuText)
                     }
                     .onTapGesture {
-                        // TODO: 다음으로 넘어가는 transition 구현
+                        if let selectedMajor = selectedMajor {
+                            let major = selectedMajor.name
+                            
+                            // UserDefaults에 저장
+                            UserDefaults.standard.set(major, forKey: "major")
+                            
+                            withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
+                                currentView = .registerNickname
+                            }
+                        }
                     }
             }
             .padding(.horizontal)
@@ -239,6 +248,5 @@ struct RegisterView: View {
 }
 
 #Preview {
-    RegisterView()
     RegisterView(currentView: .constant(.registerMajor))
 }
