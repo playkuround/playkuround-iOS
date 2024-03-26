@@ -11,14 +11,9 @@ struct LoginBottomSheetView: View {
     @Binding var isPresented: Bool
     
     var body: some View {
-        ZStack(alignment: .bottom) {
+        VStack {
             if (isPresented) {
-                Color.black
-                    .opacity(0.3)
-                    .ignoresSafeArea()
-                    .onTapGesture {
-                        isPresented.toggle()
-                    }
+                Spacer()
                 
                 VStack {
                     Text(StringLiterals.Login.BottomSheet.title)
@@ -46,7 +41,6 @@ struct LoginBottomSheetView: View {
                         .padding(.top, 41)
                 }
                 .padding(.bottom, 79)
-                .transition(.move(edge: .bottom))
                 .background(
                     Image(.bottomSheetBackground)
                         .resizable()
@@ -55,7 +49,6 @@ struct LoginBottomSheetView: View {
             }
         }
         .ignoresSafeArea()
-        .animation(.easeInOut, value: isPresented)
     }
 }
 
