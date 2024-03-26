@@ -20,7 +20,30 @@ struct MyPageView: View {
                     .frame(height: 11)
                     .padding(.top, 17)
                 
-                Spacer()
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        MyPageListSectionView()
+                            .padding(.top, 24)
+                        
+                        Rectangle()
+                            .fill(.kuBlue3)
+                            .frame(height: 1)
+                            .padding(.top, 8)
+                        
+                        MyPageListSectionView()
+                            .padding(.top, 24)
+                        
+                        Rectangle()
+                            .fill(.kuBlue3)
+                            .frame(height: 1)
+                            .padding(.top, 8)
+                        
+                        MyPageListSectionView()
+                            .padding(.top, 24)
+                    }
+                }
+                .padding(.horizontal, 20)
+                .scrollIndicators(.hidden)
             }
         }
     }

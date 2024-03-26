@@ -39,6 +39,8 @@
 		C953D3042BA49BB300318869 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D3032BA49BB300318869 /* MainView.swift */; };
 		C97543F02BB31CEC00CD6479 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543EF2BB31CEC00CD6479 /* MyPageView.swift */; };
 		C97543F22BB3222F00CD6479 /* MyPageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543F12BB3222F00CD6479 /* MyPageProfileView.swift */; };
+		C97543F42BB3244800CD6479 /* MyPageListSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543F32BB3244800CD6479 /* MyPageListSectionView.swift */; };
+		C97543F62BB325A300CD6479 /* MyPageListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543F52BB325A300CD6479 /* MyPageListRowView.swift */; };
 		C98078912BA8703000C04B2D /* buttonClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078902BA8703000C04B2D /* buttonClicked.mp3 */; };
 		C98078962BA870E400C04B2D /* timerButtonClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078932BA870E400C04B2D /* timerButtonClicked.mp3 */; };
 		C98078972BA870E400C04B2D /* timerCorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078942BA870E400C04B2D /* timerCorrect.mp3 */; };
@@ -102,6 +104,8 @@
 		C953D3032BA49BB300318869 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C97543EF2BB31CEC00CD6479 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		C97543F12BB3222F00CD6479 /* MyPageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProfileView.swift; sourceTree = "<group>"; };
+		C97543F32BB3244800CD6479 /* MyPageListSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListSectionView.swift; sourceTree = "<group>"; };
+		C97543F52BB325A300CD6479 /* MyPageListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListRowView.swift; sourceTree = "<group>"; };
 		C98078902BA8703000C04B2D /* buttonClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonClicked.mp3; sourceTree = "<group>"; };
 		C98078932BA870E400C04B2D /* timerButtonClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timerButtonClicked.mp3; sourceTree = "<group>"; };
 		C98078942BA870E400C04B2D /* timerCorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timerCorrect.mp3; sourceTree = "<group>"; };
@@ -280,6 +284,8 @@
 			children = (
 				C97543EF2BB31CEC00CD6479 /* MyPageView.swift */,
 				C97543F12BB3222F00CD6479 /* MyPageProfileView.swift */,
+				C97543F32BB3244800CD6479 /* MyPageListSectionView.swift */,
+				C97543F52BB325A300CD6479 /* MyPageListRowView.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -517,6 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C6AA4BB2BA4A33E0032AB24 /* NetworkManager.swift in Sources */,
+				C97543F42BB3244800CD6479 /* MyPageListSectionView.swift in Sources */,
 				C918F4072BA7177800C0BFDA /* HapticManager.swift in Sources */,
 				0C6AA4C72BA566CE0032AB24 /* Badge.swift in Sources */,
 				C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */,
@@ -543,6 +550,7 @@
 				0C7FE6992BB1259800D94162 /* NetworkErrorView.swift in Sources */,
 				C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */,
 				0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */,
+				C97543F62BB325A300CD6479 /* MyPageListRowView.swift in Sources */,
 				C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */,
 				0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */,
 			);
