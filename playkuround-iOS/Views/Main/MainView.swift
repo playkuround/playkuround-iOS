@@ -7,13 +7,6 @@
 
 import SwiftUI
 
-enum mainBackgroundImage: String, CaseIterable {
-    case mainBackground1
-    case mainBackground2
-    case mainBackground3
-    case mainBackground4
-}
-
 struct MainView: View {
     var body: some View {
         NavigationStack {

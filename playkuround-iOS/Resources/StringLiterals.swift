@@ -59,4 +59,8 @@ enum StringLiterals {
         static let major = "학과"
         static let termsErrorMessage = "이용약관을 불러올 수 없습니다."
     }
+    
+    enum Network {
+        static let message = "네트워크 오류가 발생했습니다.\n잠시만 기다려주세요!"
+    }
 }
