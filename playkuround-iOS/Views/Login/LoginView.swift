@@ -60,7 +60,7 @@ struct LoginView: View {
                 
                 Button(action: {
                     mailButtonClicked.toggle()
-
+                    
                     if mailButtonClicked {
                         mailButtonTitle = userId.isEmpty ? StringLiterals.Login.requestCode : StringLiterals.Login.reRequestCode
                     }
@@ -70,7 +70,6 @@ struct LoginView: View {
                     if !isMaximumCount {
                         self.isAuthCodeViewVisible = true
                     }
-                    
                 }, label: {
                     Image(userId.isEmpty ? .longButtonGray : .longButtonBlue)
                         .overlay {
@@ -79,7 +78,6 @@ struct LoginView: View {
                                 .foregroundStyle(.kuText)
                                 .kerning(-0.41)
                         }
-                    
                 })
                 .disabled(userId.isEmpty)
                 
@@ -101,18 +99,15 @@ struct LoginView: View {
             }
             .padding(.top, 80)
             
-            
             // 인증 시간 초과 되었을 때
             if isBottomSheetPresented {
                 LoginBottomSheetView(isPresented: $isBottomSheetPresented)
                     .onAppear {
                         isAuthCodeViewVisible = false
-                        
                     }
             }
         }
     }
-    
     
     private func callPOSTAPIemails(target: String) {
         APIManager.callPOSTAPI(endpoint: .emails,
@@ -144,7 +139,6 @@ struct LoginView: View {
         }
     }
 }
-
 
 
 #Preview {
