@@ -19,6 +19,8 @@ struct RegisterNickname: View {
     // 서버 요청 대기
     @State private var isLoading: Bool = false
     
+    @Binding var currentView: ViewType
+    
     var body: some View {
         ZStack {
             Color.kuBackground.ignoresSafeArea(.all)
@@ -181,4 +183,5 @@ struct RegisterNickname: View {
 
 #Preview {
     RegisterNickname()
+    RegisterNickname(currentView: .constant(.registerNickname))
 }

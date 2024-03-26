@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
+    @Binding var currentView: ViewType
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -50,4 +52,5 @@ struct MainView: View {
 
 #Preview {
     MainView()
+    MainView(currentView: .constant(.main))
 }

@@ -16,6 +16,8 @@ struct RegisterView: View {
     @State private var selectedCollege: College? = nil
     @State private var selectedMajor: Major? = nil
     
+    @Binding var currentView: ViewType
+    
     var body: some View {
         ZStack {
             Color.kuBackground.ignoresSafeArea(.all)
@@ -238,4 +240,5 @@ struct RegisterView: View {
 
 #Preview {
     RegisterView()
+    RegisterView(currentView: .constant(.registerMajor))
 }

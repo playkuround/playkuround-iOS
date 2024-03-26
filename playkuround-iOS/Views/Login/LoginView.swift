@@ -24,6 +24,8 @@ struct LoginView: View {
     @State private var userSendingCount: Int?
     @State private var isAuthCodeViewVisible: Bool = false
     
+    @Binding var currentView: ViewType
+    
     var body: some View {
         ZStack {
             Color.kuBackground.ignoresSafeArea(.all)
@@ -142,5 +144,5 @@ struct LoginView: View {
 
 
 #Preview {
-    LoginView()
+    LoginView(currentView: .constant(.login))
 }

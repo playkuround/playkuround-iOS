@@ -18,6 +18,8 @@ struct RegisterTermsView: View {
     @State private var isPrivacyTermsViewPresented: Bool = false
     @State private var isLocationTermsViewPresented: Bool = false
     
+    @Binding var currentView: ViewType
+    
     var body: some View {
         ZStack {
             Color.kuBackground.ignoresSafeArea(.all)
@@ -194,4 +196,5 @@ struct RegisterTermsView: View {
 
 #Preview {
     RegisterTermsView()
+    RegisterTermsView(currentView: .constant(.registerTerms))
 }
