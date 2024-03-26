@@ -175,7 +175,10 @@ struct RegisterTermsView: View {
                             .foregroundStyle(.kuText)
                     }
                     .onTapGesture {
-                        // TODO: 다음 버튼 눌렀을 때 구현
+                        // 다음 뷰로 이동
+                        withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
+                            currentView = .registerMajor
+                        }
                     }
             }
             .padding(.horizontal)
@@ -195,6 +198,5 @@ struct RegisterTermsView: View {
 }
 
 #Preview {
-    RegisterTermsView()
     RegisterTermsView(currentView: .constant(.registerTerms))
 }
