@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AuthenticationTimer: View {
     @State var timeRemained : Int = 3
-    @State var isTimerFinished: Bool = false
+    @Binding var isTimerFinished: Bool
     @Binding var authButtonClicked: Bool
     
     private let date = Date()
@@ -32,9 +32,7 @@ struct AuthenticationTimer: View {
                 calculateTimeRemaining()
             }
             .onChange(of: authButtonClicked) { _ in
-                if authButtonClicked {
-                    timeRemained = 3 // 또는 다른 초기 값으로 설정
-                }
+                timeRemained = 3
             }
     }
     

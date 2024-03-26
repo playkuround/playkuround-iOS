@@ -58,7 +58,7 @@ struct LoginView: View {
                 
                 Button(action: {
                     mailButtonClicked.toggle()
-                    
+
                     if mailButtonClicked {
                         mailButtonTitle = userId.isEmpty ? StringLiterals.Login.requestCode : StringLiterals.Login.reRequestCode
                     }
@@ -91,6 +91,7 @@ struct LoginView: View {
                 
                 if isAuthCodeViewVisible {
                     AuthenticationCodeView(userSendingCount: $userSendingCount,
+                                           isTimerFinished: $isBottomSheetPresented,
                                            userEmail: userId + StringLiterals.Login.email)
                 }
                 
@@ -98,7 +99,15 @@ struct LoginView: View {
             }
             .padding(.top, 80)
             
-            LoginBottomSheetView(isPresented: $isBottomSheetPresented)
+            
+            // 인증 시간 초과 되었을 때
+            if isBottomSheetPresented {
+                LoginBottomSheetView(isPresented: $isBottomSheetPresented)
+                    .onAppear {
+                        isAuthCodeViewVisible = false
+                        
+                    }
+            }
         }
     }
     
@@ -115,9 +124,7 @@ struct LoginView: View {
                         if let count = response.response?.sendingCount {
                             isAuthCodeViewVisible = true
                             isMaximumCount = false
-                
                             userSendingCount = count
-                            print("🧡🧡\(count)번 시도했습니다.🧡🧡")
                         }
                     }
                     else {

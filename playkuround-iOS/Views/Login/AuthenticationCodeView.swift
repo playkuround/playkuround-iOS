@@ -22,6 +22,7 @@ struct AuthenticationCodeView: View {
     @State private var isCountVisible: Bool = false
     
     @Binding var userSendingCount: Int?
+    @Binding var isTimerFinished: Bool
     
     // 유저 이메일 받아오는 값
     let userEmail: String
@@ -48,7 +49,7 @@ struct AuthenticationCodeView: View {
                         .kerning(-0.41)
                         .padding(.leading, 20)
                     
-                    AuthenticationTimer(authButtonClicked: $authButtonClicked)
+                    AuthenticationTimer(isTimerFinished: $isTimerFinished, authButtonClicked: $authButtonClicked)
                         .padding(.leading, 250)
                 }
                 .padding(.top, 46)
