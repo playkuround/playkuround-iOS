@@ -47,13 +47,15 @@ struct LoginView: View {
                             .kerning(-0.41)
                             .focused($focusField)
                             .padding(.leading, 20)
-                            .overlay(
+                            .overlay {
                                 Text(StringLiterals.Login.email)
                                     .font(.pretendard15R)
                                     .foregroundStyle(.gray)
                                     .opacity(userId.isEmpty && !focusField ? 0 : 1)
                                     .padding(.leading, 190)
-                            )
+                            }
+                            .autocorrectionDisabled(true)
+                            .textInputAutocapitalization(.never)
                     }
                 
                 Button(action: {

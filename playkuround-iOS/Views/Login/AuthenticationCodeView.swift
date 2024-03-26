@@ -48,6 +48,10 @@ struct AuthenticationCodeView: View {
                         .font(.pretendard15R)
                         .kerning(-0.41)
                         .padding(.leading, 20)
+                        .keyboardType(.numberPad)
+                        .onChange(of: authCode) { newValue in
+                            authCode = String(newValue.filter { "0123456789".contains($0) }.prefix(6))
+                        }
                     
                     AuthenticationTimer(isTimerFinished: $isTimerFinished, authButtonClicked: $authButtonClicked)
                         .padding(.leading, 250)
