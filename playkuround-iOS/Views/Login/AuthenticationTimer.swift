@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AuthenticationTimer: View {
-    @State var timeRemained : Int = 3
+    @State var timeRemained : Int = 300
     @Binding var isTimerFinished: Bool
     @Binding var authButtonClicked: Bool
     
@@ -32,13 +32,13 @@ struct AuthenticationTimer: View {
                 calculateTimeRemaining()
             }
             .onChange(of: authButtonClicked) { _ in
-                timeRemained = 3
+                timeRemained = 300
             }
     }
     
     private func calculateTimeRemaining() {
         let calendar = Calendar.current
-        let targetTime : Date = calendar.date(byAdding: .second, value: 3, to: date, wrappingComponents: false) ?? Date()
+        let targetTime : Date = calendar.date(byAdding: .second, value: 300, to: date, wrappingComponents: false) ?? Date()
         let remainSeconds = Int(targetTime.timeIntervalSince(date))
         self.timeRemained = remainSeconds
     }
