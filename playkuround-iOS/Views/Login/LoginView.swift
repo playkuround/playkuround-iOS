@@ -111,7 +111,7 @@ struct LoginView: View {
     
     private func callPOSTAPIemails(target: String) {
         APIManager.callPOSTAPI(endpoint: .emails,
-                               parameters: ["target" : target]) { result in
+                               parameters: ["target" : target.lowercased()]) { result in
             switch result {
             case .success(let data):
                 print("Data received in View: \(data)")
