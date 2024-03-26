@@ -1,5 +1,5 @@
 //
-//  AuthenticationTimerView.swift
+//  AuthenticationTimer.swift
 //  playkuround-iOS
 //
 //  Created by Seoyeon Choi on 3/18/24.
@@ -7,8 +7,11 @@
 
 import SwiftUI
 
-struct AuthenticationTimerView: View {
+struct AuthenticationTimer: View {
     @State var timeRemained : Int = 300
+    @Binding var isTimerFinished: Bool
+    @Binding var authButtonClicked: Bool
+    
     private let date = Date()
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -22,10 +25,14 @@ struct AuthenticationTimerView: View {
                 }
                 else {
                     timer.upstream.connect().cancel()
+                    isTimerFinished = true
                 }
             }
             .onAppear {
                 calculateTimeRemaining()
+            }
+            .onChange(of: authButtonClicked) { _ in
+                timeRemained = 300
             }
     }
     

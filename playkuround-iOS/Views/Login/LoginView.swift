@@ -17,7 +17,12 @@ struct LoginView: View {
     @State private var mailButtonClicked: Bool = false
     
     // 인증시간 초과 바텀시트
-    @State private var isBottomSheetShown: Bool = false
+    @State private var isBottomSheetPresented: Bool = false
+    
+    // 인증코드 검사
+    @State private var isMaximumCount: Bool = false
+    @State private var userSendingCount: Int?
+    @State private var isAuthCodeViewVisible: Bool = false
     
     var body: some View {
         ZStack {
@@ -42,51 +47,99 @@ struct LoginView: View {
                             .kerning(-0.41)
                             .focused($focusField)
                             .padding(.leading, 20)
-                            .overlay(
+                            .overlay {
                                 Text(StringLiterals.Login.email)
                                     .font(.pretendard15R)
                                     .foregroundStyle(.gray)
                                     .opacity(userId.isEmpty && !focusField ? 0 : 1)
                                     .padding(.leading, 190)
-                            )
+                            }
+                            .autocorrectionDisabled(true)
+                            .textInputAutocapitalization(.never)
                     }
                 
-                Image(userId.isEmpty ? .longButtonGray : .longButtonBlue)
-                    .onTapGesture {
-                        mailButtonClicked.toggle()
-                        
-                        if !userId.isEmpty && mailButtonClicked {
-                            mailButtonTitle = StringLiterals.Login.reRequestCode
-                        }
-                        else {
-                            mailButtonTitle = StringLiterals.Login.requestCode
-                        }
+                Button(action: {
+                    mailButtonClicked.toggle()
+                    
+                    if mailButtonClicked {
+                        mailButtonTitle = userId.isEmpty ? StringLiterals.Login.requestCode : StringLiterals.Login.reRequestCode
                     }
-                    .overlay {
-                        Text(mailButtonTitle)
-                            .font(.neo15)
-                            .foregroundStyle(.kuText)
-                            .kerning(-0.41)
+                    
+                    callPOSTAPIemails(target: userId + StringLiterals.Login.email)
+                    
+                    if !isMaximumCount {
+                        self.isAuthCodeViewVisible = true
                     }
+                }, label: {
+                    Image(userId.isEmpty ? .longButtonGray : .longButtonBlue)
+                        .overlay {
+                            Text(mailButtonTitle)
+                                .font(.neo15)
+                                .foregroundStyle(.kuText)
+                                .kerning(-0.41)
+                        }
+                })
+                .disabled(userId.isEmpty)
                 
-                if mailButtonClicked && !userId.isEmpty {
-                    AuthenticationCodeView()
+                if isMaximumCount {
+                    Text(StringLiterals.Login.countOver)
+                        .font(.pretendard12R)
+                        .kerning(-0.41)
+                        .foregroundStyle(.kuRed)
+                        .padding(.top, 7)
+                }
+                
+                if isAuthCodeViewVisible {
+                    AuthenticationCodeView(userSendingCount: $userSendingCount,
+                                           isTimerFinished: $isBottomSheetPresented,
+                                           userEmail: userId + StringLiterals.Login.email)
                 }
                 
                 Spacer()
             }
             .padding(.top, 80)
             
-            LoginBottomSheetView(isShown: $isBottomSheetShown)
-            
+            // 인증 시간 초과 되었을 때
+            if isBottomSheetPresented {
+                LoginBottomSheetView(isPresented: $isBottomSheetPresented)
+                    .onAppear {
+                        isAuthCodeViewVisible = false
+                    }
+            }
         }
-        .onAppear {
-            if userId.isEmpty {
-                mailButtonClicked = false
+    }
+    
+    private func callPOSTAPIemails(target: String) {
+        APIManager.callPOSTAPI(endpoint: .emails,
+                               parameters: ["target" : target.lowercased()]) { result in
+            switch result {
+            case .success(let data):
+                print("Data received in View: \(data)")
+                
+                if let response = data as? APIResponse {
+                    if response.isSuccess {
+                        if let count = response.response?.sendingCount {
+                            isAuthCodeViewVisible = true
+                            isMaximumCount = false
+                            userSendingCount = count
+                        }
+                    }
+                    else {
+                        // 하루 인증 횟수를 초과했을 때
+                        if response.errorResponse?.code == "E004" {
+                            isAuthCodeViewVisible = false
+                            isMaximumCount = true
+                            mailButtonClicked = false
+                        }
+                    }
+                }
+            case .failure(let error):
+                print("Error in View: \(error)")
             }
         }
     }
 }
+
 
 #Preview {
     LoginView()

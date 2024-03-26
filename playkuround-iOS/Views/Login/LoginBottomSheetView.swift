@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct LoginBottomSheetView: View {
-    @Binding var isShown: Bool
+    @Binding var isPresented: Bool
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            if (isShown) {
+            if (isPresented) {
                 Color.black
                     .opacity(0.3)
                     .ignoresSafeArea()
                     .onTapGesture {
-                        isShown.toggle()
+                        isPresented.toggle()
                     }
                 
                 VStack {
@@ -41,7 +41,7 @@ struct LoginBottomSheetView: View {
                                 .kerning(-0.41)
                         }
                         .onTapGesture {
-                            isShown.toggle()
+                            isPresented.toggle()
                         }
                         .padding(.top, 41)
                 }
@@ -55,7 +55,7 @@ struct LoginBottomSheetView: View {
             }
         }
         .ignoresSafeArea()
-        .animation(.easeInOut, value: isShown)
+        .animation(.easeInOut, value: isPresented)
     }
 }
 

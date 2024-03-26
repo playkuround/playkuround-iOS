@@ -26,8 +26,9 @@ enum StringLiterals {
         
         static let authenticationCode = "인증코드"
         static let authentication = "인증하기"
-        static let authIncorrect = "입력하신 인증코드가 일치하지 않습니다."
-        static let authRemainingNumber = "오늘 인증 요청 횟수가 3회 남았습니다."
+        static let authRemained = "오늘 인증 요청 횟수가 %@회 남았습니다."
+        static let authIncorrect = "입력한 인증코드가 일치하지 않습니다."
+        static let countOver = "금일 해당 이메일로 인증 가능한 횟수가 초과되었습니다."
         
         enum BottomSheet {
             static let title = "인증코드 입력 시간 초과"
