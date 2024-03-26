@@ -68,5 +68,24 @@ enum StringLiterals {
     enum MyPage {
         static let currentScore = "현재 점수"
         static let highestScore = "최고 점수"
+        
+        enum My {
+            static let title = "마이"
+            static let story = "스토리 다시보기"
+            static let logout = "로그아웃"
+        }
+        
+        enum Shortcut {
+            static let title = "바로가기"
+            static let instagram = "플레이쿠라운드 인스타그램"
+            static let cheer = "플쿠팀 응원하기"
+        }
+        
+        enum Instruction {
+            static let title = "이용안내"
+            static let version = "앱 버전"
+            static let privacy = "개인정보 처리 방침"
+            static let terms = "이용약관"
+        }
     }
 }

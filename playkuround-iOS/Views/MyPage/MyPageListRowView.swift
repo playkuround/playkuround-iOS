@@ -14,6 +14,6 @@ struct MyPageListRowView: View {
         Text(rowTitle)
             .font(.pretendard15R)
             .foregroundStyle(.kuText)
-            .padding(.vertical, 13)
+            .padding(.vertical, 10)
     }
 }
