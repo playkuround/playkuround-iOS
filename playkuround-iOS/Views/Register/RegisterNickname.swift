@@ -71,6 +71,8 @@ struct RegisterNickname: View {
                             }
                             
                             TextField("", text: $nickname)
+                                .autocorrectionDisabled(true)
+                                .textInputAutocapitalization(.never)
                                 .font(.pretendard15R)
                                 .foregroundStyle(.kuText)
                                 .padding()
