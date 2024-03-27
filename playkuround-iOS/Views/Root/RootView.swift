@@ -8,46 +8,41 @@
 import SwiftUI
 
 struct RootView: View {
-    // current presenting view type
-    @State private var currentView: ViewType = .main
-    
-    // loading
-    @State private var isLoading: Bool = true
-    
-    // Network Manager Instance
-    @StateObject private var networkManager = NetworkManager()
     @ObservedObject var viewModel: RootViewModel = RootViewModel()
     
     var body: some View {
         ZStack {
-            switch currentView {
+            switch viewModel.currentView {
             case .main:
-                MainView(currentView: $currentView)
+                MainView(viewModel: viewModel)
             case .login:
-                LoginView(currentView: $currentView)
+                LoginView(viewModel: viewModel)
             case .registerTerms:
-                RegisterTermsView(currentView: $currentView)
+                RegisterTermsView(viewModel: viewModel)
             case .registerMajor:
-                RegisterView(currentView: $currentView)
+                RegisterView(viewModel: viewModel)
             case .registerNickname:
-                RegisterNickname(currentView: $currentView)
+                RegisterNickname(viewModel: viewModel)
             case .home:
                 // 임시 구현
                 Text("Home")
+            case .myPage:
+                // 임시 구현
+                Text("My Page")
             }
             
             // network error
-            if !networkManager.isConnected {
+            if !viewModel.networkManager.isConnected {
                 NetworkErrorView(loadingColor: .white)
             }
             // loading
-            else if isLoading {
+            else if viewModel.isLoading {
                 LoadingView(loadingColor: .white)
             }
         }
         .onAppear {
             // 확인 작업
-            isLoading = false
+            viewModel.isLoading = false
         }
     }
     
@@ -58,22 +53,6 @@ struct RootView: View {
         }
         return ""
     }
-}
-
-enum ViewType {
-    // main
-    case main
-    
-    // login
-    case login
-    
-    // register
-    case registerTerms
-    case registerMajor
-    case registerNickname
-    
-    // home
-    case home
 }
 
 #Preview {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @Binding var currentView: ViewType
+    @ObservedObject var viewModel: RootViewModel
     
     var body: some View {
         NavigationStack {
@@ -47,9 +47,7 @@ struct MainView: View {
                             if TokenManager.token(tokenType: .refresh).isEmpty || TokenManager.token(tokenType: .access).isEmpty {
                                 // 로그인 화면으로 이동
                                 print("token is empty, transition to login view")
-                                withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-                                    currentView = .login
-                                }
+                                viewModel.currentView = .login
                             }
                             // 토큰이 존재하는 경우 valid한지 검사
                             else {
@@ -79,20 +77,16 @@ struct MainView: View {
                             TokenManager.setToken(tokenType: .access, token: accessToken)
                             TokenManager.setToken(tokenType: .refresh, token: refreshToken)
                             
-                            withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-                                currentView = .home
-                            }
+                            // 뷰 전환
+                            viewModel.transition(to: .home)
                         } else {
                             // 오류 발생 시 로그인으로 이동
-                            withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-                                currentView = .login
-                            }
+                            // 뷰 전환
+                            viewModel.transition(to: .login)
                         }
                     } else {
                         // 오류 발생 시 로그인으로 이동
-                        withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-                            currentView = .login
-                        }
+                        viewModel.transition(to: .login)
                     }
                 }
             case .failure(let error):
@@ -100,14 +94,13 @@ struct MainView: View {
                 print("stored refresh token is fired. transition to login view")
                 print(error)
                 // 오류 발생 시 로그인으로 이동
-                withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-                    currentView = .login
-                }
+                // 뷰 전환
+                viewModel.transition(to: .login)
             }
         }
     }
 }
 
 #Preview {
-    MainView(currentView: .constant(.main))
+    MainView(viewModel: RootViewModel())
 }

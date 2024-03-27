@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RegisterTermsView: View {
+    @ObservedObject var viewModel: RootViewModel
+    
     // 각 이용약관 동의 여부
     @State private var isServiceTermAgreed: Bool = false
     @State private var isPrivacyTermAgreed: Bool = false
@@ -17,8 +19,6 @@ struct RegisterTermsView: View {
     @State private var isServiceTermsViewPresented: Bool = false
     @State private var isPrivacyTermsViewPresented: Bool = false
     @State private var isLocationTermsViewPresented: Bool = false
-    
-    @Binding var currentView: ViewType
     
     var body: some View {
         ZStack {
@@ -176,9 +176,8 @@ struct RegisterTermsView: View {
                     }
                     .onTapGesture {
                         // 다음 뷰로 이동
-                        withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-                            currentView = .registerMajor
-                        }
+                        // 뷰 전환
+                        viewModel.transition(to: .registerMajor)
                     }
             }
             .padding(.horizontal)
@@ -198,5 +197,5 @@ struct RegisterTermsView: View {
 }
 
 #Preview {
-    RegisterTermsView(currentView: .constant(.registerTerms))
+    RegisterTermsView(viewModel: RootViewModel())
 }

@@ -32,7 +32,7 @@ struct NetworkErrorView: View {
 
 #Preview {
     ZStack {
-        MainView(currentView: .constant(.main))
+        MainView(viewModel: RootViewModel())
         NetworkErrorView(loadingColor: .white)
     }
 }

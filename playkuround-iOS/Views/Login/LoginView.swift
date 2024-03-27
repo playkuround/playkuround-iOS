@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
+    @ObservedObject var viewModel: RootViewModel
+    
     // 포탈 아이디
     @State private var userId: String = ""
     @FocusState private var focusField: Bool
@@ -23,8 +25,6 @@ struct LoginView: View {
     @State private var isMaximumCount: Bool = false
     @State private var userSendingCount: Int?
     @State private var isAuthCodeViewVisible: Bool = false
-    
-    @Binding var currentView: ViewType
     
     var body: some View {
         ZStack {
@@ -92,9 +92,9 @@ struct LoginView: View {
                 }
                 
                 if isAuthCodeViewVisible {
-                    AuthenticationCodeView(userSendingCount: $userSendingCount,
+                    AuthenticationCodeView(viewModel: viewModel, 
+                                           userSendingCount: $userSendingCount,
                                            isTimerFinished: $isBottomSheetPresented,
-                                           currentView: $currentView,
                                            userEmail: userId + StringLiterals.Login.email)
                 }
                 
@@ -157,5 +157,5 @@ struct LoginView: View {
 
 
 #Preview {
-    LoginView(currentView: .constant(.login))
+    LoginView(viewModel: RootViewModel())
 }

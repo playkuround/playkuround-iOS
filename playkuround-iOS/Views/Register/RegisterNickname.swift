@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RegisterNickname: View {
+    @ObservedObject var viewModel: RootViewModel
+    
     // 닉네임이 올바른지 검사
     @State private var isNicknameVaild: Bool = true
     @State private var isNicknameDuplicated: Bool = false
@@ -18,8 +20,6 @@ struct RegisterNickname: View {
     
     // 서버 요청 대기
     @State private var isLoading: Bool = false
-    
-    @Binding var currentView: ViewType
     
     var body: some View {
         ZStack {
@@ -160,9 +160,7 @@ struct RegisterNickname: View {
                             print("email, major, authVerifyToken is empty")
                             
                             // 로그인 화면으로 다시 이동
-                            withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-                                currentView = .login
-                            }
+                            viewModel.transition(to: .login)
                         } else {
                             // 회원가입 API 호출
                             register(email: email, major: major, token: authVerifyToken)
@@ -204,9 +202,8 @@ struct RegisterNickname: View {
                                 UserDefaults.standard.removeObject(forKey: "email")
                                 UserDefaults.standard.removeObject(forKey: "major")
                                 
-                                withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-                                    currentView = .home
-                                }
+                                // 뷰 전환
+                                viewModel.transition(to: .home)
                             }
                         }
                     }
@@ -240,5 +237,5 @@ struct RegisterNickname: View {
 }
 
 #Preview {
-    RegisterNickname(currentView: .constant(.registerNickname))
+    RegisterNickname(viewModel: RootViewModel())
 }

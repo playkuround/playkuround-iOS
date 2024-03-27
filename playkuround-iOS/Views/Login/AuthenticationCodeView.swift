@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AuthenticationCodeView: View {
+    @ObservedObject var viewModel: RootViewModel
+    
     //건국대학교 이메일 바로가기
     private let mailSystemURL = URL(string: StringLiterals.Login.mailSystemURL)
     
@@ -23,8 +25,6 @@ struct AuthenticationCodeView: View {
     
     @Binding var userSendingCount: Int?
     @Binding var isTimerFinished: Bool
-    
-    @Binding var currentView: ViewType
     
     // 유저 이메일 받아오는 값
     let userEmail: String
@@ -118,9 +118,8 @@ struct AuthenticationCodeView: View {
                                 
                                 TokenManager.setToken(tokenType: .authVerify, token: authVerifyToken)
                                 
-                                withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-                                    currentView = .registerTerms
-                                }
+                                // 뷰 전환
+                                viewModel.transition(to: .registerTerms)
                             }
                             
                             // refresh, access token이 발급된 경우 홈으로 이동
@@ -131,9 +130,8 @@ struct AuthenticationCodeView: View {
                                 // 저장한 이메일 제거
                                 UserDefaults.standard.removeObject(forKey: "email")
                                 
-                                withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-                                    currentView = .home
-                                }
+                                // 뷰 전환
+                                viewModel.transition(to: .home)
                             }
                         }
                     }

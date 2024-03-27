@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RegisterView: View {
+    @ObservedObject var viewModel: RootViewModel
+    
     // 단과대 및 학과 선택 여부
     @State private var isCollegeMenuPresented: Bool = false
     @State private var isMajorMenuPresented: Bool = false
@@ -15,8 +17,6 @@ struct RegisterView: View {
     // 선택한 단과대 및 학과 struct를 저장
     @State private var selectedCollege: College? = nil
     @State private var selectedMajor: Major? = nil
-    
-    @Binding var currentView: ViewType
     
     var body: some View {
         ZStack {
@@ -121,9 +121,8 @@ struct RegisterView: View {
                             // UserDefaults에 저장
                             UserDefaults.standard.set(major, forKey: "major")
                             
-                            withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-                                currentView = .registerNickname
-                            }
+                            // 뷰 전환
+                            viewModel.transition(to: .registerNickname)
                         }
                     }
             }
@@ -248,5 +247,5 @@ struct RegisterView: View {
 }
 
 #Preview {
-    RegisterView(currentView: .constant(.registerMajor))
+    RegisterView(viewModel: RootViewModel())
 }
