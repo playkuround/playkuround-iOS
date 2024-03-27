@@ -101,7 +101,14 @@ struct LoginView: View {
             
             // 인증 시간 초과 되었을 때
             if isBottomSheetPresented {
+                Color.black.opacity(0.3)
+                    .ignoresSafeArea()
+                    .onTapGesture {
+                        isBottomSheetPresented.toggle()
+                    }
+                
                 LoginBottomSheetView(isPresented: $isBottomSheetPresented)
+                    .transition(.move(edge: .bottom))
                     .onAppear {
                         isAuthCodeViewVisible = false
                     }
