@@ -31,6 +31,8 @@
 		C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4082BA741F300C0BFDA /* LoginBottomSheetView.swift */; };
 		C918F40B2BA7507800C0BFDA /* AuthenticationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F40A2BA7507800C0BFDA /* AuthenticationCodeView.swift */; };
 		C918F40D2BA753B400C0BFDA /* AuthenticationTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F40C2BA753B400C0BFDA /* AuthenticationTimer.swift */; };
+		C9519D392BB3339C00F69974 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9519D382BB3339C00F69974 /* NavigationBarModifier.swift */; };
+		C9519D3B2BB335EC00F69974 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9519D3A2BB335EC00F69974 /* View+.swift */; };
 		C953D2F52BA47B0700318869 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C953D2F32BA47B0700318869 /* Pretendard-Regular.otf */; };
 		C953D2F62BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C953D2F42BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf */; };
 		C953D2F92BA47B4B00318869 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2F82BA47B4B00318869 /* Font.swift */; };
@@ -91,6 +93,8 @@
 		C918F4082BA741F300C0BFDA /* LoginBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBottomSheetView.swift; sourceTree = "<group>"; };
 		C918F40A2BA7507800C0BFDA /* AuthenticationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCodeView.swift; sourceTree = "<group>"; };
 		C918F40C2BA753B400C0BFDA /* AuthenticationTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTimer.swift; sourceTree = "<group>"; };
+		C9519D382BB3339C00F69974 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
+		C9519D3A2BB335EC00F69974 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		C953D2F32BA47B0700318869 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		C953D2F42BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeoDunggeunmoPro-Regular.ttf"; sourceTree = "<group>"; };
 		C953D2F72BA47B1C00318869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -163,7 +167,9 @@
 		0C6AA4B92BA4A32A0032AB24 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C9519D372BB3338700F69974 /* ViewModifiers */,
 				C918F4032BA7148800C0BFDA /* Managers */,
+				C9519D3A2BB335EC00F69974 /* View+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -214,6 +220,14 @@
 				C918F4062BA7177800C0BFDA /* HapticManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		C9519D372BB3338700F69974 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				C9519D382BB3339C00F69974 /* NavigationBarModifier.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 		C953D2F12BA477F700318869 /* Resources */ = {
@@ -514,6 +528,7 @@
 				C918F40B2BA7507800C0BFDA /* AuthenticationCodeView.swift in Sources */,
 				C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */,
 				0C5979B52BAB215300E8156D /* RegisterMajorView.swift in Sources */,
+				C9519D3B2BB335EC00F69974 /* View+.swift in Sources */,
 				0C7FE69B2BB1290A00D94162 /* LoadingView.swift in Sources */,
 				C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */,
 				0C5979BC2BAB26A800E8156D /* TermsView.swift in Sources */,
@@ -524,6 +539,7 @@
 				0C6AA4CB2BA56B510032AB24 /* Major.swift in Sources */,
 				0C6396E82BAB4BB8008E046F /* RegisterNickname.swift in Sources */,
 				0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */,
+				C9519D392BB3339C00F69974 /* NavigationBarModifier.swift in Sources */,
 				0C7FE6992BB1259800D94162 /* NetworkErrorView.swift in Sources */,
 				C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */,
 				0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */,
