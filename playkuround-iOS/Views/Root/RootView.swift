@@ -16,6 +16,7 @@ struct RootView: View {
     
     // Network Manager Instance
     @StateObject private var networkManager = NetworkManager()
+    @ObservedObject var viewModel: RootViewModel = RootViewModel()
     
     var body: some View {
         ZStack {
