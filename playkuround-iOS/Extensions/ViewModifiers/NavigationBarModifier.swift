@@ -11,11 +11,13 @@ struct NavigationBarModifier<C, L, R>: ViewModifier where C: View, L: View, R: V
     let centerView: (() -> C)?
     let leftView: (() -> L)?
     let rightView: (() -> R)?
+    let height: CGFloat
     
-    init(centerView: (() -> C)? = nil, leftView: (() -> L)? = nil, rightView: (() -> R)? = nil) {
+    init(centerView: (() -> C)? = nil, leftView: (() -> L)? = nil, rightView: (() -> R)? = nil, height: CGFloat) {
         self.centerView = centerView
         self.leftView = leftView
         self.rightView = rightView
+        self.height = height
     }
     
     func body(content: Content) -> some View {
@@ -28,7 +30,9 @@ struct NavigationBarModifier<C, L, R>: ViewModifier where C: View, L: View, R: V
                     
                     self.rightView?()
                 }
-                .frame(minWidth: .infinity)
+                .frame(height: height)
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, 16)
                 
                 HStack {
                     Spacer()
@@ -44,6 +48,6 @@ struct NavigationBarModifier<C, L, R>: ViewModifier where C: View, L: View, R: V
             
             Spacer()
         }
-        .toolbar(.hidden)
+        .navigationBarHidden(true)
     }
 }
