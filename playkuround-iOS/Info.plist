@@ -23,5 +23,7 @@
 		<key>UILaunchScreen</key>
 		<string></string>
 	</dict>
+	<key>UIRequiresPersistentWiFi</key>
+	<true/>
 </dict>
 </plist>
