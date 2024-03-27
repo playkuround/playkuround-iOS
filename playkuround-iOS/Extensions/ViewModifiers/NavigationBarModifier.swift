@@ -32,7 +32,7 @@ struct NavigationBarModifier<C, L, R>: ViewModifier where C: View, L: View, R: V
                 }
                 .frame(height: height)
                 .frame(maxWidth: .infinity)
-                .padding(.horizontal, 16)
+                .padding(.horizontal, 20)
                 
                 HStack {
                     Spacer()
