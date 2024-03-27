@@ -25,7 +25,12 @@ struct RootView: View {
                 RegisterNickname(viewModel: viewModel)
             case .home:
                 // 임시 구현
-                Text("Home")
+                VStack {
+                    Text("Home")
+                    Button("Logout") {
+                        viewModel.logout()
+                    }
+                }
             case .myPage:
                 // 임시 구현
                 Text("My Page")
