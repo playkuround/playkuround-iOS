@@ -69,23 +69,26 @@ enum StringLiterals {
         static let currentScore = "현재 점수"
         static let highestScore = "최고 점수"
         
-        enum My {
-            static let title = "마이"
-            static let story = "스토리 다시보기"
-            static let logout = "로그아웃"
+        enum Title {
+            static let my = "마이"
+            static let shortcut = "바로가기"
+            static let instruction = "이용안내"
         }
         
-        enum Shortcut {
-            static let title = "바로가기"
-            static let instagram = "플레이쿠라운드 인스타그램"
-            static let cheer = "플쿠팀 응원하기"
+        enum My: String, CaseIterable {
+            case story = "스토리 다시보기"
+            case logout = "로그아웃"
         }
         
-        enum Instruction {
-            static let title = "이용안내"
-            static let version = "앱 버전"
-            static let privacy = "개인정보 처리 방침"
-            static let terms = "이용약관"
+        enum Shortcut: String, CaseIterable {
+            case instagram = "플레이쿠라운드 인스타그램"
+            case cheer = "플쿠팀 응원하기"
+        }
+        
+        enum Instruction: String, CaseIterable {
+            case version = "앱 버전"
+            case privacy = "개인정보 처리 방침"
+            case terms = "이용약관"
         }
         
         enum Logout {
