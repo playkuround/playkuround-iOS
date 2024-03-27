@@ -42,7 +42,7 @@ struct NavigationBarModifier<C, L, R>: ViewModifier where C: View, L: View, R: V
                     Spacer()
                 }
             }
-            .background(Color(.kuBackground).ignoresSafeArea(.all, edges: .top))
+            .background(Color(.clear).ignoresSafeArea(.all, edges: .top))
             
             content
             

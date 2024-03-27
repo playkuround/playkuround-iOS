@@ -55,31 +55,3 @@ extension View {
         )
     }
 }
-
-
-// merge 시 삭제 예정
-struct TestView: View {
-    var body: some View {
-        VStack {
-            Text("NavigationBar TestView입니다")
-        }
-        .customNavigationBar(
-            centerView: {
-                Text("마이페이지")
-                    .font(.neo22)
-                    .kerning(-0.41)
-                    .foregroundStyle(.kuText)
-            },
-            leftView: {
-                Image(.rightWhiteArrow)
-            },
-            rightView: {
-                Image(.rightBlackArrow)
-            },
-            height: 67)
-    }
-}
-
-#Preview {
-    TestView()
-}
