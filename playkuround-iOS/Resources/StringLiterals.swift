@@ -87,5 +87,11 @@ enum StringLiterals {
             static let privacy = "개인정보 처리 방침"
             static let terms = "이용약관"
         }
+        
+        enum Logout {
+            static let message = "로그아웃 하시겠습니까?"
+            static let ok = "예"
+            static let no = "아니오"
+        }
     }
 }
