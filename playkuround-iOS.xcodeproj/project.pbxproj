@@ -68,6 +68,7 @@
 		C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E92BA3251A009A8762 /* ContentView.swift */; };
 		C9F694EC2BA3251B009A8762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9F694EB2BA3251B009A8762 /* Assets.xcassets */; };
 		C9F694EF2BA3251B009A8762 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9F694EE2BA3251B009A8762 /* Preview Assets.xcassets */; };
+		C9FE257B2BB3DFAA00F78C63 /* CheckLogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FE257A2BB3DFAA00F78C63 /* CheckLogoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +135,7 @@
 		C9F694E92BA3251A009A8762 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C9F694EB2BA3251B009A8762 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9F694EE2BA3251B009A8762 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C9FE257A2BB3DFAA00F78C63 /* CheckLogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLogoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +288,7 @@
 				C97543F12BB3222F00CD6479 /* MyPageProfileView.swift */,
 				C97543F32BB3244800CD6479 /* MyPageListSectionView.swift */,
 				C97543F52BB325A300CD6479 /* MyPageListRowView.swift */,
+				C9FE257A2BB3DFAA00F78C63 /* CheckLogoutView.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				0C6AA4BB2BA4A33E0032AB24 /* NetworkManager.swift in Sources */,
 				C97543F42BB3244800CD6479 /* MyPageListSectionView.swift in Sources */,
 				C918F4072BA7177800C0BFDA /* HapticManager.swift in Sources */,
+				C9FE257B2BB3DFAA00F78C63 /* CheckLogoutView.swift in Sources */,
 				0C6AA4C72BA566CE0032AB24 /* Badge.swift in Sources */,
 				C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */,
 				0C6AA4CD2BA56E230032AB24 /* UserNotification.swift in Sources */,
