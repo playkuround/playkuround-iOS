@@ -17,12 +17,29 @@ struct MyPageListSectionView: View {
                 .font(.neo18)
                 .kerning(-0.41)
                 .foregroundStyle(.kuText)
-                .padding(.bottom, 10)
+                .padding(.top, 18)
             
             ForEach(rowTitle, id: \.self) { title in
-                MyPageListRowView(rowTitle: title)
+                if title == StringLiterals.MyPage.Shortcut.instagram.rawValue {
+                    MyPageListRowView(rowTitle: title)
+                        .onTapGesture {
+                            linkInstagramURL()
+                        }
+                }
+                else {
+                    MyPageListRowView(rowTitle: title)
+                }
             }
         }
-        .padding(.top, 24)
     }
+    
+    private func linkInstagramURL() {
+        if let instagramURL = URL(string: StringLiterals.MyPage.instagramURL) {
+            UIApplication.shared.open(instagramURL)
+        }
+    }
+}
+
+#Preview {
+    MyPageView()
 }
