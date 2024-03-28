@@ -90,7 +90,6 @@ enum StringLiterals {
             case version = "앱 버전"
             case privacy = "개인정보 처리 방침"
             case terms = "이용약관"
-            case feedback = "피드백 보내기"
         }
         
         enum Logout {

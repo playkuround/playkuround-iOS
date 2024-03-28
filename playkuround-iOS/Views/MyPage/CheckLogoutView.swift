@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CheckLogoutView: View {
+    @Binding var isLogoutPresented: Bool
+    
     var body: some View {
         ZStack {
             Color.black
@@ -24,6 +26,7 @@ struct CheckLogoutView: View {
                 
                 Button(action: {
                     // 로그아웃 서버 API 연결
+                    isLogoutPresented = false
                 }, label: {
                     Image(.shortButtonBlue)
                         .overlay {
@@ -37,7 +40,7 @@ struct CheckLogoutView: View {
                 })
                 
                 Button(action: {
-                    // 뷰가 hidden 되도록 처리
+                    isLogoutPresented = false
                 }, label: {
                     Image(.shortButtonGray)
                         .overlay {
@@ -50,8 +53,4 @@ struct CheckLogoutView: View {
             }
         }
     }
-}
-
-#Preview {
-    CheckLogoutView()
 }
