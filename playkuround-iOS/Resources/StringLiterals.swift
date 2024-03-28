@@ -64,4 +64,38 @@ enum StringLiterals {
     enum Network {
         static let message = "네트워크 오류가 발생했습니다.\n잠시만 기다려주세요!"
     }
+    
+    enum MyPage {
+        static let currentScore = "현재 점수"
+        static let highestScore = "최고 점수"
+        
+        enum Title {
+            static let my = "마이"
+            static let shortcut = "바로가기"
+            static let instruction = "이용안내"
+        }
+        
+        enum My: String, CaseIterable {
+            case story = "스토리 다시보기"
+            case logout = "로그아웃"
+        }
+        
+        enum Shortcut: String, CaseIterable {
+            case instagram = "플레이쿠라운드 인스타그램"
+            case cheer = "플쿠팀 응원하기"
+        }
+        
+        enum Instruction: String, CaseIterable {
+            case version = "앱 버전"
+            case privacy = "개인정보 처리 방침"
+            case terms = "이용약관"
+            case feedback = "피드백 보내기"
+        }
+        
+        enum Logout {
+            static let message = "로그아웃 하시겠습니까?"
+            static let ok = "예"
+            static let no = "아니오"
+        }
+    }
 }
