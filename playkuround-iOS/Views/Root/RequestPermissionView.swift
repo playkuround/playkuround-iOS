@@ -18,28 +18,28 @@ struct RequestPermissionView: View {
             Image(.messageBackground)
                 .overlay {
                     VStack {
-                        Text("위치 권한 허용하면\n플쿠 즐길 준비 완료!")
+                        Text(StringLiterals.Permission.title)
                             .font(.neo22)
                             .multilineTextAlignment(.center)
                             .padding(.top, 60)
                             .padding(.bottom, 30)
                         
-                        TextWithBoldSubstring(originalText: "플레이쿠라운드는 GPS를 활용하여\n건국대학교를 탐험하는 게임이에요!", boldSubText: "GPS를 활용", regularFont: .pretendard15R, boldFont: .pretendard15B)
+                        TextWithBoldSubstring(originalText: StringLiterals.Permission.description1, boldSubText: StringLiterals.Permission.descriptionBold, regularFont: .pretendard15R, boldFont: .pretendard15B)
                             .padding(.bottom, 16)
                         
-                        Text("게임 플레이를 위해서는\n사용자분의 위치 정보가 필요해요.")
+                        Text(StringLiterals.Permission.description2)
                             .font(.pretendard15R)
                             .multilineTextAlignment(.center)
                             .padding(.bottom, 16)
                         
-                        Text("설정에서 위치 권한 허용 후\n플레이쿠라운드를 마음껏 즐겨주세요!")
+                        Text(StringLiterals.Permission.description3)
                             .font(.pretendard15R)
                             .multilineTextAlignment(.center)
                             .padding(.bottom, 40)
                         
                         Image(.shortButtonBlue)
                             .overlay {
-                                Text("설정으로 이동")
+                                Text(StringLiterals.Permission.openSetting)
                                     .font(.neo18)
                             }
                             .onTapGesture {
