@@ -23,7 +23,7 @@ struct CheckLogoutView: View {
                 
                 
                 Button(action: {
-                    print("예스예스")
+                    // 로그아웃 서버 API 연결
                 }, label: {
                     Image(.shortButtonBlue)
                         .overlay {
@@ -37,7 +37,7 @@ struct CheckLogoutView: View {
                 })
                 
                 Button(action: {
-                    print("노노노노")
+                    // 뷰가 hidden 되도록 처리
                 }, label: {
                     Image(.shortButtonGray)
                         .overlay {

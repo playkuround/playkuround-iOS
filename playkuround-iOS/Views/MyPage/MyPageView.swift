@@ -31,7 +31,7 @@ struct MyPageView: View {
                             .padding(.top, 8)
                         
                         MyPageListSectionView(sectionTitle: StringLiterals.MyPage.Title.shortcut,
-                                              rowTitle: StringLiterals.MyPage.My.allCases.map { $0.rawValue })
+                                              rowTitle: StringLiterals.MyPage.Shortcut.allCases.map { $0.rawValue })
                         
                         Rectangle()
                             .fill(.kuBlue3)
@@ -39,7 +39,7 @@ struct MyPageView: View {
                             .padding(.top, 8)
                         
                         MyPageListSectionView(sectionTitle: StringLiterals.MyPage.Title.instruction,
-                                              rowTitle: StringLiterals.MyPage.My.allCases.map { $0.rawValue })
+                                              rowTitle: StringLiterals.MyPage.Instruction.allCases.map { $0.rawValue })
                     }
                 }
                 .padding(.horizontal, 20)
