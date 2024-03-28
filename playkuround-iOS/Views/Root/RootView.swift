@@ -9,12 +9,13 @@ import SwiftUI
 
 struct RootView: View {
     @ObservedObject var viewModel: RootViewModel = RootViewModel()
+    @ObservedObject var mapViewModel: MapViewModel = MapViewModel()
     
     var body: some View {
         ZStack {
             switch viewModel.currentView {
             case .main:
-                MainView(viewModel: viewModel)
+                MainView(viewModel: viewModel, mapViewModel: mapViewModel)
             case .login:
                 LoginView(viewModel: viewModel)
             case .registerTerms:

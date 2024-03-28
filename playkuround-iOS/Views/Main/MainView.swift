@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var viewModel: RootViewModel
+    @ObservedObject var mapViewModel: MapViewModel
     
     var body: some View {
         NavigationStack {
@@ -41,6 +42,9 @@ struct MainView: View {
                         }
                         .padding(.bottom, 98)
                         .onTapGesture {
+                            // 위치 권한 허가 요청
+                            mapViewModel.requestLocationAuthorization()
+                            
                             // 토큰이 없는 경우
                             if TokenManager.token(tokenType: .refresh).isEmpty || TokenManager.token(tokenType: .access).isEmpty {
                                 // 로그인 화면으로 이동
@@ -100,5 +104,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(viewModel: RootViewModel())
+    MainView(viewModel: RootViewModel(), mapViewModel: MapViewModel())
 }
