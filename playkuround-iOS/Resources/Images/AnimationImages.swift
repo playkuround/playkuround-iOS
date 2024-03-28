@@ -25,3 +25,8 @@ enum loadingBlackImage: String, CaseIterable {
     case loadingBlack2
     case loadingBlack3
 }
+
+enum myPageCheer: String, CaseIterable {
+    case mypageCheer1
+    case mypageCheer2
+}

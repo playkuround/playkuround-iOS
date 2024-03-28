@@ -69,6 +69,7 @@
 		C9F694EC2BA3251B009A8762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9F694EB2BA3251B009A8762 /* Assets.xcassets */; };
 		C9F694EF2BA3251B009A8762 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9F694EE2BA3251B009A8762 /* Preview Assets.xcassets */; };
 		C9FE257B2BB3DFAA00F78C63 /* CheckLogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FE257A2BB3DFAA00F78C63 /* CheckLogoutView.swift */; };
+		C9FE257D2BB40E1C00F78C63 /* CheerPKTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FE257C2BB40E1C00F78C63 /* CheerPKTeamView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +137,7 @@
 		C9F694EB2BA3251B009A8762 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9F694EE2BA3251B009A8762 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C9FE257A2BB3DFAA00F78C63 /* CheckLogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLogoutView.swift; sourceTree = "<group>"; };
+		C9FE257C2BB40E1C00F78C63 /* CheerPKTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheerPKTeamView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +291,7 @@
 				C97543F32BB3244800CD6479 /* MyPageListSectionView.swift */,
 				C97543F52BB325A300CD6479 /* MyPageListRowView.swift */,
 				C9FE257A2BB3DFAA00F78C63 /* CheckLogoutView.swift */,
+				C9FE257C2BB40E1C00F78C63 /* CheerPKTeamView.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				0C5979B52BAB215300E8156D /* RegisterMajorView.swift in Sources */,
 				0C7FE69B2BB1290A00D94162 /* LoadingView.swift in Sources */,
 				C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */,
+				C9FE257D2BB40E1C00F78C63 /* CheerPKTeamView.swift in Sources */,
 				0C5979BC2BAB26A800E8156D /* TermsView.swift in Sources */,
 				0C6AA4CF2BA56FB30032AB24 /* ScoreType.swift in Sources */,
 				C953D2FE2BA4807400318869 /* LoginView.swift in Sources */,
