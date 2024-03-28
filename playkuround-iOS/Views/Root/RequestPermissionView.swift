@@ -20,6 +20,7 @@ struct RequestPermissionView: View {
                     VStack {
                         Text(StringLiterals.Permission.title)
                             .font(.neo22)
+                            .kerning(-0.41)
                             .multilineTextAlignment(.center)
                             .padding(.top, 60)
                             .padding(.bottom, 30)
@@ -41,6 +42,7 @@ struct RequestPermissionView: View {
                             .overlay {
                                 Text(StringLiterals.Permission.openSetting)
                                     .font(.neo18)
+                                    .kerning(-0.41)
                             }
                             .onTapGesture {
                                 // 설정 열기
