@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RegisterView: View {
+    @ObservedObject var viewModel: RootViewModel
+    
     // 단과대 및 학과 선택 여부
     @State private var isCollegeMenuPresented: Bool = false
     @State private var isMajorMenuPresented: Bool = false
@@ -46,7 +48,7 @@ struct RegisterView: View {
                     Image(.menuButton)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: .infinity)
+                        .frame(maxWidth: .infinity)
                         .overlay {
                             HStack {
                                 Text(selectedCollege?.name ?? StringLiterals.Register.collegePlaceholder)
@@ -81,7 +83,7 @@ struct RegisterView: View {
                     Image(.menuButton)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: .infinity)
+                        .frame(maxWidth: .infinity)
                         .overlay {
                             HStack {
                                 Text(selectedMajor?.name ?? StringLiterals.Register.majorPlaceholder)
@@ -105,7 +107,7 @@ struct RegisterView: View {
                 Image((selectedCollege != nil && selectedMajor != nil) ? .longButtonBlue : .longButtonGray)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         Text(StringLiterals.Register.next)
                             .font(.neo15)
@@ -113,7 +115,15 @@ struct RegisterView: View {
                             .foregroundStyle(.kuText)
                     }
                     .onTapGesture {
-                        // TODO: 다음으로 넘어가는 transition 구현
+                        if let selectedMajor = selectedMajor {
+                            let major = selectedMajor.name
+                            
+                            // UserDefaults에 저장
+                            UserDefaults.standard.set(major, forKey: "major")
+                            
+                            // 뷰 전환
+                            viewModel.transition(to: .registerNickname)
+                        }
                     }
             }
             .padding(.horizontal)
@@ -128,7 +138,7 @@ struct RegisterView: View {
                 Image(.menuBackground)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         ScrollView {
                             VStack(spacing: 0) {
@@ -144,7 +154,7 @@ struct RegisterView: View {
                                         Image(selectedCollege?.name == college.name ? .selectedMenuItem : .menuItem)
                                             .resizable()
                                             .scaledToFit()
-                                            .frame(width: .infinity)
+                                            .frame(maxWidth: .infinity)
                                             .overlay {
                                                 HStack {
                                                     Text(college.name)
@@ -155,13 +165,13 @@ struct RegisterView: View {
                                                 .padding()
                                             }
                                     }
-                                    .frame(width: .infinity)
+                                    .frame(maxWidth: .infinity)
                                 }
                             }
-                            .frame(width: .infinity)
+                            .frame(maxWidth: .infinity)
                             .padding(.horizontal, 3)
                         }
-                        .frame(width: .infinity)
+                        .frame(maxWidth: .infinity)
                         .padding(.vertical, 5)
                     }
                 
@@ -179,7 +189,7 @@ struct RegisterView: View {
                     Image(.menuBackground)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: .infinity)
+                        .frame(maxWidth: .infinity)
                         .overlay {
                             ScrollView {
                                 VStack(spacing: 0) {
@@ -193,7 +203,7 @@ struct RegisterView: View {
                                             Image(selectedMajor?.name == major.name ? .selectedMenuItem : .menuItem)
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: .infinity)
+                                                .frame(maxWidth: .infinity)
                                                 .overlay {
                                                     HStack {
                                                         Text(major.name)
@@ -204,13 +214,13 @@ struct RegisterView: View {
                                                     .padding()
                                                 }
                                         }
-                                        .frame(width: .infinity)
+                                        .frame(maxWidth: .infinity)
                                     }
                                 }
-                                .frame(width: .infinity)
+                                .frame(maxWidth: .infinity)
                                 .padding(.horizontal, 3)
                             }
-                            .frame(width: .infinity)
+                            .frame(maxWidth: .infinity)
                             .padding(.vertical, 5)
                         }
                     
@@ -237,5 +247,5 @@ struct RegisterView: View {
 }
 
 #Preview {
-    RegisterView()
+    RegisterView(viewModel: RootViewModel())
 }

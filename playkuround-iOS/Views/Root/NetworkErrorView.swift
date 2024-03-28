@@ -31,10 +31,7 @@ struct NetworkErrorView: View {
 }
 
 #Preview {
-    ZStack {
-        MainView()
-        NetworkErrorView(loadingColor: .white)
-    }
+    NetworkErrorView(loadingColor: .white)
 }
 
 #Preview {
