@@ -48,6 +48,12 @@ struct RootView: View {
             else if viewModel.isLoading {
                 LoadingView(loadingColor: .white)
             }
+            // Location Permission Request View
+            else if viewModel.currentView == .home
+                        && !(mapViewModel.isAuthorized == .authorizedAlways
+                             || mapViewModel.isAuthorized == .authorizedWhenInUse) {
+                RequestPermissionView(mapViewModel: mapViewModel)
+            }
         }
         .onAppear {
             // 확인 작업
