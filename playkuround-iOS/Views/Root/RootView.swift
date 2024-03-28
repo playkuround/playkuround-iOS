@@ -60,14 +60,6 @@ struct RootView: View {
             viewModel.isLoading = false
         }
     }
-    
-    /// 현재 앱의 version 정보를 반환
-    private func currentAppVersion() -> String {
-        if let info: [String: Any] = Bundle.main.infoDictionary, let currentVersion: String = info["CFBundleShortVersionString"] as? String {
-            return currentVersion
-        }
-        return ""
-    }
 }
 
 #Preview {
