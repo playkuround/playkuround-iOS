@@ -10,6 +10,8 @@ import SwiftUI
 struct MyPageView: View {
     @State private var isLogoutPresented: Bool = false
     @State private var isCheerPresented: Bool = false
+    @State private var isServiceTermsViewPresented: Bool = false
+    @State private var isPrivacyTermsViewPresented: Bool = false
     
     var body: some View {
         ZStack {
@@ -59,11 +61,23 @@ struct MyPageView: View {
                 CheerPKTeamView(isCheerPresented: $isCheerPresented)
             }
         }
+        .fullScreenCover(isPresented: $isServiceTermsViewPresented) {
+            TermsView(title: StringLiterals.Register.serviceTermsTitle, termsType: .service)
+        }
+        .fullScreenCover(isPresented: $isPrivacyTermsViewPresented) {
+            TermsView(title: StringLiterals.Register.privacyTermsTitle, termsType: .privacy)
+        }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("logoutViewPresented"))) { _ in
             self.isLogoutPresented = true
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("cheerViewPresented"))) { _ in
             self.isCheerPresented = true
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("privacyTermsViewPresented"))) { _ in
+            self.isPrivacyTermsViewPresented = true
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("serviceTermsViewPresented"))) { _ in
+            self.isServiceTermsViewPresented = true
         }
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct MyPageListSectionView: View {
     let sectionTitle: String
     let rowTitle: [String]
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(sectionTitle)
@@ -24,7 +24,7 @@ struct MyPageListSectionView: View {
                 if title == StringLiterals.MyPage.My.story.rawValue {
                     MyPageListRowView(rowTitle: title)
                         .onTapGesture {
-        
+                            
                         }
                 }
                 
@@ -56,12 +56,20 @@ struct MyPageListSectionView: View {
                     MyPageListRowView(rowTitle: title)
                 }
                 
+                // 개인정보 처리 방침
                 if title == StringLiterals.MyPage.Instruction.privacy.rawValue {
                     MyPageListRowView(rowTitle: title)
+                        .onTapGesture {
+                            NotificationCenter.default.post(name: NSNotification.Name("privacyTermsViewPresented"), object: nil)
+                        }
                 }
                 
+                // 이용약관
                 if title == StringLiterals.MyPage.Instruction.terms.rawValue {
                     MyPageListRowView(rowTitle: title)
+                        .onTapGesture {
+                            NotificationCenter.default.post(name: NSNotification.Name("serviceTermsViewPresented"), object: nil)
+                        }
                 }
             }
         }
