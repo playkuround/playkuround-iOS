@@ -40,7 +40,7 @@ struct RegisterTermsView: View {
                 Image(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .longButtonBlue : .longButtonGray)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         HStack {
                             Image(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .blackCheck : .whiteCheck)
@@ -64,14 +64,14 @@ struct RegisterTermsView: View {
                 Image(.grayLine)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .padding(.vertical, 3)
                 
                 // 서비스 이용 약관 동의 버튼
                 Image(isServiceTermAgreed ? .longButtonBlue : .longButtonGray)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         HStack {
                             Image(isServiceTermAgreed ? .blackCheck : .whiteCheck)
@@ -102,7 +102,7 @@ struct RegisterTermsView: View {
                 Image(isPrivacyTermAgreed ? .longButtonBlue : .longButtonGray)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         HStack {
                             Image(isPrivacyTermAgreed ? .blackCheck : .whiteCheck)
@@ -134,7 +134,7 @@ struct RegisterTermsView: View {
                 Image(isLocationTermAgreed ? .longButtonBlue : .longButtonGray)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         HStack {
                             Image(isLocationTermAgreed ? .blackCheck : .whiteCheck)
@@ -167,7 +167,7 @@ struct RegisterTermsView: View {
                 Image(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .longButtonBlue : .longButtonGray)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         Text(StringLiterals.Register.next)
                             .font(.neo15)

@@ -57,7 +57,7 @@ struct RegisterNickname: View {
                 Image(.menuButton)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         ZStack {
                             if nickname.isEmpty {
@@ -112,7 +112,7 @@ struct RegisterNickname: View {
                 Image(isNicknameChecked ? (isNicknameDuplicated ? .longButtonGray : .longButtonBlue) : (isNicknameVaild && nickname.count >= 2 ? .longButtonBlue : .longButtonGray))
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         if isLoading {
                             // API 요청한 경우

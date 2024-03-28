@@ -48,7 +48,7 @@ struct RegisterView: View {
                     Image(.menuButton)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: .infinity)
+                        .frame(maxWidth: .infinity)
                         .overlay {
                             HStack {
                                 Text(selectedCollege?.name ?? StringLiterals.Register.collegePlaceholder)
@@ -83,7 +83,7 @@ struct RegisterView: View {
                     Image(.menuButton)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: .infinity)
+                        .frame(maxWidth: .infinity)
                         .overlay {
                             HStack {
                                 Text(selectedMajor?.name ?? StringLiterals.Register.majorPlaceholder)
@@ -107,7 +107,7 @@ struct RegisterView: View {
                 Image((selectedCollege != nil && selectedMajor != nil) ? .longButtonBlue : .longButtonGray)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         Text(StringLiterals.Register.next)
                             .font(.neo15)
@@ -138,7 +138,7 @@ struct RegisterView: View {
                 Image(.menuBackground)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         ScrollView {
                             VStack(spacing: 0) {
@@ -154,7 +154,7 @@ struct RegisterView: View {
                                         Image(selectedCollege?.name == college.name ? .selectedMenuItem : .menuItem)
                                             .resizable()
                                             .scaledToFit()
-                                            .frame(width: .infinity)
+                                            .frame(maxWidth: .infinity)
                                             .overlay {
                                                 HStack {
                                                     Text(college.name)
@@ -165,13 +165,13 @@ struct RegisterView: View {
                                                 .padding()
                                             }
                                     }
-                                    .frame(width: .infinity)
+                                    .frame(maxWidth: .infinity)
                                 }
                             }
-                            .frame(width: .infinity)
+                            .frame(maxWidth: .infinity)
                             .padding(.horizontal, 3)
                         }
-                        .frame(width: .infinity)
+                        .frame(maxWidth: .infinity)
                         .padding(.vertical, 5)
                     }
                 
@@ -189,7 +189,7 @@ struct RegisterView: View {
                     Image(.menuBackground)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: .infinity)
+                        .frame(maxWidth: .infinity)
                         .overlay {
                             ScrollView {
                                 VStack(spacing: 0) {
@@ -203,7 +203,7 @@ struct RegisterView: View {
                                             Image(selectedMajor?.name == major.name ? .selectedMenuItem : .menuItem)
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: .infinity)
+                                                .frame(maxWidth: .infinity)
                                                 .overlay {
                                                     HStack {
                                                         Text(major.name)
@@ -214,13 +214,13 @@ struct RegisterView: View {
                                                     .padding()
                                                 }
                                         }
-                                        .frame(width: .infinity)
+                                        .frame(maxWidth: .infinity)
                                     }
                                 }
-                                .frame(width: .infinity)
+                                .frame(maxWidth: .infinity)
                                 .padding(.horizontal, 3)
                             }
-                            .frame(width: .infinity)
+                            .frame(maxWidth: .infinity)
                             .padding(.vertical, 5)
                         }
                     
