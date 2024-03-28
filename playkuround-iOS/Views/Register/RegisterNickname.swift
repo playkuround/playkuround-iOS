@@ -216,6 +216,7 @@ struct RegisterNickname: View {
                 }
             case .failure(let data):
                 // 회원가입 실패 메시지 (서버 오류 등)
+                print(data)
                 isNicknameDuplicated = false
                 isNicknameChecked = false
                 isLoading = false
