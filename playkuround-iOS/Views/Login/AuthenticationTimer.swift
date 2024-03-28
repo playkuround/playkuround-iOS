@@ -25,7 +25,9 @@ struct AuthenticationTimer: View {
                 }
                 else {
                     timer.upstream.connect().cancel()
-                    isTimerFinished = true
+                    withAnimation(.spring) {
+                        isTimerFinished = true
+                    }
                 }
             }
             .onAppear {
