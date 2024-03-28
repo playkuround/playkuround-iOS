@@ -30,6 +30,9 @@ struct RootView: View {
                     Button("Logout") {
                         viewModel.logout()
                     }
+                    Button("myPage") {
+                        viewModel.transition(to: .myPage)
+                    }
                 }
             case .myPage:
                 // 임시 구현
