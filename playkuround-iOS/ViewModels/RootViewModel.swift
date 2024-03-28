@@ -29,8 +29,11 @@ final class RootViewModel: ObservableObject {
     
     // View Transition
     func transition(to viewType: ViewType) {
-        withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-            currentView = viewType
+        // Main Thread에서 실행 보장
+        DispatchQueue.main.async {
+            withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
+                self.currentView = viewType
+            }
         }
     }
     
