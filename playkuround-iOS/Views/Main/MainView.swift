@@ -41,13 +41,11 @@ struct MainView: View {
                         }
                         .padding(.bottom, 98)
                         .onTapGesture {
-                            // TODO: 토큰 검사, refresh token이 valid 하다면 자동 로그인
-                            // TODO: 토큰이 없거나 invalid하다면 로그인 화면으로 이동
                             // 토큰이 없는 경우
                             if TokenManager.token(tokenType: .refresh).isEmpty || TokenManager.token(tokenType: .access).isEmpty {
                                 // 로그인 화면으로 이동
                                 print("token is empty, transition to login view")
-                                viewModel.currentView = .login
+                                viewModel.transition(to: .login)
                             }
                             // 토큰이 존재하는 경우 valid한지 검사
                             else {
