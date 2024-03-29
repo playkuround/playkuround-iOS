@@ -782,7 +782,7 @@ struct Response: Codable {
     let email: String?
     let major: String?
     let highestScore: Int?
-    let highestRank: Int?
+    let highestRank: String?
     let attendanceDays: Int?
     
     // 게임별 최고 점수 얻기 (/api/users/game-score)
@@ -818,8 +818,8 @@ struct BadgeResponse: Codable {
 
 // 랭킹
 struct MyRank: Codable {
-    let ranking: Int
-    let score: Int
+    var score: Int
+    var ranking: String
 }
 
 struct Ranking: Codable {
