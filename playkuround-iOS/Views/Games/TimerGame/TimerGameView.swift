@@ -17,6 +17,18 @@ struct TimerGameView: View {
             Image(.timeBackground)
                 .resizable()
                 .scaledToFit()
+                .padding(.bottom, -20)
+            
+            VStack {
+                Text(StringLiterals.Game.Time.description)
+                    .font(.pretendard15R)
+                    .foregroundStyle(.kuText)
+                    .multilineTextAlignment(.center)
+                
+                Spacer()
+            }
+            .frame(maxHeight: .infinity)
+            .padding(.top, 80)
             
             VStack {
                 Text("00:00")
@@ -28,9 +40,12 @@ struct TimerGameView: View {
                     .font(.pretendard15R)
                     .foregroundStyle(.kuGreen)
                 
-                // if success {
-                //     Image(.timeSuccessIcon)
-                // } else {
+//                Image(.timeStopButton)
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: 120, height: 120)
+//                    .padding(.top, 20)
+                
                 AnimationCustomView(
                     imageArray: gameSuccessImage.allCases.map { $0.rawValue },
                     delayTime: 0.2)
