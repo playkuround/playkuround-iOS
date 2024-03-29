@@ -72,6 +72,7 @@ enum StringLiterals {
         static let description2 = "게임 플레이를 위해서는\n사용자분의 위치 정보가 필요해요."
         static let description3 = "설정에서 위치 권한 허용 후\n플레이쿠라운드를 마음껏 즐겨주세요!"
         static let openSetting = "설정으로 이동"
+    }
 
     enum MyPage {
         static let currentScore = "현재 점수"
