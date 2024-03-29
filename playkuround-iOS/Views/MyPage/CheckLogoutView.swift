@@ -15,6 +15,9 @@ struct CheckLogoutView: View {
             Color.black
                 .opacity(0.66)
                 .ignoresSafeArea(.all)
+                .onTapGesture {
+                    isLogoutPresented = false
+                }
             
             VStack {
                 Text(StringLiterals.MyPage.Logout.message)
