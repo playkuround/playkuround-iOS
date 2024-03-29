@@ -12,7 +12,7 @@ struct TimerGameView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Color.kuLightYellow.ignoresSafeArea()
+            Color.kuLightYellowBackground.ignoresSafeArea()
             
             Image(.timeBackground)
                 .resizable()
