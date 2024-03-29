@@ -107,4 +107,9 @@ enum StringLiterals {
             static let no = "아니오"
         }
     }
+    
+    enum Game {
+        static let play = "계속하기"
+        static let home = "홈"
+    }
 }
