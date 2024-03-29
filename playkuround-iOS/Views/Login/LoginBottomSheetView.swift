@@ -41,7 +41,6 @@ struct LoginBottomSheetView: View {
                         .padding(.top, 41)
                 }
                 .padding(.bottom, 79)
-                .transition(.move(edge: .bottom))
                 .background(
                     Image(.bottomSheetBackground)
                         .resizable()
@@ -50,7 +49,6 @@ struct LoginBottomSheetView: View {
             }
         }
         .ignoresSafeArea()
-        .animation(.easeInOut, value: isPresented)
     }
 }
 

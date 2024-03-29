@@ -23,6 +23,10 @@
 		0C7FE6992BB1259800D94162 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE6982BB1259800D94162 /* NetworkErrorView.swift */; };
 		0C7FE69B2BB1290A00D94162 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE69A2BB1290A00D94162 /* LoadingView.swift */; };
 		0C7FE6A12BB1983A00D94162 /* AnimationImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */; };
+		0CA4C5662BB3281F00268B07 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA4C5652BB3281F00268B07 /* RootView.swift */; };
+		0CB465AE2BB3D1C700317455 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB465AD2BB3D1C700317455 /* RootViewModel.swift */; };
+		0CA193562BB5ABEB007C04B1 /* RequestPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */; };
+		0CA193592BB5B49A007C04B1 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CA193582BB5B49A007C04B1 /* Pretendard-Bold.otf */; };
 		0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */; };
 		0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD06A282BAB459500845B24 /* RegisterTermsView.swift */; };
 		C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */; };
@@ -91,6 +95,10 @@
 		0C7FE6982BB1259800D94162 /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
 		0C7FE69A2BB1290A00D94162 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationImages.swift; sourceTree = "<group>"; };
+		0CA4C5652BB3281F00268B07 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		0CB465AD2BB3D1C700317455 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionView.swift; sourceTree = "<group>"; };
+		0CA193582BB5B49A007C04B1 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		0CD06A282BAB459500845B24 /* RegisterTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTermsView.swift; sourceTree = "<group>"; };
 		C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCustomView.swift; sourceTree = "<group>"; };
@@ -202,6 +210,8 @@
 			children = (
 				0C7FE6982BB1259800D94162 /* NetworkErrorView.swift */,
 				0C7FE69A2BB1290A00D94162 /* LoadingView.swift */,
+				0CA4C5652BB3281F00268B07 /* RootView.swift */,
+				0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -218,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */,
+				0CB465AD2BB3D1C700317455 /* RootViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -259,6 +270,7 @@
 		C953D2F22BA4780200318869 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				0CA193582BB5B49A007C04B1 /* Pretendard-Bold.otf */,
 				C953D2F42BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf */,
 				C953D2F32BA47B0700318869 /* Pretendard-Regular.otf */,
 			);
@@ -525,6 +537,7 @@
 				C98078B02BA8720D00C04B2D /* classCorrect.mp3 in Resources */,
 				C98078C32BA872DF00C04B2D /* moonHundredClicked.mp3 in Resources */,
 				C98078B62BA8725400C04B2D /* microbeHit.mp3 in Resources */,
+				0CA193592BB5B49A007C04B1 /* Pretendard-Bold.otf in Resources */,
 				C98078C62BA8816B00C04B2D /* backgroundMusic.mp3 in Resources */,
 				C98078B72BA8725400C04B2D /* microbeEnd.mp3 in Resources */,
 				C953D2F52BA47B0700318869 /* Pretendard-Regular.otf in Resources */,
@@ -548,6 +561,7 @@
 				C9FE257B2BB3DFAA00F78C63 /* CheckLogoutView.swift in Sources */,
 				0C6AA4C72BA566CE0032AB24 /* Badge.swift in Sources */,
 				C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */,
+				0CA4C5662BB3281F00268B07 /* RootView.swift in Sources */,
 				0C6AA4CD2BA56E230032AB24 /* UserNotification.swift in Sources */,
 				C918F40D2BA753B400C0BFDA /* AuthenticationTimer.swift in Sources */,
 				C97543F22BB3222F00CD6479 /* MyPageProfileView.swift in Sources */,
@@ -567,6 +581,7 @@
 				C953D2F92BA47B4B00318869 /* Font.swift in Sources */,
 				0C6AA4BD2BA553D80032AB24 /* APIManager.swift in Sources */,
 				0C6AA4CB2BA56B510032AB24 /* Major.swift in Sources */,
+				0CB465AE2BB3D1C700317455 /* RootViewModel.swift in Sources */,
 				0C6396E82BAB4BB8008E046F /* RegisterNickname.swift in Sources */,
 				C97543F02BB31CEC00CD6479 /* MyPageView.swift in Sources */,
 				0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */,
@@ -577,6 +592,7 @@
 				C97543F62BB325A300CD6479 /* MyPageListRowView.swift in Sources */,
 				C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */,
 				0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */,
+				0CA193562BB5ABEB007C04B1 /* RequestPermissionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,12 +730,16 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "playkuround-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "플레이쿠라운드";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.arcade-games";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "플레이쿠라운드는 사용자의 위치를 기반으로 게임이 진행됩니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -746,12 +766,16 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "playkuround-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "플레이쿠라운드";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.arcade-games";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "플레이쿠라운드는 사용자의 위치를 기반으로 게임이 진행됩니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

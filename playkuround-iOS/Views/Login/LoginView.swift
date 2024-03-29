@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
+    @ObservedObject var viewModel: RootViewModel
+    
     // 포탈 아이디
     @State private var userId: String = ""
     @FocusState private var focusField: Bool
@@ -90,7 +92,8 @@ struct LoginView: View {
                 }
                 
                 if isAuthCodeViewVisible {
-                    AuthenticationCodeView(userSendingCount: $userSendingCount,
+                    AuthenticationCodeView(viewModel: viewModel, 
+                                           userSendingCount: $userSendingCount,
                                            isTimerFinished: $isBottomSheetPresented,
                                            userEmail: userId + StringLiterals.Login.email)
                 }
@@ -117,6 +120,9 @@ struct LoginView: View {
     }
     
     private func callPOSTAPIemails(target: String) {
+        // Save target email to UserDefaults
+        UserDefaults.standard.set(target, forKey: "email")
+        
         APIManager.callPOSTAPI(endpoint: .emails,
                                parameters: ["target" : target.lowercased()]) { result in
             switch result {
@@ -149,5 +155,5 @@ struct LoginView: View {
 
 
 #Preview {
-    LoginView()
+    LoginView(viewModel: RootViewModel())
 }
