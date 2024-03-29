@@ -75,6 +75,7 @@ enum StringLiterals {
     }
 
     enum MyPage {
+        static let title = "마이페이지"
         static let currentScore = "현재 점수"
         static let highestScore = "최고 점수"
         static let instagramURL = "https://www.instagram.com/playkuround_/"

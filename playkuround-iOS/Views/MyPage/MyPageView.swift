@@ -59,7 +59,7 @@ struct MyPageView: View {
                 .padding(.horizontal, 20)
                 .scrollIndicators(.hidden)
             }
-            .padding(.top, 30)
+            .padding(.top, 100)
             
             if isLogoutPresented {
                 CheckLogoutView(viewModel: viewModel,
@@ -69,6 +69,17 @@ struct MyPageView: View {
             if isCheerPresented {
                 CheerPKTeamView(isCheerPresented: $isCheerPresented)
             }
+            
+            Spacer()
+                .customNavigationBar(
+                    centerView: {
+                        Text(StringLiterals.MyPage.title)
+                            .font(.neo22)
+                            .kerning(-0.41)
+                            .foregroundStyle(.kuText)
+                    }, leftView: {
+                        Image(.leftBlackArrow)
+                    }, height: 73)
         }
         .fullScreenCover(isPresented: $isServiceTermsViewPresented) {
             TermsView(title: StringLiterals.Register.serviceTermsTitle, termsType: .service)

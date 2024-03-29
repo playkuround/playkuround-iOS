@@ -21,7 +21,7 @@ struct MyPageProfileView: View {
                 .font(.neo15)
                 .kerning(-0.41)
                 .foregroundStyle(.kuText)
-                .padding(.top, 8)
+                .padding(.top, 5)
             
             Image(.mypageCurrentScore)
                 .overlay {
@@ -37,7 +37,7 @@ struct MyPageProfileView: View {
                             .foregroundStyle(.kuText)
                     }
                 }
-                .padding(.top, 20)
+                .padding(.top, 15)
             
             Image(.mypageHighestScore)
                 .overlay {
