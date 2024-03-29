@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MyPageView: View {
+    @ObservedObject var viewModel: RootViewModel
     @State private var isLogoutPresented: Bool = false
     @State private var isCheerPresented: Bool = false
     @State private var isServiceTermsViewPresented: Bool = false
@@ -54,7 +55,8 @@ struct MyPageView: View {
             .padding(.top, 30)
             
             if isLogoutPresented {
-                CheckLogoutView(isLogoutPresented: $isLogoutPresented)
+                CheckLogoutView(viewModel: viewModel,
+                                isLogoutPresented: $isLogoutPresented)
             }
             
             if isCheerPresented {
@@ -83,5 +85,5 @@ struct MyPageView: View {
 }
 
 #Preview {
-    MyPageView()
+    MyPageView(viewModel: RootViewModel())
 }

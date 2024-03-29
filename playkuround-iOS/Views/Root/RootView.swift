@@ -36,8 +36,7 @@ struct RootView: View {
                     }
                 }
             case .myPage:
-                // 임시 구현
-                Text("My Page")
+                MyPageView(viewModel: viewModel)
             }
             
             // network error

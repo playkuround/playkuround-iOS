@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CheckLogoutView: View {
+    @ObservedObject var viewModel: RootViewModel
     @Binding var isLogoutPresented: Bool
     
     var body: some View {
@@ -28,8 +29,8 @@ struct CheckLogoutView: View {
                 
                 
                 Button(action: {
-                    // 로그아웃 서버 API 연결
                     isLogoutPresented = false
+                    viewModel.logout()
                 }, label: {
                     Image(.shortButtonBlue)
                         .overlay {
