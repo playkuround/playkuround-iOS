@@ -30,3 +30,8 @@ enum myPageCheer: String, CaseIterable {
     case mypageCheer1
     case mypageCheer2
 }
+
+enum gameSuccessImage: String, CaseIterable {
+    case timeSuccessIcon1
+    case timeSuccessIcon2
+}

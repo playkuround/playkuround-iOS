@@ -31,8 +31,11 @@ struct TimerGameView: View {
                 // if success {
                 //     Image(.timeSuccessIcon)
                 // } else {
-                Image(.timeStopButton)
-                    .padding(.top, 20)
+                AnimationCustomView(
+                    imageArray: gameSuccessImage.allCases.map { $0.rawValue },
+                    delayTime: 0.2)
+                .scaledToFit()
+                .frame(height: 140)
                 
                 Spacer()
                     .frame(height: 150)
