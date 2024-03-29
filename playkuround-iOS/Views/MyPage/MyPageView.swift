@@ -9,6 +9,10 @@ import SwiftUI
 
 struct MyPageView: View {
     @ObservedObject var viewModel: RootViewModel
+    @State private var user: UserEntity = UserEntity(nickname:  "", major: "",
+                                                     myRank: MyRank(score: 0, ranking: ""),
+                                                     highestScore: 0, highestRank: "")
+    
     @State private var isLogoutPresented: Bool = false
     @State private var isCheerPresented: Bool = false
     @State private var isServiceTermsViewPresented: Bool = false
@@ -19,7 +23,7 @@ struct MyPageView: View {
             Color(.kuBackground).ignoresSafeArea(.all)
             
             VStack {
-                MyPageProfileView()
+                MyPageProfileView(user: $user)
                 
                 Rectangle()
                     .fill(.kuBlue3)
@@ -84,9 +88,31 @@ struct MyPageView: View {
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("serviceTermsViewPresented"))) { _ in
             self.isServiceTermsViewPresented = true
         }
+        .onAppear {
+            callGetAPIUsers()
+        }
     }
-}
-
-#Preview {
-    MyPageView(viewModel: RootViewModel())
+    
+    private func callGetAPIUsers() {
+        APIManager.callGETAPI(endpoint: .users) { result in
+            switch result {
+            case .success(let data):
+                print("Data received in View: \(data)")
+                
+                if let response = data as? APIResponse {
+                    if response.isSuccess {
+                        user.nickname = response.response?.nickname ?? "-"
+                        user.major = response.response?.major ?? "-"
+                        user.myRank.score = response.response?.myRank?.score ?? 0
+                        user.myRank.ranking = response.response?.myRank?.ranking ?? "-"
+                        user.highestScore = response.response?.highestScore ?? 0
+                        user.highestRank = response.response?.highestRank ?? "-"
+                    }
+                }
+                
+            case .failure(let error):
+                print("Error in View: \(error)")
+            }
+        }
+    }
 }
