@@ -11,9 +11,13 @@ struct MyPageListRowView: View {
     let rowTitle: String
     
     var body: some View {
-        Text(rowTitle)
-            .font(.pretendard15R)
-            .foregroundStyle(.kuText)
-            .padding(.top, 18)
+        HStack {
+            Text(rowTitle)
+                .font(.pretendard15R)
+                .foregroundStyle(.kuText)
+                .padding(.top, 18)
+            
+            Spacer()
+        }
     }
 }

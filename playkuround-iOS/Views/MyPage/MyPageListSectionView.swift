@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MyPageListSectionView: View {
+    @ObservedObject var viewModel: RootViewModel
     let sectionTitle: String
     let rowTitle: [String]
     
@@ -55,6 +56,16 @@ struct MyPageListSectionView: View {
                 
                 if title == StringLiterals.MyPage.Instruction.version.rawValue {
                     MyPageListRowView(rowTitle: title)
+                        .overlay {
+                            HStack {
+                                Spacer()
+                                
+                                Text(viewModel.currentAppVersion())
+                                    .font(.pretendard15R)
+                                    .foregroundStyle(.kuText)
+                                    .padding(.top, 18)
+                            }
+                        }
                 }
                 
                 // 개인정보 처리 방침

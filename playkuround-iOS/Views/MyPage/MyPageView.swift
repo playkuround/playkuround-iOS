@@ -28,7 +28,8 @@ struct MyPageView: View {
                 
                 ScrollView {
                     VStack(alignment: .leading) {
-                        MyPageListSectionView(sectionTitle: StringLiterals.MyPage.Title.my,
+                        MyPageListSectionView(viewModel: viewModel,
+                                              sectionTitle: StringLiterals.MyPage.Title.my,
                                               rowTitle: StringLiterals.MyPage.My.allCases.map { $0.rawValue })
                         
                         Rectangle()
@@ -36,7 +37,8 @@ struct MyPageView: View {
                             .frame(height: 1)
                             .padding(.top, 8)
                         
-                        MyPageListSectionView(sectionTitle: StringLiterals.MyPage.Title.shortcut,
+                        MyPageListSectionView(viewModel: viewModel,
+                                              sectionTitle: StringLiterals.MyPage.Title.shortcut,
                                               rowTitle: StringLiterals.MyPage.Shortcut.allCases.map { $0.rawValue })
                         
                         Rectangle()
@@ -44,7 +46,8 @@ struct MyPageView: View {
                             .frame(height: 1)
                             .padding(.top, 8)
                         
-                        MyPageListSectionView(sectionTitle: StringLiterals.MyPage.Title.instruction,
+                        MyPageListSectionView(viewModel: viewModel,
+                                              sectionTitle: StringLiterals.MyPage.Title.instruction,
                                               rowTitle: StringLiterals.MyPage.Instruction.allCases.map { $0.rawValue })
                     }
                     .padding(.bottom, 30)
