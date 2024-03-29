@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RegisterNickname: View {
+    @ObservedObject var viewModel: RootViewModel
+    
     // 닉네임이 올바른지 검사
     @State private var isNicknameVaild: Bool = true
     @State private var isNicknameDuplicated: Bool = false
@@ -55,7 +57,7 @@ struct RegisterNickname: View {
                 Image(.menuButton)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         ZStack {
                             if nickname.isEmpty {
@@ -69,6 +71,8 @@ struct RegisterNickname: View {
                             }
                             
                             TextField("", text: $nickname)
+                                .autocorrectionDisabled(true)
+                                .textInputAutocapitalization(.never)
                                 .font(.pretendard15R)
                                 .foregroundStyle(.kuText)
                                 .padding()
@@ -108,7 +112,7 @@ struct RegisterNickname: View {
                 Image(isNicknameChecked ? (isNicknameDuplicated ? .longButtonGray : .longButtonBlue) : (isNicknameVaild && nickname.count >= 2 ? .longButtonBlue : .longButtonGray))
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         if isLoading {
                             // API 요청한 경우
@@ -147,6 +151,20 @@ struct RegisterNickname: View {
                         isLoading = false
                         print("nickname is available, transfer to next view")
                         // TODO: 회원가입 프로세스 진행
+                        
+                        let email = UserDefaults.standard.string(forKey: "email") ?? ""
+                        let major = UserDefaults.standard.string(forKey: "major") ?? ""
+                        let authVerifyToken = TokenManager.token(tokenType: .authVerify)
+                        
+                        if email.isEmpty || major.isEmpty || authVerifyToken.isEmpty {
+                            print("email, major, authVerifyToken is empty")
+                            
+                            // 로그인 화면으로 다시 이동
+                            viewModel.transition(to: .login)
+                        } else {
+                            // 회원가입 API 호출
+                            register(email: email, major: major, token: authVerifyToken)
+                        }
                     } else {
                         isNicknameDuplicated = true
                         isNicknameChecked = true
@@ -166,6 +184,46 @@ struct RegisterNickname: View {
         }
     }
     
+    private func register(email: String, major: String, token: String) {
+        APIManager.callPOSTAPI(endpoint: .register, parameters: ["email": email, "nickname": nickname, "major": major, "authVerifyToken": token]) { result in
+            switch result {
+            case .success(let data):
+                // TODO: Token 저장 및 Home으로 전환
+                print(data)
+                
+                if let apiResponse = data as? APIResponse {
+                    if apiResponse.isSuccess {
+                        if let response = apiResponse.response {
+                            if let accessToken = response.accessToken, let refreshToken = response.refreshToken {
+                                TokenManager.setToken(tokenType: .refresh, token: refreshToken)
+                                TokenManager.setToken(tokenType: .access, token: accessToken)
+                                
+                                // 임시 저장한 데이터 제거
+                                UserDefaults.standard.removeObject(forKey: "email")
+                                UserDefaults.standard.removeObject(forKey: "major")
+                                
+                                // 뷰 전환
+                                viewModel.transition(to: .home)
+                            }
+                        }
+                    }
+                    else {
+                        // 회원가입 실패
+                        if let error = apiResponse.errorResponse?.message {
+                            print(error)
+                        }
+                    }
+                }
+            case .failure(let data):
+                // 회원가입 실패 메시지 (서버 오류 등)
+                print(data)
+                isNicknameDuplicated = false
+                isNicknameChecked = false
+                isLoading = false
+            }
+        }
+    }
+    
     // 닉네임 체크 (한글, 영어만 가능)
     private func nicknameValidate(_ input: String) -> Bool {
         let pattern = "^[가-힣a-zA-Z0-9\\s]*$"
@@ -180,5 +238,5 @@ struct RegisterNickname: View {
 }
 
 #Preview {
-    RegisterNickname()
+    RegisterNickname(viewModel: RootViewModel())
 }

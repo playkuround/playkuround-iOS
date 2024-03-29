@@ -64,7 +64,15 @@ enum StringLiterals {
     enum Network {
         static let message = "네트워크 오류가 발생했습니다.\n잠시만 기다려주세요!"
     }
-    
+
+    enum Permission {
+        static let title = "위치 권한 허용하면\n플쿠 즐길 준비 완료!"
+        static let description1 = "플레이쿠라운드는 GPS를 활용하여\n건국대학교를 탐험하는 게임이에요!"
+        static let descriptionBold = "GPS를 활용"
+        static let description2 = "게임 플레이를 위해서는\n사용자분의 위치 정보가 필요해요."
+        static let description3 = "설정에서 위치 권한 허용 후\n플레이쿠라운드를 마음껏 즐겨주세요!"
+        static let openSetting = "설정으로 이동"
+
     enum MyPage {
         static let currentScore = "현재 점수"
         static let highestScore = "최고 점수"

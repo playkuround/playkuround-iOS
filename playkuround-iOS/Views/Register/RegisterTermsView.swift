@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RegisterTermsView: View {
+    @ObservedObject var viewModel: RootViewModel
+    
     // 각 이용약관 동의 여부
     @State private var isServiceTermAgreed: Bool = false
     @State private var isPrivacyTermAgreed: Bool = false
@@ -38,7 +40,7 @@ struct RegisterTermsView: View {
                 Image(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .longButtonBlue : .longButtonGray)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         HStack {
                             Image(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .blackCheck : .whiteCheck)
@@ -62,14 +64,14 @@ struct RegisterTermsView: View {
                 Image(.grayLine)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .padding(.vertical, 3)
                 
                 // 서비스 이용 약관 동의 버튼
                 Image(isServiceTermAgreed ? .longButtonBlue : .longButtonGray)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         HStack {
                             Image(isServiceTermAgreed ? .blackCheck : .whiteCheck)
@@ -100,7 +102,7 @@ struct RegisterTermsView: View {
                 Image(isPrivacyTermAgreed ? .longButtonBlue : .longButtonGray)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         HStack {
                             Image(isPrivacyTermAgreed ? .blackCheck : .whiteCheck)
@@ -132,7 +134,7 @@ struct RegisterTermsView: View {
                 Image(isLocationTermAgreed ? .longButtonBlue : .longButtonGray)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         HStack {
                             Image(isLocationTermAgreed ? .blackCheck : .whiteCheck)
@@ -165,7 +167,7 @@ struct RegisterTermsView: View {
                 Image(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .longButtonBlue : .longButtonGray)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .overlay {
                         Text(StringLiterals.Register.next)
                             .font(.neo15)
@@ -173,7 +175,9 @@ struct RegisterTermsView: View {
                             .foregroundStyle(.kuText)
                     }
                     .onTapGesture {
-                        // TODO: 다음 버튼 눌렀을 때 구현
+                        // 다음 뷰로 이동
+                        // 뷰 전환
+                        viewModel.transition(to: .registerMajor)
                     }
             }
             .padding(.horizontal)
@@ -193,5 +197,5 @@ struct RegisterTermsView: View {
 }
 
 #Preview {
-    RegisterTermsView()
+    RegisterTermsView(viewModel: RootViewModel())
 }
