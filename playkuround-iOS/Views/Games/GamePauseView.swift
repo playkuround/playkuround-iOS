@@ -17,7 +17,7 @@ struct GamePauseView: View {
                     .overlay {
                         Text(StringLiterals.Game.play)
                             .font(.neo20)
-                            .foregroundStyle(.black)
+                            .foregroundStyle(.kuText)
                             .kerning(-0.41)
                     }
                     .padding(.bottom, 12)
@@ -29,7 +29,7 @@ struct GamePauseView: View {
                     .overlay {
                         Text(StringLiterals.Game.home)
                             .font(.neo20)
-                            .foregroundStyle(.black)
+                            .foregroundStyle(.kuText)
                             .kerning(-0.41)
                     }
                     .onTapGesture {
