@@ -23,7 +23,7 @@ struct MyPageView: View {
             Color(.kuBackground).ignoresSafeArea(.all)
             
             VStack {
-                MyPageProfileView(user: $user)
+                MyPageProfileView(user: user)
                 
                 Rectangle()
                     .fill(.kuBlue3)

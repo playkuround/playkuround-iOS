@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MyPageProfileView: View {
-    @Binding var user: UserEntity
+    let user: UserEntity
     
     var body: some View {
         VStack(alignment: .leading) {
