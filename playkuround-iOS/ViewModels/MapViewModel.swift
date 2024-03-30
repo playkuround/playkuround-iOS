@@ -108,7 +108,9 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
     
     // 사용자 랜드마크 업데이트
     func updateLandmark() {
-        APIManager.callGETAPI(endpoint: .landmarks, querys: ["latitude": userLatitude, "longitude": userLongitude]) { result in
+        APIManager.callGETAPI(endpoint: .landmarks,
+                              querys: ["latitude": userLatitude,
+                                       "longitude": userLongitude]) { result in
             switch result {
             case .success(let data):
                 if let response = data as? APIResponse {
@@ -144,7 +146,7 @@ struct MapViewTestView: View {
                 // 위치 권한 체크, 권한 없는 경우 요청
                 vm.requestLocationAuthorization()
             }
-             .buttonStyle(.borderedProminent)
+            .buttonStyle(.borderedProminent)
             
             Button("업데이트 시작") {
                 vm.startUpdatingLocation()
