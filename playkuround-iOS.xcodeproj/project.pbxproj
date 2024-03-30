@@ -24,6 +24,8 @@
 		0C7FE6992BB1259800D94162 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE6982BB1259800D94162 /* NetworkErrorView.swift */; };
 		0C7FE69B2BB1290A00D94162 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE69A2BB1290A00D94162 /* LoadingView.swift */; };
 		0C7FE6A12BB1983A00D94162 /* AnimationImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */; };
+		0C9641E42BB8627600838DA9 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9641E32BB8627600838DA9 /* GameViewModel.swift */; };
+		0C9641E62BB874E200838DA9 /* TimerBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9641E52BB874E200838DA9 /* TimerBarView.swift */; };
 		0CA193562BB5ABEB007C04B1 /* RequestPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */; };
 		0CA193592BB5B49A007C04B1 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CA193582BB5B49A007C04B1 /* Pretendard-Bold.otf */; };
 		0CA4C5662BB3281F00268B07 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA4C5652BB3281F00268B07 /* RootView.swift */; };
@@ -101,6 +103,8 @@
 		0C7FE6982BB1259800D94162 /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
 		0C7FE69A2BB1290A00D94162 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationImages.swift; sourceTree = "<group>"; };
+		0C9641E32BB8627600838DA9 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		0C9641E52BB874E200838DA9 /* TimerBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerBarView.swift; sourceTree = "<group>"; };
 		0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionView.swift; sourceTree = "<group>"; };
 		0CA193582BB5B49A007C04B1 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		0CA4C5652BB3281F00268B07 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -242,6 +246,7 @@
 				0CB902222BB6E76100F76311 /* TimerGame */,
 				0CB902202BB6E6A300F76311 /* GamePauseView.swift */,
 				0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */,
+				0C9641E52BB874E200838DA9 /* TimerBarView.swift */,
 			);
 			path = Games;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 			children = (
 				0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */,
 				0CB465AD2BB3D1C700317455 /* RootViewModel.swift */,
+				0C9641E32BB8627600838DA9 /* GameViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -608,6 +614,7 @@
 				0C7FE69B2BB1290A00D94162 /* LoadingView.swift in Sources */,
 				C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */,
 				C9FE257D2BB40E1C00F78C63 /* CheerPKTeamView.swift in Sources */,
+				0C9641E62BB874E200838DA9 /* TimerBarView.swift in Sources */,
 				0C5979BC2BAB26A800E8156D /* TermsView.swift in Sources */,
 				0C6AA4CF2BA56FB30032AB24 /* ScoreType.swift in Sources */,
 				C953D2FE2BA4807400318869 /* LoginView.swift in Sources */,
@@ -622,6 +629,7 @@
 				C9519D392BB3339C00F69974 /* NavigationBarModifier.swift in Sources */,
 				0C7FE6992BB1259800D94162 /* NetworkErrorView.swift in Sources */,
 				C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */,
+				0C9641E42BB8627600838DA9 /* GameViewModel.swift in Sources */,
 				0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */,
 				C9DAF1F72BB712D900E03D16 /* UserEntity.swift in Sources */,
 				C97543F62BB325A300CD6479 /* MyPageListRowView.swift in Sources */,
