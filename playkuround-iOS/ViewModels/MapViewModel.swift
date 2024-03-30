@@ -27,6 +27,9 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         requestLocationAuthorization()
     }*/
     
+    // 사용자의 랜드마크
+    @Published var userLandmarkID: Int?
+    
     func requestLocationAuthorization() {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
@@ -102,6 +105,22 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
             UIApplication.shared.open(url)
         }
     }
+    
+    // 사용자 랜드마크 업데이트
+    func updateLandmark() {
+        APIManager.callGETAPI(endpoint: .landmarks, querys: ["latitude": userLatitude, "longitude": userLongitude]) { result in
+            switch result {
+            case .success(let data):
+                if let response = data as? APIResponse {
+                    self.userLandmarkID = response.response?.landmarkId ?? nil
+                    print("userLandmarkID: \(self.userLandmarkID ?? -1)")
+                }
+            case .failure(let error):
+                print("Error in View: \(error)")
+                self.userLandmarkID = nil
+            }
+        }
+    }
 }
 
 struct MapViewTestView: View {
@@ -112,6 +131,14 @@ struct MapViewTestView: View {
             Text("isAuthorized: \(vm.isAuthorized.rawValue.description)")
             Text("Location: (\(vm.userLatitude), \(vm.userLongitude))")
             Text("Heading: \(vm.userHeading)")
+            
+            if let landmarkID = vm.userLandmarkID {
+                // 인덱스는 1부터 시작하며, 0번째는 더미 노드가 있으므로 인덱스를 그래도 사용 가능
+                let landmark = landmarkList[landmarkID]
+                Text("근처 랜드마크: \(landmark.name)(\(landmark.number))")
+            } else {
+                Text("근처 랜드마크: 없음(nil)")
+            }
             
             Button("권한 체크 및 요청") {
                 // 위치 권한 체크, 권한 없는 경우 요청
@@ -131,6 +158,11 @@ struct MapViewTestView: View {
             
             Button("설정으로") {
                 vm.openSettings()
+            }
+            .buttonStyle(.borderedProminent)
+            
+            Button("랜드마크 업데이트") {
+                vm.updateLandmark()
             }
             .buttonStyle(.borderedProminent)
         }

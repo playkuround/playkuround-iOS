@@ -20,6 +20,8 @@ struct Landmark: Identifiable, Codable, Equatable {
 }
 
 let landmarkList: [Landmark] = [
+    // 서버 API 반환값 및 랜드마크 인덱스는 1부터 시작하므로 0번째는 더미 노드 추가
+    Landmark(number: 0, name: "Error: Index Out of Range", latitude: 0, longitude: 0, radius: 0),
     Landmark(number: 1, name: "산학협동관", latitude: 37.539765, longitude: 127.073215, radius: 40),
     Landmark(number: 2, name: "입학정보관", latitude: 37.540296, longitude: 127.073410, radius: 20),
     Landmark(number: 3, name: "수의학관", latitude: 37.539310, longitude: 127.074590, radius: 35),
