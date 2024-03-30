@@ -6,9 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
-import MapKit
-import CoreLocation
 
 struct Landmark: Identifiable, Codable, Equatable {
     var id = UUID()
