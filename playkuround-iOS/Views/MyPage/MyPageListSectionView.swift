@@ -53,7 +53,25 @@ struct MyPageListSectionView: View {
                             callPostAPIfakeDoor()
                         }
                 }
-
+                
+                // 피드백 보내기
+                if title == StringLiterals.MyPage.Shortcut.feedback.rawValue {
+                    MyPageListRowView(rowTitle: title)
+                        .onTapGesture {
+                            linkFeedbackURL()
+                        }
+                }
+                
+                // 오류 제보
+                if title == StringLiterals.MyPage.Shortcut.bug.rawValue {
+                    MyPageListRowView(rowTitle: title)
+                        .onTapGesture {
+                            linkBugURL()
+                        }
+                }
+                
+                // 앱 버전
+                if title == StringLiterals.MyPage.Instruction.version.rawValue {
                     MyPageListRowView(rowTitle: title)
                         .overlay {
                             HStack {
@@ -65,7 +83,8 @@ struct MyPageListSectionView: View {
                                     .padding(.top, 18)
                             }
                         }
-
+                }
+                
                 // 개인정보 처리 방침
                 if title == StringLiterals.MyPage.Instruction.privacy.rawValue {
                     MyPageListRowView(rowTitle: title)
@@ -88,6 +107,18 @@ struct MyPageListSectionView: View {
     private func linkInstagramURL() {
         if let instagramURL = URL(string: StringLiterals.MyPage.instagramURL) {
             UIApplication.shared.open(instagramURL)
+        }
+    }
+    
+    private func linkFeedbackURL() {
+        if let feedbackURL = URL(string: StringLiterals.MyPage.feedbackURL) {
+            UIApplication.shared.open(feedbackURL)
+        }
+    }
+    
+    private func linkBugURL() {
+        if let bugURL = URL(string: StringLiterals.MyPage.bugURL) {
+            UIApplication.shared.open(bugURL)
         }
     }
     
