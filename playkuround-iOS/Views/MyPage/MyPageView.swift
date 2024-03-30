@@ -66,7 +66,7 @@ struct MyPageView: View {
                                 isLogoutPresented: $isLogoutPresented)
             }
             else if isCheerPresented {
-                CheerPKTeamView(isCheerPresented: $isCheerPresented)
+                CheerPKTeamView()
             }
             
             Spacer()

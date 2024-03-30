@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct CheerPKTeamView: View {
-    @Binding var isCheerPresented: Bool
-    
     var body: some View {
         ZStack {
             Color.black
