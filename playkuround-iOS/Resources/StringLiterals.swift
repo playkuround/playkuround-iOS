@@ -112,4 +112,16 @@ enum StringLiterals {
             static let no = "아니오"
         }
     }
+    
+    enum Game {
+        static let play = "계속하기"
+        static let home = "홈"
+        
+        enum Time {
+            static let title = "10초를 맞춰봐"
+            static let description = "10초에 가까워졌을 때 버튼을 눌러 멈춰주세요!\n±0.1초까지 인정됩니다."
+            static let success = "성공하셨습니다. 축하합니다!"
+            static let failure = "실패하셨습니다. 다시 시도해보세요!"
+        }
+    }
 }

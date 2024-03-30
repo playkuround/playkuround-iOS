@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C31576C2BB7CCC000F270F7 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C31576B2BB7CCC000F270F7 /* Landmark.swift */; };
 		0C5979B52BAB215300E8156D /* RegisterMajorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5979B42BAB215300E8156D /* RegisterMajorView.swift */; };
 		0C5979B82BAB25EE00E8156D /* service.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C5979B72BAB25EE00E8156D /* service.txt */; };
 		0C5979BC2BAB26A800E8156D /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5979BB2BAB26A800E8156D /* TermsView.swift */; };
@@ -27,8 +28,11 @@
 		0CA193592BB5B49A007C04B1 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CA193582BB5B49A007C04B1 /* Pretendard-Bold.otf */; };
 		0CA4C5662BB3281F00268B07 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA4C5652BB3281F00268B07 /* RootView.swift */; };
 		0CB465AE2BB3D1C700317455 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB465AD2BB3D1C700317455 /* RootViewModel.swift */; };
+		0CB902212BB6E6A300F76311 /* GamePauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB902202BB6E6A300F76311 /* GamePauseView.swift */; };
+		0CB902242BB6E77200F76311 /* TimerGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB902232BB6E77200F76311 /* TimerGameView.swift */; };
 		0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */; };
 		0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD06A282BAB459500845B24 /* RegisterTermsView.swift */; };
+		0CEB87C72BB7E2B000CC2E4B /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */; };
 		C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */; };
 		C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4042BA7149A00C0BFDA /* SoundManager.swift */; };
 		C918F4072BA7177800C0BFDA /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4062BA7177800C0BFDA /* HapticManager.swift */; };
@@ -80,6 +84,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C31576B2BB7CCC000F270F7 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
 		0C5979B42BAB215300E8156D /* RegisterMajorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMajorView.swift; sourceTree = "<group>"; };
 		0C5979B72BAB25EE00E8156D /* service.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = service.txt; sourceTree = "<group>"; };
 		0C5979BB2BAB26A800E8156D /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
@@ -100,8 +105,11 @@
 		0CA193582BB5B49A007C04B1 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		0CA4C5652BB3281F00268B07 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		0CB465AD2BB3D1C700317455 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		0CB902202BB6E6A300F76311 /* GamePauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePauseView.swift; sourceTree = "<group>"; };
+		0CB902232BB6E77200F76311 /* TimerGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerGameView.swift; sourceTree = "<group>"; };
 		0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		0CD06A282BAB459500845B24 /* RegisterTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTermsView.swift; sourceTree = "<group>"; };
+		0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
 		C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCustomView.swift; sourceTree = "<group>"; };
 		C918F4042BA7149A00C0BFDA /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		C918F4062BA7177800C0BFDA /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
@@ -203,6 +211,7 @@
 				0C6AA4CA2BA56B510032AB24 /* Major.swift */,
 				0C6AA4CC2BA56E230032AB24 /* UserNotification.swift */,
 				0C6AA4CE2BA56FB30032AB24 /* ScoreType.swift */,
+				0C31576B2BB7CCC000F270F7 /* Landmark.swift */,
 				C9DAF1F62BB712D900E03D16 /* UserEntity.swift */,
 			);
 			path = Models;
@@ -225,6 +234,24 @@
 				0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		0CB9021F2BB6E69800F76311 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				0CB902222BB6E76100F76311 /* TimerGame */,
+				0CB902202BB6E6A300F76311 /* GamePauseView.swift */,
+				0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		0CB902222BB6E76100F76311 /* TimerGame */ = {
+			isa = PBXGroup;
+			children = (
+				0CB902232BB6E77200F76311 /* TimerGameView.swift */,
+			);
+			path = TimerGame;
 			sourceTree = "<group>";
 		};
 		0CBB058E2BB07A0000EB56BE /* ViewModels */ = {
@@ -283,6 +310,7 @@
 		C953D2FC2BA4806900318869 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0CB9021F2BB6E69800F76311 /* Games */,
 				C97543EE2BB31CE100CD6479 /* MyPage */,
 				0C7FE6952BB1256300D94162 /* Root */,
 				C953D3022BA49BAB00318869 /* Main */,
@@ -562,6 +590,8 @@
 				C97543F42BB3244800CD6479 /* MyPageListSectionView.swift in Sources */,
 				C918F4072BA7177800C0BFDA /* HapticManager.swift in Sources */,
 				C9FE257B2BB3DFAA00F78C63 /* CheckLogoutView.swift in Sources */,
+				0CEB87C72BB7E2B000CC2E4B /* CountdownView.swift in Sources */,
+				0CB902242BB6E77200F76311 /* TimerGameView.swift in Sources */,
 				0C6AA4C72BA566CE0032AB24 /* Badge.swift in Sources */,
 				C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */,
 				0CA4C5662BB3281F00268B07 /* RootView.swift in Sources */,
@@ -584,6 +614,7 @@
 				C953D2F92BA47B4B00318869 /* Font.swift in Sources */,
 				0C6AA4BD2BA553D80032AB24 /* APIManager.swift in Sources */,
 				0C6AA4CB2BA56B510032AB24 /* Major.swift in Sources */,
+				0C31576C2BB7CCC000F270F7 /* Landmark.swift in Sources */,
 				0CB465AE2BB3D1C700317455 /* RootViewModel.swift in Sources */,
 				0C6396E82BAB4BB8008E046F /* RegisterNickname.swift in Sources */,
 				C97543F02BB31CEC00CD6479 /* MyPageView.swift in Sources */,
@@ -597,6 +628,7 @@
 				C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */,
 				0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */,
 				0CA193562BB5ABEB007C04B1 /* RequestPermissionView.swift in Sources */,
+				0CB902212BB6E6A300F76311 /* GamePauseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
