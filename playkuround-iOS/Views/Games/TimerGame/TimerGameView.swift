@@ -28,7 +28,6 @@ struct TimerGameView: View {
                 }
                 .frame(width: geometry.size.width)
                 .frame(height: geometry.size.height > 700 ? 90 : 60)
-                .border(.red)
                 .customNavigationBar(
                     centerView: {
                         Text(StringLiterals.Game.Time.title)
@@ -73,57 +72,17 @@ struct TimerGameView: View {
                                         .padding(.top, 20)
                                 }
                                 
-//                                AnimationCustomView(
-//                                    imageArray: gameSuccessImage.allCases.map { $0.rawValue },
-//                                    delayTime: 0.2)
-//                                .scaledToFit()
-//                                .frame(height: 140)
+                                // 성공 시
+                                /* AnimationCustomView(
+                                    imageArray: gameSuccessImage.allCases.map { $0.rawValue },
+                                    delayTime: 0.2)
+                                .scaledToFit()
+                                .frame(height: 140) */
                             }
                             .offset(y: 110)
                         }
                 }
             }
-            
-            /*
-             VStack {
-             Text(StringLiterals.Game.Time.description)
-             .font(.pretendard15R)
-             .foregroundStyle(.kuText)
-             .multilineTextAlignment(.center)
-             
-             Spacer()
-             }
-             .frame(maxHeight: .infinity)
-             .padding(.top, 80)
-             
-             VStack {
-             Text("00:00")
-             .font(.neo70)
-             .kerning(-0.41)
-             .foregroundStyle(.kuText)
-             
-             Text(StringLiterals.Game.Time.success)
-             .font(.pretendard15R)
-             .foregroundStyle(.kuGreen)
-             
-             //                Image(.timeStopButton)
-             //                    .resizable()
-             //                    .scaledToFit()
-             //                    .frame(width: 120, height: 120)
-             //                    .padding(.top, 20)
-             
-             AnimationCustomView(
-             imageArray: gameSuccessImage.allCases.map { $0.rawValue },
-             delayTime: 0.2)
-             .scaledToFit()
-             .frame(height: 140)
-             
-             Spacer()
-             .frame(height: 150)
-             }*/
-            
-            //            Spacer()
-            
         }
     }
 }
