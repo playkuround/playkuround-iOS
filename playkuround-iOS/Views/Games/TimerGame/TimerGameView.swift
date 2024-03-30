@@ -16,7 +16,7 @@ struct TimerGameView: View {
             
             GeometryReader { geometry in
                 
-                VStack() {
+                VStack {
                     Spacer()
                     
                     Text(StringLiterals.Game.Time.description)
