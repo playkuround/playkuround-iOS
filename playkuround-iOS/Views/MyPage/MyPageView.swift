@@ -138,7 +138,7 @@ struct MyPageView: View {
         APIManager.callGETAPI(endpoint: .scoresRank) { result in
             switch result {
             case .success(let data):
-                print("🍪🍪🍪 Data received in View: \(data)")
+                print("Data received in View: \(data)")
                 
                 if let response = data as? APIResponse {
                     if response.isSuccess {
@@ -148,7 +148,7 @@ struct MyPageView: View {
                 }
                 
             case .failure(let error):
-                print("🧡🧡🧡Error in View: \(error)")
+                print("Error in View: \(error)")
             }
         }
     }
