@@ -77,10 +77,11 @@ struct MyPageView: View {
                             .kerning(-0.41)
                             .foregroundStyle(.kuText)
                     }, leftView: {
-                        Image(.leftBlackArrow)
-                            .onTapGesture {
-                                viewModel.transition(to: .home)
-                            }
+                        Button(action: {
+                            viewModel.transition(to: .home)
+                        }, label: {
+                            Image(.leftBlackArrow)
+                        })
                     }, height: 73)
         }
         .fullScreenCover(isPresented: $isServiceTermsViewPresented) {
