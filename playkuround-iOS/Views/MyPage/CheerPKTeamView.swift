@@ -15,15 +15,11 @@ struct CheerPKTeamView: View {
             Color.black
                 .opacity(0.66)
                 .ignoresSafeArea(.all)
-                .onTapGesture {
-                    isCheerPresented.toggle()
-                }
             
             AnimationCustomView(imageArray: myPageCheer.allCases.map { $0.rawValue },
-                                delayTime: 0.5)
-            
+                                delayTime: 0.4)
             .scaledToFit()
-            .frame(width: 180)
+            .frame(width: 140)
         }
     }
 }

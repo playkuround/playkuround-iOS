@@ -92,6 +92,10 @@ struct MyPageView: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("cheerViewPresented"))) { _ in
             self.isCheerPresented = true
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                self.isCheerPresented = false
+            }
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("privacyTermsViewPresented"))) { _ in
             self.isPrivacyTermsViewPresented = true
