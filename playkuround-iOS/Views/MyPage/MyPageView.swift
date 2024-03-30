@@ -65,8 +65,7 @@ struct MyPageView: View {
                 CheckLogoutView(viewModel: viewModel,
                                 isLogoutPresented: $isLogoutPresented)
             }
-            
-            if isCheerPresented {
+            else if isCheerPresented {
                 CheerPKTeamView(isCheerPresented: $isCheerPresented)
             }
             
