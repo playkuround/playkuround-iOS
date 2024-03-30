@@ -53,8 +53,7 @@ struct MyPageListSectionView: View {
                             callPostAPIfakeDoor()
                         }
                 }
-                
-                if title == StringLiterals.MyPage.Instruction.version.rawValue {
+
                     MyPageListRowView(rowTitle: title)
                         .overlay {
                             HStack {
@@ -66,8 +65,7 @@ struct MyPageListSectionView: View {
                                     .padding(.top, 18)
                             }
                         }
-                }
-                
+
                 // 개인정보 처리 방침
                 if title == StringLiterals.MyPage.Instruction.privacy.rawValue {
                     MyPageListRowView(rowTitle: title)
