@@ -94,14 +94,6 @@ struct MyPageListSectionView: View {
     }
     
     private func callPostAPIfakeDoor() {
-        APIManager.callPOSTAPI(endpoint: .fakeDoor) { result in
-            switch result {
-            case .success(let data):
-                print("Data received in View: \(data)")
-                
-            case .failure(let error):
-                print("Error in View: \(error)")
-            }
-        }
+        APIManager.callPOSTAPI(endpoint: .fakeDoor) { result in }
     }
 }
