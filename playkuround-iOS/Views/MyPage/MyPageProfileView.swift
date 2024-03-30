@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct MyPageProfileView: View {
+    let user: UserEntity
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text("건대콜럼버스스스님")
+            Text("\(user.nickname)님")
                 .font(.neo20)
                 .kerning(-0.41)
                 .foregroundStyle(.kuText)
             
-            Text("컴퓨터공학부")
+            Text(user.major)
                 .font(.neo15)
                 .kerning(-0.41)
                 .foregroundStyle(.kuText)
-                .padding(.top, 8)
+                .padding(.top, 5)
             
             Image(.mypageCurrentScore)
                 .overlay {
@@ -29,13 +31,13 @@ struct MyPageProfileView: View {
                             .foregroundStyle(.kuText)
                             .padding(.trailing, 15)
                         
-                        Text("1,827점(129등)")
+                        Text("\(String(describing: user.myRank.score))점 (\(user.myRank.ranking == 0 ? "-" : "\(user.myRank.ranking)")등)")
                             .font(.neo20)
                             .kerning(-0.41)
                             .foregroundStyle(.kuText)
                     }
                 }
-                .padding(.top, 20)
+                .padding(.top, 15)
             
             Image(.mypageHighestScore)
                 .overlay {
@@ -45,7 +47,7 @@ struct MyPageProfileView: View {
                             .foregroundStyle(.kuText)
                             .padding(.trailing, 15)
                         
-                        Text("2,827점(1939등)")
+                        Text("\(String(describing: user.highestScore))점 (\(user.highestRank)등)")
                             .font(.neo20)
                             .kerning(-0.41)
                             .foregroundStyle(.kuText)
@@ -53,8 +55,4 @@ struct MyPageProfileView: View {
                 }
         }
     }
-}
-
-#Preview {
-    MyPageProfileView()
 }

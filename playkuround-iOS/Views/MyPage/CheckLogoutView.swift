@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct CheckLogoutView: View {
+    @ObservedObject var viewModel: RootViewModel
+    @Binding var isLogoutPresented: Bool
+    
     var body: some View {
         ZStack {
             Color.black
                 .opacity(0.66)
                 .ignoresSafeArea(.all)
+                .onTapGesture {
+                    isLogoutPresented = false
+                }
             
             VStack {
                 Text(StringLiterals.MyPage.Logout.message)
@@ -21,9 +27,9 @@ struct CheckLogoutView: View {
                     .foregroundStyle(.white)
                     .padding(.bottom, 15)
                 
-                
                 Button(action: {
-                    // 로그아웃 서버 API 연결
+                    isLogoutPresented = false
+                    viewModel.logout()
                 }, label: {
                     Image(.shortButtonBlue)
                         .overlay {
@@ -31,13 +37,12 @@ struct CheckLogoutView: View {
                                 .font(.neo20)
                                 .kerning(-0.41)
                                 .foregroundStyle(.black)
-                            
                         }
                         .padding(.bottom, 7)
                 })
                 
                 Button(action: {
-                    // 뷰가 hidden 되도록 처리
+                    isLogoutPresented = false
                 }, label: {
                     Image(.shortButtonGray)
                         .overlay {
@@ -50,8 +55,4 @@ struct CheckLogoutView: View {
             }
         }
     }
-}
-
-#Preview {
-    CheckLogoutView()
 }

@@ -75,8 +75,12 @@ enum StringLiterals {
     }
 
     enum MyPage {
+        static let title = "마이페이지"
         static let currentScore = "현재 점수"
         static let highestScore = "최고 점수"
+        static let instagramURL = "https://www.instagram.com/playkuround_/"
+        static let feedbackURL = "https://docs.google.com/forms/d/e/1FAIpQLSeBLSqnN9bXpPW3e4FTJR5hrnzikxB-e9toW0FaiWUdbOmHgg/viewform"
+        static let bugURL = "https://docs.google.com/forms/d/e/1FAIpQLScyarAmbF6VPUrRWQ-SNlNCi9WpezXhNj0ixVyeYo9L67oxog/viewform"
         
         enum Title {
             static let my = "마이"
@@ -92,13 +96,14 @@ enum StringLiterals {
         enum Shortcut: String, CaseIterable {
             case instagram = "플레이쿠라운드 인스타그램"
             case cheer = "플쿠팀 응원하기"
+            case feedback = "피드백 보내기"
+            case bug = "오류 / 버그 제보 및 정보 제공"
         }
         
         enum Instruction: String, CaseIterable {
             case version = "앱 버전"
             case privacy = "개인정보 처리 방침"
             case terms = "이용약관"
-            case feedback = "피드백 보내기"
         }
         
         enum Logout {

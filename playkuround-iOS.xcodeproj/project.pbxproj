@@ -74,6 +74,7 @@
 		C98078C32BA872DF00C04B2D /* moonHundredClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C12BA872DF00C04B2D /* moonHundredClicked.mp3 */; };
 		C98078C42BA872DF00C04B2D /* moonClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C22BA872DF00C04B2D /* moonClicked.mp3 */; };
 		C98078C62BA8816B00C04B2D /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */; };
+		C9DAF1F72BB712D900E03D16 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DAF1F62BB712D900E03D16 /* UserEntity.swift */; };
 		C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */; };
 		C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E92BA3251A009A8762 /* ContentView.swift */; };
 		C9F694EC2BA3251B009A8762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9F694EB2BA3251B009A8762 /* Assets.xcassets */; };
@@ -151,6 +152,7 @@
 		C98078C12BA872DF00C04B2D /* moonHundredClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = moonHundredClicked.mp3; sourceTree = "<group>"; };
 		C98078C22BA872DF00C04B2D /* moonClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = moonClicked.mp3; sourceTree = "<group>"; };
 		C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
+		C9DAF1F62BB712D900E03D16 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		C9F694E42BA3251A009A8762 /* playkuround-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "playkuround-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playkuround_iOSApp.swift; sourceTree = "<group>"; };
 		C9F694E92BA3251A009A8762 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				0C6AA4CC2BA56E230032AB24 /* UserNotification.swift */,
 				0C6AA4CE2BA56FB30032AB24 /* ScoreType.swift */,
 				0C31576B2BB7CCC000F270F7 /* Landmark.swift */,
+				C9DAF1F62BB712D900E03D16 /* UserEntity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -620,6 +623,7 @@
 				0C7FE6992BB1259800D94162 /* NetworkErrorView.swift in Sources */,
 				C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */,
 				0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */,
+				C9DAF1F72BB712D900E03D16 /* UserEntity.swift in Sources */,
 				C97543F62BB325A300CD6479 /* MyPageListRowView.swift in Sources */,
 				C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */,
 				0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */,

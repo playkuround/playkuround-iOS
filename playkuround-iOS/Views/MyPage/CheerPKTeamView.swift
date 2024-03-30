@@ -15,14 +15,9 @@ struct CheerPKTeamView: View {
                 .ignoresSafeArea(.all)
             
             AnimationCustomView(imageArray: myPageCheer.allCases.map { $0.rawValue },
-                                delayTime: 0.5)
-            
+                                delayTime: 0.4)
             .scaledToFit()
-            .frame(width: 180)
+            .frame(width: 140)
         }
     }
-}
-
-#Preview {
-    CheerPKTeamView()
 }
