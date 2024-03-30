@@ -33,7 +33,8 @@ struct MyPageListSectionView: View {
                 if title == StringLiterals.MyPage.My.logout.rawValue {
                     MyPageListRowView(rowTitle: title)
                         .onTapGesture {
-                            NotificationCenter.default.post(name: NSNotification.Name("logoutViewPresented"), object: nil)
+                            NotificationCenter.default.post(name: NSNotification.Name("logoutViewPresented"), 
+                                                            object: nil)
                         }
                 }
                 
@@ -49,7 +50,8 @@ struct MyPageListSectionView: View {
                 if title == StringLiterals.MyPage.Shortcut.cheer.rawValue {
                     MyPageListRowView(rowTitle: title)
                         .onTapGesture {
-                            NotificationCenter.default.post(name: NSNotification.Name("cheerViewPresented"), object: nil)
+                            NotificationCenter.default.post(name: NSNotification.Name("cheerViewPresented"), 
+                                                            object: nil)
                             callPostAPIfakeDoor()
                         }
                 }
@@ -89,7 +91,8 @@ struct MyPageListSectionView: View {
                 if title == StringLiterals.MyPage.Instruction.privacy.rawValue {
                     MyPageListRowView(rowTitle: title)
                         .onTapGesture {
-                            NotificationCenter.default.post(name: NSNotification.Name("privacyTermsViewPresented"), object: nil)
+                            NotificationCenter.default.post(name: NSNotification.Name("privacyTermsViewPresented"), 
+                                                            object: nil)
                         }
                 }
                 
@@ -97,7 +100,8 @@ struct MyPageListSectionView: View {
                 if title == StringLiterals.MyPage.Instruction.terms.rawValue {
                     MyPageListRowView(rowTitle: title)
                         .onTapGesture {
-                            NotificationCenter.default.post(name: NSNotification.Name("serviceTermsViewPresented"), object: nil)
+                            NotificationCenter.default.post(name: NSNotification.Name("serviceTermsViewPresented"), 
+                                                            object: nil)
                         }
                 }
             }

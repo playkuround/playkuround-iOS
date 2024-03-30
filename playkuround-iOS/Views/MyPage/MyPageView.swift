@@ -10,7 +10,7 @@ import SwiftUI
 struct MyPageView: View {
     @ObservedObject var viewModel: RootViewModel
     @State private var user: UserEntity = UserEntity(nickname:  "", major: "",
-                                                     myRank: MyRank(score: 0, ranking: ""),
+                                                     myRank: MyRank(score: 0, ranking: 0),
                                                      highestScore: 0, highestRank: "")
     
     @State private var isLogoutPresented: Bool = false
@@ -91,10 +91,14 @@ struct MyPageView: View {
             TermsView(title: StringLiterals.Register.privacyTermsTitle, termsType: .privacy)
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("logoutViewPresented"))) { _ in
-            self.isLogoutPresented = true
+            withAnimation(.spring(duration: 0.5, bounce: 0.3)) {
+                self.isLogoutPresented = true
+            }
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("cheerViewPresented"))) { _ in
-            self.isCheerPresented = true
+            withAnimation(.spring(duration: 0.5, bounce: 0.3)) {
+                self.isCheerPresented = true
+            }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                 self.isCheerPresented = false
@@ -121,8 +125,6 @@ struct MyPageView: View {
                     if response.isSuccess {
                         user.nickname = response.response?.nickname ?? "-"
                         user.major = response.response?.major ?? "-"
-                        user.myRank.score = response.response?.myRank?.score ?? 0
-                        user.myRank.ranking = response.response?.myRank?.ranking ?? "-"
                         user.highestScore = response.response?.highestScore ?? 0
                         user.highestRank = response.response?.highestRank ?? "-"
                     }
@@ -130,6 +132,23 @@ struct MyPageView: View {
                 
             case .failure(let error):
                 print("Error in View: \(error)")
+            }
+        }
+        
+        APIManager.callGETAPI(endpoint: .scoresRank) { result in
+            switch result {
+            case .success(let data):
+                print("🍪🍪🍪 Data received in View: \(data)")
+                
+                if let response = data as? APIResponse {
+                    if response.isSuccess {
+                        user.myRank.score = response.response?.myRank?.score ?? 0
+                        user.myRank.ranking = response.response?.myRank?.ranking ?? 0
+                    }
+                }
+                
+            case .failure(let error):
+                print("🧡🧡🧡Error in View: \(error)")
             }
         }
     }

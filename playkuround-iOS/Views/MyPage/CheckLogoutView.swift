@@ -17,9 +17,7 @@ struct CheckLogoutView: View {
                 .opacity(0.66)
                 .ignoresSafeArea(.all)
                 .onTapGesture {
-                    withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-                        isLogoutPresented = false
-                    }
+                    isLogoutPresented = false
                 }
             
             VStack {
@@ -30,10 +28,8 @@ struct CheckLogoutView: View {
                     .padding(.bottom, 15)
                 
                 Button(action: {
-                    withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-                        isLogoutPresented = false
-                        viewModel.logout()
-                    }
+                    isLogoutPresented = false
+                    viewModel.logout()
                 }, label: {
                     Image(.shortButtonBlue)
                         .overlay {
@@ -46,9 +42,7 @@ struct CheckLogoutView: View {
                 })
                 
                 Button(action: {
-                    withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-                        isLogoutPresented = false
-                    }
+                    isLogoutPresented = false
                 }, label: {
                     Image(.shortButtonGray)
                         .overlay {
