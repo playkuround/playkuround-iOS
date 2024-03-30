@@ -11,52 +11,24 @@ struct TimerGameView: View {
     @State private var isPaused: Bool = false
     
     var body: some View {
-        ZStack(alignment: .bottom) {
+        ZStack(alignment: .top) {
             Color.kuLightYellowBackground.ignoresSafeArea()
             
-            Image(.timeBackground)
-                .resizable()
-                .scaledToFit()
-                .padding(.bottom, -20)
-            
-            VStack {
-                Text(StringLiterals.Game.Time.description)
-                    .font(.pretendard15R)
-                    .foregroundStyle(.kuText)
-                    .multilineTextAlignment(.center)
+            GeometryReader { geometry in
                 
-                Spacer()
-            }
-            .frame(maxHeight: .infinity)
-            .padding(.top, 80)
-            
-            VStack {
-                Text("00:00")
-                    .font(.neo70)
-                    .kerning(-0.41)
-                    .foregroundStyle(.kuText)
-                
-                Text(StringLiterals.Game.Time.success)
-                    .font(.pretendard15R)
-                    .foregroundStyle(.kuGreen)
-                
-//                Image(.timeStopButton)
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 120, height: 120)
-//                    .padding(.top, 20)
-                
-                AnimationCustomView(
-                    imageArray: gameSuccessImage.allCases.map { $0.rawValue },
-                    delayTime: 0.2)
-                .scaledToFit()
-                .frame(height: 140)
-                
-                Spacer()
-                    .frame(height: 150)
-            }
-            
-            Spacer()
+                VStack() {
+                    Spacer()
+                    
+                    Text(StringLiterals.Game.Time.description)
+                        .font(.pretendard15R)
+                        .foregroundStyle(.kuText)
+                        .multilineTextAlignment(.center)
+                    
+                    Spacer()
+                }
+                .frame(width: geometry.size.width)
+                .frame(height: geometry.size.height > 700 ? 90 : 60)
+                .border(.red)
                 .customNavigationBar(
                     centerView: {
                         Text(StringLiterals.Game.Time.title)
@@ -65,12 +37,93 @@ struct TimerGameView: View {
                             .foregroundStyle(.kuText)
                     },
                     rightView: {
-                        Image(.bluePauseButton)
-                            .onTapGesture {
-                                // TODO: 일시정지
-                            }
+                        Button {
+                            // TODO: 일시정지
+                        } label: {
+                            Image(.bluePauseButton)
+                        }
+                        
                     },
                     height: 67)
+                .ignoresSafeArea(edges: .bottom)
+                .overlay {
+                    Image(.timeBackground)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: .infinity)
+                        .offset(y: 100)
+                        .overlay {
+                            VStack {
+                                Text("00:00")
+                                    .font(.neo70)
+                                    .kerning(-0.41)
+                                    .foregroundStyle(.kuText)
+                                
+                                Text(StringLiterals.Game.Time.success)
+                                    .font(.pretendard15R)
+                                    .foregroundStyle(.kuGreen)
+                                
+                                Button {
+                                    
+                                } label: {
+                                    Image(.timeStopButton)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 120, height: 120)
+                                        .padding(.top, 20)
+                                }
+                                
+//                                AnimationCustomView(
+//                                    imageArray: gameSuccessImage.allCases.map { $0.rawValue },
+//                                    delayTime: 0.2)
+//                                .scaledToFit()
+//                                .frame(height: 140)
+                            }
+                            .offset(y: 110)
+                        }
+                }
+            }
+            
+            /*
+             VStack {
+             Text(StringLiterals.Game.Time.description)
+             .font(.pretendard15R)
+             .foregroundStyle(.kuText)
+             .multilineTextAlignment(.center)
+             
+             Spacer()
+             }
+             .frame(maxHeight: .infinity)
+             .padding(.top, 80)
+             
+             VStack {
+             Text("00:00")
+             .font(.neo70)
+             .kerning(-0.41)
+             .foregroundStyle(.kuText)
+             
+             Text(StringLiterals.Game.Time.success)
+             .font(.pretendard15R)
+             .foregroundStyle(.kuGreen)
+             
+             //                Image(.timeStopButton)
+             //                    .resizable()
+             //                    .scaledToFit()
+             //                    .frame(width: 120, height: 120)
+             //                    .padding(.top, 20)
+             
+             AnimationCustomView(
+             imageArray: gameSuccessImage.allCases.map { $0.rawValue },
+             delayTime: 0.2)
+             .scaledToFit()
+             .frame(height: 140)
+             
+             Spacer()
+             .frame(height: 150)
+             }*/
+            
+            //            Spacer()
+            
         }
     }
 }
