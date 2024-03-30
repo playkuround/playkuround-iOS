@@ -31,7 +31,7 @@ struct MyPageProfileView: View {
                             .foregroundStyle(.kuText)
                             .padding(.trailing, 15)
                         
-                        Text("\(String(describing: user.myRank.score))점 (\(user.myRank.ranking)등)")
+                        Text("\(String(describing: user.myRank.score))점 (\(user.myRank.ranking == 0 ? "-" : "\(user.myRank.ranking)")등)")
                             .font(.neo20)
                             .kerning(-0.41)
                             .foregroundStyle(.kuText)
