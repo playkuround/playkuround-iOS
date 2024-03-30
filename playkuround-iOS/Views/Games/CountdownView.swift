@@ -8,19 +8,18 @@
 import SwiftUI
 
 struct CountdownView: View {
-    // GameViewModel에서 카운트다운 숫자를 넘겨줌
-    @Binding var countdown: Int
-    let countdownImages: [ImageResource] = [.countdown1, .countdown2, .countdown3]
+    // GameViewModel에서 카운트다운 숫자를 넘겨줌 (3초 ~ 1초)
+    @State var countdown: Int
     
     var body: some View {
         ZStack {
             Color.black.opacity(0.66).ignoresSafeArea()
             
-            Image(countdownImages[countdown - 1])
+            Image(countdownImage.allCases.map { $0.rawValue }[countdown - 1])
         }
     }
 }
 
 #Preview {
-    CountdownView(countdown: .constant(3))
+    CountdownView(countdown: 3)
 }

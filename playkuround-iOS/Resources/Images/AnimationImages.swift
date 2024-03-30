@@ -35,3 +35,9 @@ enum gameSuccessImage: String, CaseIterable {
     case timeSuccessIcon1
     case timeSuccessIcon2
 }
+
+enum countdownImage: String, CaseIterable {
+    case countdown1
+    case countdown2
+    case countdown3
+}
