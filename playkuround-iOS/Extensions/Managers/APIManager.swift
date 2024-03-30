@@ -819,7 +819,7 @@ struct BadgeResponse: Codable {
 // 랭킹
 struct MyRank: Codable {
     var score: Int
-    var ranking: String
+    var ranking: Int
 }
 
 struct Ranking: Codable {
