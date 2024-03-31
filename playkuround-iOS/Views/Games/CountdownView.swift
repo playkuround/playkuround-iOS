@@ -9,11 +9,11 @@ import SwiftUI
 
 struct CountdownView: View {
     // GameViewModel에서 카운트다운 숫자를 넘겨줌 (3초 ~ 1초)
-    @State var countdown: Int
+    @Binding var countdown: Int
     
     var body: some View {
         ZStack {
-            Color.black.opacity(0.66).ignoresSafeArea()
+            Color.black.opacity(0.5).ignoresSafeArea()
             
             Image(countdownImage.allCases.map { $0.rawValue }[countdown - 1])
         }
@@ -21,5 +21,5 @@ struct CountdownView: View {
 }
 
 #Preview {
-    CountdownView(countdown: 3)
+    CountdownView(countdown: .constant(3))
 }
