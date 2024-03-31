@@ -7,14 +7,20 @@
 
 import SwiftUI
 
+enum TimerBarColor {
+    case white
+    case black
+}
+
 struct TimerBarView: View {
     @Binding var progress: Double
+    let color: TimerBarColor
     
     var body: some View {
         HStack(alignment: .bottom) {
             Text(StringLiterals.Game.timerTitle)
                 .font(.neo22)
-                .foregroundStyle(.white)
+                .foregroundStyle(color == .white ? .white : .kuText)
                 .kerning(-0.41)
                 .offset(y: 3)
                 .padding(.trailing, 13)
@@ -27,7 +33,7 @@ struct TimerBarView: View {
                     .offset(x: offsetValue())
                 
                 ZStack(alignment: .leading) {
-                    Image(.timerBarBackground)
+                    Image(color == .white ? .timerBarBackground : .timerBarBackgroundBlack)
                     
                     Rectangle()
                         .frame(width: 272 * progress, height: 8)
@@ -69,7 +75,7 @@ struct TimerBarTestView: View {
             
             VStack {
                 // 뷰의 범위를 알아볼 수 있도록 border 추가
-                TimerBarView(progress: $progress)
+                TimerBarView(progress: $progress, color: .black)
                     .border(.black)
                 
                 Text("\(progress * 100)%")
