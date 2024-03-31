@@ -116,6 +116,14 @@ enum StringLiterals {
     enum Game {
         static let play = "계속하기"
         static let home = "홈"
+        static let timerTitle = "TIME"
+        
+        enum Result {
+            static let score = "점"
+            static let bestScore = "최고 점수"
+            static let adventureScore = "모험 점수"
+            static let out = "나가기"
+        }
         
         enum Time {
             static let title = "10초를 맞춰봐"
