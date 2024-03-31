@@ -25,6 +25,7 @@
 		0C7FE69B2BB1290A00D94162 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE69A2BB1290A00D94162 /* LoadingView.swift */; };
 		0C7FE6A12BB1983A00D94162 /* AnimationImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */; };
 		0C9641E62BB874E200838DA9 /* TimerBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9641E52BB874E200838DA9 /* TimerBarView.swift */; };
+		0C9641EA2BB92D6300838DA9 /* GameResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9641E92BB92D6300838DA9 /* GameResultView.swift */; };
 		0CA193562BB5ABEB007C04B1 /* RequestPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */; };
 		0CA193592BB5B49A007C04B1 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CA193582BB5B49A007C04B1 /* Pretendard-Bold.otf */; };
 		0CA4C5662BB3281F00268B07 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA4C5652BB3281F00268B07 /* RootView.swift */; };
@@ -103,6 +104,7 @@
 		0C7FE69A2BB1290A00D94162 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationImages.swift; sourceTree = "<group>"; };
 		0C9641E52BB874E200838DA9 /* TimerBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerBarView.swift; sourceTree = "<group>"; };
+		0C9641E92BB92D6300838DA9 /* GameResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultView.swift; sourceTree = "<group>"; };
 		0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionView.swift; sourceTree = "<group>"; };
 		0CA193582BB5B49A007C04B1 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		0CA4C5652BB3281F00268B07 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				0CB902202BB6E6A300F76311 /* GamePauseView.swift */,
 				0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */,
 				0C9641E52BB874E200838DA9 /* TimerBarView.swift */,
+				0C9641E92BB92D6300838DA9 /* GameResultView.swift */,
 			);
 			path = Games;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				C918F40D2BA753B400C0BFDA /* AuthenticationTimer.swift in Sources */,
 				C97543F22BB3222F00CD6479 /* MyPageProfileView.swift in Sources */,
 				0C7FE6A12BB1983A00D94162 /* AnimationImages.swift in Sources */,
+				0C9641EA2BB92D6300838DA9 /* GameResultView.swift in Sources */,
 				C953D3042BA49BB300318869 /* MainView.swift in Sources */,
 				C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */,
 				C918F40B2BA7507800C0BFDA /* AuthenticationCodeView.swift in Sources */,
