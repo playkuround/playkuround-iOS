@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct GameResultView: View {
+    @ObservedObject var rootViewModel: RootViewModel
+    
     var body: some View {
         ZStack {
-            Color.black.opacity(0.66)
+            Color.black.opacity(0.5)
                 .ignoresSafeArea()
             
             Image(.resultBackground)
@@ -53,7 +55,8 @@ struct GameResultView: View {
                             .padding(.vertical, 20)
                         
                         Button {
-                            // TODO: 홈으로 이동
+                            // 홈으로 이동
+                            rootViewModel.transition(to: .home)
                         } label: {
                             Image(.shortButtonBlue)
                                 .overlay {
@@ -71,5 +74,5 @@ struct GameResultView: View {
 }
 
 #Preview {
-    GameResultView()
+    GameResultView(rootViewModel: RootViewModel())
 }
