@@ -131,5 +131,10 @@ enum StringLiterals {
             static let success = "성공하셨습니다. 축하합니다!"
             static let failure = "실패하셨습니다. 다시 시도해보세요!"
         }
+        
+        enum Moon {
+            static let title = "MOON을 점령해"
+            static let description = "달을 터치해서 깨주세요!"
+        }
     }
 }
