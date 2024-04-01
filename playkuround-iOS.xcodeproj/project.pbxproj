@@ -50,6 +50,9 @@
 		C953D2FE2BA4807400318869 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2FD2BA4807400318869 /* LoginView.swift */; };
 		C953D3042BA49BB300318869 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D3032BA49BB300318869 /* MainView.swift */; };
 		C9564D7F2BB9ADE600A869ED /* MoonGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9564D7E2BB9ADE600A869ED /* MoonGameView.swift */; };
+		C95F8F2C2BBAC99D00E89B50 /* QuizData.json in Sources */ = {isa = PBXBuildFile; fileRef = C95F8F2B2BBAC99D00E89B50 /* QuizData.json */; };
+		C95F8F2E2BBACF1300E89B50 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95F8F2D2BBACF1300E89B50 /* Quiz.swift */; };
+		C95F8F302BBAD50A00E89B50 /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = C95F8F2B2BBAC99D00E89B50 /* QuizData.json */; };
 		C97543F02BB31CEC00CD6479 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543EF2BB31CEC00CD6479 /* MyPageView.swift */; };
 		C97543F22BB3222F00CD6479 /* MyPageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543F12BB3222F00CD6479 /* MyPageProfileView.swift */; };
 		C97543F42BB3244800CD6479 /* MyPageListSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543F32BB3244800CD6479 /* MyPageListSectionView.swift */; };
@@ -131,6 +134,8 @@
 		C953D2FD2BA4807400318869 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C953D3032BA49BB300318869 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C9564D7E2BB9ADE600A869ED /* MoonGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonGameView.swift; sourceTree = "<group>"; };
+		C95F8F2B2BBAC99D00E89B50 /* QuizData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuizData.json; sourceTree = "<group>"; };
+		C95F8F2D2BBACF1300E89B50 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		C97543EF2BB31CEC00CD6479 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		C97543F12BB3222F00CD6479 /* MyPageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProfileView.swift; sourceTree = "<group>"; };
 		C97543F32BB3244800CD6479 /* MyPageListSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListSectionView.swift; sourceTree = "<group>"; };
@@ -219,6 +224,7 @@
 				0C6AA4CE2BA56FB30032AB24 /* ScoreType.swift */,
 				0C31576B2BB7CCC000F270F7 /* Landmark.swift */,
 				C9DAF1F62BB712D900E03D16 /* UserEntity.swift */,
+				C95F8F2D2BBACF1300E89B50 /* Quiz.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -295,6 +301,7 @@
 		C953D2F12BA477F700318869 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C95F8F312BBAD56400E89B50 /* Data */,
 				0C7FE69F2BB197DE00D94162 /* Images */,
 				0C5979B62BAB25CB00E8156D /* Texts */,
 				C983DF282BA86F31003523E9 /* Sounds */,
@@ -355,6 +362,14 @@
 				C9564D7E2BB9ADE600A869ED /* MoonGameView.swift */,
 			);
 			path = MoonGame;
+			sourceTree = "<group>";
+		};
+		C95F8F312BBAD56400E89B50 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C95F8F2B2BBAC99D00E89B50 /* QuizData.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		C97543EE2BB31CE100CD6479 /* MyPage */ = {
@@ -562,6 +577,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C95F8F302BBAD50A00E89B50 /* QuizData.json in Resources */,
 				C98078BD2BA872A300C04B2D /* blackDuckkuClicked.mp3 in Resources */,
 				C98078A12BA8715900C04B2D /* quizCorrect.mp3 in Resources */,
 				0C5979B82BAB25EE00E8156D /* service.txt in Resources */,
@@ -617,6 +633,7 @@
 				C918F40D2BA753B400C0BFDA /* AuthenticationTimer.swift in Sources */,
 				C97543F22BB3222F00CD6479 /* MyPageProfileView.swift in Sources */,
 				0C7FE6A12BB1983A00D94162 /* AnimationImages.swift in Sources */,
+				C95F8F2E2BBACF1300E89B50 /* Quiz.swift in Sources */,
 				0C9641EA2BB92D6300838DA9 /* GameResultView.swift in Sources */,
 				C953D3042BA49BB300318869 /* MainView.swift in Sources */,
 				C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */,
@@ -645,6 +662,7 @@
 				0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */,
 				C9DAF1F72BB712D900E03D16 /* UserEntity.swift in Sources */,
 				C97543F62BB325A300CD6479 /* MyPageListRowView.swift in Sources */,
+				C95F8F2C2BBAC99D00E89B50 /* QuizData.json in Sources */,
 				C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */,
 				0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */,
 				0CA193562BB5ABEB007C04B1 /* RequestPermissionView.swift in Sources */,
