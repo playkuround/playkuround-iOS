@@ -71,7 +71,7 @@ struct CardView: View {
                 switch cardState {
                 case .cover:
                     Image(.frontCard)
-                case .side1, .side2:
+                case .side:
                     Image(.sideCard)
                 case .drawing:
                     Image(cardType.rawValue)
@@ -84,8 +84,7 @@ struct CardView: View {
 
 enum CardState {
     case cover
-    case side1 // front -> drawing
-    case side2 // drawing -> front
+    case side
     case drawing
 }
 
@@ -107,7 +106,7 @@ enum CardType: String {
 #Preview {
     VStack {
         CardView(cardType: .milkCard, cardState: .constant(.drawing), isPresented: .constant(true))
-        CardView(cardType: .milkCard, cardState: .constant(.side1), isPresented: .constant(true))
+        CardView(cardType: .milkCard, cardState: .constant(.side), isPresented: .constant(true))
         CardView(cardType: .milkCard, cardState: .constant(.cover), isPresented: .constant(true))
         CardView(cardType: .milkCard, cardState: .constant(.cover), isPresented: .constant(false))
             .border(.gray)
