@@ -30,7 +30,7 @@ struct CardGameView: View {
                     // MARK: 아래는 UI 구현을 위한 임시 구현
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 4), spacing: 20) {
                         ForEach(cardList, id: \.self) { cardType in
-                            CardView(cardType: cardType, cardState: .constant(.drawing), isPresented: .constant(true))
+                            CardView(cardType: cardType, cardState: .constant(.drawing))
                         }
                     }
                     .padding(.horizontal)
@@ -38,7 +38,7 @@ struct CardGameView: View {
                     
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 4), spacing: 20) {
                         ForEach(cardList, id: \.self) { cardType in
-                            CardView(cardType: cardType, cardState: .constant(.drawing), isPresented: .constant(true))
+                            CardView(cardType: cardType, cardState: .constant(.drawing))
                         }
                     }
                     .padding(.horizontal)
@@ -63,19 +63,18 @@ struct CardGameView: View {
 struct CardView: View {
     let cardType: CardType
     @Binding var cardState: CardState
-    @Binding var isPresented: Bool
     
     var body: some View {
         VStack {
-            if isPresented {
-                switch cardState {
-                case .cover:
-                    Image(.frontCard)
-                case .side:
-                    Image(.sideCard)
-                case .drawing:
-                    Image(cardType.rawValue)
-                }
+            switch cardState {
+            case .cover:
+                Image(.frontCard)
+            case .side:
+                Image(.sideCard)
+            case .drawing:
+                Image(cardType.rawValue)
+            case .hidden:
+                Spacer()
             }
         }
         .frame(width: 66, height: 98)
@@ -86,6 +85,7 @@ enum CardState {
     case cover
     case side
     case drawing
+    case hidden
 }
 
 enum CardType: String {
@@ -105,10 +105,10 @@ enum CardType: String {
 
 #Preview {
     VStack {
-        CardView(cardType: .milkCard, cardState: .constant(.drawing), isPresented: .constant(true))
-        CardView(cardType: .milkCard, cardState: .constant(.side), isPresented: .constant(true))
-        CardView(cardType: .milkCard, cardState: .constant(.cover), isPresented: .constant(true))
-        CardView(cardType: .milkCard, cardState: .constant(.cover), isPresented: .constant(false))
+        CardView(cardType: .milkCard, cardState: .constant(.drawing))
+        CardView(cardType: .milkCard, cardState: .constant(.side))
+        CardView(cardType: .milkCard, cardState: .constant(.cover))
+        CardView(cardType: .milkCard, cardState: .constant(.hidden))
             .border(.gray)
     }
 }
