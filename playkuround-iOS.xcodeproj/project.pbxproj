@@ -49,6 +49,7 @@
 		C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2FA2BA47F2C00318869 /* StringLiterals.swift */; };
 		C953D2FE2BA4807400318869 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D2FD2BA4807400318869 /* LoginView.swift */; };
 		C953D3042BA49BB300318869 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C953D3032BA49BB300318869 /* MainView.swift */; };
+		C9564D7F2BB9ADE600A869ED /* MoonGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9564D7E2BB9ADE600A869ED /* MoonGameView.swift */; };
 		C97543F02BB31CEC00CD6479 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543EF2BB31CEC00CD6479 /* MyPageView.swift */; };
 		C97543F22BB3222F00CD6479 /* MyPageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543F12BB3222F00CD6479 /* MyPageProfileView.swift */; };
 		C97543F42BB3244800CD6479 /* MyPageListSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543F32BB3244800CD6479 /* MyPageListSectionView.swift */; };
@@ -129,6 +130,7 @@
 		C953D2FA2BA47F2C00318869 /* StringLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLiterals.swift; sourceTree = "<group>"; };
 		C953D2FD2BA4807400318869 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C953D3032BA49BB300318869 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		C9564D7E2BB9ADE600A869ED /* MoonGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonGameView.swift; sourceTree = "<group>"; };
 		C97543EF2BB31CEC00CD6479 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		C97543F12BB3222F00CD6479 /* MyPageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProfileView.swift; sourceTree = "<group>"; };
 		C97543F32BB3244800CD6479 /* MyPageListSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListSectionView.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 		0CB9021F2BB6E69800F76311 /* Games */ = {
 			isa = PBXGroup;
 			children = (
+				C9564D7D2BB9ADD700A869ED /* MoonGame */,
 				0CB902222BB6E76100F76311 /* TimerGame */,
 				0CB902202BB6E6A300F76311 /* GamePauseView.swift */,
 				0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */,
@@ -344,6 +347,14 @@
 				C953D3032BA49BB300318869 /* MainView.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		C9564D7D2BB9ADD700A869ED /* MoonGame */ = {
+			isa = PBXGroup;
+			children = (
+				C9564D7E2BB9ADE600A869ED /* MoonGameView.swift */,
+			);
+			path = MoonGame;
 			sourceTree = "<group>";
 		};
 		C97543EE2BB31CE100CD6479 /* MyPage */ = {
@@ -597,6 +608,7 @@
 				C918F4072BA7177800C0BFDA /* HapticManager.swift in Sources */,
 				C9FE257B2BB3DFAA00F78C63 /* CheckLogoutView.swift in Sources */,
 				0CEB87C72BB7E2B000CC2E4B /* CountdownView.swift in Sources */,
+				C9564D7F2BB9ADE600A869ED /* MoonGameView.swift in Sources */,
 				0CB902242BB6E77200F76311 /* TimerGameView.swift in Sources */,
 				0C6AA4C72BA566CE0032AB24 /* Badge.swift in Sources */,
 				C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */,
