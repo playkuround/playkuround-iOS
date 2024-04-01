@@ -60,55 +60,6 @@ struct CardGameView: View {
     }
 }
 
-struct CardView: View {
-    let cardType: CardType
-    @Binding var cardState: CardState
-    
-    var body: some View {
-        VStack {
-            switch cardState {
-            case .cover:
-                Image(.frontCard)
-            case .side:
-                Image(.sideCard)
-            case .drawing:
-                Image(cardType.rawValue)
-            case .hidden:
-                Spacer()
-            }
-        }
-        .frame(width: 66, height: 98)
-    }
-}
-
-enum CardState {
-    case cover
-    case side
-    case drawing
-    case hidden
-}
-
-enum CardType: String {
-    case milkCard
-    case turtleCard
-    case treeCard
-    case bullCard
-    case lakeCard
-    case gooseCard
-    case catCard
-    case flowerCard
-}
-
 #Preview {
     CardGameView()
-}
-
-#Preview {
-    VStack {
-        CardView(cardType: .milkCard, cardState: .constant(.drawing))
-        CardView(cardType: .milkCard, cardState: .constant(.side))
-        CardView(cardType: .milkCard, cardState: .constant(.cover))
-        CardView(cardType: .milkCard, cardState: .constant(.hidden))
-            .border(.gray)
-    }
 }
