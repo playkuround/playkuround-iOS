@@ -53,6 +53,7 @@
 		C95F8F2C2BBAC99D00E89B50 /* QuizData.json in Sources */ = {isa = PBXBuildFile; fileRef = C95F8F2B2BBAC99D00E89B50 /* QuizData.json */; };
 		C95F8F2E2BBACF1300E89B50 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95F8F2D2BBACF1300E89B50 /* Quiz.swift */; };
 		C95F8F322BBAE0DE00E89B50 /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = C95F8F2B2BBAC99D00E89B50 /* QuizData.json */; };
+		C95F8F352BBAE1DA00E89B50 /* QuizGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95F8F342BBAE1DA00E89B50 /* QuizGameView.swift */; };
 		C97543F02BB31CEC00CD6479 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543EF2BB31CEC00CD6479 /* MyPageView.swift */; };
 		C97543F22BB3222F00CD6479 /* MyPageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543F12BB3222F00CD6479 /* MyPageProfileView.swift */; };
 		C97543F42BB3244800CD6479 /* MyPageListSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543F32BB3244800CD6479 /* MyPageListSectionView.swift */; };
@@ -80,6 +81,7 @@
 		C98078C32BA872DF00C04B2D /* moonHundredClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C12BA872DF00C04B2D /* moonHundredClicked.mp3 */; };
 		C98078C42BA872DF00C04B2D /* moonClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C22BA872DF00C04B2D /* moonClicked.mp3 */; };
 		C98078C62BA8816B00C04B2D /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */; };
+		C9963C532BBB07040037C662 /* QuizBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9963C522BBB07040037C662 /* QuizBlockView.swift */; };
 		C9DAF1F72BB712D900E03D16 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DAF1F62BB712D900E03D16 /* UserEntity.swift */; };
 		C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */; };
 		C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E92BA3251A009A8762 /* ContentView.swift */; };
@@ -136,6 +138,7 @@
 		C9564D7E2BB9ADE600A869ED /* MoonGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonGameView.swift; sourceTree = "<group>"; };
 		C95F8F2B2BBAC99D00E89B50 /* QuizData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuizData.json; sourceTree = "<group>"; };
 		C95F8F2D2BBACF1300E89B50 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		C95F8F342BBAE1DA00E89B50 /* QuizGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizGameView.swift; sourceTree = "<group>"; };
 		C97543EF2BB31CEC00CD6479 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		C97543F12BB3222F00CD6479 /* MyPageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProfileView.swift; sourceTree = "<group>"; };
 		C97543F32BB3244800CD6479 /* MyPageListSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListSectionView.swift; sourceTree = "<group>"; };
@@ -163,6 +166,7 @@
 		C98078C12BA872DF00C04B2D /* moonHundredClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = moonHundredClicked.mp3; sourceTree = "<group>"; };
 		C98078C22BA872DF00C04B2D /* moonClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = moonClicked.mp3; sourceTree = "<group>"; };
 		C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
+		C9963C522BBB07040037C662 /* QuizBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBlockView.swift; sourceTree = "<group>"; };
 		C9DAF1F62BB712D900E03D16 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		C9F694E42BA3251A009A8762 /* playkuround-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "playkuround-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playkuround_iOSApp.swift; sourceTree = "<group>"; };
@@ -251,6 +255,7 @@
 		0CB9021F2BB6E69800F76311 /* Games */ = {
 			isa = PBXGroup;
 			children = (
+				C95F8F332BBAE1C900E89B50 /* QuizGame */,
 				C9564D7D2BB9ADD700A869ED /* MoonGame */,
 				0CB902222BB6E76100F76311 /* TimerGame */,
 				0CB902202BB6E6A300F76311 /* GamePauseView.swift */,
@@ -370,6 +375,15 @@
 				C95F8F2B2BBAC99D00E89B50 /* QuizData.json */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		C95F8F332BBAE1C900E89B50 /* QuizGame */ = {
+			isa = PBXGroup;
+			children = (
+				C95F8F342BBAE1DA00E89B50 /* QuizGameView.swift */,
+				C9963C522BBB07040037C662 /* QuizBlockView.swift */,
+			);
+			path = QuizGame;
 			sourceTree = "<group>";
 		};
 		C97543EE2BB31CE100CD6479 /* MyPage */ = {
@@ -620,8 +634,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C6AA4BB2BA4A33E0032AB24 /* NetworkManager.swift in Sources */,
+				C9963C532BBB07040037C662 /* QuizBlockView.swift in Sources */,
 				C97543F42BB3244800CD6479 /* MyPageListSectionView.swift in Sources */,
 				C918F4072BA7177800C0BFDA /* HapticManager.swift in Sources */,
+				C95F8F352BBAE1DA00E89B50 /* QuizGameView.swift in Sources */,
 				C9FE257B2BB3DFAA00F78C63 /* CheckLogoutView.swift in Sources */,
 				0CEB87C72BB7E2B000CC2E4B /* CountdownView.swift in Sources */,
 				C9564D7F2BB9ADE600A869ED /* MoonGameView.swift in Sources */,
