@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C31576C2BB7CCC000F270F7 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C31576B2BB7CCC000F270F7 /* Landmark.swift */; };
+		0C519D972BBADD6500DAA206 /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C519D962BBADD6500DAA206 /* CardGameView.swift */; };
 		0C5979B52BAB215300E8156D /* RegisterMajorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5979B42BAB215300E8156D /* RegisterMajorView.swift */; };
 		0C5979B82BAB25EE00E8156D /* service.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C5979B72BAB25EE00E8156D /* service.txt */; };
 		0C5979BC2BAB26A800E8156D /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5979BB2BAB26A800E8156D /* TermsView.swift */; };
@@ -88,6 +89,7 @@
 
 /* Begin PBXFileReference section */
 		0C31576B2BB7CCC000F270F7 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
+		0C519D962BBADD6500DAA206 /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
 		0C5979B42BAB215300E8156D /* RegisterMajorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMajorView.swift; sourceTree = "<group>"; };
 		0C5979B72BAB25EE00E8156D /* service.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = service.txt; sourceTree = "<group>"; };
 		0C5979BB2BAB26A800E8156D /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
@@ -179,6 +181,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C519D952BBADD5B00DAA206 /* CardGame */ = {
+			isa = PBXGroup;
+			children = (
+				0C519D962BBADD6500DAA206 /* CardGameView.swift */,
+			);
+			path = CardGame;
+			sourceTree = "<group>";
+		};
 		0C5979B32BAB213C00E8156D /* Register */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +255,7 @@
 		0CB9021F2BB6E69800F76311 /* Games */ = {
 			isa = PBXGroup;
 			children = (
+				0C519D952BBADD5B00DAA206 /* CardGame */,
 				C9564D7D2BB9ADD700A869ED /* MoonGame */,
 				0CB902222BB6E76100F76311 /* TimerGame */,
 				0CB902202BB6E6A300F76311 /* GamePauseView.swift */,
@@ -649,6 +660,7 @@
 				0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */,
 				0CA193562BB5ABEB007C04B1 /* RequestPermissionView.swift in Sources */,
 				0CB902212BB6E6A300F76311 /* GamePauseView.swift in Sources */,
+				0C519D972BBADD6500DAA206 /* CardGameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
