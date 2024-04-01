@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct QuizBlockView: View {
-    let imageNames = ["gray1", "gray2", "gray3", "gray4"]
     let quiz: Quiz
+    
     var body: some View {
         VStack {
             Text(quiz.question)
@@ -19,28 +19,42 @@ struct QuizBlockView: View {
                 .foregroundStyle(.kuText)
                 .lineLimit(3)
                 .multilineTextAlignment(.center)
-                .padding(.bottom, 50)
+                .padding(.bottom, 30)
             
             ForEach(quiz.options.indices, id: \.self) { index in
-                Image(.quizBlock)
-                    .overlay {
-                        HStack {
-                            Image(imageNames[index])
-                                .padding(.horizontal, 15)
-                            
-                            Text(quiz.options[index])
-                                .font(.pretendard15R)
-                                .foregroundStyle(.kuText)
-                                .lineLimit(2)
-                                .multilineTextAlignment(.leading)
-                                .padding(.trailing, 16)
-                            
-                            Spacer()
-                        }
-                    }
-                    .padding(.bottom, 2)
+                createQuizBlock(image: numberImage.allCases[index].rawValue,
+                                option: quiz.options[index])
             }
         }
-        .padding(.horizontal, 20)
+        .padding(.horizontal, 10)
     }
+    
+    @ViewBuilder
+    private func createQuizBlock(image: String, 
+                                 option: String) -> some View {
+        Image(.quizBlock)
+            .overlay {
+                HStack {
+                    Image(image)
+                        .padding(.horizontal, 15)
+                    
+                    Text(option)
+                        .font(.pretendard15R)
+                        .foregroundStyle(.kuText)
+                        .lineLimit(2)
+                        .multilineTextAlignment(.leading)
+                        .padding(.trailing, 16)
+                    
+                    Spacer()
+                }
+            }
+            .padding(.bottom, 2)
+    }
+}
+
+enum numberImage: String, CaseIterable {
+    case gray1
+    case gray2
+    case gray3
+    case gray4
 }
