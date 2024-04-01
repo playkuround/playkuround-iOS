@@ -179,6 +179,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C519D9A2BBAECA300DAA206 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0CB902202BB6E6A300F76311 /* GamePauseView.swift */,
+				0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */,
+				0C9641E52BB874E200838DA9 /* TimerBarView.swift */,
+				0C9641E92BB92D6300838DA9 /* GameResultView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		0C5979B32BAB213C00E8156D /* Register */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,12 +256,9 @@
 		0CB9021F2BB6E69800F76311 /* Games */ = {
 			isa = PBXGroup;
 			children = (
+				0C519D9A2BBAECA300DAA206 /* Common */,
 				C9564D7D2BB9ADD700A869ED /* MoonGame */,
 				0CB902222BB6E76100F76311 /* TimerGame */,
-				0CB902202BB6E6A300F76311 /* GamePauseView.swift */,
-				0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */,
-				0C9641E52BB874E200838DA9 /* TimerBarView.swift */,
-				0C9641E92BB92D6300838DA9 /* GameResultView.swift */,
 			);
 			path = Games;
 			sourceTree = "<group>";

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GamePauseView: View {
+    @ObservedObject var viewModel: GameViewModel
+    
     var body: some View {
         ZStack {
             Color.black.opacity(0.66).ignoresSafeArea()
@@ -22,7 +24,8 @@ struct GamePauseView: View {
                     }
                     .padding(.bottom, 12)
                     .onTapGesture {
-                        // TODO: GamePauseView 닫고 게임 계속 진행
+                        // GamePauseView 닫고 게임 계속 진행
+                        viewModel.togglePauseView()
                     }
                 
                 Image(.shortButtonGray)
@@ -33,14 +36,11 @@ struct GamePauseView: View {
                             .kerning(-0.41)
                     }
                     .onTapGesture {
-                        // TODO: 게임 종료 기능 추가
-                        // TODO: 홈 뷰로 이동
+                        // 게임 종료 기능 추가
+                        // 홈 뷰로 이동
+                        viewModel.stopGame()
                     }
             }
         }
     }
-}
-
-#Preview {
-    GamePauseView()
 }
