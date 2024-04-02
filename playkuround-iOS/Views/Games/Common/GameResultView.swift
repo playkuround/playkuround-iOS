@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GameResultView: View {
     @ObservedObject var rootViewModel: RootViewModel
+    @ObservedObject var gameViewModel: GameViewModel
     
     var body: some View {
         ZStack {
@@ -27,16 +28,16 @@ struct GameResultView: View {
                         Image(.scoreBackground)
                             .overlay {
                                 VStack(alignment: .center) {
-                                    // TODO: 게임 점수 연결 필요
-                                    Text("\(0) " + StringLiterals.Game.Result.score)
+                                    // 게임 점수
+                                    Text("\(gameViewModel.score) " + StringLiterals.Game.Result.score)
                                         .font(.neo56)
                                         .foregroundStyle(.kuText)
                                         .kerning(-0.41)
                                         .padding(.bottom, 2)
                                     
-                                    // TODO: 최고 점수 연결 필요
-                                    Text(StringLiterals.Game.Result.bestScore 
-                                         + " \(0) "
+                                    // 최고 점수 받아와 표시
+                                    Text(StringLiterals.Game.Result.bestScore
+                                         + " \(gameViewModel.bestScore) "
                                          + StringLiterals.Game.Result.score)
                                         .font(.neo18)
                                         .foregroundStyle(.kuText)
@@ -45,9 +46,9 @@ struct GameResultView: View {
                                 .padding(.top, 48)
                             }
                         
-                        // TODO: 모험 점수 연결 필요
+                        // 모험 점수 받아와 표시
                         Text(StringLiterals.Game.Result.adventureScore 
-                             + " \(0) "
+                             + " \(gameViewModel.adventureScore) "
                              + StringLiterals.Game.Result.score)
                             .font(.neo24)
                             .foregroundStyle(.kuText)
@@ -71,8 +72,4 @@ struct GameResultView: View {
                 }
         }
     }
-}
-
-#Preview {
-    GameResultView(rootViewModel: RootViewModel())
 }

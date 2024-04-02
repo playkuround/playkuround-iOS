@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C31576C2BB7CCC000F270F7 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C31576B2BB7CCC000F270F7 /* Landmark.swift */; };
+		0C519D992BBAEB6C00DAA206 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C519D982BBAEB6C00DAA206 /* GameViewModel.swift */; };
 		0C519D972BBADD6500DAA206 /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C519D962BBADD6500DAA206 /* CardGameView.swift */; };
 		0C519D9C2BBAFD9D00DAA206 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C519D9B2BBAFD9D00DAA206 /* Card.swift */; };
 		0C519D9E2BBAFDE000DAA206 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C519D9D2BBAFDDF00DAA206 /* CardView.swift */; };
@@ -91,6 +92,7 @@
 
 /* Begin PBXFileReference section */
 		0C31576B2BB7CCC000F270F7 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
+		0C519D982BBAEB6C00DAA206 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		0C519D962BBADD6500DAA206 /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
 		0C519D9B2BBAFD9D00DAA206 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		0C519D9D2BBAFDDF00DAA206 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -185,6 +187,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C519D9A2BBAECA300DAA206 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0CB902202BB6E6A300F76311 /* GamePauseView.swift */,
+				0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */,
+				0C9641E52BB874E200838DA9 /* TimerBarView.swift */,
+				0C9641E92BB92D6300838DA9 /* GameResultView.swift */,
+			);
+			path = Common;
+      sourceTree = "<group>";
+		};
 		0C519D952BBADD5B00DAA206 /* CardGame */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,13 +274,10 @@
 		0CB9021F2BB6E69800F76311 /* Games */ = {
 			isa = PBXGroup;
 			children = (
+				0C519D9A2BBAECA300DAA206 /* Common */,
 				0C519D952BBADD5B00DAA206 /* CardGame */,
 				C9564D7D2BB9ADD700A869ED /* MoonGame */,
 				0CB902222BB6E76100F76311 /* TimerGame */,
-				0CB902202BB6E6A300F76311 /* GamePauseView.swift */,
-				0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */,
-				0C9641E52BB874E200838DA9 /* TimerBarView.swift */,
-				0C9641E92BB92D6300838DA9 /* GameResultView.swift */,
 			);
 			path = Games;
 			sourceTree = "<group>";
@@ -285,6 +295,7 @@
 			children = (
 				0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */,
 				0CB465AD2BB3D1C700317455 /* RootViewModel.swift */,
+				0C519D982BBAEB6C00DAA206 /* GameViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -646,6 +657,7 @@
 				C9FE257D2BB40E1C00F78C63 /* CheerPKTeamView.swift in Sources */,
 				0C9641E62BB874E200838DA9 /* TimerBarView.swift in Sources */,
 				0C5979BC2BAB26A800E8156D /* TermsView.swift in Sources */,
+				0C519D992BBAEB6C00DAA206 /* GameViewModel.swift in Sources */,
 				0C6AA4CF2BA56FB30032AB24 /* ScoreType.swift in Sources */,
 				C953D2FE2BA4807400318869 /* LoginView.swift in Sources */,
 				0C519D9E2BBAFDE000DAA206 /* CardView.swift in Sources */,
