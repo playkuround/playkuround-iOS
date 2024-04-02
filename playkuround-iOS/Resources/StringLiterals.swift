@@ -136,5 +136,9 @@ enum StringLiterals {
             static let title = "MOON을 점령해"
             static let description = "달을 터치해서 깨주세요!"
         }
+        
+        enum Card {
+            static let title = "책 뒤집기"
+        }
     }
 }
