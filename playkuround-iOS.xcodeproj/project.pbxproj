@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C27DDF02BBD714F0049B7B8 /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */; };
 		0C31576C2BB7CCC000F270F7 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C31576B2BB7CCC000F270F7 /* Landmark.swift */; };
 		0C519D972BBADD6500DAA206 /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C519D962BBADD6500DAA206 /* CardGameView.swift */; };
 		0C519D992BBAEB6C00DAA206 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C519D982BBAEB6C00DAA206 /* GameViewModel.swift */; };
@@ -92,6 +93,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		0C31576B2BB7CCC000F270F7 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
 		0C519D962BBADD6500DAA206 /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
 		0C519D982BBAEB6C00DAA206 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
@@ -189,6 +191,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C27DDEE2BBD71440049B7B8 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
 		0C519D952BBADD5B00DAA206 /* CardGame */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +255,7 @@
 		0C6AA4C52BA566C40032AB24 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0C27DDEE2BBD71440049B7B8 /* Games */,
 				0C6AA4C62BA566CE0032AB24 /* Badge.swift */,
 				0C6AA4CA2BA56B510032AB24 /* Major.swift */,
 				0C6AA4CC2BA56E230032AB24 /* UserNotification.swift */,
@@ -679,6 +690,7 @@
 				C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */,
 				0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */,
 				C9DAF1F72BB712D900E03D16 /* UserEntity.swift in Sources */,
+				0C27DDF02BBD714F0049B7B8 /* CardComponent.swift in Sources */,
 				C97543F62BB325A300CD6479 /* MyPageListRowView.swift in Sources */,
 				C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */,
 				0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */,

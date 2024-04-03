@@ -120,9 +120,3 @@ final class CardGameViewModel: GameViewModel {
         }
     }
 }
-
-struct CardComponent: Identifiable, Hashable {
-    var id = UUID()
-    let cardType: CardType
-    var cardState: CardState
-}
