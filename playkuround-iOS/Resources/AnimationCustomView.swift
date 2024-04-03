@@ -24,7 +24,9 @@ struct AnimationCustomView: View {
         Image(imageArray[currentIndex])
             .resizable()
             .onReceive(timer) { _ in
-                self.currentIndex = (self.currentIndex + 1) % self.imageArray.count
+                DispatchQueue.main.async {
+                    self.currentIndex = (self.currentIndex + 1) % self.imageArray.count
+                }
             }
     }
 }
