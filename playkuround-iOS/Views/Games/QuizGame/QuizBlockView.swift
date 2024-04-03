@@ -17,9 +17,8 @@ struct QuizBlockView: View {
                 .kerning(-0.41)
                 .lineSpacing(6)
                 .foregroundStyle(.kuText)
-                .lineLimit(3)
                 .multilineTextAlignment(.center)
-                .padding(.bottom, 30)
+                .padding(.bottom, 20)
             
             ForEach(quiz.options.indices, id: \.self) { index in
                 quizBlock(blockState: .correct,
@@ -27,7 +26,7 @@ struct QuizBlockView: View {
                           option: quiz.options[index])
             }
         }
-        .padding(.horizontal, 10)
+        .padding(.horizontal, 20)
     }
     
     @ViewBuilder
