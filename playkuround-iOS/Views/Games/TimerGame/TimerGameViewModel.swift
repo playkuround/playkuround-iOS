@@ -48,10 +48,6 @@ final class TimerGameViewModel: GameViewModel {
         }
     }
     
-    override func startGame() {
-        super.startGame()
-    }
-    
     override func finishGame() {
         gameState = .finish
     
