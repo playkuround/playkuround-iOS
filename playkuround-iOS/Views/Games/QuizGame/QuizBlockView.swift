@@ -21,9 +21,9 @@ struct QuizBlockView: View {
                 .padding(.bottom, 20)
             
             ForEach(quiz.options.indices, id: \.self) { index in
-                quizBlock(blockState: .correct,
-                          image: numberImage.allCases[index].rawValue,
-                          option: quiz.options[index])
+                quizBlock(blockState: .unable,
+                          option: quiz.options[index],
+                          index: index)
             }
         }
         .padding(.horizontal, 20)
@@ -31,17 +31,17 @@ struct QuizBlockView: View {
     
     @ViewBuilder
     private func quizBlock(blockState: BlockState,
-                           image: String,
-                           option: String) -> some View {
+                           option: String,
+                           index: Int) -> some View {
         Image(blockState.image.rawValue)
             .overlay {
                 HStack {
-                    Image(image)
+                    Image("\(blockState.numberImage.rawValue)\(index + 1)")
                         .padding(.horizontal, 15)
                     
                     Text(option)
                         .font(.pretendard15R)
-                        .foregroundStyle(.kuText)
+                        .foregroundStyle(blockState == .unable ? .kuGray2 : .kuText)
                         .lineLimit(2)
                         .multilineTextAlignment(.leading)
                         .padding(.trailing, 16)

@@ -53,6 +53,15 @@ enum BlockState {
         case .incorrect: return .quizIncorrectBlock
         }
     }
+    
+    var numberImage: NumberImage {
+        switch self {
+        case .normal: return .gray
+        case .unable: return .lightGray
+        case .correct: return .white
+        case .incorrect: return .white
+        }
+    }
 }
 
 enum BlockImage: String {
@@ -62,9 +71,8 @@ enum BlockImage: String {
     case quizIncorrectBlock
 }
 
-enum numberImage: String, CaseIterable {
-    case gray1
-    case gray2
-    case gray3
-    case gray4
+enum NumberImage: String {
+    case gray
+    case lightGray
+    case white
 }
