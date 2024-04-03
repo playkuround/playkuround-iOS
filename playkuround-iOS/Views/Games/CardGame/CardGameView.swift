@@ -28,17 +28,13 @@ struct CardGameView: View {
                             viewModel.updateTimer()
                         }
                     
-                    // MARK: 아래는 UI 구현을 위한 임시 구현
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 4), spacing: 20) {
                         ForEach(viewModel.cardList.indices, id: \.self) { index in
                             CardView(cardComponent: $viewModel.cardList[index])
                                 .onTapGesture {
                                     if viewModel.cardList[index].cardState == .cover {
                                         viewModel.coverToDrawing(index: index)
-                                    } 
-                                    /* else {
-                                        viewModel.drawingToCover(index: index)
-                                    }*/
+                                    }
                                 }
                         }
                     }
