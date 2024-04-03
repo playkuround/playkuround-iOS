@@ -16,6 +16,8 @@
 		0C5979B82BAB25EE00E8156D /* service.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C5979B72BAB25EE00E8156D /* service.txt */; };
 		0C5979BC2BAB26A800E8156D /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5979BB2BAB26A800E8156D /* TermsView.swift */; };
 		0C6396E82BAB4BB8008E046F /* RegisterNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6396E72BAB4BB8008E046F /* RegisterNickname.swift */; };
+		0C691EB12BBD9FF2004021F1 /* TimerGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C691EB02BBD9FF2004021F1 /* TimerGameViewModel.swift */; };
+		0C691EB32BBDA028004021F1 /* TimerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C691EB22BBDA028004021F1 /* TimerState.swift */; };
 		0C6AA4BB2BA4A33E0032AB24 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4BA2BA4A33E0032AB24 /* NetworkManager.swift */; };
 		0C6AA4BD2BA553D80032AB24 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4BC2BA553D80032AB24 /* APIManager.swift */; };
 		0C6AA4C72BA566CE0032AB24 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4C62BA566CE0032AB24 /* Badge.swift */; };
@@ -101,6 +103,8 @@
 		0C5979B72BAB25EE00E8156D /* service.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = service.txt; sourceTree = "<group>"; };
 		0C5979BB2BAB26A800E8156D /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		0C6396E72BAB4BB8008E046F /* RegisterNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNickname.swift; sourceTree = "<group>"; };
+		0C691EB02BBD9FF2004021F1 /* TimerGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerGameViewModel.swift; sourceTree = "<group>"; };
+		0C691EB22BBDA028004021F1 /* TimerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerState.swift; sourceTree = "<group>"; };
 		0C6AA4BA2BA4A33E0032AB24 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0C6AA4BC2BA553D80032AB24 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		0C6AA4C62BA566CE0032AB24 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
@@ -297,6 +301,8 @@
 			isa = PBXGroup;
 			children = (
 				0CB902232BB6E77200F76311 /* TimerGameView.swift */,
+				0C691EB02BBD9FF2004021F1 /* TimerGameViewModel.swift */,
+				0C691EB22BBDA028004021F1 /* TimerState.swift */,
 			);
 			path = TimerGame;
 			sourceTree = "<group>";
@@ -675,7 +681,9 @@
 				C953D2F92BA47B4B00318869 /* Font.swift in Sources */,
 				0C6AA4BD2BA553D80032AB24 /* APIManager.swift in Sources */,
 				0C6AA4CB2BA56B510032AB24 /* Major.swift in Sources */,
+				0C691EB32BBDA028004021F1 /* TimerState.swift in Sources */,
 				0C519D9C2BBAFD9D00DAA206 /* Card.swift in Sources */,
+				0C691EB12BBD9FF2004021F1 /* TimerGameViewModel.swift in Sources */,
 				0C31576C2BB7CCC000F270F7 /* Landmark.swift in Sources */,
 				0CB465AE2BB3D1C700317455 /* RootViewModel.swift in Sources */,
 				0C6396E82BAB4BB8008E046F /* RegisterNickname.swift in Sources */,
