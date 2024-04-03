@@ -77,4 +77,5 @@ enum ViewType {
     
     // Games
     case cardGame
+    case timeGame
 }
