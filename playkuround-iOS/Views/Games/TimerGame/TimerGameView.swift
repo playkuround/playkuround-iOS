@@ -57,7 +57,10 @@ struct TimerGameView: View {
                                 Text("\(viewModel.second):\(viewModel.milliSecond)")
                                     .font(.neo70)
                                     .kerning(-0.41)
-                                    .foregroundStyle(viewModel.timerState == .failed ? .kuRed : (viewModel.timerState == .success || viewModel.timerState == .perfect) ? .kuGreen : .kuText)
+                                    .foregroundStyle(viewModel.timerState == .failed ? .kuRed
+                                                     : (viewModel.timerState == .success
+                                                        || viewModel.timerState == .perfect)
+                                                     ? .kuGreen : .kuText)
                                     .onReceive(viewModel.timer) { _ in
                                         if viewModel.timerState == .running {
                                             viewModel.updateTimer()
@@ -67,57 +70,54 @@ struct TimerGameView: View {
                                 
                                 // 텍스트
                                 HStack {
-                                    if viewModel.timerState == .success || viewModel.timerState == .perfect {
-                                        Text(viewModel.timerState == .failed ? StringLiterals.Game.Time.failure :  StringLiterals.Game.Time.success)
+                                    // 성공 시
+                                    if viewModel.timerState == .success
+                                        || viewModel.timerState == .perfect {
+                                        Text(StringLiterals.Game.Time.success)
                                             .font(.pretendard15R)
-                                            .foregroundStyle(viewModel.timerState == .failed ? .kuRed : .kuGreen)
-                                    } else if viewModel.timerState == .failed {
-                                        Text(viewModel.timerState == .failed ? StringLiterals.Game.Time.failure :  StringLiterals.Game.Time.success)
+                                            .foregroundStyle(.kuGreen)
+                                    }
+                                    // 실패 시
+                                    else if viewModel.timerState == .failed {
+                                        Text(StringLiterals.Game.Time.failure)
                                             .font(.pretendard15R)
-                                            .foregroundStyle(viewModel.timerState == .failed ? .kuRed : .kuGreen)
-                                    } else {
-                                        // Spacer()
+                                            .foregroundStyle(.kuRed)
                                     }
                                 }
                                 .frame(height: 20)
                                 .padding(.vertical, 0)
                                 
                                 // 버튼
-                                if viewModel.timerState == .perfect || viewModel.timerState == .success {
+                                if viewModel.timerState == .perfect
+                                    || viewModel.timerState == .success {
                                     AnimationCustomView(
                                         imageArray: gameSuccessImage.allCases.map { $0.rawValue },
                                         delayTime: 0.2)
                                     .scaledToFit()
                                     .frame(height: 140)
-                                } else if viewModel.timerState == .failed {
+                                } else {
                                     Button {
                                         viewModel.timeButtonClick()
                                     } label: {
-                                        Image(.timeRestartButton)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 120, height: 120)
-                                            .padding(.top, 20)
-                                    }
-                                } else if viewModel.timerState == .running {
-                                    Button {
-                                        viewModel.timeButtonClick()
-                                    } label: {
-                                        Image(.timeStopButton)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 120, height: 120)
-                                            .padding(.top, 20)
-                                    }
-                                } else if viewModel.timerState == .ready {
-                                    Button {
-                                        viewModel.timeButtonClick()
-                                    } label: {
-                                        Image(.timePlayButton)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 120, height: 120)
-                                            .padding(.top, 20)
+                                        if viewModel.timerState == .failed {
+                                            Image(.timeRestartButton)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 120, height: 120)
+                                                .padding(.top, 20)
+                                        } else if viewModel.timerState == .running {
+                                            Image(.timeStopButton)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 120, height: 120)
+                                                .padding(.top, 20)
+                                        } else if viewModel.timerState == .ready {
+                                            Image(.timePlayButton)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 120, height: 120)
+                                                .padding(.top, 20)
+                                        }
                                     }
                                 }
                             }
@@ -130,7 +130,8 @@ struct TimerGameView: View {
                 } else if viewModel.isPauseViewPresented {
                     GamePauseView(viewModel: viewModel)
                 } else if viewModel.isResultViewPresented {
-                    GameResultView(rootViewModel: viewModel.rootViewModel, gameViewModel: viewModel)
+                    GameResultView(rootViewModel: viewModel.rootViewModel,
+                                   gameViewModel: viewModel)
                 }
             }
         }
@@ -141,5 +142,10 @@ struct TimerGameView: View {
 }
 
 #Preview {
-    TimerGameView(viewModel: TimerGameViewModel(.time, rootViewModel: RootViewModel(), mapViewModel: MapViewModel(), timeStart: 0, timeEnd: .infinity, timeInterval: 0.01))
+    TimerGameView(viewModel: TimerGameViewModel(.time,
+                                       rootViewModel: RootViewModel(),
+                                       mapViewModel: MapViewModel(),
+                                       timeStart: 0,
+                                       timeEnd: .infinity,
+                                       timeInterval: 0.01))
 }
