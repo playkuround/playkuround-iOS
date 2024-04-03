@@ -30,7 +30,7 @@ struct CardGameView: View {
                     
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 4), spacing: 20) {
                         ForEach(viewModel.cardList.indices, id: \.self) { index in
-                            CardView(cardComponent: $viewModel.cardList[index])
+                            viewModel.cardView(for: viewModel.cardList[index])
                                 .onTapGesture {
                                     if viewModel.cardList[index].cardState == .cover {
                                         viewModel.coverToDrawing(index: index)

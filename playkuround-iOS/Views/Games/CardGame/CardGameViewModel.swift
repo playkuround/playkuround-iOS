@@ -115,4 +115,21 @@ final class CardGameViewModel: GameViewModel {
             }
         }
     }
+    
+    @ViewBuilder
+    func cardView(for cardComponent: CardComponent) -> some View {
+        VStack {
+            switch cardComponent.cardState {
+            case .cover:
+                Image("frontCard")
+            case .side:
+                Image("sideCard")
+            case .drawing:
+                Image(cardComponent.cardType.rawValue)
+            case .hidden:
+                Spacer()
+            }
+        }
+        .frame(width: 66, height: 98)
+    }
 }
