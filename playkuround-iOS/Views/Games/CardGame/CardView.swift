@@ -8,18 +8,17 @@
 import SwiftUI
 
 struct CardView: View {
-    let cardType: CardType
-    @Binding var cardState: CardState
+    @Binding var cardComponent: CardComponent
     
     var body: some View {
         VStack {
-            switch cardState {
+            switch cardComponent.cardState {
             case .cover:
                 Image(.frontCard)
             case .side:
                 Image(.sideCard)
             case .drawing:
-                Image(cardType.rawValue)
+                Image(cardComponent.cardType.rawValue)
             case .hidden:
                 Spacer()
             }
