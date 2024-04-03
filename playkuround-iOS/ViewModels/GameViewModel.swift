@@ -260,8 +260,10 @@ class GameViewModel: ObservableObject {
             
             if self.isPauseViewPresented {
                 self.gameState = .pause
+                self.isTimerUpdating = false
             } else {
                 self.gameState = .playing
+                self.isTimerUpdating = true
             }
         }
     }
