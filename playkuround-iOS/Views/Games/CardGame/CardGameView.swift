@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct CardGameView: View {
-    // 아래 두 변수는 임시 구현으로, GameViewModel에서 받아올 예정
-    @State private var progress: Double = 1.0
-    @State private var cardList: [CardType] = [.milkCard, .turtleCard, .treeCard, .bullCard,
-        .lakeCard, .gooseCard, .catCard, .flowerCard]
+    @ObservedObject var viewModel: CardGameViewModel
+    @ObservedObject var rootViewModel: RootViewModel
     
     var body: some View {
         GeometryReader { geometry in
@@ -24,21 +22,24 @@ struct CardGameView: View {
                 let shouldImagePadding = geometry.size.height >= 700
                 
                 VStack {
-                    TimerBarView(progress: $progress, color: .white)
+                    TimerBarView(progress: $viewModel.progress, color: .white)
                         .padding(.bottom, shouldImagePadding ? 44 : 20)
+                        .onReceive(viewModel.timer) { _ in
+                            viewModel.updateTimer()
+                        }
                     
                     // MARK: 아래는 UI 구현을 위한 임시 구현
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 4), spacing: 20) {
-                        ForEach(cardList, id: \.self) { cardType in
-                            CardView(cardType: cardType, cardState: .constant(.drawing))
-                        }
-                    }
-                    .padding(.horizontal)
-                    .padding(.bottom, 10)
-                    
-                    LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 4), spacing: 20) {
-                        ForEach(cardList, id: \.self) { cardType in
-                            CardView(cardType: cardType, cardState: .constant(.drawing))
+                        ForEach(viewModel.cardList.indices, id: \.self) { index in
+                            CardView(cardComponent: $viewModel.cardList[index])
+                                .onTapGesture {
+                                    if viewModel.cardList[index].cardState == .cover {
+                                        viewModel.coverToDrawing(index: index)
+                                    } 
+                                    /* else {
+                                        viewModel.drawingToCover(index: index)
+                                    }*/
+                                }
                         }
                     }
                     .padding(.horizontal)
@@ -50,16 +51,28 @@ struct CardGameView: View {
                         .foregroundStyle(.white)
                 }, rightView: {
                     Button(action: {
-                        // TODO: 일시정지
+                        viewModel.togglePauseView()
                     }, label: {
                         Image(.bronzePauseButton)
                     })
                 }, height: 67)
+                
+                if viewModel.isCountdownViewPresented {
+                    CountdownView(countdown: $viewModel.countdown)
+                } else if viewModel.isPauseViewPresented {
+                    GamePauseView(viewModel: viewModel)
+                } else if viewModel.isResultViewPresented {
+                    GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
+                }
+            }
+            .onAppear {
+                viewModel.shuffleCard()
+                viewModel.startCountdown()
             }
         }
     }
 }
 
 #Preview {
-    CardGameView()
+    CardGameView(viewModel: CardGameViewModel(.book, rootViewModel: RootViewModel(), mapViewModel: MapViewModel(), timeStart: 30.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: RootViewModel())
 }
