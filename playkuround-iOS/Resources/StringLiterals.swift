@@ -137,6 +137,10 @@ enum StringLiterals {
             static let description = "달을 터치해서 깨주세요!"
         }
         
+        enum Card {
+            static let title = "책 뒤집기"
+        }
+        
         enum Quiz {
             static let title = "건쏠지식"
             static let correct = "정답입니다!"

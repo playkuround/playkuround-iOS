@@ -74,4 +74,7 @@ enum ViewType {
     
     // my page
     case myPage
+    
+    // Games
+    case cardGame
 }

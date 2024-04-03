@@ -34,9 +34,21 @@ struct RootView: View {
                     Button("myPage") {
                         viewModel.transition(to: .myPage)
                     }
+                    Button("책 뒤집기") {
+                        viewModel.transition(to: .cardGame)
+                    }
+                }
+                .onAppear {
+                    mapViewModel.startUpdatingLocation()
+                }
+                .onDisappear {
+                    // 홈 뷰에서 벗어날 때 위치 업데이트 중지
+                    mapViewModel.stopUpdatingLocation()
                 }
             case .myPage:
                 MyPageView(viewModel: viewModel)
+            case .cardGame:
+                CardGameView(viewModel: CardGameViewModel(.book, rootViewModel: self.viewModel, mapViewModel: self.mapViewModel, timeStart: 30.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: viewModel)
             }
             
             // network error
