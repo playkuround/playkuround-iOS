@@ -60,9 +60,8 @@ final class CardGameViewModel: GameViewModel {
         if flippedCardIndex.count < 2 && cardList[index].cardState == .cover {
             flippedCardIndex.append(index)
             cardList[index].cardState = .side
-            let queue = DispatchQueue.main
             // 카드 옆면에서 0.15초 대기
-            queue.asyncAfter(deadline: .now() + 0.15) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 self.cardList[index].cardState = .drawing
                 self.checkCard()
             }
@@ -72,9 +71,8 @@ final class CardGameViewModel: GameViewModel {
     private func drawingToCover(index: Int) {
         if cardList[index].cardState == .drawing {
             cardList[index].cardState = .side
-            let queue = DispatchQueue.main
             // 카드 옆면에서 0.15초 대기
-            queue.asyncAfter(deadline: .now() + 0.15) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 self.cardList[index].cardState = .cover
             }
         }
@@ -101,8 +99,7 @@ final class CardGameViewModel: GameViewModel {
             
             // 뒤집은 두 카드가 같은 경우
             if cardList[index1].cardType == cardList[index2].cardType {
-                let queue = DispatchQueue.main
-                queue.asyncAfter(deadline: .now()) {
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
                     self.flippedCardIndex.removeAll()
                     self.hideCard(index: index1)
                     self.hideCard(index: index2)
@@ -110,8 +107,7 @@ final class CardGameViewModel: GameViewModel {
             } 
             // 다른 경우
             else {
-                let queue = DispatchQueue.main
-                queue.asyncAfter(deadline: .now() + 0.7) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
                     self.flippedCardIndex.removeAll()
                     self.drawingToCover(index: index1)
                     self.drawingToCover(index: index2)
