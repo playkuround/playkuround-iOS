@@ -43,7 +43,7 @@ final class CardGameViewModel: GameViewModel {
         
         // 최종 점수 계산
         // 맞춘 카드 쌍 * 5점, 시간 * 2
-        score += correctCount * 5 / 2
+        score = correctCount * 5 / 2
         score += Int(timeRemaining) * 2
         
         print("final score: \(score)")
@@ -101,9 +101,6 @@ final class CardGameViewModel: GameViewModel {
             
             // 뒤집은 두 카드가 같은 경우
             if cardList[index1].cardType == cardList[index2].cardType {
-                // 남은 시간 1초당 1점, 1쌍 1점
-                score += Int(timeRemaining) + 1
-
                 let queue = DispatchQueue.main
                 queue.asyncAfter(deadline: .now()) {
                     self.flippedCardIndex.removeAll()
