@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QuizGameView: View {
-    let quizData: [Quiz] = load("QuizData.json")
+    private let quizData: [Quiz] = load("QuizData.json")
     
     var body: some View {
         ZStack {
@@ -24,7 +24,6 @@ struct QuizGameView: View {
                     .font(.neo45)
                     .kerning(-0.41)
                     .foregroundStyle(.kuText)
-                    .padding(.top, 30)
             
                 Text(StringLiterals.Game.Quiz.incorrect)
                     .font(.pretendard15R)

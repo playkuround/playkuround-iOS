@@ -37,3 +37,34 @@ func load<T: Decodable>(_ fileName: String) -> T {
         fatalError("Couldn't parse \(fileName) as \(T.self):\n\(error)")
     }
 }
+
+
+enum BlockState {
+    case normal
+    case unable
+    case correct
+    case incorrect
+    
+    var image: BlockImage {
+        switch self {
+        case .normal: return .quizBlock
+        case .unable: return .quizUnableBlock
+        case .correct: return .quizCorrectBlock
+        case .incorrect: return .quizIncorrectBlock
+        }
+    }
+}
+
+enum BlockImage: String {
+    case quizBlock
+    case quizUnableBlock
+    case quizCorrectBlock
+    case quizIncorrectBlock
+}
+
+enum numberImage: String, CaseIterable {
+    case gray1
+    case gray2
+    case gray3
+    case gray4
+}

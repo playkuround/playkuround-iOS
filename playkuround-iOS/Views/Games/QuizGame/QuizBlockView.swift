@@ -22,17 +22,19 @@ struct QuizBlockView: View {
                 .padding(.bottom, 30)
             
             ForEach(quiz.options.indices, id: \.self) { index in
-                createQuizBlock(image: numberImage.allCases[index].rawValue,
-                                option: quiz.options[index])
+                quizBlock(blockState: .correct,
+                          image: numberImage.allCases[index].rawValue,
+                          option: quiz.options[index])
             }
         }
         .padding(.horizontal, 10)
     }
     
     @ViewBuilder
-    private func createQuizBlock(image: String, 
-                                 option: String) -> some View {
-        Image(.quizBlock)
+    private func quizBlock(blockState: BlockState,
+                           image: String,
+                           option: String) -> some View {
+        Image(blockState.image.rawValue)
             .overlay {
                 HStack {
                     Image(image)
@@ -52,9 +54,3 @@ struct QuizBlockView: View {
     }
 }
 
-enum numberImage: String, CaseIterable {
-    case gray1
-    case gray2
-    case gray3
-    case gray4
-}
