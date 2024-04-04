@@ -201,6 +201,7 @@
 		0C27DDEE2BBD71440049B7B8 /* Games */ = {
 			isa = PBXGroup;
 			children = (
+				C95F8F2D2BBACF1300E89B50 /* Quiz.swift */,
 				0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */,
 			);
 			path = Games;
@@ -268,7 +269,6 @@
 				0C6AA4CE2BA56FB30032AB24 /* ScoreType.swift */,
 				0C31576B2BB7CCC000F270F7 /* Landmark.swift */,
 				C9DAF1F62BB712D900E03D16 /* UserEntity.swift */,
-				C95F8F2D2BBACF1300E89B50 /* Quiz.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
