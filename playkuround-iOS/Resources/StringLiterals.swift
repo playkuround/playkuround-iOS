@@ -140,5 +140,11 @@ enum StringLiterals {
         enum Card {
             static let title = "책 뒤집기"
         }
+        
+        enum Quiz {
+            static let title = "건쏠지식"
+            static let correct = "정답입니다!"
+            static let incorrect = "오답입니다.\n15초 후에 다시 시도해주세요."
+        }
     }
 }
