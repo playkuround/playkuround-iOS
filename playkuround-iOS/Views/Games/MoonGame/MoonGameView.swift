@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MoonGameView: View {
     @State private var shouldShake = false
+    @ObservedObject var viewModel: MoonGameViewModel
     
     var body: some View {
         GeometryReader { geometry in
@@ -26,7 +27,7 @@ struct MoonGameView: View {
                         .foregroundStyle(.white)
                         .padding(.bottom, 10)
                     
-                    Text("100")
+                    Text("\(viewModel.moonTapped)")
                         .font(.neo50)
                         .kerning(-0.41)
                         .foregroundStyle(.white)
@@ -34,15 +35,58 @@ struct MoonGameView: View {
                     Spacer()
                 }
                 .overlay {
-                    Image(.moon1)
-                        .padding(.bottom, shouldImagePadding ? 40 : 0)
-                        .animation(Animation.easeInOut(duration: 0.1).repeatCount(4), value: shouldShake)
-                        .offset(x: shouldShake ? -3 : 3, y: 0)
-                        .onTapGesture {
-                            withAnimation {
-                                self.shouldShake.toggle()
+                    if viewModel.moonState == .fullMoon {
+                        Image(.moon1)
+                            .padding(.bottom, shouldImagePadding ? 40 : 0)
+                            .animation(Animation.easeInOut(duration: 0.1).repeatCount(4), value: shouldShake)
+                            .offset(x: shouldShake ? -3 : 3, y: 0)
+                            .onTapGesture {
+                                withAnimation {
+                                    self.shouldShake.toggle()
+                                    viewModel.moonClick()
+                                    print("fullMoon: \(viewModel.moonTapped)")
+                                }
                             }
-                        }
+                    }
+                    else if viewModel.moonState == .cracked {
+                        Image(.moon2)
+                            .padding(.bottom, shouldImagePadding ? 40 : 0)
+                            .animation(Animation.easeInOut(duration: 0.1).repeatCount(4), value: shouldShake)
+                            .offset(x: shouldShake ? -3 : 3, y: 0)
+                            .onTapGesture {
+                                withAnimation {
+                                    self.shouldShake.toggle()
+                                    viewModel.moonClick()
+                                    print("cracked: \(viewModel.moonTapped)")
+                                }
+                            }
+                    }
+                    else if viewModel.moonState == .moreCracked {
+                        Image(.moon3)
+                            .padding(.bottom, shouldImagePadding ? 40 : 0)
+                            .animation(Animation.easeInOut(duration: 0.1).repeatCount(4), value: shouldShake)
+                            .offset(x: shouldShake ? -3 : 3, y: 0)
+                            .onTapGesture {
+                                withAnimation {
+                                    self.shouldShake.toggle()
+                                    viewModel.moonClick()
+                                    print("moreCracked: \(viewModel.moonTapped)")
+                                }
+                            }
+                    }
+                    else if viewModel.moonState == .duck {
+                        Image(.moon4)
+                            .padding(.bottom, shouldImagePadding ? 40 : 0)
+                            .animation(Animation.easeInOut(duration: 0.1).repeatCount(4), value: shouldShake)
+                            .offset(x: shouldShake ? -3 : 3, y: 0)
+                            .onTapGesture {
+                                withAnimation {
+                                    self.shouldShake.toggle()
+                                    viewModel.moonClick()
+                                    print("duck: \(viewModel.moonTapped)")
+                                }
+                            }
+                    }
                 }
                 .padding(.top, 70)
                 .customNavigationBar(centerView: {
@@ -63,5 +107,5 @@ struct MoonGameView: View {
 }
 
 #Preview {
-    MoonGameView()
+    MoonGameView(viewModel: MoonGameViewModel(.moon, rootViewModel: RootViewModel(), mapViewModel: MapViewModel(), timeStart: 0, timeEnd: .infinity, timeInterval: 0.01))
 }

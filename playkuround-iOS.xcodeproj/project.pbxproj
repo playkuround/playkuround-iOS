@@ -48,6 +48,8 @@
 		C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4082BA741F300C0BFDA /* LoginBottomSheetView.swift */; };
 		C918F40B2BA7507800C0BFDA /* AuthenticationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F40A2BA7507800C0BFDA /* AuthenticationCodeView.swift */; };
 		C918F40D2BA753B400C0BFDA /* AuthenticationTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F40C2BA753B400C0BFDA /* AuthenticationTimer.swift */; };
+		C94B563F2BBF7E9D006C8C68 /* MoonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B563E2BBF7E9D006C8C68 /* MoonState.swift */; };
+		C94B56412BBF83EB006C8C68 /* MoonGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B56402BBF83EB006C8C68 /* MoonGameViewModel.swift */; };
 		C9519D392BB3339C00F69974 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9519D382BB3339C00F69974 /* NavigationBarModifier.swift */; };
 		C9519D3B2BB335EC00F69974 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9519D3A2BB335EC00F69974 /* View+.swift */; };
 		C953D2F52BA47B0700318869 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C953D2F32BA47B0700318869 /* Pretendard-Regular.otf */; };
@@ -140,6 +142,8 @@
 		C918F4082BA741F300C0BFDA /* LoginBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBottomSheetView.swift; sourceTree = "<group>"; };
 		C918F40A2BA7507800C0BFDA /* AuthenticationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCodeView.swift; sourceTree = "<group>"; };
 		C918F40C2BA753B400C0BFDA /* AuthenticationTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTimer.swift; sourceTree = "<group>"; };
+		C94B563E2BBF7E9D006C8C68 /* MoonState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonState.swift; sourceTree = "<group>"; };
+		C94B56402BBF83EB006C8C68 /* MoonGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonGameViewModel.swift; sourceTree = "<group>"; };
 		C9519D382BB3339C00F69974 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		C9519D3A2BB335EC00F69974 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		C953D2F32BA47B0700318869 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -410,6 +414,8 @@
 			isa = PBXGroup;
 			children = (
 				C9564D7E2BB9ADE600A869ED /* MoonGameView.swift */,
+				C94B563E2BBF7E9D006C8C68 /* MoonState.swift */,
+				C94B56402BBF83EB006C8C68 /* MoonGameViewModel.swift */,
 			);
 			path = MoonGame;
 			sourceTree = "<group>";
@@ -700,6 +706,7 @@
 				C953D3042BA49BB300318869 /* MainView.swift in Sources */,
 				C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */,
 				C918F40B2BA7507800C0BFDA /* AuthenticationCodeView.swift in Sources */,
+				C94B563F2BBF7E9D006C8C68 /* MoonState.swift in Sources */,
 				C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */,
 				0C5979B52BAB215300E8156D /* RegisterMajorView.swift in Sources */,
 				C9519D3B2BB335EC00F69974 /* View+.swift in Sources */,
@@ -728,6 +735,7 @@
 				0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */,
 				C9DAF1F72BB712D900E03D16 /* UserEntity.swift in Sources */,
 				0C27DDF02BBD714F0049B7B8 /* CardComponent.swift in Sources */,
+				C94B56412BBF83EB006C8C68 /* MoonGameViewModel.swift in Sources */,
 				C97543F62BB325A300CD6479 /* MyPageListRowView.swift in Sources */,
 				C95F8F2C2BBAC99D00E89B50 /* QuizData.json in Sources */,
 				C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */,
