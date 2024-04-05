@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MoonGameView: View {
+    @State private var shouldShake = false
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .top) {
@@ -32,13 +34,15 @@ struct MoonGameView: View {
                     Spacer()
                 }
                 .overlay {
-                    if shouldImagePadding {
-                        Image(.moon4)
-                            .padding(.bottom, 40)
-                    }
-                    else {
-                        Image(.moon4)
-                    }
+                    Image(.moon1)
+                        .padding(.bottom, shouldImagePadding ? 40 : 0)
+                        .animation(Animation.easeInOut(duration: 0.1).repeatCount(4), value: shouldShake)
+                        .offset(x: shouldShake ? -3 : 3, y: 0)
+                        .onTapGesture {
+                            withAnimation {
+                                self.shouldShake.toggle()
+                            }
+                        }
                 }
                 .padding(.top, 70)
                 .customNavigationBar(centerView: {
