@@ -76,5 +76,6 @@ struct MoonGameView: View {
                     viewModel.moonClick()
                 }
             }
+            .disabled(viewModel.moonTapped == 0)
     }
 }

@@ -20,11 +20,12 @@ final class MoonGameViewModel: GameViewModel {
             moonState = .cracked
             moonTapped -= 1
         }
-        else if 1 <= moonTapped && moonTapped <= 51 {
+        else if 1 < moonTapped && moonTapped <= 51 {
             moonState = .moreCracked
             moonTapped -= 1
         }
-        else if moonTapped == 0 {
+        else if moonTapped == 1 {
+            moonTapped = 0
             moonState = .duck
             score = 20
             finishGame()
