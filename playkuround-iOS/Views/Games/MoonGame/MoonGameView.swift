@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct MoonGameView: View {
-    @State private var shouldShake = false
     @ObservedObject var viewModel: MoonGameViewModel
+    @State private var shouldShake = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -48,13 +48,15 @@ struct MoonGameView: View {
                         .foregroundStyle(.white)
                 }, rightView: {
                     Button(action: {
-                        // TODO: 일시정지
+                        viewModel.togglePauseView()
                     }, label: {
                         Image(.yellowPauseButton)
                     })
                 }, height: 67)
                 
-                
+                if viewModel.isPauseViewPresented {
+                    GamePauseView(viewModel: viewModel)
+                }
             }
         }
     }
@@ -71,5 +73,4 @@ struct MoonGameView: View {
                 }
             }
     }
-    
 }
