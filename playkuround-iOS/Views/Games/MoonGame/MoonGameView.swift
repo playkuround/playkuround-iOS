@@ -35,57 +35,9 @@ struct MoonGameView: View {
                     Spacer()
                 }
                 .overlay {
-                    if viewModel.moonState == .fullMoon {
-                        Image(.moon1)
-                            .padding(.bottom, shouldImagePadding ? 40 : 0)
-                            .animation(Animation.easeInOut(duration: 0.1).repeatCount(4), value: shouldShake)
-                            .offset(x: shouldShake ? -3 : 3, y: 0)
-                            .onTapGesture {
-                                withAnimation {
-                                    self.shouldShake.toggle()
-                                    viewModel.moonClick()
-                                    print("fullMoon: \(viewModel.moonTapped)")
-                                }
-                            }
-                    }
-                    else if viewModel.moonState == .cracked {
-                        Image(.moon2)
-                            .padding(.bottom, shouldImagePadding ? 40 : 0)
-                            .animation(Animation.easeInOut(duration: 0.1).repeatCount(4), value: shouldShake)
-                            .offset(x: shouldShake ? -3 : 3, y: 0)
-                            .onTapGesture {
-                                withAnimation {
-                                    self.shouldShake.toggle()
-                                    viewModel.moonClick()
-                                    print("cracked: \(viewModel.moonTapped)")
-                                }
-                            }
-                    }
-                    else if viewModel.moonState == .moreCracked {
-                        Image(.moon3)
-                            .padding(.bottom, shouldImagePadding ? 40 : 0)
-                            .animation(Animation.easeInOut(duration: 0.1).repeatCount(4), value: shouldShake)
-                            .offset(x: shouldShake ? -3 : 3, y: 0)
-                            .onTapGesture {
-                                withAnimation {
-                                    self.shouldShake.toggle()
-                                    viewModel.moonClick()
-                                    print("moreCracked: \(viewModel.moonTapped)")
-                                }
-                            }
-                    }
-                    else if viewModel.moonState == .duck {
-                        Image(.moon4)
-                            .padding(.bottom, shouldImagePadding ? 40 : 0)
-                            .animation(Animation.easeInOut(duration: 0.1).repeatCount(4), value: shouldShake)
-                            .offset(x: shouldShake ? -3 : 3, y: 0)
-                            .onTapGesture {
-                                withAnimation {
-                                    self.shouldShake.toggle()
-                                    viewModel.moonClick()
-                                    print("duck: \(viewModel.moonTapped)")
-                                }
-                            }
+                    switch viewModel.moonState {
+                    case .fullMoon, .cracked, .moreCracked, .duck:
+                        moonImage(named: viewModel.moonState.image.rawValue, padding: shouldImagePadding)
                     }
                 }
                 .padding(.top, 70)
@@ -101,11 +53,23 @@ struct MoonGameView: View {
                         Image(.yellowPauseButton)
                     })
                 }, height: 67)
+                
+                
             }
         }
     }
-}
-
-#Preview {
-    MoonGameView(viewModel: MoonGameViewModel(.moon, rootViewModel: RootViewModel(), mapViewModel: MapViewModel(), timeStart: 0, timeEnd: .infinity, timeInterval: 0.01))
+    
+    private func moonImage(named imageName: String, padding: Bool) -> some View {
+        Image(imageName)
+            .padding(.bottom, padding ? 40 : 0)
+            .animation(Animation.easeInOut(duration: 0.1).repeatCount(4), value: shouldShake)
+            .offset(x: shouldShake ? -3 : 3, y: 0)
+            .onTapGesture {
+                withAnimation {
+                    self.shouldShake.toggle()
+                    viewModel.moonClick()
+                }
+            }
+    }
+    
 }
