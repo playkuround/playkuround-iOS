@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MoonGameView: View {
     @ObservedObject var viewModel: MoonGameViewModel
+    @ObservedObject var rootViewModel: RootViewModel
     @State private var shouldShake = false
     
     var body: some View {
@@ -57,6 +58,9 @@ struct MoonGameView: View {
                 if viewModel.isPauseViewPresented {
                     GamePauseView(viewModel: viewModel)
                 }
+                else if viewModel.isResultViewPresented {
+                    GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
+                }
             }
         }
     }
@@ -67,8 +71,8 @@ struct MoonGameView: View {
             .animation(Animation.easeInOut(duration: 0.1).repeatCount(4), value: shouldShake)
             .offset(x: shouldShake ? -3 : 3, y: 0)
             .onTapGesture {
+                self.shouldShake.toggle()
                 withAnimation {
-                    self.shouldShake.toggle()
                     viewModel.moonClick()
                 }
             }
