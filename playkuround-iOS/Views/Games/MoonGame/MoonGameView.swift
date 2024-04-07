@@ -72,13 +72,12 @@ struct MoonGameView: View {
     private func moonImage(named imageName: String, padding: Bool) -> some View {
         Image(imageName)
             .padding(.bottom, padding ? 40 : 0)
-            .animation(Animation.easeInOut(duration: 0.1).repeatCount(4), value: shouldShake)
             .offset(x: shouldShake ? -3 : 3, y: 0)
             .onTapGesture {
-                self.shouldShake.toggle()
-                withAnimation {
-                    viewModel.moonClick()
+                withAnimation(Animation.easeInOut(duration: 0.1).repeatCount(4)) {
+                    self.shouldShake.toggle()
                 }
+                viewModel.moonClick()
             }
             .disabled(viewModel.moonTapped == 0)
     }
