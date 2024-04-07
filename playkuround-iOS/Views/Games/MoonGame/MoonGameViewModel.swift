@@ -17,12 +17,12 @@ final class MoonGameViewModel: GameViewModel {
             moonState = .fullMoon
         }
         else if 51 < moonTapped && moonTapped <= 81 {
-            moonState = .cracked
             moonTapped -= 1
+            moonState = .cracked
         }
         else if 1 < moonTapped && moonTapped <= 51 {
-            moonState = .moreCracked
             moonTapped -= 1
+            moonState = .moreCracked
         }
         else if moonTapped == 1 {
             moonTapped = 0

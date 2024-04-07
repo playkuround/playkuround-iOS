@@ -280,13 +280,10 @@ class GameViewModel: ObservableObject {
     // 서버로 점수 업로드 함수
     final func uploadResult() {
         // 사용자 위치 정보
-//        let latitude = mapViewModel.userLatitude
-//        let longitude = mapViewModel.userLongitude
-        let latitude: Double = 37.54040
-        let longitude: Double = 127.07920
-        let landmarkID = 25 // 신공학관
+        let latitude = mapViewModel.userLatitude
+        let longitude = mapViewModel.userLongitude
         
-        //if let landmarkID = mapViewModel.userLandmarkID {
+        if let landmarkID = mapViewModel.userLandmarkID {
             // Adventure API 호출
             // 전송 실패하더라도 callPOSTAPI 함수 내부에서 재전송 처리
             APIManager.callPOSTAPI(endpoint: .adventures,
@@ -305,11 +302,11 @@ class GameViewModel: ObservableObject {
                     print("Error in View: \(error)")
                 }
             }
-//        } else {
-//            // 랜드마크 아이디 없는 경우
-//            // 실제 게임은 랜드마크 아이디가 부여된 경우에만 시작되므로 발생X
-//            print("Error: No Landmark ID")
-//        }
+        } else {
+            // 랜드마크 아이디 없는 경우
+            // 실제 게임은 랜드마크 아이디가 부여된 경우에만 시작되므로 발생X
+            print("Error: No Landmark ID")
+        }
     }
     
     // 사용자의 게임 최고 점수 가져오는 함수
