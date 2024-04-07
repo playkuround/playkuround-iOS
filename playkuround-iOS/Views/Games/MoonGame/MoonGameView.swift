@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct MoonGameView: View {
+    @ObservedObject var viewModel: MoonGameViewModel
+    @ObservedObject var rootViewModel: RootViewModel
+    @State private var shouldShake = false
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .top) {
@@ -24,7 +28,7 @@ struct MoonGameView: View {
                         .foregroundStyle(.white)
                         .padding(.bottom, 10)
                     
-                    Text("100")
+                    Text("\(viewModel.moonTapped)")
                         .font(.neo50)
                         .kerning(-0.41)
                         .foregroundStyle(.white)
@@ -32,12 +36,9 @@ struct MoonGameView: View {
                     Spacer()
                 }
                 .overlay {
-                    if shouldImagePadding {
-                        Image(.moon4)
-                            .padding(.bottom, 40)
-                    }
-                    else {
-                        Image(.moon4)
+                    switch viewModel.moonState {
+                    case .fullMoon, .cracked, .moreCracked, .duck:
+                        moonImage(named: viewModel.moonState.image.rawValue, padding: shouldImagePadding)
                     }
                 }
                 .padding(.top, 70)
@@ -48,16 +49,36 @@ struct MoonGameView: View {
                         .foregroundStyle(.white)
                 }, rightView: {
                     Button(action: {
-                        // TODO: 일시정지
+                        viewModel.togglePauseView()
                     }, label: {
                         Image(.yellowPauseButton)
                     })
                 }, height: 67)
+                
+                if viewModel.isPauseViewPresented {
+                    GamePauseView(viewModel: viewModel)
+                }
+                else if viewModel.isResultViewPresented {
+                    GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
+                }
+                else if viewModel.moonTapped == 0 {
+                    Color.black.opacity(0.5)
+                        .ignoresSafeArea()
+                }
             }
         }
     }
-}
-
-#Preview {
-    MoonGameView()
+    
+    private func moonImage(named imageName: String, padding: Bool) -> some View {
+        Image(imageName)
+            .padding(.bottom, padding ? 40 : 0)
+            .offset(x: shouldShake ? -3 : 3, y: 0)
+            .onTapGesture {
+                withAnimation(Animation.easeInOut(duration: 0.1).repeatCount(4)) {
+                    self.shouldShake.toggle()
+                }
+                viewModel.moonClick()
+            }
+            .disabled(viewModel.moonTapped == 0)
+    }
 }
