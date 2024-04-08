@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct QuizGameView: View {
+    @ObservedObject var viewModel: QuizGameViewModel
+    @ObservedObject var rootViewModel: RootViewModel
     private let quizData: [Quiz] = load("QuizData.json")
     
     var body: some View {
@@ -20,7 +22,7 @@ struct QuizGameView: View {
                 let shouldImagePadding = geometry.size.height >= 700
                 
                 VStack {
-                    QuizBlockView(quiz: quizData[1])
+                    QuizBlockView(quiz: quizData[viewModel.randomNumber ?? 0])
                     
                     Text("00.15")
                         .font(shouldImagePadding ? .neo45 : .neo38)
@@ -42,11 +44,18 @@ struct QuizGameView: View {
                         .foregroundStyle(.kuText)
                 }, rightView: {
                     Button(action: {
-                        // TODO: 일시 중지
+                        viewModel.togglePauseView()
                     }, label: {
                         Image(.grayPauseButton)
                     })
                 }, height: 40)
+                
+                if viewModel.isPauseViewPresented {
+                    GamePauseView(viewModel: viewModel)
+                }
+            }
+            .onAppear {
+                viewModel.createRandomNumber(data: quizData)
             }
         }
     }

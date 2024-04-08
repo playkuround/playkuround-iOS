@@ -63,7 +63,7 @@ struct RootView: View {
             case .moonGame:
                 MoonGameView(viewModel: MoonGameViewModel(.moon, rootViewModel: viewModel, mapViewModel: mapViewModel, timeStart: 0.0, timeEnd: .infinity, timeInterval: 0.01), rootViewModel: viewModel)
             case .quizGame:
-                QuizGameView()
+                QuizGameView(viewModel: QuizGameViewModel(.quiz, rootViewModel: viewModel, mapViewModel: mapViewModel, timeStart: 0.0, timeEnd: .infinity, timeInterval: 0.01), rootViewModel: viewModel)
             }
             
             // network error

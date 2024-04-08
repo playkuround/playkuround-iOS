@@ -21,7 +21,7 @@ struct QuizBlockView: View {
                 .padding(.bottom, 20)
             
             ForEach(quiz.options.indices, id: \.self) { index in
-                quizBlock(quizState: .unable,
+                quizBlock(quizState: .normal,
                           option: quiz.options[index],
                           index: index)
             }
