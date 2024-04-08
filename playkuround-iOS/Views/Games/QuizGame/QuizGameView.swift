@@ -51,7 +51,3 @@ struct QuizGameView: View {
         }
     }
 }
-
-#Preview {
-    QuizGameView()
-}

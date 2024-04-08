@@ -67,6 +67,7 @@
 		C97543F22BB3222F00CD6479 /* MyPageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543F12BB3222F00CD6479 /* MyPageProfileView.swift */; };
 		C97543F42BB3244800CD6479 /* MyPageListSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543F32BB3244800CD6479 /* MyPageListSectionView.swift */; };
 		C97543F62BB325A300CD6479 /* MyPageListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543F52BB325A300CD6479 /* MyPageListRowView.swift */; };
+		C97987462BC3D91600BB3698 /* QuizState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97987452BC3D91600BB3698 /* QuizState.swift */; };
 		C98078912BA8703000C04B2D /* buttonClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078902BA8703000C04B2D /* buttonClicked.mp3 */; };
 		C98078962BA870E400C04B2D /* timerButtonClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078932BA870E400C04B2D /* timerButtonClicked.mp3 */; };
 		C98078972BA870E400C04B2D /* timerCorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078942BA870E400C04B2D /* timerCorrect.mp3 */; };
@@ -161,6 +162,7 @@
 		C97543F12BB3222F00CD6479 /* MyPageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProfileView.swift; sourceTree = "<group>"; };
 		C97543F32BB3244800CD6479 /* MyPageListSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListSectionView.swift; sourceTree = "<group>"; };
 		C97543F52BB325A300CD6479 /* MyPageListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListRowView.swift; sourceTree = "<group>"; };
+		C97987452BC3D91600BB3698 /* QuizState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizState.swift; sourceTree = "<group>"; };
 		C98078902BA8703000C04B2D /* buttonClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonClicked.mp3; sourceTree = "<group>"; };
 		C98078932BA870E400C04B2D /* timerButtonClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timerButtonClicked.mp3; sourceTree = "<group>"; };
 		C98078942BA870E400C04B2D /* timerCorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timerCorrect.mp3; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 			children = (
 				C95F8F342BBAE1DA00E89B50 /* QuizGameView.swift */,
 				C9963C522BBB07040037C662 /* QuizBlockView.swift */,
+				C97987452BC3D91600BB3698 /* QuizState.swift */,
 			);
 			path = QuizGame;
 			sourceTree = "<group>";
@@ -740,6 +743,7 @@
 				C95F8F2C2BBAC99D00E89B50 /* QuizData.json in Sources */,
 				C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */,
 				0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */,
+				C97987462BC3D91600BB3698 /* QuizState.swift in Sources */,
 				0CA193562BB5ABEB007C04B1 /* RequestPermissionView.swift in Sources */,
 				0CB902212BB6E6A300F76311 /* GamePauseView.swift in Sources */,
 				0C519D972BBADD6500DAA206 /* CardGameView.swift in Sources */,

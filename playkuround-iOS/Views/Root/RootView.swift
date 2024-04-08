@@ -43,6 +43,9 @@ struct RootView: View {
                     Button("MOON을 점령해") {
                         viewModel.transition(to: .moonGame)
                     }
+                    Button("건쏠지식") {
+                        viewModel.transition(to: .quizGame)
+                    }
                 }
                 .onAppear {
                     mapViewModel.startUpdatingLocation()
@@ -59,7 +62,8 @@ struct RootView: View {
                 TimerGameView(viewModel: TimerGameViewModel(.time, rootViewModel: viewModel, mapViewModel: mapViewModel, timeStart: 0.0, timeEnd: .infinity, timeInterval: 0.01))
             case .moonGame:
                 MoonGameView(viewModel: MoonGameViewModel(.moon, rootViewModel: viewModel, mapViewModel: mapViewModel, timeStart: 0.0, timeEnd: .infinity, timeInterval: 0.01), rootViewModel: viewModel)
-                
+            case .quizGame:
+                QuizGameView()
             }
             
             // network error
