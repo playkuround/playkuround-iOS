@@ -27,16 +27,17 @@ final class QuizGameViewModel: GameViewModel {
     func blockClick() {
         if let isCorrectAnswer = isCorrectAnswer {
             // 정답일 때
-            if isCorrectAnswer {
-                score = 20
-                finishGame()
-            }
-            // 오답일 때
-            else {
-                if timerState == .ready {
+            if timerState == .ready {
+                if isCorrectAnswer {
+                    score = 20
+                    finishGame()
+                }
+                // 오답일 때
+                else {
                     timerState = .running
                     isTimerUpdating = true
                     checkTimerFinished()
+                    
                 }
             }
         }
@@ -45,7 +46,7 @@ final class QuizGameViewModel: GameViewModel {
     func checkTimerFinished() {
         if timeRemaining <= 0.0 {
             timerState = .ready
-            timeRemaining = 5.0
+            timeRemaining = 15.0
             isTimerUpdating = true
         }
     }

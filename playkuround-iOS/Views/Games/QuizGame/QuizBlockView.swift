@@ -40,23 +40,19 @@ struct BlockView: View {
                 if isCorrect {
                     quizState = .correct
                     isCorrectAnswer = true
-                    print("isCorrect: \(isCorrect)")
-                    print("quizState: \(quizState)")
                 }
                 else {
                     quizState = .incorrect
                     isCorrectAnswer = false
                 }
                 viewModel.blockClick()
-                print("isCorrectAnswer: \(isCorrectAnswer)")
             }
-        
-            .onChange(of: isCorrectAnswer) { _ in
+            .disabled(quizState != .normal)
+            .onChange(of: isCorrectAnswer) { newValue in
                 if index != selectedIndex {
                     quizState = .unable
                 }
             }
-            .disabled(quizState != .normal)
             .onReceive(viewModel.timer) { _ in
                 if viewModel.timerState == .ready {
                     if index != selectedIndex {

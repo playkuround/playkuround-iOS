@@ -65,11 +65,11 @@ struct QuizGameView: View {
                                         if !isCorrect && viewModel.timerState == .running {
                                             viewModel.updateTimer2()
                                             viewModel.updateMilliSecondString()
+                                            
                                             if viewModel.timeRemaining < 0 {
                                                 viewModel.checkTimerFinished()
                                                 selectedIndex = nil
                                                 viewModel.isCorrectAnswer = nil
-                                                print("\(viewModel.timerState)")
                                             }
                                         }
                                     }
@@ -83,7 +83,7 @@ struct QuizGameView: View {
                         }
                     }
                 }
-                .padding(.top, shouldImagePadding ? 140 : 100)
+                .padding(.top, shouldImagePadding ? 140 : 90)
                 .customNavigationBar(centerView: {
                     Text(StringLiterals.Game.Quiz.title)
                         .font(.neo22)
@@ -97,13 +97,17 @@ struct QuizGameView: View {
                     })
                 }, height: 40)
                 
+                if let isCorrectAnswer = viewModel.isCorrectAnswer {
+                    if isCorrectAnswer {
+                        Color.black.opacity(0.3).ignoresSafeArea(.all)
+                    }
+                }
                 if viewModel.isPauseViewPresented {
                     GamePauseView(viewModel: viewModel)
                 }
                 else if viewModel.isResultViewPresented {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
                 }
-                //TODO: 정답 시 백그라운드 불투명도 적용
             }
             .onAppear {
                 viewModel.createRandomNumber(data: viewModel.quizData)

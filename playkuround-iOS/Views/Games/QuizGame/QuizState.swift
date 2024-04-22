@@ -44,3 +44,8 @@ enum NumberImage: String {
     case lightGray
     case white
 }
+
+enum QuizTimerState {
+    case ready
+    case running
+}
