@@ -38,20 +38,14 @@ final class QuizGameViewModel: GameViewModel {
                     isTimerUpdating = true
                     checkTimerFinished()
                 }
-                else if timerState == .running {
-                    checkTimerFinished()
-                }
-                else {
-                    timerState = .ready
-                }
             }
         }
     }
     
     func checkTimerFinished() {
         if timeRemaining <= 0.0 {
-            timerState = .finished
-            timeRemaining = 15.0
+            timerState = .ready
+            timeRemaining = 5.0
             isTimerUpdating = true
         }
     }

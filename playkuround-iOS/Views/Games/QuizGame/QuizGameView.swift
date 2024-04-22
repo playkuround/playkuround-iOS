@@ -32,6 +32,7 @@ struct QuizGameView: View {
                         .foregroundStyle(.kuText)
                         .multilineTextAlignment(.center)
                         .padding(.bottom, 20)
+                        .padding(.horizontal, 20)
                     
                     ForEach(quiz.options.indices, id: \.self) { index in
                         BlockView(option: quiz.options[index],
@@ -64,6 +65,12 @@ struct QuizGameView: View {
                                         if !isCorrect && viewModel.timerState == .running {
                                             viewModel.updateTimer2()
                                             viewModel.updateMilliSecondString()
+                                            if viewModel.timeRemaining < 0 {
+                                                viewModel.checkTimerFinished()
+                                                selectedIndex = nil
+                                                viewModel.isCorrectAnswer = nil
+                                                print("\(viewModel.timerState)")
+                                            }
                                         }
                                     }
                                 }

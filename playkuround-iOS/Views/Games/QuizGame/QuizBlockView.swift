@@ -37,26 +37,32 @@ struct BlockView: View {
             .padding(.bottom, 2)
             .onTapGesture {
                 selectedIndex = index
-                
                 if isCorrect {
                     quizState = .correct
                     isCorrectAnswer = true
+                    print("isCorrect: \(isCorrect)")
+                    print("quizState: \(quizState)")
                 }
                 else {
                     quizState = .incorrect
                     isCorrectAnswer = false
                 }
-                
                 viewModel.blockClick()
+                print("isCorrectAnswer: \(isCorrectAnswer)")
             }
-            .onChange(of: isCorrectAnswer) { newValue in
+        
+            .onChange(of: isCorrectAnswer) { _ in
                 if index != selectedIndex {
                     quizState = .unable
                 }
             }
             .disabled(quizState != .normal)
-            .onAppear {
-                
+            .onReceive(viewModel.timer) { _ in
+                if viewModel.timerState == .ready {
+                    if index != selectedIndex {
+                        quizState = .normal
+                    }
+                }
             }
     }
 }
