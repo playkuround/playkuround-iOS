@@ -8,13 +8,13 @@
 import Foundation
 
 final class QuizGameViewModel: GameViewModel {
-    @Published var quizState: QuizState = .normal
+    @Published var quizData: [Quiz] = load("QuizData.json")
     @Published var randomNumber: Int?
-    @Published var selectedBlockIndex: Int?
     @Published var isCorrectAnswer: Bool?
     
     @Published var milliSecond: String = "00"
     @Published var timerState: TimerState = .ready
+    
     
     func createRandomNumber(data: [Quiz]) {
         randomNumber = Int.random(in: 0..<data.count)

@@ -10,7 +10,6 @@ import SwiftUI
 struct QuizGameView: View {
     @ObservedObject var viewModel: QuizGameViewModel
     @ObservedObject var rootViewModel: RootViewModel
-    private let quizData: [Quiz] = load("QuizData.json")
     
     var body: some View {
         GeometryReader{ geometry in
@@ -19,12 +18,28 @@ struct QuizGameView: View {
                     .resizable()
                     .ignoresSafeArea(.all)
                 
+                // iPhone SE 기기대응을 위한 변수
                 let shouldImagePadding = geometry.size.height >= 700
                 
                 VStack {
-                    QuizBlockView(quiz: quizData[viewModel.randomNumber ?? 0],
-                                  selectedBlockIndex: $viewModel.selectedBlockIndex,
-                                  isCorrectAnswer: $viewModel.isCorrectAnswer)
+                    VStack {
+                        let quiz = viewModel.quizData[viewModel.randomNumber ?? 0]
+                        
+                        Text(quiz.question)
+                            .font(.neo20)
+                            .kerning(-0.41)
+                            .lineSpacing(6)
+                            .foregroundStyle(.kuText)
+                            .multilineTextAlignment(.center)
+                            .padding(.bottom, 20)
+                        
+                        ForEach(quiz.options.indices, id: \.self) { index in
+                            BlockView(option: quiz.options[index],
+                                      index: index,
+                                      isCorrectAnswer: $viewModel.isCorrectAnswer)
+                        }
+                    }
+                    .padding(.horizontal, 20)
                     
                     if let isCorrectAnswer = viewModel.isCorrectAnswer {
                         //오답일 때
@@ -53,6 +68,7 @@ struct QuizGameView: View {
                     }
                 }
                 .padding(.top, shouldImagePadding ? 140 : 100)
+                // navigationBar 
                 .customNavigationBar(centerView: {
                     Text(StringLiterals.Game.Quiz.title)
                         .font(.neo22)
@@ -72,15 +88,11 @@ struct QuizGameView: View {
                 else if viewModel.isResultViewPresented {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
                 }
-                if let isCorrectAnswer = viewModel.isCorrectAnswer {
-                    if isCorrectAnswer {
-                        Color.black.opacity(0.4)
-                            .ignoresSafeArea()
-                    }
-                }
+                //TODO: 정답 시 백그라운드 불투명도 적용
             }
             .onAppear {
-                viewModel.createRandomNumber(data: quizData)
+                // view appear시 json파일에서 랜덤한 문제 생성
+                viewModel.createRandomNumber(data: viewModel.quizData)
             }
         }
     }
