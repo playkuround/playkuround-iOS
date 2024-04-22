@@ -11,10 +11,10 @@ final class QuizGameViewModel: GameViewModel {
     @Published var quizData: [Quiz] = load("QuizData.json")
     @Published var randomNumber: Int?
     @Published var isCorrectAnswer: Bool?
+    @Published var selectedIndex: Int?
     
     @Published var milliSecond: String = "00"
-    @Published var timerState: TimerState = .ready
-    
+    @Published var timerState: QuizTimerState = .ready
     
     func createRandomNumber(data: [Quiz]) {
         randomNumber = Int.random(in: 0..<data.count)
@@ -26,7 +26,6 @@ final class QuizGameViewModel: GameViewModel {
     
     func blockClick() {
         if let isCorrectAnswer = isCorrectAnswer {
-            print("isCorrectAnswer \(isCorrectAnswer)")
             // 정답일 때
             if isCorrectAnswer {
                 score = 20
@@ -37,11 +36,23 @@ final class QuizGameViewModel: GameViewModel {
                 if timerState == .ready {
                     timerState = .running
                     isTimerUpdating = true
+                    checkTimerFinished()
                 }
                 else if timerState == .running {
-                    
+                    checkTimerFinished()
+                }
+                else {
+                    timerState = .ready
                 }
             }
+        }
+    }
+    
+    func checkTimerFinished() {
+        if timeRemaining <= 0.0 {
+            timerState = .finished
+            timeRemaining = 15.0
+            isTimerUpdating = true
         }
     }
     

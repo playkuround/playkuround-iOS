@@ -10,9 +10,12 @@ import SwiftUI
 struct BlockView: View {
     var option: String
     var index: Int
+    var isCorrect: Bool
     
+    @ObservedObject var viewModel: QuizGameViewModel
     @State private var quizState: QuizState = .normal
     @Binding var isCorrectAnswer: Bool?
+    @Binding var selectedIndex: Int?
     
     var body: some View {
         Image(quizState.image.rawValue)
@@ -33,14 +36,27 @@ struct BlockView: View {
             }
             .padding(.bottom, 2)
             .onTapGesture {
-                if let isCorrectAnswer = isCorrectAnswer {
-                    if isCorrectAnswer {
-                        quizState = .correct
-                    }
-                    else {
-                        quizState = .incorrect
-                    }
+                selectedIndex = index
+                
+                if isCorrect {
+                    quizState = .correct
+                    isCorrectAnswer = true
                 }
+                else {
+                    quizState = .incorrect
+                    isCorrectAnswer = false
+                }
+                
+                viewModel.blockClick()
+            }
+            .onChange(of: isCorrectAnswer) { newValue in
+                if index != selectedIndex {
+                    quizState = .unable
+                }
+            }
+            .disabled(quizState != .normal)
+            .onAppear {
+                
             }
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct QuizGameView: View {
     @ObservedObject var viewModel: QuizGameViewModel
     @ObservedObject var rootViewModel: RootViewModel
+    @State private var selectedIndex: Int?
     
     var body: some View {
         GeometryReader{ geometry in
@@ -22,42 +23,28 @@ struct QuizGameView: View {
                 let shouldImagePadding = geometry.size.height >= 700
                 
                 VStack {
-                    VStack {
-                        let quiz = viewModel.quizData[viewModel.randomNumber ?? 0]
-                        
-                        Text(quiz.question)
-                            .font(.neo20)
-                            .kerning(-0.41)
-                            .lineSpacing(6)
-                            .foregroundStyle(.kuText)
-                            .multilineTextAlignment(.center)
-                            .padding(.bottom, 20)
-                        
-                        ForEach(quiz.options.indices, id: \.self) { index in
-                            BlockView(option: quiz.options[index],
-                                      index: index,
-                                      isCorrectAnswer: $viewModel.isCorrectAnswer)
-                        }
+                    let quiz = viewModel.quizData[viewModel.randomNumber ?? 0]
+                    
+                    Text(quiz.question)
+                        .font(.neo20)
+                        .kerning(-0.41)
+                        .lineSpacing(6)
+                        .foregroundStyle(.kuText)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom, 20)
+                    
+                    ForEach(quiz.options.indices, id: \.self) { index in
+                        BlockView(option: quiz.options[index],
+                                  index: index,
+                                  isCorrect: index == quiz.answer,
+                                  viewModel: viewModel,
+                                  isCorrectAnswer: $viewModel.isCorrectAnswer,
+                                  selectedIndex: $selectedIndex)
                     }
-                    .padding(.horizontal, 20)
                     
                     if let isCorrectAnswer = viewModel.isCorrectAnswer {
-                        //오답일 때
-                        if !isCorrectAnswer {
-                            Text("00.15")
-                                .font(shouldImagePadding ? .neo45 : .neo38)
-                                .kerning(-0.41)
-                                .foregroundStyle(.kuText)
-                                .padding(.vertical, shouldImagePadding ? 20 : 0)
-                            
-                            Text(StringLiterals.Game.Quiz.incorrect)
-                                .font(.pretendard15R)
-                                .foregroundStyle(.kuRed)
-                                .multilineTextAlignment(.center)
-                                .padding(.bottom, shouldImagePadding ? 0 : 25)
-                        }
-                        else {
-                            //정답일 때
+                        //정답일 때
+                        if isCorrectAnswer {
                             Text(StringLiterals.Game.Quiz.correct)
                                 .font(.pretendard15R)
                                 .foregroundStyle(.kuGreen)
@@ -65,10 +52,31 @@ struct QuizGameView: View {
                                 .padding(.top, 20)
                                 .padding(.bottom, shouldImagePadding ? 0 : 25)
                         }
+                        else {
+                            //오답일 때
+                            Text("\(viewModel.second).\(viewModel.milliSecond)")
+                                .font(shouldImagePadding ? .neo45 : .neo38)
+                                .kerning(-0.41)
+                                .foregroundStyle(.kuText)
+                                .padding(.vertical, shouldImagePadding ? 20 : 0)
+                                .onReceive(viewModel.timer) { _ in
+                                    if let isCorrect = viewModel.isCorrectAnswer {
+                                        if !isCorrect && viewModel.timerState == .running {
+                                            viewModel.updateTimer2()
+                                            viewModel.updateMilliSecondString()
+                                        }
+                                    }
+                                }
+                            
+                            Text(StringLiterals.Game.Quiz.incorrect)
+                                .font(.pretendard15R)
+                                .foregroundStyle(.kuRed)
+                                .multilineTextAlignment(.center)
+                                .padding(.bottom, shouldImagePadding ? 0 : 25)
+                        }
                     }
                 }
                 .padding(.top, shouldImagePadding ? 140 : 100)
-                // navigationBar 
                 .customNavigationBar(centerView: {
                     Text(StringLiterals.Game.Quiz.title)
                         .font(.neo22)
@@ -91,7 +99,6 @@ struct QuizGameView: View {
                 //TODO: 정답 시 백그라운드 불투명도 적용
             }
             .onAppear {
-                // view appear시 json파일에서 랜덤한 문제 생성
                 viewModel.createRandomNumber(data: viewModel.quizData)
             }
         }
