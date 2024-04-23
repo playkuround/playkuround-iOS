@@ -8,7 +8,6 @@
 import Foundation
 
 final class QuizGameViewModel: GameViewModel {
-    @Published var quizData: [Quiz] = load("QuizData.json")
     @Published var randomNumber: Int?
     @Published var isCorrectAnswer: Bool?
     @Published var selectedIndex: Int?

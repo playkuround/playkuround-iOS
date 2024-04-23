@@ -10,6 +10,7 @@ import SwiftUI
 struct QuizGameView: View {
     @ObservedObject var viewModel: QuizGameViewModel
     @ObservedObject var rootViewModel: RootViewModel
+    let quizData: [Quiz] = load("QuizData.json")
     @State private var selectedIndex: Int?
     
     var body: some View {
@@ -23,7 +24,7 @@ struct QuizGameView: View {
                 let shouldImagePadding = geometry.size.height >= 700
                 
                 VStack {
-                    let quiz = viewModel.quizData[viewModel.randomNumber ?? 0]
+                    let quiz = quizData[viewModel.randomNumber ?? 0]
                     
                     Text(quiz.question)
                         .font(.neo20)
@@ -110,7 +111,7 @@ struct QuizGameView: View {
                 }
             }
             .onAppear {
-                viewModel.createRandomNumber(data: viewModel.quizData)
+                viewModel.createRandomNumber(data: quizData)
             }
         }
     }
