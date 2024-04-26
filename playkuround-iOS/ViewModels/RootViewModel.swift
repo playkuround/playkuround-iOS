@@ -80,4 +80,5 @@ enum ViewType {
     case timeGame
     case moonGame
     case quizGame
+    case cupidGame
 }
