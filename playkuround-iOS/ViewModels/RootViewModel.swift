@@ -79,4 +79,5 @@ enum ViewType {
     case cardGame
     case timeGame
     case moonGame
+    case cupidGame
 }

@@ -90,7 +90,3 @@ struct CupidGameView: View {
         }
     }
 }
-
-#Preview {
-    CupidGameView(viewModel: CupidGameViewModel(.cupid, rootViewModel: RootViewModel(), mapViewModel: MapViewModel(), timeStart: 30.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: RootViewModel())
-}
