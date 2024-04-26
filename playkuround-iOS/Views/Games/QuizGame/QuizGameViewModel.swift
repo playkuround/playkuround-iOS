@@ -16,7 +16,7 @@ final class QuizGameViewModel: GameViewModel {
     @Published var timerState: QuizTimerState = .ready
     
     func createRandomNumber(data: [Quiz]) {
-        randomNumber = Int.random(in: 0..<data.count)
+        randomNumber = Int.random(in: 0..<data.count) + 1
     }
     
     final func updateMilliSecondString() {
