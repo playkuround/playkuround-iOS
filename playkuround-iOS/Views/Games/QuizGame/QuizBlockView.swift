@@ -1,5 +1,5 @@
 //
-//  QuizBlockView.swift
+//  BlockView.swift
 //  playkuround-iOS
 //
 //  Created by Seoyeon Choi on 4/2/24.
@@ -7,41 +7,26 @@
 
 import SwiftUI
 
-struct QuizBlockView: View {
-    let quiz: Quiz
+struct BlockView: View {
+    var option: String
+    var index: Int
+    var isCorrect: Bool
+    
+    @ObservedObject var viewModel: QuizGameViewModel
+    @State private var quizState: QuizState = .normal
+    @Binding var isCorrectAnswer: Bool?
+    @Binding var selectedIndex: Int?
     
     var body: some View {
-        VStack {
-            Text(quiz.question)
-                .font(.neo20)
-                .kerning(-0.41)
-                .lineSpacing(6)
-                .foregroundStyle(.kuText)
-                .multilineTextAlignment(.center)
-                .padding(.bottom, 20)
-            
-            ForEach(quiz.options.indices, id: \.self) { index in
-                quizBlock(blockState: .unable,
-                          option: quiz.options[index],
-                          index: index)
-            }
-        }
-        .padding(.horizontal, 20)
-    }
-    
-    @ViewBuilder
-    private func quizBlock(blockState: BlockState,
-                           option: String,
-                           index: Int) -> some View {
-        Image(blockState.image.rawValue)
+        Image(quizState.image.rawValue)
             .overlay {
                 HStack {
-                    Image("\(blockState.numberImage.rawValue)\(index + 1)")
+                    Image("\(quizState.numberImage.rawValue)\(index + 1)")
                         .padding(.horizontal, 15)
                     
                     Text(option)
                         .font(.pretendard15R)
-                        .foregroundStyle(blockState == .unable ? .kuGray2 : .kuText)
+                        .foregroundStyle(quizState == .unable ? .kuGray2 : .kuText)
                         .lineLimit(2)
                         .multilineTextAlignment(.leading)
                         .padding(.trailing, 16)
@@ -50,6 +35,31 @@ struct QuizBlockView: View {
                 }
             }
             .padding(.bottom, 2)
+            .onTapGesture {
+                selectedIndex = index
+                if isCorrect {
+                    quizState = .correct
+                    isCorrectAnswer = true
+                }
+                else {
+                    quizState = .incorrect
+                    isCorrectAnswer = false
+                }
+                viewModel.blockClick()
+            }
+            .disabled(quizState != .normal)
+            .onChange(of: isCorrectAnswer) { newValue in
+                if index != selectedIndex {
+                    quizState = .unable
+                }
+            }
+            .onReceive(viewModel.timer) { _ in
+                if viewModel.timerState == .ready {
+                    if index != selectedIndex {
+                        quizState = .normal
+                    }
+                }
+            }
     }
 }
 
