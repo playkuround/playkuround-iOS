@@ -151,11 +151,12 @@ enum StringLiterals {
             static let title = "덕큐피트"
         }
         
-        enum AllClear {
+        enum AllClick {
             static let title = "수강신청 ALL 클릭"
             static let classRegistration = "수강신청"
             static let register = "신청"
             static let writeSubject = "과목명 입력"
+            static let score = "SCORE"
         }
     }
 }

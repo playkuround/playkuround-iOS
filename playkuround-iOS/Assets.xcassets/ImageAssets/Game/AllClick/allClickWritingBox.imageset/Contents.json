@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "allClearDuckku.png",
+      "filename" : "allClickWritingBox.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "allClearDuckku@2x.png",
+      "filename" : "allClickWritingBox@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "allClearDuckku@3x.png",
+      "filename" : "allClickWritingBox@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

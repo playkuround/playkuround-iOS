@@ -42,9 +42,11 @@
 		0CC01F262BBBD540007BB320 /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC01F252BBBD540007BB320 /* CardGameViewModel.swift */; };
 		0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD06A282BAB459500845B24 /* RegisterTermsView.swift */; };
 		0CEB87C72BB7E2B000CC2E4B /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */; };
-		B98F6B992BDAB96C00BF5B7A /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = B98F6B982BDAB96C00BF5B7A /* QuizData.json */; };
 		B9018CFB2BDB60E000BC819C /* CupidGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9018CFA2BDB60E000BC819C /* CupidGameView.swift */; };
 		B9018CFD2BDB611F00BC819C /* CupidGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9018CFC2BDB611F00BC819C /* CupidGameViewModel.swift */; };
+		B9105A012BDBFF8700D6455F /* AllClickGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9105A002BDBFF8700D6455F /* AllClickGameViewModel.swift */; };
+		B9105A032BDBFF9700D6455F /* AllClickGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9105A022BDBFF9700D6455F /* AllClickGameView.swift */; };
+		B98F6B992BDAB96C00BF5B7A /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = B98F6B982BDAB96C00BF5B7A /* QuizData.json */; };
 		C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */; };
 		C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4042BA7149A00C0BFDA /* SoundManager.swift */; };
 		C918F4072BA7177800C0BFDA /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4062BA7177800C0BFDA /* HapticManager.swift */; };
@@ -141,6 +143,8 @@
 		0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
 		B9018CFA2BDB60E000BC819C /* CupidGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupidGameView.swift; sourceTree = "<group>"; };
 		B9018CFC2BDB611F00BC819C /* CupidGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupidGameViewModel.swift; sourceTree = "<group>"; };
+		B9105A002BDBFF8700D6455F /* AllClickGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickGameViewModel.swift; sourceTree = "<group>"; };
+		B9105A022BDBFF9700D6455F /* AllClickGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickGameView.swift; sourceTree = "<group>"; };
 		B98F6B982BDAB96C00BF5B7A /* QuizData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = QuizData.json; sourceTree = "<group>"; };
 		C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCustomView.swift; sourceTree = "<group>"; };
 		C918F4042BA7149A00C0BFDA /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
@@ -310,6 +314,7 @@
 		0CB9021F2BB6E69800F76311 /* Games */ = {
 			isa = PBXGroup;
 			children = (
+				B91059FB2BDBFEA900D6455F /* AllClickGame */,
 				B9018CF92BDB60D400BC819C /* CupidGame */,
 				0C519D9A2BBAECA300DAA206 /* Common */,
 				0C519D952BBADD5B00DAA206 /* CardGame */,
@@ -347,6 +352,15 @@
 				B9018CFC2BDB611F00BC819C /* CupidGameViewModel.swift */,
 			);
 			path = CupidGame;
+			sourceTree = "<group>";
+		};
+		B91059FB2BDBFEA900D6455F /* AllClickGame */ = {
+			isa = PBXGroup;
+			children = (
+				B9105A002BDBFF8700D6455F /* AllClickGameViewModel.swift */,
+				B9105A022BDBFF9700D6455F /* AllClickGameView.swift */,
+			);
+			path = AllClickGame;
 			sourceTree = "<group>";
 		};
 		C918F4032BA7148800C0BFDA /* Managers */ = {
@@ -708,6 +722,8 @@
 				C97543F42BB3244800CD6479 /* MyPageListSectionView.swift in Sources */,
 				C97987482BC3D9C200BB3698 /* QuizGameViewModel.swift in Sources */,
 				C918F4072BA7177800C0BFDA /* HapticManager.swift in Sources */,
+				B9105A032BDBFF9700D6455F /* AllClickGameView.swift in Sources */,
+				B9105A012BDBFF8700D6455F /* AllClickGameViewModel.swift in Sources */,
 				C95F8F352BBAE1DA00E89B50 /* QuizGameView.swift in Sources */,
 				C9FE257B2BB3DFAA00F78C63 /* CheckLogoutView.swift in Sources */,
 				0CEB87C72BB7E2B000CC2E4B /* CountdownView.swift in Sources */,

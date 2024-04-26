@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "allClearWritingBox.png",
+      "filename" : "allClickBackground.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "allClearWritingBox@2x.png",
+      "filename" : "allClickBackground@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "allClearWritingBox@3x.png",
+      "filename" : "allClickBackground@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
