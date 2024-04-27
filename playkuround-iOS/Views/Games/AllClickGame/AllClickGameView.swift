@@ -82,8 +82,22 @@ struct AllClickGameView: View {
                         .padding(.bottom, 270)
                         .padding(.top, -15)
                 }
+                .customNavigationBar(centerView: {
+                    Text(StringLiterals.Game.AllClick.title)
+                        .font(.neo22)
+                        .kerning(-0.41)
+                        .foregroundStyle(.kuText)
+                }, rightView: {
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(.brownPauseButton)
+                    })
+                }, height: 67)
+                .padding(.top, -10)
             }
         }
+        .ignoresSafeArea(.keyboard)
     }
 }
 
