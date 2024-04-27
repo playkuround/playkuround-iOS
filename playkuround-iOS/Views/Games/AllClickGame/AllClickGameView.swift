@@ -21,6 +21,8 @@ struct AllClickGameView: View {
                     .resizable()
                     .ignoresSafeArea(.all)
                 
+                let shouldFontResize = geometry.size.width <= 375
+                
                 VStack {
                     HStack {
                         Text(StringLiterals.Game.AllClick.score)
@@ -49,14 +51,13 @@ struct AllClickGameView: View {
                     Rectangle()
                         .foregroundStyle(.white)
                         .frame(height: 50)
-                        .overlay {
+                        .overlay(alignment: .center) {
                             HStack {
-                                Text(StringLiterals.Game.AllClick.register)
-                                    .font(.neo20)
+                                Text(StringLiterals.Game.AllClick.classRegistration)
+                                    .font(shouldFontResize ? .neo17 : .neo20)
                                     .kerning(-0.41)
                                     .foregroundStyle(.allClickGreen)
-                                
-                                Spacer()
+                                    .padding(.trailing, 5)
                                 
                                 Image(.allClickWritingBox)
                                     .overlay(alignment: .leading) {
@@ -67,9 +68,8 @@ struct AllClickGameView: View {
                                             .padding(.leading, 10)
                                             .focused($focusField)
                                     }
-                                
-                                Spacer()
-                                
+                                    .padding(.trailing, 5)
+                                 
                                 Image(.allClickRegister)
                                     .overlay {
                                         Text(StringLiterals.Game.AllClick.register)
@@ -78,23 +78,9 @@ struct AllClickGameView: View {
                                             .foregroundStyle(.white)
                                     }
                             }
-                            .padding(.horizontal, 10)
                         }
                         .padding(.bottom, 270)
                         .padding(.top, -15)
-                        .customNavigationBar(centerView: {
-                            Text(StringLiterals.Game.AllClick.title)
-                                .font(.neo22)
-                                .kerning(-0.41)
-                                .foregroundStyle(.kuText)
-                        }, rightView: {
-                            Button(action: {
-                                
-                            }, label: {
-                                Image(.brownPauseButton)
-                            })
-                        }, height: 67)
-                        .padding(.top, -10)
                 }
             }
         }
