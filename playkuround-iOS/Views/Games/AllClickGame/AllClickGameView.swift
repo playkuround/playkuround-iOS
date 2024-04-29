@@ -65,11 +65,11 @@ struct AllClickGameView: View {
                                             .font(.neo18)
                                             .kerning(-0.41)
                                             .foregroundStyle(.kuText)
-                                            .padding(.leading, 10)
+                                            .padding(.horizontal, 10)
                                             .focused($focusField)
                                     }
                                     .padding(.trailing, 5)
-                                 
+                                
                                 Image(.allClickRegister)
                                     .overlay {
                                         Text(StringLiterals.Game.AllClick.register)
@@ -98,6 +98,11 @@ struct AllClickGameView: View {
             }
         }
         .ignoresSafeArea(.keyboard)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.focusField = true
+            }
+        }
     }
 }
 
