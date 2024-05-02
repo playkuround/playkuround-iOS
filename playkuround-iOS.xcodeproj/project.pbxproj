@@ -48,6 +48,7 @@
 		B9105A032BDBFF9700D6455F /* AllClickGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9105A022BDBFF9700D6455F /* AllClickGameView.swift */; };
 		B98503C22BDCEC2900C3CC8F /* AllClickTextRainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98503C12BDCEC2900C3CC8F /* AllClickTextRainView.swift */; };
 		B98F6B992BDAB96C00BF5B7A /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = B98F6B982BDAB96C00BF5B7A /* QuizData.json */; };
+		B9B138052BE39D580094B2FC /* AllClickCustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B138042BE39D580094B2FC /* AllClickCustomTextView.swift */; };
 		C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */; };
 		C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4042BA7149A00C0BFDA /* SoundManager.swift */; };
 		C918F4072BA7177800C0BFDA /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4062BA7177800C0BFDA /* HapticManager.swift */; };
@@ -148,6 +149,7 @@
 		B9105A022BDBFF9700D6455F /* AllClickGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickGameView.swift; sourceTree = "<group>"; };
 		B98503C12BDCEC2900C3CC8F /* AllClickTextRainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickTextRainView.swift; sourceTree = "<group>"; };
 		B98F6B982BDAB96C00BF5B7A /* QuizData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = QuizData.json; sourceTree = "<group>"; };
+		B9B138042BE39D580094B2FC /* AllClickCustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickCustomTextView.swift; sourceTree = "<group>"; };
 		C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCustomView.swift; sourceTree = "<group>"; };
 		C918F4042BA7149A00C0BFDA /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		C918F4062BA7177800C0BFDA /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				B9105A002BDBFF8700D6455F /* AllClickGameViewModel.swift */,
 				B9105A022BDBFF9700D6455F /* AllClickGameView.swift */,
 				B98503C12BDCEC2900C3CC8F /* AllClickTextRainView.swift */,
+				B9B138042BE39D580094B2FC /* AllClickCustomTextView.swift */,
 			);
 			path = AllClickGame;
 			sourceTree = "<group>";
@@ -764,6 +767,7 @@
 				0C6AA4CB2BA56B510032AB24 /* Major.swift in Sources */,
 				0C691EB32BBDA028004021F1 /* TimerState.swift in Sources */,
 				0C519D9C2BBAFD9D00DAA206 /* Card.swift in Sources */,
+				B9B138052BE39D580094B2FC /* AllClickCustomTextView.swift in Sources */,
 				0C691EB12BBD9FF2004021F1 /* TimerGameViewModel.swift in Sources */,
 				0C31576C2BB7CCC000F270F7 /* Landmark.swift in Sources */,
 				0CB465AE2BB3D1C700317455 /* RootViewModel.swift in Sources */,

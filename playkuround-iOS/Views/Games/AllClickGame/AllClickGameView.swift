@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import Combine
 
 struct AllClickGameView: View {
     @ObservedObject var viewModel: AllClickGameViewModel
     @ObservedObject var rootViewModel: RootViewModel
     
     @State private var userText: String = ""
-    @FocusState private var focusField: Bool
+    @State private var userHeight: CGFloat = 0
     
     var body: some View {
         GeometryReader { geometry in
@@ -31,6 +32,7 @@ struct AllClickGameView: View {
                             .kerning(-0.41)
                             .padding(.trailing, 5)
                         
+                        //TODO: - Score 연결
                         Text("123")
                             .font(.neo22)
                             .foregroundStyle(.kuText)
@@ -38,6 +40,7 @@ struct AllClickGameView: View {
                         
                         Spacer()
                         
+                        //TODO: - Heart 개수 연결
                         HStack(spacing: 2){
                             Image(.allClickHeart)
                             Image(.allClickHeart)
@@ -48,39 +51,38 @@ struct AllClickGameView: View {
                     
                     Spacer()
                     
-                    Rectangle()
-                        .foregroundStyle(.white)
-                        .frame(height: 50)
-                        .overlay(alignment: .center) {
-                            HStack {
-                                Text(StringLiterals.Game.AllClick.classRegistration)
-                                    .font(shouldFontResize ? .neo17 : .neo20)
-                                    .kerning(-0.41)
-                                    .foregroundStyle(.allClickGreen)
-                                    .padding(.trailing, 5)
-                                
-                                Image(.allClickWritingBox)
-                                    .overlay(alignment: .leading) {
-                                        TextField(StringLiterals.Game.AllClick.writeSubject, text: $userText)
-                                            .font(.neo18)
-                                            .kerning(-0.41)
-                                            .foregroundStyle(.kuText)
-                                            .padding(.horizontal, 10)
-                                            .focused($focusField)
-                                    }
-                                    .padding(.trailing, 5)
-                                
-                                Image(.allClickRegister)
-                                    .overlay {
-                                        Text(StringLiterals.Game.AllClick.register)
-                                            .font(.neo18)
-                                            .kerning(-0.41)
-                                            .foregroundStyle(.white)
-                                    }
+                    HStack {
+                        Spacer()
+                        
+                        Text(StringLiterals.Game.AllClick.classRegistration)
+                            .font(shouldFontResize ? .neo17 : .neo20)
+                            .kerning(-0.41)
+                            .foregroundStyle(.allClickGreen)
+                            
+                        Spacer()
+                        
+                        Image(.allClickWritingBox)
+                            .overlay(alignment: .leading) {
+                                AllClickCustomTextView(text: $userText, height: $userHeight)
+                                    .frame(height: 30, alignment: .center)
+                                    .frame(width: 200)
+                                    .padding(.leading, 8)
                             }
-                        }
-                        .padding(.bottom, 270)
-                        .padding(.top, -15)
+                            
+                        Spacer()
+                        
+                        Image(.allClickRegister)
+                            .overlay {
+                                Text(StringLiterals.Game.AllClick.register)
+                                    .font(.neo18)
+                                    .kerning(-0.41)
+                                    .foregroundStyle(.white)
+                            }
+                        
+                        Spacer()
+                    }
+                    .padding(.vertical, 6)
+                    .background(.white)
                 }
                 .customNavigationBar(centerView: {
                     Text(StringLiterals.Game.AllClick.title)
@@ -97,17 +99,9 @@ struct AllClickGameView: View {
                 .padding(.top, -10)
             }
         }
-        .ignoresSafeArea(.keyboard)
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                self.focusField = true
-            }
-        }
     }
 }
 
 #Preview {
     AllClickGameView(viewModel: AllClickGameViewModel(.allClear, rootViewModel: RootViewModel(), mapViewModel: MapViewModel(), timeStart: 30.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: RootViewModel())
 }
-
-
