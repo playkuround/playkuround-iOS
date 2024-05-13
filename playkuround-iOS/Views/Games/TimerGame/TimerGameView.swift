@@ -125,18 +125,13 @@ struct TimerGameView: View {
                         }
                 }
                 
-                if viewModel.isCountdownViewPresented {
-                    CountdownView(countdown: $viewModel.countdown)
-                } else if viewModel.isPauseViewPresented {
+                if viewModel.isPauseViewPresented {
                     GamePauseView(viewModel: viewModel)
                 } else if viewModel.isResultViewPresented {
                     GameResultView(rootViewModel: viewModel.rootViewModel,
                                    gameViewModel: viewModel)
                 }
             }
-        }
-        .onAppear {
-            viewModel.startCountdown()
         }
     }
 }
