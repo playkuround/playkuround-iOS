@@ -83,6 +83,7 @@ struct AllClickGameView: View {
                     }
                     .padding(.vertical, 6)
                     .background(.white)
+                    .offset(y: 8)
                 }
                 .customNavigationBar(centerView: {
                     Text(StringLiterals.Game.AllClick.title)
@@ -95,8 +96,7 @@ struct AllClickGameView: View {
                     }, label: {
                         Image(.brownPauseButton)
                     })
-                }, height: 67)
-                .padding(.top, -10)
+                }, height: 57)
             }
         }
     }
