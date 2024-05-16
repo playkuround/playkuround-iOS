@@ -18,9 +18,15 @@ struct AllClickGameView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                Image(.allClickBackground)
-                    .resizable()
-                    .ignoresSafeArea(.all)
+                ZStack {
+                    Image(.allClickBackground)
+                        .resizable()
+                        .ignoresSafeArea(edges: .all)
+                    
+                    Image(.allClickDuckku)
+                        .offset(y: -20)
+                }
+                .ignoresSafeArea(.keyboard)
                 
                 let shouldFontResize = geometry.size.width <= 375
                 
@@ -58,7 +64,7 @@ struct AllClickGameView: View {
                             .font(shouldFontResize ? .neo17 : .neo20)
                             .kerning(-0.41)
                             .foregroundStyle(.allClickGreen)
-                            
+                        
                         Spacer()
                         
                         Image(.allClickWritingBox)
@@ -68,7 +74,7 @@ struct AllClickGameView: View {
                                     .frame(width: 200)
                                     .padding(.leading, 8)
                             }
-                            
+                        
                         Spacer()
                         
                         Image(.allClickRegister)
