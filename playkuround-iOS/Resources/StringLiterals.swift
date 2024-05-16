@@ -117,6 +117,7 @@ enum StringLiterals {
         static let play = "계속하기"
         static let home = "홈"
         static let timerTitle = "TIME"
+        static let scoreTitle = "SCORE"
         
         enum Result {
             static let score = "점"
@@ -157,6 +158,10 @@ enum StringLiterals {
             static let register = "신청"
             static let writeSubject = "과목명 입력"
             static let score = "SCORE"
+        }
+        
+        enum Catch {
+            static let title = "덕쿠를 잡아라"
         }
     }
 }

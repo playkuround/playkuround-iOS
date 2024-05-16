@@ -847,3 +847,4 @@ struct NotificationResponse: Codable {
     let isSuccess: Bool
     let response: [String]
 }
+
