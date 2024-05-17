@@ -64,7 +64,7 @@ enum StringLiterals {
     enum Network {
         static let message = "네트워크 오류가 발생했습니다.\n잠시만 기다려주세요!"
     }
-
+    
     enum Permission {
         static let title = "위치 권한 허용하면\n플쿠 즐길 준비 완료!"
         static let description1 = "플레이쿠라운드는 GPS를 활용하여\n건국대학교를 탐험하는 게임이에요!"
@@ -73,7 +73,7 @@ enum StringLiterals {
         static let description3 = "설정에서 위치 권한 허용 후\n플레이쿠라운드를 마음껏 즐겨주세요!"
         static let openSetting = "설정으로 이동"
     }
-
+    
     enum MyPage {
         static let title = "마이페이지"
         static let currentScore = "현재 점수"
@@ -117,6 +117,7 @@ enum StringLiterals {
         static let play = "계속하기"
         static let home = "홈"
         static let timerTitle = "TIME"
+        static let scoreTitle = "SCORE"
         
         enum Result {
             static let score = "점"
@@ -149,6 +150,18 @@ enum StringLiterals {
         
         enum Cupid {
             static let title = "덕큐피트"
+        }
+        
+        enum AllClick {
+            static let title = "수강신청 ALL 클릭"
+            static let classRegistration = "수강신청"
+            static let register = "신청"
+            static let writeSubject = "과목명 입력"
+            static let score = "SCORE"
+        }
+        
+        enum Catch {
+            static let title = "덕쿠를 잡아라"
         }
     }
 }
