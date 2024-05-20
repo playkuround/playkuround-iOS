@@ -159,9 +159,5 @@ enum StringLiterals {
             static let writeSubject = "과목명 입력"
             static let score = "SCORE"
         }
-        
-        enum Catch {
-            static let title = "덕쿠를 잡아라"
-        }
     }
 }
