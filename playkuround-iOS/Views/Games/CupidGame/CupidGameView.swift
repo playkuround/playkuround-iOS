@@ -30,10 +30,10 @@ struct CupidGameView: View {
                 /// 덕쿠
                 HStack {
                     Image(.cupidDuckkuWhite)
-                        .offset(x: -geometry.size.width / 2 + 88)
+                        .offset(x: viewModel.whiteDuckPosition)
                     
                     Image(.cupidDuckkuBlack)
-                        .offset(x: geometry.size.width / 2 - 88)
+                        .offset(x: viewModel.blackDuckPosition)
                 }
                 .padding(.top, shouldImagePadding ? 50 : 25)
                 
@@ -42,30 +42,32 @@ struct CupidGameView: View {
                     .resizable()
                     .ignoresSafeArea(.all)
                 
-                /// 결과 뷰 및 정지버튼
+                /// 결과 뷰
                 VStack {
-                    /// BAD일 때
-                    //                    VStack {
-                    //                        Image(.cupidHeartBroken)
-                    //                        Image(.cupidBad)
-                    //                    }
-                    //                    .padding(.top, shouldImagePadding ? 150 : 130)
-                    
-                    /// PERFECT일 때
-                    //                    VStack {
-                    //                        Image(.cupidHeart)
-                    //                        Image(.cupidPerfect)
-                    //                    }
-                    //                    .padding(.top, shouldImagePadding ? 150 : 130)
-                    
-                    /// GOOD일 때
-                    Image(.cupidGood)
-                        .padding(.top, shouldImagePadding ? 190 : 160)
+                    if viewModel.result == .perfect {
+                        VStack {
+                            Image(.cupidHeart)
+                            Image(.cupidPerfect)
+                        }
+                        .padding(.top, shouldImagePadding ? 150 : 130)
+                    }
+                    else if viewModel.result == .good {
+                        Image(.cupidGood)
+                            .padding(.top, shouldImagePadding ? 190 : 160)
+                    }
+                    else if viewModel.result == .bad {
+                        VStack {
+                            Image(.cupidHeartBroken)
+                            Image(.cupidBad)
+                        }
+                        .padding(.top, shouldImagePadding ? 150 : 130)
+                    }
                     
                     Spacer()
                     
+                    /// 정지버튼
                     Button(action: {
-                        //TODO: viewModel에 정의된 함수 넣기
+                        viewModel.stopButtonTapped()
                     }, label: {
                         Image(.cupidStop)
                             .padding(.bottom, 60)
@@ -97,6 +99,10 @@ struct CupidGameView: View {
             }
             .onAppear {
                 viewModel.startCountdown()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                    viewModel.startDuckAnimation()
+                }
             }
         }
     }
