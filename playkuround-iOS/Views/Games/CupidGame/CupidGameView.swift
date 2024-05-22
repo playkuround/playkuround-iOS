@@ -99,10 +99,6 @@ struct CupidGameView: View {
             }
             .onAppear {
                 viewModel.startCountdown()
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                    viewModel.startDuckAnimation()
-                }
             }
         }
     }
