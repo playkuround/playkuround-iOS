@@ -26,7 +26,17 @@ struct CupidGameView: View {
                     .onReceive(viewModel.timer) { _ in
                         viewModel.updateTimer()
                     }
-                
+                HStack {
+                    Text("SCORE \(viewModel.score)")
+                        .font(.neo22)
+                        .kerning(-0.41)
+                        .foregroundStyle(.kuText)
+                        .padding(.bottom, shouldImagePadding ? 470 : 380)
+                    
+                    Spacer()
+                }
+                .padding(.leading, 20)
+
                 /// 덕쿠
                 HStack {
                     Image(.cupidDuckkuWhite)
