@@ -1,2 +1,3 @@
 # playkuround-iOS
-건국대학교 안의 작은 놀이터 플레이쿠라운드!!!!!!!!!!
+![변경](https://github.com/playkuround/playkuround-iOS/assets/102604192/077e7be3-da92-4e59-92e9-732d11f1ada6)
+
