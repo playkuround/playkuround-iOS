@@ -101,6 +101,9 @@ struct CupidGameView: View {
                         }
                 } else if viewModel.isResultViewPresented {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
+                        .onAppear {
+                            viewModel.stopDuckAnimation()
+                        }
                 }
             }
             .onAppear {
