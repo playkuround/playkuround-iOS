@@ -93,6 +93,12 @@ struct CupidGameView: View {
                     CountdownView(countdown: $viewModel.countdown)
                 } else if viewModel.isPauseViewPresented {
                     GamePauseView(viewModel: viewModel)
+                        .onAppear {
+                            viewModel.stopDuckAnimation()
+                        }
+                        .onDisappear {
+                            viewModel.startDuckAnimation()
+                        }
                 } else if viewModel.isResultViewPresented {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
                 }
