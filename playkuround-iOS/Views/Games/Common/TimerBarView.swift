@@ -25,6 +25,8 @@ struct TimerBarView: View {
                 .offset(y: 3)
                 .padding(.trailing, 13)
             
+            Spacer()
+            
             VStack(spacing: 0) {
                 Image(.timerBarIcon)
                     .resizable()
@@ -47,6 +49,7 @@ struct TimerBarView: View {
         }
         .frame(maxWidth: .infinity)
         .frame(height: 60)
+        .padding(.horizontal, 26)
     }
     
     private func offsetValue() -> Double {
