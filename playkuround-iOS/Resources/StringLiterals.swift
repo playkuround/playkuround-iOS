@@ -163,5 +163,9 @@ enum StringLiterals {
         enum Survive {
             static let title = "일감호에서 살아남기"
         }
+        
+        enum Catch {
+            static let title = "덕쿠를 잡아라!"
+        }
     }
 }
