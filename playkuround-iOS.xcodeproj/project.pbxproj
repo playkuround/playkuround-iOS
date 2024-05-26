@@ -39,7 +39,7 @@
 		0CA193592BB5B49A007C04B1 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CA193582BB5B49A007C04B1 /* Pretendard-Bold.otf */; };
 		0CA4C5662BB3281F00268B07 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA4C5652BB3281F00268B07 /* RootView.swift */; };
 		0CB465AE2BB3D1C700317455 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB465AD2BB3D1C700317455 /* RootViewModel.swift */; };
-		0CB50B1D2BFDB1330003FE3B /* SurviveGameEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB50B1C2BFDB1330003FE3B /* SurviveGameEntityView.swift */; };
+		0CB50B1D2BFDB1330003FE3B /* SurviveGameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB50B1C2BFDB1330003FE3B /* SurviveGameEntity.swift */; };
 		0CB902212BB6E6A300F76311 /* GamePauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB902202BB6E6A300F76311 /* GamePauseView.swift */; };
 		0CB902242BB6E77200F76311 /* TimerGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB902232BB6E77200F76311 /* TimerGameView.swift */; };
 		0CB974402BFE5364008E1399 /* CatchGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB9743F2BFE5364008E1399 /* CatchGameView.swift */; };
@@ -146,7 +146,7 @@
 		0CA193582BB5B49A007C04B1 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		0CA4C5652BB3281F00268B07 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		0CB465AD2BB3D1C700317455 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
-		0CB50B1C2BFDB1330003FE3B /* SurviveGameEntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurviveGameEntityView.swift; sourceTree = "<group>"; };
+		0CB50B1C2BFDB1330003FE3B /* SurviveGameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurviveGameEntity.swift; sourceTree = "<group>"; };
 		0CB902202BB6E6A300F76311 /* GamePauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePauseView.swift; sourceTree = "<group>"; };
 		0CB902232BB6E77200F76311 /* TimerGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerGameView.swift; sourceTree = "<group>"; };
 		0CB9743F2BFE5364008E1399 /* CatchGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchGameView.swift; sourceTree = "<group>"; };
@@ -333,7 +333,7 @@
 			children = (
 				0CA07D6E2BFDA96F00564AEB /* SurviveGameView.swift */,
 				0CA07D702BFDA98400564AEB /* SurviveGameViewModel.swift */,
-				0CB50B1C2BFDB1330003FE3B /* SurviveGameEntityView.swift */,
+				0CB50B1C2BFDB1330003FE3B /* SurviveGameEntity.swift */,
 			);
 			path = SurviveGame;
 			sourceTree = "<group>";
@@ -779,7 +779,7 @@
 				C94B563F2BBF7E9D006C8C68 /* MoonState.swift in Sources */,
 				C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */,
 				0C5979B52BAB215300E8156D /* RegisterMajorView.swift in Sources */,
-				0CB50B1D2BFDB1330003FE3B /* SurviveGameEntityView.swift in Sources */,
+				0CB50B1D2BFDB1330003FE3B /* SurviveGameEntity.swift in Sources */,
 				C9519D3B2BB335EC00F69974 /* View+.swift in Sources */,
 				0C7FE69B2BB1290A00D94162 /* LoadingView.swift in Sources */,
 				C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */,
