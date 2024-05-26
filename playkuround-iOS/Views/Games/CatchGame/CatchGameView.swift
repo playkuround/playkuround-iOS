@@ -36,6 +36,9 @@ struct CatchGameView: View {
                             ForEach(0..<4) { columnIndex in
                                 let index = rowIndex * 4 + columnIndex
                                 windowView(for: viewModel.windowList[index])
+                                    .onTapGesture {
+                                        viewModel.checkWindow(index: index)
+                                    }
                                 Spacer()
                             }
                             
@@ -62,6 +65,16 @@ struct CatchGameView: View {
                 
                 VStack {
                     TimerBarView(progress: $viewModel.progress, color: .black)
+                        .onReceive(viewModel.timer) { _ in
+                            viewModel.updateTimer()
+                            
+                            if viewModel.isTimerUpdating {
+                                // 5초마다 1번씩 호출
+                                if Int(viewModel.timeRemaining * 100) % 500 == 0 {
+                                    viewModel.step(whiteNum: 4, blackNum: 3)
+                                }
+                            }
+                        }
                     
                     HStack {
                         Text(StringLiterals.Game.scoreTitle)
@@ -104,6 +117,10 @@ struct CatchGameView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
             .ignoresSafeArea(edges: .bottom)
+            .onAppear {
+                // 카운트다운 시작
+                viewModel.startCountdown()
+            }
         }
     }
     

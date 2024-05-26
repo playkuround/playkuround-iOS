@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct WindowComponent: Identifiable, Hashable {
-    var id = UUID()
-    let windowState: WindowState
+    let id = UUID()
+    var windowState: WindowState
     var windowType: WindowDuckkuType?
 }
 
