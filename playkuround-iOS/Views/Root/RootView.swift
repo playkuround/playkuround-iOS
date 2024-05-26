@@ -78,7 +78,7 @@ struct RootView: View {
             case .allClickGame:
                 AllClickGameView(viewModel: AllClickGameViewModel(.allClear, rootViewModel: viewModel, mapViewModel: mapViewModel, timeStart: 15.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: viewModel)
             case .surviveGame:
-                SurviveGameView(viewModel: SurviveGameViewModel(.survive, rootViewModel: viewModel, mapViewModel: MapViewModel(), timeStart: 60.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: viewModel)
+                SurviveGameView(viewModel: SurviveGameViewModel(rootViewModel: viewModel, mapViewModel: mapViewModel), rootViewModel: viewModel)
             }
             
             // network error
