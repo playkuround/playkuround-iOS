@@ -41,6 +41,9 @@
 		0CB50B1D2BFDB1330003FE3B /* SurviveGameEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB50B1C2BFDB1330003FE3B /* SurviveGameEntityView.swift */; };
 		0CB902212BB6E6A300F76311 /* GamePauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB902202BB6E6A300F76311 /* GamePauseView.swift */; };
 		0CB902242BB6E77200F76311 /* TimerGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB902232BB6E77200F76311 /* TimerGameView.swift */; };
+		0CB974402BFE5364008E1399 /* CatchGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB9743F2BFE5364008E1399 /* CatchGameView.swift */; };
+		0CB974422BFE5370008E1399 /* CatchGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB974412BFE5370008E1399 /* CatchGameViewModel.swift */; };
+		0CB974442BFE55AB008E1399 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB974432BFE55AB008E1399 /* Window.swift */; };
 		0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */; };
 		0CC01F262BBBD540007BB320 /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC01F252BBBD540007BB320 /* CardGameViewModel.swift */; };
 		0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD06A282BAB459500845B24 /* RegisterTermsView.swift */; };
@@ -144,6 +147,9 @@
 		0CB50B1C2BFDB1330003FE3B /* SurviveGameEntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurviveGameEntityView.swift; sourceTree = "<group>"; };
 		0CB902202BB6E6A300F76311 /* GamePauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePauseView.swift; sourceTree = "<group>"; };
 		0CB902232BB6E77200F76311 /* TimerGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerGameView.swift; sourceTree = "<group>"; };
+		0CB9743F2BFE5364008E1399 /* CatchGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchGameView.swift; sourceTree = "<group>"; };
+		0CB974412BFE5370008E1399 /* CatchGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchGameViewModel.swift; sourceTree = "<group>"; };
+		0CB974432BFE55AB008E1399 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		0CC01F252BBBD540007BB320 /* CardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModel.swift; sourceTree = "<group>"; };
 		0CD06A282BAB459500845B24 /* RegisterTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTermsView.swift; sourceTree = "<group>"; };
@@ -230,6 +236,7 @@
 			children = (
 				C95F8F2D2BBACF1300E89B50 /* Quiz.swift */,
 				0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */,
+				0CB974432BFE55AB008E1399 /* Window.swift */,
 			);
 			path = Games;
 			sourceTree = "<group>";
@@ -332,6 +339,7 @@
 		0CB9021F2BB6E69800F76311 /* Games */ = {
 			isa = PBXGroup;
 			children = (
+				0CB9743E2BFE535A008E1399 /* CatchGame */,
 				0CA07D6D2BFDA93F00564AEB /* SurviveGame */,
 				B91059FB2BDBFEA900D6455F /* AllClickGame */,
 				B9018CF92BDB60D400BC819C /* CupidGame */,
@@ -352,6 +360,15 @@
 				0C691EB22BBDA028004021F1 /* TimerState.swift */,
 			);
 			path = TimerGame;
+			sourceTree = "<group>";
+		};
+		0CB9743E2BFE535A008E1399 /* CatchGame */ = {
+			isa = PBXGroup;
+			children = (
+				0CB9743F2BFE5364008E1399 /* CatchGameView.swift */,
+				0CB974412BFE5370008E1399 /* CatchGameViewModel.swift */,
+			);
+			path = CatchGame;
 			sourceTree = "<group>";
 		};
 		0CBB058E2BB07A0000EB56BE /* ViewModels */ = {
@@ -729,6 +746,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C6AA4BB2BA4A33E0032AB24 /* NetworkManager.swift in Sources */,
+				0CB974422BFE5370008E1399 /* CatchGameViewModel.swift in Sources */,
 				C9963C532BBB07040037C662 /* QuizBlockView.swift in Sources */,
 				C97543F42BB3244800CD6479 /* MyPageListSectionView.swift in Sources */,
 				C97987482BC3D9C200BB3698 /* QuizGameViewModel.swift in Sources */,
@@ -774,6 +792,7 @@
 				0C6AA4BD2BA553D80032AB24 /* APIManager.swift in Sources */,
 				0C6AA4CB2BA56B510032AB24 /* Major.swift in Sources */,
 				0C691EB32BBDA028004021F1 /* TimerState.swift in Sources */,
+				0CB974442BFE55AB008E1399 /* Window.swift in Sources */,
 				0C519D9C2BBAFD9D00DAA206 /* Card.swift in Sources */,
 				B9B138052BE39D580094B2FC /* AllClickCustomTextView.swift in Sources */,
 				0C691EB12BBD9FF2004021F1 /* TimerGameViewModel.swift in Sources */,
@@ -788,6 +807,7 @@
 				0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */,
 				C9DAF1F72BB712D900E03D16 /* UserEntity.swift in Sources */,
 				0C27DDF02BBD714F0049B7B8 /* CardComponent.swift in Sources */,
+				0CB974402BFE5364008E1399 /* CatchGameView.swift in Sources */,
 				C94B56412BBF83EB006C8C68 /* MoonGameViewModel.swift in Sources */,
 				C97543F62BB325A300CD6479 /* MyPageListRowView.swift in Sources */,
 				C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */,
