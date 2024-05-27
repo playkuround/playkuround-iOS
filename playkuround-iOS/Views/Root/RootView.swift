@@ -55,6 +55,9 @@ struct RootView: View {
                     Button("일감호에서 살아남기") {
                         viewModel.transition(to: .surviveGame)
                     }
+                    Button("덕쿠를 잡아라!") {
+                        viewModel.transition(to: .catchGame)
+                    }
                 }
                 .onAppear {
                     mapViewModel.startUpdatingLocation()
@@ -79,6 +82,8 @@ struct RootView: View {
                 AllClickGameView(viewModel: AllClickGameViewModel(.allClear, rootViewModel: viewModel, mapViewModel: mapViewModel, timeStart: 15.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: viewModel)
             case .surviveGame:
                 SurviveGameView(viewModel: SurviveGameViewModel(.survive, rootViewModel: viewModel, mapViewModel: MapViewModel(), timeStart: 60.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: viewModel)
+            case .catchGame:
+                CatchGameView(viewModel: CatchGameViewModel(.catchDucku, rootViewModel: viewModel, mapViewModel: mapViewModel, timeStart: 60.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: viewModel)
             }
             
             // network error
