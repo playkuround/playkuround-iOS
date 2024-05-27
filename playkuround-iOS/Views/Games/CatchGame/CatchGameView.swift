@@ -36,6 +36,9 @@ struct CatchGameView: View {
                             ForEach(0..<4) { columnIndex in
                                 let index = rowIndex * 4 + columnIndex
                                 windowView(for: viewModel.windowList[index])
+                                    .onTapGesture {
+                                        viewModel.checkWindow(index: index)
+                                    }
                                 Spacer()
                             }
                             
@@ -62,6 +65,37 @@ struct CatchGameView: View {
                 
                 VStack {
                     TimerBarView(progress: $viewModel.progress, color: .black)
+                        .onReceive(viewModel.timer) { _ in
+                            viewModel.updateTimer()
+                            
+                            if viewModel.isTimerUpdating {
+                                let timeRemainingSecond = Int(viewModel.timeRemaining * 100)
+                                
+                                // 20초 미만 2초마다 1번 (2초 이상 남은 경우만)
+                                if timeRemainingSecond < 2000 {
+                                    if timeRemainingSecond >= 200 && timeRemainingSecond % 200 == 0 {
+                                        // 20초 미만일 경우 검은 오리 4개(고정) 하얀 오리 3개(고정)
+                                        viewModel.step(whiteNum: 3, blackNum: 4)
+                                    }
+                                } 
+                                
+                                // 20초 이상 3초마다 1번
+                                else {
+                                    if timeRemainingSecond % 300 == 0 {
+                                        // 60~40초일 경우 검은오리 2개(고정) 하얀 오리 1~2개
+                                        if timeRemainingSecond > 4000 {
+                                            let whiteNum = Int.random(in: 1..<3)
+                                            viewModel.step(whiteNum: whiteNum, blackNum: 2)
+                                        }
+                                        // 40~20초일 경우 검은오리 3개(고정) 하얀 오리 2~3개
+                                        else {
+                                            let whiteNum = Int.random(in: 2..<4)
+                                            viewModel.step(whiteNum: whiteNum, blackNum: 3)
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     
                     HStack {
                         Text(StringLiterals.Game.scoreTitle)
@@ -104,6 +138,10 @@ struct CatchGameView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
             .ignoresSafeArea(edges: .bottom)
+            .onAppear {
+                // 카운트다운 시작
+                viewModel.startCountdown()
+            }
         }
     }
     

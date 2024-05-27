@@ -83,4 +83,5 @@ enum ViewType {
     case cupidGame
     case allClickGame
     case surviveGame
+    case catchGame
 }
