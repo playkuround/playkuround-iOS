@@ -87,7 +87,7 @@ struct GameResultView: View {
         case .cupid:
             return "덕큐피트"
         case .book:
-            return "책 뒤깁기"
+            return "책 뒤집기"
         case .survive:
             return "일감호에서 살아남기"
         }
