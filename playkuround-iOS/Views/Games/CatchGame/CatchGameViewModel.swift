@@ -29,13 +29,20 @@ final class CatchGameViewModel: GameViewModel {
         super.startGame()
         super.startTimer()
         
-        step(whiteNum: 1, blackNum: 1)
+        step(whiteNum: 1, blackNum: 2)
+    }
+    
+    override func timerDone() {
+        finishGame()
     }
     
     override func finishGame() {
         gameState = .finish
         super.pauseOrRestartTimer()
         self.isTimerUpdating = false
+        
+        // 서버로 점수 업로드
+        uploadResult()
     }
     
     func step(whiteNum: Int, blackNum: Int) {
