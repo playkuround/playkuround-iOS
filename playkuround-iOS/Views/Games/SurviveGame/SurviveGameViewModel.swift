@@ -150,7 +150,6 @@ final class SurviveGameViewModel: GameViewModel {
             let bugRect = CGRect(x: bugList[i].posX - (13 / 2), y: bugList[i].posY - (21 / 2), width: 13, height: 21)
             
             if duckkuRect.intersects(bugRect) {
-                print("hit with bug rect \(bugRect)")
                 duckkuHit()
                 return
             }
@@ -181,6 +180,7 @@ final class SurviveGameViewModel: GameViewModel {
             let isOverlapping = polygonsOverlap(duckkuRectPoints, boatRectPoints)
             
             if isOverlapping {
+                // MARK: 디버깅용, merge 전 삭제 예정
                 print("duckku pos (\(duckkuPosX), \(duckkuPosY))")
                 print("hit with boat rect (\(boatPoint1)), (\(boatPoint2))")
                 print("rotated rect (\(boatRectPoints)) by \(boatList[i].angle.degrees)")
@@ -205,7 +205,6 @@ final class SurviveGameViewModel: GameViewModel {
             newNumBug = 20
         }
         
-        print("** update \(remainingSecond)sec - numbug: \(newNumBug)")
         DispatchQueue.main.async {
             self.numBug = newNumBug
         }
@@ -216,7 +215,6 @@ final class SurviveGameViewModel: GameViewModel {
             let newBug = SurviveGameEntity(type: .bug, velocity: 1, frameMaxX: self.frameMaxX, frameMaxY: self.frameMaxY)
             self.bugList.append(newBug)
         }
-        print("\(num) bugs added")
     }
     
     func addBoat(_ num: Int) {
@@ -224,7 +222,6 @@ final class SurviveGameViewModel: GameViewModel {
             let newBoat = SurviveGameEntity(type: .boat, velocity: 2, frameMaxX: self.frameMaxX, frameMaxY: self.frameMaxY)
             self.boatList.append(newBoat)
         }
-        print("\(num) boats added")
     }
     
     func duckkuHit() {
@@ -235,7 +232,6 @@ final class SurviveGameViewModel: GameViewModel {
         }
         
         DispatchQueue.main.async {
-            print("hit, isImmuned set True")
             self.isImmuned = true
             self.isTransparent = true
             self.toggleTransparency(0)
@@ -249,6 +245,7 @@ final class SurviveGameViewModel: GameViewModel {
     }
     
     private func toggleTransparency(_ count: Int) {
+        // 무적 시간 끝났으면 중지
         if !isImmuned {
             self.isTransparent = false
             return

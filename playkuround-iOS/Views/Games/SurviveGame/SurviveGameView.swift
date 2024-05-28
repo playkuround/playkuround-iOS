@@ -143,7 +143,6 @@ struct SurviveGameView: View {
         switch type {
         case .boat:
             Image(.surviveBoat)
-            // .rotationEffect(angle + Angle(degrees: 90))
         case .bug:
             Image(.surviveBug)
         }
@@ -151,6 +150,5 @@ struct SurviveGameView: View {
 }
 
 #Preview {
-    // SurviveGameView(viewModel: SurviveGameViewModel(.catchDucku, rootViewModel: RootViewModel(), mapViewModel: MapViewModel(), timeStart: 60.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: RootViewModel())
     SurviveGameView(viewModel: SurviveGameViewModel(rootViewModel: RootViewModel(), mapViewModel: MapViewModel()), rootViewModel: RootViewModel())
 }
