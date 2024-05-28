@@ -73,14 +73,15 @@ struct SurviveGameEntity: Hashable {
     }
     
     mutating func updatePosition() {
-        if self.type == .bug {
+        // 미생물은 랜덤으로 각도를 조정
+        /* if self.type == .bug {
             if Double.random(in: 0...1) < 0.5 {
                 let randomAngle = angle.degrees + Double.random(in: -10..<10)
                 withAnimation(.linear) {
                     self.angle = Angle(degrees: randomAngle)
                 }
             }
-        }
+        }*/
             
         let radians = angle.radians
         
