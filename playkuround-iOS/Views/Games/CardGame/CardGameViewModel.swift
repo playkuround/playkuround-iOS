@@ -30,10 +30,10 @@ final class CardGameViewModel: GameViewModel {
     private var correctCount: Int = 0
     
     override func startGame() {
+        self.shuffleCard()
+        
         super.startGame()
         super.startTimer()
-        
-        self.shuffleCard()
     }
     
     override func timerDone() {
