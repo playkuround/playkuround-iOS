@@ -54,13 +54,12 @@ final class SurviveGameViewModel: GameViewModel {
     }
     
     override func startGame() {
+        self.addBug(10)
+        self.addBoat(2)
+        
         super.startGame()
         super.startTimer()
         self.isImmuned = false
-        
-        self.addBug(10)
-        self.addBoat(2)
-        // self.boatList.append(SurviveGameEntity(type: .boat, velocity: 2, frameMaxX: self.frameMaxX, frameMaxY: self.frameMaxY))
     }
     
     override func timerDone() {
@@ -95,8 +94,6 @@ final class SurviveGameViewModel: GameViewModel {
         // Gyro data scaling factor
         let scalingFactor: CGFloat = 1.0
         let damping: CGFloat = 0.5
-        
-        // print("x: \(String(format: "%+02.5f", x)), y: \(String(format: "%+02.5f", y)), z: \(String(format: "%+02.5f", z))")
     
         // Update acceleration based on gyro data
         accelerationX = CGFloat(gyroCummY) * scalingFactor
@@ -170,21 +167,23 @@ final class SurviveGameViewModel: GameViewModel {
                 continue
             }
             
+            // 보트 좌표
             let boatPoint1 = CGPoint(x: Int(boatList[i].posX - (82 / 2)), y: Int(boatList[i].posY - (27 / 2)))
             let boatPoint2 = CGPoint(x: Int(boatList[i].posX + (82 / 2)), y: Int(boatList[i].posY + (27 / 2)))
-            let (rotatedBoatPoint1, rotatedBoatPoint2) = rotateRectanglePoints(boatPoint1, boatPoint2, by: boatList[i].angle.degrees)
-
-            let boatRectPoints = [CGPoint(x: rotatedBoatPoint1.x, y: rotatedBoatPoint1.y),
-                                  CGPoint(x: rotatedBoatPoint1.x, y: rotatedBoatPoint2.y),
-                                  CGPoint(x: rotatedBoatPoint2.x, y: rotatedBoatPoint2.y),
-                                  CGPoint(x: rotatedBoatPoint2.x, y: rotatedBoatPoint1.y)]
             
-            let isOverlapping = polygonsOverlap(vertices1: duckkuRectPoints, vertices2: boatRectPoints)
+            // 회전된 보트 좌표를 계산
+            let (rotatedP1, rotatedP2, rotatedP3, rotatedP4) = rotatedRectangle(boatPoint1, boatPoint2, by: boatList[i].angle.degrees)
+            
+            // 회전된 보트 좌표 리스트
+            let boatRectPoints = [rotatedP1, rotatedP2, rotatedP3, rotatedP4]
+            
+            // 보트와 덕쿠 겹치는지 검사
+            let isOverlapping = polygonsOverlap(duckkuRectPoints, boatRectPoints)
+            
             if isOverlapping {
                 print("duckku pos (\(duckkuPosX), \(duckkuPosY))")
                 print("hit with boat rect (\(boatPoint1)), (\(boatPoint2))")
-                print("rotated rect (\(rotatedBoatPoint1)), (\(rotatedBoatPoint2)) by \(boatList[i].angle.degrees)")
-                print("hit with boat \(boatList[i].id)")
+                print("rotated rect (\(boatRectPoints)) by \(boatList[i].angle.degrees)")
                 duckkuHit()
                 return
             }
@@ -289,28 +288,41 @@ final class SurviveGameViewModel: GameViewModel {
         return dx + dy
     }
 
+    // 점을 중심점을 기준으로 회전시키는 함수
     func rotatePoint(_ point: CGPoint, around center: CGPoint, by angle: CGFloat) -> CGPoint {
         let radians = angle * .pi / 180
-        let dx = point.x - center.x
-        let dy = point.y - center.y
+        let translatedX = point.x - center.x
+        let translatedY = point.y - center.y
         
-        let rotatedX = center.x + dx * cos(radians) - dy * sin(radians)
-        let rotatedY = center.y + dx * sin(radians) + dy * cos(radians)
+        let rotatedX = translatedX * cos(radians) - translatedY * sin(radians)
+        let rotatedY = translatedX * sin(radians) + translatedY * cos(radians)
         
-        return CGPoint(x: rotatedX, y: rotatedY)
+        return CGPoint(x: rotatedX + center.x, y: rotatedY + center.y)
     }
 
-    func rotateRectanglePoints(_ point1: CGPoint, _ point2: CGPoint, by angle: CGFloat) -> (CGPoint, CGPoint) {
+    // 두 좌표를 받아서 사각형의 네 꼭짓점을 반환하는 함수
+    func rotatedRectangle(_ point1: CGPoint, _ point2: CGPoint, by angle: CGFloat) -> (CGPoint, CGPoint, CGPoint, CGPoint) {
+        // 사각형의 네 꼭짓점을 계산합니다.
+        let topLeft = point1
+        let topRight = CGPoint(x: point2.x, y: point1.y)
+        let bottomRight = point2
+        let bottomLeft = CGPoint(x: point1.x, y: point2.y)
+        
+        // 사각형의 중심점을 계산합니다.
         let centerX = (point1.x + point2.x) / 2
         let centerY = (point1.y + point2.y) / 2
         let center = CGPoint(x: centerX, y: centerY)
         
-        let rotatedPoint1 = rotatePoint(point1, around: center, by: angle)
-        let rotatedPoint2 = rotatePoint(point2, around: center, by: angle)
+        // 네 꼭짓점을 회전시킵니다.
+        let rotatedTopLeft = rotatePoint(topLeft, around: center, by: angle)
+        let rotatedTopRight = rotatePoint(topRight, around: center, by: angle)
+        let rotatedBottomRight = rotatePoint(bottomRight, around: center, by: angle)
+        let rotatedBottomLeft = rotatePoint(bottomLeft, around: center, by: angle)
         
-        return (rotatedPoint1, rotatedPoint2)
+        return (rotatedTopLeft, rotatedTopRight, rotatedBottomRight, rotatedBottomLeft)
     }
     
+    // 다각형을 주어진 축에 투영하는 함수
     func projectPolygon(vertices: [CGPoint], axis: CGPoint) -> (min: CGFloat, max: CGFloat) {
         var minProj = CGPoint.dot(vertices[0], axis)
         var maxProj = minProj
@@ -326,26 +338,32 @@ final class SurviveGameViewModel: GameViewModel {
         return (minProj, maxProj)
     }
 
+    // 주어진 축이 두 다각형 사이의 분리 축인지 검사하는 함수
     func isSeparatingAxis(_ axis: CGPoint, vertices1: [CGPoint], vertices2: [CGPoint]) -> Bool {
         let projection1 = projectPolygon(vertices: vertices1, axis: axis)
         let projection2 = projectPolygon(vertices: vertices2, axis: axis)
         return projection1.max < projection2.min || projection2.max < projection1.min
     }
-
-    func polygonsOverlap(vertices1: [CGPoint], vertices2: [CGPoint]) -> Bool {
+    
+    // 두 다각형이 겹치는지 검사하는 함수
+    func polygonsOverlap(_ vertices1: [CGPoint], _ vertices2: [CGPoint]) -> Bool {
         // 모든 변에 대해 수직축을 검사합니다.
-        let axes = [
-            (vertices1[1] - vertices1[0]).perpendicular(),
-            (vertices1[2] - vertices1[1]).perpendicular(),
-            (vertices2[1] - vertices2[0]).perpendicular(),
-            (vertices2[2] - vertices2[1]).perpendicular()
-        ]
+        let axes1 = (0..<vertices1.count).map { (i) -> CGPoint in
+            let nextIndex = (i + 1) % vertices1.count
+            return (vertices1[nextIndex] - vertices1[i]).perpendicular().normalized()
+        }
         
-        for axis in axes {
-            if isSeparatingAxis(axis.normalized(), vertices1: vertices1, vertices2: vertices2) {
+        let axes2 = (0..<vertices2.count).map { (i) -> CGPoint in
+            let nextIndex = (i + 1) % vertices2.count
+            return (vertices2[nextIndex] - vertices2[i]).perpendicular().normalized()
+        }
+        
+        for axis in axes1 + axes2 {
+            if isSeparatingAxis(axis, vertices1: vertices1, vertices2: vertices2) {
                 return false
             }
         }
+        
         return true
     }
 }
