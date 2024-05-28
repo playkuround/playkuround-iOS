@@ -142,8 +142,8 @@ final class SurviveGameViewModel: GameViewModel {
         // print("check hitting \(duckkuRect)")
         
         for i in bugList.indices {
-            // 연산량을 줄이기 위해 L1 거리가 200 이하인 경우만 계산
-            if distanceL1(x1: self.duckkuPosX, x2: bugList[i].posX, y1: self.duckkuPosY, y2: bugList[i].posY) > 200 {
+            // 연산량을 줄이기 위해 L1 거리가 100 이하인 경우만 계산
+            if distanceL1(x1: self.duckkuPosX, x2: bugList[i].posX, y1: self.duckkuPosY, y2: bugList[i].posY) > 100 {
                 continue
             }
             
