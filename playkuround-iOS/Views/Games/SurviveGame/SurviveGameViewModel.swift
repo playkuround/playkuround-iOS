@@ -237,8 +237,8 @@ final class SurviveGameViewModel: GameViewModel {
             self.toggleTransparency(0)
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            print("hit, isImmuned set False")
+        // 3초 후 무적 해제
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.isTransparent = false
             self.isImmuned = false
         }
@@ -251,7 +251,7 @@ final class SurviveGameViewModel: GameViewModel {
             return
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.isTransparent.toggle()
             self.toggleTransparency(count + 1)
         }
