@@ -29,8 +29,6 @@ struct AttendanceView: View {
             VStack {
                 Spacer()
                 Image(.attendanceBackground)
-                    .resizable()
-                    .scaledToFit()
                     .padding()
                     .overlay {
                         VStack {
