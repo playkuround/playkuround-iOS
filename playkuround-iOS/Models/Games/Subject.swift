@@ -10,6 +10,8 @@ import Foundation
 struct Subject {
     let type: SubjectType
     let title: String
+    var xOffset: CGFloat = 0
+    var yOffset: CGFloat = 0
 }
 
 enum SubjectType {
@@ -126,41 +128,3 @@ let subjectList: [Subject] = [
     Subject(type: .department, title: "미디어통역"),
     Subject(type: .department, title: "국제통상정책")
 ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
