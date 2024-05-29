@@ -71,6 +71,7 @@ enum ViewType {
     
     // home
     case home
+    case attendance
     
     // my page
     case myPage
@@ -83,4 +84,5 @@ enum ViewType {
     case cupidGame
     case allClickGame
     case surviveGame
+    case catchGame
 }

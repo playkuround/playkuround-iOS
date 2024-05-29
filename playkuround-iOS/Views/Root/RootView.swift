@@ -28,6 +28,9 @@ struct RootView: View {
                 // 임시 구현
                 VStack {
                     Text("Home")
+                    Button("출석체크") {
+                        viewModel.transition(to: .attendance)
+                    }
                     Button("Logout") {
                         viewModel.logout()
                     }
@@ -55,6 +58,9 @@ struct RootView: View {
                     Button("일감호에서 살아남기") {
                         viewModel.transition(to: .surviveGame)
                     }
+                    Button("덕쿠를 잡아라!") {
+                        viewModel.transition(to: .catchGame)
+                    }
                 }
                 .onAppear {
                     mapViewModel.startUpdatingLocation()
@@ -63,6 +69,10 @@ struct RootView: View {
                     // 홈 뷰에서 벗어날 때 위치 업데이트 중지
                     mapViewModel.stopUpdatingLocation()
                 }
+                
+            case .attendance:
+                AttendanceView(rootViewModel: viewModel)
+                
             case .myPage:
                 MyPageView(viewModel: viewModel)
             case .cardGame:
@@ -79,6 +89,8 @@ struct RootView: View {
                 AllClickGameView(viewModel: AllClickGameViewModel(.allClear, rootViewModel: viewModel, mapViewModel: mapViewModel, timeStart: 15.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: viewModel)
             case .surviveGame:
                 SurviveGameView(viewModel: SurviveGameViewModel(rootViewModel: viewModel, mapViewModel: mapViewModel), rootViewModel: viewModel)
+            case .catchGame:
+                CatchGameView(viewModel: CatchGameViewModel(.catchDucku, rootViewModel: viewModel, mapViewModel: mapViewModel, timeStart: 60.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: viewModel)
             }
             
             // network error

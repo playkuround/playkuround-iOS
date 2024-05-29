@@ -19,8 +19,7 @@ struct GameResultView: View {
             Image(.resultBackground)
                 .overlay {
                     VStack {
-                        // TODO: GameViewModel 연결 시 수정
-                        Text("GAME_TITLE")
+                        Text(GameTypeToString(gameViewModel.gameType))
                             .font(.neo24)
                             .foregroundStyle(.kuText)
                             .kerning(-0.41)
@@ -70,6 +69,27 @@ struct GameResultView: View {
                     }
                     .padding(.top, 40)
                 }
+        }
+    }
+    
+    private func GameTypeToString(_ type: GameType) -> String {
+        switch type {
+        case .time:
+            return "10초를 맞춰봐"
+        case .moon:
+            return "문을 점령해"
+        case .quiz:
+            return "건쏠지식"
+        case .catchDucku:
+            return "덕쿠를 잡아라!"
+        case .allClear:
+            return "수강신청 ALL클릭"
+        case .cupid:
+            return "덕큐피트"
+        case .book:
+            return "책 뒤집기"
+        case .survive:
+            return "일감호에서 살아남기"
         }
     }
 }
