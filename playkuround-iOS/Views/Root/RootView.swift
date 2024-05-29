@@ -28,6 +28,9 @@ struct RootView: View {
                 // 임시 구현
                 VStack {
                     Text("Home")
+                    Button("출석체크") {
+                        viewModel.transition(to: .attendance)
+                    }
                     Button("Logout") {
                         viewModel.logout()
                     }
@@ -66,6 +69,10 @@ struct RootView: View {
                     // 홈 뷰에서 벗어날 때 위치 업데이트 중지
                     mapViewModel.stopUpdatingLocation()
                 }
+                
+            case .attendance:
+                AttendanceView(rootViewModel: viewModel)
+                
             case .myPage:
                 MyPageView(viewModel: viewModel)
             case .cardGame:
