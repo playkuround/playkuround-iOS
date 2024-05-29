@@ -14,6 +14,7 @@ struct AllClickGameView: View {
     
     @State private var userText: String = ""
     @State private var userHeight: CGFloat = 0
+    @State private var shouldBecomeFirstResponder: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -38,8 +39,7 @@ struct AllClickGameView: View {
                             .kerning(-0.41)
                             .padding(.trailing, 5)
                         
-                        //TODO: - Score 연결
-                        Text("123")
+                        Text("\(viewModel.score)")
                             .font(.neo22)
                             .foregroundStyle(.kuText)
                             .kerning(-0.41)
@@ -69,10 +69,12 @@ struct AllClickGameView: View {
                         
                         Image(.allClickWritingBox)
                             .overlay(alignment: .leading) {
-                                AllClickCustomTextView(text: $userText, height: $userHeight)
-                                    .frame(height: 30, alignment: .center)
-                                    .frame(width: 200)
-                                    .padding(.leading, 8)
+                                AllClickCustomTextView(text: $userText,
+                                                       height: $userHeight,
+                                                       shouldBecomeFirstResponder: $shouldBecomeFirstResponder)
+                                .frame(height: 30, alignment: .center)
+                                .frame(width: 200)
+                                .padding(.leading, 8)
                             }
                         
                         Spacer()
@@ -98,11 +100,32 @@ struct AllClickGameView: View {
                         .foregroundStyle(.kuText)
                 }, rightView: {
                     Button(action: {
-                        
+                        viewModel.togglePauseView()
                     }, label: {
                         Image(.brownPauseButton)
                     })
                 }, height: 57)
+                
+                if viewModel.isCountdownViewPresented {
+                    CountdownView(countdown: $viewModel.countdown)
+                } else if viewModel.isPauseViewPresented {
+                    GamePauseView(viewModel: viewModel)
+                } else if viewModel.isResultViewPresented {
+                    GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
+                }
+            }
+            .onAppear {
+                viewModel.startCountdown()
+            }
+            .onChange(of: viewModel.countdownCompleted) { completed in
+                if completed {
+                    shouldBecomeFirstResponder = true
+                }
+            }
+            .onChange(of: viewModel.isPauseViewPresented) { isPaused in
+                if isPaused {
+                    shouldBecomeFirstResponder = false
+                }
             }
         }
     }
