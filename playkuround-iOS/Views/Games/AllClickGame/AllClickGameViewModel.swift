@@ -11,6 +11,7 @@ final class AllClickGameViewModel: GameViewModel {
     @Published var countdownCompleted: Bool = false
     // 생명
     @Published var life: Int = 3
+    
     override func startGame() {
         print(countdownCompleted)
         super.startGame()
