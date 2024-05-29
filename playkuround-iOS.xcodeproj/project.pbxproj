@@ -27,6 +27,7 @@
 		0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4D02BA6DA340032AB24 /* TokenManager.swift */; };
 		0C6B77F62BABCC8F0033CEEF /* location.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B77F52BABCC8F0033CEEF /* location.txt */; };
 		0C6B77F82BABCCCD0033CEEF /* privacy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B77F72BABCCCD0033CEEF /* privacy.txt */; };
+		0C7C4E3C2C0777B600ABB4D8 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C4E3B2C0777B600ABB4D8 /* Date+.swift */; };
 		0C7FE6992BB1259800D94162 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE6982BB1259800D94162 /* NetworkErrorView.swift */; };
 		0C7FE69B2BB1290A00D94162 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE69A2BB1290A00D94162 /* LoadingView.swift */; };
 		0C7FE6A12BB1983A00D94162 /* AnimationImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */; };
@@ -46,6 +47,7 @@
 		0CB974442BFE55AB008E1399 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB974432BFE55AB008E1399 /* Window.swift */; };
 		0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */; };
 		0CC01F262BBBD540007BB320 /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC01F252BBBD540007BB320 /* CardGameViewModel.swift */; };
+		0CD0402D2C062A8E009F9BE1 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */; };
 		0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD06A282BAB459500845B24 /* RegisterTermsView.swift */; };
 		0CEB87C72BB7E2B000CC2E4B /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */; };
 		B9018CFB2BDB60E000BC819C /* CupidGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9018CFA2BDB60E000BC819C /* CupidGameView.swift */; };
@@ -133,6 +135,7 @@
 		0C6AA4D02BA6DA340032AB24 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		0C6B77F52BABCC8F0033CEEF /* location.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = location.txt; sourceTree = "<group>"; };
 		0C6B77F72BABCCCD0033CEEF /* privacy.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = privacy.txt; sourceTree = "<group>"; };
+		0C7C4E3B2C0777B600ABB4D8 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		0C7FE6982BB1259800D94162 /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
 		0C7FE69A2BB1290A00D94162 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationImages.swift; sourceTree = "<group>"; };
@@ -152,6 +155,7 @@
 		0CB974432BFE55AB008E1399 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		0CC01F252BBBD540007BB320 /* CardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModel.swift; sourceTree = "<group>"; };
+		0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		0CD06A282BAB459500845B24 /* RegisterTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTermsView.swift; sourceTree = "<group>"; };
 		0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
 		B9018CFA2BDB60E000BC819C /* CupidGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupidGameView.swift; sourceTree = "<group>"; };
@@ -289,6 +293,7 @@
 				C9519D372BB3338700F69974 /* ViewModifiers */,
 				C918F4032BA7148800C0BFDA /* Managers */,
 				C9519D3A2BB335EC00F69974 /* View+.swift */,
+				0C7C4E3B2C0777B600ABB4D8 /* Date+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -381,6 +386,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		0CD0402B2C062A14009F9BE1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		B9018CF92BDB60D400BC819C /* CupidGame */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,6 +461,7 @@
 		C953D2FC2BA4806900318869 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0CD0402B2C062A14009F9BE1 /* Home */,
 				0CB9021F2BB6E69800F76311 /* Games */,
 				C97543EE2BB31CE100CD6479 /* MyPage */,
 				0C7FE6952BB1256300D94162 /* Root */,
@@ -772,12 +786,14 @@
 				C953D3042BA49BB300318869 /* MainView.swift in Sources */,
 				C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */,
 				0CA07D6F2BFDA96F00564AEB /* SurviveGameView.swift in Sources */,
+				0C7C4E3C2C0777B600ABB4D8 /* Date+.swift in Sources */,
 				C918F40B2BA7507800C0BFDA /* AuthenticationCodeView.swift in Sources */,
 				C94B563F2BBF7E9D006C8C68 /* MoonState.swift in Sources */,
 				C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */,
 				0C5979B52BAB215300E8156D /* RegisterMajorView.swift in Sources */,
 				0CB50B1D2BFDB1330003FE3B /* SurviveGameEntityView.swift in Sources */,
 				C9519D3B2BB335EC00F69974 /* View+.swift in Sources */,
+				0CD0402D2C062A8E009F9BE1 /* AttendanceView.swift in Sources */,
 				0C7FE69B2BB1290A00D94162 /* LoadingView.swift in Sources */,
 				C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */,
 				C9FE257D2BB40E1C00F78C63 /* CheerPKTeamView.swift in Sources */,

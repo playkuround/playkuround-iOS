@@ -71,6 +71,7 @@ enum ViewType {
     
     // home
     case home
+    case attendance
     
     // my page
     case myPage
