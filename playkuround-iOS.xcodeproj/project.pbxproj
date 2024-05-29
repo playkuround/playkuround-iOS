@@ -46,6 +46,7 @@
 		0CB974442BFE55AB008E1399 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB974432BFE55AB008E1399 /* Window.swift */; };
 		0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */; };
 		0CC01F262BBBD540007BB320 /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC01F252BBBD540007BB320 /* CardGameViewModel.swift */; };
+		0CD0402D2C062A8E009F9BE1 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */; };
 		0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD06A282BAB459500845B24 /* RegisterTermsView.swift */; };
 		0CEB87C72BB7E2B000CC2E4B /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */; };
 		B9018CFB2BDB60E000BC819C /* CupidGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9018CFA2BDB60E000BC819C /* CupidGameView.swift */; };
@@ -152,6 +153,7 @@
 		0CB974432BFE55AB008E1399 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		0CC01F252BBBD540007BB320 /* CardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModel.swift; sourceTree = "<group>"; };
+		0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		0CD06A282BAB459500845B24 /* RegisterTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTermsView.swift; sourceTree = "<group>"; };
 		0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
 		B9018CFA2BDB60E000BC819C /* CupidGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupidGameView.swift; sourceTree = "<group>"; };
@@ -381,6 +383,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		0CD0402B2C062A14009F9BE1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		B9018CF92BDB60D400BC819C /* CupidGame */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,6 +458,7 @@
 		C953D2FC2BA4806900318869 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0CD0402B2C062A14009F9BE1 /* Home */,
 				0CB9021F2BB6E69800F76311 /* Games */,
 				C97543EE2BB31CE100CD6479 /* MyPage */,
 				0C7FE6952BB1256300D94162 /* Root */,
@@ -778,6 +789,7 @@
 				0C5979B52BAB215300E8156D /* RegisterMajorView.swift in Sources */,
 				0CB50B1D2BFDB1330003FE3B /* SurviveGameEntityView.swift in Sources */,
 				C9519D3B2BB335EC00F69974 /* View+.swift in Sources */,
+				0CD0402D2C062A8E009F9BE1 /* AttendanceView.swift in Sources */,
 				0C7FE69B2BB1290A00D94162 /* LoadingView.swift in Sources */,
 				C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */,
 				C9FE257D2BB40E1C00F78C63 /* CheerPKTeamView.swift in Sources */,
