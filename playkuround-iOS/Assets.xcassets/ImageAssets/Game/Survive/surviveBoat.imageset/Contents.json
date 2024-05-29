@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "surviveBoat1.png",
+      "filename" : "surviveBoatHorizontal1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "surviveBoat2.png",
+      "filename" : "surviveBoatHorizontal2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "surviveBoat3.png",
+      "filename" : "surviveBoatHorizontal3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
