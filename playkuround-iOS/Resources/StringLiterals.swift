@@ -74,6 +74,15 @@ enum StringLiterals {
         static let openSetting = "설정으로 이동"
     }
     
+    enum Home {
+        enum Attendance {
+            static let attendanceTitle = "출석체크"
+            static let attendance = "출석하기"
+            static let attenanceDone = "출석완료"
+        }
+        
+    }
+    
     enum MyPage {
         static let title = "마이페이지"
         static let currentScore = "현재 점수"
