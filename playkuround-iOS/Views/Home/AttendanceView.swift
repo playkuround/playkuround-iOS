@@ -44,6 +44,7 @@ struct AttendanceView: View {
                                             Text(self.formatDate(date: date))
                                                 .font(.pretendard17R)
                                                 .foregroundColor(.kuText)
+                                                .kerning(-0.41)
                                         }
                                         .frame(width: 34, height: 34)
                                     } else {
@@ -53,6 +54,7 @@ struct AttendanceView: View {
                                             Text(self.formatDate(date: date))
                                                 .font(.pretendard17R)
                                                 .foregroundColor(.kuGray2)
+                                                .kerning(-0.41)
                                         }
                                         .frame(width: 34, height: 34)
                                     }
