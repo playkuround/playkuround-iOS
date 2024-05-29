@@ -46,11 +46,10 @@ struct AllClickGameView: View {
                         
                         Spacer()
                         
-                        //TODO: - Heart 개수 연결
                         HStack(spacing: 2){
-                            Image(.allClickHeart)
-                            Image(.allClickHeart)
-                            Image(.allClickHeart)
+                            Image(viewModel.life > 0 ? .allClickHeart : .allClickHeartEmpty)
+                            Image(viewModel.life > 1 ? .allClickHeart : .allClickHeartEmpty)
+                            Image(viewModel.life > 2 ? .allClickHeart : .allClickHeartEmpty)
                         }
                     }
                     .padding(.horizontal, 20)
