@@ -33,7 +33,7 @@ extension Date {
         
         // 월의 첫 날이면 월/일 로 반환
         if dayComponent == 1 {
-            let dateFormatter = DateFormatter()
+            let dateFormatter = DateFormatter.getDateFormatter()
             dateFormatter.dateFormat = "M/d"
             return dateFormatter.string(from: self)
         } else {
