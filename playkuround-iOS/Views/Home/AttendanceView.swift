@@ -11,12 +11,6 @@ import SwiftUI
 struct AttendanceView: View {
     @ObservedObject var rootViewModel: RootViewModel
     @State private var dates: [Date] = []
-    var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeZone = TimeZone(identifier: "Asia/Seoul")
-        return formatter
-    }
     
     var body: some View {
         ZStack {
@@ -34,14 +28,14 @@ struct AttendanceView: View {
                         VStack {
                             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 1), count: 7), spacing: 14) {
                                 ForEach(dates, id: \.self) { date in
-                                    if isToday(date) {
+                                    if date.isToday() {
                                         // 오늘
                                         ZStack {
                                             // TODO: 출석 하기 전 빈 박스, 출석 후 박스
                                             Image(.calendarTodayBox)
                                                 .resizable()
                                                 .frame(width: 34, height: 34)
-                                            Text(self.formatDate(date: date))
+                                            Text(date.toCalendarString())
                                                 .font(.pretendard17R)
                                                 .foregroundColor(.kuText)
                                                 .kerning(-0.41)
@@ -51,7 +45,7 @@ struct AttendanceView: View {
                                         // 과거
                                         ZStack {
                                             // TODO: if 출석 했다면 박스 흰색글씨, 안했다면 박스X 회색글씨
-                                            Text(self.formatDate(date: date))
+                                            Text(date.toCalendarString())
                                                 .font(.pretendard17R)
                                                 .foregroundColor(.kuGray2)
                                                 .kerning(-0.41)
@@ -101,6 +95,7 @@ struct AttendanceView: View {
         }
     }
     
+    // TODO: ViewModel 만들면 VM내로 옮기기
     func generateDates() -> [Date] {
         var calendar = Calendar.current
         calendar.timeZone = TimeZone(identifier: "Asia/Seoul")!
@@ -120,24 +115,6 @@ struct AttendanceView: View {
         }
         
         return dates
-    }
-    
-    private func formatDate(date: Date) -> String {
-        let dayComponent = Calendar.current.component(.day, from: date)
-        
-        // 월의 첫 날이면 월/일 로 반환
-        if dayComponent == 1 {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "M/d"
-            return dateFormatter.string(from: date)
-        } else {
-            return "\(dayComponent)"
-        }
-    }
-    
-    private func isToday(_ date: Date) -> Bool {
-        // 오늘인지 검사
-        Calendar.current.isDateInToday(date)
     }
 }
 
