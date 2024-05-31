@@ -28,7 +28,6 @@ struct MapView: View {
                 }
             } else {
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: mapViewModel.userLatitude, longitude: mapViewModel.userLongitude)) {
-                    // getAnnotation(annotation)
                     CustomMapAnnotationView(annotation: annotation, mapViewModel: mapViewModel)
                         .onTapGesture { } // Not Used (MapKit 특성 상 대칭을 맞춰주어야 함)
                 }
@@ -51,7 +50,6 @@ struct MapView: View {
             annotationList.append(AnnotationWrapper(type: .landmark, landmark: landmark))
         }
         
-        print("return \(annotationList.count) annotation List")
         return annotationList
     }
 }
