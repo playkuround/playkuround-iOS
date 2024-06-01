@@ -14,7 +14,7 @@ final class HomeViewModel: ObservableObject {
     @Published var badgeList: [BadgeResponse] = []
     @Published var attendanceList: [String] = []
     
-    let landmarkDescriptions: [LandmarkDescription] = load("LandmarkDescription.json")
+    // let landmarkDescriptions: [LandmarkDescription] = load("LandmarkDescription.json")
     
     // Landmark
     @Published var selectedLandmarkID: Int = 0
