@@ -54,6 +54,12 @@ struct AllClickGameView: View {
                     }
                     .padding(.horizontal, 20)
                     
+                    ForEach(viewModel.subjects.indices, id: \.self) { index in
+                        AllClickTextRainView(subject: viewModel.subjects[index])
+                            .offset(x: viewModel.subjects[index].xOffset,
+                                    y: viewModel.subjects[index].yOffset)
+                    }
+                    
                     Spacer()
                     
                     HStack {
@@ -109,6 +115,12 @@ struct AllClickGameView: View {
                     CountdownView(countdown: $viewModel.countdown)
                 } else if viewModel.isPauseViewPresented {
                     GamePauseView(viewModel: viewModel)
+                        .onAppear {
+                            viewModel.stopSubjectRain()
+                        }
+                        .onDisappear {
+                            viewModel.startSubjectRain()
+                        }
                 } else if viewModel.isResultViewPresented {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
                 }
@@ -119,11 +131,6 @@ struct AllClickGameView: View {
             .onChange(of: viewModel.countdownCompleted) { completed in
                 if completed {
                     shouldBecomeFirstResponder = true
-                }
-            }
-            .onChange(of: viewModel.isPauseViewPresented) { isPaused in
-                if isPaused {
-                    shouldBecomeFirstResponder = false
                 }
             }
         }
