@@ -31,6 +31,9 @@ struct RootView: View {
                     Button("출석체크") {
                         viewModel.transition(to: .attendance)
                     }
+                    Button("출석체크") {
+                        viewModel.transition(to: .badge)
+                    }
                     Button("Logout") {
                         viewModel.logout()
                     }
@@ -72,6 +75,8 @@ struct RootView: View {
                 
             case .attendance:
                 AttendanceView(rootViewModel: viewModel)
+            case .badge:
+                BadgeView()
                 
             case .myPage:
                 MyPageView(viewModel: viewModel)
