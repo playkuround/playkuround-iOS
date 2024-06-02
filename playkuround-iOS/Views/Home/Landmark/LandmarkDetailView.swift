@@ -68,8 +68,8 @@ struct LandmarkDetailView: View {
         if descriptions.isEmpty {
             return ""
         } else {
-            descriptions.shuffle()
-            return descriptions[0]
+            let randomIdx = Int.random(in: 0..<descriptions.count)
+            return descriptions[randomIdx]
         }
     }
 }
