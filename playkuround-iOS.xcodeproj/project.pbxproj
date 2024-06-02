@@ -52,6 +52,7 @@
 		0CD0402D2C062A8E009F9BE1 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */; };
 		0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD06A282BAB459500845B24 /* RegisterTermsView.swift */; };
 		0CEB87C72BB7E2B000CC2E4B /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */; };
+		0CFFF0BE2C08EB1B00397875 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFFF0BD2C08EB1B00397875 /* HomeViewModel.swift */; };
 		0CFFF0C02C09C49000397875 /* CustomMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFFF0BF2C09C49000397875 /* CustomMapAnnotationView.swift */; };
 		0CFFF0C22C09C4AF00397875 /* AnnotationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFFF0C12C09C4AF00397875 /* AnnotationWrapper.swift */; };
 		B9018CFB2BDB60E000BC819C /* CupidGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9018CFA2BDB60E000BC819C /* CupidGameView.swift */; };
@@ -164,6 +165,7 @@
 		0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		0CD06A282BAB459500845B24 /* RegisterTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTermsView.swift; sourceTree = "<group>"; };
 		0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
+		0CFFF0BD2C08EB1B00397875 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0CFFF0BF2C09C49000397875 /* CustomMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapAnnotationView.swift; sourceTree = "<group>"; };
 		0CFFF0C12C09C4AF00397875 /* AnnotationWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationWrapper.swift; sourceTree = "<group>"; };
 		B9018CFA2BDB60E000BC819C /* CupidGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupidGameView.swift; sourceTree = "<group>"; };
@@ -400,6 +402,7 @@
 				0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */,
 				0CB465AD2BB3D1C700317455 /* RootViewModel.swift */,
 				0C519D982BBAEB6C00DAA206 /* GameViewModel.swift */,
+				0CFFF0BD2C08EB1B00397875 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */,
 				B9018CFD2BDB611F00BC819C /* CupidGameViewModel.swift in Sources */,
 				0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */,
+				0CFFF0BE2C08EB1B00397875 /* HomeViewModel.swift in Sources */,
 				C97987462BC3D91600BB3698 /* QuizState.swift in Sources */,
 				0CA193562BB5ABEB007C04B1 /* RequestPermissionView.swift in Sources */,
 				0CB902212BB6E6A300F76311 /* GamePauseView.swift in Sources */,
