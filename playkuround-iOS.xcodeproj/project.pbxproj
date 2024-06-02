@@ -11,6 +11,8 @@
 		0C31576C2BB7CCC000F270F7 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C31576B2BB7CCC000F270F7 /* Landmark.swift */; };
 		0C3F4E6A2C0C44C700EE9DB6 /* LandmarkDescription.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F4E692C0C44C700EE9DB6 /* LandmarkDescription.json */; };
 		0C3F4E6C2C0C44D000EE9DB6 /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F4E6B2C0C44D000EE9DB6 /* QuizData.json */; };
+		0C3F4E702C0C45CD00EE9DB6 /* LandmarkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3F4E6E2C0C45CD00EE9DB6 /* LandmarkDetailView.swift */; };
+		0C3F4E712C0C45CD00EE9DB6 /* LandmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3F4E6F2C0C45CD00EE9DB6 /* LandmarkView.swift */; };
 		0C519D972BBADD6500DAA206 /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C519D962BBADD6500DAA206 /* CardGameView.swift */; };
 		0C519D992BBAEB6C00DAA206 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C519D982BBAEB6C00DAA206 /* GameViewModel.swift */; };
 		0C519D9C2BBAFD9D00DAA206 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C519D9B2BBAFD9D00DAA206 /* Card.swift */; };
@@ -126,6 +128,8 @@
 		0C31576B2BB7CCC000F270F7 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
 		0C3F4E692C0C44C700EE9DB6 /* LandmarkDescription.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LandmarkDescription.json; path = ../../../../../LandmarkDescription.json; sourceTree = "<group>"; };
 		0C3F4E6B2C0C44D000EE9DB6 /* QuizData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = QuizData.json; path = ../../../../../../Downloads/QuizData.json; sourceTree = "<group>"; };
+		0C3F4E6E2C0C45CD00EE9DB6 /* LandmarkDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LandmarkDetailView.swift; path = ../../../../../../LandmarkDetailView.swift; sourceTree = "<group>"; };
+		0C3F4E6F2C0C45CD00EE9DB6 /* LandmarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LandmarkView.swift; path = ../../../../../../LandmarkView.swift; sourceTree = "<group>"; };
 		0C519D962BBADD6500DAA206 /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
 		0C519D982BBAEB6C00DAA206 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		0C519D9B2BBAFD9D00DAA206 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -266,6 +270,15 @@
 				0C3F4E692C0C44C700EE9DB6 /* LandmarkDescription.json */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		0C3F4E6D2C0C458300EE9DB6 /* Landmark */ = {
+			isa = PBXGroup;
+			children = (
+				0C3F4E6E2C0C45CD00EE9DB6 /* LandmarkDetailView.swift */,
+				0C3F4E6F2C0C45CD00EE9DB6 /* LandmarkView.swift */,
+			);
+			path = Landmark;
 			sourceTree = "<group>";
 		};
 		0C519D952BBADD5B00DAA206 /* CardGame */ = {
@@ -423,6 +436,7 @@
 		0CD0402B2C062A14009F9BE1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0C3F4E6D2C0C458300EE9DB6 /* Landmark */,
 				0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */,
 			);
 			path = Home;
@@ -809,6 +823,7 @@
 				C95F8F352BBAE1DA00E89B50 /* QuizGameView.swift in Sources */,
 				C9FE257B2BB3DFAA00F78C63 /* CheckLogoutView.swift in Sources */,
 				0CEB87C72BB7E2B000CC2E4B /* CountdownView.swift in Sources */,
+				0C3F4E702C0C45CD00EE9DB6 /* LandmarkDetailView.swift in Sources */,
 				C9564D7F2BB9ADE600A869ED /* MoonGameView.swift in Sources */,
 				0CB902242BB6E77200F76311 /* TimerGameView.swift in Sources */,
 				0CC01F262BBBD540007BB320 /* CardGameViewModel.swift in Sources */,
@@ -871,6 +886,7 @@
 				C97543F62BB325A300CD6479 /* MyPageListRowView.swift in Sources */,
 				C918F4092BA741F300C0BFDA /* LoginBottomSheetView.swift in Sources */,
 				B9018CFD2BDB611F00BC819C /* CupidGameViewModel.swift in Sources */,
+				0C3F4E712C0C45CD00EE9DB6 /* LandmarkView.swift in Sources */,
 				0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */,
 				0CFFF0BE2C08EB1B00397875 /* HomeViewModel.swift in Sources */,
 				C97987462BC3D91600BB3698 /* QuizState.swift in Sources */,
