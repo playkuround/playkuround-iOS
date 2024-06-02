@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0C27DDF02BBD714F0049B7B8 /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */; };
 		0C31576C2BB7CCC000F270F7 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C31576B2BB7CCC000F270F7 /* Landmark.swift */; };
+		0C3F4E6A2C0C44C700EE9DB6 /* LandmarkDescription.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F4E692C0C44C700EE9DB6 /* LandmarkDescription.json */; };
+		0C3F4E6C2C0C44D000EE9DB6 /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F4E6B2C0C44D000EE9DB6 /* QuizData.json */; };
 		0C519D972BBADD6500DAA206 /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C519D962BBADD6500DAA206 /* CardGameView.swift */; };
 		0C519D992BBAEB6C00DAA206 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C519D982BBAEB6C00DAA206 /* GameViewModel.swift */; };
 		0C519D9C2BBAFD9D00DAA206 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C519D9B2BBAFD9D00DAA206 /* Card.swift */; };
@@ -122,6 +124,8 @@
 /* Begin PBXFileReference section */
 		0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		0C31576B2BB7CCC000F270F7 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
+		0C3F4E692C0C44C700EE9DB6 /* LandmarkDescription.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LandmarkDescription.json; path = ../../../../../LandmarkDescription.json; sourceTree = "<group>"; };
+		0C3F4E6B2C0C44D000EE9DB6 /* QuizData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = QuizData.json; path = ../../../../../../Downloads/QuizData.json; sourceTree = "<group>"; };
 		0C519D962BBADD6500DAA206 /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
 		0C519D982BBAEB6C00DAA206 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		0C519D9B2BBAFD9D00DAA206 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -253,6 +257,15 @@
 				0CB974432BFE55AB008E1399 /* Window.swift */,
 			);
 			path = Games;
+			sourceTree = "<group>";
+		};
+		0C3F4E682C0C44AB00EE9DB6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0C3F4E6B2C0C44D000EE9DB6 /* QuizData.json */,
+				0C3F4E692C0C44C700EE9DB6 /* LandmarkDescription.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		0C519D952BBADD5B00DAA206 /* CardGame */ = {
@@ -459,6 +472,7 @@
 		C953D2F12BA477F700318869 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0C3F4E682C0C44AB00EE9DB6 /* Data */,
 				0C7FE69F2BB197DE00D94162 /* Images */,
 				0C5979B62BAB25CB00E8156D /* Texts */,
 				C983DF282BA86F31003523E9 /* Sounds */,
@@ -749,12 +763,14 @@
 				C98078B22BA8720D00C04B2D /* classEnd.mp3 in Resources */,
 				C98078A82BA871A000C04B2D /* cardIncorrect.mp3 in Resources */,
 				C98078B12BA8720D00C04B2D /* classMinusHeart.mp3 in Resources */,
+				0C3F4E6C2C0C44D000EE9DB6 /* QuizData.json in Resources */,
 				C98078AB2BA871A000C04B2D /* cardAllCorrect.mp3 in Resources */,
 				C98078912BA8703000C04B2D /* buttonClicked.mp3 in Resources */,
 				C98078972BA870E400C04B2D /* timerCorrect.mp3 in Resources */,
 				C9F694EF2BA3251B009A8762 /* Preview Assets.xcassets in Resources */,
 				C98078BE2BA872A300C04B2D /* duckkuWindowOpenAndClose.mp3 in Resources */,
 				C98078982BA870E400C04B2D /* timerIncorrect.mp3 in Resources */,
+				0C3F4E6A2C0C44C700EE9DB6 /* LandmarkDescription.json in Resources */,
 				C98078BF2BA872A300C04B2D /* duckkuClicked.mp3 in Resources */,
 				0C6B77F62BABCC8F0033CEEF /* location.txt in Resources */,
 				C98078AA2BA871A000C04B2D /* cardCorrect.mp3 in Resources */,
