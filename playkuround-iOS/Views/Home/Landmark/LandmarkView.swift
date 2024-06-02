@@ -15,12 +15,10 @@ struct LandmarkView: View {
         ZStack {
             Color.black.opacity(0.5).ignoresSafeArea()
                 .onTapGesture {
-                    withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-                        if isDescriptionShowing {
-                            isDescriptionShowing = false
-                        } else {
-                            homeViewModel.transition(to: .home)
-                        }
+                    if isDescriptionShowing {
+                        isDescriptionShowing = false
+                    } else {
+                        homeViewModel.transition(to: .home)
                     }
                 }
             
@@ -46,21 +44,28 @@ struct LandmarkView: View {
                                     .frame(width: 116, height: 116)
                             }
                             
-                            Image(.landmarkMedal)
-                                .padding(.bottom, 8)
+                            let landmarkRank = homeViewModel.landmarkRank
                             
-                            // TODO: HomeViewModel에서 건물 별 랭킹 로딩 필요
-                            Text("USER_NAME" + StringLiterals.Home.nicknameTitle)
-                                .font(.neo18)
-                                .foregroundStyle(.kuText)
-                                .kerning(-0.41)
-                                .padding(.bottom, 2)
-                            
-                            Text("\(0) " + StringLiterals.Home.scoreTitle)
-                                .font(.neo15)
-                                .foregroundStyle(.kuText)
-                                .kerning(-0.41)
-                                .padding(.bottom, 30)
+                            if landmarkRank.isEmpty {
+                                // 랭킹이 없는 경우 아무것도 표시하지 않음
+                                Spacer()
+                                    .frame(height: 132)
+                            } else {
+                                Image(.landmarkMedal)
+                                    .padding(.bottom, 8)
+                                
+                                Text(landmarkRank[0].nickname + StringLiterals.Home.nicknameTitle)
+                                    .font(.neo18)
+                                    .foregroundStyle(.kuText)
+                                    .kerning(-0.41)
+                                    .padding(.bottom, 2)
+                                
+                                Text("\(landmarkRank[0].score) " + StringLiterals.Home.scoreTitle)
+                                    .font(.neo15)
+                                    .foregroundStyle(.kuText)
+                                    .kerning(-0.41)
+                                    .padding(.bottom, 30)
+                            }
                             
                             Button {
                                 // TODO: 랜드마크별 정복랭킹 뷰
@@ -76,9 +81,7 @@ struct LandmarkView: View {
                             .padding(.bottom, 5)
                             
                             Button {
-                                withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-                                    isDescriptionShowing.toggle()
-                                }
+                                isDescriptionShowing.toggle()
                             } label: {
                                 Image(.shortButtonBlue)
                                     .overlay {
@@ -92,6 +95,10 @@ struct LandmarkView: View {
                         .offset(y: 18)
                     }
             }
+        }
+        .onAppear {
+            // Test용 코드 (Merge 전 삭제 예정)
+            homeViewModel.openLandmarkView(landmarkID: 25)
         }
     }
 }
