@@ -192,6 +192,8 @@ final class HomeViewModel: ObservableObject {
             return
         }
         
+        self.loadLandmarkRanking(landmarkID: landmarkID)
+        
         DispatchQueue.main.async {
             self.selectedLandmarkID = landmarkID
             self.transition(to: .landmark)
