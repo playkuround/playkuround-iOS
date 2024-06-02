@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LandmarkView: View {
-    // @ObservedObject var homeViewModel: HomeViewModel
+    @ObservedObject var homeViewModel: HomeViewModel
     @State private var isDescriptionShowing: Bool = false
     
     var body: some View {
@@ -19,29 +19,25 @@ struct LandmarkView: View {
                         if isDescriptionShowing {
                             isDescriptionShowing = false
                         } else {
-                            // homeViewModel.transition(to: .home)
+                            homeViewModel.transition(to: .home)
                         }
                     }
                 }
             
             if isDescriptionShowing {
-                // LandmarkDetailView(homeViewModel: homeViewModel, isDescriptionShowing: $isDescriptionShowing)
-                LandmarkDetailView(isDescriptionShowing: $isDescriptionShowing)
+                LandmarkDetailView(homeViewModel: homeViewModel, isDescriptionShowing: $isDescriptionShowing)
             } else {
-                // Image(.landmarkBackground)
-                Image(systemName: "star")
+                Image(.landmarkBackground)
                     .overlay {
                         VStack(spacing: 0) {
-                            // Text(homeViewModel.getSelectedLandmark().name)
-                            Text(landmarkList[1].name)
+                            Text(homeViewModel.getSelectedLandmark().name)
                                 .font(.neo22)
                                 .foregroundStyle(.kuText)
                                 .kerning(-0.41)
                                 .padding(.bottom, 8)
                             
                             ZStack {
-                                // Image("landmark\(homeViewModel.getSelectedLandmark().number)")
-                                Image("landmark\(1)")
+                                Image("landmark\(homeViewModel.getSelectedLandmark().number)")
                                     .resizable()
                                     .frame(width: 112, height: 112)
                                 
@@ -101,6 +97,5 @@ struct LandmarkView: View {
 }
 
 #Preview {
-    // LandmarkView(homeViewModel: HomeViewModel())
-    LandmarkView()
+    LandmarkView(homeViewModel: HomeViewModel())
 }

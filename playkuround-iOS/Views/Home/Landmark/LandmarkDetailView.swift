@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct LandmarkDetailView: View {
-    // @ObservedObject var homeViewModel: HomeViewModel
+    @ObservedObject var homeViewModel: HomeViewModel
     @Binding var isDescriptionShowing: Bool
     
     var body: some View {
         ZStack {
             Image(.landmarkDetailBackground)
-            Image(systemName: "star")
                 .overlay {
                     VStack(spacing: 0) {
                         ZStack {
@@ -23,24 +22,21 @@ struct LandmarkDetailView: View {
                                 .scaledToFit()
                                 .frame(width: 128, height: 128)
                             
-                            // Image("landmark\(homeViewModel.getSelectedLandmark().number)")
-                            Image("landmark\(1)")
+                            Image("landmark\(homeViewModel.getSelectedLandmark().number)")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 120, height: 120)
                         }
                         .padding(.bottom, 12)
                         
-                        // Text(homeViewModel.getSelectedLandmark().name)
-                        Text(landmarkList[1].name)
+                        Text(homeViewModel.getSelectedLandmark().name)
                             .font(.neo20)
                             .foregroundStyle(.kuText)
                             .kerning(-0.41)
                             .padding(.bottom, 14)
                         
                         ScrollView {
-                            // Text(getRandomDescription())
-                            Text("Landmark Description Here")
+                            Text(getRandomDescription())
                                 .font(.pretendard15R)
                                 .foregroundStyle(.kuText)
                                 .multilineTextAlignment(.center)
@@ -67,7 +63,7 @@ struct LandmarkDetailView: View {
         }
     }
     
-    /* private func getRandomDescription() -> String {
+    private func getRandomDescription() -> String {
         let landmarkIndex = homeViewModel.getSelectedLandmark().number
         var descriptions: [String] = homeViewModel.landmarkDescriptions[landmarkIndex].description
         
@@ -77,10 +73,9 @@ struct LandmarkDetailView: View {
             descriptions.shuffle()
             return descriptions[0]
         }
-    }*/
+    }
 }
 
 #Preview {
-    // LandmarkDetailView(homeViewModel: HomeViewModel(), isDescriptionShowing: .constant(true))
-    LandmarkDetailView(isDescriptionShowing: .constant(true))
+    LandmarkDetailView(homeViewModel: HomeViewModel(), isDescriptionShowing: .constant(true))
 }
