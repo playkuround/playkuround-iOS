@@ -63,7 +63,7 @@ struct LandmarkDetailView: View {
     
     private func getRandomDescription() -> String {
         let landmarkIndex = homeViewModel.getSelectedLandmark().number
-        var descriptions: [String] = homeViewModel.landmarkDescriptions[landmarkIndex].description
+        let descriptions: [String] = homeViewModel.landmarkDescriptions[landmarkIndex].description
         
         if descriptions.isEmpty {
             return ""
