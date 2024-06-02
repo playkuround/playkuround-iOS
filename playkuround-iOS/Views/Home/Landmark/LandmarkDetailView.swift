@@ -45,9 +45,7 @@ struct LandmarkDetailView: View {
                         .padding(.bottom, 56)
                         
                         Button {
-                            withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
-                                isDescriptionShowing = false
-                            }
+                            isDescriptionShowing = false
                         } label: {
                             Image(.smallButtonBlue)
                                 .overlay {
