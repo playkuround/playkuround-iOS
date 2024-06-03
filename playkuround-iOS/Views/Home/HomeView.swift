@@ -26,6 +26,9 @@ struct HomeView: View {
                     .allowsHitTesting(false)
                 
                 VStack {
+                    
+                    let shouldPadding = geometry.size.width > 375
+                    
                     HStack {
                         // Text(homeViewModel.userData.nickname)
                         Text("USER_NICKNAME")
@@ -63,9 +66,8 @@ struct HomeView: View {
                                 .padding(.horizontal, 8)
                             }
                     }
-                    // .padding(.top, 4)
+                    .padding(.top, shouldPadding ? 4 : 0)
                     .padding(.horizontal, 24)
-                    .border(.blue)
                     
                     HStack {
                         Spacer()
@@ -100,9 +102,7 @@ struct HomeView: View {
                         }
                         .padding(.horizontal, 30)
                     }
-                    .border(.orange)
-                    .padding(.top, 20)
-                    .border(.red)
+                    .padding(.top, shouldPadding ? 16 : 10)
                     
                     Spacer()
                     
@@ -143,9 +143,7 @@ struct HomeView: View {
                                     .kerning(-0.41)
                             }
                     }
-                    .border(.blue)
-                    .padding(.bottom, 60)
-                    .border(.green)
+                    .padding(.bottom, shouldPadding ? 60 : 70)
                 }
                 .padding(.top, 12)
                 
