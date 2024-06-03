@@ -40,7 +40,7 @@ struct HomeView: View {
                         
                         Image(.rankingBackground)
                             .overlay {
-                                HStack {
+                                HStack(spacing: 6) {
                                     Text(StringLiterals.Home.ranking)
                                         .font(.neo12)
                                         .foregroundStyle(.white)
