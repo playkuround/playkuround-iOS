@@ -40,6 +40,7 @@ struct LandmarkDetailView: View {
                                 .font(.pretendard15R)
                                 .foregroundStyle(.kuText)
                                 .multilineTextAlignment(.center)
+                                .lineSpacing(15 * 0.3)
                         }
                         .frame(width: 260, height: 60)
                         .padding(.bottom, 56)
@@ -58,6 +59,9 @@ struct LandmarkDetailView: View {
                     }
                     .offset(y: 44)
                 }
+        }
+        .onAppear {
+            homeViewModel.selectedLandmarkID = 1
         }
     }
     
