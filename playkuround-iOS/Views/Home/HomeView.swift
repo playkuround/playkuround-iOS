@@ -30,8 +30,7 @@ struct HomeView: View {
                     let shouldPadding = geometry.size.width > 375
                     
                     HStack {
-                        // Text(homeViewModel.userData.nickname)
-                        Text("USER_NICKNAME")
+                        Text(homeViewModel.userData.nickname)
                             .font(.neo18)
                             .foregroundStyle(.kuText)
                             .kerning(-0.41)
