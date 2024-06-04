@@ -29,7 +29,9 @@ struct BadgeView: View {
                                 
                                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 4), spacing: 10) {
                                     ForEach(0..<10) {_ in
-                                        Image(.badgeLock)
+                                        Image(.engineering)
+                                            .resizable()
+                                            .frame(width: 56, height: 56)
                                     }
                                 }
                                 .padding(.top, 30)
@@ -48,7 +50,7 @@ struct BadgeView: View {
                                     .padding(.top, 19)
                                 
                                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 4), spacing: 10) {
-                                    ForEach(0..<27) {_ in
+                                    ForEach(0..<28) {_ in
                                         Image(.badgeLock)
                                     }
                                 }
