@@ -116,6 +116,17 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
+    func attendance() {
+        APIManager.callPOSTAPI(endpoint: .attendances, parameters: ["latitude": 37.54040, "longitude": 127.07920]) { result in
+            switch result {
+            case .success(_):
+                self.loadAttendance()
+            case .failure(let error):
+                print("Error in View: \(error)")
+            }
+        }
+    }
+    
     // MARK: - Total Ranking
     func loadTotalRanking() {
         APIManager.callGETAPI(endpoint: .scoresRank) { result in

@@ -57,7 +57,7 @@ struct AttendanceView: View {
                             .padding(.bottom, 32)
                             
                             Button {
-                                // TODO: 출석 처리
+                                homeViewModel.attendance()
                             } label: {
                                 // TODO: 출석 완료 시 회색 버튼
                                 Image(.shortButtonBlue)
