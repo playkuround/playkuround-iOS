@@ -9,9 +9,6 @@ import SwiftUI
 
 struct MyPageView: View {
     @ObservedObject var viewModel: RootViewModel
-    @State private var user: UserEntity = UserEntity(nickname:  "", major: "",
-                                                     myRank: MyRank(score: 0, ranking: 0),
-                                                     highestScore: 0, highestRank: "")
     @ObservedObject var homeViewModel: HomeViewModel
     
     @State private var isLogoutPresented: Bool = false
@@ -24,7 +21,7 @@ struct MyPageView: View {
             Color(.kuBackground).ignoresSafeArea(.all)
             
             VStack {
-                MyPageProfileView(user: user)
+                MyPageProfileView(user: homeViewModel.userData)
                 
                 Rectangle()
                     .fill(.kuBlue3)
@@ -79,7 +76,7 @@ struct MyPageView: View {
                             .foregroundStyle(.kuText)
                     }, leftView: {
                         Button(action: {
-                            viewModel.transition(to: .home)
+                            homeViewModel.transition(to: .home)
                         }, label: {
                             Image(.leftBlackArrow)
                         })
@@ -111,12 +108,12 @@ struct MyPageView: View {
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("serviceTermsViewPresented"))) { _ in
             self.isServiceTermsViewPresented = true
         }
-        .onAppear {
+        /* .onAppear {
             callGetAPIUsers()
-        }
+        }*/
     }
     
-    private func callGetAPIUsers() {
+    /* private func callGetAPIUsers() {
         APIManager.callGETAPI(endpoint: .users) { result in
             switch result {
             case .success(let data):
@@ -152,5 +149,5 @@ struct MyPageView: View {
                 print("Error in View: \(error)")
             }
         }
-    }
+    }*/
 }
