@@ -76,7 +76,7 @@ struct RootView: View {
             case .attendance:
                 AttendanceView(rootViewModel: viewModel)
             case .badge:
-                BadgeView()
+                BadgeView(rootViewModel: viewModel)
                 
             case .myPage:
                 MyPageView(viewModel: viewModel)
