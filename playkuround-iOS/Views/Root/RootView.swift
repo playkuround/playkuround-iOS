@@ -31,7 +31,7 @@ struct RootView: View {
                     Button("출석체크") {
                         viewModel.transition(to: .attendance)
                     }
-                    Button("출석체크") {
+                    Button("뱃지") {
                         viewModel.transition(to: .badge)
                     }
                     Button("Logout") {
