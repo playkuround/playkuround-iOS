@@ -116,12 +116,13 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    func attendance() {
-        APIManager.callPOSTAPI(endpoint: .attendances, parameters: ["latitude": 37.54040, "longitude": 127.07920]) { result in
+    func attendance(latitude: Double, longitude: Double) {
+        APIManager.callPOSTAPI(endpoint: .attendances, parameters: ["latitude": latitude, "longitude": longitude]) { result in
             switch result {
             case .success(_):
                 self.loadAttendance()
             case .failure(let error):
+                // TODO: 건국대학교 범위 외 혹은 다른 이유로 출석 실패 시 예외 처리 필요 (추후 APIManager 작업 시 구현)
                 print("Error in View: \(error)")
             }
         }

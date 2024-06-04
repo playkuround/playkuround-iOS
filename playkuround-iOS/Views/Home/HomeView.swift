@@ -149,7 +149,7 @@ struct HomeView: View {
                 case .home:
                     EmptyView()
                 case .attendance:
-                    AttendanceView(rootViewModel: viewModel, homeViewModel: homeViewModel)
+                    AttendanceView(rootViewModel: viewModel, homeViewModel: homeViewModel, mapViewModel: mapViewModel)
                 case .badge:
                     // TODO: Badge View
                     EmptyView()

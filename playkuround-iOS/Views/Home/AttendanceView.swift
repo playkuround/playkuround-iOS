@@ -11,6 +11,7 @@ import SwiftUI
 struct AttendanceView: View {
     @ObservedObject var rootViewModel: RootViewModel
     @ObservedObject var homeViewModel: HomeViewModel
+    @ObservedObject var mapViewModel: MapViewModel
     @State private var dates: [Date] = []
     
     var body: some View {
@@ -82,7 +83,7 @@ struct AttendanceView: View {
                             let isTodayAttended = checkAttended(Date())
                             
                             Button {
-                                homeViewModel.attendance()
+                                homeViewModel.attendance(latitude: mapViewModel.userLatitude, longitude: mapViewModel.userLongitude)
                             } label: {
                                 Image(isTodayAttended ? .shortButtonGray : .shortButtonBlue)
                                     .overlay {
@@ -152,5 +153,5 @@ struct AttendanceView: View {
 }
 
 #Preview {
-    AttendanceView(rootViewModel: RootViewModel(), homeViewModel: HomeViewModel())
+    AttendanceView(rootViewModel: RootViewModel(), homeViewModel: HomeViewModel(), mapViewModel: MapViewModel())
 }
