@@ -10,6 +10,7 @@ import SwiftUI
 
 struct AttendanceView: View {
     @ObservedObject var rootViewModel: RootViewModel
+    @ObservedObject var homeViewModel: HomeViewModel
     @State private var dates: [Date] = []
     
     var body: some View {

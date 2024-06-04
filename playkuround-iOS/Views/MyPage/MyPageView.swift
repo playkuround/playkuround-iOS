@@ -12,6 +12,7 @@ struct MyPageView: View {
     @State private var user: UserEntity = UserEntity(nickname:  "", major: "",
                                                      myRank: MyRank(score: 0, ranking: 0),
                                                      highestScore: 0, highestRank: "")
+    @ObservedObject var homeViewModel: HomeViewModel
     
     @State private var isLogoutPresented: Bool = false
     @State private var isCheerPresented: Bool = false
