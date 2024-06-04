@@ -17,8 +17,7 @@ struct HomeView: View {
             ZStack {
                 Color.kuDarkGreen.ignoresSafeArea(.all)
                 
-                // MapView(mapViewModel: mapViewModel, homeViewModel: homeViewModel)
-                MapView(mapViewModel: mapViewModel)
+                MapView(mapViewModel: mapViewModel, homeViewModel: homeViewModel)
                 
                 Image(.homeBorder)
                     .resizable()
