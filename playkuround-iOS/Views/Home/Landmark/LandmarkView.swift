@@ -96,10 +96,6 @@ struct LandmarkView: View {
                     }
             }
         }
-        .onAppear {
-            // Test용 코드 (Merge 전 삭제 예정)
-            homeViewModel.openLandmarkView(landmarkID: 25)
-        }
     }
 }
 

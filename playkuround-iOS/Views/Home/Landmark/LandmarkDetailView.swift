@@ -60,9 +60,6 @@ struct LandmarkDetailView: View {
                     .offset(y: 44)
                 }
         }
-        .onAppear {
-            homeViewModel.selectedLandmarkID = 1
-        }
     }
     
     private func getRandomDescription() -> String {
