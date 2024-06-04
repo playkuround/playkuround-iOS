@@ -32,6 +32,7 @@
 		0C6B77F62BABCC8F0033CEEF /* location.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B77F52BABCC8F0033CEEF /* location.txt */; };
 		0C6B77F82BABCCCD0033CEEF /* privacy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B77F72BABCCCD0033CEEF /* privacy.txt */; };
 		0C6C36CA2C0339960069EE06 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C36C92C0339960069EE06 /* MotionManager.swift */; };
+		0C7609F22C0DA9590087EA55 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7609F12C0DA9590087EA55 /* HomeView.swift */; };
 		0C7C4E3C2C0777B600ABB4D8 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C4E3B2C0777B600ABB4D8 /* Date+.swift */; };
 		0C7C4E3F2C07A2E200ABB4D8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C4E3E2C07A2E200ABB4D8 /* MapView.swift */; };
 		0C7FE6992BB1259800D94162 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE6982BB1259800D94162 /* NetworkErrorView.swift */; };
@@ -149,6 +150,7 @@
 		0C6B77F52BABCC8F0033CEEF /* location.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = location.txt; sourceTree = "<group>"; };
 		0C6B77F72BABCCCD0033CEEF /* privacy.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = privacy.txt; sourceTree = "<group>"; };
 		0C6C36C92C0339960069EE06 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
+		0C7609F12C0DA9590087EA55 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0C7C4E3B2C0777B600ABB4D8 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		0C7C4E3E2C07A2E200ABB4D8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		0C7FE6982BB1259800D94162 /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 			children = (
 				0C3F4E6D2C0C458300EE9DB6 /* Landmark */,
 				0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */,
+				0C7609F12C0DA9590087EA55 /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -865,6 +868,7 @@
 				0C6AA4BD2BA553D80032AB24 /* APIManager.swift in Sources */,
 				0C6AA4CB2BA56B510032AB24 /* Major.swift in Sources */,
 				0C691EB32BBDA028004021F1 /* TimerState.swift in Sources */,
+				0C7609F22C0DA9590087EA55 /* HomeView.swift in Sources */,
 				0CB974442BFE55AB008E1399 /* Window.swift in Sources */,
 				0C519D9C2BBAFD9D00DAA206 /* Card.swift in Sources */,
 				B9B138052BE39D580094B2FC /* AllClickCustomTextView.swift in Sources */,
