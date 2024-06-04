@@ -32,24 +32,46 @@ struct AttendanceView: View {
                                     if date.isToday() {
                                         // 오늘
                                         ZStack {
-                                            // TODO: 출석 하기 전 빈 박스, 출석 후 박스
-                                            Image(.calendarTodayBox)
-                                                .resizable()
-                                                .frame(width: 34, height: 34)
-                                            Text(date.toCalendarString())
-                                                .font(.pretendard17R)
-                                                .foregroundColor(.kuText)
-                                                .kerning(-0.41)
+                                            if checkAttended(date) {
+                                                Image(.calendarBox)
+                                                    .resizable()
+                                                    .frame(width: 34, height: 34)
+                                                Text(date.toCalendarString())
+                                                    .font(.pretendard17R)
+                                                    .foregroundColor(.kuText)
+                                                    .fontWeight(.medium)
+                                                    .kerning(-0.41)
+                                            } else {
+                                                Image(.calendarTodayBox)
+                                                    .resizable()
+                                                    .frame(width: 34, height: 34)
+                                                Text(date.toCalendarString())
+                                                    .font(.pretendard17R)
+                                                    .foregroundColor(.kuText)
+                                                    .fontWeight(.medium)
+                                                    .kerning(-0.41)
+                                            }
                                         }
                                         .frame(width: 34, height: 34)
                                     } else {
                                         // 과거
                                         ZStack {
-                                            // TODO: if 출석 했다면 박스 흰색글씨, 안했다면 박스X 회색글씨
-                                            Text(date.toCalendarString())
-                                                .font(.pretendard17R)
-                                                .foregroundColor(.kuGray2)
-                                                .kerning(-0.41)
+                                            if checkAttended(date) {
+                                                Image(.calendarBox)
+                                                    .resizable()
+                                                    .frame(width: 34, height: 34)
+                                                Text(date.toCalendarString())
+                                                    .font(.pretendard17R)
+                                                    .foregroundColor(.white)
+                                                    .fontWeight(.medium)
+                                                    .kerning(-0.41)
+                                            } else {
+                                                Text(date.toCalendarString())
+                                                    .font(.pretendard17R)
+                                                    .foregroundColor(.kuGray2)
+                                                    .fontWeight(.medium)
+                                                    .kerning(-0.41)
+                                            }
                                         }
                                         .frame(width: 34, height: 34)
                                     }
@@ -57,18 +79,20 @@ struct AttendanceView: View {
                             }
                             .padding(.bottom, 32)
                             
+                            let isTodayAttended = checkAttended(Date())
+                            
                             Button {
                                 homeViewModel.attendance()
                             } label: {
-                                // TODO: 출석 완료 시 회색 버튼
-                                Image(.shortButtonBlue)
+                                Image(isTodayAttended ? .shortButtonGray : .shortButtonBlue)
                                     .overlay {
-                                        Text(StringLiterals.Home.Attendance.attendance)
+                                        Text(isTodayAttended ? StringLiterals.Home.Attendance.attenanceDone : StringLiterals.Home.Attendance.attendance)
                                             .font(.neo18)
                                             .kerning(-0.41)
                                             .foregroundStyle(.kuText)
                                     }
                             }
+                            .disabled(isTodayAttended)
                         }
                         .offset(y: 24)
                         .padding(50)
@@ -84,7 +108,7 @@ struct AttendanceView: View {
                     .foregroundStyle(.white)
             }, leftView: {
                 Button {
-                    rootViewModel.transition(to: .home)
+                    homeViewModel.transition(to: .home)
                 } label: {
                     Image(.leftWhiteArrow)
                 }
@@ -92,12 +116,10 @@ struct AttendanceView: View {
         }
         .onAppear {
             dates = generateDates()
-            // TODO: 출석 확인 API 호출하여 날짜별 출석 여부 표시
         }
     }
     
-    // TODO: ViewModel 만들면 VM내로 옮기기
-    func generateDates() -> [Date] {
+    private func generateDates() -> [Date] {
         var calendar = Calendar.current
         calendar.timeZone = TimeZone(identifier: "Asia/Seoul")!
         
@@ -117,8 +139,18 @@ struct AttendanceView: View {
         
         return dates
     }
+    
+    private func checkAttended(_ date: Date) -> Bool {
+        guard let dateString = date.toFormattedString("yyyy-MM-dd") else { return false }
+        
+        if homeViewModel.attendanceList.contains(dateString) {
+            return true
+        } else {
+            return false
+        }
+    }
 }
 
 #Preview {
-    AttendanceView(rootViewModel: RootViewModel())
+    AttendanceView(rootViewModel: RootViewModel(), homeViewModel: HomeViewModel())
 }
