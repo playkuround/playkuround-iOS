@@ -56,6 +56,7 @@
 		B9105A012BDBFF8700D6455F /* AllClickGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9105A002BDBFF8700D6455F /* AllClickGameViewModel.swift */; };
 		B9105A032BDBFF9700D6455F /* AllClickGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9105A022BDBFF9700D6455F /* AllClickGameView.swift */; };
 		B98503C22BDCEC2900C3CC8F /* AllClickTextRainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98503C12BDCEC2900C3CC8F /* AllClickTextRainView.swift */; };
+		B99CD63D2C1026E2002B3755 /* BadgeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99CD63C2C1026E2002B3755 /* BadgeDetailView.swift */; };
 		B9A334EE2C0BA050006A6A24 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A334ED2C0BA050006A6A24 /* BadgeView.swift */; };
 		B9B138052BE39D580094B2FC /* AllClickCustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B138042BE39D580094B2FC /* AllClickCustomTextView.swift */; };
 		C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */; };
@@ -166,6 +167,7 @@
 		B9105A002BDBFF8700D6455F /* AllClickGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickGameViewModel.swift; sourceTree = "<group>"; };
 		B9105A022BDBFF9700D6455F /* AllClickGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickGameView.swift; sourceTree = "<group>"; };
 		B98503C12BDCEC2900C3CC8F /* AllClickTextRainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickTextRainView.swift; sourceTree = "<group>"; };
+		B99CD63C2C1026E2002B3755 /* BadgeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeDetailView.swift; sourceTree = "<group>"; };
 		B9A334ED2C0BA050006A6A24 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		B9B138042BE39D580094B2FC /* AllClickCustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickCustomTextView.swift; sourceTree = "<group>"; };
 		C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCustomView.swift; sourceTree = "<group>"; };
@@ -393,8 +395,8 @@
 		0CD0402B2C062A14009F9BE1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B99CD63B2C1026D1002B3755 /* Badge */,
 				0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */,
-				B9A334ED2C0BA050006A6A24 /* BadgeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -417,6 +419,15 @@
 				B9B138042BE39D580094B2FC /* AllClickCustomTextView.swift */,
 			);
 			path = AllClickGame;
+			sourceTree = "<group>";
+		};
+		B99CD63B2C1026D1002B3755 /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				B9A334ED2C0BA050006A6A24 /* BadgeView.swift */,
+				B99CD63C2C1026E2002B3755 /* BadgeDetailView.swift */,
+			);
+			path = Badge;
 			sourceTree = "<group>";
 		};
 		C918F4032BA7148800C0BFDA /* Managers */ = {
@@ -805,6 +816,7 @@
 				C9FE257D2BB40E1C00F78C63 /* CheerPKTeamView.swift in Sources */,
 				0C9641E62BB874E200838DA9 /* TimerBarView.swift in Sources */,
 				0CA07D712BFDA98400564AEB /* SurviveGameViewModel.swift in Sources */,
+				B99CD63D2C1026E2002B3755 /* BadgeDetailView.swift in Sources */,
 				0C5979BC2BAB26A800E8156D /* TermsView.swift in Sources */,
 				0C519D992BBAEB6C00DAA206 /* GameViewModel.swift in Sources */,
 				B98503C22BDCEC2900C3CC8F /* AllClickTextRainView.swift in Sources */,
@@ -974,7 +986,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"playkuround-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = NCLJJYF4QS;
+				DEVELOPMENT_TEAM = 9SVDHQS4M3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "playkuround-iOS/Info.plist";
@@ -1010,7 +1022,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"playkuround-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = NCLJJYF4QS;
+				DEVELOPMENT_TEAM = 9SVDHQS4M3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "playkuround-iOS/Info.plist";
