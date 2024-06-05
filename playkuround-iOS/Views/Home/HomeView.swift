@@ -151,8 +151,7 @@ struct HomeView: View {
                 case .attendance:
                     AttendanceView(rootViewModel: viewModel, homeViewModel: homeViewModel, mapViewModel: mapViewModel)
                 case .badge:
-                    // TODO: Badge View
-                    EmptyView()
+                    BadgeView(rootViewModel: viewModel, homeViewModel: homeViewModel)
                 case .ranking:
                     // TODO: Ranking View
                     EmptyView()
