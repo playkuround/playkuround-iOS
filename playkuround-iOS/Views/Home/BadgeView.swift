@@ -31,7 +31,7 @@ struct BadgeView: View {
                                     ForEach(0..<10) {_ in
                                         Image(.engineering)
                                             .resizable()
-                                            .frame(width: 56, height: 56)
+                                            .aspectRatio(contentMode: .fit)
                                     }
                                 }
                                 .padding(.top, 30)
@@ -51,7 +51,9 @@ struct BadgeView: View {
                                 
                                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 4), spacing: 10) {
                                     ForEach(0..<28) {_ in
-                                        Image(.badgeLock)
+                                        Image(.artAndDesign)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
                                     }
                                 }
                                 .padding(.top, 30)
