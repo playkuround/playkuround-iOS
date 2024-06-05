@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0C27DDF02BBD714F0049B7B8 /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */; };
 		0C31576C2BB7CCC000F270F7 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C31576B2BB7CCC000F270F7 /* Landmark.swift */; };
-		0C3F4E6A2C0C44C700EE9DB6 /* LandmarkDescription.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F4E692C0C44C700EE9DB6 /* LandmarkDescription.json */; };
 		0C3F4E6C2C0C44D000EE9DB6 /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F4E6B2C0C44D000EE9DB6 /* QuizData.json */; };
 		0C3F4E732C0C477F00EE9DB6 /* LandmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3F4E722C0C477F00EE9DB6 /* LandmarkView.swift */; };
 		0C3F4E752C0C479700EE9DB6 /* LandmarkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3F4E742C0C479700EE9DB6 /* LandmarkDetailView.swift */; };
@@ -40,6 +39,7 @@
 		0C7FE6A12BB1983A00D94162 /* AnimationImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */; };
 		0C9641E62BB874E200838DA9 /* TimerBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9641E52BB874E200838DA9 /* TimerBarView.swift */; };
 		0C9641EA2BB92D6300838DA9 /* GameResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9641E92BB92D6300838DA9 /* GameResultView.swift */; };
+		0C9C3B222C0F8DCD0094EC02 /* LandmarkDescription.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C9C3B212C0F8DCD0094EC02 /* LandmarkDescription.json */; };
 		0CA07D6F2BFDA96F00564AEB /* SurviveGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA07D6E2BFDA96F00564AEB /* SurviveGameView.swift */; };
 		0CA07D712BFDA98400564AEB /* SurviveGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA07D702BFDA98400564AEB /* SurviveGameViewModel.swift */; };
 		0CA193562BB5ABEB007C04B1 /* RequestPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */; };
@@ -127,7 +127,6 @@
 /* Begin PBXFileReference section */
 		0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		0C31576B2BB7CCC000F270F7 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
-		0C3F4E692C0C44C700EE9DB6 /* LandmarkDescription.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LandmarkDescription.json; path = ../../../../../LandmarkDescription.json; sourceTree = "<group>"; };
 		0C3F4E6B2C0C44D000EE9DB6 /* QuizData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = QuizData.json; path = ../../../../../../Downloads/QuizData.json; sourceTree = "<group>"; };
 		0C3F4E722C0C477F00EE9DB6 /* LandmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkView.swift; sourceTree = "<group>"; };
 		0C3F4E742C0C479700EE9DB6 /* LandmarkDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkDetailView.swift; sourceTree = "<group>"; };
@@ -158,6 +157,7 @@
 		0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationImages.swift; sourceTree = "<group>"; };
 		0C9641E52BB874E200838DA9 /* TimerBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerBarView.swift; sourceTree = "<group>"; };
 		0C9641E92BB92D6300838DA9 /* GameResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultView.swift; sourceTree = "<group>"; };
+		0C9C3B212C0F8DCD0094EC02 /* LandmarkDescription.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LandmarkDescription.json; path = "../../../../../플쿠 임시/LandmarkDescription.json"; sourceTree = "<group>"; };
 		0CA07D6E2BFDA96F00564AEB /* SurviveGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurviveGameView.swift; sourceTree = "<group>"; };
 		0CA07D702BFDA98400564AEB /* SurviveGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurviveGameViewModel.swift; sourceTree = "<group>"; };
 		0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionView.swift; sourceTree = "<group>"; };
@@ -268,8 +268,8 @@
 		0C3F4E682C0C44AB00EE9DB6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				0C9C3B212C0F8DCD0094EC02 /* LandmarkDescription.json */,
 				0C3F4E6B2C0C44D000EE9DB6 /* QuizData.json */,
-				0C3F4E692C0C44C700EE9DB6 /* LandmarkDescription.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -363,9 +363,9 @@
 		0C7FE6952BB1256300D94162 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				0C7FE6982BB1259800D94162 /* NetworkErrorView.swift */,
-				0C7FE69A2BB1290A00D94162 /* LoadingView.swift */,
 				0CA4C5652BB3281F00268B07 /* RootView.swift */,
+				0C7FE69A2BB1290A00D94162 /* LoadingView.swift */,
+				0C7FE6982BB1259800D94162 /* NetworkErrorView.swift */,
 				0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */,
 			);
 			path = Root;
@@ -392,11 +392,11 @@
 		0CB9021F2BB6E69800F76311 /* Games */ = {
 			isa = PBXGroup;
 			children = (
+				0C519D9A2BBAECA300DAA206 /* Common */,
 				0CB9743E2BFE535A008E1399 /* CatchGame */,
 				0CA07D6D2BFDA93F00564AEB /* SurviveGame */,
 				B91059FB2BDBFEA900D6455F /* AllClickGame */,
 				B9018CF92BDB60D400BC819C /* CupidGame */,
-				0C519D9A2BBAECA300DAA206 /* Common */,
 				0C519D952BBADD5B00DAA206 /* CardGame */,
 				C95F8F332BBAE1C900E89B50 /* QuizGame */,
 				C9564D7D2BB9ADD700A869ED /* MoonGame */,
@@ -427,10 +427,10 @@
 		0CBB058E2BB07A0000EB56BE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */,
 				0CB465AD2BB3D1C700317455 /* RootViewModel.swift */,
-				0C519D982BBAEB6C00DAA206 /* GameViewModel.swift */,
 				0CFFF0BD2C08EB1B00397875 /* HomeViewModel.swift */,
+				0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */,
+				0C519D982BBAEB6C00DAA206 /* GameViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -438,9 +438,9 @@
 		0CD0402B2C062A14009F9BE1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0C3F4E6D2C0C458300EE9DB6 /* Landmark */,
-				0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */,
 				0C7609F12C0DA9590087EA55 /* HomeView.swift */,
+				0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */,
+				0C3F4E6D2C0C458300EE9DB6 /* Landmark */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -514,8 +514,8 @@
 		C953D2FC2BA4806900318869 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0C7C4E3D2C07A2D900ABB4D8 /* Map */,
 				0CD0402B2C062A14009F9BE1 /* Home */,
+				0C7C4E3D2C07A2D900ABB4D8 /* Map */,
 				0CB9021F2BB6E69800F76311 /* Games */,
 				C97543EE2BB31CE100CD6479 /* MyPage */,
 				0C7FE6952BB1256300D94162 /* Root */,
@@ -778,6 +778,7 @@
 				C98078A92BA871A000C04B2D /* cardClicked.mp3 in Resources */,
 				C980789C2BA8712700C04B2D /* cupidBad.mp3 in Resources */,
 				C98078B22BA8720D00C04B2D /* classEnd.mp3 in Resources */,
+				0C9C3B222C0F8DCD0094EC02 /* LandmarkDescription.json in Resources */,
 				C98078A82BA871A000C04B2D /* cardIncorrect.mp3 in Resources */,
 				C98078B12BA8720D00C04B2D /* classMinusHeart.mp3 in Resources */,
 				0C3F4E6C2C0C44D000EE9DB6 /* QuizData.json in Resources */,
@@ -787,7 +788,6 @@
 				C9F694EF2BA3251B009A8762 /* Preview Assets.xcassets in Resources */,
 				C98078BE2BA872A300C04B2D /* duckkuWindowOpenAndClose.mp3 in Resources */,
 				C98078982BA870E400C04B2D /* timerIncorrect.mp3 in Resources */,
-				0C3F4E6A2C0C44C700EE9DB6 /* LandmarkDescription.json in Resources */,
 				C98078BF2BA872A300C04B2D /* duckkuClicked.mp3 in Resources */,
 				0C6B77F62BABCC8F0033CEEF /* location.txt in Resources */,
 				C98078AA2BA871A000C04B2D /* cardCorrect.mp3 in Resources */,

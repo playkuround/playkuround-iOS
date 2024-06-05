@@ -11,6 +11,7 @@ import SwiftUI
 
 struct MapView: View {
     @ObservedObject var mapViewModel: MapViewModel
+    @ObservedObject var homeViewModel: HomeViewModel
     
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.542_634, longitude: 127.076_769), span: MKCoordinateSpan(latitudeDelta: 0.009, longitudeDelta: 0.009))
     @State private var annotationList: [AnnotationWrapper] = []
@@ -22,8 +23,7 @@ struct MapView: View {
                     // getAnnotation(annotation)
                     CustomMapAnnotationView(annotation: annotation, mapViewModel: mapViewModel)
                         .onTapGesture {
-                            // TODO: HomeView에서 랜드마크 상세정보 표시
-                            print(annotation.landmark.name)
+                            homeViewModel.openLandmarkView(landmarkID: annotation.landmark.number)
                         }
                 }
             } else {
@@ -55,5 +55,5 @@ struct MapView: View {
 }
 
 #Preview {
-    MapView(mapViewModel: MapViewModel())
+    MapView(mapViewModel: MapViewModel(), homeViewModel: HomeViewModel())
 }

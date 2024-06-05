@@ -10,6 +10,7 @@ import SwiftUI
 struct RootView: View {
     @ObservedObject var viewModel: RootViewModel = RootViewModel()
     @ObservedObject var mapViewModel: MapViewModel = MapViewModel()
+    @ObservedObject var homeViewModel: HomeViewModel = HomeViewModel()
     
     var body: some View {
         ZStack {
@@ -25,56 +26,7 @@ struct RootView: View {
             case .registerNickname:
                 RegisterNickname(viewModel: viewModel)
             case .home:
-                // 임시 구현
-                VStack {
-                    Text("Home")
-                    Button("출석체크") {
-                        viewModel.transition(to: .attendance)
-                    }
-                    Button("Logout") {
-                        viewModel.logout()
-                    }
-                    Button("myPage") {
-                        viewModel.transition(to: .myPage)
-                    }
-                    Button("책 뒤집기") {
-                        viewModel.transition(to: .cardGame)
-                    }
-                    Button("10초를 맞춰봐") {
-                        viewModel.transition(to: .timeGame)
-                    }
-                    Button("MOON을 점령해") {
-                        viewModel.transition(to: .moonGame)
-                    }
-                    Button("건쏠지식") {
-                        viewModel.transition(to: .quizGame)
-                    }
-                    Button("덕큐피트") {
-                        viewModel.transition(to: .cupidGame)
-                    }
-                    Button("수강신청 ALL 클릭") {
-                        viewModel.transition(to: .allClickGame)
-                    }
-                    Button("일감호에서 살아남기") {
-                        viewModel.transition(to: .surviveGame)
-                    }
-                    Button("덕쿠를 잡아라!") {
-                        viewModel.transition(to: .catchGame)
-                    }
-                }
-                .onAppear {
-                    mapViewModel.startUpdatingLocation()
-                }
-                .onDisappear {
-                    // 홈 뷰에서 벗어날 때 위치 업데이트 중지
-                    mapViewModel.stopUpdatingLocation()
-                }
-                
-            case .attendance:
-                AttendanceView(rootViewModel: viewModel)
-                
-            case .myPage:
-                MyPageView(viewModel: viewModel)
+                HomeView(viewModel: viewModel, homeViewModel: homeViewModel, mapViewModel: mapViewModel)
             case .cardGame:
                 CardGameView(viewModel: CardGameViewModel(.book, rootViewModel: self.viewModel, mapViewModel: self.mapViewModel, timeStart: 30.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: viewModel)
             case .timeGame:

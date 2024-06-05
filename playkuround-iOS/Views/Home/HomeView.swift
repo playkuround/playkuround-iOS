@@ -17,8 +17,7 @@ struct HomeView: View {
             ZStack {
                 Color.kuDarkGreen.ignoresSafeArea(.all)
                 
-                // MapView(mapViewModel: mapViewModel, homeViewModel: homeViewModel)
-                MapView(mapViewModel: mapViewModel)
+                MapView(mapViewModel: mapViewModel, homeViewModel: homeViewModel)
                 
                 Image(.homeBorder)
                     .resizable()
@@ -74,7 +73,7 @@ struct HomeView: View {
                         // TODO: 버튼 클릭 시 각 뷰 표시
                         VStack(spacing: 7) {
                             Button {
-                                // homeViewModel.transition(to: .attendance)
+                                homeViewModel.transition(to: .attendance)
                             } label: {
                                 Image(.attendanceButton)
                             }
@@ -92,7 +91,7 @@ struct HomeView: View {
                             }
                             
                             Button {
-                                // homeViewModel.transition(to: .myPage)
+                                homeViewModel.transition(to: .myPage)
                             } label: {
                                 Image(.myPageButton)
                             }
@@ -150,15 +149,15 @@ struct HomeView: View {
                 case .home:
                     EmptyView()
                 case .attendance:
-                    // AttendanceView(rootViewModel: viewModel, homeViewModel: homeViewModel)
-                    AttendanceView(rootViewModel: viewModel)
+                    AttendanceView(rootViewModel: viewModel, homeViewModel: homeViewModel, mapViewModel: mapViewModel)
                 case .badge:
+                    // TODO: Badge View
                     EmptyView()
                 case .ranking:
+                    // TODO: Ranking View
                     EmptyView()
                 case .myPage:
-                    // MyPageView(viewModel: viewModel, homeViewModel: homeViewModel)
-                    MyPageView(viewModel: viewModel)
+                    MyPageView(viewModel: viewModel, homeViewModel: homeViewModel)
                 case .landmark:
                     LandmarkView(homeViewModel: homeViewModel)
                 }
