@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "artAndDesignbeforeNoon.png",
+      "filename" : "artAndDesignafterNoon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "artAndDesignbeforeNoon@2x.png",
+      "filename" : "artAndDesignafterNoon@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "artAndDesignbeforeNoon@3x.png",
+      "filename" : "artAndDesignafterNoon@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
