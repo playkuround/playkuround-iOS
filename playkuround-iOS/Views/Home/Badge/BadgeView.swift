@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BadgeView: View {
     @ObservedObject var rootViewModel: RootViewModel
+    @ObservedObject var homeViewModel: HomeViewModel
+    
     @State private var showDetail: Bool = false
     @State private var selectedBadge: Badge?
     
@@ -83,7 +85,7 @@ struct BadgeView: View {
                     .foregroundStyle(.white)
             }, leftView: {
                 Button {
-                    rootViewModel.transition(to: .badge)
+                    homeViewModel.transition(to: .home)
                 } label: {
                     Image(.leftWhiteArrow)
                 }
@@ -101,5 +103,5 @@ struct BadgeView: View {
 }
 
 #Preview {
-    BadgeView(rootViewModel: RootViewModel())
+    BadgeView(rootViewModel: RootViewModel(), homeViewModel: HomeViewModel())
 }

@@ -71,11 +71,6 @@ enum ViewType {
     
     // home
     case home
-    case attendance
-    case badge
-    
-    // my page
-    case myPage
     
     // Games
     case cardGame
