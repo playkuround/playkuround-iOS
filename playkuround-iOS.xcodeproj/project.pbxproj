@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0C27DDF02BBD714F0049B7B8 /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */; };
 		0C31576C2BB7CCC000F270F7 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C31576B2BB7CCC000F270F7 /* Landmark.swift */; };
-		0C3F4E6C2C0C44D000EE9DB6 /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F4E6B2C0C44D000EE9DB6 /* QuizData.json */; };
 		0C3F4E732C0C477F00EE9DB6 /* LandmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3F4E722C0C477F00EE9DB6 /* LandmarkView.swift */; };
 		0C3F4E752C0C479700EE9DB6 /* LandmarkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3F4E742C0C479700EE9DB6 /* LandmarkDetailView.swift */; };
 		0C519D972BBADD6500DAA206 /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C519D962BBADD6500DAA206 /* CardGameView.swift */; };
@@ -39,7 +38,6 @@
 		0C7FE6A12BB1983A00D94162 /* AnimationImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */; };
 		0C9641E62BB874E200838DA9 /* TimerBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9641E52BB874E200838DA9 /* TimerBarView.swift */; };
 		0C9641EA2BB92D6300838DA9 /* GameResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9641E92BB92D6300838DA9 /* GameResultView.swift */; };
-		0C9C3B222C0F8DCD0094EC02 /* LandmarkDescription.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C9C3B212C0F8DCD0094EC02 /* LandmarkDescription.json */; };
 		0CA07D6F2BFDA96F00564AEB /* SurviveGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA07D6E2BFDA96F00564AEB /* SurviveGameView.swift */; };
 		0CA07D712BFDA98400564AEB /* SurviveGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA07D702BFDA98400564AEB /* SurviveGameViewModel.swift */; };
 		0CA193562BB5ABEB007C04B1 /* RequestPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */; };
@@ -64,7 +62,11 @@
 		B9018CFD2BDB611F00BC819C /* CupidGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9018CFC2BDB611F00BC819C /* CupidGameViewModel.swift */; };
 		B9105A012BDBFF8700D6455F /* AllClickGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9105A002BDBFF8700D6455F /* AllClickGameViewModel.swift */; };
 		B9105A032BDBFF9700D6455F /* AllClickGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9105A022BDBFF9700D6455F /* AllClickGameView.swift */; };
+		B94C50412C108589005CB447 /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = B94C50402C108589005CB447 /* QuizData.json */; };
+		B94C50432C108592005CB447 /* LandmarkDescription.json in Resources */ = {isa = PBXBuildFile; fileRef = B94C50422C108592005CB447 /* LandmarkDescription.json */; };
 		B98503C22BDCEC2900C3CC8F /* AllClickTextRainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98503C12BDCEC2900C3CC8F /* AllClickTextRainView.swift */; };
+		B99CD63D2C1026E2002B3755 /* BadgeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99CD63C2C1026E2002B3755 /* BadgeDetailView.swift */; };
+		B9A334EE2C0BA050006A6A24 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A334ED2C0BA050006A6A24 /* BadgeView.swift */; };
 		B9B138052BE39D580094B2FC /* AllClickCustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B138042BE39D580094B2FC /* AllClickCustomTextView.swift */; };
 		C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */; };
 		C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4042BA7149A00C0BFDA /* SoundManager.swift */; };
@@ -127,7 +129,6 @@
 /* Begin PBXFileReference section */
 		0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		0C31576B2BB7CCC000F270F7 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
-		0C3F4E6B2C0C44D000EE9DB6 /* QuizData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = QuizData.json; path = ../../../../../../Downloads/QuizData.json; sourceTree = "<group>"; };
 		0C3F4E722C0C477F00EE9DB6 /* LandmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkView.swift; sourceTree = "<group>"; };
 		0C3F4E742C0C479700EE9DB6 /* LandmarkDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkDetailView.swift; sourceTree = "<group>"; };
 		0C519D962BBADD6500DAA206 /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
@@ -157,7 +158,6 @@
 		0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationImages.swift; sourceTree = "<group>"; };
 		0C9641E52BB874E200838DA9 /* TimerBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerBarView.swift; sourceTree = "<group>"; };
 		0C9641E92BB92D6300838DA9 /* GameResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultView.swift; sourceTree = "<group>"; };
-		0C9C3B212C0F8DCD0094EC02 /* LandmarkDescription.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LandmarkDescription.json; path = "../../../../../플쿠 임시/LandmarkDescription.json"; sourceTree = "<group>"; };
 		0CA07D6E2BFDA96F00564AEB /* SurviveGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurviveGameView.swift; sourceTree = "<group>"; };
 		0CA07D702BFDA98400564AEB /* SurviveGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurviveGameViewModel.swift; sourceTree = "<group>"; };
 		0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionView.swift; sourceTree = "<group>"; };
@@ -182,7 +182,11 @@
 		B9018CFC2BDB611F00BC819C /* CupidGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupidGameViewModel.swift; sourceTree = "<group>"; };
 		B9105A002BDBFF8700D6455F /* AllClickGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickGameViewModel.swift; sourceTree = "<group>"; };
 		B9105A022BDBFF9700D6455F /* AllClickGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickGameView.swift; sourceTree = "<group>"; };
+		B94C50402C108589005CB447 /* QuizData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = QuizData.json; sourceTree = "<group>"; };
+		B94C50422C108592005CB447 /* LandmarkDescription.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LandmarkDescription.json; sourceTree = "<group>"; };
 		B98503C12BDCEC2900C3CC8F /* AllClickTextRainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickTextRainView.swift; sourceTree = "<group>"; };
+		B99CD63C2C1026E2002B3755 /* BadgeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeDetailView.swift; sourceTree = "<group>"; };
+		B9A334ED2C0BA050006A6A24 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		B9B138042BE39D580094B2FC /* AllClickCustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickCustomTextView.swift; sourceTree = "<group>"; };
 		C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCustomView.swift; sourceTree = "<group>"; };
 		C918F4042BA7149A00C0BFDA /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
@@ -268,8 +272,8 @@
 		0C3F4E682C0C44AB00EE9DB6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				0C9C3B212C0F8DCD0094EC02 /* LandmarkDescription.json */,
-				0C3F4E6B2C0C44D000EE9DB6 /* QuizData.json */,
+				B94C50422C108592005CB447 /* LandmarkDescription.json */,
+				B94C50402C108589005CB447 /* QuizData.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -438,6 +442,7 @@
 		0CD0402B2C062A14009F9BE1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B99CD63B2C1026D1002B3755 /* Badge */,
 				0C7609F12C0DA9590087EA55 /* HomeView.swift */,
 				0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */,
 				0C3F4E6D2C0C458300EE9DB6 /* Landmark */,
@@ -463,6 +468,15 @@
 				B9B138042BE39D580094B2FC /* AllClickCustomTextView.swift */,
 			);
 			path = AllClickGame;
+			sourceTree = "<group>";
+		};
+		B99CD63B2C1026D1002B3755 /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				B9A334ED2C0BA050006A6A24 /* BadgeView.swift */,
+				B99CD63C2C1026E2002B3755 /* BadgeDetailView.swift */,
+			);
+			path = Badge;
 			sourceTree = "<group>";
 		};
 		C918F4032BA7148800C0BFDA /* Managers */ = {
@@ -778,16 +792,16 @@
 				C98078A92BA871A000C04B2D /* cardClicked.mp3 in Resources */,
 				C980789C2BA8712700C04B2D /* cupidBad.mp3 in Resources */,
 				C98078B22BA8720D00C04B2D /* classEnd.mp3 in Resources */,
-				0C9C3B222C0F8DCD0094EC02 /* LandmarkDescription.json in Resources */,
 				C98078A82BA871A000C04B2D /* cardIncorrect.mp3 in Resources */,
 				C98078B12BA8720D00C04B2D /* classMinusHeart.mp3 in Resources */,
-				0C3F4E6C2C0C44D000EE9DB6 /* QuizData.json in Resources */,
+				B94C50432C108592005CB447 /* LandmarkDescription.json in Resources */,
 				C98078AB2BA871A000C04B2D /* cardAllCorrect.mp3 in Resources */,
 				C98078912BA8703000C04B2D /* buttonClicked.mp3 in Resources */,
 				C98078972BA870E400C04B2D /* timerCorrect.mp3 in Resources */,
 				C9F694EF2BA3251B009A8762 /* Preview Assets.xcassets in Resources */,
 				C98078BE2BA872A300C04B2D /* duckkuWindowOpenAndClose.mp3 in Resources */,
 				C98078982BA870E400C04B2D /* timerIncorrect.mp3 in Resources */,
+				B94C50412C108589005CB447 /* QuizData.json in Resources */,
 				C98078BF2BA872A300C04B2D /* duckkuClicked.mp3 in Resources */,
 				0C6B77F62BABCC8F0033CEEF /* location.txt in Resources */,
 				C98078AA2BA871A000C04B2D /* cardCorrect.mp3 in Resources */,
@@ -859,6 +873,7 @@
 				C9FE257D2BB40E1C00F78C63 /* CheerPKTeamView.swift in Sources */,
 				0C9641E62BB874E200838DA9 /* TimerBarView.swift in Sources */,
 				0CA07D712BFDA98400564AEB /* SurviveGameViewModel.swift in Sources */,
+				B99CD63D2C1026E2002B3755 /* BadgeDetailView.swift in Sources */,
 				0C5979BC2BAB26A800E8156D /* TermsView.swift in Sources */,
 				0C519D992BBAEB6C00DAA206 /* GameViewModel.swift in Sources */,
 				B98503C22BDCEC2900C3CC8F /* AllClickTextRainView.swift in Sources */,
@@ -872,6 +887,7 @@
 				0CB974442BFE55AB008E1399 /* Window.swift in Sources */,
 				0C519D9C2BBAFD9D00DAA206 /* Card.swift in Sources */,
 				B9B138052BE39D580094B2FC /* AllClickCustomTextView.swift in Sources */,
+				B9A334EE2C0BA050006A6A24 /* BadgeView.swift in Sources */,
 				0C691EB12BBD9FF2004021F1 /* TimerGameViewModel.swift in Sources */,
 				0C7C4E3F2C07A2E200ABB4D8 /* MapView.swift in Sources */,
 				0C31576C2BB7CCC000F270F7 /* Landmark.swift in Sources */,
@@ -1030,7 +1046,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"playkuround-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = NCLJJYF4QS;
+				DEVELOPMENT_TEAM = 9SVDHQS4M3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "playkuround-iOS/Info.plist";
@@ -1066,7 +1082,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"playkuround-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = NCLJJYF4QS;
+				DEVELOPMENT_TEAM = 9SVDHQS4M3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "playkuround-iOS/Info.plist";
