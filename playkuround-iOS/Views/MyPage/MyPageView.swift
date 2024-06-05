@@ -108,46 +108,5 @@ struct MyPageView: View {
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("serviceTermsViewPresented"))) { _ in
             self.isServiceTermsViewPresented = true
         }
-        /* .onAppear {
-            callGetAPIUsers()
-        }*/
     }
-    
-    /* private func callGetAPIUsers() {
-        APIManager.callGETAPI(endpoint: .users) { result in
-            switch result {
-            case .success(let data):
-                print("Data received in View: \(data)")
-                
-                if let response = data as? APIResponse {
-                    if response.isSuccess {
-                        user.nickname = response.response?.nickname ?? "-"
-                        user.major = response.response?.major ?? "-"
-                        user.highestScore = response.response?.highestScore ?? 0
-                        user.highestRank = response.response?.highestRank ?? "-"
-                    }
-                }
-                
-            case .failure(let error):
-                print("Error in View: \(error)")
-            }
-        }
-        
-        APIManager.callGETAPI(endpoint: .scoresRank) { result in
-            switch result {
-            case .success(let data):
-                print("Data received in View: \(data)")
-                
-                if let response = data as? APIResponse {
-                    if response.isSuccess {
-                        user.myRank.score = response.response?.myRank?.score ?? 0
-                        user.myRank.ranking = response.response?.myRank?.ranking ?? 0
-                    }
-                }
-                
-            case .failure(let error):
-                print("Error in View: \(error)")
-            }
-        }
-    }*/
 }
