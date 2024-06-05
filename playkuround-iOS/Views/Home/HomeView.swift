@@ -37,7 +37,7 @@ struct HomeView: View {
                         
                         Spacer()
                         
-                        Image(.rankingBackground)
+                        Image(.rankingKeywordBackground)
                             .overlay {
                                 HStack(spacing: 6) {
                                     Text(StringLiterals.Home.ranking)
@@ -53,7 +53,7 @@ struct HomeView: View {
                                 .frame(width: 73)
                             }
                         
-                        Image(.badgeBackground)
+                        Image(.badgeKeywordBackground)
                             .overlay {
                                 HStack {
                                     Text(String(format: StringLiterals.Home.badgeNum, "\(homeViewModel.badgeList.count)"))
@@ -79,7 +79,7 @@ struct HomeView: View {
                             }
                             
                             Button {
-                                // homeViewModel.transition(to: .badge)
+                                homeViewModel.transition(to: .badge)
                             } label: {
                                 Image(.badgeButton)
                             }
@@ -151,8 +151,7 @@ struct HomeView: View {
                 case .attendance:
                     AttendanceView(rootViewModel: viewModel, homeViewModel: homeViewModel, mapViewModel: mapViewModel)
                 case .badge:
-                    // TODO: Badge View
-                    EmptyView()
+                    BadgeView(rootViewModel: viewModel, homeViewModel: homeViewModel)
                 case .ranking:
                     // TODO: Ranking View
                     EmptyView()

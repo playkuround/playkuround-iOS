@@ -67,6 +67,8 @@
 		B94C504A2C108CED005CB447 /* LandmarkDescription.json in Resources */ = {isa = PBXBuildFile; fileRef = B94C50492C108CED005CB447 /* LandmarkDescription.json */; };
 		B94C504C2C108ECF005CB447 /* TotalRankingInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C504B2C108ECF005CB447 /* TotalRankingInformationView.swift */; };
 		B98503C22BDCEC2900C3CC8F /* AllClickTextRainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98503C12BDCEC2900C3CC8F /* AllClickTextRainView.swift */; };
+		B99CD63D2C1026E2002B3755 /* BadgeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99CD63C2C1026E2002B3755 /* BadgeDetailView.swift */; };
+		B9A334EE2C0BA050006A6A24 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A334ED2C0BA050006A6A24 /* BadgeView.swift */; };
 		B9B138052BE39D580094B2FC /* AllClickCustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B138042BE39D580094B2FC /* AllClickCustomTextView.swift */; };
 		C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */; };
 		C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918F4042BA7149A00C0BFDA /* SoundManager.swift */; };
@@ -187,6 +189,8 @@
 		B94C50492C108CED005CB447 /* LandmarkDescription.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LandmarkDescription.json; sourceTree = "<group>"; };
 		B94C504B2C108ECF005CB447 /* TotalRankingInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalRankingInformationView.swift; sourceTree = "<group>"; };
 		B98503C12BDCEC2900C3CC8F /* AllClickTextRainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickTextRainView.swift; sourceTree = "<group>"; };
+		B99CD63C2C1026E2002B3755 /* BadgeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeDetailView.swift; sourceTree = "<group>"; };
+		B9A334ED2C0BA050006A6A24 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		B9B138042BE39D580094B2FC /* AllClickCustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickCustomTextView.swift; sourceTree = "<group>"; };
 		C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCustomView.swift; sourceTree = "<group>"; };
 		C918F4042BA7149A00C0BFDA /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
@@ -443,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				B94C50442C108C98005CB447 /* TotalRanking */,
+				B99CD63B2C1026D1002B3755 /* Badge */,
 				0C7609F12C0DA9590087EA55 /* HomeView.swift */,
 				0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */,
 				0C3F4E6D2C0C458300EE9DB6 /* Landmark */,
@@ -477,6 +482,15 @@
 				B94C504B2C108ECF005CB447 /* TotalRankingInformationView.swift */,
 			);
 			path = TotalRanking;
+			sourceTree = "<group>";
+		};
+		B99CD63B2C1026D1002B3755 /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				B9A334ED2C0BA050006A6A24 /* BadgeView.swift */,
+				B99CD63C2C1026E2002B3755 /* BadgeDetailView.swift */,
+			);
+			path = Badge;
 			sourceTree = "<group>";
 		};
 		C918F4032BA7148800C0BFDA /* Managers */ = {
@@ -875,6 +889,7 @@
 				C9FE257D2BB40E1C00F78C63 /* CheerPKTeamView.swift in Sources */,
 				0C9641E62BB874E200838DA9 /* TimerBarView.swift in Sources */,
 				0CA07D712BFDA98400564AEB /* SurviveGameViewModel.swift in Sources */,
+				B99CD63D2C1026E2002B3755 /* BadgeDetailView.swift in Sources */,
 				0C5979BC2BAB26A800E8156D /* TermsView.swift in Sources */,
 				0C519D992BBAEB6C00DAA206 /* GameViewModel.swift in Sources */,
 				B98503C22BDCEC2900C3CC8F /* AllClickTextRainView.swift in Sources */,
@@ -888,6 +903,7 @@
 				0CB974442BFE55AB008E1399 /* Window.swift in Sources */,
 				0C519D9C2BBAFD9D00DAA206 /* Card.swift in Sources */,
 				B9B138052BE39D580094B2FC /* AllClickCustomTextView.swift in Sources */,
+				B9A334EE2C0BA050006A6A24 /* BadgeView.swift in Sources */,
 				0C691EB12BBD9FF2004021F1 /* TimerGameViewModel.swift in Sources */,
 				0C7C4E3F2C07A2E200ABB4D8 /* MapView.swift in Sources */,
 				0C31576C2BB7CCC000F270F7 /* Landmark.swift in Sources */,
@@ -1046,7 +1062,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"playkuround-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = NCLJJYF4QS;
+				DEVELOPMENT_TEAM = 9SVDHQS4M3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "playkuround-iOS/Info.plist";
@@ -1082,7 +1098,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"playkuround-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = NCLJJYF4QS;
+				DEVELOPMENT_TEAM = 9SVDHQS4M3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "playkuround-iOS/Info.plist";
