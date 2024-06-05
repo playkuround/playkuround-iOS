@@ -36,7 +36,7 @@ struct BadgeDetailView: View {
                         Text(badge.description)
                             .font(.pretendard15R)
                             .foregroundStyle(.kuText)
-                            .lineSpacing(1.3)
+                            .lineSpacing(15 * 0.3)
                             .multilineTextAlignment(.center)
                     }
                     .padding(.horizontal, 48)
