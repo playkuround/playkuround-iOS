@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BadgeView: View {
     @ObservedObject var rootViewModel: RootViewModel
+    @State private var showDetail: Bool = false
+    @State private var selectedBadge: Badge?
     
     var body: some View {
         ZStack {
@@ -28,10 +30,15 @@ struct BadgeView: View {
                                     .padding(.top, 19)
                                 
                                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 4), spacing: 10) {
-                                    ForEach(0..<10) {_ in
-                                        Image(.engineering)
+                                    /// 0~10번째: 출석 뱃지
+                                    ForEach(Array(Badge.allCases.prefix(11)), id: \.self) { badge in
+                                        badge.image
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
+                                            .onTapGesture {
+                                                self.showDetail.toggle()
+                                                selectedBadge = badge
+                                            }
                                     }
                                 }
                                 .padding(.top, 30)
@@ -50,10 +57,15 @@ struct BadgeView: View {
                                     .padding(.top, 19)
                                 
                                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 4), spacing: 10) {
-                                    ForEach(0..<28) {_ in
-                                        Image(.artAndDesign)
+                                    /// 11~37번째: 탐험 뱃지
+                                    ForEach(Array(Badge.allCases.suffix(27)), id: \.self) { badge in
+                                        badge.image
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
+                                            .onTapGesture {
+                                                self.showDetail.toggle()
+                                                selectedBadge = badge
+                                            }
                                     }
                                 }
                                 .padding(.top, 30)
@@ -76,6 +88,13 @@ struct BadgeView: View {
                     Image(.leftWhiteArrow)
                 }
             }, height: 42)
+            
+            if showDetail {
+                if let selectedBadge = selectedBadge {
+                    BadgeDetailView(badge: selectedBadge,
+                                    showDetail: $showDetail)
+                }
+            }
         }
         .ignoresSafeArea(edges: .bottom)
     }
