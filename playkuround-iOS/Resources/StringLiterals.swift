@@ -104,6 +104,11 @@ enum StringLiterals {
             static let title = "랭킹"
             static let informationTitle = "랭킹기준"
             static let informationDescription = "출석 체크 : 1점\n탐험 1개 완료 : 5점\n추가 탐험(모든 탐험 완료 후) : 1점"
+            static let empty = "아직 순위가 없습니다.\n지금 1위에 도전해보세요!"
+            
+            static let ranking = "순위"
+            static let nickname = "닉네임"
+            static let score = "점수"
         }
     }
     
