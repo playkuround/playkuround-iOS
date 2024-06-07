@@ -32,10 +32,11 @@ struct TotalRankingView: View {
                                     Image(.rankingSilver)
                                         .overlay(alignment: .bottom) {
                                             VStack {
-                                                Text("안녕안녕안녕")
+                                                Text("안녕안녕")
                                                     .font(.neo15)
                                                     .foregroundStyle(.kuText)
                                                     .padding(.bottom, 11)
+                                                    .padding(.top, 40)
                                                 
                                                 Rectangle()
                                                     .frame(width: 60, height: 23)
@@ -58,6 +59,7 @@ struct TotalRankingView: View {
                                                     .font(.neo15)
                                                     .foregroundStyle(.kuText)
                                                     .padding(.bottom, 11)
+                                                    .padding(.top, 40)
                                                 
                                                 Rectangle()
                                                     .frame(width: 60, height: 23)
@@ -80,6 +82,7 @@ struct TotalRankingView: View {
                                                     .font(.neo15)
                                                     .foregroundStyle(.kuText)
                                                     .padding(.bottom, 11)
+                                                    .padding(.top, 40)
                                                 
                                                 Rectangle()
                                                     .frame(width: 60, height: 23)
@@ -120,8 +123,13 @@ struct TotalRankingView: View {
                                     }
                                 
                                 ScrollView {
-                                    
+                                    VStack(spacing: 12) {
+                                        ForEach(0..<100) { index in
+                                            TotalRankingRow(ranking: index+1, rank: Ranking(nickname: "후훗gggggggggggggggg", score: 2322))
+                                        }
+                                    }
                                 }
+                                .padding(.horizontal, 32)
                                 
                                 Image(.rankingMineRow)
                                     .overlay {
@@ -130,20 +138,26 @@ struct TotalRankingView: View {
                                                 .font(.neo18)
                                                 .kerning(-0.41)
                                                 .foregroundStyle(.kuText)
+                                            
                                             Spacer()
-                                            Text("나")
+                                            
+                                            Text("구리구리스")
                                                 .font(.pretendard15R)
                                                 .foregroundStyle(.kuText)
+                                                .frame(width: 104)
+                                            
                                             Spacer()
-                                            Text("123")
+                                            
+                                            Text("1,234")
                                                 .font(.neo18)
                                                 .kerning(-0.41)
                                                 .foregroundStyle(.kuText)
                                         }
-                                        .padding(.horizontal, 16)
+                                        .padding(.horizontal, 22)
                                     }
-                                    .padding(.bottom, 62)
+                                    .padding(.horizontal, 16)
                             }
+                            .padding(.bottom, 62)
                         }
                 }
                 .customNavigationBar(centerView: {
@@ -164,15 +178,14 @@ struct TotalRankingView: View {
                         Image(.rankingInformationButton)
                     }
                 }, height: 50)
-                
             }
-            
             if showmain {
                 TotalRankingInformationView(backToMain: $showmain)
             }
         }
     }
 }
+
 
 #Preview {
     TotalRankingView(rootViewModel: RootViewModel(), homeViewModel: HomeViewModel())
