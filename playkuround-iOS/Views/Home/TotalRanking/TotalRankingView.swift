@@ -26,6 +26,8 @@ struct TotalRankingView: View {
                 
                 VStack {
                     Image(.rankingTable)
+                        .resizable()
+                        .frame(width: 336, height: shouldPadding ? 712 : 580)
                         .overlay(alignment: .top) {
                             VStack {
                                 HStack(alignment: .top) {
@@ -141,7 +143,7 @@ struct TotalRankingView: View {
                                             
                                             Spacer()
                                             
-                                            Text("구리구리스")
+                                            Text("나")
                                                 .font(.pretendard15R)
                                                 .foregroundStyle(.kuText)
                                                 .frame(width: 104)
@@ -157,7 +159,7 @@ struct TotalRankingView: View {
                                     }
                                     .padding(.horizontal, 16)
                             }
-                            .padding(.bottom, 62)
+                            .padding(.bottom, shouldPadding ? 62 : 40)
                         }
                 }
                 .customNavigationBar(centerView: {
@@ -177,7 +179,7 @@ struct TotalRankingView: View {
                     } label: {
                         Image(.rankingInformationButton)
                     }
-                }, height: 50)
+                }, height: 30)
             }
             if showmain {
                 TotalRankingInformationView(backToMain: $showmain)
