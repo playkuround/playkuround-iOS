@@ -20,6 +20,9 @@ struct BadgeView: View {
                 .resizable()
                 .ignoresSafeArea(.all)
             
+            Color.black.opacity(0.2)
+                .ignoresSafeArea(.all)
+            
             ScrollView {
                 VStack {
                     Image(.attendanceBadgeTable)
