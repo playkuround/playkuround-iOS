@@ -85,7 +85,7 @@ struct HomeView: View {
                             }
                             
                             Button {
-                                // homeViewModel.transition(to: .ranking)
+                                homeViewModel.transition(to: .ranking)
                             } label: {
                                 Image(.rankingButton)
                             }
@@ -153,7 +153,7 @@ struct HomeView: View {
                 case .badge:
                     BadgeView(rootViewModel: viewModel, homeViewModel: homeViewModel)
                 case .ranking:
-                    // TODO: Ranking View
+                    TotalRankingView(rootViewModel: RootViewModel(), homeViewModel: HomeViewModel())
                     EmptyView()
                 case .myPage:
                     MyPageView(viewModel: viewModel, homeViewModel: homeViewModel)
