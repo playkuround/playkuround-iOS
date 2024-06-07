@@ -133,7 +133,7 @@ final class HomeViewModel: ObservableObject {
         APIManager.callGETAPI(endpoint: .scoresRank) { result in
             switch result {
             case .success(let data):
-                print("loadTotalRaning(): \(data)")
+                print("loadTotalRanking(): \(data)")
                 
                 if let response = data as? APIResponse {
                     if let myRank = response.response?.myRank {

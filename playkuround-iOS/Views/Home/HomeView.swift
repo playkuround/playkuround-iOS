@@ -153,8 +153,7 @@ struct HomeView: View {
                 case .badge:
                     BadgeView(rootViewModel: viewModel, homeViewModel: homeViewModel)
                 case .ranking:
-                    TotalRankingView(rootViewModel: RootViewModel(), homeViewModel: HomeViewModel())
-                    EmptyView()
+                    TotalRankingView(rootViewModel: viewModel, homeViewModel: homeViewModel)
                 case .myPage:
                     MyPageView(viewModel: viewModel, homeViewModel: homeViewModel)
                 case .landmark:
@@ -167,6 +166,7 @@ struct HomeView: View {
                 // 홈 뷰 들어올 때 유저 데이터 받아옴
                 homeViewModel.loadUserData()
                 homeViewModel.loadBadge()
+                homeViewModel.loadTotalRanking()
                 homeViewModel.loadAttendance()
             }
             .onDisappear {
