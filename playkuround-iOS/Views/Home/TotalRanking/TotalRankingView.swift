@@ -160,6 +160,14 @@ struct TotalRankingView: View {
                                     .padding(.horizontal, 16)
                             }
                             .padding(.bottom, shouldPadding ? 62 : 40)
+                            
+                            /// 순위가 없을 때 - 분기처리 필요
+//                            Text(StringLiterals.Home.TotalRanking.empty)
+//                                .font(.pretendard15R)
+//                                .foregroundStyle(.kuText)
+//                                .lineSpacing(15 * 0.3)
+//                                .multilineTextAlignment(.center)
+//                                .padding(.top, shouldPadding ? 337 : 271)
                         }
                 }
                 .customNavigationBar(centerView: {
