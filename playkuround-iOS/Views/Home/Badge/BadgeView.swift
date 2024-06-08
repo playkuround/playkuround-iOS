@@ -11,8 +11,9 @@ struct BadgeView: View {
     @ObservedObject var rootViewModel: RootViewModel
     @ObservedObject var homeViewModel: HomeViewModel
     
-    @State private var showDetail: Bool = false
+    @State private var showDetailBadge: Bool = false
     @State private var selectedBadge: Badge?
+    @State private var isSelectedBadgeLocked: Bool = false
     
     var body: some View {
         ZStack {
@@ -22,6 +23,8 @@ struct BadgeView: View {
             
             Color.black.opacity(0.2)
                 .ignoresSafeArea(.all)
+            
+            let badgeList: [BadgeResponse] = homeViewModel.badgeList
             
             ScrollView {
                 VStack {
@@ -36,13 +39,14 @@ struct BadgeView: View {
                                 
                                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 4), spacing: 10) {
                                     /// 0~10번째: 출석 뱃지
-                                    ForEach(Array(Badge.allCases.prefix(11)), id: \.self) { badge in
-                                        badge.image
+                                    ForEach(Badge.allCases.prefix(11), id: \.self) { badge in
+                                        filterBadgeImage(for: badge)
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
                                             .onTapGesture {
-                                                self.showDetail.toggle()
+                                                self.showDetailBadge.toggle()
                                                 selectedBadge = badge
+                                                isSelectedBadgeLocked = !badgeList.contains { $0.description == badge.rawValue }
                                             }
                                     }
                                 }
@@ -63,13 +67,14 @@ struct BadgeView: View {
                                 
                                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 4), spacing: 10) {
                                     /// 11~37번째: 탐험 뱃지
-                                    ForEach(Array(Badge.allCases.suffix(27)), id: \.self) { badge in
-                                        badge.image
+                                    ForEach(Badge.allCases.suffix(27), id: \.self) { badge in
+                                        filterBadgeImage(for: badge)
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
                                             .onTapGesture {
-                                                self.showDetail.toggle()
+                                                self.showDetailBadge.toggle()
                                                 selectedBadge = badge
+                                                isSelectedBadgeLocked = !badgeList.contains { $0.description == badge.rawValue }
                                             }
                                     }
                                 }
@@ -94,14 +99,23 @@ struct BadgeView: View {
                 }
             }, height: 42)
             
-            if showDetail {
+            if showDetailBadge {
                 if let selectedBadge = selectedBadge {
                     BadgeDetailView(badge: selectedBadge,
-                                    showDetail: $showDetail)
+                                    isLocked: isSelectedBadgeLocked,
+                                    showDetailBadge: $showDetailBadge)
                 }
             }
         }
         .ignoresSafeArea(edges: .bottom)
+    }
+    
+    func filterBadgeImage(for badge: Badge) -> Image {
+        if homeViewModel.badgeList.contains(where: { $0.description == badge.rawValue }) {
+            return badge.image
+        } else {
+            return Image(.badgeLock)
+        }
     }
 }
 
