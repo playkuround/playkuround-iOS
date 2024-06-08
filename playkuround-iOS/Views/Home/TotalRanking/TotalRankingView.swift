@@ -23,151 +23,159 @@ struct TotalRankingView: View {
                     .ignoresSafeArea(.all)
                 
                 let shouldPadding = geometry.size.height >= 700
+                let rankingList: [Ranking] = homeViewModel.totalRank
                 
                 VStack {
                     Image(.rankingTable)
                         .resizable()
                         .frame(width: 336, height: shouldPadding ? 712 : 580)
                         .overlay(alignment: .top) {
-                            VStack {
-                                HStack(alignment: .top) {
-                                    Image(.rankingSilver)
-                                        .overlay(alignment: .bottom) {
-                                            VStack {
-                                                Text("안녕안녕")
+                            if !rankingList.isEmpty {
+                                VStack {
+                                    HStack(alignment: .top) {
+                                        Image(.rankingSilver)
+                                            .overlay(alignment: .bottom) {
+                                                VStack {
+                                                    if rankingList.indices.contains(1) {
+                                                        Text(rankingList[1].nickname)
+                                                            .font(.neo15)
+                                                            .foregroundStyle(.kuText)
+                                                            .padding(.bottom, 11)
+                                                            .padding(.top, 40)
+                                                        
+                                                        Rectangle()
+                                                            .frame(width: 60, height: 23)
+                                                            .foregroundStyle(.kuBrown)
+                                                            .overlay {
+                                                                Text("\(rankingList[1].score)점")
+                                                                    .font(.neo18)
+                                                                    .kerning(-0.41)
+                                                                    .foregroundStyle(.white)
+                                                            }
+                                                            .padding(.bottom, 128)
+                                                    }
+                                                }
+                                                .padding(.horizontal, 12)
+                                            }
+                                        
+                                        Image(.rankingGold)
+                                            .overlay(alignment: .bottom) {
+                                                VStack {
+                                                    Text(rankingList[0].nickname)
+                                                        .font(.neo15)
+                                                        .foregroundStyle(.kuText)
+                                                        .padding(.bottom, 11)
+                                                        .padding(.top, 40)
+                                                    
+                                                    Rectangle()
+                                                        .frame(width: 60, height: 23)
+                                                        .foregroundStyle(.kuBrown)
+                                                        .overlay {
+                                                            Text("\(rankingList[0].score)점")
+                                                                .font(.neo18)
+                                                                .kerning(-0.41)
+                                                                .foregroundStyle(.white)
+                                                        }
+                                                        .padding(.bottom, 128)
+                                                }
+                                                .padding(.horizontal, 12)
+                                            }
+                                        
+                                        Image(.rankingBronze)
+                                            .overlay(alignment: .bottom) {
+                                                VStack {
+                                                    if rankingList.indices.contains(2) {
+                                                        Text(rankingList[2].nickname)
+                                                            .font(.neo15)
+                                                            .foregroundStyle(.kuText)
+                                                            .padding(.bottom, 11)
+                                                            .padding(.top, 40)
+                                                        
+                                                        Rectangle()
+                                                            .frame(width: 60, height: 23)
+                                                            .foregroundStyle(.kuBrown)
+                                                            .overlay {
+                                                                Text("\(rankingList[2].score)점")
+                                                                    .font(.neo18)
+                                                                    .kerning(-0.41)
+                                                                    .foregroundStyle(.white)
+                                                            }
+                                                            .padding(.bottom, 128)
+                                                    }
+                                                }
+                                                .padding(.horizontal, 12)
+                                            }
+                                    }
+                                    .padding(.top, 20)
+                                    
+                                    Image(.rankingTitleRow)
+                                        .overlay {
+                                            HStack {
+                                                Text(StringLiterals.Home.TotalRanking.ranking)
                                                     .font(.neo15)
                                                     .foregroundStyle(.kuText)
-                                                    .padding(.bottom, 11)
-                                                    .padding(.top, 40)
                                                 
-                                                Rectangle()
-                                                    .frame(width: 60, height: 23)
-                                                    .foregroundStyle(.kuBrown)
-                                                    .overlay {
-                                                        Text("156점")
-                                                            .font(.neo18)
-                                                            .kerning(-0.41)
-                                                            .foregroundStyle(.white)
-                                                    }
-                                                    .padding(.bottom, 128)
+                                                Spacer()
+                                                
+                                                Text(StringLiterals.Home.TotalRanking.nickname)
+                                                    .font(.neo15)
+                                                    .foregroundStyle(.kuText)
+                                                
+                                                Spacer()
+                                                
+                                                Text(StringLiterals.Home.TotalRanking.score)
+                                                    .font(.neo15)
+                                                    .foregroundStyle(.kuText)
                                             }
-                                            .padding(.horizontal, 12)
+                                            .padding(.horizontal, 16)
                                         }
                                     
-                                    Image(.rankingGold)
-                                        .overlay(alignment: .bottom) {
-                                            VStack {
-                                                Text("안녕안녕안녕")
-                                                    .font(.neo15)
-                                                    .foregroundStyle(.kuText)
-                                                    .padding(.bottom, 11)
-                                                    .padding(.top, 40)
-                                                
-                                                Rectangle()
-                                                    .frame(width: 60, height: 23)
-                                                    .foregroundStyle(.kuBrown)
-                                                    .overlay {
-                                                        Text("1,156점")
-                                                            .font(.neo18)
-                                                            .kerning(-0.41)
-                                                            .foregroundStyle(.white)
-                                                    }
-                                                    .padding(.bottom, 128)
+                                    ScrollView {
+                                        VStack(spacing: 12) {
+                                            ForEach(rankingList.indices) { index in
+                                                TotalRankingRow(ranking: index+1, rank: Ranking(nickname: rankingList[index].nickname, score: rankingList[index].score))
                                             }
-                                            .padding(.horizontal, 12)
                                         }
+                                    }
+                                    .padding(.horizontal, 32)
                                     
-                                    Image(.rankingBronze)
-                                        .overlay(alignment: .bottom) {
-                                            VStack {
-                                                Text("안녕안녕안녕")
-                                                    .font(.neo15)
+                                    Image(.rankingMineRow)
+                                        .overlay {
+                                            HStack {
+                                                Text(String(homeViewModel.userData.myRank.ranking))
+                                                    .font(.neo18)
+                                                    .kerning(-0.41)
                                                     .foregroundStyle(.kuText)
-                                                    .padding(.bottom, 11)
-                                                    .padding(.top, 40)
                                                 
-                                                Rectangle()
-                                                    .frame(width: 60, height: 23)
-                                                    .foregroundStyle(.kuBrown)
-                                                    .overlay {
-                                                        Text("1,156점")
-                                                            .font(.neo18)
-                                                            .kerning(-0.41)
-                                                            .foregroundStyle(.white)
-                                                    }
-                                                    .padding(.bottom, 128)
+                                                Spacer()
+                                                
+                                                Text("나")
+                                                    .font(.pretendard15R)
+                                                    .foregroundStyle(.kuText)
+                                                    .frame(width: 104)
+                                                
+                                                Spacer()
+                                                
+                                                Text(String(homeViewModel.userData.myRank.score))
+                                                    .font(.neo18)
+                                                    .kerning(-0.41)
+                                                    .foregroundStyle(.kuText)
                                             }
-                                            .padding(.horizontal, 12)
-                                        }
-                                }
-                                .padding(.top, 20)
-                                
-                                Image(.rankingTitleRow)
-                                    .overlay {
-                                        HStack {
-                                            Text(StringLiterals.Home.TotalRanking.ranking)
-                                                .font(.neo15)
-                                                .foregroundStyle(.kuText)
-                                            
-                                            Spacer()
-                                            
-                                            Text(StringLiterals.Home.TotalRanking.nickname)
-                                                .font(.neo15)
-                                                .foregroundStyle(.kuText)
-                                            
-                                            Spacer()
-                                            
-                                            Text(StringLiterals.Home.TotalRanking.score)
-                                                .font(.neo15)
-                                                .foregroundStyle(.kuText)
+                                            .padding(.horizontal, 22)
                                         }
                                         .padding(.horizontal, 16)
-                                    }
-                                
-                                ScrollView {
-                                    VStack(spacing: 12) {
-                                        ForEach(0..<100) { index in
-                                            TotalRankingRow(ranking: index+1, rank: Ranking(nickname: "후훗gggggggggggggggg", score: 2322))
-                                        }
-                                    }
                                 }
-                                .padding(.horizontal, 32)
-                                
-                                Image(.rankingMineRow)
-                                    .overlay {
-                                        HStack {
-                                            Text("67")
-                                                .font(.neo18)
-                                                .kerning(-0.41)
-                                                .foregroundStyle(.kuText)
-                                            
-                                            Spacer()
-                                            
-                                            Text("나")
-                                                .font(.pretendard15R)
-                                                .foregroundStyle(.kuText)
-                                                .frame(width: 104)
-                                            
-                                            Spacer()
-                                            
-                                            Text("1,234")
-                                                .font(.neo18)
-                                                .kerning(-0.41)
-                                                .foregroundStyle(.kuText)
-                                        }
-                                        .padding(.horizontal, 22)
-                                    }
-                                    .padding(.horizontal, 16)
+                                .padding(.bottom, shouldPadding ? 62 : 40)
                             }
-                            .padding(.bottom, shouldPadding ? 62 : 40)
-                            
-                            /// 순위가 없을 때 - 분기처리 필요
-//                            Text(StringLiterals.Home.TotalRanking.empty)
-//                                .font(.pretendard15R)
-//                                .foregroundStyle(.kuText)
-//                                .lineSpacing(15 * 0.3)
-//                                .multilineTextAlignment(.center)
-//                                .padding(.top, shouldPadding ? 337 : 271)
+                            else {
+                                // 랭킹에 아무도 없을 때
+                                Text(StringLiterals.Home.TotalRanking.empty)
+                                    .font(.pretendard15R)
+                                    .foregroundStyle(.kuText)
+                                    .lineSpacing(15 * 0.3)
+                                    .multilineTextAlignment(.center)
+                                    .padding(.top, shouldPadding ? 337 : 271)
+                            }
                         }
                 }
                 .customNavigationBar(centerView: {
