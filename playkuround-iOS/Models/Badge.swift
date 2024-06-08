@@ -5,13 +5,6 @@
 //  Created by Hoeun Lee on 3/16/24.
 //
 
-
-//struct Badge: Identifiable {
-//    var id = UUID()
-//    let name: String
-//    let isEmpty: Bool
-//}
-
 import SwiftUI
 
 enum Badge: String, CaseIterable {
