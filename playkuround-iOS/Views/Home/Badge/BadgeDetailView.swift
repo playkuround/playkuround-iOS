@@ -9,20 +9,22 @@ import SwiftUI
 
 struct BadgeDetailView: View {
     let badge: Badge
-    @Binding var showDetail: Bool
+    let isLocked: Bool
+    
+    @Binding var showDetailBadge: Bool
     
     var body: some View {
         ZStack {
             Color.black.opacity(0.5)
                 .ignoresSafeArea()
                 .onTapGesture {
-                    showDetail.toggle()
+                    showDetailBadge.toggle()
                 }
             
             Image(.badgePopup)
                 .overlay {
                     VStack {
-                        badge.image
+                        (isLocked ? Image(.badgeLock) : badge.image)
                             .resizable()
                             .frame(width: 120, height: 120)
                             .padding(.bottom, 16)
@@ -33,7 +35,7 @@ struct BadgeDetailView: View {
                             .foregroundStyle(.kuText)
                             .padding(.bottom, 16)
                         
-                        Text(badge.description)
+                        Text(isLocked ? badge.lockDescription : badge.description)
                             .font(.pretendard15R)
                             .foregroundStyle(.kuText)
                             .lineSpacing(15 * 0.3)
