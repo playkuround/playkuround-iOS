@@ -47,7 +47,7 @@ struct TotalRankingView: View {
                                                             .frame(width: 60, height: 23)
                                                             .foregroundStyle(.kuBrown)
                                                             .overlay {
-                                                                Text("\(rankingList[1].score)점")
+                                                                Text("\(rankingList[1].score.decimalFormatter)점")
                                                                     .font(.neo18)
                                                                     .kerning(-0.41)
                                                                     .foregroundStyle(.white)
@@ -71,7 +71,7 @@ struct TotalRankingView: View {
                                                         .frame(width: 60, height: 23)
                                                         .foregroundStyle(.kuBrown)
                                                         .overlay {
-                                                            Text("\(rankingList[0].score)점")
+                                                            Text("\(rankingList[0].score.decimalFormatter)점")
                                                                 .font(.neo18)
                                                                 .kerning(-0.41)
                                                                 .foregroundStyle(.white)
@@ -95,7 +95,7 @@ struct TotalRankingView: View {
                                                             .frame(width: 60, height: 23)
                                                             .foregroundStyle(.kuBrown)
                                                             .overlay {
-                                                                Text("\(rankingList[2].score)점")
+                                                                Text("\(rankingList[2].score.decimalFormatter)점")
                                                                     .font(.neo18)
                                                                     .kerning(-0.41)
                                                                     .foregroundStyle(.white)
@@ -157,7 +157,7 @@ struct TotalRankingView: View {
                                                 
                                                 Spacer()
                                                 
-                                                Text(String(homeViewModel.userData.myRank.score))
+                                                Text(String(homeViewModel.userData.myRank.score.decimalFormatter))
                                                     .font(.neo18)
                                                     .kerning(-0.41)
                                                     .foregroundStyle(.kuText)
