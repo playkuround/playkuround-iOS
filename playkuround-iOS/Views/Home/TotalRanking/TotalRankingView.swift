@@ -10,7 +10,7 @@ import SwiftUI
 struct TotalRankingView: View {
     @ObservedObject var rootViewModel: RootViewModel
     @ObservedObject var homeViewModel: HomeViewModel
-    @State private var showmain: Bool = false
+    @State private var showInformationView: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -132,8 +132,9 @@ struct TotalRankingView: View {
                                     
                                     ScrollView {
                                         VStack(spacing: 12) {
-                                            ForEach(rankingList.indices) { index in
-                                                TotalRankingRow(ranking: index+1, rank: Ranking(nickname: rankingList[index].nickname, score: rankingList[index].score))
+                                            ForEach(Array(rankingList.enumerated()), id: \.offset) { index, rank in
+                                                TotalRankingRow(ranking: index + 1,
+                                                                rank: Ranking(nickname: rank.nickname, score: rank.score))
                                             }
                                         }
                                     }
@@ -191,14 +192,14 @@ struct TotalRankingView: View {
                     }
                 }, rightView: {
                     Button {
-                        showmain.toggle()
+                        showInformationView.toggle()
                     } label: {
                         Image(.rankingInformationButton)
                     }
                 }, height: 30)
             }
-            if showmain {
-                TotalRankingInformationView(backToMain: $showmain)
+            if showInformationView {
+                TotalRankingInformationView(backToMain: $showInformationView)
             }
         }
     }
