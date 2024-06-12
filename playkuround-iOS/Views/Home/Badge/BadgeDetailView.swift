@@ -24,7 +24,7 @@ struct BadgeDetailView: View {
             Image(.badgePopup)
                 .overlay {
                     VStack {
-                        (isLocked ? Image(.badgeLock) : badge.image)
+                        (isLocked ? Image(.badgeLockBig) : badge.image)
                             .resizable()
                             .frame(width: 120, height: 120)
                             .padding(.bottom, 16)
