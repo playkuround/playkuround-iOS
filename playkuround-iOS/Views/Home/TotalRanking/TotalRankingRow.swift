@@ -28,7 +28,7 @@ struct TotalRankingRow: View {
             
             Spacer()
             
-            Text(String(rank.score))
+            Text(String(rank.score.decimalFormatter))
                 .font(.neo18)
                 .kerning(-0.41)
                 .foregroundStyle(.kuText)
