@@ -21,13 +21,7 @@ struct LandmarkRankingView: View {
                 Color.black.opacity(0.2).ignoresSafeArea()
                 
                 let shouldPadding = geometry.size.height >= 700
-                let rankingList = [Ranking(nickname: "test1", score: 1000),
-                                   Ranking(nickname: "test2", score: 900),
-                                   Ranking(nickname: "test3", score: 800),
-                                   Ranking(nickname: "test4", score: 700),
-                                   Ranking(nickname: "test5", score: 600),
-                                   Ranking(nickname: "test6", score: 500),
-                                   Ranking(nickname: "test7", score: 400)]
+                let rankingList: [Ranking] = homeViewModel.landmarkRank
                 
                 VStack {
                     Spacer()
@@ -49,8 +43,8 @@ struct LandmarkRankingView: View {
                                     .overlay {
                                         Image(.landmarkScoreBackground)
                                             .overlay {
-                                                // TODO: 1등 플레이어 점수 가져오기
-                                                Text("+ 1,214")
+                                                // 1등 플레이어 점수
+                                                Text("+ \(rankingList[0].score.decimalFormatter)")
                                                     .font(.neo20)
                                                     .foregroundColor(.kuText)
                                                     .kerning(-0.41)
@@ -78,8 +72,8 @@ struct LandmarkRankingView: View {
                                             .foregroundColor(.kuText)
                                             .kerning(-0.41)
                                         
-                                        // TODO: 1등 플레이어 닉네임 가져오기
-                                        Text("건덕이")
+                                        // 1등 플레이어 닉네임
+                                        Text(rankingList[0].nickname)
                                             .font(.neo18)
                                             .foregroundColor(.kuTextDarkGreen)
                                             .kerning(-0.41) +
@@ -129,7 +123,7 @@ struct LandmarkRankingView: View {
                                     Image(.rankingMineRow)
                                         .overlay {
                                             HStack {
-                                                Text(String(homeViewModel.userData.myRank.ranking))
+                                                Text(String(homeViewModel.userData.landmarkRank.ranking))
                                                     .font(.neo18)
                                                     .kerning(-0.41)
                                                     .foregroundStyle(.kuText)
@@ -143,7 +137,7 @@ struct LandmarkRankingView: View {
                                                 
                                                 Spacer()
                                                 
-                                                Text(String(homeViewModel.userData.myRank.score.decimalFormatter))
+                                                Text(String(homeViewModel.userData.landmarkRank.score.decimalFormatter))
                                                     .font(.neo18)
                                                     .kerning(-0.41)
                                                     .foregroundStyle(.kuText)

@@ -10,7 +10,10 @@ import SwiftUI
 
 final class HomeViewModel: ObservableObject {
     // User Profile
-    @Published var userData: UserEntity = UserEntity(nickname: "", major: "", myRank: MyRank(score: 0, ranking: 0), highestScore: 0, highestRank: "")
+    @Published var userData: UserEntity = UserEntity(nickname: "", major: "",
+                                                     myRank: MyRank(score: 0, ranking: 0),
+                                                     landmarkRank: MyRank(score: 0, ranking: 0),
+                                                     highestScore: 0, highestRank: "")
     @Published var badgeList: [BadgeResponse] = []
     @Published var attendanceList: [String] = []
     
@@ -166,7 +169,7 @@ final class HomeViewModel: ObservableObject {
                 if let response = data as? APIResponse {
                     if let myRank = response.response?.myRank {
                         DispatchQueue.main.async {
-                            self.userData.myRank = myRank
+                            self.userData.landmarkRank = myRank
                             print(self.userData)
                         }
                     }
