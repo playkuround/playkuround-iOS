@@ -10,6 +10,7 @@ import SwiftUI
 struct LandmarkView: View {
     @ObservedObject var homeViewModel: HomeViewModel
     @State private var isDescriptionShowing: Bool = false
+    @State private var isRankingShowing: Bool = false
     
     var body: some View {
         ZStack {
@@ -24,6 +25,8 @@ struct LandmarkView: View {
             
             if isDescriptionShowing {
                 LandmarkDetailView(homeViewModel: homeViewModel, isDescriptionShowing: $isDescriptionShowing)
+            } else if isRankingShowing {
+                LandmarkRankingView(homeViewModel: homeViewModel, isRankingShowing: $isRankingShowing)
             } else {
                 Image(.landmarkBackground)
                     .overlay {
@@ -68,7 +71,7 @@ struct LandmarkView: View {
                             }
                             
                             Button {
-                                // TODO: 랜드마크별 정복랭킹 뷰
+                                isRankingShowing.toggle()
                             } label: {
                                 Image(.shortButtonBlue)
                                     .overlay {
@@ -95,6 +98,9 @@ struct LandmarkView: View {
                         .offset(y: 18)
                     }
             }
+        }
+        .onAppear {
+            homeViewModel.selectedLandmarkID = 1
         }
     }
 }
