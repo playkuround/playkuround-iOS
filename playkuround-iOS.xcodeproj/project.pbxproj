@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C0CDA2E2C298EE9003D12BA /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C0CDA2D2C298EE8003D12BA /* QuizData.json */; };
+		0C0CDA312C299021003D12BA /* AdventureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0CDA302C299021003D12BA /* AdventureView.swift */; };
 		0C27DDF02BBD714F0049B7B8 /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */; };
 		0C31576C2BB7CCC000F270F7 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C31576B2BB7CCC000F270F7 /* Landmark.swift */; };
 		0C3F4E732C0C477F00EE9DB6 /* LandmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3F4E722C0C477F00EE9DB6 /* LandmarkView.swift */; };
@@ -63,7 +65,6 @@
 		B9105A012BDBFF8700D6455F /* AllClickGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9105A002BDBFF8700D6455F /* AllClickGameViewModel.swift */; };
 		B9105A032BDBFF9700D6455F /* AllClickGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9105A022BDBFF9700D6455F /* AllClickGameView.swift */; };
 		B94C50462C108CDA005CB447 /* TotalRankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C50452C108CDA005CB447 /* TotalRankingView.swift */; };
-		B94C50482C108CE5005CB447 /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = B94C50472C108CE5005CB447 /* QuizData.json */; };
 		B94C504A2C108CED005CB447 /* LandmarkDescription.json in Resources */ = {isa = PBXBuildFile; fileRef = B94C50492C108CED005CB447 /* LandmarkDescription.json */; };
 		B94C504C2C108ECF005CB447 /* TotalRankingInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C504B2C108ECF005CB447 /* TotalRankingInformationView.swift */; };
 		B98503C22BDCEC2900C3CC8F /* AllClickTextRainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98503C12BDCEC2900C3CC8F /* AllClickTextRainView.swift */; };
@@ -131,6 +132,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C0CDA2D2C298EE8003D12BA /* QuizData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = QuizData.json; path = "../../../../../../Documents/플레이쿠라운드/자료/QuizData.json"; sourceTree = "<group>"; };
+		0C0CDA302C299021003D12BA /* AdventureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureView.swift; sourceTree = "<group>"; };
 		0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		0C31576B2BB7CCC000F270F7 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
 		0C3F4E722C0C477F00EE9DB6 /* LandmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkView.swift; sourceTree = "<group>"; };
@@ -187,7 +190,6 @@
 		B9105A002BDBFF8700D6455F /* AllClickGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickGameViewModel.swift; sourceTree = "<group>"; };
 		B9105A022BDBFF9700D6455F /* AllClickGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickGameView.swift; sourceTree = "<group>"; };
 		B94C50452C108CDA005CB447 /* TotalRankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalRankingView.swift; sourceTree = "<group>"; };
-		B94C50472C108CE5005CB447 /* QuizData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = QuizData.json; sourceTree = "<group>"; };
 		B94C50492C108CED005CB447 /* LandmarkDescription.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LandmarkDescription.json; sourceTree = "<group>"; };
 		B94C504B2C108ECF005CB447 /* TotalRankingInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalRankingInformationView.swift; sourceTree = "<group>"; };
 		B98503C12BDCEC2900C3CC8F /* AllClickTextRainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickTextRainView.swift; sourceTree = "<group>"; };
@@ -267,6 +269,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C0CDA2F2C299017003D12BA /* Adventure */ = {
+			isa = PBXGroup;
+			children = (
+				0C0CDA302C299021003D12BA /* AdventureView.swift */,
+			);
+			path = Adventure;
+			sourceTree = "<group>";
+		};
 		0C27DDEE2BBD71440049B7B8 /* Games */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,7 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				B94C50492C108CED005CB447 /* LandmarkDescription.json */,
-				B94C50472C108CE5005CB447 /* QuizData.json */,
+				0C0CDA2D2C298EE8003D12BA /* QuizData.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -451,6 +461,7 @@
 		0CD0402B2C062A14009F9BE1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0C0CDA2F2C299017003D12BA /* Adventure */,
 				B94C50442C108C98005CB447 /* TotalRanking */,
 				B99CD63B2C1026D1002B3755 /* Badge */,
 				0C7609F12C0DA9590087EA55 /* HomeView.swift */,
@@ -814,6 +825,7 @@
 				C98078B22BA8720D00C04B2D /* classEnd.mp3 in Resources */,
 				C98078A82BA871A000C04B2D /* cardIncorrect.mp3 in Resources */,
 				C98078B12BA8720D00C04B2D /* classMinusHeart.mp3 in Resources */,
+				0C0CDA2E2C298EE9003D12BA /* QuizData.json in Resources */,
 				B94C504A2C108CED005CB447 /* LandmarkDescription.json in Resources */,
 				C98078AB2BA871A000C04B2D /* cardAllCorrect.mp3 in Resources */,
 				C98078912BA8703000C04B2D /* buttonClicked.mp3 in Resources */,
@@ -821,7 +833,6 @@
 				C9F694EF2BA3251B009A8762 /* Preview Assets.xcassets in Resources */,
 				C98078BE2BA872A300C04B2D /* duckkuWindowOpenAndClose.mp3 in Resources */,
 				C98078982BA870E400C04B2D /* timerIncorrect.mp3 in Resources */,
-				B94C50482C108CE5005CB447 /* QuizData.json in Resources */,
 				C98078BF2BA872A300C04B2D /* duckkuClicked.mp3 in Resources */,
 				0C6B77F62BABCC8F0033CEEF /* location.txt in Resources */,
 				C98078AA2BA871A000C04B2D /* cardCorrect.mp3 in Resources */,
@@ -895,6 +906,7 @@
 				0C7FE69B2BB1290A00D94162 /* LoadingView.swift in Sources */,
 				C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */,
 				C9FE257D2BB40E1C00F78C63 /* CheerPKTeamView.swift in Sources */,
+				0C0CDA312C299021003D12BA /* AdventureView.swift in Sources */,
 				0C9641E62BB874E200838DA9 /* TimerBarView.swift in Sources */,
 				0CA07D712BFDA98400564AEB /* SurviveGameViewModel.swift in Sources */,
 				B99CD63D2C1026E2002B3755 /* BadgeDetailView.swift in Sources */,
