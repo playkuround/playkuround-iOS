@@ -81,6 +81,7 @@ enum StringLiterals {
         static let ranking = "랭킹"
         static let rankingUnit = "위"
         static let badgeNum = "뱃지 %@개"
+        static let startGame = "게임 시작"
         
         enum Attendance {
             static let attendanceTitle = "출석체크"

@@ -50,7 +50,7 @@ struct AdventureView: View {
                         } label: {
                             Image(.shortButtonBlue)
                                 .overlay {
-                                    Text("게임 시작")
+                                    Text(StringLiterals.Home.startGame)
                                         .font(.neo18)
                                         .foregroundColor(.kuText)
                                         .kerning(-0.41)
