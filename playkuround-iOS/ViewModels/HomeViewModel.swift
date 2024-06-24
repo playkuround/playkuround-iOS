@@ -360,4 +360,5 @@ enum HomeViewType {
     case myPage // MyPageView
     
     case landmark // LandmarkView
+    case adventure 
 }

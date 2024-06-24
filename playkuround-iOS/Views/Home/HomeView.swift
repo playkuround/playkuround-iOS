@@ -135,7 +135,7 @@ struct HomeView: View {
                     } label: {
                         Image(.shortButtonBlue)
                             .overlay {
-                                Text("탐험하기")
+                                Text(StringLiterals.Home.adventure)
                                     .font(.neo18)
                                     .foregroundColor(.kuText)
                                     .kerning(-0.41)
@@ -158,6 +158,8 @@ struct HomeView: View {
                     MyPageView(viewModel: viewModel, homeViewModel: homeViewModel)
                 case .landmark:
                     LandmarkView(homeViewModel: homeViewModel)
+                case .adventure:
+                    AdventureView(viewModel: viewModel, homeViewModel: homeViewModel)
                 }
             }
             .onAppear {
