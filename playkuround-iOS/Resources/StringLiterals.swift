@@ -82,6 +82,8 @@ enum StringLiterals {
         static let rankingUnit = "위"
         static let badgeNum = "뱃지 %@개"
         
+        static let me = "나"
+        
         enum Attendance {
             static let attendanceTitle = "출석체크"
             static let attendance = "출석하기"
@@ -92,6 +94,12 @@ enum StringLiterals {
             static let rankingTitle = "정복랭킹"
             static let buildingDescriptionTitle = "건물설명"
             static let close = "닫기"
+            
+            static let rankingSubtext1 = "을"
+            static let rankingSubtext2 = "제일 많이 정복한 사람은"
+            static let rankingSubtext3 = "님입니다"
+            
+            static let rankingEmpty = "아직 순위가 없습니다.\n지금 1위에 도전해보세요!"
         }
 
         enum Badge {
