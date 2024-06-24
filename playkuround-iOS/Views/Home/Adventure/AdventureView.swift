@@ -59,9 +59,6 @@ struct AdventureView: View {
                     }
                 }
         }
-        .onAppear {
-            homeViewModel.selectedLandmarkID = 1
-        }
     }
 }
 
