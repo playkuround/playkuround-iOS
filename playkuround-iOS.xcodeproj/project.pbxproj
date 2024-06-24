@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C0CDA2A2C295588003D12BA /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C0CDA292C295588003D12BA /* QuizData.json */; };
+		0C0CDA2E2C298EE9003D12BA /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C0CDA2D2C298EE8003D12BA /* QuizData.json */; };
+		0C0CDA312C299021003D12BA /* AdventureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0CDA302C299021003D12BA /* AdventureView.swift */; };
 		0C0CDA2C2C2955B0003D12BA /* LandmarkRankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0CDA2B2C2955B0003D12BA /* LandmarkRankingView.swift */; };
 		0C27DDF02BBD714F0049B7B8 /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */; };
 		0C31576C2BB7CCC000F270F7 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C31576B2BB7CCC000F270F7 /* Landmark.swift */; };
@@ -132,7 +133,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0C0CDA292C295588003D12BA /* QuizData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = QuizData.json; path = "../../../../../../Documents/플레이쿠라운드/자료/QuizData.json"; sourceTree = "<group>"; };
+		0C0CDA2D2C298EE8003D12BA /* QuizData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = QuizData.json; path = "../../../../../../Documents/플레이쿠라운드/자료/QuizData.json"; sourceTree = "<group>"; };
+		0C0CDA302C299021003D12BA /* AdventureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureView.swift; sourceTree = "<group>"; };
 		0C0CDA2B2C2955B0003D12BA /* LandmarkRankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkRankingView.swift; sourceTree = "<group>"; };
 		0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		0C31576B2BB7CCC000F270F7 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
@@ -269,6 +271,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C0CDA2F2C299017003D12BA /* Adventure */ = {
+			isa = PBXGroup;
+			children = (
+				0C0CDA302C299021003D12BA /* AdventureView.swift */,
+			);
+			path = Adventure;
+			sourceTree = "<group>";
+		};
 		0C27DDEE2BBD71440049B7B8 /* Games */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,7 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				B94C50492C108CED005CB447 /* LandmarkDescription.json */,
-				0C0CDA292C295588003D12BA /* QuizData.json */,
+				0C0CDA2D2C298EE8003D12BA /* QuizData.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -454,6 +464,7 @@
 		0CD0402B2C062A14009F9BE1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0C0CDA2F2C299017003D12BA /* Adventure */,
 				B94C50442C108C98005CB447 /* TotalRanking */,
 				B99CD63B2C1026D1002B3755 /* Badge */,
 				0C7609F12C0DA9590087EA55 /* HomeView.swift */,
@@ -817,7 +828,7 @@
 				C98078B22BA8720D00C04B2D /* classEnd.mp3 in Resources */,
 				C98078A82BA871A000C04B2D /* cardIncorrect.mp3 in Resources */,
 				C98078B12BA8720D00C04B2D /* classMinusHeart.mp3 in Resources */,
-				0C0CDA2A2C295588003D12BA /* QuizData.json in Resources */,
+				0C0CDA2E2C298EE9003D12BA /* QuizData.json in Resources */,
 				B94C504A2C108CED005CB447 /* LandmarkDescription.json in Resources */,
 				C98078AB2BA871A000C04B2D /* cardAllCorrect.mp3 in Resources */,
 				C98078912BA8703000C04B2D /* buttonClicked.mp3 in Resources */,
@@ -898,6 +909,7 @@
 				0C7FE69B2BB1290A00D94162 /* LoadingView.swift in Sources */,
 				C953D2FB2BA47F2C00318869 /* StringLiterals.swift in Sources */,
 				C9FE257D2BB40E1C00F78C63 /* CheerPKTeamView.swift in Sources */,
+				0C0CDA312C299021003D12BA /* AdventureView.swift in Sources */,
 				0C9641E62BB874E200838DA9 /* TimerBarView.swift in Sources */,
 				0CA07D712BFDA98400564AEB /* SurviveGameViewModel.swift in Sources */,
 				B99CD63D2C1026E2002B3755 /* BadgeDetailView.swift in Sources */,
