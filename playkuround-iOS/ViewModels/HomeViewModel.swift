@@ -296,7 +296,7 @@ final class HomeViewModel: ObservableObject {
         startChangingText()
     }
     
-    func blinkText() {
+    private func blinkText() {
         withAnimation(.easeInOut(duration: 0.2).repeatCount(3, autoreverses: true)) {
             isGameNameShowing.toggle()
         }
@@ -307,7 +307,7 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    func startChangingText() {
+    private func startChangingText() {
         DispatchQueue.main.async {
             self.gameName = self.gameNames[self.currentIndex]
             self.currentIndex += 1
@@ -343,7 +343,7 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    func stopChangingText() {
+    private func stopChangingText() {
         self.timer?.cancel()
     }
     
