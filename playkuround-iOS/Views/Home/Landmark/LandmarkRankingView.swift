@@ -49,6 +49,7 @@ struct LandmarkRankingView: View {
                                     .overlay {
                                         Image(.landmarkScoreBackground)
                                             .overlay {
+                                                // TODO: 1등 플레이어 점수 가져오기
                                                 Text("+ 1,214")
                                                     .font(.neo20)
                                                     .foregroundColor(.kuText)
@@ -114,13 +115,12 @@ struct LandmarkRankingView: View {
                                             .padding(.horizontal, 16)
                                         }
                                     
-                                    
-                                    
                                     ScrollView {
                                         VStack(spacing: 12) {
                                             ForEach(Array(rankingList.enumerated()), id: \.offset) { index, rank in
                                                 TotalRankingRow(ranking: index + 1,
-                                                                rank: Ranking(nickname: rank.nickname, score: rank.score))
+                                                                rank: Ranking(nickname: rank.nickname, 
+                                                                              score: rank.score))
                                             }
                                         }
                                     }
@@ -178,9 +178,6 @@ struct LandmarkRankingView: View {
                         Image(.leftWhiteArrow)
                     }
                 }, height: 30)
-            }
-            .onAppear {
-                homeViewModel.selectedLandmarkID = 1
             }
         }
     }

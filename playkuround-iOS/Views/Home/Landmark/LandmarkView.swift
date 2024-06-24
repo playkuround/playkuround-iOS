@@ -99,9 +99,6 @@ struct LandmarkView: View {
                     }
             }
         }
-        .onAppear {
-            homeViewModel.selectedLandmarkID = 1
-        }
     }
 }
 
