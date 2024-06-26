@@ -104,36 +104,6 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    // 임시 구현 (추후 탐험뷰로 변경)
-                    /* Menu {
-                        Section("게임") {
-                            Button("책 뒤집기") {
-                                viewModel.transition(to: .cardGame)
-                            }
-                            Button("10초를 맞춰봐") {
-                                viewModel.transition(to: .timeGame)
-                            }
-                            Button("MOON을 점령해") {
-                                viewModel.transition(to: .moonGame)
-                            }
-                            Button("건쏠지식") {
-                                viewModel.transition(to: .quizGame)
-                            }
-                            Button("덕큐피트") {
-                                viewModel.transition(to: .cupidGame)
-                            }
-                            Button("수강신청 ALL 클릭") {
-                                viewModel.transition(to: .allClickGame)
-                            }
-                            Button("일감호에서 살아남기") {
-                                viewModel.transition(to: .surviveGame)
-                            }
-                            Button("덕쿠를 잡아라!") {
-                                viewModel.transition(to: .catchGame)
-                            }
-                        }
-                    }*/
-                    
                     // 임시 구현
                     Menu {
                         Section("탐험") {
