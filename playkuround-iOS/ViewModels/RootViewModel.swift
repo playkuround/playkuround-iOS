@@ -57,7 +57,7 @@ final class RootViewModel: ObservableObject {
     }
 }
 
-enum ViewType {
+enum ViewType: String {
     // main
     case main
     
@@ -73,12 +73,12 @@ enum ViewType {
     case home
     
     // Games
-    case cardGame
-    case timeGame
-    case moonGame
-    case quizGame
-    case cupidGame
-    case allClickGame
-    case surviveGame
-    case catchGame
+    case cardGame = "책 뒤집기"
+    case timeGame = "10초를 맞춰봐"
+    case moonGame = "문을 점령해"
+    case quizGame = "건쏠지식"
+    case cupidGame = "덕큐피트"
+    case allClickGame = "수강신청 All 클릭"
+    case surviveGame = "일감호에서 살아남기"
+    case catchGame = "덕쿠를 잡아라"
 }

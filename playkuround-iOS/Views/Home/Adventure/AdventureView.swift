@@ -34,21 +34,26 @@ struct AdventureView: View {
                             .kerning(-0.41)
                             .padding(.bottom, 12)
                         
-                        // TODO: 룰렛 구현
                         Image(.rouletteBackground)
                             .overlay {
-                                Text("수강신청 올 클릭")
+                                Text(homeViewModel.gameName)
                                     .font(.neo22)
                                     .foregroundColor(.kuText)
                                     .kerning(-0.41)
+                                    .opacity(homeViewModel.isGameNameShowing ? 1.0 : 0.0)
                             }
                             .padding(.bottom, 25)
                         
                         Button {
-                            // TODO: 선택된 게임으로 이동
-                            // viewModel.transition(to: selectedGame)
+                            let selectedGame: ViewType? = homeViewModel.getSelectedGameStatus()
+                            
+                            homeViewModel.transition(to: .home)
+                            
+                            if let selectedGame = selectedGame {
+                                viewModel.transition(to: selectedGame)
+                            }
                         } label: {
-                            Image(.shortButtonBlue)
+                            Image(homeViewModel.isStartButtonEnabled ? .shortButtonBlue : .shortButtonGray)
                                 .overlay {
                                     Text(StringLiterals.Home.startGame)
                                         .font(.neo18)
@@ -56,6 +61,7 @@ struct AdventureView: View {
                                         .kerning(-0.41)
                                 }
                         }
+                        .disabled(!homeViewModel.isStartButtonEnabled)
                     }
                 }
         }

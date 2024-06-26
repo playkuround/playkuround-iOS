@@ -104,8 +104,17 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    // 임시 구현 (추후 탐험뷰로 변경)
+                    // 임시 구현
                     Menu {
+                        Section("탐험") {
+                            Button("AdventureView 열기") {
+                                let latitude = mapViewModel.userLatitude
+                                let longitude = mapViewModel.userLongitude
+                                
+                                homeViewModel.adventure(latitude: latitude, longitude: longitude)
+                            }
+                        }
+                        
                         Section("게임") {
                             Button("책 뒤집기") {
                                 viewModel.transition(to: .cardGame)
@@ -135,7 +144,7 @@ struct HomeView: View {
                     } label: {
                         Image(.shortButtonBlue)
                             .overlay {
-                                Text("탐험하기")
+                                Text(StringLiterals.Home.adventure)
                                     .font(.neo18)
                                     .foregroundColor(.kuText)
                                     .kerning(-0.41)
@@ -158,6 +167,8 @@ struct HomeView: View {
                     MyPageView(viewModel: viewModel, homeViewModel: homeViewModel)
                 case .landmark:
                     LandmarkView(homeViewModel: homeViewModel)
+                case .adventure:
+                    AdventureView(viewModel: viewModel, homeViewModel: homeViewModel)
                 }
             }
             .onAppear {

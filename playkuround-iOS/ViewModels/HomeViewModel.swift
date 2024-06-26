@@ -5,6 +5,7 @@
 //  Created by Hoeun Lee on 5/31/24.
 //
 
+import Combine
 import Foundation
 import SwiftUI
 
@@ -29,6 +30,19 @@ final class HomeViewModel: ObservableObject {
     // 화면 전환용
     @Published var viewStatus: HomeViewType = .home
     
+    // Adventure
+    @Published var gameName: String = ""
+    @Published var isStartButtonEnabled: Bool = false
+    
+    private let gameNames = ["책 뒤집기", "덕쿠를 잡아라", "수강신청 All 클릭", "덕큐피트", "문을 점령해", "일감호에서 살아남기", "건쏠지식", "10초를 맞춰봐"]
+    private var currentIndex = 0
+    private var delayMillis: TimeInterval = 0.05
+    private var speedUpInterval: TimeInterval = 0.25
+    private var isSpeedingUp = true
+    private var lastIndex = -1
+    private var timer: AnyCancellable? = nil
+    @Published var isGameNameShowing: Bool = true
+
     // MARK: - User Profile Data
     // 유저 프로필 데이터 불러오는 함수
     func loadUserData() {
@@ -227,6 +241,115 @@ final class HomeViewModel: ObservableObject {
             }
         }
     }
+    
+    // MARK: - Adventure
+    func adventure(latitude: Double, longitude: Double) {
+        print("latitude: \(latitude), longitude: \(longitude)")
+        APIManager.callGETAPI(endpoint: .landmarks, querys: ["latitude": latitude, "longitude": longitude]) { result in
+            switch result {
+            case .success(let data):
+                print("Nearest Landmark: \(data)")
+                
+                var nearestID = 0
+                
+                if let apiResponse = data as? APIResponse {
+                    if let response = apiResponse.response {
+                        if let id = response.landmarkId {
+                            nearestID = id
+                        }
+                    }
+                }
+                
+                // 성공적으로 반환
+                if nearestID > 0 {
+                    DispatchQueue.main.async {
+                        self.selectedLandmarkID = nearestID
+                    }
+                    self.selectRandomGame()
+                }
+                // 가까운 랜드마크가 없음
+                else {
+                    // TODO: 예외 처리
+                    print("가까운 랜드마크 없음")
+                }
+                
+            case .failure(let error):
+                print("Nearest Landmark Error: \(error)")
+            }
+        }
+    }
+    
+    private func selectRandomGame() {
+        self.transition(to: .adventure)
+        print("가까운 랜드마크 ID: \(self.selectedLandmarkID)")
+        
+        // reset
+        DispatchQueue.main.async {
+            self.isStartButtonEnabled = false
+            self.currentIndex = 0
+            self.delayMillis = 0.05
+            self.speedUpInterval = 0.25
+            self.isSpeedingUp = true
+            self.lastIndex = -1
+        }
+        
+        startChangingText()
+    }
+    
+    private func blinkText() {
+        withAnimation(.easeInOut(duration: 0.2).repeatCount(3, autoreverses: true)) {
+            isGameNameShowing.toggle()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            self.isGameNameShowing = true
+            self.isStartButtonEnabled = true
+        }
+    }
+    
+    private func startChangingText() {
+        DispatchQueue.main.async {
+            self.gameName = self.gameNames[self.currentIndex]
+            self.currentIndex += 1
+        }
+        
+        if currentIndex >= self.gameName.count {
+            if self.isSpeedingUp {
+                self.delayMillis += 0.04
+                print("delayMills: \(self.delayMillis)")
+                
+                if self.delayMillis >= self.speedUpInterval {
+                    self.isSpeedingUp = false
+                    self.timer?.cancel()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.lastIndex = Int.random(in: 0..<self.gameNames.count)
+                        self.gameName = self.gameNames[self.lastIndex]
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            self.blinkText()
+                        }
+                    }
+                    return
+                }
+            }
+            DispatchQueue.main.async {
+                self.currentIndex = 0
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + self.delayMillis) {
+            self.startChangingText()
+        }
+    }
+    
+    private func stopChangingText() {
+        self.timer?.cancel()
+    }
+    
+    func getSelectedGameStatus() -> ViewType? {
+        return ViewType(rawValue: self.gameName)
+    }
 }
 
 enum HomeViewType {
@@ -237,4 +360,5 @@ enum HomeViewType {
     case myPage // MyPageView
     
     case landmark // LandmarkView
+    case adventure 
 }

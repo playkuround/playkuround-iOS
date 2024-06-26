@@ -84,6 +84,7 @@ enum StringLiterals {
         static let startGame = "게임 시작"
         
         static let me = "나"
+        static let adventure = "탐험하기"
         
         enum Attendance {
             static let attendanceTitle = "출석체크"
