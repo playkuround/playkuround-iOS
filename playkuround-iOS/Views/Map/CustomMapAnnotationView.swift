@@ -15,11 +15,7 @@ struct CustomMapAnnotationView: View {
         if annotation.type == .landmark {
             Image(.landmarkFlag)
         } else {
-            ZStack {
-                Image(.userAnnotationHeading)
-                    .rotationEffect(Angle(degrees: mapViewModel.userHeading))
-                Image(.userAnnotation)
-            }
+            Image(.userAnnotation)
         }
     }
 }
