@@ -216,4 +216,9 @@ enum StringLiterals {
             static let title = "덕쿠를 잡아라!"
         }
     }
+    
+    enum Story {
+        static let new = "new!"
+        static let lock = "게임을 플레이하면\n새로운 스토리가 열려요!"
+    }
 }

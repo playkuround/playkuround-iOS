@@ -31,7 +31,7 @@ struct StoryView: View {
                                     .lineSpacing(18 * 0.3)
                                     .padding(.top, 19)
                                 
-                                Text("new!")
+                                Text(StringLiterals.Story.new)
                                     .font(.neo15)
                                     .kerning(-0.41)
                                     .foregroundStyle(.kuRed)
@@ -48,6 +48,7 @@ struct StoryView: View {
                                         .foregroundStyle(.kuText)
                                         .kerning(-0.41)
                                         .lineSpacing(15 * 0.3)
+                                        .multilineTextAlignment(.leading)
                                         .padding(.top, 7)
                                         .padding(.horizontal, 12)
                                 }
@@ -81,7 +82,7 @@ struct StoryView: View {
 func lockDescriptionView() -> some View {
     return Image(.storyLockDescriptionBackground)
         .overlay {
-            Text("게임을 플레이하면\n새로운 스토리가 열려요!")
+            Text(StringLiterals.Story.lock)
                 .font(.neo15)
                 .foregroundStyle(.kuText)
                 .kerning(-0.41)
