@@ -11,6 +11,7 @@ struct HomeView: View {
     @ObservedObject var viewModel: RootViewModel
     @ObservedObject var homeViewModel: HomeViewModel
     @ObservedObject var mapViewModel: MapViewModel
+    @State private var showStoryView: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -62,6 +63,9 @@ struct HomeView: View {
                                         .kerning(-0.41)
                                 }
                                 .padding(.horizontal, 8)
+                            }
+                            .onTapGesture {
+                                showStoryView.toggle()
                             }
                     }
                     .padding(.top, shouldPadding ? 4 : 0)
@@ -169,6 +173,10 @@ struct HomeView: View {
                     LandmarkView(homeViewModel: homeViewModel)
                 case .adventure:
                     AdventureView(viewModel: viewModel, homeViewModel: homeViewModel)
+                }
+                
+                if showStoryView {
+                    StoryView(showStoryView: $showStoryView, story: storys[1])
                 }
             }
             .onAppear {
