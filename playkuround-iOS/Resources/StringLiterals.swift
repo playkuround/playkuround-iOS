@@ -74,6 +74,54 @@ enum StringLiterals {
         static let openSetting = "설정으로 이동"
     }
     
+    enum Home {
+        static let scoreTitle = "점"
+        static let nicknameTitle = "님"
+        
+        static let ranking = "랭킹"
+        static let rankingUnit = "위"
+        static let badgeNum = "뱃지 %@개"
+        static let startGame = "게임 시작"
+        
+        static let me = "나"
+        static let adventure = "탐험하기"
+        
+        enum Attendance {
+            static let attendanceTitle = "출석체크"
+            static let attendance = "출석하기"
+            static let attenanceDone = "출석완료"
+        }
+        
+        enum Landmark {
+            static let rankingTitle = "정복랭킹"
+            static let buildingDescriptionTitle = "건물설명"
+            static let close = "닫기"
+            
+            static let rankingSubtext1 = "을"
+            static let rankingSubtext2 = "제일 많이 정복한 사람은"
+            static let rankingSubtext3 = "님입니다"
+            
+            static let rankingEmpty = "아직 순위가 없습니다.\n지금 1위에 도전해보세요!"
+        }
+
+        enum Badge {
+            static let title = "배지"
+            static let attendanceTitle = "출석 배지"
+            static let adventureTitle = "탐험 배지"
+        }
+        
+        enum TotalRanking {
+            static let title = "랭킹"
+            static let informationTitle = "랭킹기준"
+            static let informationDescription = "출석 체크 : 1점\n탐험 1개 완료 : 5점\n추가 탐험(모든 탐험 완료 후) : 1점"
+            static let empty = "아직 순위가 없습니다.\n지금 1위에 도전해보세요!"
+            
+            static let ranking = "순위"
+            static let nickname = "닉네임"
+            static let score = "점수"
+        }
+    }
+    
     enum MyPage {
         static let title = "마이페이지"
         static let currentScore = "현재 점수"
@@ -163,5 +211,14 @@ enum StringLiterals {
         enum Survive {
             static let title = "일감호에서 살아남기"
         }
+        
+        enum Catch {
+            static let title = "덕쿠를 잡아라!"
+        }
+    }
+    
+    enum Story {
+        static let new = "new!"
+        static let lock = "게임을 플레이하면\n새로운 스토리가 열려요!"
     }
 }

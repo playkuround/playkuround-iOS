@@ -18,7 +18,37 @@ struct SurviveGameView: View {
                 .ignoresSafeArea(.all)
             
             VStack {
-                TimerBarView(progress: .constant(1), color: .black)
+                TimerBarView(progress: $viewModel.progress, color: .black)
+                    .onReceive(viewModel.timer) { _ in
+                        viewModel.updateTimer()
+                        
+                        // update score 1초마다 호출
+                        if viewModel.isTimerUpdating {
+                            if Int(viewModel.timeRemaining * 100) % 100 == 0 {
+                                viewModel.updateScore()
+                            }
+                            
+                            // update bug num 10초마다 호출
+                            if Int(viewModel.timeRemaining * 100) % 1000 == 0 {
+                                viewModel.updateNumBug()
+                            }
+                            
+                            // update entity position
+                            if Int(viewModel.timeRemaining * 100) % 4 == 0 {
+                                viewModel.updateEntityPos()
+                            }
+                            
+                            // 3초마다 add Bug
+                            if Int(viewModel.timeRemaining * 100) % 300 == 0 {
+                                viewModel.addBug(viewModel.numBug)
+                            }
+                            
+                            // 5초마다 add Boat
+                            if Int(viewModel.timeRemaining * 100) % 500 == 0 {
+                                viewModel.addBoat(Int(viewModel.numBug / 4))
+                            }
+                        }
+                    }
                 
                 HStack {
                     Text(StringLiterals.Game.scoreTitle)
@@ -37,36 +67,48 @@ struct SurviveGameView: View {
                     Spacer()
                     
                     HStack(spacing: 2) {
-                        Image(.surviveHeart)
-                        Image(.surviveHeart)
-                        Image(.surviveHeart)
+                        Image(viewModel.life > 0 ? .surviveHeart : .surviveHeartBroken)
+                        Image(viewModel.life > 1 ? .surviveHeart : .surviveHeartBroken)
+                        Image(viewModel.life > 2 ? .surviveHeart : .surviveHeartBroken)
                     }
                 }
                 .padding(.horizontal, 26)
                 
                 // Main Frame
                 GeometryReader { geometry in
-                    HStack {
-                        Spacer()
-                        
-                        VStack {
+                    VStack{
+                        HStack {
                             Spacer()
+                            
+                            VStack {
+                                Spacer()
+                            }
+                        }
+                        .onAppear {
+                            print("Survive Game Size: \(geometry.size.width), \(geometry.size.height)")
+                            viewModel.setFrameXY(x: geometry.size.width, y: geometry.size.height)
+                        }
+                        .overlay {
+                            ForEach(viewModel.bugList, id: \.self) { bug in
+                                entityView(type: .bug, angle: bug.angle)
+                                    .border(.green)
+                                    .offset(x: bug.posX, y: bug.posY)
+                            }
+                            
+                            ForEach(viewModel.boatList, id: \.self) { boat in
+                                entityView(type: .boat, angle: boat.angle)
+                                    .border(.blue)
+                                    .rotationEffect(boat.angle)
+                                    .border(.orange)
+                                    .offset(x: boat.posX, y: boat.posY)
+                            }
+                            
+                            Image(viewModel.isTransparent ? .surviveDuckkuHit : .surviveDuckku)
+                                .border(.red)
+                                .offset(x: viewModel.duckkuPosX, y: viewModel.duckkuPosY)
                         }
                     }
-                    .onAppear {
-                        print("Survive Game Size: \(geometry.size.width), \(geometry.size.height)")
-                        viewModel.setFrameXY(x: geometry.size.width, y: geometry.size.height)
-                    }
-                    .overlay {
-                        Image(.surviveDuckku)
-                            // TODO: View Model의 pos값과 연결
-                            // .offset(x: viewModel.duckkuPosX, y: viewModel.duckkuPosY)
-                        
-                        SurviveGameEntityView(type: .boat)
-                            .offset(x: 0, y: 90)
-                        SurviveGameEntityView(type: .bug)
-                            .offset(x: 0, y: 180)
-                    }
+                    .clipped()
                 }
             }
             .customNavigationBar(centerView: {
@@ -90,9 +132,23 @@ struct SurviveGameView: View {
                 GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
             }
         }
+        .onAppear {
+            // 카운트다운 시작
+            viewModel.startCountdown()
+        }
+    }
+    
+    @ViewBuilder
+    func entityView(type: SurviveGameEntityType, angle: Angle) -> some View {
+        switch type {
+        case .boat:
+            Image(.surviveBoat)
+        case .bug:
+            Image(.surviveBug)
+        }
     }
 }
 
 #Preview {
-    SurviveGameView(viewModel: SurviveGameViewModel(.survive, rootViewModel: RootViewModel(), mapViewModel: MapViewModel(), timeStart: 60.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: RootViewModel())
+    SurviveGameView(viewModel: SurviveGameViewModel(rootViewModel: RootViewModel(), mapViewModel: MapViewModel()), rootViewModel: RootViewModel())
 }

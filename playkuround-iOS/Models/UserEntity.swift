@@ -10,7 +10,8 @@ import Foundation
 struct UserEntity {
     var nickname: String
     var major: String
-    var myRank: MyRank
+    var myRank: MyRank // 전체 랭킹
+    var landmarkRank: MyRank // 랜드마크별 랭킹
     var highestScore: Int
     var highestRank: String
 }

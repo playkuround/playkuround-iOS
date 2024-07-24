@@ -62,7 +62,6 @@ struct CardGameView: View {
                 }
             }
             .onAppear {
-                viewModel.shuffleCard()
                 viewModel.startCountdown()
             }
         }

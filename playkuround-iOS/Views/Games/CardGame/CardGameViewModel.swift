@@ -30,6 +30,8 @@ final class CardGameViewModel: GameViewModel {
     private var correctCount: Int = 0
     
     override func startGame() {
+        self.shuffleCard()
+        
         super.startGame()
         super.startTimer()
     }
@@ -53,7 +55,9 @@ final class CardGameViewModel: GameViewModel {
     }
     
     func shuffleCard() {
-        cardList.shuffle()
+        DispatchQueue.main.async {
+            self.cardList.shuffle()
+        }
     }
     
     func coverToDrawing(index: Int) {
