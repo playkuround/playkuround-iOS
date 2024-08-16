@@ -18,7 +18,7 @@ final class APIManager {
 
     // API 서버 종류별 address
     enum ServerType: String {
-        case dev = "http://plku.kro.kr:8080"
+        case dev = "http://141.164.41.233:8080"
         case prod = "http://15.164.211.101"
     }
     
