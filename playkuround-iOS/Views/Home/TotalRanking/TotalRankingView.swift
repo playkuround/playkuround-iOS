@@ -23,7 +23,8 @@ struct TotalRankingView: View {
                     .ignoresSafeArea(.all)
                 
                 let shouldPadding = geometry.size.height >= 700
-                let rankingList: [Ranking] = homeViewModel.totalRank
+                // let rankingList: [Ranking] = homeViewModel.totalRank
+                let rankingList: [Ranking] = [Ranking(nickname: "test1", score: 100), Ranking(nickname: "test2", score: 80), Ranking(nickname: "test3", score: 60), Ranking(nickname: "test4", score: 40),]
                 
                 VStack {
                     Image(.rankingTable)
@@ -37,11 +38,17 @@ struct TotalRankingView: View {
                                             .overlay(alignment: .bottom) {
                                                 VStack {
                                                     if rankingList.indices.contains(1) {
+                                                        Image(.engineering)
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .frame(width: 42, height: 42)
+                                                            .padding(.top, 20)
+                                                        
                                                         Text(rankingList[1].nickname)
                                                             .font(.neo15)
                                                             .foregroundStyle(.kuText)
                                                             .padding(.bottom, 11)
-                                                            .padding(.top, 40)
+                                                            .padding(.top, 8)
                                                         
                                                         Rectangle()
                                                             .frame(width: 60, height: 23)
@@ -61,11 +68,17 @@ struct TotalRankingView: View {
                                         Image(.rankingGold)
                                             .overlay(alignment: .bottom) {
                                                 VStack {
+                                                    Image(.engineering)
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .frame(width: 42, height: 42)
+                                                        .padding(.top, 50)
+                                                    
                                                     Text(rankingList[0].nickname)
                                                         .font(.neo15)
                                                         .foregroundStyle(.kuText)
                                                         .padding(.bottom, 11)
-                                                        .padding(.top, 40)
+                                                        .padding(.top, 8)
                                                     
                                                     Rectangle()
                                                         .frame(width: 60, height: 23)
@@ -85,11 +98,17 @@ struct TotalRankingView: View {
                                             .overlay(alignment: .bottom) {
                                                 VStack {
                                                     if rankingList.indices.contains(2) {
+                                                        Image(.engineering)
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .frame(width: 42, height: 42)
+                                                            .padding(.top, 20)
+                                                        
                                                         Text(rankingList[2].nickname)
                                                             .font(.neo15)
                                                             .foregroundStyle(.kuText)
                                                             .padding(.bottom, 11)
-                                                            .padding(.top, 40)
+                                                            .padding(.top, 8)
                                                         
                                                         Rectangle()
                                                             .frame(width: 60, height: 23)
@@ -134,7 +153,7 @@ struct TotalRankingView: View {
                                         VStack(spacing: 12) {
                                             ForEach(Array(rankingList.enumerated()), id: \.offset) { index, rank in
                                                 TotalRankingRow(ranking: index + 1,
-                                                                rank: Ranking(nickname: rank.nickname, score: rank.score))
+                                                                rank: Ranking(nickname: rank.nickname, score: rank.score), badge: .COLLEGE_OF_ENGINEERING)
                                             }
                                         }
                                     }
@@ -142,18 +161,24 @@ struct TotalRankingView: View {
                                     
                                     Image(.rankingMineRow)
                                         .overlay {
-                                            HStack {
+                                            HStack(spacing: 0) {
                                                 Text(String(homeViewModel.userData.myRank.ranking))
                                                     .font(.neo18)
                                                     .kerning(-0.41)
                                                     .foregroundStyle(.kuText)
+                                                    .frame(width: 40)
+                                                    .padding(.trailing, 15)
                                                 
-                                                Spacer()
+                                                Image(.engineering)
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 20, height: 20)
+                                                    .padding(.trailing, 10)
                                                 
                                                 Text("나")
                                                     .font(.pretendard15R)
                                                     .foregroundStyle(.kuText)
-                                                    .frame(width: 104)
+                                                    .lineLimit(1)
                                                 
                                                 Spacer()
                                                 
@@ -161,8 +186,9 @@ struct TotalRankingView: View {
                                                     .font(.neo18)
                                                     .kerning(-0.41)
                                                     .foregroundStyle(.kuText)
+                                                    .frame(width: 60)
                                             }
-                                            .padding(.horizontal, 22)
+                                            .padding(.horizontal, 11)
                                         }
                                         .padding(.horizontal, 16)
                                 }

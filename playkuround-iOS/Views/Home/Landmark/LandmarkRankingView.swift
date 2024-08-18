@@ -114,7 +114,7 @@ struct LandmarkRankingView: View {
                                             ForEach(Array(rankingList.enumerated()), id: \.offset) { index, rank in
                                                 TotalRankingRow(ranking: index + 1,
                                                                 rank: Ranking(nickname: rank.nickname, 
-                                                                              score: rank.score))
+                                                                              score: rank.score), badge: .COLLEGE_OF_ENGINEERING)
                                             }
                                         }
                                     }
