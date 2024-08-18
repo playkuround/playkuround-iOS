@@ -21,9 +21,7 @@ struct LandmarkRankingView: View {
                 Color.black.opacity(0.2).ignoresSafeArea()
                 
                 let shouldPadding = geometry.size.height >= 700
-                // let rankingList: [Ranking] = homeViewModel.landmarkRank
-                // TODO: 실제 기능 구현 시 삭제 예정
-                let rankingList: [Ranking] = [Ranking(nickname: "test1", score: 100), Ranking(nickname: "test2", score: 80), Ranking(nickname: "test3", score: 60), Ranking(nickname: "test4", score: 40),]
+                let rankingList: [Ranking] = homeViewModel.landmarkRank
                 
                 VStack {
                     Spacer()
