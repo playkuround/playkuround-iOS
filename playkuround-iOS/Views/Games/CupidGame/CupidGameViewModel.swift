@@ -81,7 +81,7 @@ final class CupidGameViewModel: GameViewModel {
     }
     
     func scheduleNextDuckSpawn() {
-        let randomInterval = Double.random(in: 0.2...0.6)
+        let randomInterval = Double.random(in: 0.5...0.8) // 게임 밸런스를 위해 임의로 인터벌 값 조정
         duckSpawnTimer = Timer.scheduledTimer(withTimeInterval: randomInterval, repeats: false) { timer in
             self.addNewDuck()
             self.scheduleNextDuckSpawn() // 다음 타이머 스케쥴링
@@ -96,6 +96,8 @@ final class CupidGameViewModel: GameViewModel {
     }
     
     private func checkDucksPosition() {
+        var indicesToRemove: [Int] = []
+        
         for i in 0..<whiteDucksPositions.count {
             let whiteDuckDistance = (self.whiteDucksPositions[i] - self.centralPosition)
             let blackDuckDistance = (self.blackDucksPositions[i] + self.centralPosition)
@@ -104,25 +106,30 @@ final class CupidGameViewModel: GameViewModel {
             if whiteDuckDistance > 16 && blackDuckDistance < -16 {
                 self.result = .bad
                 self.stopDuckAnimation()
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    self.resetDucks()
-                    self.startDuckAnimation()
-                }
-                return
+                indicesToRemove.append(i)
+            }
+        }
+        
+        if !indicesToRemove.isEmpty {
+            removeDucks(at: indicesToRemove)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.startDuckAnimation()
             }
         }
     }
     
-    private func resetDucks() {
-        whiteDucksPositions.removeAll()
-        blackDucksPositions.removeAll()
+    private func removeDucks(at indices: [Int]) {
+        for index in indices.sorted(by: >) {
+            whiteDucksPositions.remove(at: index)
+            blackDucksPositions.remove(at: index)
+        }
         self.result = nil
     }
     
     func stopButtonTapped() {
         self.stopDuckAnimation()
         
+        var indicesToRemove: [Int] = []
         var foundResult = false
         
         for i in 0..<whiteDucksPositions.count {
@@ -147,8 +154,11 @@ final class CupidGameViewModel: GameViewModel {
             result = .bad
         }
         
+        if !indicesToRemove.isEmpty {
+            removeDucks(at: indicesToRemove)
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.resetDucks()
             self.startDuckAnimation()
         }
     }
