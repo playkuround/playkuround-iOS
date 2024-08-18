@@ -23,6 +23,8 @@ struct TimerBarView: View {
                 .foregroundStyle(color == .white ? .white : .kuText)
                 .kerning(-0.41)
                 .offset(y: 3)
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
             
             Spacer()
             
