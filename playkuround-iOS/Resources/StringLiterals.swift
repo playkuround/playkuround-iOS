@@ -120,6 +120,12 @@ enum StringLiterals {
             static let nickname = "닉네임"
             static let score = "점수"
         }
+        
+        enum ProfileBadge {
+            static let title = "뱃지 아이콘 선택"
+            static let description = "나를 표현할 사진을 선택하세요!"
+            static let change = "변경하기"
+        }
     }
     
     enum MyPage {
