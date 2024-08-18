@@ -9,8 +9,8 @@ import SwiftUI
 import Combine
 
 final class AllClickGameViewModel: GameViewModel {
+    
     @Published var countdownCompleted: Bool = false
-    // 생명 개수
     @Published var life: Int = 3
     @Published var subjects: [Subject] = []
     @Published var textRainOffsets: [CGFloat] = []
@@ -41,7 +41,7 @@ final class AllClickGameViewModel: GameViewModel {
             for i in self.subjects.indices {
                 self.subjects[i].yOffset += 20
             }
-            self.subjects.removeAll { $0.yOffset > UIScreen.main.bounds.height }
+            //self.subjects.removeAll { $0.yOffset > UIScreen.main.bounds.height }
             
             currentFallingCount += 1
             
@@ -69,5 +69,30 @@ final class AllClickGameViewModel: GameViewModel {
     func stopSubjectRain() {
         subjectRainTimer?.invalidate()
         subjectRainTimer = nil
+    }
+    
+    func calculateScore(index: Int) {
+        if self.subjects[index].type == .basic {
+            if 4 <= self.subjects[index].title.count, self.subjects[index].title.count <= 5 {
+                score += 2
+            }
+            else if 6 <= self.subjects[index].title.count, self.subjects[index].title.count <= 8 {
+                score += 3
+            }
+            else if 9 <= self.subjects[index].title.count {
+                score += 4
+            }
+        }
+        else {
+            if 4 <= self.subjects[index].title.count, self.subjects[index].title.count <= 5 {
+                score += 1
+            }
+            else if 6 <= self.subjects[index].title.count, self.subjects[index].title.count <= 8 {
+                score += 2
+            }
+            else if 9 <= self.subjects[index].title.count {
+                score += 3
+            }
+        }
     }
 }

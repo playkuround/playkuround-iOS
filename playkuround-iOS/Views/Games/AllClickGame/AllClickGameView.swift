@@ -133,6 +133,12 @@ struct AllClickGameView: View {
                     shouldBecomeFirstResponder = true
                 }
             }
+            .onChange(of: userText) { newText in
+                if let index = viewModel.subjects.firstIndex(where: { $0.title == newText }) {
+                    viewModel.calculateScore(index: index)
+                    viewModel.subjects.remove(at: index)
+                }
+            }
         }
     }
 }

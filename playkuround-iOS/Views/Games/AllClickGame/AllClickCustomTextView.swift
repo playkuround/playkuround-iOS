@@ -60,6 +60,14 @@ struct AllClickCustomTextView: UIViewRepresentable {
             self.parent.shouldBecomeFirstResponder = false
         }
         
+        // enter 눌렀을 때 다음 줄로 넘어가지 않도록 함.
+        func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+            if text == "\n" {
+                return false
+            }
+            return true
+        }
+        
         func setTextView(_ textView: UITextView) {
             self.textView = textView
         }
