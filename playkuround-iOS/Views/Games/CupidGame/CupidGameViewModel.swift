@@ -17,20 +17,22 @@ final class CupidGameViewModel: GameViewModel {
     
     @Published var result: CupidResult?
     
-    /// 초기 오리 위치
-    @Published var whiteDuckPosition: CGFloat = -UIScreen.main.bounds.width / 2 + 88
-    @Published var blackDuckPosition: CGFloat = UIScreen.main.bounds.width / 2 - 88
+    /// 오리 위치 배열
+    @Published var whiteDucksPositions: [CGFloat] = [-UIScreen.main.bounds.width / 2 + 88]
+    @Published var blackDucksPositions: [CGFloat] = [UIScreen.main.bounds.width / 2 - 88]
     
     /// 두 오리 이미지가 완전히 겹쳐지는 offset
     private let centralPosition: CGFloat = 46
     
     private var duckAnimationTimer: Timer?
- 
+    private var duckSpawnTimer: Timer?
+    
     override func startGame() {
         super.startGame()
         super.startTimer()
         
         self.startDuckAnimation()
+        self.startDuckSpawn()
     }
     
     override func timerDone() {
@@ -40,6 +42,7 @@ final class CupidGameViewModel: GameViewModel {
     override func finishGame() {
         gameState = .finish
         stopDuckAnimation()
+        stopDuckSpawn()
         
         // 서버로 점수 업로드
         uploadResult()
@@ -50,22 +53,14 @@ final class CupidGameViewModel: GameViewModel {
         
         duckAnimationTimer = Timer.scheduledTimer(withTimeInterval: 0.003, repeats: true) { timer in
             withAnimation(.linear(duration: 0.003)) {
-                self.whiteDuckPosition += 1
-                self.blackDuckPosition -= 1
-                
-                let whiteDuckDistance = (self.whiteDuckPosition - self.centralPosition)
-                let blackDuckDistance = (self.blackDuckPosition + self.centralPosition)
-                
-                /// 오리가 서로 지나칠 때
-                if  whiteDuckDistance > 16 && blackDuckDistance < -16 {
-                    self.result = .bad
-                    self.stopDuckAnimation()
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        self.resetDucks()
-                        self.startDuckAnimation()
-                    }
+                for i in 0..<self.whiteDucksPositions.count {
+                    self.whiteDucksPositions[i] += 1
                 }
+                for i in 0..<self.blackDucksPositions.count {
+                    self.blackDucksPositions[i] -= 1
+                }
+                
+                self.checkDucksPosition()
             }
         }
     }
@@ -75,27 +70,80 @@ final class CupidGameViewModel: GameViewModel {
         duckAnimationTimer = nil
     }
     
+    func startDuckSpawn() {
+        stopDuckSpawn()
+        scheduleNextDuckSpawn()
+    }
+    
+    func stopDuckSpawn() {
+        duckSpawnTimer?.invalidate()
+        duckSpawnTimer = nil
+    }
+    
+    func scheduleNextDuckSpawn() {
+        let randomInterval = Double.random(in: 0.2...0.6)
+        duckSpawnTimer = Timer.scheduledTimer(withTimeInterval: randomInterval, repeats: false) { timer in
+            self.addNewDuck()
+            self.scheduleNextDuckSpawn() // 다음 타이머 스케쥴링
+        }
+    }
+    
+    private func addNewDuck() {
+        let initialWhiteDuckPosition: CGFloat = -UIScreen.main.bounds.width / 2 + 88
+        let initialBlackDuckPosition: CGFloat = UIScreen.main.bounds.width / 2 - 88
+        whiteDucksPositions.append(initialWhiteDuckPosition)
+        blackDucksPositions.append(initialBlackDuckPosition)
+    }
+    
+    private func checkDucksPosition() {
+        for i in 0..<whiteDucksPositions.count {
+            let whiteDuckDistance = (self.whiteDucksPositions[i] - self.centralPosition)
+            let blackDuckDistance = (self.blackDucksPositions[i] + self.centralPosition)
+            
+            /// 오리가 서로 지나칠 때
+            if whiteDuckDistance > 16 && blackDuckDistance < -16 {
+                self.result = .bad
+                self.stopDuckAnimation()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.resetDucks()
+                    self.startDuckAnimation()
+                }
+                return
+            }
+        }
+    }
+    
     private func resetDucks() {
-        self.whiteDuckPosition = -UIScreen.main.bounds.width / 2 + 88
-        self.blackDuckPosition = UIScreen.main.bounds.width / 2 - 88
+        whiteDucksPositions.removeAll()
+        blackDucksPositions.removeAll()
         self.result = nil
     }
     
     func stopButtonTapped() {
         self.stopDuckAnimation()
         
-        let whiteDuckDistance = abs(whiteDuckPosition - centralPosition)
-        let blackDuckDistance = abs(blackDuckPosition + centralPosition)
+        var foundResult = false
         
-        if whiteDuckDistance <= 8 && blackDuckDistance <= 8 {
-            result = .perfect
-            score += 3
+        for i in 0..<whiteDucksPositions.count {
+            let whiteDuckDistance = abs(whiteDucksPositions[i] - centralPosition)
+            let blackDuckDistance = abs(blackDucksPositions[i] + centralPosition)
+            
+            if whiteDuckDistance <= 8 && blackDuckDistance <= 8 {
+                result = .perfect
+                score += 3
+                foundResult = true
+                break
+            }
+            else if whiteDuckDistance <= 16 && blackDuckDistance <= 16 {
+                result = .good
+                score += 1
+                foundResult = true
+                break
+            }
         }
-        else if whiteDuckDistance <= 16 && blackDuckDistance <= 16 {
-            result = .good
-            score += 1
-        }
-        else {
+        
+        if !foundResult {
             result = .bad
         }
         
