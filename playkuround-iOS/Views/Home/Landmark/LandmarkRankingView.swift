@@ -21,7 +21,9 @@ struct LandmarkRankingView: View {
                 Color.black.opacity(0.2).ignoresSafeArea()
                 
                 let shouldPadding = geometry.size.height >= 700
-                let rankingList: [Ranking] = homeViewModel.landmarkRank
+                // let rankingList: [Ranking] = homeViewModel.landmarkRank
+                // TODO: 실제 기능 구현 시 삭제 예정
+                let rankingList: [Ranking] = [Ranking(nickname: "test1", score: 100), Ranking(nickname: "test2", score: 80), Ranking(nickname: "test3", score: 60), Ranking(nickname: "test4", score: 40),]
                 
                 VStack {
                     Spacer()
@@ -122,27 +124,34 @@ struct LandmarkRankingView: View {
                                     
                                     Image(.rankingMineRow)
                                         .overlay {
-                                            HStack {
-                                                Text(String(homeViewModel.userData.landmarkRank.ranking))
+                                            HStack(spacing: 0) {
+                                                Text(String(homeViewModel.userData.myRank.ranking))
                                                     .font(.neo18)
                                                     .kerning(-0.41)
                                                     .foregroundStyle(.kuText)
+                                                    .frame(width: 40)
+                                                    .padding(.trailing, 15)
                                                 
-                                                Spacer()
+                                                Image(.engineering)
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 20, height: 20)
+                                                    .padding(.trailing, 10)
                                                 
-                                                Text(StringLiterals.Home.me)
+                                                Text("나")
                                                     .font(.pretendard15R)
                                                     .foregroundStyle(.kuText)
-                                                    .frame(width: 104)
+                                                    .lineLimit(1)
                                                 
                                                 Spacer()
                                                 
-                                                Text(String(homeViewModel.userData.landmarkRank.score.decimalFormatter))
+                                                Text(String(homeViewModel.userData.myRank.score.decimalFormatter))
                                                     .font(.neo18)
                                                     .kerning(-0.41)
                                                     .foregroundStyle(.kuText)
+                                                    .frame(width: 60)
                                             }
-                                            .padding(.horizontal, 22)
+                                            .padding(.horizontal, 11)
                                         }
                                         .padding(.horizontal, 16)
                                 }
