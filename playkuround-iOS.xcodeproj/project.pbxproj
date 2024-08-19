@@ -57,7 +57,7 @@
 		0CB974442BFE55AB008E1399 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB974432BFE55AB008E1399 /* Window.swift */; };
 		0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */; };
 		0CC01F262BBBD540007BB320 /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC01F252BBBD540007BB320 /* CardGameViewModel.swift */; };
-		0CC034AE2C739110002FF439 /* LandmarkDescriptionNew.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CC034AD2C739108002FF439 /* LandmarkDescriptionNew.json */; };
+		0CC034AE2C739110002FF439 /* LandmarkDescription.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CC034AD2C739108002FF439 /* LandmarkDescription.json */; };
 		0CD0402D2C062A8E009F9BE1 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */; };
 		0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD06A282BAB459500845B24 /* RegisterTermsView.swift */; };
 		0CEB87C72BB7E2B000CC2E4B /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */; };
@@ -70,7 +70,6 @@
 		B9105A032BDBFF9700D6455F /* AllClickGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9105A022BDBFF9700D6455F /* AllClickGameView.swift */; };
 		B9406DE92C42DABC004FEDC2 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9406DE82C42DABC004FEDC2 /* StoryView.swift */; };
 		B94C50462C108CDA005CB447 /* TotalRankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C50452C108CDA005CB447 /* TotalRankingView.swift */; };
-		B94C504A2C108CED005CB447 /* LandmarkDescription.json in Resources */ = {isa = PBXBuildFile; fileRef = B94C50492C108CED005CB447 /* LandmarkDescription.json */; };
 		B94C504C2C108ECF005CB447 /* TotalRankingInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C504B2C108ECF005CB447 /* TotalRankingInformationView.swift */; };
 		B98503C22BDCEC2900C3CC8F /* AllClickTextRainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98503C12BDCEC2900C3CC8F /* AllClickTextRainView.swift */; };
 		B9955B112C19C3360082FC60 /* Formatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9955B102C19C3360082FC60 /* Formatter+.swift */; };
@@ -188,7 +187,7 @@
 		0CB974432BFE55AB008E1399 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		0CC01F252BBBD540007BB320 /* CardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModel.swift; sourceTree = "<group>"; };
-		0CC034AD2C739108002FF439 /* LandmarkDescriptionNew.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LandmarkDescriptionNew.json; sourceTree = "<group>"; };
+		0CC034AD2C739108002FF439 /* LandmarkDescription.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LandmarkDescription.json; sourceTree = "<group>"; };
 		0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		0CD06A282BAB459500845B24 /* RegisterTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTermsView.swift; sourceTree = "<group>"; };
 		0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
@@ -201,7 +200,6 @@
 		B9105A022BDBFF9700D6455F /* AllClickGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickGameView.swift; sourceTree = "<group>"; };
 		B9406DE82C42DABC004FEDC2 /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		B94C50452C108CDA005CB447 /* TotalRankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalRankingView.swift; sourceTree = "<group>"; };
-		B94C50492C108CED005CB447 /* LandmarkDescription.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LandmarkDescription.json; sourceTree = "<group>"; };
 		B94C504B2C108ECF005CB447 /* TotalRankingInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalRankingInformationView.swift; sourceTree = "<group>"; };
 		B98503C12BDCEC2900C3CC8F /* AllClickTextRainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickTextRainView.swift; sourceTree = "<group>"; };
 		B9955B102C19C3360082FC60 /* Formatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+.swift"; sourceTree = "<group>"; };
@@ -302,9 +300,8 @@
 		0C3F4E682C0C44AB00EE9DB6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				0CC034AD2C739108002FF439 /* LandmarkDescriptionNew.json */,
+				0CC034AD2C739108002FF439 /* LandmarkDescription.json */,
 				0CB76A252C73AA6300BDF364 /* QuizData.json */,
-				B94C50492C108CED005CB447 /* LandmarkDescription.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -848,11 +845,10 @@
 				0C5979B82BAB25EE00E8156D /* service.txt in Resources */,
 				C98078A92BA871A000C04B2D /* cardClicked.mp3 in Resources */,
 				C980789C2BA8712700C04B2D /* cupidBad.mp3 in Resources */,
-				0CC034AE2C739110002FF439 /* LandmarkDescriptionNew.json in Resources */,
+				0CC034AE2C739110002FF439 /* LandmarkDescription.json in Resources */,
 				C98078B22BA8720D00C04B2D /* classEnd.mp3 in Resources */,
 				C98078A82BA871A000C04B2D /* cardIncorrect.mp3 in Resources */,
 				C98078B12BA8720D00C04B2D /* classMinusHeart.mp3 in Resources */,
-				B94C504A2C108CED005CB447 /* LandmarkDescription.json in Resources */,
 				C98078AB2BA871A000C04B2D /* cardAllCorrect.mp3 in Resources */,
 				C98078912BA8703000C04B2D /* buttonClicked.mp3 in Resources */,
 				C98078972BA870E400C04B2D /* timerCorrect.mp3 in Resources */,
