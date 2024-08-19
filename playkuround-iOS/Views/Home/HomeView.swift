@@ -184,6 +184,8 @@ struct HomeView: View {
                     LandmarkView(homeViewModel: homeViewModel)
                 case .adventure:
                     AdventureView(viewModel: viewModel, homeViewModel: homeViewModel)
+                case .badgeProfile:
+                    ProfileBadgeView(homeViewModel: homeViewModel)
                 }
                 
                 if showStoryView {

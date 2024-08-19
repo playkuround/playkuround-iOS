@@ -47,6 +47,7 @@
 		0CA193562BB5ABEB007C04B1 /* RequestPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */; };
 		0CA193592BB5B49A007C04B1 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CA193582BB5B49A007C04B1 /* Pretendard-Bold.otf */; };
 		0CA4C5662BB3281F00268B07 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA4C5652BB3281F00268B07 /* RootView.swift */; };
+		0CA82DB22C70B93400914DC4 /* ProfileBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA82DB12C70B93400914DC4 /* ProfileBadgeView.swift */; };
 		0CB465AE2BB3D1C700317455 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB465AD2BB3D1C700317455 /* RootViewModel.swift */; };
 		0CB50B1D2BFDB1330003FE3B /* SurviveGameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB50B1C2BFDB1330003FE3B /* SurviveGameEntity.swift */; };
 		0CB902212BB6E6A300F76311 /* GamePauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB902202BB6E6A300F76311 /* GamePauseView.swift */; };
@@ -177,6 +178,7 @@
 		0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionView.swift; sourceTree = "<group>"; };
 		0CA193582BB5B49A007C04B1 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		0CA4C5652BB3281F00268B07 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		0CA82DB12C70B93400914DC4 /* ProfileBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBadgeView.swift; sourceTree = "<group>"; };
 		0CB465AD2BB3D1C700317455 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		0CB50B1C2BFDB1330003FE3B /* SurviveGameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurviveGameEntity.swift; sourceTree = "<group>"; };
 		0CB902202BB6E6A300F76311 /* GamePauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePauseView.swift; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				0C7609F12C0DA9590087EA55 /* HomeView.swift */,
 				0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */,
 				0C3F4E6D2C0C458300EE9DB6 /* Landmark */,
+				0CA82DB12C70B93400914DC4 /* ProfileBadgeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -914,6 +917,7 @@
 				0C7FE6A12BB1983A00D94162 /* AnimationImages.swift in Sources */,
 				C95F8F2E2BBACF1300E89B50 /* Quiz.swift in Sources */,
 				0C9641EA2BB92D6300838DA9 /* GameResultView.swift in Sources */,
+				0CA82DB22C70B93400914DC4 /* ProfileBadgeView.swift in Sources */,
 				C953D3042BA49BB300318869 /* MainView.swift in Sources */,
 				C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */,
 				0CA07D6F2BFDA96F00564AEB /* SurviveGameView.swift in Sources */,
