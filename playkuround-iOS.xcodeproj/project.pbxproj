@@ -11,6 +11,7 @@
 		0C0CDA312C299021003D12BA /* AdventureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0CDA302C299021003D12BA /* AdventureView.swift */; };
 		0C27DDF02BBD714F0049B7B8 /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */; };
 		0C31576C2BB7CCC000F270F7 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C31576B2BB7CCC000F270F7 /* Landmark.swift */; };
+		0C3EFF682C7332B600A34CE1 /* NewBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3EFF672C7332B600A34CE1 /* NewBadgeView.swift */; };
 		0C3F4E732C0C477F00EE9DB6 /* LandmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3F4E722C0C477F00EE9DB6 /* LandmarkView.swift */; };
 		0C3F4E752C0C479700EE9DB6 /* LandmarkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3F4E742C0C479700EE9DB6 /* LandmarkDetailView.swift */; };
 		0C519D972BBADD6500DAA206 /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C519D962BBADD6500DAA206 /* CardGameView.swift */; };
@@ -140,6 +141,7 @@
 		0C0CDA302C299021003D12BA /* AdventureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureView.swift; sourceTree = "<group>"; };
 		0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		0C31576B2BB7CCC000F270F7 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
+		0C3EFF672C7332B600A34CE1 /* NewBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBadgeView.swift; sourceTree = "<group>"; };
 		0C3F4E722C0C477F00EE9DB6 /* LandmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkView.swift; sourceTree = "<group>"; };
 		0C3F4E742C0C479700EE9DB6 /* LandmarkDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkDetailView.swift; sourceTree = "<group>"; };
 		0C519D962BBADD6500DAA206 /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 			children = (
 				B9A334ED2C0BA050006A6A24 /* BadgeView.swift */,
 				B99CD63C2C1026E2002B3755 /* BadgeDetailView.swift */,
+				0C3EFF672C7332B600A34CE1 /* NewBadgeView.swift */,
 			);
 			path = Badge;
 			sourceTree = "<group>";
@@ -931,6 +934,7 @@
 				0CA07D712BFDA98400564AEB /* SurviveGameViewModel.swift in Sources */,
 				B99CD63D2C1026E2002B3755 /* BadgeDetailView.swift in Sources */,
 				0C5979BC2BAB26A800E8156D /* TermsView.swift in Sources */,
+				0C3EFF682C7332B600A34CE1 /* NewBadgeView.swift in Sources */,
 				0C519D992BBAEB6C00DAA206 /* GameViewModel.swift in Sources */,
 				B98503C22BDCEC2900C3CC8F /* AllClickTextRainView.swift in Sources */,
 				0C6AA4CF2BA56FB30032AB24 /* ScoreType.swift in Sources */,
