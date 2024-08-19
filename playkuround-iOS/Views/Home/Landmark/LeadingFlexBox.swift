@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// 출처: https://velog.io/@comdongsam/SwiftUI-Layout-실전-가운데-정렬-Flex-Wrap-만들기
 struct LeadingFlexBox: Layout {
     private var horizontalSpacing: CGFloat
     private var verticalSpacing: CGFloat
@@ -67,7 +68,7 @@ struct LeadingFlexBox: Layout {
             }
             
             // 한 row가 다 차면 일단 지금 있는 줄 place 시작한다.
-            rowWidth -= horizontalSpacing //👉 마지막 horizontalSpacing 하나는 빼준다
+            rowWidth -= horizontalSpacing // 마지막 horizontalSpacing 하나는 빼준다
             
             // topLeading 기준 x축 출발점
             var x = bounds.minX + (bounds.width - rowWidth) / 2
