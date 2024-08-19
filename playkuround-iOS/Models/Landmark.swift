@@ -16,9 +16,16 @@ struct Landmark: Identifiable, Codable, Equatable {
     let radius: Double
 }
 
+struct LandmarkInformation: Codable {
+    let title: String
+    let content: String
+}
+
 struct LandmarkDescription: Identifiable, Codable {
     let id: Int
-    let description: [String]
+    let description: String
+    let information: [LandmarkInformation]
+    let amenity: [String]
 }
 
 let landmarkList: [Landmark] = [
