@@ -21,11 +21,7 @@ final class AllClickGameViewModel: GameViewModel {
         countdownCompleted = true
         startSubjectRain()
     }
-    
-    override func timerDone() {
-        finishGame()
-    }
-    
+
     override func finishGame() {
         gameState = .finish
         
@@ -40,8 +36,18 @@ final class AllClickGameViewModel: GameViewModel {
         subjectRainTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             for i in self.subjects.indices {
                 self.subjects[i].yOffset += 20
+                
+                //임시
+                if self.subjects[i].yOffset >= 200 {
+                    self.life -= 1
+                    if self.life <= 0 {
+                        self.finishGame()
+                        return
+                    }
+                    self.subjects.remove(at: i)
+                    return
+                }
             }
-            //self.subjects.removeAll { $0.yOffset > UIScreen.main.bounds.height }
             
             currentFallingCount += 1
             
@@ -72,8 +78,9 @@ final class AllClickGameViewModel: GameViewModel {
     }
     
     func calculateScore(index: Int) {
+        // 기초교양일 때 -> 기존 점수 + 1
         if self.subjects[index].type == .basic {
-            if 4 <= self.subjects[index].title.count, self.subjects[index].title.count <= 5 {
+            if 3 <= self.subjects[index].title.count, self.subjects[index].title.count <= 5 {
                 score += 2
             }
             else if 6 <= self.subjects[index].title.count, self.subjects[index].title.count <= 8 {

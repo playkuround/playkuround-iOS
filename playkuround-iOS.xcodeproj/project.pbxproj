@@ -126,7 +126,6 @@
 		C98078C62BA8816B00C04B2D /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */; };
 		C9963C532BBB07040037C662 /* QuizBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9963C522BBB07040037C662 /* QuizBlockView.swift */; };
 		C9C66C982C71FCC70095461D /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = C9C66C972C71FCC70095461D /* QuizData.json */; };
-		C9C66C9A2C72311F0095461D /* AllClickTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C66C992C72311F0095461D /* AllClickTestView.swift */; };
 		C9DAF1F72BB712D900E03D16 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DAF1F62BB712D900E03D16 /* UserEntity.swift */; };
 		C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */; };
 		C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E92BA3251A009A8762 /* ContentView.swift */; };
@@ -257,7 +256,6 @@
 		C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
 		C9963C522BBB07040037C662 /* QuizBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBlockView.swift; sourceTree = "<group>"; };
 		C9C66C972C71FCC70095461D /* QuizData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = QuizData.json; path = ../../../../QuizData.json; sourceTree = "<group>"; };
-		C9C66C992C72311F0095461D /* AllClickTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClickTestView.swift; sourceTree = "<group>"; };
 		C9DAF1F62BB712D900E03D16 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		C9F694E42BA3251A009A8762 /* playkuround-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "playkuround-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playkuround_iOSApp.swift; sourceTree = "<group>"; };
@@ -500,7 +498,6 @@
 				B9105A022BDBFF9700D6455F /* AllClickGameView.swift */,
 				B98503C12BDCEC2900C3CC8F /* AllClickTextRainView.swift */,
 				B9B138042BE39D580094B2FC /* AllClickCustomTextView.swift */,
-				C9C66C992C72311F0095461D /* AllClickTestView.swift */,
 			);
 			path = AllClickGame;
 			sourceTree = "<group>";
@@ -942,7 +939,6 @@
 				C953D2F92BA47B4B00318869 /* Font.swift in Sources */,
 				0C6AA4BD2BA553D80032AB24 /* APIManager.swift in Sources */,
 				0C6AA4CB2BA56B510032AB24 /* Major.swift in Sources */,
-				C9C66C9A2C72311F0095461D /* AllClickTestView.swift in Sources */,
 				0C691EB32BBDA028004021F1 /* TimerState.swift in Sources */,
 				0C7609F22C0DA9590087EA55 /* HomeView.swift in Sources */,
 				0CB974442BFE55AB008E1399 /* Window.swift in Sources */,

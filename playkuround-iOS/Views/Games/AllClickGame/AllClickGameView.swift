@@ -123,6 +123,9 @@ struct AllClickGameView: View {
                         }
                 } else if viewModel.isResultViewPresented {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
+                        .onAppear {
+                            viewModel.stopSubjectRain()
+                        }
                 }
             }
             .onAppear {
