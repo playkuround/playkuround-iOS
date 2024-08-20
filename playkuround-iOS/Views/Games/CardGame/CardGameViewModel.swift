@@ -37,21 +37,22 @@ final class CardGameViewModel: GameViewModel {
     }
     
     override func timerDone() {
-        finishGame()
+        self.finishGame()
     }
     
     override func finishGame() {
-        gameState = .finish
-        
-        // 최종 점수 계산
-        // 맞춘 카드 쌍 * 5점, 시간 * 2
-        score = correctCount * 5 / 2
-        score += Int(timeRemaining) * 2
-        
-        print("final score: \(score)")
-    
-        // 서버로 점수 업로드
-        uploadResult()
+        DispatchQueue.main.async {
+            self.gameState = .finish
+            
+            // 최종 점수 계산
+            // 맞춘 카드 쌍 * 5점, 시간 * 2
+            self.score = self.correctCount * 5 / 2
+            self.score += Int(self.timeRemaining) * 2
+            
+            // 서버로 점수 업로드
+            print("score: \(self.score), time: \(self.timeRemaining), correctCount: \(self.correctCount)")
+            super.uploadResult(uploadScore: self.score)
+        }
     }
     
     func shuffleCard() {
@@ -91,7 +92,7 @@ final class CardGameViewModel: GameViewModel {
         
         if correctCount == 16 {
             super.pauseOrRestartTimer()
-            super.finishGame()
+            self.finishGame()
         }
     }
     
