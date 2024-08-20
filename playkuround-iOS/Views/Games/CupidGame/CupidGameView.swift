@@ -107,9 +107,11 @@ struct CupidGameView: View {
                     GamePauseView(viewModel: viewModel)
                         .onAppear {
                             viewModel.stopDuckAnimation()
+                            viewModel.stopDuckSpawn()
                         }
                         .onDisappear {
                             viewModel.startDuckAnimation()
+                            viewModel.startDuckSpawn()
                         }
                 } else if viewModel.isResultViewPresented {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
