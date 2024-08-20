@@ -176,7 +176,7 @@ class GameViewModel: ObservableObject {
         // TODO: 게임 종료 처리 (점수 계산 등)
         
         // 서버로 점수 업로드
-        uploadResult()
+        uploadResult(uploadScore: 0)
     }
     
     // 게임 중도 중지 후 홈으로 이동
@@ -331,7 +331,7 @@ class GameViewModel: ObservableObject {
     // MARK: - 서버 API 관련 함수
     
     // 서버로 점수 업로드 함수
-    final func uploadResult() {
+    final func uploadResult(uploadScore: Int) {
 //        // 사용자 위치 정보
 //        let latitude = mapViewModel.userLatitude
 //        let longitude = mapViewModel.userLongitude
@@ -340,6 +340,8 @@ class GameViewModel: ObservableObject {
         let longitude: Double = 127.07920
         let landmarkID = 25 // 신공학관
         
+        print("** ready to upload score: \(uploadScore)점")
+        
 //        if let landmarkID = mapViewModel.userLandmarkID {
             // Adventure API 호출
             // 전송 실패하더라도 callPOSTAPI 함수 내부에서 재전송 처리
@@ -347,7 +349,7 @@ class GameViewModel: ObservableObject {
                                    parameters: ["landmarkId": landmarkID,
                                                 "latitude": latitude,
                                                 "longitude": longitude,
-                                                "score": score,
+                                                "score": uploadScore,
                                                 "scoreType": gameType.rawValue])
             { result in
                 switch result {

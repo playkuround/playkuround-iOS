@@ -72,7 +72,7 @@ final class SurviveGameViewModel: GameViewModel {
         gameState = .finish
     
         // 서버로 점수 업로드
-        uploadResult()
+        uploadResult(uploadScore: self.score)
     }
     
     func setFrameXY(x: CGFloat, y: CGFloat) {
