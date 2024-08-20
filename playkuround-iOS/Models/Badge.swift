@@ -256,11 +256,11 @@ enum Badge: String, CaseIterable {
         case .ATTENDANCE_WHITE_DAY: return Image(.whiteDay)
         case .ATTENDANCE_DUCK_DAY: return Image(.duckDay)
             
-        case .ATTENDANCE_CHUSEOK_DAY: return Image(.attendance1)
-        case .ATTENDANCE_KOREAN_DAY: return Image(.attendance1)
-        case .ATTENDANCE_DOKDO_DAY: return Image(.attendance1)
-        case .ATTENDANCE_KIMCHI_DAY: return Image(.attendance1)
-        case .ATTENDANCE_CHRISTMAS_DAY: return Image(.attendance1)
+        case .ATTENDANCE_CHUSEOK_DAY: return Image(.chuseokDay)
+        case .ATTENDANCE_KOREAN_DAY: return Image(.koreanDay)
+        case .ATTENDANCE_DOKDO_DAY: return Image(.dokdoDay)
+        case .ATTENDANCE_KIMCHI_DAY: return Image(.kimchiDay)
+        case .ATTENDANCE_CHRISTMAS_DAY: return Image(.christmasDay)
             
         case .COLLEGE_OF_ENGINEERING: return Image(.engineering)
         case .COLLEGE_OF_ART_AND_DESIGN: return Image(.artAndDesign)
