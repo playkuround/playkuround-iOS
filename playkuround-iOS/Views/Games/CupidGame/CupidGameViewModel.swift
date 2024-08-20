@@ -81,7 +81,7 @@ final class CupidGameViewModel: GameViewModel {
     }
     
     func scheduleNextDuckSpawn() {
-        let randomInterval = Double.random(in: 0.5...0.8) // 게임 밸런스를 위해 임의로 인터벌 값 조정
+        let randomInterval = Double.random(in: 0.3...0.6) // 게임 밸런스를 위해 임의로 인터벌 값 조정
         duckSpawnTimer = Timer.scheduledTimer(withTimeInterval: randomInterval, repeats: false) { timer in
             self.addNewDuck()
             self.scheduleNextDuckSpawn() // 다음 타이머 스케쥴링
@@ -89,14 +89,14 @@ final class CupidGameViewModel: GameViewModel {
     }
     
     private func addNewDuck() {
-        let initialWhiteDuckPosition: CGFloat = -UIScreen.main.bounds.width / 2 + 88
-        let initialBlackDuckPosition: CGFloat = UIScreen.main.bounds.width / 2 - 88
+        let initialWhiteDuckPosition: CGFloat = -UIScreen.main.bounds.width / 2 + 40
+        let initialBlackDuckPosition: CGFloat = UIScreen.main.bounds.width / 2 - 40
         whiteDucksPositions.append(initialWhiteDuckPosition)
         blackDucksPositions.append(initialBlackDuckPosition)
     }
     
     private func checkDucksPosition() {
-        var indicesToRemove: [Int] = []
+        var indicesToRemove: Set<Int> = [] // 중복 방지를 위해 Set 사용
         
         for i in 0..<whiteDucksPositions.count {
             let whiteDuckDistance = (self.whiteDucksPositions[i] - self.centralPosition)
@@ -105,15 +105,15 @@ final class CupidGameViewModel: GameViewModel {
             /// 오리가 서로 지나칠 때
             if whiteDuckDistance > 16 && blackDuckDistance < -16 {
                 self.result = .bad
-                self.stopDuckAnimation()
-                indicesToRemove.append(i)
+                indicesToRemove.insert(i)
             }
         }
         
         if !indicesToRemove.isEmpty {
-            removeDucks(at: indicesToRemove)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            removeDucks(at: Array(indicesToRemove))
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.startDuckAnimation()
+                self.result = nil
             }
         }
     }
@@ -123,43 +123,51 @@ final class CupidGameViewModel: GameViewModel {
             whiteDucksPositions.remove(at: index)
             blackDucksPositions.remove(at: index)
         }
-        self.result = nil
     }
     
     func stopButtonTapped() {
         self.stopDuckAnimation()
         
-        var indicesToRemove: [Int] = []
-        var foundResult = false
+        var closestIndex: Int?
+        var closestDistance: CGFloat = CGFloat.greatestFiniteMagnitude
         
         for i in 0..<whiteDucksPositions.count {
             let whiteDuckDistance = abs(whiteDucksPositions[i] - centralPosition)
             let blackDuckDistance = abs(blackDucksPositions[i] + centralPosition)
             
+            // 두 오리 간의 거리 계산
+            let totalDistance = whiteDuckDistance + blackDuckDistance
+            
+            // 가장 가까운 오리 쌍을 찾음
+            if totalDistance < closestDistance {
+                closestDistance = totalDistance
+                closestIndex = i
+            }
+        }
+        
+        // 가장 가까운 오리 쌍에 대해 점수 계산 및 삭제
+        if let index = closestIndex {
+            let whiteDuckDistance = abs(whiteDucksPositions[index] - centralPosition)
+            let blackDuckDistance = abs(blackDucksPositions[index] + centralPosition)
+            
             if whiteDuckDistance <= 8 && blackDuckDistance <= 8 {
                 result = .perfect
                 score += 3
-                foundResult = true
-                break
             }
             else if whiteDuckDistance <= 16 && blackDuckDistance <= 16 {
                 result = .good
                 score += 1
-                foundResult = true
-                break
             }
-        }
-        
-        if !foundResult {
-            result = .bad
-        }
-        
-        if !indicesToRemove.isEmpty {
-            removeDucks(at: indicesToRemove)
+            else {
+                result = .bad
+            }
+            
+            removeDucks(at: [index])
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.startDuckAnimation()
+            self.result = nil
         }
     }
 }
