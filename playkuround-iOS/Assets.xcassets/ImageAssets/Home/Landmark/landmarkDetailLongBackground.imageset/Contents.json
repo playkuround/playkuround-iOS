@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "homeBorder1x.png",
+      "filename" : "landmarkDetailBackgroundNew1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "homeBorder2x.png",
+      "filename" : "landmarkDetailBackgroundNew2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "homeBorder3x.png",
+      "filename" : "landmarkDetailBackgroundNew3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

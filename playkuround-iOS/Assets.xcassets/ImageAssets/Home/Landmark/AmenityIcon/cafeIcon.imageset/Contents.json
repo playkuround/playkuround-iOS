@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "homeBorder1x.png",
+      "filename" : "cafeIcon1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "homeBorder2x.png",
+      "filename" : "cafeIcon2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "homeBorder3x.png",
+      "filename" : "cafeIcon3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

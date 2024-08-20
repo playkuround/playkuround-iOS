@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "homeBorder1x.png",
+      "filename" : "convenienceIcon1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "homeBorder2x.png",
+      "filename" : "convenienceIcon2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "homeBorder3x.png",
+      "filename" : "convenienceIcon3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
