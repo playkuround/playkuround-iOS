@@ -53,14 +53,16 @@ final class CupidGameViewModel: GameViewModel {
         
         duckAnimationTimer = Timer.scheduledTimer(withTimeInterval: 0.003, repeats: true) { timer in
             withAnimation(.linear(duration: 0.003)) {
-                for i in 0..<self.whiteDucksPositions.count {
-                    self.whiteDucksPositions[i] += 1
+                if self.isTimerUpdating {
+                    for i in 0..<self.whiteDucksPositions.count {
+                        self.whiteDucksPositions[i] += 1
+                    }
+                    for i in 0..<self.blackDucksPositions.count {
+                        self.blackDucksPositions[i] -= 1
+                    }
+                    
+                    self.checkDucksPosition()
                 }
-                for i in 0..<self.blackDucksPositions.count {
-                    self.blackDucksPositions[i] -= 1
-                }
-                
-                self.checkDucksPosition()
             }
         }
     }
