@@ -68,11 +68,13 @@ final class SurviveGameViewModel: GameViewModel {
     
     override func finishGame() {
         super.pauseOrRestartTimer()
-        self.isTimerUpdating = false
-        gameState = .finish
-    
-        // 서버로 점수 업로드
-        uploadResult(uploadScore: self.score)
+        DispatchQueue.main.async {
+            self.isTimerUpdating = false
+            self.gameState = .finish
+            
+            // 서버로 점수 업로드
+            super.uploadResult(uploadScore: self.score)
+        }
     }
     
     func setFrameXY(x: CGFloat, y: CGFloat) {
@@ -81,37 +83,39 @@ final class SurviveGameViewModel: GameViewModel {
     }
     
     private func updateDuckkuPos(x: Double, y: Double, z: Double) {
-        if !isTimerUpdating {
+        if !self.isTimerUpdating {
             return
         }
         
-        self.gyroCummX += x * 0.1
-        self.gyroCummY += y * 0.1
-        
-        self.gyroCummX = min(max(self.gyroCummX, -2), 2)
-        self.gyroCummY = min(max(self.gyroCummY, -2), 2)
-        
-        // Gyro data scaling factor
-        let scalingFactor: CGFloat = 1.0
-        let damping: CGFloat = 0.5
-    
-        // Update acceleration based on gyro data
-        accelerationX = CGFloat(gyroCummY) * scalingFactor
-        accelerationY = CGFloat(gyroCummX) * scalingFactor
-        
-        // Update velocity with damping to simulate friction
-        velocityX += accelerationX
-        velocityY += accelerationY
-        velocityX *= damping
-        velocityY *= damping
-        
-        // Update positions
-        let newX = duckkuPosX + velocityX
-        let newY = duckkuPosY + velocityY
-        
-        // Constrain positions within frame
-        duckkuPosX = min(max(newX, -frameMaxX / 2), frameMaxX / 2)
-        duckkuPosY = min(max(newY, -frameMaxY / 2), frameMaxY / 2)
+        DispatchQueue.main.async {
+            self.gyroCummX += x * 0.1
+            self.gyroCummY += y * 0.1
+            
+            self.gyroCummX = min(max(self.gyroCummX, -2), 2)
+            self.gyroCummY = min(max(self.gyroCummY, -2), 2)
+            
+            // Gyro data scaling factor
+            let scalingFactor: CGFloat = 1.0
+            let damping: CGFloat = 0.5
+            
+            // Update acceleration based on gyro data
+            self.accelerationX = CGFloat(self.gyroCummY) * scalingFactor
+            self.accelerationY = CGFloat(self.gyroCummX) * scalingFactor
+            
+            // Update velocity with damping to simulate friction
+            self.velocityX += self.accelerationX
+            self.velocityY += self.accelerationY
+            self.velocityX *= damping
+            self.velocityY *= damping
+            
+            // Update positions
+            let newX = self.duckkuPosX + self.velocityX
+            let newY = self.duckkuPosY + self.velocityY
+            
+            // Constrain positions within frame
+            self.duckkuPosX = min(max(newX, -self.frameMaxX / 2), self.frameMaxX / 2)
+            self.duckkuPosY = min(max(newY, -self.frameMaxY / 2), self.frameMaxY / 2)
+        }
     }
     
     private func setupGyroUpdates() {
