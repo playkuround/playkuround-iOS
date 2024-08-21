@@ -13,7 +13,7 @@ final class AllClickGameViewModel: GameViewModel {
     @Published var countdownCompleted: Bool = false
     @Published var life: Int = 3
     @Published var subjects: [Subject] = []
-
+    
     private var subjectRainTimer: Timer?
     
     override func startGame() {
@@ -22,7 +22,7 @@ final class AllClickGameViewModel: GameViewModel {
         countdownCompleted = true
         startSubjectRain()
     }
-
+    
     override func finishGame() {
         gameState = .finish
         stopSubjectRain()
@@ -44,18 +44,24 @@ final class AllClickGameViewModel: GameViewModel {
             // 경과 시간 업데이트
             elapsedTime += currentInterval
             
+            var indicesToRemove: [Int] = []
+            
             for i in self.subjects.indices {
                 self.subjects[i].yPosition += 20
                 
                 if self.subjects[i].yPosition >= 460 {
-                    self.life -= 1
-                    if self.life <= 0 {
-                        self.finishGame()
-                        return
-                    }
-                    self.subjects.remove(at: i)
+                    indicesToRemove.append(i)
+                }
+            }
+            
+            // 배열 인덱스를 역순으로 제거
+            for index in indicesToRemove.reversed() {
+                self.life -= 1
+                if self.life <= 0 {
+                    self.finishGame()
                     return
                 }
+                self.subjects.remove(at: index)
             }
             
             currentFallingCount += 1
