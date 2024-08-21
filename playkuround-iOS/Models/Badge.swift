@@ -199,11 +199,11 @@ enum Badge: String, CaseIterable {
         case .ATTENDANCE_WHITE_DAY: return "화이트데이를 기념해 쿠라운드에서 달콤한 사탕 뱃지를 드립니다!"
         case .ATTENDANCE_DUCK_DAY: return "덕쿠의날을 기록하며 덕쿠야 축하해!"
             
-        case .ATTENDANCE_CHUSEOK_DAY: return ""
-        case .ATTENDANCE_KOREAN_DAY: return ""
-        case .ATTENDANCE_DOKDO_DAY: return ""
-        case .ATTENDANCE_KIMCHI_DAY: return ""
-        case .ATTENDANCE_CHRISTMAS_DAY: return ""
+        case .ATTENDANCE_CHUSEOK_DAY: return "풍요로운 추석 보내세요! 덕쿠 절 드립니다!"
+        case .ATTENDANCE_KOREAN_DAY: return "훈민정음 창제를 기념하고 우리 한글의 우수성을 알리며!"
+        case .ATTENDANCE_DOKDO_DAY: return "뱃길따라 이백리~ 독도는 우리땅! "
+        case .ATTENDANCE_KIMCHI_DAY: return "도둑 덕쿠도 못참는 한국의 전통음식 김치! 김치의 날을 기념해요!"
+        case .ATTENDANCE_CHRISTMAS_DAY: return "Merry Christmas! 모두 행복한 크리스마스 보내세요"
             
         case .COLLEGE_OF_ENGINEERING: return "공과대학을 탐험했어요"
         case .COLLEGE_OF_ART_AND_DESIGN: return "예술디자인대학을 탐험했어요"
