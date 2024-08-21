@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "attendanceBadgeTable1x.png",
+      "filename" : "dokdoDay1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "attendanceBadgeTable2x.png",
+      "filename" : "dokdoDay2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "attendanceBadgeTable3x.png",
+      "filename" : "dokdoDay3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

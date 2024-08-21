@@ -23,6 +23,13 @@ enum Badge: String, CaseIterable {
     case ATTENDANCE_WHITE_DAY = "03월 14일 화이트데이에 출석"
     case ATTENDANCE_DUCK_DAY = "05월 02일 오리데이에 출석"
     
+    // 2024 가을학기 추가 뱃지
+     case ATTENDANCE_CHUSEOK_DAY = "09월 17일 추석날에 출석"
+     case ATTENDANCE_KOREAN_DAY = "10월 09일 한글날에 출석"
+     case ATTENDANCE_DOKDO_DAY = "10월 25일 독도의 날에 출석"
+     case ATTENDANCE_KIMCHI_DAY = "11월 22일 김치의 날에 출석"
+     case ATTENDANCE_CHRISTMAS_DAY = "12월 25일 성탄절에 출석"
+    
     // 대학별 뱃지
     case COLLEGE_OF_LIBERAL_ARTS = "문과대학 1회 이상 탐험"
     case COLLEGE_OF_SCIENCES = "이과대학 1회 이상 탐험"
@@ -78,6 +85,12 @@ enum Badge: String, CaseIterable {
         case .ATTENDANCE_WHITE_DAY: return "화이트데이"
         case .ATTENDANCE_DUCK_DAY: return "오리의날"
             
+        case .ATTENDANCE_CHUSEOK_DAY: return "추석"
+        case .ATTENDANCE_KOREAN_DAY: return "한글날"
+        case .ATTENDANCE_DOKDO_DAY: return "독도의 날"
+        case .ATTENDANCE_KIMCHI_DAY: return "김치의 날"
+        case .ATTENDANCE_CHRISTMAS_DAY: return "성탄절"
+            
         case .COLLEGE_OF_ENGINEERING: return "공과대"
         case .COLLEGE_OF_ART_AND_DESIGN: return "예디대"
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION: return "경영대"
@@ -128,6 +141,12 @@ enum Badge: String, CaseIterable {
         case .ATTENDANCE_CHILDREN_DAY: return "어린이날(5/5) 출석 시 잠금 해제됩니다"
         case .ATTENDANCE_WHITE_DAY: return "화이트데이(3/14) 출석 시 잠금 해제됩니다"
         case .ATTENDANCE_DUCK_DAY: return "오리의날(5/2) 출석 시 잠금 해제됩니다"
+            
+        case .ATTENDANCE_CHUSEOK_DAY: return "추석(9/17) 출석 시 잠금 해제됩니다."
+        case .ATTENDANCE_KOREAN_DAY: return "한글날(10/9) 출석 시 잠금 해제됩니다."
+        case .ATTENDANCE_DOKDO_DAY: return "독도의 날(10/25) 출석 시 잠금 해제됩니다."
+        case .ATTENDANCE_KIMCHI_DAY: return "김치의 날(11/22) 출석 시 잠금 해제됩니다."
+        case .ATTENDANCE_CHRISTMAS_DAY: return "성탄절(12/25) 출석 시 잠금 해제됩니다."
             
         case .COLLEGE_OF_ENGINEERING: return "공학관 A, B, C, 신공학관 탐험 시 잠금 해제됩니다."
         case .COLLEGE_OF_ART_AND_DESIGN: return "예술디자인관, 공예관 탐험 시 잠금 해제됩니다."
@@ -180,6 +199,12 @@ enum Badge: String, CaseIterable {
         case .ATTENDANCE_WHITE_DAY: return "화이트데이를 기념해 쿠라운드에서 달콤한 사탕 뱃지를 드립니다!"
         case .ATTENDANCE_DUCK_DAY: return "덕쿠의날을 기록하며 덕쿠야 축하해!"
             
+        case .ATTENDANCE_CHUSEOK_DAY: return "풍요로운 추석 보내세요! 덕쿠 절 드립니다!"
+        case .ATTENDANCE_KOREAN_DAY: return "훈민정음 창제를 기념하고 우리 한글의 우수성을 알리며!"
+        case .ATTENDANCE_DOKDO_DAY: return "뱃길따라 이백리~ 독도는 우리땅!"
+        case .ATTENDANCE_KIMCHI_DAY: return "도둑 덕쿠도 못참는 한국의 전통음식 김치! 김치의 날을 기념해요!"
+        case .ATTENDANCE_CHRISTMAS_DAY: return "Merry Christmas! 모두 행복한 크리스마스 보내세요"
+            
         case .COLLEGE_OF_ENGINEERING: return "공과대학을 탐험했어요"
         case .COLLEGE_OF_ART_AND_DESIGN: return "예술디자인대학을 탐험했어요"
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION: return "경영대학을 탐험했어요"
@@ -230,6 +255,12 @@ enum Badge: String, CaseIterable {
         case .ATTENDANCE_CHILDREN_DAY: return Image(.childrenDay)
         case .ATTENDANCE_WHITE_DAY: return Image(.whiteDay)
         case .ATTENDANCE_DUCK_DAY: return Image(.duckDay)
+            
+        case .ATTENDANCE_CHUSEOK_DAY: return Image(.chuseokDay)
+        case .ATTENDANCE_KOREAN_DAY: return Image(.koreanDay)
+        case .ATTENDANCE_DOKDO_DAY: return Image(.dokdoDay)
+        case .ATTENDANCE_KIMCHI_DAY: return Image(.kimchiDay)
+        case .ATTENDANCE_CHRISTMAS_DAY: return Image(.christmasDay)
             
         case .COLLEGE_OF_ENGINEERING: return Image(.engineering)
         case .COLLEGE_OF_ART_AND_DESIGN: return Image(.artAndDesign)

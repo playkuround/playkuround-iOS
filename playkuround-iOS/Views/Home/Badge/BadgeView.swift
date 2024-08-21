@@ -38,8 +38,8 @@ struct BadgeView: View {
                                     .padding(.top, 19)
                                 
                                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 4), spacing: 10) {
-                                    /// 0~10번째: 출석 뱃지
-                                    ForEach(Badge.allCases.prefix(11), id: \.self) { badge in
+                                    /// 0~15번째: 출석 뱃지
+                                    ForEach(Badge.allCases.prefix(16), id: \.self) { badge in
                                         filterBadgeImage(for: badge)
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)

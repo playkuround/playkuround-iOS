@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "attendanceBadgeTable1x.png",
+      "filename" : "christmasDay1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "attendanceBadgeTable2x.png",
+      "filename" : "christmasDay2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "attendanceBadgeTable3x.png",
+      "filename" : "christmasDay3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
