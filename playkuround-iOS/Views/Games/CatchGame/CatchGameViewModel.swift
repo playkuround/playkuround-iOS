@@ -42,7 +42,7 @@ final class CatchGameViewModel: GameViewModel {
         self.isTimerUpdating = false
         
         // 서버로 점수 업로드
-        uploadResult()
+        uploadResult(uploadScore: self.score)
     }
     
     func step(whiteNum: Int, blackNum: Int) {

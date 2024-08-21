@@ -129,9 +129,12 @@ class GameViewModel: ObservableObject {
     
     // 시작 전 3초 카운트다운 시작 함수
     final func startCountdown() {
-        gameState = .countdown
-        withAnimation(.spring(duration: 0.1)) {
-            isCountdownViewPresented = true
+        DispatchQueue.main.async {
+            self.gameState = .countdown
+            
+            withAnimation(.spring(duration: 0.1)) {
+                self.isCountdownViewPresented = true
+            }
         }
         
         // 카운트다운 시작
@@ -158,24 +161,30 @@ class GameViewModel: ObservableObject {
     // 게임 시작 시 호출 함수
     func startGame() {
         // TODO: 게임 시작 프로세스 호출
-        gameState = .playing
+        DispatchQueue.main.async {
+            self.gameState = .playing
+        }
         print("Game is started")
     }
     
     // 게임 완료 (사용자가 끝까지 마친 경우)
     func finishGame() {
-        gameState = .finish
+        DispatchQueue.main.async {
+            self.gameState = .finish
+        }
         print("Game is finished")
         // TODO: 게임 종료 처리 (점수 계산 등)
         
         // 서버로 점수 업로드
-        uploadResult()
+        uploadResult(uploadScore: 0)
     }
     
     // 게임 중도 중지 후 홈으로 이동
     func stopGame() {
         // TODO: 게임 중단 프로세스
-        gameState = .stop
+        DispatchQueue.main.async {
+            self.gameState = .stop
+        }
         print("Game is stopped")
         
         // 홈으로 이동
@@ -187,35 +196,45 @@ class GameViewModel: ObservableObject {
     // 게임 타이머 시작
     final func startTimer() {
         print("timer is started")
-        isTimerUpdating = true
+        DispatchQueue.main.async {
+            self.isTimerUpdating = true
+        }
     }
     
     // 타이머 일시정지 및 재시작
     func pauseOrRestartTimer() {
         print("timer is paused")
-        isTimerUpdating.toggle()
+        DispatchQueue.main.async {
+            self.isTimerUpdating.toggle()
+        }
     }
     
     // 타이머 삭제
     final func cancelTimer() {
         print("timer is stopped")
-        isTimerUpdating = false
-        timer.upstream.connect().cancel()
+        DispatchQueue.main.async {
+            self.isTimerUpdating = false
+            self.timer.upstream.connect().cancel()
+        }
     }
     
     // 타이머 초기화
     final func resetTimer() {
         print("timer is reseted")
-        isTimerUpdating = false
-        timeRemaining = timeStart
-        progress = 1.0
+        DispatchQueue.main.async {
+            self.isTimerUpdating = false
+            self.timeRemaining = self.timeStart
+            self.progress = 1.0
+        }
         updateTimeString()
     }
     
     // 타이머가 끝난 경우 호출되는 함수
     // 사용자가 재정의
     func timerDone() {
-        self.finishGame()
+        DispatchQueue.main.async {
+            self.finishGame()
+        }
     }
     
     // 타이머 업데이트
@@ -223,14 +242,18 @@ class GameViewModel: ObservableObject {
         if isTimerUpdating {
             // 감소
             if self.isTimerDecreasing && self.timeRemaining > self.timeEnd {
-                self.timeRemaining -= self.timeInterval
-                self.progress = self.timeRemaining / self.timeStart
+                DispatchQueue.main.async {
+                    self.timeRemaining -= self.timeInterval
+                    self.progress = self.timeRemaining / self.timeStart
+                }
                 self.updateTimeString()
             }
             // 증가
             else if !self.isTimerDecreasing && self.timeRemaining < self.timeEnd {
                 // 증가하는 경우 progress 계산 X
-                self.timeRemaining += self.timeInterval
+                DispatchQueue.main.async {
+                    self.timeRemaining += self.timeInterval
+                }
                 self.updateTimeString()
             }
             // 시간 다 된 경우
@@ -245,14 +268,18 @@ class GameViewModel: ObservableObject {
         if isTimerUpdating {
             // 감소
             if self.isTimerDecreasing && self.timeRemaining > self.timeEnd {
-                self.timeRemaining -= self.timeInterval
-                self.progress = self.timeRemaining / self.timeStart
+                DispatchQueue.main.async {
+                    self.timeRemaining -= self.timeInterval
+                    self.progress = self.timeRemaining / self.timeStart
+                }
                 self.updateTimeString()
             }
             // 증가
             else if !self.isTimerDecreasing && self.timeRemaining < self.timeEnd {
                 // 증가하는 경우 progress 계산 X
-                self.timeRemaining += self.timeInterval
+                DispatchQueue.main.async {
+                    self.timeRemaining += self.timeInterval
+                }
                 self.updateTimeString()
             }
             // 시간 다 된 경우
@@ -267,8 +294,10 @@ class GameViewModel: ObservableObject {
     final func updateTimeString() {
         let minute = Int(timeRemaining) / 60
         let second = Int(timeRemaining) % 60
-        self.minute = String(format: "%02d", minute)
-        self.second = String(format: "%02d", second)
+        DispatchQueue.main.async {
+            self.minute = String(format: "%02d", minute)
+            self.second = String(format: "%02d", second)
+        }
     }
     
     // MARK: - 일시정지 뷰
@@ -292,15 +321,17 @@ class GameViewModel: ObservableObject {
     
     // 모든 API 호출 이후 호출되는 함수
     func afterFetch() {
-        withAnimation(.spring) {
-            self.isResultViewPresented = true
+        DispatchQueue.main.async {
+            withAnimation(.spring) {
+                self.isResultViewPresented = true
+            }
         }
     }
     
     // MARK: - 서버 API 관련 함수
     
     // 서버로 점수 업로드 함수
-    final func uploadResult() {
+    final func uploadResult(uploadScore: Int) {
 //        // 사용자 위치 정보
 //        let latitude = mapViewModel.userLatitude
 //        let longitude = mapViewModel.userLongitude
@@ -309,6 +340,8 @@ class GameViewModel: ObservableObject {
         let longitude: Double = 127.07920
         let landmarkID = 25 // 신공학관
         
+        print("** ready to upload score: \(uploadScore)점")
+        
 //        if let landmarkID = mapViewModel.userLandmarkID {
             // Adventure API 호출
             // 전송 실패하더라도 callPOSTAPI 함수 내부에서 재전송 처리
@@ -316,7 +349,7 @@ class GameViewModel: ObservableObject {
                                    parameters: ["landmarkId": landmarkID,
                                                 "latitude": latitude,
                                                 "longitude": longitude,
-                                                "score": score,
+                                                "score": uploadScore,
                                                 "scoreType": gameType.rawValue])
             { result in
                 switch result {
@@ -368,7 +401,9 @@ class GameViewModel: ObservableObject {
                 self.fetchAdventureScore()
             case .failure(let error):
                 print("Error in View: \(error)")
-                self.bestScore = 0
+                DispatchQueue.main.async {
+                    self.bestScore = 0
+                }
                 self.fetchAdventureScore()
             }
         }

@@ -36,14 +36,16 @@ struct CupidGameView: View {
                     Spacer()
                 }
                 .padding(.leading, 20)
-
+                
                 /// 덕쿠
-                HStack {
-                    Image(.cupidDuckkuWhite)
-                        .offset(x: viewModel.whiteDuckPosition)
-                    
-                    Image(.cupidDuckkuBlack)
-                        .offset(x: viewModel.blackDuckPosition)
+                ForEach(Array(zip(viewModel.whiteDucksPositions.indices, viewModel.whiteDucksPositions)), id: \.0) { index, position in
+                    HStack {
+                        Image(.cupidDuckkuWhite)
+                            .offset(x: position)
+                        
+                        Image(.cupidDuckkuBlack)
+                            .offset(x: viewModel.blackDucksPositions[index])
+                    }
                 }
                 .padding(.top, shouldImagePadding ? 50 : 25)
                 
@@ -105,9 +107,11 @@ struct CupidGameView: View {
                     GamePauseView(viewModel: viewModel)
                         .onAppear {
                             viewModel.stopDuckAnimation()
+                            viewModel.stopDuckSpawn()
                         }
                         .onDisappear {
                             viewModel.startDuckAnimation()
+                            viewModel.startDuckSpawn()
                         }
                 } else if viewModel.isResultViewPresented {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)

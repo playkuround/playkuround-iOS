@@ -360,5 +360,7 @@ enum HomeViewType {
     case myPage // MyPageView
     
     case landmark // LandmarkView
-    case adventure 
+    case adventure
+    
+    case badgeProfile // 뱃지 프로필 변경
 }

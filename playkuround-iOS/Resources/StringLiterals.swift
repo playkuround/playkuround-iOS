@@ -108,6 +108,7 @@ enum StringLiterals {
             static let title = "배지"
             static let attendanceTitle = "출석 배지"
             static let adventureTitle = "탐험 배지"
+            static let new = "new!"
         }
         
         enum TotalRanking {
@@ -119,6 +120,12 @@ enum StringLiterals {
             static let ranking = "순위"
             static let nickname = "닉네임"
             static let score = "점수"
+        }
+        
+        enum ProfileBadge {
+            static let title = "뱃지 아이콘 선택"
+            static let description = "나를 표현할 사진을 선택하세요!"
+            static let change = "변경하기"
         }
     }
     

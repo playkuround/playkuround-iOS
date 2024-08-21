@@ -17,7 +17,9 @@ struct MapView: View {
     @State private var annotationList: [AnnotationWrapper] = []
     
     var body: some View {
-        Map(coordinateRegion: $region, annotationItems: annotationList) { annotation in
+        let sortedAnnList = annotationList.sorted { $0.landmark.number > $1.landmark.number }
+        
+        Map(coordinateRegion: $region, annotationItems: sortedAnnList) { annotation in
             if annotation.type == .landmark {
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: annotation.landmark.latitude, longitude: annotation.landmark.longitude)) {
                     // getAnnotation(annotation)
@@ -25,11 +27,13 @@ struct MapView: View {
                         .onTapGesture {
                             homeViewModel.openLandmarkView(landmarkID: annotation.landmark.number)
                         }
+                        .allowsHitTesting(true)
                 }
             } else {
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: mapViewModel.userLatitude, longitude: mapViewModel.userLongitude)) {
                     CustomMapAnnotationView(annotation: annotation, mapViewModel: mapViewModel)
                         .onTapGesture { } // Not Used (MapKit 특성 상 대칭을 맞춰주어야 함)
+                        .allowsHitTesting(false) // 덕쿠 터치 무시
                 }
             }
         }

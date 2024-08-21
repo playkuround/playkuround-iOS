@@ -25,16 +25,27 @@ struct HomeView: View {
                     .ignoresSafeArea(edges: .bottom)
                     .allowsHitTesting(false)
                 
+                let shouldPadding = geometry.size.width > 375
+                
                 VStack {
                     
-                    let shouldPadding = geometry.size.width > 375
-                    
-                    HStack {
-                        Text(homeViewModel.userData.nickname)
+                    HStack(spacing: 8) {
+                        
+                        Image(.engineering)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40, height: 40)
+                            .onTapGesture {
+                                // TODO: 추후 기능 구현 시
+                                // homeViewModel.transition(to: .badgeProfile)
+                            }
+                        
+                        Text(homeViewModel.userData.nickname + "님")
                             .font(.neo18)
                             .foregroundStyle(.kuText)
                             .kerning(-0.41)
-                            .lineLimit(1)
+                            .lineLimit(2)
+                            .padding(.trailing, 10)
                         
                         Spacer()
                         
@@ -156,7 +167,7 @@ struct HomeView: View {
                     }
                     .padding(.bottom, shouldPadding ? 60 : 70)
                 }
-                .padding(.top, 12)
+                .padding(.top, shouldPadding ? 12 : 9)
                 
                 switch homeViewModel.viewStatus {
                 case .home:
@@ -173,6 +184,8 @@ struct HomeView: View {
                     LandmarkView(homeViewModel: homeViewModel)
                 case .adventure:
                     AdventureView(viewModel: viewModel, homeViewModel: homeViewModel)
+                case .badgeProfile:
+                    ProfileBadgeView(homeViewModel: homeViewModel)
                 }
                 
                 if showStoryView {

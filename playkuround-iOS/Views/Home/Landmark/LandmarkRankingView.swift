@@ -114,7 +114,7 @@ struct LandmarkRankingView: View {
                                             ForEach(Array(rankingList.enumerated()), id: \.offset) { index, rank in
                                                 TotalRankingRow(ranking: index + 1,
                                                                 rank: Ranking(nickname: rank.nickname, 
-                                                                              score: rank.score))
+                                                                              score: rank.score), badge: .COLLEGE_OF_ENGINEERING)
                                             }
                                         }
                                     }
@@ -122,27 +122,34 @@ struct LandmarkRankingView: View {
                                     
                                     Image(.rankingMineRow)
                                         .overlay {
-                                            HStack {
-                                                Text(String(homeViewModel.userData.landmarkRank.ranking))
+                                            HStack(spacing: 0) {
+                                                Text(String(homeViewModel.userData.myRank.ranking))
                                                     .font(.neo18)
                                                     .kerning(-0.41)
                                                     .foregroundStyle(.kuText)
+                                                    .frame(width: 40)
+                                                    .padding(.trailing, 15)
                                                 
-                                                Spacer()
+                                                Image(.engineering)
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 20, height: 20)
+                                                    .padding(.trailing, 10)
                                                 
-                                                Text(StringLiterals.Home.me)
+                                                Text("나")
                                                     .font(.pretendard15R)
                                                     .foregroundStyle(.kuText)
-                                                    .frame(width: 104)
+                                                    .lineLimit(1)
                                                 
                                                 Spacer()
                                                 
-                                                Text(String(homeViewModel.userData.landmarkRank.score.decimalFormatter))
+                                                Text(String(homeViewModel.userData.myRank.score.decimalFormatter))
                                                     .font(.neo18)
                                                     .kerning(-0.41)
                                                     .foregroundStyle(.kuText)
+                                                    .frame(width: 60)
                                             }
-                                            .padding(.horizontal, 22)
+                                            .padding(.horizontal, 11)
                                         }
                                         .padding(.horizontal, 16)
                                 }

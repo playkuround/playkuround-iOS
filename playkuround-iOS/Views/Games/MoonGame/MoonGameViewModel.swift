@@ -13,31 +13,41 @@ final class MoonGameViewModel: GameViewModel {
     
     func moonClick() {
         if 81 < moonTapped && moonTapped <= 100 {
-            moonTapped -= 1
-            moonState = .fullMoon
+            DispatchQueue.main.async {
+                self.moonTapped -= 1
+                self.moonState = .fullMoon
+            }
         }
         else if 51 < moonTapped && moonTapped <= 81 {
-            moonTapped -= 1
-            moonState = .cracked
+            DispatchQueue.main.async {
+                self.moonTapped -= 1
+                self.moonState = .cracked
+            }
         }
         else if 1 < moonTapped && moonTapped <= 51 {
-            moonTapped -= 1
-            moonState = .moreCracked
+            DispatchQueue.main.async {
+                self.moonTapped -= 1
+                self.moonState = .moreCracked
+            }
         }
         else if moonTapped == 1 {
-            moonTapped = 0
-            moonState = .duck
-            score = 20
+            DispatchQueue.main.async {
+                self.moonTapped = 0
+                self.moonState = .duck
+                self.score = 20
+            }
             finishGame()
         }
     }
     
     override func finishGame() {
-        gameState = .finish
+        DispatchQueue.main.async {
+            self.gameState = .finish
+        }
         
         // 3초 뒤 서버로 점수 업로드
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            super.uploadResult()
+            super.uploadResult(uploadScore: self.score)
         }
     }
 }
