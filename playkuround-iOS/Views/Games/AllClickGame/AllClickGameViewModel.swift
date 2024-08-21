@@ -25,6 +25,8 @@ final class AllClickGameViewModel: GameViewModel {
 
     override func finishGame() {
         gameState = .finish
+        stopSubjectRain()
+        self.isResultViewPresented = true
         
         // 서버로 점수 업로드
         uploadResult(uploadScore: score)
@@ -45,8 +47,7 @@ final class AllClickGameViewModel: GameViewModel {
             for i in self.subjects.indices {
                 self.subjects[i].yPosition += 20
                 
-                //임시
-                if self.subjects[i].yPosition >= 300 {
+                if self.subjects[i].yPosition >= 460 {
                     self.life -= 1
                     if self.life <= 0 {
                         self.finishGame()

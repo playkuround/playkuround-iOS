@@ -31,20 +31,13 @@ struct AllClickGameView: View {
                 
                 let shouldFontResize = geometry.size.width <= 375
                 
-                
-                ForEach(viewModel.subjects.indices, id: \.self) { index in
-                    AllClickTextRainView(subject: viewModel.subjects[index])
-                        .position(x: viewModel.subjects[index].xPosition,
-                                  y: viewModel.subjects[index].yPosition)
-                }
-                
-                VStack {
-                    HStack {
+                VStack(spacing: 0) {
+                    HStack(spacing: 0) {
                         Text(StringLiterals.Game.AllClick.score)
                             .font(.neo22)
                             .foregroundStyle(.kuText)
                             .kerning(-0.41)
-                            .padding(.trailing, 5)
+                            .padding(.trailing, 12)
                         
                         Text("\(viewModel.score)")
                             .font(.neo22)
@@ -53,7 +46,7 @@ struct AllClickGameView: View {
                         
                         Spacer()
                         
-                        HStack(spacing: 2){
+                        HStack(spacing: 3){
                             Image(viewModel.life > 0 ? .allClickHeart : .allClickHeartEmpty)
                             Image(viewModel.life > 1 ? .allClickHeart : .allClickHeartEmpty)
                             Image(viewModel.life > 2 ? .allClickHeart : .allClickHeartEmpty)
@@ -63,7 +56,7 @@ struct AllClickGameView: View {
                     
                     Spacer()
                     
-                    HStack {
+                    HStack(spacing: 0) {
                         Spacer()
                         
                         Text(StringLiterals.Game.AllClick.classRegistration)
@@ -95,7 +88,7 @@ struct AllClickGameView: View {
                         
                         Spacer()
                     }
-                    .padding(.vertical, 6)
+                    .padding(.vertical, 5)
                     .background(.white)
                     .offset(y: 8)
                 }
@@ -112,25 +105,30 @@ struct AllClickGameView: View {
                     })
                 }, height: 57)
                 
+                ForEach(viewModel.subjects.indices, id: \.self) { index in
+                    AllClickTextRainView(subject: viewModel.subjects[index])
+                        .position(x: viewModel.subjects[index].xPosition,
+                                  y: viewModel.subjects[index].yPosition)
+                }
+                
                 if viewModel.isCountdownViewPresented {
                     CountdownView(countdown: $viewModel.countdown)
                 } else if viewModel.isPauseViewPresented {
-                    hideKeyboard {
-                        GamePauseView(viewModel: viewModel)
-                            .onAppear {
-                                viewModel.stopSubjectRain()
-                            }
-                            .onDisappear {
-                                viewModel.startSubjectRain()
-                            }
-                    }
+                    GamePauseView(viewModel: viewModel)
+                        .onAppear {
+                            viewModel.stopSubjectRain()
+                            shouldBecomeFirstResponder = false
+                        }
+                        .onDisappear {
+                            viewModel.startSubjectRain()
+                            shouldBecomeFirstResponder = true
+                        }
                 } else if viewModel.isResultViewPresented {
-                    hideKeyboard {
-                        GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
-                            .onAppear {
-                                viewModel.stopSubjectRain()
-                            }
-                    }
+                    GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
+                        .onAppear {
+                            viewModel.stopSubjectRain()
+                            shouldBecomeFirstResponder = false
+                        }
                 }
             }
             .onAppear {
@@ -150,20 +148,6 @@ struct AllClickGameView: View {
                     }
                 }
             }
-        }
-    }
-    
-    // 키보드 내림 함수
-    func hideKeyboard<Content: View>(@ViewBuilder content: @escaping () -> Content) -> some View {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-        
-        return ZStack {
-            content()
-                .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        withAnimation {}
-                    }
-                }
         }
     }
 }
