@@ -11,41 +11,54 @@ final class QuizGameViewModel: GameViewModel {
     @Published var randomNumber: Int?
     @Published var isCorrectAnswer: Bool?
     @Published var selectedIndex: Int?
-    
-    @Published var milliSecond: String = "00"
     @Published var timerState: QuizTimerState = .ready
+    @Published var isBlockEnabled: Bool = true
     
-    func createRandomNumber(data: [Quiz]) {
-        randomNumber = Int.random(in: 1..<data.count)
+    var currentQuestionIndex: Int = 0
+    var correctAnswersCount: Int = 0
+    
+    let quizData: [Quiz] = load("QuizData.json")
+    
+    override func startGame() {
+        currentQuestionIndex = 0
+        correctAnswersCount = 0
+        
+        loadNextQuestion()
     }
     
-    final func updateMilliSecondString() {
-        self.milliSecond = String(format: "%02d", Int(timeRemaining * 100) % 100)
+    func createRandomNumber() {
+        randomNumber = Int.random(in: 1..<quizData.count)
     }
     
-    func blockClick() {
-        if let isCorrectAnswer = isCorrectAnswer {
-            // 정답일 때
-            if timerState == .ready {
-                if isCorrectAnswer {
-                    score = 20
-                    finishGame()
-                }
-                // 오답일 때
-                else {
-                    timerState = .running
-                    isTimerUpdating = true
-                    checkTimerFinished()
-                }
-            }
+    func loadNextQuestion() {
+        if currentQuestionIndex < quizData.count {
+            randomNumber = Int.random(in: 1..<quizData.count)
+            currentQuestionIndex += 1
+            isCorrectAnswer = nil
+        } else {
+            finishGame()
         }
     }
     
-    func checkTimerFinished() {
-        if timeRemaining <= 0.0 {
-            timerState = .ready
-            timeRemaining = 15.0
-            isTimerUpdating = true
+    func blockClick() {
+        guard let isCorrectAnswer = isCorrectAnswer else { return }
+        
+        if timerState == .ready {
+            isBlockEnabled = false  // 블록을 비활성화
+            
+            if isCorrectAnswer {
+                correctAnswersCount += 1
+                score += correctAnswersCount * 10
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.loadNextQuestion()
+                    self.isBlockEnabled = true
+                }
+            } else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.finishGame()
+                }
+            }
         }
     }
     

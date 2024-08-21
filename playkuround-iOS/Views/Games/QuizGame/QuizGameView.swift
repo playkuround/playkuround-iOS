@@ -10,7 +10,7 @@ import SwiftUI
 struct QuizGameView: View {
     @ObservedObject var viewModel: QuizGameViewModel
     @ObservedObject var rootViewModel: RootViewModel
-    let quizData: [Quiz] = load("QuizData.json")
+    
     @State private var selectedIndex: Int?
     
     var body: some View {
@@ -20,11 +20,11 @@ struct QuizGameView: View {
                     .resizable()
                     .ignoresSafeArea(.all)
                 
-                // iPhone SE 기기대응을 위한 변수
                 let shouldImagePadding = geometry.size.height >= 700
                 
                 VStack {
-                    let quiz = quizData[viewModel.randomNumber ?? 0]
+                    
+                    let quiz = viewModel.quizData[viewModel.randomNumber ?? 0]
                     
                     Text(quiz.question)
                         .font(.neo20)
@@ -53,34 +53,24 @@ struct QuizGameView: View {
                                 .multilineTextAlignment(.center)
                                 .padding(.top, 20)
                                 .padding(.bottom, shouldImagePadding ? 0 : 25)
-                        }
-                        else {
-                            //오답일 때
-                            Text("\(viewModel.second).\(viewModel.milliSecond)")
-                                .font(shouldImagePadding ? .neo45 : .neo38)
-                                .kerning(-0.41)
-                                .foregroundStyle(.kuText)
-                                .padding(.vertical, shouldImagePadding ? 20 : 0)
-                                .onReceive(viewModel.timer) { _ in
-                                    if let isCorrect = viewModel.isCorrectAnswer {
-                                        if !isCorrect && viewModel.timerState == .running {
-                                            viewModel.updateTimer2()
-                                            viewModel.updateMilliSecondString()
-                                            
-                                            if viewModel.timeRemaining < 0 {
-                                                viewModel.checkTimerFinished()
-                                                selectedIndex = nil
-                                                viewModel.isCorrectAnswer = nil
-                                            }
-                                        }
+                                .onAppear {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                        viewModel.loadNextQuestion()
+                                        selectedIndex = nil
                                     }
                                 }
-                            
+                        }
+                        else {
+                            // 오답 시 게임 종료
                             Text(StringLiterals.Game.Quiz.incorrect)
                                 .font(.pretendard15R)
                                 .foregroundStyle(.kuRed)
                                 .multilineTextAlignment(.center)
+                                .padding(.top, 20)
                                 .padding(.bottom, shouldImagePadding ? 0 : 25)
+                                .onAppear {
+                                    viewModel.finishGame()
+                                }
                         }
                     }
                 }
@@ -98,11 +88,6 @@ struct QuizGameView: View {
                     })
                 }, height: 40)
                 
-                if let isCorrectAnswer = viewModel.isCorrectAnswer {
-                    if isCorrectAnswer {
-                        Color.black.opacity(0.3).ignoresSafeArea(.all)
-                    }
-                }
                 if viewModel.isPauseViewPresented {
                     GamePauseView(viewModel: viewModel)
                 }
@@ -110,9 +95,9 @@ struct QuizGameView: View {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
                 }
             }
-            .onAppear {
-                viewModel.createRandomNumber(data: quizData)
-            }
+        }
+        .onAppear {
+            viewModel.createRandomNumber()
         }
     }
 }
