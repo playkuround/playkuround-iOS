@@ -8,23 +8,21 @@
 import SwiftUI
 
 struct AllClickTextRainView: View {
-    let subject: String
+    let subject: Subject
     
     var body: some View {
         ZStack {
-            Color.black
-            
-            Text(subject)
+            Text(subject.title)
                 .font(.neo15)
                 .kerning(-0.41)
-                .foregroundStyle(.kuText)
+                .foregroundStyle(subject.type == .basic ? .kuTimebarRed : .kuText)
                 .textRainStroke()
         }
     }
 }
 
 #Preview {
-    AllClickTextRainView(subject: "비판적사고와토론")
+    AllClickTextRainView(subject: subjectList[0])
 }
 
 extension View {
