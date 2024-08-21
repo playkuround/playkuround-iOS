@@ -11,7 +11,6 @@ final class QuizGameViewModel: GameViewModel {
     @Published var randomNumber: Int?
     @Published var isCorrectAnswer: Bool?
     @Published var selectedIndex: Int?
-    @Published var timerState: QuizTimerState = .ready
     @Published var isBlockEnabled: Bool = true
     
     var currentQuestionIndex: Int = 0
@@ -43,21 +42,19 @@ final class QuizGameViewModel: GameViewModel {
     func blockClick() {
         guard let isCorrectAnswer = isCorrectAnswer else { return }
         
-        if timerState == .ready {
-            isBlockEnabled = false  // 블록을 비활성화
+        isBlockEnabled = false  // 블록을 비활성화
+        
+        if isCorrectAnswer {
+            correctAnswersCount += 1
+            score += correctAnswersCount * 10
             
-            if isCorrectAnswer {
-                correctAnswersCount += 1
-                score += correctAnswersCount * 10
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    self.loadNextQuestion()
-                    self.isBlockEnabled = true
-                }
-            } else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    self.finishGame()
-                }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.loadNextQuestion()
+                self.isBlockEnabled = true
+            }
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.finishGame()
             }
         }
     }

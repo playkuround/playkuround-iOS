@@ -56,13 +56,15 @@ struct BlockView: View {
                     quizState = .unable
                 }
             }
-            .onReceive(viewModel.timer) { _ in
-                if viewModel.timerState == .ready {
-                    if index != selectedIndex {
-                        quizState = .normal
-                    }
-                }
+            .onChange(of: viewModel.randomNumber) { _ in
+                resetQuizState()
             }
+    }
+    
+    private func resetQuizState() {
+        quizState = .normal
+        isCorrectAnswer = nil
+        selectedIndex = nil
     }
 }
 
