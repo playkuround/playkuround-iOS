@@ -17,6 +17,7 @@ final class QuizGameViewModel: GameViewModel {
     var correctAnswersCount: Int = 0
     
     let quizData: [Quiz] = load("QuizData.json")
+    var usedQuestionIndices: Set<Int> = []
     
     override func startGame() {
         currentQuestionIndex = 0
@@ -26,7 +27,14 @@ final class QuizGameViewModel: GameViewModel {
     }
     
     func createRandomNumber() {
-        randomNumber = Int.random(in: 1..<quizData.count)
+        var newRandomNumber: Int?
+        
+        repeat {
+            newRandomNumber = Int.random(in: 0..<quizData.count)
+        } while usedQuestionIndices.contains(newRandomNumber!)
+        
+        randomNumber = newRandomNumber
+        usedQuestionIndices.insert(newRandomNumber!)
     }
     
     func loadNextQuestion() {
