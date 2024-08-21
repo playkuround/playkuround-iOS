@@ -45,7 +45,7 @@ final class CupidGameViewModel: GameViewModel {
         stopDuckSpawn()
         
         // 서버로 점수 업로드
-        uploadResult()
+        uploadResult(uploadScore: score)
     }
     
     func startDuckAnimation() {

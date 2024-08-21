@@ -54,7 +54,7 @@ final class QuizGameViewModel: GameViewModel {
         
         // 3초 뒤 서버로 점수 업로드
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            super.uploadResult()
+            super.uploadResult(uploadScore: self.score)
         }
     }
 }
