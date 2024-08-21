@@ -13,11 +13,12 @@ final class AllClickGameViewModel: GameViewModel {
     @Published var countdownCompleted: Bool = false
     @Published var life: Int = 3
     @Published var subjects: [Subject] = []
-    @Published var textRainOffsets: [CGFloat] = []
+
     private var subjectRainTimer: Timer?
     
     override func startGame() {
         super.startGame()
+        
         countdownCompleted = true
         startSubjectRain()
     }
@@ -26,14 +27,14 @@ final class AllClickGameViewModel: GameViewModel {
         gameState = .finish
         
         // 서버로 점수 업로드
-        uploadResult()
+        uploadResult(uploadScore: score)
     }
     
-    func startSubjectRain() {
+    func startSubjectRain(withInterval interval: TimeInterval = 1.0) {
         var currentFallingCount = 0 // 현재까지 내려온 글자의 수
         var randomFallingCount = 1  // 랜덤으로 지정된 내려오는 횟수
         var elapsedTime: TimeInterval = 0 // 경과 시간 추적
-        var currentInterval: TimeInterval = 1.0 // 초기 타이머 간격
+        var currentInterval: TimeInterval = interval
         
         subjectRainTimer = Timer.scheduledTimer(withTimeInterval: currentInterval, repeats: true) { [weak self] timer in
             guard let self = self else { return }
@@ -42,10 +43,10 @@ final class AllClickGameViewModel: GameViewModel {
             elapsedTime += currentInterval
             
             for i in self.subjects.indices {
-                self.subjects[i].yOffset += 20
+                self.subjects[i].yPosition += 20
                 
                 //임시
-                if self.subjects[i].yOffset >= 200 {
+                if self.subjects[i].yPosition >= 300 {
                     self.life -= 1
                     if self.life <= 0 {
                         self.finishGame()
@@ -61,8 +62,8 @@ final class AllClickGameViewModel: GameViewModel {
             // 내려오는 횟수가 랜덤으로 지정된 횟수일 때에만 새로운 글자를 추가.
             if currentFallingCount == randomFallingCount, let newSubject = subjectList.randomElement() {
                 var subject = newSubject
-                subject.xOffset = self.randomXOffset()
-                subject.yOffset = -150 // 초기 offset 설정
+                subject.xPosition = self.randomXPosition()
+                subject.yPosition = 0
                 self.subjects.append(subject)
                 
                 // 새로운 글자를 추가한 후, 다음 추가 타이밍을 위해 새로운 랜덤 값을 생성.
@@ -75,16 +76,16 @@ final class AllClickGameViewModel: GameViewModel {
                 elapsedTime = 0.0
                 currentInterval = max(0.4, currentInterval - 0.2)
                 self.subjectRainTimer?.invalidate()
-                self.startSubjectRain()
+                self.startSubjectRain(withInterval: currentInterval)
             }
         }
     }
     
-    func randomXOffset() -> CGFloat {
-        var xOffset: CGFloat = 0
-        let temp = Int.random(in: -50...130)
-        xOffset = CGFloat(temp)
-        return xOffset
+    func randomXPosition() -> CGFloat {
+        var xPosition: CGFloat = 20
+        let temp = Int.random(in: 60...Int(UIScreen.main.bounds.width) - 60)
+        xPosition = CGFloat(temp)
+        return xPosition
     }
     
     func stopSubjectRain() {
@@ -106,7 +107,7 @@ final class AllClickGameViewModel: GameViewModel {
             }
         }
         else {
-            if 4 <= self.subjects[index].title.count, self.subjects[index].title.count <= 5 {
+            if 3 <= self.subjects[index].title.count, self.subjects[index].title.count <= 5 {
                 score += 1
             }
             else if 6 <= self.subjects[index].title.count, self.subjects[index].title.count <= 8 {

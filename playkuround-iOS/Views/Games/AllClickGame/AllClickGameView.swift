@@ -31,6 +31,13 @@ struct AllClickGameView: View {
                 
                 let shouldFontResize = geometry.size.width <= 375
                 
+                
+                ForEach(viewModel.subjects.indices, id: \.self) { index in
+                    AllClickTextRainView(subject: viewModel.subjects[index])
+                        .position(x: viewModel.subjects[index].xPosition,
+                                  y: viewModel.subjects[index].yPosition)
+                }
+                
                 VStack {
                     HStack {
                         Text(StringLiterals.Game.AllClick.score)
@@ -53,12 +60,6 @@ struct AllClickGameView: View {
                         }
                     }
                     .padding(.horizontal, 20)
-                    
-                    ForEach(viewModel.subjects.indices, id: \.self) { index in
-                        AllClickTextRainView(subject: viewModel.subjects[index])
-                            .offset(x: viewModel.subjects[index].xOffset,
-                                    y: viewModel.subjects[index].yOffset)
-                    }
                     
                     Spacer()
                     
@@ -114,18 +115,22 @@ struct AllClickGameView: View {
                 if viewModel.isCountdownViewPresented {
                     CountdownView(countdown: $viewModel.countdown)
                 } else if viewModel.isPauseViewPresented {
-                    GamePauseView(viewModel: viewModel)
-                        .onAppear {
-                            viewModel.stopSubjectRain()
-                        }
-                        .onDisappear {
-                            viewModel.startSubjectRain()
-                        }
+                    hideKeyboard {
+                        GamePauseView(viewModel: viewModel)
+                            .onAppear {
+                                viewModel.stopSubjectRain()
+                            }
+                            .onDisappear {
+                                viewModel.startSubjectRain()
+                            }
+                    }
                 } else if viewModel.isResultViewPresented {
-                    GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
-                        .onAppear {
-                            viewModel.stopSubjectRain()
-                        }
+                    hideKeyboard {
+                        GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
+                            .onAppear {
+                                viewModel.stopSubjectRain()
+                            }
+                    }
                 }
             }
             .onAppear {
@@ -139,9 +144,26 @@ struct AllClickGameView: View {
             .onChange(of: userText) { newText in
                 if let index = viewModel.subjects.firstIndex(where: { $0.title == newText }) {
                     viewModel.calculateScore(index: index)
-                    viewModel.subjects.remove(at: index)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        viewModel.subjects.remove(at: index)
+                        userText = ""
+                    }
                 }
             }
+        }
+    }
+    
+    // 키보드 내림 함수
+    func hideKeyboard<Content: View>(@ViewBuilder content: @escaping () -> Content) -> some View {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        
+        return ZStack {
+            content()
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        withAnimation {}
+                    }
+                }
         }
     }
 }

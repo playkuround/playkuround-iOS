@@ -31,6 +31,10 @@ struct AllClickCustomTextView: UIViewRepresentable {
         DispatchQueue.main.async {
             self.height = uiView.contentSize.height
             context.coordinator.updateFirstResponder()
+            
+            if uiView.text != text {
+                uiView.text = text
+            }
         }
     }
     
@@ -78,6 +82,10 @@ struct AllClickCustomTextView: UIViewRepresentable {
             } else {
                 textView?.resignFirstResponder()
             }
+        }
+        
+        func clearText() {
+            textView?.text = ""
         }
     }
 }

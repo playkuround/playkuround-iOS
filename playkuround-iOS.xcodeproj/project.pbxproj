@@ -58,7 +58,6 @@
 		0CB974442BFE55AB008E1399 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB974432BFE55AB008E1399 /* Window.swift */; };
 		0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */; };
 		0CC01F262BBBD540007BB320 /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC01F252BBBD540007BB320 /* CardGameViewModel.swift */; };
-		0CC034AE2C739110002FF439 /* LandmarkDescription.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CC034AD2C739108002FF439 /* LandmarkDescription.json */; };
 		0CD0402D2C062A8E009F9BE1 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */; };
 		0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD06A282BAB459500845B24 /* RegisterTermsView.swift */; };
 		0CEB87C72BB7E2B000CC2E4B /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */; };
@@ -128,7 +127,7 @@
 		C98078C32BA872DF00C04B2D /* moonHundredClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C12BA872DF00C04B2D /* moonHundredClicked.mp3 */; };
 		C98078C42BA872DF00C04B2D /* moonClicked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C22BA872DF00C04B2D /* moonClicked.mp3 */; };
 		C98078C62BA8816B00C04B2D /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */; };
-		C9859E0A2C74FB0A00A3BED2 /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = C9859E092C74FB0A00A3BED2 /* QuizData.json */; };
+		C98BDC3E2C75C64500ACBB46 /* LandmarkDescription.json in Resources */ = {isa = PBXBuildFile; fileRef = C98BDC3C2C75C60000ACBB46 /* LandmarkDescription.json */; };
 		C9963C532BBB07040037C662 /* QuizBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9963C522BBB07040037C662 /* QuizBlockView.swift */; };
 		C9C66C982C71FCC70095461D /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = C9C66C972C71FCC70095461D /* QuizData.json */; };
 		C9DAF1F72BB712D900E03D16 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DAF1F62BB712D900E03D16 /* UserEntity.swift */; };
@@ -263,7 +262,7 @@
 		C98078C12BA872DF00C04B2D /* moonHundredClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = moonHundredClicked.mp3; sourceTree = "<group>"; };
 		C98078C22BA872DF00C04B2D /* moonClicked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = moonClicked.mp3; sourceTree = "<group>"; };
 		C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
-		C9859E092C74FB0A00A3BED2 /* QuizData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = QuizData.json; path = ../../../../QuizData.json; sourceTree = "<group>"; };
+		C98BDC3C2C75C60000ACBB46 /* LandmarkDescription.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LandmarkDescription.json; sourceTree = "<group>"; };
 		C9963C522BBB07040037C662 /* QuizBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBlockView.swift; sourceTree = "<group>"; };
 		C9C66C972C71FCC70095461D /* QuizData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = QuizData.json; path = ../../../../QuizData.json; sourceTree = "<group>"; };
 		C9DAF1F62BB712D900E03D16 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
@@ -309,8 +308,8 @@
 		0C3F4E682C0C44AB00EE9DB6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				C98BDC3C2C75C60000ACBB46 /* LandmarkDescription.json */,
 				C9C66C972C71FCC70095461D /* QuizData.json */,
-				B94C50492C108CED005CB447 /* LandmarkDescription.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -753,11 +752,20 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		C98BDC3B2C75C5DF00ACBB46 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				0CC034AD2C739108002FF439 /* LandmarkDescription.json */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		C9F694DB2BA3251A009A8762 = {
 			isa = PBXGroup;
 			children = (
 				C9F694E62BA3251A009A8762 /* playkuround-iOS */,
 				C9F694E52BA3251A009A8762 /* Products */,
+				C98BDC3B2C75C5DF00ACBB46 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -851,12 +859,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C98BDC3E2C75C64500ACBB46 /* LandmarkDescription.json in Resources */,
 				C98078BD2BA872A300C04B2D /* blackDuckkuClicked.mp3 in Resources */,
 				C98078A12BA8715900C04B2D /* quizCorrect.mp3 in Resources */,
 				0C5979B82BAB25EE00E8156D /* service.txt in Resources */,
 				C98078A92BA871A000C04B2D /* cardClicked.mp3 in Resources */,
 				C980789C2BA8712700C04B2D /* cupidBad.mp3 in Resources */,
-				0CC034AE2C739110002FF439 /* LandmarkDescription.json in Resources */,
 				C98078B22BA8720D00C04B2D /* classEnd.mp3 in Resources */,
 				C98078A82BA871A000C04B2D /* cardIncorrect.mp3 in Resources */,
 				C98078B12BA8720D00C04B2D /* classMinusHeart.mp3 in Resources */,

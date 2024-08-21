@@ -10,8 +10,8 @@ import Foundation
 struct Subject {
     let type: SubjectType
     let title: String
-    var xOffset: CGFloat = 0
-    var yOffset: CGFloat = 0
+    var xPosition: CGFloat = 20  // 임시..
+    var yPosition: CGFloat = 0
 }
 
 enum SubjectType {
