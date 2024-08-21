@@ -32,8 +32,15 @@ final class AllClickGameViewModel: GameViewModel {
     func startSubjectRain() {
         var currentFallingCount = 0 // 현재까지 내려온 글자의 수
         var randomFallingCount = 1  // 랜덤으로 지정된 내려오는 횟수
+        var elapsedTime: TimeInterval = 0 // 경과 시간 추적
+        var currentInterval: TimeInterval = 1.0 // 초기 타이머 간격
         
-        subjectRainTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+        subjectRainTimer = Timer.scheduledTimer(withTimeInterval: currentInterval, repeats: true) { [weak self] timer in
+            guard let self = self else { return }
+            
+            // 경과 시간 업데이트
+            elapsedTime += currentInterval
+            
             for i in self.subjects.indices {
                 self.subjects[i].yOffset += 20
                 
@@ -61,6 +68,14 @@ final class AllClickGameViewModel: GameViewModel {
                 // 새로운 글자를 추가한 후, 다음 추가 타이밍을 위해 새로운 랜덤 값을 생성.
                 currentFallingCount = 0
                 randomFallingCount = Int.random(in: 2...7)
+            }
+            
+            // 30초 경과 시 타이머 간격 0.2초씩 감소
+            if elapsedTime >= 30.0 {
+                elapsedTime = 0.0
+                currentInterval = max(0.4, currentInterval - 0.2)
+                self.subjectRainTimer?.invalidate()
+                self.startSubjectRain()
             }
         }
     }
