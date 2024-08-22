@@ -31,21 +31,22 @@ struct HomeView: View {
                     
                     HStack(spacing: 8) {
                         
-                        Image(.engineering)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 40, height: 40)
-                            .onTapGesture {
-                                // TODO: 추후 기능 구현 시
-                                // homeViewModel.transition(to: .badgeProfile)
-                            }
-                        
-                        Text(homeViewModel.userData.nickname + "님")
-                            .font(.neo18)
-                            .foregroundStyle(.kuText)
-                            .kerning(-0.41)
-                            .lineLimit(2)
-                            .padding(.trailing, 10)
+                        Group {
+                            Image(.engineering)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
+                            
+                            Text(homeViewModel.userData.nickname + "님")
+                                .font(.neo18)
+                                .foregroundStyle(.kuText)
+                                .kerning(-0.41)
+                                .lineLimit(2)
+                                .padding(.trailing, 10)
+                        }
+                        .onTapGesture {
+                            homeViewModel.transition(to: .badgeProfile)
+                        }
                         
                         Spacer()
                         
