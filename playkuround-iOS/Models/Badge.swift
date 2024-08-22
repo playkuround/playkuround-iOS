@@ -9,65 +9,65 @@ import SwiftUI
 
 enum Badge: String, CaseIterable {
     // 출석 관련 뱃지
-    case ATTENDANCE_1 = "첫 출석"
-    case ATTENDANCE_5 = "5회 출석"
-    case ATTENDANCE_10 = "10회 출석"
-    case ATTENDANCE_30 = "30회 출석"
-    case ATTENDANCE_50 = "50회 출석"
-    case ATTENDANCE_100 = "100회 출석"
+    case ATTENDANCE_1 = "ATTENDANCE_1"
+    case ATTENDANCE_5 = "ATTENDANCE_5"
+    case ATTENDANCE_10 = "ATTENDANCE_10"
+    case ATTENDANCE_30 = "ATTENDANCE_30"
+    case ATTENDANCE_50 = "ATTENDANCE_50"
+    case ATTENDANCE_100 = "ATTENDANCE_100"
     
     // 기념일 뱃지
-    case ATTENDANCE_FOUNDATION_DAY = "05월 15일 개교 기념일에 출석"
-    case ATTENDANCE_ARBOR_DAY = "04월 05일 식목일에 출석"
-    case ATTENDANCE_CHILDREN_DAY = "05월 05일 어린이날에 출석"
-    case ATTENDANCE_WHITE_DAY = "03월 14일 화이트데이에 출석"
-    case ATTENDANCE_DUCK_DAY = "05월 02일 오리데이에 출석"
+    case ATTENDANCE_FOUNDATION_DAY = "ATTENDANCE_FOUNDATION_DAY"
+    case ATTENDANCE_ARBOR_DAY = "ATTENDANCE_ARBOR_DAY"
+    case ATTENDANCE_CHILDREN_DAY = "ATTENDANCE_CHILDREN_DAY"
+    case ATTENDANCE_WHITE_DAY = "ATTENDANCE_WHITE_DAY"
+    case ATTENDANCE_DUCK_DAY = "ATTENDANCE_DUCK_DAY"
     
     // 2024 가을학기 추가 뱃지
-     case ATTENDANCE_CHUSEOK_DAY = "09월 17일 추석날에 출석"
-     case ATTENDANCE_KOREAN_DAY = "10월 09일 한글날에 출석"
-     case ATTENDANCE_DOKDO_DAY = "10월 25일 독도의 날에 출석"
-     case ATTENDANCE_KIMCHI_DAY = "11월 22일 김치의 날에 출석"
-     case ATTENDANCE_CHRISTMAS_DAY = "12월 25일 성탄절에 출석"
+     case ATTENDANCE_CHUSEOK_DAY = "ATTENDANCE_CHUSEOK_DAY"
+     case ATTENDANCE_KOREAN_DAY = "ATTENDANCE_KOREAN_DAY"
+     case ATTENDANCE_DOKDO_DAY = "ATTENDANCE_DOKDO_DAY"
+     case ATTENDANCE_KIMCHI_DAY = "ATTENDANCE_KIMCHI_DAY"
+     case ATTENDANCE_CHRISTMAS_DAY = "ATTENDANCE_CHRISTMAS_DAY"
     
     // 대학별 뱃지
-    case COLLEGE_OF_LIBERAL_ARTS = "문과대학 1회 이상 탐험"
-    case COLLEGE_OF_SCIENCES = "이과대학 1회 이상 탐험"
-    case COLLEGE_OF_ARCHITECTURE = "건축대학 1회 이상 탐험"
-    case COLLEGE_OF_ENGINEERING = "공과대학 1회 이상 탐험"
-    case COLLEGE_OF_SOCIAL_SCIENCES = "사회과학대학 1회 이상 탐험"
-    case COLLEGE_OF_BUSINESS_ADMINISTRATION = "경영대학 1회 이상 탐험"
-    case COLLEGE_OF_REAL_ESTATE = "부동산과학원 1회 이상 탐험"
-    case COLLEGE_OF_INSTITUTE_TECHNOLOGY = "융합과학기술원 1회 이상 탐험"
-    case COLLEGE_OF_BIOLOGICAL_SCIENCES = "생명과학대학 1회 이상 탐험"
-    case COLLEGE_OF_VETERINARY_MEDICINE = "수의과대학 1회 이상 탐험"
-    case COLLEGE_OF_ART_AND_DESIGN = "예술디자인대학 1회 이상 탐험"
-    case COLLEGE_OF_EDUCATION = "사범대학 1회 이상 탐험"
+    case COLLEGE_OF_LIBERAL_ARTS = "COLLEGE_OF_LIBERAL_ARTS"
+    case COLLEGE_OF_SCIENCES = "COLLEGE_OF_SCIENCES"
+    case COLLEGE_OF_ARCHITECTURE = "COLLEGE_OF_ARCHITECTURE"
+    case COLLEGE_OF_ENGINEERING = "COLLEGE_OF_ENGINEERING"
+    case COLLEGE_OF_SOCIAL_SCIENCES = "COLLEGE_OF_SOCIAL_SCIENCES"
+    case COLLEGE_OF_BUSINESS_ADMINISTRATION = "COLLEGE_OF_BUSINESS_ADMINISTRATION"
+    case COLLEGE_OF_REAL_ESTATE = "COLLEGE_OF_REAL_ESTATE"
+    case COLLEGE_OF_INSTITUTE_TECHNOLOGY = "COLLEGE_OF_INSTITUTE_TECHNOLOGY"
+    case COLLEGE_OF_BIOLOGICAL_SCIENCES = "COLLEGE_OF_BIOLOGICAL_SCIENCES"
+    case COLLEGE_OF_VETERINARY_MEDICINE = "COLLEGE_OF_VETERINARY_MEDICINE"
+    case COLLEGE_OF_ART_AND_DESIGN = "COLLEGE_OF_ART_AND_DESIGN"
+    case COLLEGE_OF_EDUCATION = "COLLEGE_OF_EDUCATION"
     
     // 경영대 특별 뱃지
-    case COLLEGE_OF_BUSINESS_ADMINISTRATION_10 = "경영대학 10회 이상 탐험"
-    case COLLEGE_OF_BUSINESS_ADMINISTRATION_30 = "경영대학 30회 이상 탐험"
-    case COLLEGE_OF_BUSINESS_ADMINISTRATION_50 = "경영대학 50회 이상 탐험"
-    case COLLEGE_OF_BUSINESS_ADMINISTRATION_70 = "경영대학 70회 이상 탐험"
-    case COLLEGE_OF_BUSINESS_ADMINISTRATION_100_AND_FIRST_PLACE = "경영대학 100회 이상 탐험 및 1등 달성"
+    case COLLEGE_OF_BUSINESS_ADMINISTRATION_10 = "COLLEGE_OF_BUSINESS_ADMINISTRATION_10"
+    case COLLEGE_OF_BUSINESS_ADMINISTRATION_30 = "COLLEGE_OF_BUSINESS_ADMINISTRATION_30"
+    case COLLEGE_OF_BUSINESS_ADMINISTRATION_50 = "COLLEGE_OF_BUSINESS_ADMINISTRATION_50"
+    case COLLEGE_OF_BUSINESS_ADMINISTRATION_70 = "COLLEGE_OF_BUSINESS_ADMINISTRATION_70"
+    case COLLEGE_OF_BUSINESS_ADMINISTRATION_100_AND_FIRST_PLACE = "COLLEGE_OF_BUSINESS_ADMINISTRATION_100_AND_FIRST_PLACE"
     
     // 예디대 특별 뱃지
-    case COLLEGE_OF_ART_AND_DESIGN_BEFORE_NOON = "예술디자인대학 09:00 ~ 11:59 탐험"
-    case COLLEGE_OF_ART_AND_DESIGN_AFTER_NOON = "예술디자인대학 12:00 ~ 18:00 탐험"
-    case COLLEGE_OF_ART_AND_DESIGN_NIGHT = "예술디자인대학 23:00 ~ 04:00 탐험"
+    case COLLEGE_OF_ART_AND_DESIGN_BEFORE_NOON = "COLLEGE_OF_ART_AND_DESIGN_BEFORE_NOON"
+    case COLLEGE_OF_ART_AND_DESIGN_AFTER_NOON = "COLLEGE_OF_ART_AND_DESIGN_AFTER_NOON"
+    case COLLEGE_OF_ART_AND_DESIGN_NIGHT = "COLLEGE_OF_ART_AND_DESIGN_NIGHT"
     
     // 공대 특별 뱃지
-    case COLLEGE_OF_ENGINEERING_A = "공대 A동 10회 이상 탐험"
-    case COLLEGE_OF_ENGINEERING_B = "공대 B동 10회 이상 탐험"
-    case COLLEGE_OF_ENGINEERING_C = "공대 C동 10회 이상 탐험"
+    case COLLEGE_OF_ENGINEERING_A = "COLLEGE_OF_ENGINEERING_A"
+    case COLLEGE_OF_ENGINEERING_B = "COLLEGE_OF_ENGINEERING_B"
+    case COLLEGE_OF_ENGINEERING_C = "COLLEGE_OF_ENGINEERING_C"
     
     // 스토리용 뱃지
-    case THE_DREAM_OF_DUCK = "스토리 컷씬 마스터"
+    case THE_DREAM_OF_DUCK = "THE_DREAM_OF_DUCK"
     
     // 월간랭킹 관련 뱃지
-    case MONTHLY_RANKING_1 = "월간 랭킹 1등"
-    case MONTHLY_RANKING_2 = "월간 랭킹 2등"
-    case MONTHLY_RANKING_3 = "월간 랭킹 3등"
+    case MONTHLY_RANKING_1 = "MONTHLY_RANKING_1"
+    case MONTHLY_RANKING_2 = "MONTHLY_RANKING_2"
+    case MONTHLY_RANKING_3 = "MONTHLY_RANKING_3"
     
     /// 뱃지 제목
     var title: String {
@@ -296,4 +296,38 @@ enum Badge: String, CaseIterable {
         case .MONTHLY_RANKING_3: return Image(.ranking3)
         }
     }
+}
+
+struct BadgeTestView: View {
+    @State private var selectedBadge: Badge? = nil
+    @State private var text: String = ""
+    
+    var body: some View {
+        VStack(spacing: 10) {
+            if let badge = selectedBadge {
+                badge.image
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 64, height: 64)
+                Text(badge.description)
+                Text(badge.title)
+                Text(badge.lockDescription)
+                Text(badge.rawValue)
+            } else {
+                Text("No matching badge")
+            }
+            
+            TextField("badge_name", text: $text)
+                .border(Color.gray, width: 1)
+                .padding(.horizontal, 30)
+            
+            Button("hit") {
+                selectedBadge = Badge(rawValue: text.uppercased())
+            }
+        }
+    }
+}
+
+#Preview {
+    BadgeTestView()
 }
