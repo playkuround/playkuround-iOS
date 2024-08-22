@@ -193,5 +193,5 @@ struct CatchGameView: View {
 }
 
 #Preview {
-    CatchGameView(viewModel: CatchGameViewModel(.catchDucku, rootViewModel: RootViewModel(), mapViewModel: MapViewModel(), timeStart: 60.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: RootViewModel())
+    CatchGameView(viewModel: CatchGameViewModel(.catchDucku, rootViewModel: RootViewModel(), mapViewModel: MapViewModel(), storyViewModel: StoryViewModel(stories: storyList), timeStart: 60.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: RootViewModel())
 }

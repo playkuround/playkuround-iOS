@@ -53,6 +53,7 @@ final class CardGameViewModel: GameViewModel {
             print("score: \(self.score), time: \(self.timeRemaining), correctCount: \(self.correctCount)")
             super.uploadResult(uploadScore: self.score)
         }
+        self.checkOpenedGames()
     }
     
     func shuffleCard() {

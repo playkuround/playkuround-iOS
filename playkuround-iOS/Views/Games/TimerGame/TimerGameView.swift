@@ -140,6 +140,7 @@ struct TimerGameView: View {
     TimerGameView(viewModel: TimerGameViewModel(.time,
                                        rootViewModel: RootViewModel(),
                                        mapViewModel: MapViewModel(),
+                                       storyViewModel: StoryViewModel(stories: storyList),
                                        timeStart: 0,
                                        timeEnd: .infinity,
                                        timeInterval: 0.01))

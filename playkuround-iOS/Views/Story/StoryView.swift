@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct StoryView: View {
-    @State private var currentStoryIndex: Int = 0
+    @ObservedObject var viewModel: StoryViewModel
     @Binding var showStoryView: Bool
-    var stories: [Story]
     
     var body: some View {
         ZStack {
@@ -24,39 +23,41 @@ struct StoryView: View {
                 .overlay(alignment: .top) {
                     ZStack {
                         VStack(spacing: 0) {
+                            let isLocked = viewModel.stories[viewModel.currentStoryIndex].isLocked
+                            
                             HStack {
-                                Text(stories[currentStoryIndex].title)
+                                Text(isLocked ? "#\(viewModel.stories[viewModel.currentStoryIndex].number). ???" : "#\(viewModel.stories[viewModel.currentStoryIndex].number). \(viewModel.stories[viewModel.currentStoryIndex].title)")
                                     .font(.neo18)
                                     .foregroundStyle(.kuText)
                                     .kerning(-0.41)
                                     .lineSpacing(18 * 0.3)
                                     .padding(.top, 19)
                                 
-                                Text(StringLiterals.Story.new)
+                                Text(isLocked ? "" : StringLiterals.Story.new)
                                     .font(.neo15)
                                     .kerning(-0.41)
                                     .foregroundStyle(.kuRed)
                                     .padding(.top, 21)
                             }
                             
-                            stories[currentStoryIndex].image
+                            Image(isLocked ? "storyLockImage" : viewModel.stories[viewModel.currentStoryIndex].image)
                                 .padding(.top, 12)
                             
-                            Image(.storyDescriptionBlock)
-                                .overlay(alignment: .top) {
-                                    Text(stories[currentStoryIndex].description)
+                            Image(isLocked ? .storyLockDescriptionBackground : .storyDescriptionBlock)
+                                .overlay(alignment: isLocked ? .center : .top) {
+                                    Text(isLocked ? StringLiterals.Story.lock : viewModel.stories[viewModel.currentStoryIndex].description)
                                         .font(.neo15)
                                         .foregroundStyle(.kuText)
                                         .kerning(-0.41)
                                         .lineSpacing(15 * 0.3)
-                                        .multilineTextAlignment(.leading)
-                                        .padding(.top, 7)
+                                        .multilineTextAlignment(isLocked ? .center : .leading)
+                                        .padding(.top, isLocked ? -4 : 7)
                                         .padding(.horizontal, 12)
                                 }
                                 .padding(.top, 12)
                             
                             HStack {
-                                ForEach(getStoryBlockImages(for: currentStoryIndex), id: \.self) { imageName in
+                                ForEach(getStoryBlockImages(for: viewModel.currentStoryIndex), id: \.self) { imageName in
                                     Image(imageName)
                                 }
                             }
@@ -65,9 +66,7 @@ struct StoryView: View {
                         
                         HStack {
                             Button(action: {
-                                if currentStoryIndex > 0 {
-                                    currentStoryIndex -= 1
-                                }
+                                viewModel.previousStory()
                             }, label: {
                                 Image(.storyLeftArrow)
                             })
@@ -75,9 +74,7 @@ struct StoryView: View {
                             Spacer()
                             
                             Button(action: {
-                                if currentStoryIndex < stories.count - 1 {
-                                    currentStoryIndex += 1
-                                }
+                                viewModel.nextStory()
                             }, label: {
                                 Image(.storyRightArrow)
                             })
@@ -91,7 +88,7 @@ struct StoryView: View {
     func getStoryBlockImages(for index: Int) -> [String] {
         var images: [String] = []
         
-        for i in 0..<stories.count {
+        for i in 0..<storyList.count {
             if i < index {
                 images.append("previewStoryBlock")
             } else if i == index {
@@ -118,5 +115,5 @@ func lockDescriptionView() -> some View {
 }
 
 #Preview {
-    StoryView(showStoryView: .constant(true), stories: storys)
+    StoryView(viewModel: StoryViewModel(stories: storyList), showStoryView: .constant(true))
 }

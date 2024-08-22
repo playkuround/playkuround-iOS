@@ -11,6 +11,7 @@ struct HomeView: View {
     @ObservedObject var viewModel: RootViewModel
     @ObservedObject var homeViewModel: HomeViewModel
     @ObservedObject var mapViewModel: MapViewModel
+    @ObservedObject var storyViewModel: StoryViewModel
     @State private var showStoryView: Bool = false
     
     var body: some View {
@@ -189,7 +190,7 @@ struct HomeView: View {
                 }
                 
                 if showStoryView {
-                    StoryView(showStoryView: $showStoryView, stories: storys)
+                    StoryView(viewModel: storyViewModel, showStoryView: $showStoryView)
                 }
             }
             .onAppear {
@@ -210,5 +211,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(viewModel: RootViewModel(), homeViewModel: HomeViewModel(), mapViewModel: MapViewModel())
+    HomeView(viewModel: RootViewModel(), homeViewModel: HomeViewModel(), mapViewModel: MapViewModel(), storyViewModel: StoryViewModel(stories: storyList))
 }
