@@ -45,6 +45,12 @@ struct ProfileBadgeView: View {
                                 .padding(.bottom, 10)
                         }
                         
+                        Text(homeViewModel.userData.nickname)
+                            .font(.neo18)
+                            .kerning(-0.41)
+                            .foregroundStyle(.kuText)
+                            .padding(.bottom, 30)
+                        
                         ScrollView(.vertical, content: {
                             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 4), spacing: 10) {
                                 ForEach(Badge.allCases, id: \.self) { badge in
