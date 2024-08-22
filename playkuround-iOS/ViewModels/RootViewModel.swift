@@ -19,13 +19,7 @@ final class RootViewModel: ObservableObject {
     @Published var networkManager = NetworkManager()
     
     //StoryView
-    @Published var showStory: Bool = false {
-        didSet {
-            if !showStory {
-                markCurrentStoryAsSeen()
-            }
-        }
-    }
+    @Published var showStory: Bool = false
     @Published var currentStoryIndex: Int = 0
     @Published var newlyUnlockedStoryIndex: Int?
     
@@ -57,7 +51,14 @@ final class RootViewModel: ObservableObject {
                     self.newlyUnlockedStoryIndex = index
                     self.currentStoryIndex = index
                     self.showStory = true
-                    self.stories[index].isNew = true
+                    for i in self.stories.indices {
+                        if i == index {
+                            self.stories[i].isNew = true
+                        }
+                        else {
+                            self.stories[i].isNew = false
+                        }
+                    }
                 }
             }
         }
@@ -92,12 +93,6 @@ final class RootViewModel: ObservableObject {
             }
         }
         return nil
-    }
-    
-    private func markCurrentStoryAsSeen() {
-        if currentStoryIndex < stories.count {
-            stories[currentStoryIndex].isNew = false
-        }
     }
     
     // 현재 앱의 version 정보를 반환
