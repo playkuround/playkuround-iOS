@@ -10,7 +10,7 @@ import Foundation
 struct Subject {
     let type: SubjectType
     let title: String
-    var xPosition: CGFloat = 20  // 임시..
+    var xPosition: CGFloat = 60
     var yPosition: CGFloat = 0
 }
 
