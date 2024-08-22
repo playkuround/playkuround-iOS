@@ -20,14 +20,15 @@ struct StoryView: View {
                     viewModel.currentStoryIndex = 0
                 }
             
+            let currentStory = viewModel.stories[viewModel.currentStoryIndex]
+            let isLocked = currentStory.isLocked
+            
             Image(.storyPopupBackground)
                 .overlay(alignment: .top) {
                     ZStack {
                         VStack(spacing: 0) {
-                            let isLocked = viewModel.stories[viewModel.currentStoryIndex].isLocked
-                            
                             HStack {
-                                Text(isLocked ? "#\(viewModel.stories[viewModel.currentStoryIndex].number). ???" : "#\(viewModel.stories[viewModel.currentStoryIndex].number). \(viewModel.stories[viewModel.currentStoryIndex].title)")
+                                Text(isLocked ? "#\(currentStory.number). ???" : "#\(currentStory.number). \(currentStory.title)")
                                     .font(.neo18)
                                     .foregroundStyle(.kuText)
                                     .kerning(-0.41)
@@ -41,12 +42,12 @@ struct StoryView: View {
                                     .padding(.top, 21)
                             }
                             
-                            Image(isLocked ? "storyLockImage" : viewModel.stories[viewModel.currentStoryIndex].image)
+                            Image(isLocked ? "storyLockImage" : currentStory.image)
                                 .padding(.top, 12)
                             
                             Image(isLocked ? .storyLockDescriptionBackground : .storyDescriptionBlock)
                                 .overlay(alignment: isLocked ? .center : .top) {
-                                    Text(isLocked ? StringLiterals.Story.lock : viewModel.stories[viewModel.currentStoryIndex].description)
+                                    Text(isLocked ? StringLiterals.Story.lock : currentStory.description)
                                         .font(.neo15)
                                         .foregroundStyle(.kuText)
                                         .kerning(-0.41)

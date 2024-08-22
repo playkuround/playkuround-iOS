@@ -51,7 +51,7 @@ final class StoryViewModel: ObservableObject {
     }
     
     // 게임 종류의 수에 따라 스토리를 잠금 해제하는 함수
-    private func unlockStoriesBasedOnGameTypes() {
+    func unlockStoriesBasedOnGameTypes() {
         for i in 0..<openedGameTypes.count {
             if i < stories.count {
                 stories[i].isLocked = false

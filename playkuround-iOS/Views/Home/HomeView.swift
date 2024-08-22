@@ -76,9 +76,6 @@ struct HomeView: View {
                                 }
                                 .padding(.horizontal, 8)
                             }
-                            .onTapGesture {
-                                showStoryView.toggle()
-                            }
                     }
                     .padding(.top, shouldPadding ? 4 : 0)
                     .padding(.horizontal, 24)
@@ -201,6 +198,9 @@ struct HomeView: View {
                 homeViewModel.loadBadge()
                 homeViewModel.loadTotalRanking()
                 homeViewModel.loadAttendance()
+                
+                // 사용자의 unlock된 스토리컷 받아옴
+                storyViewModel.unlockStoriesBasedOnGameTypes()
             }
             .onDisappear {
                 // 홈 뷰에서 벗어날 때 위치 업데이트 중지
