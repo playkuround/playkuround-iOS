@@ -35,7 +35,7 @@ struct StoryView: View {
                                     .lineSpacing(18 * 0.3)
                                     .padding(.top, 19)
                                 
-                                Text(isLocked ? "" : StringLiterals.Story.new)
+                                Text(isLocked || !currentStory.isNew ? "" : StringLiterals.Story.new)
                                     .font(.neo15)
                                     .kerning(-0.41)
                                     .foregroundStyle(.kuRed)

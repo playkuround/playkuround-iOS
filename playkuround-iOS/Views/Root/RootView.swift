@@ -47,7 +47,9 @@ struct RootView: View {
             
             //storyView
             if viewModel.showStory {
-                StoryView(rootViewModel: viewModel, showStoryView: $viewModel.showStory)
+                withAnimation {
+                    StoryView(rootViewModel: viewModel, showStoryView: $viewModel.showStory)
+                }
             }
             
             // network error

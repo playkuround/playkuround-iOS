@@ -18,9 +18,16 @@ final class RootViewModel: ObservableObject {
     // Network Manager Instance
     @Published var networkManager = NetworkManager()
     
-    //show StoryView
-    @Published var showStory: Bool = false
+    //StoryView
+    @Published var showStory: Bool = false {
+        didSet {
+            if !showStory {
+                markCurrentStoryAsSeen()
+            }
+        }
+    }
     @Published var currentStoryIndex: Int = 0
+    @Published var newlyUnlockedStoryIndex: Int?
     
     var openedGameTypes = UserDefaults.standard.stringArray(forKey: "openedGameTypes") ?? []
     var stories: [Story] = storyList
@@ -43,8 +50,15 @@ final class RootViewModel: ObservableObject {
             
             UserDefaults.standard.set(openedGameTypes, forKey: "openedGameTypes")
             
-            DispatchQueue.main.async {
-                self.showStory = true
+            unlockStoriesBasedOnGameTypes()
+            
+            if let index = findNewlyUnlockedStoryIndex() {
+                DispatchQueue.main.async {
+                    self.newlyUnlockedStoryIndex = index
+                    self.currentStoryIndex = index
+                    self.showStory = true
+                    self.stories[index].isNew = true
+                }
             }
         }
         else {
@@ -52,9 +66,6 @@ final class RootViewModel: ObservableObject {
                 self.showStory = false
             }
         }
-        
-        unlockStoriesBasedOnGameTypes()
-        print("저장된 UserDefaults: \(loadOpenedGameTypes())")
     }
     
     func loadOpenedGameTypes() -> [GameType] {
@@ -72,8 +83,21 @@ final class RootViewModel: ObservableObject {
                 stories[i].isLocked = false
             }
         }
-        
-        print("🔓unlock🔓 : \(openedGameTypes)")
+    }
+    
+    private func findNewlyUnlockedStoryIndex() -> Int? {
+        for i in 0..<stories.count {
+            if !stories[i].isLocked && openedGameTypes.count - 1 == i {
+                return i
+            }
+        }
+        return nil
+    }
+    
+    private func markCurrentStoryAsSeen() {
+        if currentStoryIndex < stories.count {
+            stories[currentStoryIndex].isNew = false
+        }
     }
     
     // 현재 앱의 version 정보를 반환
