@@ -56,7 +56,7 @@ struct BlockView: View {
                     quizState = .unable
                 }
             }
-            .onChange(of: viewModel.randomNumber) { _ in
+            .onChange(of: viewModel.currentQuestionIndex) { _ in
                 resetQuizState()
             }
     }

@@ -23,54 +23,55 @@ struct QuizGameView: View {
                 let shouldImagePadding = geometry.size.height >= 700
                 
                 VStack {
-                    
-                    let quiz = viewModel.quizData[viewModel.randomNumber ?? 0]
-                    
-                    Text(quiz.question)
-                        .font(.neo20)
-                        .kerning(-0.41)
-                        .lineSpacing(6)
-                        .foregroundStyle(.kuText)
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom, 20)
-                        .padding(.horizontal, 20)
-                    
-                    ForEach(quiz.options.indices, id: \.self) { index in
-                        BlockView(option: quiz.options[index],
-                                  index: index,
-                                  isCorrect: index == quiz.answer,
-                                  viewModel: viewModel,
-                                  isCorrectAnswer: $viewModel.isCorrectAnswer,
-                                  selectedIndex: $selectedIndex)
-                    }
-                    
-                    if let isCorrectAnswer = viewModel.isCorrectAnswer {
-                        //정답일 때
-                        if isCorrectAnswer {
-                            Text(StringLiterals.Game.Quiz.correct)
-                                .font(.pretendard15R)
-                                .foregroundStyle(.kuGreen)
-                                .multilineTextAlignment(.center)
-                                .padding(.top, 20)
-                                .padding(.bottom, shouldImagePadding ? 0 : 25)
-                                .onAppear {
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                        viewModel.loadNextQuestion()
-                                        selectedIndex = nil
-                                    }
-                                }
+                    if viewModel.currentQuestionIndex < viewModel.shuffledQuizData.count {
+                        let quiz = viewModel.shuffledQuizData[viewModel.currentQuestionIndex]
+                        
+                        Text(quiz.question)
+                            .font(.neo20)
+                            .kerning(-0.41)
+                            .lineSpacing(6)
+                            .foregroundStyle(.kuText)
+                            .multilineTextAlignment(.center)
+                            .padding(.bottom, 20)
+                            .padding(.horizontal, 20)
+                        
+                        ForEach(quiz.options.indices, id: \.self) { index in
+                            BlockView(option: quiz.options[index],
+                                      index: index,
+                                      isCorrect: index == quiz.answer,
+                                      viewModel: viewModel,
+                                      isCorrectAnswer: $viewModel.isCorrectAnswer,
+                                      selectedIndex: $selectedIndex)
                         }
-                        else {
-                            // 오답 시 게임 종료
-                            Text(StringLiterals.Game.Quiz.incorrect)
-                                .font(.pretendard15R)
-                                .foregroundStyle(.kuRed)
-                                .multilineTextAlignment(.center)
-                                .padding(.top, 20)
-                                .padding(.bottom, shouldImagePadding ? 0 : 25)
-                                .onAppear {
-                                    viewModel.finishGame()
-                                }
+                        
+                        if let isCorrectAnswer = viewModel.isCorrectAnswer {
+                            //정답일 때
+                            if isCorrectAnswer {
+                                Text(StringLiterals.Game.Quiz.correct)
+                                    .font(.pretendard15R)
+                                    .foregroundStyle(.kuGreen)
+                                    .multilineTextAlignment(.center)
+                                    .padding(.top, 20)
+                                    .padding(.bottom, shouldImagePadding ? 0 : 25)
+                                    .onAppear {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                            viewModel.loadNextQuestion()
+                                            selectedIndex = nil
+                                        }
+                                    }
+                            }
+                            else {
+                                // 오답 시 게임 종료
+                                Text(StringLiterals.Game.Quiz.incorrect)
+                                    .font(.pretendard15R)
+                                    .foregroundStyle(.kuRed)
+                                    .multilineTextAlignment(.center)
+                                    .padding(.top, 20)
+                                    .padding(.bottom, shouldImagePadding ? 0 : 25)
+                                    .onAppear {
+                                        viewModel.finishGame()
+                                    }
+                            }
                         }
                     }
                 }
@@ -97,7 +98,7 @@ struct QuizGameView: View {
             }
         }
         .onAppear {
-            viewModel.createRandomNumber()
+            viewModel.startGame()
         }
     }
 }

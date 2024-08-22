@@ -8,40 +8,28 @@
 import Foundation
 
 final class QuizGameViewModel: GameViewModel {
-    @Published var randomNumber: Int?
     @Published var isCorrectAnswer: Bool?
     @Published var selectedIndex: Int?
     @Published var isBlockEnabled: Bool = true
     
     var currentQuestionIndex: Int = 0
     var correctAnswersCount: Int = 0
+    var shuffledQuizData: [Quiz] = []  // Shuffle된 퀴즈 데이터를 저장할 배열
     
     let quizData: [Quiz] = load("QuizData.json")
-    var usedQuestionIndices: Set<Int> = []
     
     override func startGame() {
         currentQuestionIndex = 0
         correctAnswersCount = 0
         
+        shuffledQuizData = quizData.shuffled()
         loadNextQuestion()
     }
     
-    func createRandomNumber() {
-        var newRandomNumber: Int?
-        
-        repeat {
-            newRandomNumber = Int.random(in: 0..<quizData.count)
-        } while usedQuestionIndices.contains(newRandomNumber!)
-        
-        randomNumber = newRandomNumber
-        usedQuestionIndices.insert(newRandomNumber!)
-    }
-    
     func loadNextQuestion() {
-        if currentQuestionIndex < quizData.count {
-            randomNumber = Int.random(in: 1..<quizData.count)
-            currentQuestionIndex += 1
+        if currentQuestionIndex < shuffledQuizData.count {
             isCorrectAnswer = nil
+            currentQuestionIndex += 1
         } else {
             finishGame()
         }
