@@ -110,6 +110,10 @@ let majorList: [College] = [
     ]),
     College(name: "상허교양대학", majors: [
         Major(name: "국제학부")
+    ]),
+    College(name: "국제통상학/문화미디어학", majors: [
+        Major(name: "국제통상학과"),
+        Major(name: "문화미디어학과")
     ])
 ]
 

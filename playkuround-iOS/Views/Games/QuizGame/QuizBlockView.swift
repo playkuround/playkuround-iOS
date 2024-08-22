@@ -36,7 +36,9 @@ struct BlockView: View {
             }
             .padding(.bottom, 2)
             .onTapGesture {
+                guard viewModel.isBlockEnabled else { return }
                 selectedIndex = index
+                
                 if isCorrect {
                     quizState = .correct
                     isCorrectAnswer = true
@@ -45,21 +47,24 @@ struct BlockView: View {
                     quizState = .incorrect
                     isCorrectAnswer = false
                 }
+                
                 viewModel.blockClick()
             }
-            .disabled(quizState != .normal)
+            .disabled(!viewModel.isBlockEnabled || quizState != .normal)
             .onChange(of: isCorrectAnswer) { newValue in
                 if index != selectedIndex {
                     quizState = .unable
                 }
             }
-            .onReceive(viewModel.timer) { _ in
-                if viewModel.timerState == .ready {
-                    if index != selectedIndex {
-                        quizState = .normal
-                    }
-                }
+            .onChange(of: viewModel.currentQuestionIndex) { _ in
+                resetQuizState()
             }
+    }
+    
+    private func resetQuizState() {
+        quizState = .normal
+        isCorrectAnswer = nil
+        selectedIndex = nil
     }
 }
 
