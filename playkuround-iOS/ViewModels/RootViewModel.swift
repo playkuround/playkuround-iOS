@@ -18,9 +18,58 @@ final class RootViewModel: ObservableObject {
     // Network Manager Instance
     @Published var networkManager = NetworkManager()
     
+    //show StoryView
+    @Published var showStory: Bool = false
+    @Published var currentStoryIndex: Int = 0
+    
+    var openedGameTypes = UserDefaults.standard.stringArray(forKey: "openedGameTypes") ?? []
+    var stories: [Story] = storyList
+    
+    func previousStory() {
+        if currentStoryIndex > 0 {
+            currentStoryIndex -= 1
+        }
+    }
+    
+    func nextStory() {
+        if currentStoryIndex < stories.count - 1 {
+            currentStoryIndex += 1
+        }
+    }
+    
+    func saveOpenedGameType(_ gameType: GameType) {
+        if !openedGameTypes.contains(gameType.rawValue) {
+            openedGameTypes.append(gameType.rawValue)
+            
+            UserDefaults.standard.set(openedGameTypes, forKey: "openedGameTypes")
+        }
+        
+        unlockStoriesBasedOnGameTypes()
+        print("저장된 UserDefaults: \(loadOpenedGameTypes())")
+    }
+    
+    func loadOpenedGameTypes() -> [GameType] {
+        guard let savedGameTypes = UserDefaults.standard.stringArray(forKey: "openedGameTypes") else {
+            return []
+        }
+        
+        return savedGameTypes.compactMap { GameType(rawValue: $0) }
+    }
+    
+    // 게임 종류의 수에 따라 스토리를 잠금 해제하는 함수
+    func unlockStoriesBasedOnGameTypes() {
+        for i in 0..<openedGameTypes.count {
+            if i < stories.count {
+                stories[i].isLocked = false
+            }
+        }
+        
+        print("🔓unlock🔓 : \(openedGameTypes)")
+    }
+    
     // 현재 앱의 version 정보를 반환
     func currentAppVersion() -> String {
-        if let info: [String: Any] = Bundle.main.infoDictionary, 
+        if let info: [String: Any] = Bundle.main.infoDictionary,
             let currentVersion: String = info["CFBundleShortVersionString"] as? String {
             return currentVersion
         }

@@ -11,7 +11,6 @@ struct HomeView: View {
     @ObservedObject var viewModel: RootViewModel
     @ObservedObject var homeViewModel: HomeViewModel
     @ObservedObject var mapViewModel: MapViewModel
-    @ObservedObject var storyViewModel: StoryViewModel
     @State private var showStoryView: Bool = false
     
     var body: some View {
@@ -185,10 +184,6 @@ struct HomeView: View {
                 case .badgeProfile:
                     ProfileBadgeView(homeViewModel: homeViewModel)
                 }
-                
-                if showStoryView {
-                    StoryView(viewModel: storyViewModel, showStoryView: $showStoryView)
-                }
             }
             .onAppear {
                 mapViewModel.startUpdatingLocation()
@@ -198,9 +193,6 @@ struct HomeView: View {
                 homeViewModel.loadBadge()
                 homeViewModel.loadTotalRanking()
                 homeViewModel.loadAttendance()
-                
-                // 사용자의 unlock된 스토리컷 받아옴
-                storyViewModel.unlockStoriesBasedOnGameTypes()
             }
             .onDisappear {
                 // 홈 뷰에서 벗어날 때 위치 업데이트 중지
@@ -211,5 +203,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(viewModel: RootViewModel(), homeViewModel: HomeViewModel(), mapViewModel: MapViewModel(), storyViewModel: StoryViewModel(stories: storyList))
+    HomeView(viewModel: RootViewModel(), homeViewModel: HomeViewModel(), mapViewModel: MapViewModel())
 }

@@ -47,9 +47,9 @@ final class SurviveGameViewModel: GameViewModel {
     // 생명
     @Published var life: Int = 3
     
-    init(rootViewModel: RootViewModel, mapViewModel: MapViewModel, storyViewModel: StoryViewModel) {
+    init(rootViewModel: RootViewModel, mapViewModel: MapViewModel) {
         self.motionManager = MotionManager()
-        super.init(.catchDucku, rootViewModel: rootViewModel, mapViewModel: mapViewModel, storyViewModel: storyViewModel, timeStart: 60.0, timeEnd: 0.0, timeInterval: 0.01)
+        super.init(.catchDucku, rootViewModel: rootViewModel, mapViewModel: mapViewModel, timeStart: 60.0, timeEnd: 0.0, timeInterval: 0.01)
         setupGyroUpdates()
     }
     

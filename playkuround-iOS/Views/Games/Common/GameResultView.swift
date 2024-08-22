@@ -57,6 +57,9 @@ struct GameResultView: View {
                         Button {
                             // 홈으로 이동
                             rootViewModel.transition(to: .home)
+                            DispatchQueue.main.asyncAfter(deadline: .now()+0.3) {
+                                rootViewModel.showStory = true
+                            }
                         } label: {
                             Image(.shortButtonBlue)
                                 .overlay {

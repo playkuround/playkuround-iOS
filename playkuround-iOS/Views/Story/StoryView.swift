@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StoryView: View {
-    @ObservedObject var viewModel: StoryViewModel
+    @ObservedObject var rootViewModel: RootViewModel
     @Binding var showStoryView: Bool
     
     var body: some View {
@@ -17,10 +17,10 @@ struct StoryView: View {
                 .ignoresSafeArea()
                 .onTapGesture {
                     showStoryView.toggle()
-                    viewModel.currentStoryIndex = 0
+                    rootViewModel.currentStoryIndex = 0
                 }
             
-            let currentStory = viewModel.stories[viewModel.currentStoryIndex]
+            let currentStory = rootViewModel.stories[rootViewModel.currentStoryIndex]
             let isLocked = currentStory.isLocked
             
             Image(.storyPopupBackground)
@@ -59,7 +59,7 @@ struct StoryView: View {
                                 .padding(.top, 12)
                             
                             HStack {
-                                ForEach(getStoryBlockImages(for: viewModel.currentStoryIndex), id: \.self) { imageName in
+                                ForEach(getStoryBlockImages(for: rootViewModel.currentStoryIndex), id: \.self) { imageName in
                                     Image(imageName)
                                 }
                             }
@@ -67,9 +67,9 @@ struct StoryView: View {
                         }
                         
                         HStack {
-                            if viewModel.currentStoryIndex != 0 {
+                            if rootViewModel.currentStoryIndex != 0 {
                                 Button(action: {
-                                    viewModel.previousStory()
+                                    rootViewModel.previousStory()
                                 }, label: {
                                     Image(.storyLeftArrow)
                                 })
@@ -77,9 +77,9 @@ struct StoryView: View {
                             
                             Spacer()
                             
-                            if viewModel.currentStoryIndex != 5 {
+                            if rootViewModel.currentStoryIndex != 5 {
                                 Button(action: {
-                                    viewModel.nextStory()
+                                    rootViewModel.nextStory()
                                 }, label: {
                                     Image(.storyRightArrow)
                                 })
@@ -121,5 +121,5 @@ func lockDescriptionView() -> some View {
 }
 
 #Preview {
-    StoryView(viewModel: StoryViewModel(stories: storyList), showStoryView: .constant(true))
+    StoryView(rootViewModel: RootViewModel(), showStoryView: .constant(true))
 }

@@ -48,7 +48,6 @@ enum GameType: String {
 class GameViewModel: ObservableObject {
     @Published var rootViewModel: RootViewModel
     @Published var mapViewModel: MapViewModel
-    @Published var storyViewModel: StoryViewModel
     
     // 게임 상태
     @Published var gameState: GameState = .ready
@@ -99,7 +98,6 @@ class GameViewModel: ObservableObject {
     init(_ gameType: GameType,
          rootViewModel: RootViewModel,
          mapViewModel: MapViewModel,
-         storyViewModel: StoryViewModel,
          timeStart: Double,
          timeEnd: Double,
          timeInterval: Double) {
@@ -110,7 +108,6 @@ class GameViewModel: ObservableObject {
         // View Model
         self.rootViewModel = rootViewModel
         self.mapViewModel = mapViewModel
-        self.storyViewModel = storyViewModel
         
         // 타이머 설정
         self.timeStart = timeStart
@@ -195,7 +192,7 @@ class GameViewModel: ObservableObject {
     }
     
     func checkOpenedGames() {
-        storyViewModel.saveOpenedGameType(gameType)
+        rootViewModel.saveOpenedGameType(gameType)
     }
     
     // MARK: - 타이머 관련 함수
@@ -447,7 +444,6 @@ struct GameViewModelTextView: View {
     @ObservedObject var viewModel = GameViewModel(.time,
                                                   rootViewModel: RootViewModel(),
                                                   mapViewModel: MapViewModel(),
-                                                  storyViewModel: StoryViewModel(stories: storyList),
                                                   timeStart: 5,
                                                   timeEnd: 0,
                                                   timeInterval: 0.01)
