@@ -191,10 +191,10 @@ class GameViewModel: ObservableObject {
         rootViewModel.transition(to: .home)
     }
     
-    func checkOpenedGames() {
-        rootViewModel.saveOpenedGameType(gameType)
-    }
-    
+//    func checkOpenedGames() {
+//        rootViewModel.saveOpenedGameType(gameType)
+//    }
+//    
     // MARK: - 타이머 관련 함수
     
     // 게임 타이머 시작

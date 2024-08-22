@@ -43,7 +43,6 @@ final class CupidGameViewModel: GameViewModel {
         gameState = .finish
         stopDuckAnimation()
         stopDuckSpawn()
-        self.checkOpenedGames()
         
         // 서버로 점수 업로드
         uploadResult(uploadScore: score)

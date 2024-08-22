@@ -26,7 +26,6 @@ final class AllClickGameViewModel: GameViewModel {
     override func finishGame() {
         gameState = .finish
         stopSubjectRain()
-        self.checkOpenedGames()
         self.isResultViewPresented = true
         
         // 서버로 점수 업로드

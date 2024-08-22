@@ -68,7 +68,6 @@ final class SurviveGameViewModel: GameViewModel {
     
     override func finishGame() {
         super.pauseOrRestartTimer()
-        self.checkOpenedGames()
         DispatchQueue.main.async {
             self.isTimerUpdating = false
             self.gameState = .finish

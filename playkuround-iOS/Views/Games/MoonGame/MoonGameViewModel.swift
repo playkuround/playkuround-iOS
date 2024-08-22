@@ -49,7 +49,5 @@ final class MoonGameViewModel: GameViewModel {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             super.uploadResult(uploadScore: self.score)
         }
-        
-        self.checkOpenedGames()
     }
 }

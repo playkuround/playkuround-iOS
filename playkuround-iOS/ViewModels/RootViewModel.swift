@@ -42,6 +42,15 @@ final class RootViewModel: ObservableObject {
             openedGameTypes.append(gameType.rawValue)
             
             UserDefaults.standard.set(openedGameTypes, forKey: "openedGameTypes")
+            
+            DispatchQueue.main.async {
+                self.showStory = true
+            }
+        }
+        else {
+            DispatchQueue.main.async {
+                self.showStory = false
+            }
         }
         
         unlockStoriesBasedOnGameTypes()
@@ -70,7 +79,7 @@ final class RootViewModel: ObservableObject {
     // 현재 앱의 version 정보를 반환
     func currentAppVersion() -> String {
         if let info: [String: Any] = Bundle.main.infoDictionary,
-            let currentVersion: String = info["CFBundleShortVersionString"] as? String {
+           let currentVersion: String = info["CFBundleShortVersionString"] as? String {
             return currentVersion
         }
         return ""

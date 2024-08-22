@@ -98,7 +98,6 @@
 		C9564D7F2BB9ADE600A869ED /* MoonGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9564D7E2BB9ADE600A869ED /* MoonGameView.swift */; };
 		C95F8F2E2BBACF1300E89B50 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95F8F2D2BBACF1300E89B50 /* Quiz.swift */; };
 		C95F8F352BBAE1DA00E89B50 /* QuizGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95F8F342BBAE1DA00E89B50 /* QuizGameView.swift */; };
-		C96A404F2C7716950002CE72 /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A404E2C7716950002CE72 /* StoryViewModel.swift */; };
 		C97543F02BB31CEC00CD6479 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543EF2BB31CEC00CD6479 /* MyPageView.swift */; };
 		C97543F22BB3222F00CD6479 /* MyPageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543F12BB3222F00CD6479 /* MyPageProfileView.swift */; };
 		C97543F42BB3244800CD6479 /* MyPageListSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97543F32BB3244800CD6479 /* MyPageListSectionView.swift */; };
@@ -234,7 +233,6 @@
 		C9564D7E2BB9ADE600A869ED /* MoonGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonGameView.swift; sourceTree = "<group>"; };
 		C95F8F2D2BBACF1300E89B50 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		C95F8F342BBAE1DA00E89B50 /* QuizGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizGameView.swift; sourceTree = "<group>"; };
-		C96A404E2C7716950002CE72 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
 		C97543EF2BB31CEC00CD6479 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		C97543F12BB3222F00CD6479 /* MyPageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProfileView.swift; sourceTree = "<group>"; };
 		C97543F32BB3244800CD6479 /* MyPageListSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListSectionView.swift; sourceTree = "<group>"; };
@@ -520,7 +518,6 @@
 			isa = PBXGroup;
 			children = (
 				B9406DE82C42DABC004FEDC2 /* StoryView.swift */,
-				C96A404E2C7716950002CE72 /* StoryViewModel.swift */,
 			);
 			path = Story;
 			sourceTree = "<group>";
@@ -981,7 +978,6 @@
 				0C6396E82BAB4BB8008E046F /* RegisterNickname.swift in Sources */,
 				0C6C36CA2C0339960069EE06 /* MotionManager.swift in Sources */,
 				C97543F02BB31CEC00CD6479 /* MyPageView.swift in Sources */,
-				C96A404F2C7716950002CE72 /* StoryViewModel.swift in Sources */,
 				0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */,
 				0C0CDA2C2C2955B0003D12BA /* LandmarkRankingView.swift in Sources */,
 				C9519D392BB3339C00F69974 /* NavigationBarModifier.swift in Sources */,

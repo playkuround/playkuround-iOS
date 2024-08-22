@@ -39,7 +39,6 @@ final class CatchGameViewModel: GameViewModel {
     override func finishGame() {
         gameState = .finish
         super.pauseOrRestartTimer()
-        self.checkOpenedGames()
         self.isTimerUpdating = false
         
         // 서버로 점수 업로드
