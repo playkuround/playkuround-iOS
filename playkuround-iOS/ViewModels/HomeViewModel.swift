@@ -12,8 +12,8 @@ import SwiftUI
 final class HomeViewModel: ObservableObject {
     // User Profile
     @Published var userData: UserEntity = UserEntity(nickname: "", major: "",
-                                                     myRank: MyRank(score: 0, ranking: 0),
-                                                     landmarkRank: MyRank(score: 0, ranking: 0),
+                                                     myRank: MyRank(score: 0, ranking: 0, profileBadge: "ATTENDANCE_1"),
+                                                     landmarkRank: MyRank(score: 0, ranking: 0, profileBadge: "ATTENDANCE_1"),
                                                      highestScore: 0, highestRank: "")
     @Published var badgeList: [BadgeResponse] = []
     @Published var attendanceList: [String] = []

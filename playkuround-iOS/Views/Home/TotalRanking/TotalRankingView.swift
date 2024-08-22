@@ -152,7 +152,7 @@ struct TotalRankingView: View {
                                         VStack(spacing: 12) {
                                             ForEach(Array(rankingList.enumerated()), id: \.offset) { index, rank in
                                                 TotalRankingRow(ranking: index + 1,
-                                                                rank: Ranking(nickname: rank.nickname, score: rank.score), badge: .COLLEGE_OF_ENGINEERING)
+                                                                rank: Ranking(nickname: rank.nickname, score: rank.score, profileBadge: "ATTENDANCE_1"))
                                             }
                                         }
                                     }

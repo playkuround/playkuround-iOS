@@ -10,7 +10,6 @@ import SwiftUI
 struct TotalRankingRow: View {
     let ranking: Int
     let rank: Ranking
-    let badge: Badge
     
     var body: some View {
         HStack(spacing: 0) {
@@ -21,11 +20,13 @@ struct TotalRankingRow: View {
                 .frame(width: 40)
                 .padding(.trailing, 15)
             
-            badge.image
-                .resizable()
-                .scaledToFit()
-                .frame(width: 20, height: 20)
-                .padding(.trailing, 10)
+            if let badge = Badge(rawValue: rank.profileBadge) {
+                badge.image
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 20, height: 20)
+                    .padding(.trailing, 10)
+            }
             
             Text(rank.nickname)
                 .font(.pretendard15R)
@@ -46,5 +47,5 @@ struct TotalRankingRow: View {
 }
 
 #Preview {
-    TotalRankingRow(ranking: 1, rank: Ranking(nickname: "구라스", score: 123), badge: .COLLEGE_OF_ENGINEERING)
+    TotalRankingRow(ranking: 1, rank: Ranking(nickname: "구라스", score: 123, profileBadge: "ATTENDANCE_1"))
 }
