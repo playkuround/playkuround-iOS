@@ -18,10 +18,13 @@ final class RootViewModel: ObservableObject {
     // Network Manager Instance
     @Published var networkManager = NetworkManager()
     
-    //StoryView
+    // Story View
     @Published var showStory: Bool = false
     @Published var currentStoryIndex: Int = 0
     @Published var newlyUnlockedStoryIndex: Int?
+    
+    // New Badge View
+    @Published var showNewBadgeView: Bool = false
     
     var openedGameTypes = UserDefaults.standard.stringArray(forKey: "openedGameTypes") ?? []
     var stories: [Story] = storyList
@@ -82,6 +85,19 @@ final class RootViewModel: ObservableObject {
         for i in 0..<openedGameTypes.count {
             if i < stories.count {
                 stories[i].isLocked = false
+            }
+        }
+        
+        // 모든 스토리를 다 봤을 때 오리의 꿈 api 호출
+        if stories.allSatisfy({ !$0.isLocked }) {
+            APIManager.callPOSTAPI(endpoint: .dreamOfDuck) { result in
+                switch result {
+                case .success(let data):
+                    print("Data received in View: \(data)")
+                    
+                case .failure(let error):
+                    print("Error in View: \(error)")
+                }
             }
         }
     }
