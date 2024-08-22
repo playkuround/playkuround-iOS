@@ -45,6 +45,13 @@ struct RootView: View {
                 CatchGameView(viewModel: CatchGameViewModel(.catchDucku, rootViewModel: viewModel, mapViewModel: mapViewModel, timeStart: 60.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: viewModel)
             }
             
+            //storyView
+            if viewModel.showStory {
+                withAnimation {
+                    StoryView(rootViewModel: viewModel, showStoryView: $viewModel.showStory)
+                }
+            }
+            
             // network error
             if !viewModel.networkManager.isConnected {
                 NetworkErrorView(loadingColor: .white)
@@ -63,6 +70,7 @@ struct RootView: View {
         .onAppear {
             // 확인 작업
             viewModel.isLoading = false
+            viewModel.unlockStoriesBasedOnGameTypes()
         }
     }
 }

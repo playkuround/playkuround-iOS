@@ -8,74 +8,103 @@
 import SwiftUI
 
 struct StoryView: View {
+    @ObservedObject var rootViewModel: RootViewModel
     @Binding var showStoryView: Bool
-    var story: Story
     
     var body: some View {
         ZStack {
             Color.black.opacity(0.5)
                 .ignoresSafeArea()
                 .onTapGesture {
-                    showStoryView.toggle()
+                    showStoryView = false
+                    rootViewModel.currentStoryIndex = 0
                 }
+            
+            let currentStory = rootViewModel.stories[rootViewModel.currentStoryIndex]
+            let isLocked = currentStory.isLocked
             
             Image(.storyPopupBackground)
                 .overlay(alignment: .top) {
                     ZStack {
                         VStack(spacing: 0) {
                             HStack {
-                                Text(story.title)
+                                Text(isLocked ? "#\(currentStory.number). ???" : "#\(currentStory.number). \(currentStory.title)")
                                     .font(.neo18)
                                     .foregroundStyle(.kuText)
                                     .kerning(-0.41)
                                     .lineSpacing(18 * 0.3)
                                     .padding(.top, 19)
                                 
-                                Text(StringLiterals.Story.new)
+                                Text(isLocked || !currentStory.isNew ? "" : StringLiterals.Story.new)
                                     .font(.neo15)
                                     .kerning(-0.41)
                                     .foregroundStyle(.kuRed)
                                     .padding(.top, 21)
                             }
                             
-                            story.image
+                            Image(isLocked ? "storyLockImage" : currentStory.image)
                                 .padding(.top, 12)
                             
-                            Image(.storyDescriptionBlock)
-                                .overlay(alignment: .top) {
-                                    Text(story.description)
+                            Image(isLocked ? .storyLockDescriptionBackground : .storyDescriptionBlock)
+                                .overlay(alignment: isLocked ? .center : .top) {
+                                    Text(isLocked ? StringLiterals.Story.lock : currentStory.description)
                                         .font(.neo15)
                                         .foregroundStyle(.kuText)
                                         .kerning(-0.41)
                                         .lineSpacing(15 * 0.3)
-                                        .multilineTextAlignment(.leading)
-                                        .padding(.top, 7)
+                                        .multilineTextAlignment(isLocked ? .center : .leading)
+                                        .padding(.top, isLocked ? -4 : 7)
                                         .padding(.horizontal, 12)
                                 }
                                 .padding(.top, 12)
                             
                             HStack {
-                                Image(.previewStoryBlock)
-                                Image(.previewStoryBlock)
-                                Image(.previewStoryBlock)
-                                Image(.nowStoryBlock)
-                                Image(.lockStoryBlock)
-                                Image(.lockStoryBlock)
+                                ForEach(getStoryBlockImages(for: rootViewModel.currentStoryIndex), id: \.self) { imageName in
+                                    Image(imageName)
+                                }
                             }
                             .padding(.top, 13)
                         }
                         
                         HStack {
-                            Image(.storyLeftArrow)
+                            if rootViewModel.currentStoryIndex != 0 {
+                                Button(action: {
+                                    rootViewModel.previousStory()
+                                }, label: {
+                                    Image(.storyLeftArrow)
+                                })
+                            }
                             
                             Spacer()
                             
-                            Image(.storyRightArrow)
+                            if rootViewModel.currentStoryIndex != 5 {
+                                Button(action: {
+                                    rootViewModel.nextStory()
+                                }, label: {
+                                    Image(.storyRightArrow)
+                                })
+                            }
                         }
                         .padding(.horizontal, 10)
                     }
                 }
         }
+    }
+    
+    func getStoryBlockImages(for index: Int) -> [String] {
+        var images: [String] = []
+        
+        for i in 0..<storyList.count {
+            if i < index {
+                images.append("previewStoryBlock")
+            } else if i == index {
+                images.append("nowStoryBlock")
+            } else {
+                images.append("lockStoryBlock")
+            }
+        }
+        
+        return images
     }
 }
 
@@ -92,5 +121,5 @@ func lockDescriptionView() -> some View {
 }
 
 #Preview {
-    StoryView(showStoryView: .constant(true), story: storys[3])
+    StoryView(rootViewModel: RootViewModel(), showStoryView: .constant(true))
 }

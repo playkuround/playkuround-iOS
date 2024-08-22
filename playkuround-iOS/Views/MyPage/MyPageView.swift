@@ -11,6 +11,7 @@ struct MyPageView: View {
     @ObservedObject var viewModel: RootViewModel
     @ObservedObject var homeViewModel: HomeViewModel
     
+    @State private var isStoryViewPresented: Bool = false
     @State private var isLogoutPresented: Bool = false
     @State private var isCheerPresented: Bool = false
     @State private var isServiceTermsViewPresented: Bool = false
@@ -59,7 +60,10 @@ struct MyPageView: View {
             }
             .padding(.top, 100)
             
-            if isLogoutPresented {
+            if isStoryViewPresented {
+                StoryView(rootViewModel: viewModel, showStoryView: $isStoryViewPresented)
+            }
+            else if isLogoutPresented {
                 CheckLogoutView(viewModel: viewModel,
                                 isLogoutPresented: $isLogoutPresented)
             }
@@ -87,6 +91,11 @@ struct MyPageView: View {
         }
         .fullScreenCover(isPresented: $isPrivacyTermsViewPresented) {
             TermsView(title: StringLiterals.Register.privacyTermsTitle, termsType: .privacy)
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("storyViewPresented"))) { _ in
+            withAnimation(.spring(duration: 0.5, bounce: 0.3)) {
+                self.isStoryViewPresented = true
+            }
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("logoutViewPresented"))) { _ in
             withAnimation(.spring(duration: 0.5, bounce: 0.3)) {

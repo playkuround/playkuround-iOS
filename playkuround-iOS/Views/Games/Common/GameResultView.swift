@@ -57,6 +57,7 @@ struct GameResultView: View {
                         Button {
                             // 홈으로 이동
                             rootViewModel.transition(to: .home)
+                            rootViewModel.saveOpenedGameType(gameViewModel.gameType)
                         } label: {
                             Image(.shortButtonBlue)
                                 .overlay {

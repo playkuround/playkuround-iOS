@@ -75,9 +75,6 @@ struct HomeView: View {
                                 }
                                 .padding(.horizontal, 8)
                             }
-                            .onTapGesture {
-                                showStoryView.toggle()
-                            }
                     }
                     .padding(.top, shouldPadding ? 4 : 0)
                     .padding(.horizontal, 24)
@@ -186,10 +183,6 @@ struct HomeView: View {
                     AdventureView(viewModel: viewModel, homeViewModel: homeViewModel)
                 case .badgeProfile:
                     ProfileBadgeView(homeViewModel: homeViewModel)
-                }
-                
-                if showStoryView {
-                    StoryView(showStoryView: $showStoryView, story: storys[1])
                 }
             }
             .onAppear {

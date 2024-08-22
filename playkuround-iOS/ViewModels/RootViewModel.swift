@@ -18,10 +18,103 @@ final class RootViewModel: ObservableObject {
     // Network Manager Instance
     @Published var networkManager = NetworkManager()
     
+    // Story View
+    @Published var showStory: Bool = false
+    @Published var currentStoryIndex: Int = 0
+    @Published var newlyUnlockedStoryIndex: Int?
+    
+    // New Badge View
+    @Published var showNewBadgeView: Bool = false
+    
+    var openedGameTypes = UserDefaults.standard.stringArray(forKey: "openedGameTypes") ?? []
+    var stories: [Story] = storyList
+    
+    func previousStory() {
+        if currentStoryIndex > 0 {
+            currentStoryIndex -= 1
+        }
+    }
+    
+    func nextStory() {
+        if currentStoryIndex < stories.count - 1 {
+            currentStoryIndex += 1
+        }
+    }
+    
+    func saveOpenedGameType(_ gameType: GameType) {
+        if !openedGameTypes.contains(gameType.rawValue) {
+            openedGameTypes.append(gameType.rawValue)
+            
+            UserDefaults.standard.set(openedGameTypes, forKey: "openedGameTypes")
+            
+            unlockStoriesBasedOnGameTypes()
+            
+            if let index = findNewlyUnlockedStoryIndex() {
+                DispatchQueue.main.async {
+                    self.newlyUnlockedStoryIndex = index
+                    self.currentStoryIndex = index
+                    self.showStory = true
+                    for i in self.stories.indices {
+                        if i == index {
+                            self.stories[i].isNew = true
+                        }
+                        else {
+                            self.stories[i].isNew = false
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            DispatchQueue.main.async {
+                self.showStory = false
+            }
+        }
+    }
+    
+    func loadOpenedGameTypes() -> [GameType] {
+        guard let savedGameTypes = UserDefaults.standard.stringArray(forKey: "openedGameTypes") else {
+            return []
+        }
+        
+        return savedGameTypes.compactMap { GameType(rawValue: $0) }
+    }
+    
+    // 게임 종류의 수에 따라 스토리를 잠금 해제하는 함수
+    func unlockStoriesBasedOnGameTypes() {
+        for i in 0..<openedGameTypes.count {
+            if i < stories.count {
+                stories[i].isLocked = false
+            }
+        }
+        
+        // 모든 스토리를 다 봤을 때 오리의 꿈 api 호출
+        if stories.allSatisfy({ !$0.isLocked }) {
+            APIManager.callPOSTAPI(endpoint: .dreamOfDuck) { result in
+                switch result {
+                case .success(let data):
+                    print("Data received in View: \(data)")
+                    
+                case .failure(let error):
+                    print("Error in View: \(error)")
+                }
+            }
+        }
+    }
+    
+    private func findNewlyUnlockedStoryIndex() -> Int? {
+        for i in 0..<stories.count {
+            if !stories[i].isLocked && openedGameTypes.count - 1 == i {
+                return i
+            }
+        }
+        return nil
+    }
+    
     // 현재 앱의 version 정보를 반환
     func currentAppVersion() -> String {
-        if let info: [String: Any] = Bundle.main.infoDictionary, 
-            let currentVersion: String = info["CFBundleShortVersionString"] as? String {
+        if let info: [String: Any] = Bundle.main.infoDictionary,
+           let currentVersion: String = info["CFBundleShortVersionString"] as? String {
             return currentVersion
         }
         return ""

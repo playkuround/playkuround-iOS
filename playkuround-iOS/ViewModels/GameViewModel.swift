@@ -190,7 +190,7 @@ class GameViewModel: ObservableObject {
         // 홈으로 이동
         rootViewModel.transition(to: .home)
     }
-    
+ 
     // MARK: - 타이머 관련 함수
     
     // 게임 타이머 시작
