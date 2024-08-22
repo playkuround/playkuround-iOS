@@ -17,6 +17,7 @@ struct StoryView: View {
                 .ignoresSafeArea()
                 .onTapGesture {
                     showStoryView.toggle()
+                    viewModel.currentStoryIndex = 0
                 }
             
             Image(.storyPopupBackground)
@@ -65,19 +66,23 @@ struct StoryView: View {
                         }
                         
                         HStack {
-                            Button(action: {
-                                viewModel.previousStory()
-                            }, label: {
-                                Image(.storyLeftArrow)
-                            })
+                            if viewModel.currentStoryIndex != 0 {
+                                Button(action: {
+                                    viewModel.previousStory()
+                                }, label: {
+                                    Image(.storyLeftArrow)
+                                })
+                            }
                             
                             Spacer()
                             
-                            Button(action: {
-                                viewModel.nextStory()
-                            }, label: {
-                                Image(.storyRightArrow)
-                            })
+                            if viewModel.currentStoryIndex != 5 {
+                                Button(action: {
+                                    viewModel.nextStory()
+                                }, label: {
+                                    Image(.storyRightArrow)
+                                })
+                            }
                         }
                         .padding(.horizontal, 10)
                     }
