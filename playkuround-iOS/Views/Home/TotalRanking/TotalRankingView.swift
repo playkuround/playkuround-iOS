@@ -195,11 +195,18 @@ struct TotalRankingView: View {
                                                     .frame(width: 40)
                                                     .padding(.trailing, 15)
                                                 
-                                                Image(.engineering)
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .frame(width: 20, height: 20)
-                                                    .padding(.trailing, 10)
+                                                if let badge = Badge(rawValue: homeViewModel.userData.myRank.profileBadge) {
+                                                    badge.image
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .frame(width: 20, height: 20)
+                                                        .padding(.trailing, 10)
+                                                } else {
+                                                    Color.kuGray1.opacity(0.5)
+                                                        .frame(width: 20, height: 20)
+                                                        .cornerRadius(4)
+                                                        .padding(.trailing, 10)
+                                                }
                                                 
                                                 Text("나")
                                                     .font(.pretendard15R)
