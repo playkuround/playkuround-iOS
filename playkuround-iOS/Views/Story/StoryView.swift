@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct StoryView: View {
+    @State private var currentStoryIndex: Int = 0
     @Binding var showStoryView: Bool
-    var story: Story
+    var stories: [Story]
     
     var body: some View {
         ZStack {
@@ -24,7 +25,7 @@ struct StoryView: View {
                     ZStack {
                         VStack(spacing: 0) {
                             HStack {
-                                Text(story.title)
+                                Text(stories[currentStoryIndex].title)
                                     .font(.neo18)
                                     .foregroundStyle(.kuText)
                                     .kerning(-0.41)
@@ -38,12 +39,12 @@ struct StoryView: View {
                                     .padding(.top, 21)
                             }
                             
-                            story.image
+                            stories[currentStoryIndex].image
                                 .padding(.top, 12)
                             
                             Image(.storyDescriptionBlock)
                                 .overlay(alignment: .top) {
-                                    Text(story.description)
+                                    Text(stories[currentStoryIndex].description)
                                         .font(.neo15)
                                         .foregroundStyle(.kuText)
                                         .kerning(-0.41)
@@ -55,27 +56,52 @@ struct StoryView: View {
                                 .padding(.top, 12)
                             
                             HStack {
-                                Image(.previewStoryBlock)
-                                Image(.previewStoryBlock)
-                                Image(.previewStoryBlock)
-                                Image(.nowStoryBlock)
-                                Image(.lockStoryBlock)
-                                Image(.lockStoryBlock)
+                                ForEach(getStoryBlockImages(for: currentStoryIndex), id: \.self) { imageName in
+                                    Image(imageName)
+                                }
                             }
                             .padding(.top, 13)
                         }
                         
                         HStack {
-                            Image(.storyLeftArrow)
+                            Button(action: {
+                                if currentStoryIndex > 0 {
+                                    currentStoryIndex -= 1
+                                }
+                            }, label: {
+                                Image(.storyLeftArrow)
+                            })
                             
                             Spacer()
                             
-                            Image(.storyRightArrow)
+                            Button(action: {
+                                if currentStoryIndex < stories.count - 1 {
+                                    currentStoryIndex += 1
+                                }
+                            }, label: {
+                                Image(.storyRightArrow)
+                            })
                         }
                         .padding(.horizontal, 10)
                     }
                 }
         }
+    }
+    
+    func getStoryBlockImages(for index: Int) -> [String] {
+        var images: [String] = []
+        
+        for i in 0..<stories.count {
+            if i < index {
+                images.append("previewStoryBlock")
+            } else if i == index {
+                images.append("nowStoryBlock")
+            } else {
+                images.append("lockStoryBlock")
+            }
+        }
+        
+        return images
     }
 }
 
@@ -92,5 +118,5 @@ func lockDescriptionView() -> some View {
 }
 
 #Preview {
-    StoryView(showStoryView: .constant(true), story: storys[3])
+    StoryView(showStoryView: .constant(true), stories: storys)
 }

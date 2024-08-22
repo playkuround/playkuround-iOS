@@ -189,7 +189,7 @@ struct HomeView: View {
                 }
                 
                 if showStoryView {
-                    StoryView(showStoryView: $showStoryView, story: storys[1])
+                    StoryView(showStoryView: $showStoryView, stories: storys)
                 }
             }
             .onAppear {
