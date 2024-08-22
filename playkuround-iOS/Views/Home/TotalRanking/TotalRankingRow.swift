@@ -26,6 +26,12 @@ struct TotalRankingRow: View {
                     .scaledToFit()
                     .frame(width: 20, height: 20)
                     .padding(.trailing, 10)
+            } else {
+                // 예외 처리
+                Color.kuGray1.opacity(0.5)
+                    .frame(width: 20, height: 20)
+                    .cornerRadius(4)
+                    .padding(.trailing, 10)
             }
             
             Text(rank.nickname)

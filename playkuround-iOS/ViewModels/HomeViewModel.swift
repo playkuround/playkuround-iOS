@@ -12,8 +12,8 @@ import SwiftUI
 final class HomeViewModel: ObservableObject {
     // User Profile
     @Published var userData: UserEntity = UserEntity(nickname: "", major: "",
-                                                     myRank: MyRank(score: 0, ranking: 0, profileBadge: "ATTENDANCE_1"),
-                                                     landmarkRank: MyRank(score: 0, ranking: 0, profileBadge: "ATTENDANCE_1"),
+                                                     myRank: MyRank(score: 0, ranking: 0, profileBadge: "NONE"),
+                                                     landmarkRank: MyRank(score: 0, ranking: 0, profileBadge: "NONE"),
                                                      highestScore: 0, highestRank: "")
     @Published var badgeList: [BadgeResponse] = []
     @Published var attendanceList: [String] = []
@@ -138,6 +138,8 @@ final class HomeViewModel: ObservableObject {
             switch result {
             case .success(_):
                 self.loadAttendance()
+                self.loadUserData()
+                self.loadBadge()
             case .failure(let error):
                 // TODO: 건국대학교 범위 외 혹은 다른 이유로 출석 실패 시 예외 처리 필요 (추후 APIManager 작업 시 구현)
                 print("Error in View: \(error)")

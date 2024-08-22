@@ -115,7 +115,7 @@ struct LandmarkRankingView: View {
                                                 TotalRankingRow(ranking: index + 1,
                                                                 rank: Ranking(nickname: rank.nickname, 
                                                                               score: rank.score,
-                                                                              profileBadge: "ATTENDANCE_1"))
+                                                                              profileBadge: rank.profileBadge))
                                             }
                                         }
                                     }
