@@ -16,7 +16,7 @@ struct StoryView: View {
             Color.black.opacity(0.5)
                 .ignoresSafeArea()
                 .onTapGesture {
-                    showStoryView.toggle()
+                    showStoryView = false
                     rootViewModel.currentStoryIndex = 0
                 }
             

@@ -25,7 +25,8 @@ struct MyPageListSectionView: View {
                 if title == StringLiterals.MyPage.My.story.rawValue {
                     MyPageListRowView(rowTitle: title)
                         .onTapGesture {
-                            
+                            NotificationCenter.default.post(name: NSNotification.Name("storyViewPresented"),
+                                                            object: nil)
                         }
                 }
                 
