@@ -35,10 +35,16 @@ struct HomeView: View {
                     HStack(spacing: 8) {
                         
                         Group {
-                            Image(.engineering)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 40, height: 40)
+                            if let badge = Badge(rawValue: homeViewModel.userData.profileBadge) {
+                                badge.image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, height: 40)
+                            } else {
+                                Color.kuGray1.opacity(0.5)
+                                    .frame(width: 40, height: 40)
+                                    .cornerRadius(4)
+                            }
                             
                             Text(homeViewModel.userData.nickname + "님")
                                 .font(.neo18)

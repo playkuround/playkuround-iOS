@@ -797,6 +797,7 @@ struct Response: Codable {
     let highestScore: Int?
     let highestRank: String?
     let attendanceDays: Int?
+    let profileBadge: String?
     
     // 게임별 최고 점수 얻기 (/api/users/game-score)
     let highestTotalScore: Int?

@@ -14,7 +14,7 @@ final class HomeViewModel: ObservableObject {
     @Published var userData: UserEntity = UserEntity(nickname: "", major: "",
                                                      myRank: MyRank(score: 0, ranking: 0, profileBadge: "NONE"),
                                                      landmarkRank: MyRank(score: 0, ranking: 0, profileBadge: "NONE"),
-                                                     highestScore: 0, highestRank: "")
+                                                     highestScore: 0, highestRank: "", attendanceDays: 0, profileBadge: "NONE")
     @Published var badgeList: [BadgeResponse] = []
     @Published var attendanceList: [String] = []
     
@@ -58,6 +58,8 @@ final class HomeViewModel: ObservableObject {
                             self.userData.major = response.response?.major ?? "-"
                             self.userData.highestScore = response.response?.highestScore ?? 0
                             self.userData.highestRank = response.response?.highestRank ?? "-"
+                            self.userData.attendanceDays = response.response?.attendanceDays ?? 0
+                            self.userData.profileBadge = response.response?.profileBadge ?? "NONE"
                         }
                     }
                 }

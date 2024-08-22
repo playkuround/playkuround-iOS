@@ -14,4 +14,6 @@ struct UserEntity {
     var landmarkRank: MyRank // 랜드마크별 랭킹
     var highestScore: Int
     var highestRank: String
+    var attendanceDays: Int
+    var profileBadge: String
 }
