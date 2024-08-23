@@ -32,23 +32,20 @@ struct ProfileBadgeView: View {
                             .foregroundStyle(.kuText)
                             .padding(.bottom, 30)
                         
-                        /* if let selectedBadge = selectedBadge {
+                        if let selectedBadge = selectedBadge {
                             selectedBadge.image
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 120, height: 120)
                                 .padding(.bottom, 10)
-                        } */
+                        } else {
+                            Color.kuGray1.opacity(0.5)
+                                .frame(width: 120, height: 120)
+                                .cornerRadius(5)
+                                .padding(.bottom, 10)
+                        }
                         
-                        // 임시 이미지
-                        Image(.engineering)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 120, height: 120)
-                            .padding(.bottom, 10)
-                        
-                        Text("USER_NICKNAME")
-                        // Text(homeViewModel.userData.nickname) // TODO: 실제 사용자 닉네임 대체
+                        Text(homeViewModel.userData.nickname)
                             .font(.neo18)
                             .kerning(-0.41)
                             .foregroundStyle(.kuText)
@@ -63,7 +60,7 @@ struct ProfileBadgeView: View {
                                             .aspectRatio(contentMode: .fit)
                                             .onTapGesture {
                                                 // TODO: 잠기지 않은 경우에만 변경되도록 조건 걸기
-                                                if homeViewModel.badgeList.contains(where: { $0.description == badge.rawValue }) {
+                                                if homeViewModel.badgeList.contains(where: { $0.name == badge.rawValue }) {
                                                     selectedBadge = badge
                                                 }
                                             }
@@ -80,7 +77,19 @@ struct ProfileBadgeView: View {
                         .padding(.horizontal, 40)
                         
                         Button {
-                            // TODO: upload selected user profile
+                            if let selectedBadge = selectedBadge {
+                                APIManager.callPOSTAPI(endpoint: .profileBadge, parameters: ["profileBadge": selectedBadge.rawValue]) { result in
+                                    switch result {
+                                    case .success(let data):
+                                        print("(success) /api/users/profile-badge: \(data)")
+                                        homeViewModel.loadUserData()
+                                        homeViewModel.loadTotalRanking()
+                                        homeViewModel.transition(to: .home)
+                                    case .failure(let error):
+                                        print("(fail) /api/users/profile-badge: \(error)")
+                                    }
+                                }
+                            }
                         } label: {
                             Image(.shortButtonBlue)
                                 .overlay {
@@ -95,11 +104,14 @@ struct ProfileBadgeView: View {
                     }
                 }
         }
+        .onAppear {
+            selectedBadge = Badge(rawValue: homeViewModel.userData.profileBadge)
+        }
     }
     
     func filterBadgeImage(for badge: Badge) -> Image {
         // 디자인 구현용으로 모두 열린 상태로 반환
-        if homeViewModel.badgeList.contains(where: { $0.description == badge.rawValue }) {
+        if homeViewModel.badgeList.contains(where: { $0.name == badge.rawValue }) {
             return badge.image
         } else {
             return Image(.badgeLock)

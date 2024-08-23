@@ -37,13 +37,22 @@ struct TotalRankingView: View {
                                             .overlay(alignment: .bottom) {
                                                 VStack {
                                                     if rankingList.indices.contains(1) {
-                                                        Image(.engineering)
-                                                            .resizable()
-                                                            .scaledToFit()
-                                                            .frame(width: 42, height: 42)
-                                                            .padding(.top, 20)
+                                                        let rank2 = rankingList[1]
                                                         
-                                                        Text(rankingList[1].nickname)
+                                                        if let badge = Badge(rawValue: rank2.profileBadge) {
+                                                            badge.image
+                                                                .resizable()
+                                                                .scaledToFit()
+                                                                .frame(width: 42, height: 42)
+                                                                .padding(.top, 20)
+                                                        } else {
+                                                            Color.kuGray1.opacity(0.5)
+                                                                .frame(width: 42, height: 42)
+                                                                .cornerRadius(5)
+                                                                .padding(.top, 20)
+                                                        }
+                                                        
+                                                        Text(rank2.nickname)
                                                             .font(.neo15)
                                                             .foregroundStyle(.kuText)
                                                             .padding(.bottom, 11)
@@ -53,7 +62,7 @@ struct TotalRankingView: View {
                                                             .frame(width: 60, height: 23)
                                                             .foregroundStyle(.kuBrown)
                                                             .overlay {
-                                                                Text("\(rankingList[1].score.decimalFormatter)점")
+                                                                Text("\(rank2.score.decimalFormatter)점")
                                                                     .font(.neo18)
                                                                     .kerning(-0.41)
                                                                     .foregroundStyle(.white)
@@ -67,13 +76,22 @@ struct TotalRankingView: View {
                                         Image(.rankingGold)
                                             .overlay(alignment: .bottom) {
                                                 VStack {
-                                                    Image(.engineering)
-                                                        .resizable()
-                                                        .scaledToFit()
-                                                        .frame(width: 42, height: 42)
-                                                        .padding(.top, 50)
+                                                    let rank1 = rankingList[0]
                                                     
-                                                    Text(rankingList[0].nickname)
+                                                    if let badge = Badge(rawValue: rank1.profileBadge) {
+                                                        badge.image
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .frame(width: 42, height: 42)
+                                                            .padding(.top, 50)
+                                                    } else {
+                                                        Color.kuGray1.opacity(0.5)
+                                                            .frame(width: 42, height: 42)
+                                                            .cornerRadius(5)
+                                                            .padding(.top, 50)
+                                                    }
+                                                    
+                                                    Text(rank1.nickname)
                                                         .font(.neo15)
                                                         .foregroundStyle(.kuText)
                                                         .padding(.bottom, 11)
@@ -83,7 +101,7 @@ struct TotalRankingView: View {
                                                         .frame(width: 60, height: 23)
                                                         .foregroundStyle(.kuBrown)
                                                         .overlay {
-                                                            Text("\(rankingList[0].score.decimalFormatter)점")
+                                                            Text("\(rank1.score.decimalFormatter)점")
                                                                 .font(.neo18)
                                                                 .kerning(-0.41)
                                                                 .foregroundStyle(.white)
@@ -97,13 +115,22 @@ struct TotalRankingView: View {
                                             .overlay(alignment: .bottom) {
                                                 VStack {
                                                     if rankingList.indices.contains(2) {
-                                                        Image(.engineering)
-                                                            .resizable()
-                                                            .scaledToFit()
-                                                            .frame(width: 42, height: 42)
-                                                            .padding(.top, 20)
+                                                        let rank3 = rankingList[2]
                                                         
-                                                        Text(rankingList[2].nickname)
+                                                        if let badge = Badge(rawValue: rank3.profileBadge) {
+                                                            badge.image
+                                                                .resizable()
+                                                                .scaledToFit()
+                                                                .frame(width: 42, height: 42)
+                                                                .padding(.top, 20)
+                                                        } else {
+                                                            Color.kuGray1.opacity(0.5)
+                                                                .frame(width: 42, height: 42)
+                                                                .cornerRadius(5)
+                                                                .padding(.top, 20)
+                                                        }
+                                                        
+                                                        Text(rank3.nickname)
                                                             .font(.neo15)
                                                             .foregroundStyle(.kuText)
                                                             .padding(.bottom, 11)
@@ -113,7 +140,7 @@ struct TotalRankingView: View {
                                                             .frame(width: 60, height: 23)
                                                             .foregroundStyle(.kuBrown)
                                                             .overlay {
-                                                                Text("\(rankingList[2].score.decimalFormatter)점")
+                                                                Text("\(rank3.score.decimalFormatter)점")
                                                                     .font(.neo18)
                                                                     .kerning(-0.41)
                                                                     .foregroundStyle(.white)
@@ -152,7 +179,7 @@ struct TotalRankingView: View {
                                         VStack(spacing: 12) {
                                             ForEach(Array(rankingList.enumerated()), id: \.offset) { index, rank in
                                                 TotalRankingRow(ranking: index + 1,
-                                                                rank: Ranking(nickname: rank.nickname, score: rank.score), badge: .COLLEGE_OF_ENGINEERING)
+                                                                rank: Ranking(nickname: rank.nickname, score: rank.score, profileBadge: rank.profileBadge))
                                             }
                                         }
                                     }
@@ -168,11 +195,18 @@ struct TotalRankingView: View {
                                                     .frame(width: 40)
                                                     .padding(.trailing, 15)
                                                 
-                                                Image(.engineering)
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .frame(width: 20, height: 20)
-                                                    .padding(.trailing, 10)
+                                                if let badge = Badge(rawValue: homeViewModel.userData.myRank.profileBadge) {
+                                                    badge.image
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .frame(width: 20, height: 20)
+                                                        .padding(.trailing, 10)
+                                                } else {
+                                                    Color.kuGray1.opacity(0.5)
+                                                        .frame(width: 20, height: 20)
+                                                        .cornerRadius(4)
+                                                        .padding(.trailing, 10)
+                                                }
                                                 
                                                 Text("나")
                                                     .font(.pretendard15R)

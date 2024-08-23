@@ -111,7 +111,7 @@ struct BadgeView: View {
     }
     
     func filterBadgeImage(for badge: Badge) -> Image {
-        if homeViewModel.badgeList.contains(where: { $0.description == badge.rawValue }) {
+        if homeViewModel.badgeList.contains(where: { $0.name == badge.rawValue }) {
             return badge.image
         } else {
             return Image(.badgeLock)

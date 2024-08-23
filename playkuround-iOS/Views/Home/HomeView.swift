@@ -31,21 +31,28 @@ struct HomeView: View {
                     
                     HStack(spacing: 8) {
                         
-                        Image(.engineering)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 40, height: 40)
-                            .onTapGesture {
-                                // TODO: 추후 기능 구현 시
-                                // homeViewModel.transition(to: .badgeProfile)
+                        Group {
+                            if let badge = Badge(rawValue: homeViewModel.userData.profileBadge) {
+                                badge.image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, height: 40)
+                            } else {
+                                Color.kuGray1.opacity(0.5)
+                                    .frame(width: 40, height: 40)
+                                    .cornerRadius(4)
                             }
-                        
-                        Text(homeViewModel.userData.nickname + "님")
-                            .font(.neo18)
-                            .foregroundStyle(.kuText)
-                            .kerning(-0.41)
-                            .lineLimit(2)
-                            .padding(.trailing, 10)
+                            
+                            Text(homeViewModel.userData.nickname + "님")
+                                .font(.neo18)
+                                .foregroundStyle(.kuText)
+                                .kerning(-0.41)
+                                .lineLimit(2)
+                                .padding(.trailing, 10)
+                        }
+                        .onTapGesture {
+                            homeViewModel.transition(to: .badgeProfile)
+                        }
                         
                         Spacer()
                         
