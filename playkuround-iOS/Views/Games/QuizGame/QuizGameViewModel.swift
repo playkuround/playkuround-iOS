@@ -72,10 +72,10 @@ final class QuizGameViewModel: GameViewModel {
         else if correctAnswersCount >= 1 && correctAnswersCount <= 15 {
             score = 10 * correctAnswersCount
         }
-        else if correctAnswersCount >= 16 && correctAnswersCount <= 24 {
+        else if correctAnswersCount >= 16 && correctAnswersCount <= 25 {
             score = 10 * ( 2 * correctAnswersCount - 14 )
         }
-        else if correctAnswersCount >= 25 {
+        else if correctAnswersCount >= 26 {
             score = 400
         }
     }
