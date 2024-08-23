@@ -17,6 +17,8 @@ struct MyPageView: View {
     @State private var isServiceTermsViewPresented: Bool = false
     @State private var isPrivacyTermsViewPresented: Bool = false
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         ZStack {
             Color(.kuBackground).ignoresSafeArea(.all)
@@ -81,6 +83,7 @@ struct MyPageView: View {
                     }, leftView: {
                         Button(action: {
                             homeViewModel.transition(to: .home)
+                            soundManager.playSound(sound: .buttonClicked)
                         }, label: {
                             Image(.leftBlackArrow)
                         })

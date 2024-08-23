@@ -15,6 +15,8 @@ struct BadgeView: View {
     @State private var selectedBadge: Badge?
     @State private var isSelectedBadgeLocked: Bool = false
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         ZStack {
             Image(.badgeBackground)
@@ -47,6 +49,7 @@ struct BadgeView: View {
                                                 self.showDetailBadge.toggle()
                                                 selectedBadge = badge
                                                 isSelectedBadgeLocked = !badgeList.contains { $0.description == badge.rawValue }
+                                                soundManager.playSound(sound: .buttonClicked)
                                             }
                                     }
                                 }
@@ -75,6 +78,7 @@ struct BadgeView: View {
                                                 self.showDetailBadge.toggle()
                                                 selectedBadge = badge
                                                 isSelectedBadgeLocked = !badgeList.contains { $0.description == badge.rawValue }
+                                                soundManager.playSound(sound: .buttonClicked)
                                             }
                                     }
                                 }
@@ -94,6 +98,7 @@ struct BadgeView: View {
             }, leftView: {
                 Button {
                     homeViewModel.transition(to: .home)
+                    soundManager.playSound(sound: .buttonClicked)
                 } label: {
                     Image(.leftWhiteArrow)
                 }
