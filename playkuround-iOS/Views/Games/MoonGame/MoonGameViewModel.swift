@@ -11,24 +11,29 @@ final class MoonGameViewModel: GameViewModel {
     @Published var moonState: MoonState = .fullMoon
     @Published var moonTapped: Int = 100
     
+    private let soundManager = SoundManager.shared
+    
     func moonClick() {
         if 81 < moonTapped && moonTapped <= 100 {
             DispatchQueue.main.async {
                 self.moonTapped -= 1
                 self.moonState = .fullMoon
             }
+            self.soundManager.playSound(sound: .moonClicked)
         }
         else if 51 < moonTapped && moonTapped <= 81 {
             DispatchQueue.main.async {
                 self.moonTapped -= 1
                 self.moonState = .cracked
             }
+            self.soundManager.playSound(sound: .moonClicked)
         }
         else if 1 < moonTapped && moonTapped <= 51 {
             DispatchQueue.main.async {
                 self.moonTapped -= 1
                 self.moonState = .moreCracked
             }
+            self.soundManager.playSound(sound: .moonClicked)
         }
         else if moonTapped == 1 {
             DispatchQueue.main.async {
@@ -36,6 +41,7 @@ final class MoonGameViewModel: GameViewModel {
                 self.moonState = .duck
                 self.score = 20
             }
+            self.soundManager.playSound(sound: .moonHundredClicked)
             finishGame()
         }
     }

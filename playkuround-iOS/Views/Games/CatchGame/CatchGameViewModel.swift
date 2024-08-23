@@ -25,6 +25,8 @@ final class CatchGameViewModel: GameViewModel {
                                                     WindowComponent(windowState: .close, windowType: .catchDuckkuWhite),
                                                     WindowComponent(windowState: .close, windowType: .catchDuckkuWhite)]
     
+    private let soundManager = SoundManager.shared
+    
     override func startGame() {
         super.startGame()
         super.startTimer()
@@ -80,6 +82,7 @@ final class CatchGameViewModel: GameViewModel {
                 if self.score > 0 {
                     self.score -= 1
                 }
+                soundManager.playSound(sound: .blackDuckkuClicked)
                 windowList[index].windowType = .catchDuckkuBlackHit
                 closeWindow(index: index)
             }
@@ -87,6 +90,7 @@ final class CatchGameViewModel: GameViewModel {
             // white
             else if windowList[index].windowType == .catchDuckkuWhite {
                 self.score += 1
+                soundManager.playSound(sound: .duckkuClicked)
                 windowList[index].windowType = .catchDuckkuWhiteHit
                 closeWindow(index: index)
             }
@@ -99,10 +103,12 @@ final class CatchGameViewModel: GameViewModel {
             // 반 열린 상태로 0.15초 대기
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 self.windowList[index].windowState = .open
+                self.soundManager.playSound(sound: .duckkuWindowOpenAndClose)
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.65) {
                 self.closeWindow(index: index)
+                self.soundManager.playSound(sound: .duckkuWindowOpenAndClose)
             }
         }
     }
@@ -113,6 +119,7 @@ final class CatchGameViewModel: GameViewModel {
             // 반 열린 상태로 0.15초 대기
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 self.windowList[index].windowState = .close
+                self.soundManager.playSound(sound: .duckkuWindowOpenAndClose)
             }
         }
     }

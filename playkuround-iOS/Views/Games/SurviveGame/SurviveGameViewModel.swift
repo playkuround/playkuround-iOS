@@ -47,6 +47,8 @@ final class SurviveGameViewModel: GameViewModel {
     // 생명
     @Published var life: Int = 3
     
+    private let soundManager = SoundManager.shared
+    
     init(rootViewModel: RootViewModel, mapViewModel: MapViewModel) {
         self.motionManager = MotionManager()
         super.init(.catchDucku, rootViewModel: rootViewModel, mapViewModel: mapViewModel, timeStart: 60.0, timeEnd: 0.0, timeInterval: 0.01)
@@ -229,10 +231,13 @@ final class SurviveGameViewModel: GameViewModel {
     }
     
     func duckkuHit() {
-        self.life -= 1
-        
         if self.life == 0 {
+            soundManager.playSound(sound: .microbeEnd)
             finishGame()
+        }
+        else {
+            self.life -= 1
+            soundManager.playSound(sound: .microbeHit)
         }
         
         DispatchQueue.main.async {

@@ -18,6 +18,8 @@ final class QuizGameViewModel: GameViewModel {
     
     let quizData: [Quiz] = load("QuizData.json")
     
+    private let soundManager = SoundManager.shared
+    
     override func startGame() {
         currentQuestionIndex = 0
         correctAnswersCount = 0
@@ -43,6 +45,7 @@ final class QuizGameViewModel: GameViewModel {
         if isCorrectAnswer {
             correctAnswersCount += 1
             score += correctAnswersCount * 10
+            soundManager.playSound(sound: .quizCorrect)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.loadNextQuestion()
@@ -50,6 +53,7 @@ final class QuizGameViewModel: GameViewModel {
             }
         } else {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.soundManager.playSound(sound: .quizIncorrect)
                 self.finishGame()
             }
         }

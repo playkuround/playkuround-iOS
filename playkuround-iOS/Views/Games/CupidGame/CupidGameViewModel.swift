@@ -27,6 +27,8 @@ final class CupidGameViewModel: GameViewModel {
     private var duckAnimationTimer: Timer?
     private var duckSpawnTimer: Timer?
     
+    private let soundManager = SoundManager.shared
+    
     override func startGame() {
         super.startGame()
         super.startTimer()
@@ -107,6 +109,7 @@ final class CupidGameViewModel: GameViewModel {
             /// 오리가 서로 지나칠 때
             if whiteDuckDistance > 16 && blackDuckDistance < -16 {
                 self.result = .bad
+                soundManager.playSound(sound: .cupidBad)
                 indicesToRemove.insert(i)
             }
         }
@@ -155,13 +158,16 @@ final class CupidGameViewModel: GameViewModel {
             if whiteDuckDistance <= 8 && blackDuckDistance <= 8 {
                 result = .perfect
                 score += 3
+                soundManager.playSound(sound: .cupidGoodOrPerfect)
             }
             else if whiteDuckDistance <= 16 && blackDuckDistance <= 16 {
                 result = .good
                 score += 1
+                soundManager.playSound(sound: .cupidGoodOrPerfect)
             }
             else {
                 result = .bad
+                soundManager.playSound(sound: .cupidBad)
             }
             
             removeDucks(at: [index])

@@ -29,6 +29,8 @@ final class CardGameViewModel: GameViewModel {
     private var flippedCardIndex: [Int] = []
     private var correctCount: Int = 0
     
+    private let soundManager = SoundManager.shared
+    
     override func startGame() {
         self.shuffleCard()
         
@@ -63,6 +65,7 @@ final class CardGameViewModel: GameViewModel {
     
     func coverToDrawing(index: Int) {
         if flippedCardIndex.count < 2 && cardList[index].cardState == .cover {
+            soundManager.playSound(sound: .cardClicked)
             flippedCardIndex.append(index)
             cardList[index].cardState = .side
             // 카드 옆면에서 0.15초 대기
@@ -91,6 +94,7 @@ final class CardGameViewModel: GameViewModel {
         correctCount += 1
         
         if correctCount == 16 {
+            soundManager.playSound(sound: .cardAllCorrect)
             super.pauseOrRestartTimer()
             self.finishGame()
         }
@@ -108,6 +112,7 @@ final class CardGameViewModel: GameViewModel {
                     self.flippedCardIndex.removeAll()
                     self.hideCard(index: index1)
                     self.hideCard(index: index2)
+                    self.soundManager.playSound(sound: .cardCorrect)
                 }
             } 
             // 다른 경우
@@ -116,6 +121,7 @@ final class CardGameViewModel: GameViewModel {
                     self.flippedCardIndex.removeAll()
                     self.drawingToCover(index: index1)
                     self.drawingToCover(index: index2)
+                    self.soundManager.playSound(sound: .cardIncorrect)
                 }
             }
         }
