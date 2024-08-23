@@ -204,7 +204,9 @@ final class APIManager {
                 
                 // 유저 알림 조회 /api/users/notifications
                 else if endpoint == .notification {
-                    let apiResponse = try decoder.decode(NotificationResponse.self, from: data)
+                    print("\n\n===== User Notification =====\n")
+                    let apiResponse = try decoder.decode(NotificationAPIResponse.self, from: data)
+                    print("--- user notification: \(apiResponse)")
                     completion(.success(apiResponse))
                 }
                 
@@ -858,9 +860,14 @@ struct BoolResponse: Codable {
     let response: Bool
 }
 
-// 사용자 알림 (/api/users/notifications)
-struct NotificationResponse: Codable {
-    let isSuccess: Bool
-    let response: [String]
+struct NotificationVariableResponse: Codable {
+    let name: String
+    let description: String
 }
 
+// 사용자 알림 (/api/users/notifications)
+struct NotificationAPIResponse: Codable {
+    let isSuccess: Bool
+    let response: [NotificationVariableResponse]?
+    let errorResponse: ErrorResponse?
+}

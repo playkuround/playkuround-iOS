@@ -13,6 +13,9 @@ struct HomeView: View {
     @ObservedObject var mapViewModel: MapViewModel
     @State private var showStoryView: Bool = false
     
+    // 임시
+    @State private var temp: Bool = false
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -85,6 +88,7 @@ struct HomeView: View {
                             .onTapGesture {
                                 // viewModel.openNewBadgeView(badgeName: "ATTENDANCE_1")
                                 // viewModel.openToastMessageView(message: "test")
+                                temp = true
                             }
                     }
                     .padding(.top, shouldPadding ? 4 : 0)
@@ -200,6 +204,7 @@ struct HomeView: View {
                 mapViewModel.startUpdatingLocation()
                 
                 // 홈 뷰 들어올 때 유저 데이터 받아옴
+                homeViewModel.loadUserNotification()
                 homeViewModel.loadUserData()
                 homeViewModel.loadBadge()
                 homeViewModel.loadTotalRanking()
@@ -209,10 +214,13 @@ struct HomeView: View {
                 // 홈 뷰에서 벗어날 때 위치 업데이트 중지
                 mapViewModel.stopUpdatingLocation()
             }
+            .sheet(isPresented: $temp) {
+                APIManagerTestView()
+            }
         }
     }
 }
 
 #Preview {
-    HomeView(viewModel: RootViewModel(), homeViewModel: HomeViewModel(), mapViewModel: MapViewModel())
+    HomeView(viewModel: RootViewModel(), homeViewModel: HomeViewModel(rootViewModel: RootViewModel()), mapViewModel: MapViewModel(rootViewModel: RootViewModel()))
 }

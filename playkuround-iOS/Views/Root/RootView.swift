@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct RootView: View {
-    @ObservedObject var viewModel: RootViewModel = RootViewModel()
-    @ObservedObject var mapViewModel: MapViewModel = MapViewModel()
-    @ObservedObject var homeViewModel: HomeViewModel = HomeViewModel()
+    @ObservedObject var viewModel: RootViewModel
+    @ObservedObject var mapViewModel: MapViewModel
+    @ObservedObject var homeViewModel: HomeViewModel
+    
+    init() {
+        let rootViewModel = RootViewModel()
+        self.viewModel = rootViewModel
+        self.mapViewModel = MapViewModel(rootViewModel: rootViewModel)
+        self.homeViewModel = HomeViewModel(rootViewModel: rootViewModel)
+    }
     
     var body: some View {
         ZStack {

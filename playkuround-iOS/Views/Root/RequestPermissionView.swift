@@ -80,5 +80,5 @@ struct TextWithBoldSubstring: View {
 }
 
 #Preview {
-    RequestPermissionView(mapViewModel: MapViewModel())
+    RequestPermissionView(mapViewModel: MapViewModel(rootViewModel: RootViewModel()))
 }

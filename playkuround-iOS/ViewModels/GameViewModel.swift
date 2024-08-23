@@ -439,7 +439,7 @@ class GameViewModel: ObservableObject {
 struct GameViewModelTextView: View {
     @ObservedObject var viewModel = GameViewModel(.time,
                                                   rootViewModel: RootViewModel(),
-                                                  mapViewModel: MapViewModel(),
+                                                  mapViewModel: MapViewModel(rootViewModel: RootViewModel()),
                                                   timeStart: 5,
                                                   timeEnd: 0,
                                                   timeInterval: 0.01)

@@ -146,5 +146,5 @@ struct SurviveGameView: View {
 }
 
 #Preview {
-    SurviveGameView(viewModel: SurviveGameViewModel(rootViewModel: RootViewModel(), mapViewModel: MapViewModel()), rootViewModel: RootViewModel())
+    SurviveGameView(viewModel: SurviveGameViewModel(rootViewModel: RootViewModel(), mapViewModel: MapViewModel(rootViewModel: RootViewModel())), rootViewModel: RootViewModel())
 }

@@ -59,5 +59,5 @@ struct MapView: View {
 }
 
 #Preview {
-    MapView(mapViewModel: MapViewModel(), homeViewModel: HomeViewModel())
+    MapView(mapViewModel: MapViewModel(rootViewModel: RootViewModel()), homeViewModel: HomeViewModel(rootViewModel: RootViewModel()))
 }

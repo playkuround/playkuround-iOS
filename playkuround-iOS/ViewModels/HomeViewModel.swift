@@ -10,6 +10,8 @@ import Foundation
 import SwiftUI
 
 final class HomeViewModel: ObservableObject {
+    @ObservedObject var rootViewModel: RootViewModel
+    
     // User Profile
     @Published var userData: UserEntity = UserEntity(nickname: "", major: "",
                                                      myRank: MyRank(score: 0, ranking: 0, profileBadge: "NONE"),
@@ -42,6 +44,10 @@ final class HomeViewModel: ObservableObject {
     private var lastIndex = -1
     private var timer: AnyCancellable? = nil
     @Published var isGameNameShowing: Bool = true
+    
+    init(rootViewModel: RootViewModel) {
+        self.rootViewModel = rootViewModel
+    }
 
     // MARK: - User Profile Data
     // 유저 프로필 데이터 불러오는 함수
@@ -208,12 +214,31 @@ final class HomeViewModel: ObservableObject {
     // MARK: - User Notification
     func loadUserNotification() {
         // TODO: 백엔드와 협의하여 version checking 도입 여부 결정 필요
-        APIManager.callGETAPI(endpoint: .notification, querys: ["version": "1.0.0"]) { result in
+        APIManager.callGETAPI(endpoint: .notification, querys: ["version": "2.0.6", "os": "ios"]) { result in
             switch result {
-            case .success(let data):
-                print("loadUserNotifiation(): \(data)")
+            case .success(let data as NotificationAPIResponse):
+                print("** loadUserNotifiation(): \(data)")
+                
+                // 유저 알림 처리
+                print("===== User Notification ====")
+                if let notis = data.response {
+                    for noti in notis {
+                        print("\(noti.name): \(noti.description)")
+                        
+                        // 서버 점검 중
+                        if noti.name == "system_check" {
+                            // TODO: 서버 점검 중
+                        }
+                        else if noti.name == "new_badge" {
+                            self.rootViewModel.openNewBadgeView(badgeName: noti.description)
+                        }
+                    }
+                }
+                
             case .failure(let error):
-                print("Error in View: \(error)")
+                print("** loadUserNotifiation(): \(error)")
+            case .success(_):
+                print("success but wrong type data")
             }
         }
     }
