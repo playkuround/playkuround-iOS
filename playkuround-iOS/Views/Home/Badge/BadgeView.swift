@@ -46,7 +46,7 @@ struct BadgeView: View {
                                             .onTapGesture {
                                                 self.showDetailBadge.toggle()
                                                 selectedBadge = badge
-                                                isSelectedBadgeLocked = !badgeList.contains { $0.description == badge.rawValue }
+                                                isSelectedBadgeLocked = !badgeList.contains { $0.name == badge.rawValue }
                                             }
                                     }
                                 }
@@ -74,7 +74,7 @@ struct BadgeView: View {
                                             .onTapGesture {
                                                 self.showDetailBadge.toggle()
                                                 selectedBadge = badge
-                                                isSelectedBadgeLocked = !badgeList.contains { $0.description == badge.rawValue }
+                                                isSelectedBadgeLocked = !badgeList.contains { $0.name == badge.rawValue }
                                             }
                                     }
                                 }
