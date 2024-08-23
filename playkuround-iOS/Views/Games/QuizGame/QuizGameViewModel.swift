@@ -18,7 +18,7 @@ final class QuizGameViewModel: GameViewModel {
     
     let quizData: [Quiz] = load("QuizData.json")
     
-    private let soundManager = SoundManager.shared
+    let soundManager = SoundManager.shared
     
     override func startGame() {
         currentQuestionIndex = 0
@@ -52,8 +52,8 @@ final class QuizGameViewModel: GameViewModel {
                 self.isBlockEnabled = true
             }
         } else {
+            self.soundManager.playSound(sound: .quizIncorrect)
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.soundManager.playSound(sound: .quizIncorrect)
                 self.finishGame()
             }
         }

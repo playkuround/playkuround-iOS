@@ -47,7 +47,7 @@ final class SurviveGameViewModel: GameViewModel {
     // 생명
     @Published var life: Int = 3
     
-    private let soundManager = SoundManager.shared
+    let soundManager = SoundManager.shared
     
     init(rootViewModel: RootViewModel, mapViewModel: MapViewModel) {
         self.motionManager = MotionManager()

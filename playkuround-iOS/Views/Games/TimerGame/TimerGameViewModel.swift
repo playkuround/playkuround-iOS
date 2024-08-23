@@ -12,7 +12,7 @@ final class TimerGameViewModel: GameViewModel {
     @Published var milliSecond: String = "00"
     @Published var timerState: TimerState = .ready
     
-    private let soundManager = SoundManager.shared
+    let soundManager = SoundManager.shared
     
     final func updateMilliSecondString() {
         self.milliSecond = String(format: "%02d", Int(timeRemaining * 100) % 100)
@@ -50,7 +50,7 @@ final class TimerGameViewModel: GameViewModel {
         // 실패 시 재시도
         else if timerState == .failed {
             timerState = .running
-            soundManager.playSound(sound: .timerIncorrect)
+            soundManager.playSound(sound: .timerButtonClicked)
             timeRemaining = 0.0
             isTimerUpdating = true
         }

@@ -11,6 +11,8 @@ struct MainView: View {
     @ObservedObject var viewModel: RootViewModel
     @ObservedObject var mapViewModel: MapViewModel
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -42,6 +44,8 @@ struct MainView: View {
                         }
                         .padding(.bottom, 98)
                         .onTapGesture {
+                            soundManager.playSound(sound: .buttonClicked)
+                            
                             // 위치 권한 허가 요청
                             mapViewModel.requestLocationAuthorization()
                             

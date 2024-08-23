@@ -11,7 +11,7 @@ final class MoonGameViewModel: GameViewModel {
     @Published var moonState: MoonState = .fullMoon
     @Published var moonTapped: Int = 100
     
-    private let soundManager = SoundManager.shared
+    let soundManager = SoundManager.shared
     
     func moonClick() {
         if 81 < moonTapped && moonTapped <= 100 {

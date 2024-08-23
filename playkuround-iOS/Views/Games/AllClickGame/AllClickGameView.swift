@@ -16,8 +16,6 @@ struct AllClickGameView: View {
     @State private var userHeight: CGFloat = 0
     @State private var shouldBecomeFirstResponder: Bool = false
     
-    private let soundManager = SoundManager.shared
-    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -101,6 +99,7 @@ struct AllClickGameView: View {
                         .foregroundStyle(.kuText)
                 }, rightView: {
                     Button(action: {
+                        viewModel.soundManager.playSound(sound: .buttonClicked)
                         viewModel.togglePauseView()
                     }, label: {
                         Image(.brownPauseButton)
@@ -146,7 +145,7 @@ struct AllClickGameView: View {
                     viewModel.calculateScore(index: index)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                         viewModel.subjects.remove(at: index)
-                        soundManager.playSound(sound: .classCorrect)
+                        viewModel.soundManager.playSound(sound: .classCorrect)
                         userText = ""
                     }
                 }

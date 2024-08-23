@@ -37,6 +37,7 @@ struct TimerGameView: View {
                     },
                     rightView: {
                         Button {
+                            viewModel.soundManager.playSound(sound: .buttonClicked)
                             viewModel.togglePauseView()
                         } label: {
                             Image(.bluePauseButton)

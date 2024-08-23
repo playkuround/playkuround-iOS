@@ -29,7 +29,7 @@ final class CardGameViewModel: GameViewModel {
     private var flippedCardIndex: [Int] = []
     private var correctCount: Int = 0
     
-    private let soundManager = SoundManager.shared
+    let soundManager = SoundManager.shared
     
     override func startGame() {
         self.shuffleCard()

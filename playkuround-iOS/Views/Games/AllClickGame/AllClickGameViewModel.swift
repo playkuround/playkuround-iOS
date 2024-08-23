@@ -15,7 +15,7 @@ final class AllClickGameViewModel: GameViewModel {
     @Published var subjects: [Subject] = []
     
     private var subjectRainTimer: Timer?
-    private let soundManager = SoundManager.shared
+    let soundManager = SoundManager.shared
     
     override func startGame() {
         super.startGame()

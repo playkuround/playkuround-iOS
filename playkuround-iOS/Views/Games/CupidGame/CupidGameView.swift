@@ -94,6 +94,7 @@ struct CupidGameView: View {
                             .foregroundStyle(.kuText)
                     }, rightView: {
                         Button(action: {
+                            viewModel.soundManager.playSound(sound: .buttonClicked)
                             viewModel.togglePauseView()
                         }, label: {
                             Image(.brownPauseButton)

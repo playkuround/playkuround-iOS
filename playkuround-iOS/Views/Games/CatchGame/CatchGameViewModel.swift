@@ -25,7 +25,7 @@ final class CatchGameViewModel: GameViewModel {
                                                     WindowComponent(windowState: .close, windowType: .catchDuckkuWhite),
                                                     WindowComponent(windowState: .close, windowType: .catchDuckkuWhite)]
     
-    private let soundManager = SoundManager.shared
+    let soundManager = SoundManager.shared
     
     override func startGame() {
         super.startGame()

@@ -49,6 +49,7 @@ struct MoonGameView: View {
                         .foregroundStyle(.white)
                 }, rightView: {
                     Button(action: {
+                        viewModel.soundManager.playSound(sound: .buttonClicked)
                         viewModel.togglePauseView()
                     }, label: {
                         Image(.yellowPauseButton)

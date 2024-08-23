@@ -27,7 +27,7 @@ final class CupidGameViewModel: GameViewModel {
     private var duckAnimationTimer: Timer?
     private var duckSpawnTimer: Timer?
     
-    private let soundManager = SoundManager.shared
+    let soundManager = SoundManager.shared
     
     override func startGame() {
         super.startGame()
