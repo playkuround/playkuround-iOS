@@ -87,6 +87,8 @@ final class APIManager {
         case fakeDoor = "/api/fake-door"
         // 회원가입
         case register = "/api/users/register"
+        // 프로필 뱃지 설정
+        case profileBadge = "/api/users/profile-badge"
         // 로그아웃
         case logout = "/api/users/logout"
     }
@@ -715,6 +717,17 @@ struct APIManagerTestView: View {
                             }
                         }
                         
+                        Button("프로필 뱃지 설정 - /api/users/profile-badge") {
+                            APIManager.callPOSTAPI(endpoint: .profileBadge, parameters: ["profileBadge": "ATTENDANCE_1"]) { result in
+                                switch result {
+                                case .success(let data):
+                                    print("(success) /api/users/profile-badge: \(data)")
+                                case .failure(let error):
+                                    print("(fail) /api/users/profile-badge: \(error)")
+                                }
+                            }
+                        }
+                        
                         Button("로그아웃 - /api/users/logout") {
                             APIManager.callPOSTAPI(endpoint: .logout) { result in
                                 switch result {
@@ -729,10 +742,10 @@ struct APIManagerTestView: View {
                 }
             }
         }
-        .onAppear {
+        /* .onAppear {
             // 테스트 하기 위해 토큰을 제거
             TokenManager.reset()
-        }
+        } */
     }
 }
 
@@ -784,6 +797,7 @@ struct Response: Codable {
     let highestScore: Int?
     let highestRank: String?
     let attendanceDays: Int?
+    let profileBadge: String?
     
     // 게임별 최고 점수 얻기 (/api/users/game-score)
     let highestTotalScore: Int?
@@ -820,11 +834,13 @@ struct BadgeResponse: Codable {
 struct MyRank: Codable {
     var score: Int
     var ranking: Int
+    var profileBadge: String
 }
 
 struct Ranking: Codable {
     let nickname: String
     let score: Int
+    let profileBadge: String
 }
 
 // MARK: - 특이한 반환을 가진 API용 struct 따로 구현

@@ -28,31 +28,43 @@ final class TimerGameViewModel: GameViewModel {
         // 성공 여부 체크
         else if timerState == .running {
             isTimerUpdating = false
-            soundManager.playSound(sound: .timerButtonClicked)
+            
+            // 오차 0 -> 200점
             if timeRemaining == 10.0 {
                 timerState = .perfect
-                // 점수 계산 후 finishGame 함수 호출
-                soundManager.playSound(sound: .timerCorrect)
-                score = 500
+                self.score = 200
                 finishGame()
-            } else if 9.90 <= timeRemaining && timeRemaining <= 10.10 {
-                timerState = .success
-                // 점수 계산 후 finishGame 함수 호출
-                soundManager.playSound(sound: .timerCorrect)
-                score = 50
-                finishGame()
-            } else {
-                // 실패 처리
-                timerState = .failed
-                soundManager.playSound(sound: .timerIncorrect)
             }
-        }
-        // 실패 시 재시도
-        else if timerState == .failed {
-            timerState = .running
-            soundManager.playSound(sound: .timerButtonClicked)
-            timeRemaining = 0.0
-            isTimerUpdating = true
+            // 오차 +- 0.25 -> 40점
+            else if 9.75 <= timeRemaining && timeRemaining <= 10.25 {
+                timerState = .success
+                self.score = 40
+                finishGame()
+            }
+            // 오차 +- 0.5 -> 35점
+            else if 9.5 <= timeRemaining && timeRemaining <= 10.5 {
+                timerState = .success
+                self.score = 35
+                finishGame()
+            }
+            // 오차 +- 0.75 -> 30점
+            else if 9.25 <= timeRemaining && timeRemaining <= 10.75 {
+                timerState = .success
+                self.score = 30
+                finishGame()
+            }
+            // 오차 +- 1 -> 20점
+            else if 9.0 <= timeRemaining && timeRemaining <= 11.0 {
+                timerState = .success
+                self.score = 20
+                finishGame()
+            }
+            // 이외 5점
+            else {
+                timerState = .success
+                self.score = 5
+                finishGame()
+            }
         }
     }
     
