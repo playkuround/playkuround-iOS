@@ -16,7 +16,7 @@ struct playkuround_iOSApp: App {
         WindowGroup {
             RootView()
                 .onAppear {
-                    soundManager.playSound(sound: .backgroundMusic, loop: true)
+                    //soundManager.playSound(sound: .backgroundMusic, loop: true)
                 }
         }
     }

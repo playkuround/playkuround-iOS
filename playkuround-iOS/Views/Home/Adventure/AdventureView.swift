@@ -11,6 +11,8 @@ struct AdventureView: View {
     @ObservedObject var viewModel: RootViewModel
     @ObservedObject var homeViewModel: HomeViewModel
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         ZStack {
             Color.black.opacity(0.5).ignoresSafeArea()
@@ -52,6 +54,8 @@ struct AdventureView: View {
                             if let selectedGame = selectedGame {
                                 viewModel.transition(to: selectedGame)
                             }
+                            
+                            soundManager.playSound(sound: .buttonClicked)
                         } label: {
                             Image(homeViewModel.isStartButtonEnabled ? .shortButtonBlue : .shortButtonGray)
                                 .overlay {

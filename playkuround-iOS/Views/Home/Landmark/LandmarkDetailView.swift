@@ -11,6 +11,8 @@ struct LandmarkDetailView: View {
     @ObservedObject var homeViewModel: HomeViewModel
     @Binding var isDescriptionShowing: Bool
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         ZStack {
             Color.black.opacity(0.5).ignoresSafeArea()
@@ -92,6 +94,7 @@ struct LandmarkDetailView: View {
                         
                         Button {
                             isDescriptionShowing = false
+                            soundManager.playSound(sound: .buttonClicked)
                         } label: {
                             Image(.smallButtonBlue)
                                 .overlay {

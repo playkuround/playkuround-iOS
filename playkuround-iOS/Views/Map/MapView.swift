@@ -16,6 +16,8 @@ struct MapView: View {
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.542_634, longitude: 127.076_769), span: MKCoordinateSpan(latitudeDelta: 0.009, longitudeDelta: 0.009))
     @State private var annotationList: [AnnotationWrapper] = []
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         let sortedAnnList = annotationList.sorted { $0.landmark.number > $1.landmark.number }
         
@@ -26,6 +28,7 @@ struct MapView: View {
                     CustomMapAnnotationView(annotation: annotation, mapViewModel: mapViewModel)
                         .onTapGesture {
                             homeViewModel.openLandmarkView(landmarkID: annotation.landmark.number)
+                            soundManager.playSound(sound: .buttonClicked)
                         }
                         .allowsHitTesting(true)
                 }
