@@ -63,12 +63,6 @@ final class TimerGameViewModel: GameViewModel {
                 finishGame()
             }
         }
-        // 실패 시 재시도
-        /* else if timerState == .failed {
-            timerState = .running
-            timeRemaining = 0.0
-            isTimerUpdating = true
-        } */
     }
     
     override func finishGame() {
