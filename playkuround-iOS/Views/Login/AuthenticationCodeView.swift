@@ -29,6 +29,8 @@ struct AuthenticationCodeView: View {
     // 유저 이메일 받아오는 값
     let userEmail: String
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(StringLiterals.Login.goEmail)
@@ -62,7 +64,8 @@ struct AuthenticationCodeView: View {
             
             Button(action: {
                 authButtonClicked.toggle()
-                
+                soundManager.playSound(sound: .buttonClicked
+                )
                 if !authCode.isEmpty && authButtonClicked {
                     callGETAPIemails(code: authCode, email: userEmail)
                 }

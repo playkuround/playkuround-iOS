@@ -18,6 +18,8 @@ struct RegisterView: View {
     @State private var selectedCollege: College? = nil
     @State private var selectedMajor: Major? = nil
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         ZStack {
             Color.kuBackground.ignoresSafeArea(.all)
@@ -43,6 +45,7 @@ struct RegisterView: View {
                 Button {
                     withAnimation(.spring) {
                         isCollegeMenuPresented.toggle()
+                        soundManager.playSound(sound: .buttonClicked)
                     }
                 } label: {
                     Image(.menuButton)
@@ -77,6 +80,7 @@ struct RegisterView: View {
                     if selectedCollege != nil {
                         withAnimation(.spring) {
                             isMajorMenuPresented.toggle()
+                            soundManager.playSound(sound: .buttonClicked)
                         }
                     }
                 } label: {
@@ -116,6 +120,8 @@ struct RegisterView: View {
                     }
                     .onTapGesture {
                         if let selectedMajor = selectedMajor {
+                            soundManager.playSound(sound: .buttonClicked)
+                            
                             let major = selectedMajor.name
                             
                             // UserDefaults에 저장
@@ -147,6 +153,7 @@ struct RegisterView: View {
                                         selectedCollege = college
                                         // 대학 선택 시 선택 학과 초기화
                                         selectedMajor = nil
+                                        soundManager.playSound(sound: .buttonClicked)
                                         withAnimation(.spring) {
                                             isCollegeMenuPresented = false
                                         }
@@ -196,6 +203,7 @@ struct RegisterView: View {
                                     ForEach(college.majors) { major in
                                         Button {
                                             selectedMajor = major
+                                            soundManager.playSound(sound: .buttonClicked)
                                             withAnimation(.spring) {
                                                 isMajorMenuPresented = false
                                             }

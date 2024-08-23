@@ -20,6 +20,8 @@ struct RegisterTermsView: View {
     @State private var isPrivacyTermsViewPresented: Bool = false
     @State private var isLocationTermsViewPresented: Bool = false
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         ZStack {
             Color.kuBackground.ignoresSafeArea(.all)
@@ -58,6 +60,8 @@ struct RegisterTermsView: View {
                             isServiceTermAgreed = true
                             isPrivacyTermAgreed = true
                             isLocationTermAgreed = true
+                            
+                            soundManager.playSound(sound: .buttonClicked)
                         }
                     }
                 
@@ -88,6 +92,7 @@ struct RegisterTermsView: View {
                                 .onTapGesture {
                                     // TermsView 보여줌
                                     isServiceTermsViewPresented = true
+                                    soundManager.playSound(sound: .buttonClicked)
                                 }
                         }
                         .padding(20)
@@ -95,6 +100,7 @@ struct RegisterTermsView: View {
                     .onTapGesture(perform: {
                         withAnimation(.spring(duration: 0.2)) {
                             isServiceTermAgreed.toggle()
+                            soundManager.playSound(sound: .buttonClicked)
                         }
                     })
                 
@@ -119,6 +125,7 @@ struct RegisterTermsView: View {
                                 .onTapGesture {
                                     // TermsView 보여줌
                                     isPrivacyTermsViewPresented = true
+                                    soundManager.playSound(sound: .buttonClicked)
                                 }
                             
                         }
@@ -127,6 +134,7 @@ struct RegisterTermsView: View {
                     .onTapGesture {
                         withAnimation(.spring(duration: 0.2)) {
                             isPrivacyTermAgreed.toggle()
+                            soundManager.playSound(sound: .buttonClicked)
                         }
                     }
                 
@@ -151,6 +159,7 @@ struct RegisterTermsView: View {
                                 .onTapGesture {
                                     // TermsView 보여줌
                                     isLocationTermsViewPresented = true
+                                    soundManager.playSound(sound: .buttonClicked)
                                 }
                         }
                         .padding(20)
@@ -158,6 +167,7 @@ struct RegisterTermsView: View {
                     .onTapGesture {
                         withAnimation(.spring(duration: 0.2)) {
                             isLocationTermAgreed.toggle()
+                            soundManager.playSound(sound: .buttonClicked)
                         }
                     }
                 
@@ -178,6 +188,7 @@ struct RegisterTermsView: View {
                         // 다음 뷰로 이동
                         // 뷰 전환
                         viewModel.transition(to: .registerMajor)
+                        soundManager.playSound(sound: .buttonClicked)
                     }
             }
             .padding(.horizontal)

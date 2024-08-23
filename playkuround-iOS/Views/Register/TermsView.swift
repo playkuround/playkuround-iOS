@@ -15,6 +15,8 @@ struct TermsView: View {
     // environment dismiss
     @Environment(\.dismiss) var dismiss
     
+    private let soundManager = SoundManager.shared
+    
     // 이용 약관을 불러옴
     init(title: String, termsType: TermsType) {
         // md 파일을 읽어 텍스트를 불러옴
@@ -45,6 +47,7 @@ struct TermsView: View {
                     Button {
                         // close this view
                         dismiss()
+                        soundManager.playSound(sound: .buttonClicked)
                     } label: {
                         Image(.closeButton)
                             .resizable()
