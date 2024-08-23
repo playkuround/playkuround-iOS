@@ -297,37 +297,3 @@ enum Badge: String, CaseIterable {
         }
     }
 }
-
-struct BadgeTestView: View {
-    @State private var selectedBadge: Badge? = nil
-    @State private var text: String = ""
-    
-    var body: some View {
-        VStack(spacing: 10) {
-            if let badge = selectedBadge {
-                badge.image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 64, height: 64)
-                Text(badge.description)
-                Text(badge.title)
-                Text(badge.lockDescription)
-                Text(badge.rawValue)
-            } else {
-                Text("No matching badge")
-            }
-            
-            TextField("badge_name", text: $text)
-                .border(Color.gray, width: 1)
-                .padding(.horizontal, 30)
-            
-            Button("hit") {
-                selectedBadge = Badge(rawValue: text.uppercased())
-            }
-        }
-    }
-}
-
-#Preview {
-    BadgeTestView()
-}
