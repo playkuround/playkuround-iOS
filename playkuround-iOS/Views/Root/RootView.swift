@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RootView: View {
+    @Environment(\.scenePhase) private var scenePhase
+    
     @ObservedObject var viewModel: RootViewModel = RootViewModel()
     @ObservedObject var mapViewModel: MapViewModel = MapViewModel()
     @ObservedObject var homeViewModel: HomeViewModel = HomeViewModel()
@@ -71,6 +73,18 @@ struct RootView: View {
             // 확인 작업
             viewModel.isLoading = false
             viewModel.unlockStoriesBasedOnGameTypes()
+            
+            viewModel.soundManager.playSound(sound: .backgroundMusic, loop: true)
+        }
+        .onChange(of: scenePhase) { newPhase in
+            switch newPhase {
+            case .active:
+                viewModel.soundManager.resumeSound()
+            case .background, .inactive:
+                viewModel.soundManager.pauseSound()
+            @unknown default:
+                break
+            }
         }
     }
 }
