@@ -82,6 +82,10 @@ struct HomeView: View {
                                 }
                                 .padding(.horizontal, 8)
                             }
+                            .onTapGesture {
+                                // viewModel.openNewBadgeView(badgeName: "ATTENDANCE_1")
+                                // viewModel.openToastMessageView(message: "test")
+                            }
                     }
                     .padding(.top, shouldPadding ? 4 : 0)
                     .padding(.horizontal, 24)

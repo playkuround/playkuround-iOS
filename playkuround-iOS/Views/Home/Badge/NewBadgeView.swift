@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct NewBadgeView: View {
+    @ObservedObject var rootViewModel: RootViewModel
     let badge: Badge
     
     var body: some View {
         ZStack {
             Color.black.opacity(0.5).ignoresSafeArea()
                 .onTapGesture {
-                    // TODO: 화면 닫기
+                    rootViewModel.closeNewBadgeView()
                 }
             
             Image(.badgePopup)
@@ -56,5 +57,5 @@ struct NewBadgeView: View {
 }
 
 #Preview {
-    NewBadgeView(badge: .ATTENDANCE_1)
+    NewBadgeView(rootViewModel: RootViewModel(), badge: .ATTENDANCE_1)
 }

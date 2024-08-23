@@ -52,6 +52,13 @@ struct RootView: View {
                 }
             }
             
+            // 새 뱃지
+            if viewModel.newBadgeViewShowing {
+                if let newBadge = viewModel.newBadge {
+                    NewBadgeView(rootViewModel: viewModel, badge: newBadge)
+                }
+            }
+            
             // network error
             if !viewModel.networkManager.isConnected {
                 NetworkErrorView(loadingColor: .white)
@@ -65,6 +72,13 @@ struct RootView: View {
                         && !(mapViewModel.isAuthorized == .authorizedAlways
                              || mapViewModel.isAuthorized == .authorizedWhenInUse) {
                 RequestPermissionView(mapViewModel: mapViewModel)
+            }
+            
+            // 토스트 메시지 (최상단)
+            if viewModel.toastMessageShowing {
+                if let message = viewModel.toastMessage {
+                    ToastAlertView(alertText: message)
+                }
             }
         }
         .onAppear {

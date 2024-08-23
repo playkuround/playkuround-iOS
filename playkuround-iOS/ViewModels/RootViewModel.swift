@@ -24,7 +24,12 @@ final class RootViewModel: ObservableObject {
     @Published var newlyUnlockedStoryIndex: Int?
     
     // New Badge View
-    @Published var showNewBadgeView: Bool = false
+    @Published var newBadgeViewShowing: Bool = false
+    @Published var newBadge: Badge? = nil
+    
+    // Toast Message View
+    @Published var toastMessageShowing: Bool = false
+    @Published var toastMessage: String? = nil
     
     var openedGameTypes = UserDefaults.standard.stringArray(forKey: "openedGameTypes") ?? []
     var stories: [Story] = storyList
@@ -145,6 +150,46 @@ final class RootViewModel: ObservableObject {
             case .failure(let error):
                 print("로그아웃 실패")
                 print("Error in View: \(error)")
+            }
+        }
+    }
+    
+    // 새 뱃지 뷰
+    func openNewBadgeView(badgeName: String) {
+        let newBadge = Badge(rawValue: badgeName)
+        
+        if let badge = newBadge {
+            DispatchQueue.main.async {
+                self.newBadge = badge
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    self.newBadgeViewShowing = true
+                }
+            }
+        }
+    }
+    
+    func closeNewBadgeView() {
+        DispatchQueue.main.async {
+            self.newBadge = nil
+            withAnimation(.easeInOut(duration: 0.3)) {
+                self.newBadgeViewShowing = false
+            }
+        }
+    }
+    
+    // 토스트 메시지 3초
+    func openToastMessageView(message: String) {
+        DispatchQueue.main.async {
+            self.toastMessage = message 
+            withAnimation(.easeInOut(duration: 0.3)) {
+                self.toastMessageShowing = true
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.toastMessage = nil
+            withAnimation(.easeInOut(duration: 0.3)) {
+                self.toastMessageShowing = false
             }
         }
     }
