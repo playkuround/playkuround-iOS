@@ -135,10 +135,10 @@ class GameViewModel: ObservableObject {
             withAnimation(.spring(duration: 0.1)) {
                 self.isCountdownViewPresented = true
             }
+            
+            // 카운트다운 시작
+            self.countdownProgress()
         }
-        
-        // 카운트다운 시작
-        self.countdownProgress()
     }
     
     final private func countdownProgress() {
