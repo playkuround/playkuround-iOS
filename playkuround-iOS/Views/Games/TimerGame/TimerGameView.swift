@@ -101,7 +101,7 @@ struct TimerGameView: View {
                                         viewModel.timeButtonClick()
                                     } label: {
                                         if viewModel.timerState == .failed {
-                                            Image(.timeRestartButton)
+                                            Image(.timeFailed)
                                                 .resizable()
                                                 .scaledToFit()
                                                 .frame(width: 120, height: 120)

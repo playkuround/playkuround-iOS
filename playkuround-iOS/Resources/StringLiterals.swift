@@ -183,7 +183,7 @@ enum StringLiterals {
         
         enum Time {
             static let title = "10초를 맞춰봐"
-            static let description = "10초에 가까워졌을 때 버튼을 눌러 멈춰주세요!\n±0.1초까지 인정됩니다."
+            static let description = "10초에 가까워졌을 때 버튼을 눌러 멈춰주세요!\n±1초까지 점수가 차등 부여 됩니다."
             static let success = "성공하셨습니다. 축하합니다!"
             static let failure = "실패하셨습니다. 다시 시도해보세요!"
         }
