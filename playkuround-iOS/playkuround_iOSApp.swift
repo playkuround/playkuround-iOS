@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct playkuround_iOSApp: App {
+struct playkuround_iOSApp: App { 
     var body: some Scene {
         WindowGroup {
             RootView()

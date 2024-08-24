@@ -13,6 +13,8 @@ struct HomeView: View {
     @ObservedObject var mapViewModel: MapViewModel
     @State private var showStoryView: Bool = false
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -93,24 +95,28 @@ struct HomeView: View {
                         VStack(spacing: 7) {
                             Button {
                                 homeViewModel.transition(to: .attendance)
+                                soundManager.playSound(sound: .buttonClicked)
                             } label: {
                                 Image(.attendanceButton)
                             }
                             
                             Button {
                                 homeViewModel.transition(to: .badge)
+                                soundManager.playSound(sound: .buttonClicked)
                             } label: {
                                 Image(.badgeButton)
                             }
                             
                             Button {
                                 homeViewModel.transition(to: .ranking)
+                                soundManager.playSound(sound: .buttonClicked)
                             } label: {
                                 Image(.rankingButton)
                             }
                             
                             Button {
                                 homeViewModel.transition(to: .myPage)
+                                soundManager.playSound(sound: .buttonClicked)
                             } label: {
                                 Image(.myPageButton)
                             }

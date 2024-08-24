@@ -26,6 +26,8 @@ struct LoginView: View {
     @State private var userSendingCount: Int?
     @State private var isAuthCodeViewVisible: Bool = false
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         ZStack {
             Color.kuBackground.ignoresSafeArea(.all)
@@ -62,6 +64,7 @@ struct LoginView: View {
                 
                 Button(action: {
                     mailButtonClicked.toggle()
+                    soundManager.playSound(sound: .buttonClicked)
                     
                     if mailButtonClicked {
                         mailButtonTitle = userId.isEmpty ? StringLiterals.Login.requestCode : StringLiterals.Login.reRequestCode

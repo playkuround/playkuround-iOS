@@ -12,6 +12,8 @@ struct TotalRankingView: View {
     @ObservedObject var homeViewModel: HomeViewModel
     @State private var showInformationView: Bool = false
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -246,12 +248,14 @@ struct TotalRankingView: View {
                 }, leftView: {
                     Button {
                         homeViewModel.transition(to: .home)
+                        soundManager.playSound(sound: .buttonClicked)
                     } label: {
                         Image(.leftWhiteArrow)
                     }
                 }, rightView: {
                     Button {
                         showInformationView.toggle()
+                        soundManager.playSound(sound: .buttonClicked)
                     } label: {
                         Image(.rankingInformationButton)
                     }

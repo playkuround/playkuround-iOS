@@ -12,6 +12,8 @@ struct LandmarkView: View {
     @State private var isDescriptionShowing: Bool = false
     @State private var isRankingShowing: Bool = false
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         ZStack {
             Color.black.opacity(0.5).ignoresSafeArea()
@@ -72,6 +74,7 @@ struct LandmarkView: View {
                             
                             Button {
                                 isRankingShowing.toggle()
+                                soundManager.playSound(sound: .buttonClicked)
                             } label: {
                                 Image(.shortButtonBlue)
                                     .overlay {
@@ -85,6 +88,7 @@ struct LandmarkView: View {
                             
                             Button {
                                 isDescriptionShowing.toggle()
+                                soundManager.playSound(sound: .buttonClicked)
                             } label: {
                                 Image(.shortButtonBlue)
                                     .overlay {

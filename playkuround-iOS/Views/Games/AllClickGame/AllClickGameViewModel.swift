@@ -15,6 +15,7 @@ final class AllClickGameViewModel: GameViewModel {
     @Published var subjects: [Subject] = []
     
     private var subjectRainTimer: Timer?
+    let soundManager = SoundManager.shared
     
     override func startGame() {
         super.startGame()
@@ -57,10 +58,14 @@ final class AllClickGameViewModel: GameViewModel {
             // 배열 인덱스를 역순으로 제거
             for index in indicesToRemove.reversed() {
                 self.life -= 1
+                soundManager.playSound(sound: .classMinusHeart)
+                
                 if self.life <= 0 {
                     self.finishGame()
+                    soundManager.playSound(sound: .classEnd)
                     return
                 }
+                
                 self.subjects.remove(at: index)
             }
             

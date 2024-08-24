@@ -11,6 +11,8 @@ struct LandmarkRankingView: View {
     @ObservedObject var homeViewModel: HomeViewModel
     @Binding var isRankingShowing: Bool
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -183,6 +185,7 @@ struct LandmarkRankingView: View {
                 }, leftView: {
                     Button {
                         isRankingShowing.toggle()
+                        soundManager.playSound(sound: .buttonClicked)
                     } label: {
                         Image(.leftWhiteArrow)
                     }

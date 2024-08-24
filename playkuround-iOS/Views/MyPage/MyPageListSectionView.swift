@@ -12,6 +12,8 @@ struct MyPageListSectionView: View {
     let sectionTitle: String
     let rowTitle: [String]
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(sectionTitle)
@@ -27,6 +29,7 @@ struct MyPageListSectionView: View {
                         .onTapGesture {
                             NotificationCenter.default.post(name: NSNotification.Name("storyViewPresented"),
                                                             object: nil)
+                            soundManager.playSound(sound: .buttonClicked)
                         }
                 }
                 
@@ -36,6 +39,7 @@ struct MyPageListSectionView: View {
                         .onTapGesture {
                             NotificationCenter.default.post(name: NSNotification.Name("logoutViewPresented"), 
                                                             object: nil)
+                            soundManager.playSound(sound: .buttonClicked)
                         }
                 }
                 
@@ -44,6 +48,7 @@ struct MyPageListSectionView: View {
                     MyPageListRowView(rowTitle: title)
                         .onTapGesture {
                             linkInstagramURL()
+                            soundManager.playSound(sound: .buttonClicked)
                         }
                 }
                 
@@ -54,6 +59,7 @@ struct MyPageListSectionView: View {
                             NotificationCenter.default.post(name: NSNotification.Name("cheerViewPresented"), 
                                                             object: nil)
                             callPostAPIfakeDoor()
+                            soundManager.playSound(sound: .buttonClicked)
                         }
                 }
                 
@@ -62,6 +68,7 @@ struct MyPageListSectionView: View {
                     MyPageListRowView(rowTitle: title)
                         .onTapGesture {
                             linkFeedbackURL()
+                            soundManager.playSound(sound: .buttonClicked)
                         }
                 }
                 
@@ -70,6 +77,7 @@ struct MyPageListSectionView: View {
                     MyPageListRowView(rowTitle: title)
                         .onTapGesture {
                             linkBugURL()
+                            soundManager.playSound(sound: .buttonClicked)
                         }
                 }
                 
@@ -94,6 +102,7 @@ struct MyPageListSectionView: View {
                         .onTapGesture {
                             NotificationCenter.default.post(name: NSNotification.Name("privacyTermsViewPresented"), 
                                                             object: nil)
+                            soundManager.playSound(sound: .buttonClicked)
                         }
                 }
                 
@@ -103,6 +112,7 @@ struct MyPageListSectionView: View {
                         .onTapGesture {
                             NotificationCenter.default.post(name: NSNotification.Name("serviceTermsViewPresented"), 
                                                             object: nil)
+                            soundManager.playSound(sound: .buttonClicked)
                         }
                 }
             }

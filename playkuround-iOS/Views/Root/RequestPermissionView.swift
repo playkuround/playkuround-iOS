@@ -10,6 +10,7 @@ import UIKit
 
 struct RequestPermissionView: View {
     @ObservedObject var mapViewModel: MapViewModel
+    private let soundManager = SoundManager.shared
     
     var body: some View {
         ZStack {
@@ -46,6 +47,7 @@ struct RequestPermissionView: View {
                             }
                             .onTapGesture {
                                 // 설정 열기
+                                soundManager.playSound(sound: .buttonClicked)
                                 mapViewModel.openSettings()
                             }
                     }

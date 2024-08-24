@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GamePauseView: View {
     @ObservedObject var viewModel: GameViewModel
+    private let soundManager = SoundManager.shared
     
     var body: some View {
         ZStack {
@@ -24,6 +25,7 @@ struct GamePauseView: View {
                     }
                     .padding(.bottom, 12)
                     .onTapGesture {
+                        soundManager.playSound(sound: .buttonClicked)
                         // GamePauseView 닫고 게임 계속 진행
                         viewModel.togglePauseView()
                     }
@@ -36,6 +38,7 @@ struct GamePauseView: View {
                             .kerning(-0.41)
                     }
                     .onTapGesture {
+                        soundManager.playSound(sound: .buttonClicked)
                         // 게임 종료 기능 추가
                         // 홈 뷰로 이동
                         viewModel.stopGame()

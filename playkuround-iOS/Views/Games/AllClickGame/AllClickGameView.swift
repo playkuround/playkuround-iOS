@@ -99,6 +99,7 @@ struct AllClickGameView: View {
                         .foregroundStyle(.kuText)
                 }, rightView: {
                     Button(action: {
+                        viewModel.soundManager.playSound(sound: .buttonClicked)
                         viewModel.togglePauseView()
                     }, label: {
                         Image(.brownPauseButton)
@@ -144,6 +145,7 @@ struct AllClickGameView: View {
                     viewModel.calculateScore(index: index)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                         viewModel.subjects.remove(at: index)
+                        viewModel.soundManager.playSound(sound: .classCorrect)
                         userText = ""
                     }
                 }

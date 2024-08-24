@@ -11,6 +11,8 @@ struct StoryView: View {
     @ObservedObject var rootViewModel: RootViewModel
     @Binding var showStoryView: Bool
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         ZStack {
             Color.black.opacity(0.5)
@@ -70,6 +72,7 @@ struct StoryView: View {
                             if rootViewModel.currentStoryIndex != 0 {
                                 Button(action: {
                                     rootViewModel.previousStory()
+                                    soundManager.playSound(sound: .buttonClicked)
                                 }, label: {
                                     Image(.storyLeftArrow)
                                 })
@@ -80,6 +83,7 @@ struct StoryView: View {
                             if rootViewModel.currentStoryIndex != 5 {
                                 Button(action: {
                                     rootViewModel.nextStory()
+                                    soundManager.playSound(sound: .buttonClicked)
                                 }, label: {
                                     Image(.storyRightArrow)
                                 })

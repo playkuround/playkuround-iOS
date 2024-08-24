@@ -11,6 +11,8 @@ struct CheckLogoutView: View {
     @ObservedObject var viewModel: RootViewModel
     @Binding var isLogoutPresented: Bool
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         ZStack {
             Color.black
@@ -30,6 +32,7 @@ struct CheckLogoutView: View {
                 Button(action: {
                     isLogoutPresented = false
                     viewModel.logout()
+                    soundManager.playSound(sound: .buttonClicked)
                 }, label: {
                     Image(.shortButtonBlue)
                         .overlay {
@@ -43,6 +46,7 @@ struct CheckLogoutView: View {
                 
                 Button(action: {
                     isLogoutPresented = false
+                    soundManager.playSound(sound: .buttonClicked)
                 }, label: {
                     Image(.shortButtonGray)
                         .overlay {
