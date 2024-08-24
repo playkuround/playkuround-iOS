@@ -136,7 +136,6 @@ final class HomeViewModel: ObservableObject {
                 
             case .failure(let error):
                 print("Error in View: \(error)")
-                
             }
         }
     }
@@ -230,7 +229,7 @@ final class HomeViewModel: ObservableObject {
                             // TODO: 서버 점검 중
                         }
                         else if noti.name == "new_badge" {
-                            self.rootViewModel.openNewBadgeView(badgeName: noti.description)
+                            self.rootViewModel.openNewBadgeView(badgeNames: [noti.description])
                         }
                     }
                 }

@@ -421,6 +421,18 @@ class GameViewModel: ObservableObject {
                             self.afterFetch()
                         }
                     }
+                    
+                    var newBadgeNameList: [String] = []
+                    
+                    if let newBadges = response.response?.newBadges {
+                        for newBadge in newBadges {
+                            newBadgeNameList.append(newBadge.name)
+                        }
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList)
+                    }
                 }
                 print("Adventure Score: \(self.adventureScore)")
             case .failure(let error):

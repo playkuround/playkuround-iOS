@@ -61,9 +61,7 @@ struct RootView: View {
             
             // 새 뱃지
             if viewModel.newBadgeViewShowing {
-                if let newBadge = viewModel.newBadge {
-                    NewBadgeView(rootViewModel: viewModel, badge: newBadge)
-                }
+                NewBadgeView(rootViewModel: viewModel)
             }
             
             // network error

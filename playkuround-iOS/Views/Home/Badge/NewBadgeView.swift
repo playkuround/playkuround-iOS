@@ -9,7 +9,6 @@ import SwiftUI
 
 struct NewBadgeView: View {
     @ObservedObject var rootViewModel: RootViewModel
-    let badge: Badge
     
     var body: some View {
         ZStack {
@@ -18,44 +17,65 @@ struct NewBadgeView: View {
                     rootViewModel.closeNewBadgeView()
                 }
             
-            Image(.badgePopup)
-                .overlay {
-                    VStack {
-                        badge.image
-                            .resizable()
-                            .frame(width: 120, height: 120)
+            let badge = rootViewModel.newBadgeList.first
+            
+            if let badge = badge {
+                
+                Image(.badgePopup)
+                    .overlay {
+                        VStack {
+                            badge.image
+                                .resizable()
+                                .frame(width: 120, height: 120)
+                                .padding(.bottom, 16)
+                            
+                            HStack(alignment: .center, spacing: 8) {
+                                // 뱃지 글자 가운데 오도록
+                                Spacer()
+                                    .frame(width: 24)
+                                
+                                Text(badge.title)
+                                    .font(.neo20)
+                                    .kerning(-0.41)
+                                    .foregroundStyle(.kuText)
+                                
+                                Text(StringLiterals.Home.Badge.new)
+                                    .font(.neo15)
+                                    .kerning(-0.41)
+                                    .foregroundStyle(.kuTimebarRed)
+                                    .padding(.bottom, 4)
+                            }
                             .padding(.bottom, 16)
-                        
-                        HStack(alignment: .center, spacing: 8) {
-                            // 뱃지 글자 가운데 오도록
-                            Spacer()
-                                .frame(width: 24)
                             
-                            Text(badge.title)
-                                .font(.neo20)
-                                .kerning(-0.41)
+                            Text(badge.description)
+                                .font(.pretendard15R)
                                 .foregroundStyle(.kuText)
-                            
-                            Text(StringLiterals.Home.Badge.new)
-                                .font(.neo15)
-                                .kerning(-0.41)
-                                .foregroundStyle(.kuTimebarRed)
-                                .padding(.bottom, 4)
+                                .lineSpacing(15 * 0.3)
+                                .multilineTextAlignment(.center)
                         }
-                        .padding(.bottom, 16)
-                        
-                        Text(badge.description)
-                            .font(.pretendard15R)
-                            .foregroundStyle(.kuText)
-                            .lineSpacing(15 * 0.3)
-                            .multilineTextAlignment(.center)
+                        .padding(.horizontal, 48)
                     }
-                    .padding(.horizontal, 48)
-                }
+            }
+        }
+    }
+}
+
+struct NewBadgeTestView: View {
+    @ObservedObject var rootViewModel: RootViewModel
+    
+    var body: some View {
+        ZStack {
+            Button("open") {
+                rootViewModel.openNewBadgeView(badgeNames: ["ATTENDANCE_1", "THE_DREAM_OF_DUCK"])
+            }
+            
+            if rootViewModel.newBadgeViewShowing {
+                NewBadgeView(rootViewModel: rootViewModel)
+            }
         }
     }
 }
 
 #Preview {
-    NewBadgeView(rootViewModel: RootViewModel(), badge: .ATTENDANCE_1)
+    NewBadgeTestView(rootViewModel: RootViewModel())
 }

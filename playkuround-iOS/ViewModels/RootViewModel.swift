@@ -25,11 +25,14 @@ final class RootViewModel: ObservableObject {
     
     // New Badge View
     @Published var newBadgeViewShowing: Bool = false
-    @Published var newBadge: Badge? = nil
+    @Published var newBadgeList: [Badge] = []
     
     // Toast Message View
     @Published var toastMessageShowing: Bool = false
     @Published var toastMessage: String? = nil
+    
+    // 서버 점검 중
+    @Published var serverError: Bool = false
     
     var openedGameTypes = UserDefaults.standard.stringArray(forKey: "openedGameTypes") ?? []
     var stories: [Story] = storyList
@@ -97,11 +100,18 @@ final class RootViewModel: ObservableObject {
         if stories.allSatisfy({ !$0.isLocked }) {
             APIManager.callPOSTAPI(endpoint: .dreamOfDuck) { result in
                 switch result {
-                case .success(let data):
+                case .success(let data as BoolResponse):
                     print("Data received in View: \(data)")
                     
+                    // 오리의 꿈 뱃지 띄우기
+                    if (data.response) {
+                        self.openNewBadgeView(badgeNames: ["THE_DREAM_OF_DUCK"])
+                    }
                 case .failure(let error):
                     print("Error in View: \(error)")
+                case .success(_):
+                    // BoolResponse로 파싱 실패 시 예외 처리
+                    print("cannot parse to BoolResponse")
                 }
             }
         }
@@ -155,25 +165,31 @@ final class RootViewModel: ObservableObject {
     }
     
     // 새 뱃지 뷰
-    func openNewBadgeView(badgeName: String) {
-        let newBadge = Badge(rawValue: badgeName)
-        
-        if let badge = newBadge {
-            DispatchQueue.main.async {
-                self.newBadge = badge
-                withAnimation(.easeInOut(duration: 0.3)) {
-                    self.newBadgeViewShowing = true
+    func openNewBadgeView(badgeNames: [String]) {
+        DispatchQueue.main.async {
+            for badge in badgeNames {
+                let newBadge = Badge(rawValue: badge)
+                
+                if let newBadge = newBadge {
+                    self.newBadgeList.append(newBadge)
                 }
+            }
+            
+            withAnimation(.easeInOut(duration: 0.3)) {
+                self.newBadgeViewShowing = true
             }
         }
     }
     
     func closeNewBadgeView() {
         DispatchQueue.main.async {
-            self.newBadge = nil
-            withAnimation(.easeInOut(duration: 0.3)) {
-                self.newBadgeViewShowing = false
+            if self.newBadgeList.count == 1 {
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    self.newBadgeViewShowing = false
+                }
             }
+            
+            self.newBadgeList.removeFirst()
         }
     }
     
