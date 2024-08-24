@@ -356,6 +356,23 @@ class GameViewModel: ObservableObject {
                 case .success(let data):
                     print("Data received in View: \(data)")
                     // 게임 종료 처리 (결과 표시)
+                    
+                    if let response = data as? APIResponse {
+                        // 뱃지 열기
+                        var newBadgeNameList: [String] = []
+                        
+                        if let newBadges = response.response?.newBadges {
+                            for newBadge in newBadges {
+                                newBadgeNameList.append(newBadge.name)
+                            }
+                        }
+                        
+                        // 지금 뱃지 열지 않기
+                        DispatchQueue.main.async {
+                            self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList, openNow: false)
+                        }
+                    }
+                    
                     self.fetchBestScore()
                 case .failure(let error):
                     print("Error in View: \(error)")
@@ -395,6 +412,20 @@ class GameViewModel: ObservableObject {
                                 self.bestScore = response.highestMicrobeScore ?? 0
                             }
                         }
+                        
+                        // 뱃지 있으면 추가
+                        var newBadgeNameList: [String] = []
+                        
+                        if let newBadges = response.newBadges {
+                            for newBadge in newBadges {
+                                newBadgeNameList.append(newBadge.name)
+                            }
+                        }
+                        
+                        // 지금 뱃지 열지 않기
+                        DispatchQueue.main.async {
+                            self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList, openNow: false)
+                        }
                     }
                 }
                 print("Best Score: \(self.bestScore)")
@@ -422,6 +453,7 @@ class GameViewModel: ObservableObject {
                         }
                     }
                     
+                    // 뱃지 있으면 추가
                     var newBadgeNameList: [String] = []
                     
                     if let newBadges = response.response?.newBadges {
@@ -430,8 +462,9 @@ class GameViewModel: ObservableObject {
                         }
                     }
                     
+                    // 지금 뱃지 열지 않기
                     DispatchQueue.main.async {
-                        self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList)
+                        self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList, openNow: false)
                     }
                 }
                 print("Adventure Score: \(self.adventureScore)")
