@@ -178,8 +178,10 @@ final class RootViewModel: ObservableObject {
             
             // 바로 열기
             if openNow {
-                withAnimation(.easeInOut(duration: 0.3)) {
-                    self.newBadgeViewShowing = true
+                if !self.newBadgeList.isEmpty {
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        self.newBadgeViewShowing = true
+                    }
                 }
             }
         }

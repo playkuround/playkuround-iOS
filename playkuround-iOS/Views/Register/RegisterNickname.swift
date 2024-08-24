@@ -209,6 +209,19 @@ struct RegisterNickname: View {
                                 // 뷰 전환
                                 viewModel.transition(to: .home)
                             }
+                            
+                            // 뱃지 열기
+                            var newBadgeNameList: [String] = []
+                            
+                            if let newBadges = response.newBadges {
+                                for newBadge in newBadges {
+                                    newBadgeNameList.append(newBadge.name)
+                                }
+                            }
+                            
+                            DispatchQueue.main.async {
+                                self.viewModel.openNewBadgeView(badgeNames: newBadgeNameList)
+                            }
                         }
                     }
                     else {

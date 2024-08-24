@@ -87,6 +87,19 @@ final class HomeViewModel: ObservableObject {
                             self.userData.myRank.ranking = response.response?.myRank?.ranking ?? 0
                         }
                     }
+                    
+                    // 뱃지 열기
+                    var newBadgeNameList: [String] = []
+                    
+                    if let newBadges = response.response?.newBadges {
+                        for newBadge in newBadges {
+                            newBadgeNameList.append(newBadge.name)
+                        }
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList)
+                    }
                 }
                 
             case .failure(let error):
@@ -131,6 +144,19 @@ final class HomeViewModel: ObservableObject {
                             self.attendanceList = attendances
                             print(self.attendanceList)
                         }
+                    }
+                    
+                    // 뱃지 열기
+                    var newBadgeNameList: [String] = []
+                    
+                    if let newBadges = response.response?.newBadges {
+                        for newBadge in newBadges {
+                            newBadgeNameList.append(newBadge.name)
+                        }
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList)
                     }
                 }
                 
@@ -214,7 +240,7 @@ final class HomeViewModel: ObservableObject {
     // MARK: - User Notification
     func loadUserNotification() {
         // TODO: 백엔드와 협의하여 version checking 도입 여부 결정 필요
-        APIManager.callGETAPI(endpoint: .notification, querys: ["version": "2.0.6", "os": "ios"]) { result in
+        APIManager.callGETAPI(endpoint: .notification, querys: ["version": "2.0.4", "os": "ios"]) { result in
             switch result {
             case .success(let data as NotificationAPIResponse):
                 print("** loadUserNotifiation(): \(data)")
@@ -227,7 +253,10 @@ final class HomeViewModel: ObservableObject {
                         
                         // 서버 점검 중
                         if noti.name == "system_check" {
-                            // TODO: 서버 점검 중
+                            // 현재 서버와 버전이 맞지 않아 일단 제거, 추후 협의해서 버전 맞춘 후 주석 해제
+                            /* DispatchQueue.main.async {
+                                self.rootViewModel.serverError = true
+                            } */
                         }
                         else if noti.name == "new_badge" {
                             self.rootViewModel.openNewBadgeView(badgeNames: [noti.description])
