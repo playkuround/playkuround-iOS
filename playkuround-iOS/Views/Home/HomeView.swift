@@ -15,6 +15,9 @@ struct HomeView: View {
     
     private let soundManager = SoundManager.shared
     
+    // 공지 웹뷰 표시 여부
+    @State private var isNotiWebViewShowing: Bool = false
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -119,6 +122,13 @@ struct HomeView: View {
                                 soundManager.playSound(sound: .buttonClicked)
                             } label: {
                                 Image(.myPageButton)
+                            }
+                            
+                            Button {
+                                isNotiWebViewShowing = true
+                                soundManager.playSound(sound: .buttonClicked)
+                            } label: {
+                                Image(.notiButton)
                             }
                             
                             Spacer()
