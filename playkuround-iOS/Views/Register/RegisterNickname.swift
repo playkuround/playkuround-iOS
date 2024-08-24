@@ -169,17 +169,21 @@ struct RegisterNickname: View {
                         isNicknameDuplicated = true
                         isNicknameChecked = true
                         isLoading = false
+                        self.viewModel.openToastMessageView(message: "사용중이거나, 사용할 수 없는 닉네임이에요\n다른 닉네임을 작성해주세요")
                     }
                 } else {
                     isNicknameDuplicated = true
                     isNicknameChecked = true
                     isLoading = false
+                    self.viewModel.openToastMessageView(message: "서버와 연결할 수 없어요. 다시 시도해주세요")
                 }
             case .failure(let error):
                 print("Error in View: \(error)")
                 isNicknameDuplicated = true
                 isNicknameChecked = true
                 isLoading = false
+                self.viewModel.openToastMessageView(message: "서버와 연결할 수 없어요. 다시 시도해주세요")
+                
             }
         }
     }
@@ -211,6 +215,7 @@ struct RegisterNickname: View {
                         // 회원가입 실패
                         if let error = apiResponse.errorResponse?.message {
                             print(error)
+                            self.viewModel.openToastMessageView(message: "회원가입에 실패했어요.\n다시 시도해주세요")
                         }
                     }
                 }
@@ -220,6 +225,7 @@ struct RegisterNickname: View {
                 isNicknameDuplicated = false
                 isNicknameChecked = false
                 isLoading = false
+                self.viewModel.openToastMessageView(message: "회원가입에 실패했어요.\n다시 시도해주세요")
             }
         }
     }

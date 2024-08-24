@@ -147,9 +147,10 @@ final class HomeViewModel: ObservableObject {
                 self.loadAttendance()
                 self.loadUserData()
                 self.loadBadge()
+                self.loadTotalRanking()
             case .failure(let error):
-                // TODO: 건국대학교 범위 외 혹은 다른 이유로 출석 실패 시 예외 처리 필요 (추후 APIManager 작업 시 구현)
                 print("Error in View: \(error)")
+                self.rootViewModel.openToastMessageView(message: "건국대학교 내에서만 출석할 수 있어요.")
             }
         }
     }
@@ -297,8 +298,8 @@ final class HomeViewModel: ObservableObject {
                 }
                 // 가까운 랜드마크가 없음
                 else {
-                    // TODO: 예외 처리
                     print("가까운 랜드마크 없음")
+                    self.rootViewModel.openToastMessageView(message: "건물 근처에서만 탐험할 수 있어요")
                 }
                 
             case .failure(let error):

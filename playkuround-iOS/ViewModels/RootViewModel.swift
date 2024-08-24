@@ -104,6 +104,7 @@ final class RootViewModel: ObservableObject {
                     print("Data received in View: \(data)")
                     
                     // 오리의 꿈 뱃지 띄우기
+                    // 만약 이미 받았다면 response가 false 임
                     if (data.response) {
                         self.openNewBadgeView(badgeNames: ["THE_DREAM_OF_DUCK"])
                     }
@@ -156,7 +157,7 @@ final class RootViewModel: ObservableObject {
                 TokenManager.reset()
                 // 메인 뷰로 전환
                 self.transition(to: .main)
-                
+                self.openToastMessageView(message: "로그아웃 되었습니다")
             case .failure(let error):
                 print("로그아웃 실패")
                 print("Error in View: \(error)")
