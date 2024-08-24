@@ -104,7 +104,7 @@ struct TimerGameView: View {
                                             Image(.timeFailed)
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: 120, height: 120)
+                                                .frame(width: 170, height: 120)
                                                 .padding(.top, 20)
                                         } else if viewModel.timerState == .running {
                                             Image(.timeStopButton)
