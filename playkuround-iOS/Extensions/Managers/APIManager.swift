@@ -198,27 +198,33 @@ final class APIManager {
                 
                 // 뱃지 목록 조회 /api/badges
                 if endpoint == .badges {
+                    print("\n===== /api/badges ====\n")
                     let apiResponse = try decoder.decode(BadgeListResponse.self, from: data)
+                    print("\(apiResponse)")
                     completion(.success(apiResponse))
                 }
                 
                 // 유저 알림 조회 /api/users/notifications
                 else if endpoint == .notification {
-                    print("\n\n===== User Notification =====\n")
+                    print("\n===== /api/users/notifications ====\n")
                     let apiResponse = try decoder.decode(NotificationAPIResponse.self, from: data)
-                    print("--- user notification: \(apiResponse)")
+                    print("\(apiResponse)")
                     completion(.success(apiResponse))
                 }
                 
                 // 닉네임 사용 가능 여부 /api/users/availability
                 else if endpoint == .availability {
+                    print("\n===== /api/users/availability ====\n")
                     let apiResponse = try decoder.decode(BoolResponse.self, from: data)
+                    print("\(apiResponse)")
                     completion(.success(apiResponse))
                 }
                 
                 // 기타 API들 처리
                 else {
+                    print("\n===== /api/\(endpoint.rawValue) ====\n")
                     let apiResponse = try decoder.decode(APIResponse.self, from: data)
+                    print("\(apiResponse)")
                     completion(.success(apiResponse))
                 }
                 
@@ -292,6 +298,7 @@ final class APIManager {
             // reissue 했는데 토큰이 만료된 경우 refresh token을 재발급 받아야 함 (로그아웃)
             if httpResponse.statusCode == 401 && endpoint == .reissue {
                 completion(.failure(NSError(domain: "Refresh Token is Fired, Do Logout Process", code: 998, userInfo: nil)))
+                
                 return
             }
             
@@ -315,13 +322,17 @@ final class APIManager {
                 
                 // 오리의꿈 뱃지 획득 /api/badges/dream-of-duck
                 if endpoint == .dreamOfDuck {
+                    print("\n===== /api/badges/dream-of-duck ====\n")
                     let apiResponse = try decoder.decode(BoolResponse.self, from: data)
+                    print("\(apiResponse)")
                     completion(.success(apiResponse))
                 }
                 
                 // 기타 API들 처리
                 else {
+                    print("\n===== /api/\(endpoint.rawValue) ====\n")
                     let apiResponse = try decoder.decode(APIResponse.self, from: data)
+                    print("\(apiResponse)")
                     completion(.success(apiResponse))
                 }
                 

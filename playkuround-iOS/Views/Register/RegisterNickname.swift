@@ -219,6 +219,8 @@ struct RegisterNickname: View {
                                 }
                             }
                             
+                            print("** newBadgeList: \(newBadgeNameList)")
+                            
                             DispatchQueue.main.async {
                                 self.viewModel.openNewBadgeView(badgeNames: newBadgeNameList)
                             }

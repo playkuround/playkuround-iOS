@@ -98,7 +98,6 @@ struct MainView: View {
                 // 오류 발생 시 로그인으로 이동
                 // 뷰 전환
                 viewModel.transition(to: .login)
-                self.viewModel.openToastMessageView(message: "세션이 만료되어 다시 로그인해주세요")
             }
         }
     }

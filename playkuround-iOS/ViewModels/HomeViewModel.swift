@@ -97,6 +97,8 @@ final class HomeViewModel: ObservableObject {
                         }
                     }
                     
+                    print("** newBadgeList: \(newBadgeNameList)")
+                    
                     DispatchQueue.main.async {
                         self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList)
                     }
@@ -154,6 +156,8 @@ final class HomeViewModel: ObservableObject {
                             newBadgeNameList.append(newBadge.name)
                         }
                     }
+                    
+                    print("** newBadgeList: \(newBadgeNameList)")
                     
                     DispatchQueue.main.async {
                         self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList)
