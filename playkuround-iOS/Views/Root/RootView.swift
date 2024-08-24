@@ -85,6 +85,11 @@ struct RootView: View {
                     ToastAlertView(alertText: message)
                 }
             }
+            
+            // 서버 점검 중
+            if viewModel.serverError {
+                NetworkErrorView(loadingColor: .white, errorType: .server)
+            }
         }
         .onAppear {
             // 확인 작업
