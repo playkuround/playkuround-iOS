@@ -169,11 +169,28 @@ final class HomeViewModel: ObservableObject {
     func attendance(latitude: Double, longitude: Double) {
         APIManager.callPOSTAPI(endpoint: .attendances, parameters: ["latitude": latitude, "longitude": longitude]) { result in
             switch result {
-            case .success(_):
+            case .success(let data):
                 self.loadAttendance()
                 self.loadUserData()
                 self.loadBadge()
                 self.loadTotalRanking()
+                
+                if let response = data as? APIResponse {
+                    // 뱃지 열기
+                    var newBadgeNameList: [String] = []
+                    
+                    if let newBadges = response.response?.newBadges {
+                        for newBadge in newBadges {
+                            newBadgeNameList.append(newBadge.name)
+                        }
+                    }
+                    
+                    print("** newBadgeList: \(newBadgeNameList)")
+                    
+                    DispatchQueue.main.async {
+                        self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList)
+                    }
+                }
             case .failure(let error):
                 print("Error in View: \(error)")
                 self.rootViewModel.openToastMessageView(message: "건국대학교 내에서만 출석할 수 있어요.")
