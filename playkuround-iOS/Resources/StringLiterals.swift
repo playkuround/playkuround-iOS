@@ -35,6 +35,11 @@ enum StringLiterals {
             static let description = "인증코드 입력 시간이 초과되었습니다.\n인증코드를 다시 요청해주세요."
             static let ok = "확인"
         }
+        
+        enum ToastMessage {
+            static let overNumMail = "하루 인증 횟수를 초과했어요. 내일 다시 인증해주세요"
+            static let emailSendFail = "이메일 전송에 실패했어요. 다시 시도해주세요"
+        }
     }
     
     enum Register {
@@ -59,11 +64,17 @@ enum StringLiterals {
         static let college = "대학"
         static let major = "학과"
         static let termsErrorMessage = "이용약관을 불러올 수 없습니다."
+        
+        enum ToastMessage {
+            static let registerFailed = "회원가입에 실패했어요.\n다시 시도해주세요"
+            static let nicknameDuplicated = "사용중이거나, 사용할 수 없는 닉네임이에요\n다른 닉네임을 작성해주세요"
+        }
     }
     
     enum Network {
         static let message = "네트워크 오류가 발생했습니다.\n잠시만 기다려주세요!"
         static let serverMessage = "서버가 점검중입니다.\n잠시만 기다려주세요!"
+        static let serverError = "서버와 통신에 실패했어요. 다시 시도해주세요"
     }
     
     enum Permission {
@@ -128,6 +139,11 @@ enum StringLiterals {
             static let description = "나를 표현할 사진을 선택하세요!"
             static let change = "변경하기"
         }
+        
+        enum ToastMessage {
+            static let noNearLandmark = "건물 근처에서만 탐험할 수 있어요"
+            static let attendanceFailed = "건국대학교 내에서만 출석할 수 있어요."
+        }
     }
     
     enum MyPage {
@@ -166,6 +182,7 @@ enum StringLiterals {
             static let message = "로그아웃 하시겠습니까?"
             static let ok = "예"
             static let no = "아니오"
+            static let done = "로그아웃 되었습니다"
         }
     }
     

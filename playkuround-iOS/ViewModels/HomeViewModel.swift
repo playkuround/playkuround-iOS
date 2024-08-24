@@ -197,7 +197,7 @@ final class HomeViewModel: ObservableObject {
                 }
             case .failure(let error):
                 print("Error in View: \(error)")
-                self.rootViewModel.openToastMessageView(message: "건국대학교 내에서만 출석할 수 있어요.")
+                self.rootViewModel.openToastMessageView(message: StringLiterals.Home.ToastMessage.attendanceFailed)
             }
         }
     }
@@ -343,7 +343,7 @@ final class HomeViewModel: ObservableObject {
                 // 가까운 랜드마크가 없음
                 else {
                     print("가까운 랜드마크 없음")
-                    self.rootViewModel.openToastMessageView(message: "건물 근처에서만 탐험할 수 있어요")
+                    self.rootViewModel.openToastMessageView(message: StringLiterals.Home.ToastMessage.noNearLandmark)
                 }
                 
             case .failure(let error):

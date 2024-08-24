@@ -157,7 +157,7 @@ final class RootViewModel: ObservableObject {
                 TokenManager.reset()
                 // 메인 뷰로 전환
                 self.transition(to: .main)
-                self.openToastMessageView(message: "로그아웃 되었습니다")
+                self.openToastMessageView(message: StringLiterals.MyPage.Logout.done)
             case .failure(let error):
                 print("로그아웃 실패")
                 print("Error in View: \(error)")

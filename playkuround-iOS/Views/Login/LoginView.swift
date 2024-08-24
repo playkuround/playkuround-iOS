@@ -143,13 +143,13 @@ struct LoginView: View {
                             isAuthCodeViewVisible = false
                             isMaximumCount = true
                             mailButtonClicked = false
-                            self.viewModel.openToastMessageView(message: "하루 인증 횟수를 초과했어요. 내일 다시 인증해주세요")
+                            self.viewModel.openToastMessageView(message: StringLiterals.Login.ToastMessage.overNumMail)
                         }
                     }
                 }
             case .failure(let error):
                 print("Error in View: \(error)")
-                self.viewModel.openToastMessageView(message: "이메일 전송에 실패했어요. 다시 시도해주세요")
+                self.viewModel.openToastMessageView(message: StringLiterals.Login.ToastMessage.emailSendFail)
             }
         }
     }
