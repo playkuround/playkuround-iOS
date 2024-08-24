@@ -165,7 +165,7 @@ final class RootViewModel: ObservableObject {
     }
     
     // 새 뱃지 뷰
-    func openNewBadgeView(badgeNames: [String]) {
+    func openNewBadgeView(badgeNames: [String], openNow: Bool = true) {
         DispatchQueue.main.async {
             for badge in badgeNames {
                 let newBadge = Badge(rawValue: badge)
@@ -175,8 +175,11 @@ final class RootViewModel: ObservableObject {
                 }
             }
             
-            withAnimation(.easeInOut(duration: 0.3)) {
-                self.newBadgeViewShowing = true
+            // 바로 열기
+            if openNow {
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    self.newBadgeViewShowing = true
+                }
             }
         }
     }
