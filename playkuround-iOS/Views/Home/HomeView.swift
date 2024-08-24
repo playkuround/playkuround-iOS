@@ -13,9 +13,6 @@ struct HomeView: View {
     @ObservedObject var mapViewModel: MapViewModel
     @State private var showStoryView: Bool = false
     
-    // 임시
-    @State private var temp: Bool = false
-    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -84,11 +81,6 @@ struct HomeView: View {
                                         .kerning(-0.41)
                                 }
                                 .padding(.horizontal, 8)
-                            }
-                            .onTapGesture {
-                                // viewModel.openNewBadgeView(badgeName: "ATTENDANCE_1")
-                                // viewModel.openToastMessageView(message: "test")
-                                temp = true
                             }
                     }
                     .padding(.top, shouldPadding ? 4 : 0)
@@ -213,9 +205,6 @@ struct HomeView: View {
             .onDisappear {
                 // 홈 뷰에서 벗어날 때 위치 업데이트 중지
                 mapViewModel.stopUpdatingLocation()
-            }
-            .sheet(isPresented: $temp) {
-                APIManagerTestView()
             }
         }
     }

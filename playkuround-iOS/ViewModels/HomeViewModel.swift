@@ -264,14 +264,9 @@ final class HomeViewModel: ObservableObject {
         APIManager.callGETAPI(endpoint: .notification, querys: ["version": "2.0.4", "os": "ios"]) { result in
             switch result {
             case .success(let data as NotificationAPIResponse):
-                print("** loadUserNotifiation(): \(data)")
-                
                 // 유저 알림 처리
-                print("===== User Notification ====")
                 if let notis = data.response {
                     for noti in notis {
-                        print("\(noti.name): \(noti.description)")
-                        
                         // 서버 점검 중
                         if noti.name == "system_check" {
                             // 현재 서버와 버전이 맞지 않아 일단 제거, 추후 협의해서 버전 맞춘 후 주석 해제
@@ -284,7 +279,6 @@ final class HomeViewModel: ObservableObject {
                         }
                     }
                 }
-                
             case .failure(let error):
                 print("** loadUserNotifiation(): \(error)")
             case .success(_):

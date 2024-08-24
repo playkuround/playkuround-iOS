@@ -59,23 +59,3 @@ struct NewBadgeView: View {
         }
     }
 }
-
-struct NewBadgeTestView: View {
-    @ObservedObject var rootViewModel: RootViewModel
-    
-    var body: some View {
-        ZStack {
-            Button("open") {
-                rootViewModel.openNewBadgeView(badgeNames: ["ATTENDANCE_1", "THE_DREAM_OF_DUCK"])
-            }
-            
-            if rootViewModel.newBadgeViewShowing {
-                NewBadgeView(rootViewModel: rootViewModel)
-            }
-        }
-    }
-}
-
-#Preview {
-    NewBadgeTestView(rootViewModel: RootViewModel())
-}
