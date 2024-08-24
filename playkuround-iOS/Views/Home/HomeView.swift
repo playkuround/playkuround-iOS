@@ -208,6 +208,13 @@ struct HomeView: View {
                     ProfileBadgeView(homeViewModel: homeViewModel)
                 }
             }
+            .sheet(isPresented: $isNotiWebViewShowing) {
+                // TODO: 추후 서버에서 공지 URL 받아와 연결 필요
+                if let url = URL(string: "https://www.konkuk.ac.kr/") {
+                    WebView(url: url)
+                        .presentationDragIndicator(.visible)
+                }
+            }
             .onAppear {
                 mapViewModel.startUpdatingLocation()
                 
