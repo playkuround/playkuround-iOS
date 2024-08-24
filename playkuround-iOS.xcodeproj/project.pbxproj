@@ -42,6 +42,7 @@
 		0C9641E62BB874E200838DA9 /* TimerBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9641E52BB874E200838DA9 /* TimerBarView.swift */; };
 		0C9641EA2BB92D6300838DA9 /* GameResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9641E92BB92D6300838DA9 /* GameResultView.swift */; };
 		0C9B120E2C6F67C600093178 /* ToastAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9B120D2C6F67C600093178 /* ToastAlertView.swift */; };
+		0C9FDC102C7A52BF002F814B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9FDC0F2C7A52BF002F814B /* WebView.swift */; };
 		0CA07D6F2BFDA96F00564AEB /* SurviveGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA07D6E2BFDA96F00564AEB /* SurviveGameView.swift */; };
 		0CA07D712BFDA98400564AEB /* SurviveGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA07D702BFDA98400564AEB /* SurviveGameViewModel.swift */; };
 		0CA193562BB5ABEB007C04B1 /* RequestPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */; };
@@ -175,6 +176,7 @@
 		0C9641E52BB874E200838DA9 /* TimerBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerBarView.swift; sourceTree = "<group>"; };
 		0C9641E92BB92D6300838DA9 /* GameResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultView.swift; sourceTree = "<group>"; };
 		0C9B120D2C6F67C600093178 /* ToastAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastAlertView.swift; sourceTree = "<group>"; };
+		0C9FDC0F2C7A52BF002F814B /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		0CA07D6E2BFDA96F00564AEB /* SurviveGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurviveGameView.swift; sourceTree = "<group>"; };
 		0CA07D702BFDA98400564AEB /* SurviveGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurviveGameViewModel.swift; sourceTree = "<group>"; };
 		0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionView.swift; sourceTree = "<group>"; };
@@ -424,6 +426,14 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		0C9FDC0E2C7A52B6002F814B /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				0C9FDC0F2C7A52BF002F814B /* WebView.swift */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
 		0CA07D6D2BFDA93F00564AEB /* SurviveGame */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,6 +493,7 @@
 		0CD0402B2C062A14009F9BE1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0C9FDC0E2C7A52B6002F814B /* Web */,
 				0C0CDA2F2C299017003D12BA /* Adventure */,
 				B94C50442C108C98005CB447 /* TotalRanking */,
 				B99CD63B2C1026D1002B3755 /* Badge */,
@@ -929,6 +940,7 @@
 				0CA4C5662BB3281F00268B07 /* RootView.swift in Sources */,
 				0C6AA4CD2BA56E230032AB24 /* UserNotification.swift in Sources */,
 				C918F40D2BA753B400C0BFDA /* AuthenticationTimer.swift in Sources */,
+				0C9FDC102C7A52BF002F814B /* WebView.swift in Sources */,
 				B9955B112C19C3360082FC60 /* Formatter+.swift in Sources */,
 				C97543F22BB3222F00CD6479 /* MyPageProfileView.swift in Sources */,
 				0C7FE6A12BB1983A00D94162 /* AnimationImages.swift in Sources */,
