@@ -70,14 +70,17 @@ final class QuizGameViewModel: GameViewModel {
     }
     
     private func calculateScore() {
-        if correctAnswersCount >= 0 && correctAnswersCount <= 9 {
-            score = 10 * ( correctAnswersCount + 1 )
+        if correctAnswersCount == 0 {
+            score = 5
         }
-        else if correctAnswersCount >= 10 && correctAnswersCount <= 14 {
-            score = 10 * ( 2 * correctAnswersCount - 8 )
+        else if correctAnswersCount >= 1 && correctAnswersCount <= 15 {
+            score = 10 * correctAnswersCount
         }
-        else if correctAnswersCount == 15 {
-            score = 250
+        else if correctAnswersCount >= 16 && correctAnswersCount <= 25 {
+            score = 10 * ( 2 * correctAnswersCount - 14 )
+        }
+        else if correctAnswersCount >= 26 {
+            score = 400
         }
     }
 }
