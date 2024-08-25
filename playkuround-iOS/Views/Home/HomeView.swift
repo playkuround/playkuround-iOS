@@ -15,9 +15,6 @@ struct HomeView: View {
     
     private let soundManager = SoundManager.shared
     
-    // 공지 웹뷰 표시 여부
-    @State private var isNotiWebViewShowing: Bool = false
-    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -125,7 +122,7 @@ struct HomeView: View {
                             }
                             
                             Button {
-                                isNotiWebViewShowing = true
+                                homeViewModel.transition(to: .notification)
                                 soundManager.playSound(sound: .buttonClicked)
                             } label: {
                                 Image(.notiButton)
@@ -206,13 +203,8 @@ struct HomeView: View {
                     AdventureView(viewModel: viewModel, homeViewModel: homeViewModel)
                 case .badgeProfile:
                     ProfileBadgeView(homeViewModel: homeViewModel)
-                }
-            }
-            .sheet(isPresented: $isNotiWebViewShowing) {
-                // TODO: 추후 서버에서 공지 URL 받아와 연결 필요
-                if let url = URL(string: "https://www.konkuk.ac.kr/") {
-                    WebView(url: url)
-                        .presentationDragIndicator(.visible)
+                case .notification:
+                    NotificationView(homeViewModel: homeViewModel)
                 }
             }
             .onAppear {

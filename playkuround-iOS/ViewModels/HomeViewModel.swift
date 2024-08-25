@@ -367,4 +367,6 @@ enum HomeViewType {
     case adventure
     
     case badgeProfile // 뱃지 프로필 변경
+    
+    case notification // 공지 뷰
 }
