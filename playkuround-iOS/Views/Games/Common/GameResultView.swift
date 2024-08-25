@@ -11,6 +11,8 @@ struct GameResultView: View {
     @ObservedObject var rootViewModel: RootViewModel
     @ObservedObject var gameViewModel: GameViewModel
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         ZStack {
             Color.black.opacity(0.5)
@@ -55,6 +57,7 @@ struct GameResultView: View {
                             .padding(.vertical, 20)
                         
                         Button {
+                            soundManager.playSound(sound: .buttonClicked)
                             // 홈으로 이동
                             rootViewModel.transition(to: .home)
                             rootViewModel.saveOpenedGameType(gameViewModel.gameType)

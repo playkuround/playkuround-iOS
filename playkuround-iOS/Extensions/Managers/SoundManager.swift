@@ -10,8 +10,9 @@ import SwiftUI
 
 final class SoundManager {
     static let shared = SoundManager()
-    
-    var player: AVAudioPlayer?
+
+    private var player: AVAudioPlayer?
+    private var currentTime: TimeInterval = 0
     
     func playSound(sound: Sound, loop: Bool = false) {
         guard let url = Bundle.main.url(forResource: sound.rawValue, withExtension: ".mp3") else { return }
@@ -34,6 +35,16 @@ final class SoundManager {
     
     func stopSound() {
         player?.stop()
+    }
+    
+    func pauseSound() {
+        currentTime = player?.currentTime ?? 0
+        player?.pause()
+    }
+    
+    func resumeSound() {
+        player?.currentTime = currentTime
+        player?.play()
     }
 }
 

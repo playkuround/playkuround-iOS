@@ -37,6 +37,7 @@ struct TimerGameView: View {
                     },
                     rightView: {
                         Button {
+                            viewModel.soundManager.playSound(sound: .buttonClicked)
                             viewModel.togglePauseView()
                         } label: {
                             Image(.bluePauseButton)
@@ -100,10 +101,10 @@ struct TimerGameView: View {
                                         viewModel.timeButtonClick()
                                     } label: {
                                         if viewModel.timerState == .failed {
-                                            Image(.timeRestartButton)
+                                            Image(.timeFailed)
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: 120, height: 120)
+                                                .frame(width: 170, height: 120)
                                                 .padding(.top, 20)
                                         } else if viewModel.timerState == .running {
                                             Image(.timeStopButton)

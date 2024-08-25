@@ -37,6 +37,8 @@ final class RootViewModel: ObservableObject {
     var openedGameTypes = UserDefaults.standard.stringArray(forKey: "openedGameTypes") ?? []
     var stories: [Story] = storyList
     
+    let soundManager = SoundManager()
+    
     func previousStory() {
         if currentStoryIndex > 0 {
             currentStoryIndex -= 1

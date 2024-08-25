@@ -11,6 +11,8 @@ final class MoonGameViewModel: GameViewModel {
     @Published var moonState: MoonState = .fullMoon
     @Published var moonTapped: Int = 100
     
+    let soundManager = SoundManager.shared
+    
     override func startGame() {
         super.startGame()
         super.startTimer()
@@ -29,18 +31,21 @@ final class MoonGameViewModel: GameViewModel {
                 self.moonTapped -= 1
                 self.moonState = .fullMoon
             }
+            self.soundManager.playSound(sound: .moonClicked)
         }
         else if 51 < moonTapped && moonTapped <= 81 {
             DispatchQueue.main.async {
                 self.moonTapped -= 1
                 self.moonState = .cracked
             }
+            self.soundManager.playSound(sound: .moonClicked)
         }
         else if 1 < moonTapped && moonTapped <= 51 {
             DispatchQueue.main.async {
                 self.moonTapped -= 1
                 self.moonState = .moreCracked
             }
+            self.soundManager.playSound(sound: .moonClicked)
         }
         else if moonTapped == 1 {
             DispatchQueue.main.async {
@@ -69,6 +74,8 @@ final class MoonGameViewModel: GameViewModel {
                 
                 self.finishGame()
             }
+            self.soundManager.playSound(sound: .moonHundredClicked)
+            finishGame()
         }
     }
     

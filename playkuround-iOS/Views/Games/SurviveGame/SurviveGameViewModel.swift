@@ -18,7 +18,7 @@ final class SurviveGameViewModel: GameViewModel {
     // 덕쿠 이동 범위 제한
     private var frameMaxX: CGFloat = 0.0
     private var frameMaxY: CGFloat = 0.0
-        
+    
     // 덕쿠 속도 및 가속도
     private var velocityX: CGFloat = 0.0
     private var velocityY: CGFloat = 0.0
@@ -46,6 +46,8 @@ final class SurviveGameViewModel: GameViewModel {
     
     // 생명
     @Published var life: Int = 3
+    
+    let soundManager = SoundManager.shared
     
     init(rootViewModel: RootViewModel, mapViewModel: MapViewModel) {
         self.motionManager = MotionManager()
@@ -232,7 +234,10 @@ final class SurviveGameViewModel: GameViewModel {
         self.life -= 1
         
         if self.life == 0 {
+            soundManager.playSound(sound: .microbeEnd)
             finishGame()
+        } else {
+            soundManager.playSound(sound: .microbeHit)
         }
         
         DispatchQueue.main.async {
@@ -288,7 +293,7 @@ final class SurviveGameViewModel: GameViewModel {
         let dy = abs(y2 - y1)
         return dx + dy
     }
-
+    
     // 점을 중심점을 기준으로 회전시키는 함수
     func rotatePoint(_ point: CGPoint, around center: CGPoint, by angle: CGFloat) -> CGPoint {
         let radians = angle * .pi / 180
@@ -300,7 +305,7 @@ final class SurviveGameViewModel: GameViewModel {
         
         return CGPoint(x: rotatedX + center.x, y: rotatedY + center.y)
     }
-
+    
     // 두 좌표를 받아서 사각형의 네 꼭짓점을 반환하는 함수
     func rotatedRectangle(_ point1: CGPoint, _ point2: CGPoint, by angle: CGFloat) -> (CGPoint, CGPoint, CGPoint, CGPoint) {
         // 사각형의 네 꼭짓점을 계산합니다.
@@ -338,7 +343,7 @@ final class SurviveGameViewModel: GameViewModel {
         }
         return (minProj, maxProj)
     }
-
+    
     // 주어진 축이 두 다각형 사이의 분리 축인지 검사하는 함수
     func isSeparatingAxis(_ axis: CGPoint, vertices1: [CGPoint], vertices2: [CGPoint]) -> Bool {
         let projection1 = projectPolygon(vertices: vertices1, axis: axis)

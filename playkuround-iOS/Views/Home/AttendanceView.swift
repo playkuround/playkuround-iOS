@@ -14,6 +14,8 @@ struct AttendanceView: View {
     @ObservedObject var mapViewModel: MapViewModel
     @State private var dates: [Date] = []
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         ZStack {
             Image(.homeBackground)
@@ -84,6 +86,7 @@ struct AttendanceView: View {
                             
                             Button {
                                 homeViewModel.attendance(latitude: mapViewModel.userLatitude, longitude: mapViewModel.userLongitude)
+                                soundManager.playSound(sound: .buttonClicked)
                             } label: {
                                 Image(isTodayAttended ? .shortButtonGray : .shortButtonBlue)
                                     .overlay {
@@ -110,6 +113,7 @@ struct AttendanceView: View {
             }, leftView: {
                 Button {
                     homeViewModel.transition(to: .home)
+                    soundManager.playSound(sound: .buttonClicked)
                 } label: {
                     Image(.leftWhiteArrow)
                 }
