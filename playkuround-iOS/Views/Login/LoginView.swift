@@ -66,6 +66,9 @@ struct LoginView: View {
                     mailButtonClicked.toggle()
                     soundManager.playSound(sound: .buttonClicked)
                     
+                    // 이메일 전송 버튼 이벤트
+                    GAManager.shared.logEvent(.SEND_EMAIL)
+                    
                     if mailButtonClicked {
                         mailButtonTitle = userId.isEmpty ? StringLiterals.Login.requestCode : StringLiterals.Login.reRequestCode
                     }

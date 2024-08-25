@@ -30,6 +30,9 @@ struct MyPageListSectionView: View {
                             NotificationCenter.default.post(name: NSNotification.Name("storyViewPresented"),
                                                             object: nil)
                             soundManager.playSound(sound: .buttonClicked)
+                            
+                            // 스토리 다시보기 이벤트
+                            GAManager.shared.logEvent(.REVIEW_STORY)
                         }
                 }
                 
@@ -40,6 +43,9 @@ struct MyPageListSectionView: View {
                             NotificationCenter.default.post(name: NSNotification.Name("logoutViewPresented"), 
                                                             object: nil)
                             soundManager.playSound(sound: .buttonClicked)
+                            
+                            // 로그아웃 이벤트
+                            GAManager.shared.logEvent(.LOGOUT)
                         }
                 }
                 
@@ -49,6 +55,9 @@ struct MyPageListSectionView: View {
                         .onTapGesture {
                             linkInstagramURL()
                             soundManager.playSound(sound: .buttonClicked)
+                            
+                            // 인스타그램 열기 이벤트
+                            GAManager.shared.logEvent(.OPEN_INSTAGRAM)
                         }
                 }
                 
@@ -60,6 +69,9 @@ struct MyPageListSectionView: View {
                                                             object: nil)
                             callPostAPIfakeDoor()
                             soundManager.playSound(sound: .buttonClicked)
+                            
+                            // 응원하기 이벤트
+                            GAManager.shared.logEvent(.CHEERING)
                         }
                 }
                 
@@ -69,6 +81,9 @@ struct MyPageListSectionView: View {
                         .onTapGesture {
                             linkFeedbackURL()
                             soundManager.playSound(sound: .buttonClicked)
+                            
+                            // 피드백 보내기 이벤트
+                            GAManager.shared.logEvent(.SEND_FEEDBACK)
                         }
                 }
                 
@@ -78,6 +93,9 @@ struct MyPageListSectionView: View {
                         .onTapGesture {
                             linkBugURL()
                             soundManager.playSound(sound: .buttonClicked)
+                            
+                            // 오류 제보 이벤트
+                            GAManager.shared.logEvent(.ERROR_REPORT)
                         }
                 }
                 
@@ -103,6 +121,9 @@ struct MyPageListSectionView: View {
                             NotificationCenter.default.post(name: NSNotification.Name("privacyTermsViewPresented"), 
                                                             object: nil)
                             soundManager.playSound(sound: .buttonClicked)
+                            
+                            // 개인정보 처리방침 열기 이벤트
+                            GAManager.shared.logEvent(.OPEN_PRIVACY_POLICY)
                         }
                 }
                 
@@ -113,6 +134,9 @@ struct MyPageListSectionView: View {
                             NotificationCenter.default.post(name: NSNotification.Name("serviceTermsViewPresented"), 
                                                             object: nil)
                             soundManager.playSound(sound: .buttonClicked)
+                            
+                            // 이용약관 열기 이벤트
+                            GAManager.shared.logEvent(.TERM_OF_SERVICE)
                         }
                 }
             }

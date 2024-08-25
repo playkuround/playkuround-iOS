@@ -121,6 +121,9 @@ struct AuthenticationCodeView: View {
                                 
                                 TokenManager.setToken(tokenType: .authVerify, token: authVerifyToken)
                                 
+                                // 회원가입 프로세스 시작 이벤트
+                                GAManager.shared.logEvent(.REGISTER_START)
+                                
                                 // 뷰 전환
                                 viewModel.transition(to: .registerTerms)
                             }
@@ -132,6 +135,9 @@ struct AuthenticationCodeView: View {
                                 
                                 // 저장한 이메일 제거
                                 UserDefaults.standard.removeObject(forKey: "email")
+                                
+                                // 로그인 성공
+                                GAManager.shared.logEvent(.LOGIN_SUCCESS)
                                 
                                 // 뷰 전환
                                 viewModel.transition(to: .home)

@@ -82,6 +82,11 @@ struct ProfileBadgeView: View {
                                     switch result {
                                     case .success(let data):
                                         print("(success) /api/users/profile-badge: \(data)")
+                                        
+                                        // 뱃지 변경 이벤트
+                                        GAManager.shared.logEvent(.BADGE_PROFILE_CHANGE,
+                                                                  parameters: ["BadgeName": selectedBadge.rawValue])
+                                        
                                         homeViewModel.loadUserData()
                                         homeViewModel.loadTotalRanking()
                                         homeViewModel.transition(to: .home)

@@ -342,6 +342,10 @@ class GameViewModel: ObservableObject {
         
         print("** ready to upload score: \(uploadScore)점")
         
+        // 게임 점수 업로드 이벤트
+        GAManager.shared.logEvent(.UPLOAD_GAME_RESULT,
+                                  parameters: ["GameType": self.gameType.rawValue, "Score": uploadScore])
+        
 //        if let landmarkID = mapViewModel.userLandmarkID {
             // Adventure API 호출
             // 전송 실패하더라도 callPOSTAPI 함수 내부에서 재전송 처리

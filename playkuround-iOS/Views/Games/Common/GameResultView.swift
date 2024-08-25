@@ -58,6 +58,10 @@ struct GameResultView: View {
                         
                         Button {
                             soundManager.playSound(sound: .buttonClicked)
+                            
+                            // 게임 완료 이벤트
+                            GAManager.shared.logEvent(.GAME_FINISH)
+                            
                             // 홈으로 이동
                             rootViewModel.transition(to: .home)
                             rootViewModel.saveOpenedGameType(gameViewModel.gameType)

@@ -139,12 +139,18 @@ final class HomeViewModel: ObservableObject {
         APIManager.callPOSTAPI(endpoint: .attendances, parameters: ["latitude": latitude, "longitude": longitude]) { result in
             switch result {
             case .success(_):
+                // 출석 성공 이벤트
+                GAManager.shared.logEvent(.ATTENDANCE_SUCCESS)
+                
                 self.loadAttendance()
                 self.loadUserData()
                 self.loadBadge()
             case .failure(let error):
                 // TODO: 건국대학교 범위 외 혹은 다른 이유로 출석 실패 시 예외 처리 필요 (추후 APIManager 작업 시 구현)
                 print("Error in View: \(error)")
+                
+                // 출석 실패 이벤트
+                GAManager.shared.logEvent(.ATTENDANCE_FAIL)
             }
         }
     }

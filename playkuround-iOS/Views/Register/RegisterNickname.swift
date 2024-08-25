@@ -205,6 +205,9 @@ struct RegisterNickname: View {
                                 UserDefaults.standard.removeObject(forKey: "email")
                                 UserDefaults.standard.removeObject(forKey: "major")
                                 
+                                // 회원가입 성공 이벤트
+                                GAManager.shared.logEvent(.REGISTER_SUCCESS)
+                                
                                 // 뷰 전환
                                 viewModel.transition(to: .home)
                             }
