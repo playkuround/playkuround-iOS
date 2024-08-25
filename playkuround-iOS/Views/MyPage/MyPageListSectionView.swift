@@ -115,6 +115,21 @@ struct MyPageListSectionView: View {
                             soundManager.playSound(sound: .buttonClicked)
                         }
                 }
+                
+                // 언어
+                if title == StringLiterals.MyPage.Setting.language.rawValue {
+                    MyPageListRowView(rowTitle: title)
+                        .overlay {
+                            HStack {
+                                Spacer()
+                                
+                                Text(StringLiterals.MyPage.Setting.currentLanguage.rawValue)
+                                    .font(.pretendard15R)
+                                    .foregroundStyle(.kuText)
+                                    .padding(.top, 18)
+                            }
+                        }
+                }
             }
         }
     }
