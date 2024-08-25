@@ -21,6 +21,8 @@ struct RegisterNickname: View {
     // 서버 요청 대기
     @State private var isLoading: Bool = false
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         ZStack {
             Color.kuBackground.ignoresSafeArea(.all)
@@ -125,6 +127,7 @@ struct RegisterNickname: View {
                         }
                     }
                     .onTapGesture {
+                        soundManager.playSound(sound: .buttonClicked)
                         // 닉네임 올바른지 검사
                         if !isNicknameChecked && isNicknameVaild && nickname.count >= 2 {
                             isLoading = true
