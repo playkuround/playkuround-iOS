@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "adventureBadgeTable.png",
+      "filename" : "adventureBadgeTable1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "adventureBadgeTable@2x.png",
+      "filename" : "adventureBadgeTable2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "adventureBadgeTable@3x.png",
+      "filename" : "adventureBadgeTable3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
