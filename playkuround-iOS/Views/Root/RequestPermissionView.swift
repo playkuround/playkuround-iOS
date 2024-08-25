@@ -53,6 +53,9 @@ struct RequestPermissionView: View {
                     }
                 }
         }
+        .onTapGesture {
+            GAManager.shared.logScreenEvent(.RequestPermissionView)
+        }
     }
 }
 

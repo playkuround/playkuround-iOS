@@ -238,6 +238,9 @@ struct RegisterView: View {
                 .opacity(isMajorMenuPresented ? 1.0 : 0.0)
             }
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.RegisterMajorView)
+        }
         // 다른 배경 누르면 menu 닫힘
         .onTapGesture {
             if isMajorMenuPresented {

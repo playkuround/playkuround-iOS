@@ -34,6 +34,9 @@ struct NetworkErrorView: View {
                     .multilineTextAlignment(.center)
             }
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.NetworkErrorView)
+        }
     }
     
     enum NetworkErrorType {

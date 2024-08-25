@@ -57,5 +57,8 @@ struct NewBadgeView: View {
                     }
             }
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.NewBadgeView, badgeName: badge.rawValue)
+        }
     }
 }

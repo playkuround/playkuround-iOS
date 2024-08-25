@@ -174,6 +174,9 @@ final class HomeViewModel: ObservableObject {
         APIManager.callPOSTAPI(endpoint: .attendances, parameters: ["latitude": latitude, "longitude": longitude]) { result in
             switch result {
             case .success(let data):
+                // 출석 성공 이벤트
+                GAManager.shared.logEvent(.ATTENDANCE_SUCCESS)
+
                 self.loadAttendance()
                 self.loadUserData()
                 self.loadBadge()
@@ -197,6 +200,9 @@ final class HomeViewModel: ObservableObject {
                 }
             case .failure(let error):
                 print("Error in View: \(error)")
+                
+                // 출석 실패 이벤트
+                GAManager.shared.logEvent(.ATTENDANCE_FAIL)
                 self.rootViewModel.openToastMessageView(message: StringLiterals.Home.ToastMessage.attendanceFailed)
             }
         }

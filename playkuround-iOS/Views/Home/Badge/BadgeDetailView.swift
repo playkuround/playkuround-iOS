@@ -44,5 +44,8 @@ struct BadgeDetailView: View {
                     .padding(.horizontal, 48)
                 }
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.BadgeDetailView, badgeName: badge.rawValue)
+        }
     }
 }

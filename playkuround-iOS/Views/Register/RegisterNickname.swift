@@ -140,6 +140,9 @@ struct RegisterNickname: View {
             .padding(.top, 30)
             .padding(.bottom, 10)
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.RegisterNicknameView)
+        }
     }
     
     // 서버 API 통해 닉네임이 사용 가능한지 검사
@@ -208,6 +211,9 @@ struct RegisterNickname: View {
                                 // 임시 저장한 데이터 제거
                                 UserDefaults.standard.removeObject(forKey: "email")
                                 UserDefaults.standard.removeObject(forKey: "major")
+                                
+                                // 회원가입 성공 이벤트
+                                GAManager.shared.logEvent(.REGISTER_SUCCESS)
                                 
                                 // 뷰 전환
                                 viewModel.transition(to: .home)

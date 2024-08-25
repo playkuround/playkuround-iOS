@@ -52,6 +52,10 @@ struct AdventureView: View {
                             homeViewModel.transition(to: .home)
                             
                             if let selectedGame = selectedGame {
+                                // 게임 시작 이벤트
+                                GAManager.shared.logEvent(.GAME_START,
+                                                          parameters: ["GameType": selectedGame.rawValue])
+                                
                                 viewModel.transition(to: selectedGame)
                             }
                             
@@ -68,6 +72,9 @@ struct AdventureView: View {
                         .disabled(!homeViewModel.isStartButtonEnabled)
                     }
                 }
+        }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.AdventureView, landmarkID: homeViewModel.getSelectedLandmark().number)
         }
     }
 }

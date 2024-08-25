@@ -46,6 +46,9 @@ struct MainView: View {
                         .onTapGesture {
                             soundManager.playSound(sound: .buttonClicked)
                             
+                            // 메인 화면 시작 버튼 클릭 이벤트
+                            GAManager.shared.logEvent(.START_BUTTON_CLICK)
+                            
                             // 위치 권한 허가 요청
                             mapViewModel.requestLocationAuthorization()
                             
@@ -65,6 +68,9 @@ struct MainView: View {
                         }
                 }
             }
+            .onAppear {
+                GAManager.shared.logScreenEvent(.MainView)
+            }
         }
     }
     
@@ -82,6 +88,9 @@ struct MainView: View {
                             // 발급받은 토큰 저장
                             TokenManager.setToken(tokenType: .access, token: accessToken)
                             TokenManager.setToken(tokenType: .refresh, token: refreshToken)
+                            
+                            // 자동 로그인 성공 이벤트
+                            GAManager.shared.logEvent(.AUTO_LOGIN)
                             
                             // 뷰 전환
                             viewModel.transition(to: .home)

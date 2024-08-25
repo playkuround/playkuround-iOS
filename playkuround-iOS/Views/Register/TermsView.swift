@@ -78,6 +78,9 @@ struct TermsView: View {
                 .padding(.bottom)
             }
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.TermView)
+        }
     }
 }
 

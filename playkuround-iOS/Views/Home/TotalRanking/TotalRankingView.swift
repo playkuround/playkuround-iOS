@@ -261,6 +261,9 @@ struct TotalRankingView: View {
                     }
                 }, height: 30)
             }
+            .onAppear {
+                GAManager.shared.logScreenEvent(.TotalRankingView)
+            }
             if showInformationView {
                 TotalRankingInformationView(backToMain: $showInformationView)
             }

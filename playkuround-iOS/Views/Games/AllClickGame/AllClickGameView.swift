@@ -100,6 +100,11 @@ struct AllClickGameView: View {
                 }, rightView: {
                     Button(action: {
                         viewModel.soundManager.playSound(sound: .buttonClicked)
+                        
+                        // 게임 일시정지 이벤트
+                        GAManager.shared.logEvent(.GAME_PAUSE,
+                                                  parameters: ["GameType": self.viewModel.gameType.rawValue])
+                        
                         viewModel.togglePauseView()
                     }, label: {
                         Image(.brownPauseButton)
@@ -134,6 +139,7 @@ struct AllClickGameView: View {
             }
             .onAppear {
                 viewModel.startCountdown()
+                GAManager.shared.logScreenEvent(.AllClickGame)
             }
             .onChange(of: viewModel.countdownCompleted) { completed in
                 if completed {

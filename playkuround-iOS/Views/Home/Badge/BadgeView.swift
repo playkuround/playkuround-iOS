@@ -50,6 +50,17 @@ struct BadgeView: View {
                                                 selectedBadge = badge
                                                 isSelectedBadgeLocked = !badgeList.contains { $0.name == badge.rawValue }
                                                 soundManager.playSound(sound: .buttonClicked)
+                                                
+                                                // 뱃지 클릭 이벤트
+                                                if isSelectedBadgeLocked {
+                                                    // 잠긴 뱃지 설명 클릭 이벤트
+                                                    GAManager.shared.logEvent(.OPEN_LOCKED_BADGE,
+                                                                              parameters: ["BadgeName": badge.rawValue])
+                                                } else {
+                                                    // 열린 뱃지 설명 클릭 이벤트
+                                                    GAManager.shared.logEvent(.OPEN_BADGE_DETAIL,
+                                                                              parameters: ["BadgeName": badge.rawValue])
+                                                }
                                             }
                                     }
                                 }
@@ -79,6 +90,17 @@ struct BadgeView: View {
                                                 selectedBadge = badge
                                                 isSelectedBadgeLocked = !badgeList.contains { $0.name == badge.rawValue }
                                                 soundManager.playSound(sound: .buttonClicked)
+                                                
+                                                // 뱃지 클릭 이벤트
+                                                if isSelectedBadgeLocked {
+                                                    // 잠긴 뱃지 설명 클릭 이벤트
+                                                    GAManager.shared.logEvent(.OPEN_LOCKED_BADGE,
+                                                                              parameters: ["BadgeName": badge.rawValue])
+                                                } else {
+                                                    // 열린 뱃지 설명 클릭 이벤트
+                                                    GAManager.shared.logEvent(.OPEN_BADGE_DETAIL,
+                                                                              parameters: ["BadgeName": badge.rawValue])
+                                                }
                                             }
                                     }
                                 }
@@ -111,6 +133,9 @@ struct BadgeView: View {
                                     showDetailBadge: $showDetailBadge)
                 }
             }
+        }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.BadgeView)
         }
         .ignoresSafeArea(edges: .bottom)
     }

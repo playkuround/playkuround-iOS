@@ -26,6 +26,11 @@ struct GamePauseView: View {
                     .padding(.bottom, 12)
                     .onTapGesture {
                         soundManager.playSound(sound: .buttonClicked)
+                        
+                        // 게임 이어서 이벤트
+                        GAManager.shared.logEvent(.GAME_RESUME,
+                                                  parameters: ["GameType": viewModel.gameType.rawValue])
+                        
                         // GamePauseView 닫고 게임 계속 진행
                         viewModel.togglePauseView()
                     }
@@ -39,11 +44,18 @@ struct GamePauseView: View {
                     }
                     .onTapGesture {
                         soundManager.playSound(sound: .buttonClicked)
-                        // 게임 종료 기능 추가
+                        
+                        // 게임 중단 이벤트
+                        GAManager.shared.logEvent(.GAME_QUIT,
+                                                  parameters: ["GameType": viewModel.gameType.rawValue])
+                        
                         // 홈 뷰로 이동
                         viewModel.stopGame()
                     }
             }
+        }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.GamePauseView)
         }
     }
 }

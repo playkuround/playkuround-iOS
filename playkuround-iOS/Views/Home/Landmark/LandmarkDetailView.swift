@@ -109,6 +109,10 @@ struct LandmarkDetailView: View {
                     }
                 }
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.LandmarkDetailView,
+                                            landmarkID: homeViewModel.getSelectedLandmark().number)
+        }
     }
     
     @ViewBuilder

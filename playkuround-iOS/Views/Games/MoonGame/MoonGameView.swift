@@ -53,6 +53,11 @@ struct MoonGameView: View {
                 }, rightView: {
                     Button(action: {
                         viewModel.soundManager.playSound(sound: .buttonClicked)
+                        
+                        // 게임 일시정지 이벤트
+                        GAManager.shared.logEvent(.GAME_PAUSE,
+                                                  parameters: ["GameType": self.viewModel.gameType.rawValue])
+                        
                         viewModel.togglePauseView()
                     }, label: {
                         Image(.yellowPauseButton)
@@ -73,6 +78,7 @@ struct MoonGameView: View {
         }
         .onAppear {
             viewModel.startCountdown()
+            GAManager.shared.logScreenEvent(.MoonGame)
         }
     }
     
