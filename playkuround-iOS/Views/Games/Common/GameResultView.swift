@@ -74,6 +74,9 @@ struct GameResultView: View {
                     .padding(.top, 40)
                 }
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.GameResultView)
+        }
     }
     
     private func GameTypeToString(_ type: GameType) -> String {

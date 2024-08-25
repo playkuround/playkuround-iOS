@@ -25,7 +25,7 @@ final class GAManager {
     // 특정 스크린 열릴 때 로깅
     func logScreenEvent(_ screen: ScreenName, landmarkID: Int? = nil, badgeName: String? = nil) {
         // 특정 뱃지 선택되는 뷰
-        if screen == .BadgeDetailView {
+        if screen == .BadgeDetailView || screen == .NewBadgeView {
             if let badgeName = badgeName {
                 print("ScreenOpenLogEvent: \(screen.rawValue), badgeName: \(badgeName)")
                 Analytics.logEvent("OPEN_SCREEN", parameters: ["SCREEN_NAME": screen.rawValue, "BADGE_NAME": badgeName])
@@ -96,10 +96,13 @@ final class GAManager {
     enum ScreenName: String {
         case MainView
         case LoginView
-        case RegisterView
+        case RegisterMajorView
+        case RegisterTermsView
+        case RegisterNicknameView
         case HomeView
         case MyPageView
         case BadgeProfileView
+        case NewBadgeView
         case AttendanceView
         case AdventureView
         case BadgeView
@@ -111,6 +114,8 @@ final class GAManager {
         case NotificationWebView
         case StoryView
         
+        case TermView
+        
         // 게임
         case CatchGame
         case SurviveGame
@@ -120,5 +125,10 @@ final class GAManager {
         case QuizGame
         case MoonGame
         case TimerGame
+        case GamePauseView
+        case GameResultView
+        
+        case NetworkErrorView
+        case RequestPermissionView
     }
 }

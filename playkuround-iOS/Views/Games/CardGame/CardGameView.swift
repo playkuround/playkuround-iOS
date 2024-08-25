@@ -64,6 +64,7 @@ struct CardGameView: View {
             }
             .onAppear {
                 viewModel.startCountdown()
+                GAManager.shared.logScreenEvent(.CardGame)
             }
         }
     }

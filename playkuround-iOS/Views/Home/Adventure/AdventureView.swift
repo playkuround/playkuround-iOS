@@ -69,6 +69,9 @@ struct AdventureView: View {
                     }
                 }
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.AdventureView, landmarkID: homeViewModel.getSelectedLandmark().number)
+        }
     }
 }
 

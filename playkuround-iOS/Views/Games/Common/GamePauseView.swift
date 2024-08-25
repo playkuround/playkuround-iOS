@@ -45,5 +45,8 @@ struct GamePauseView: View {
                     }
             }
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.GamePauseView)
+        }
     }
 }

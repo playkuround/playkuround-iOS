@@ -100,6 +100,7 @@ struct QuizGameView: View {
         }
         .onAppear {
             viewModel.startGame()
+            GAManager.shared.logScreenEvent(.QuizGame)
         }
     }
 }

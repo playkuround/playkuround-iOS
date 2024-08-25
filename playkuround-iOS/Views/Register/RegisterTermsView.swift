@@ -204,6 +204,9 @@ struct RegisterTermsView: View {
         .fullScreenCover(isPresented: $isLocationTermsViewPresented) {
             TermsView(title: StringLiterals.Register.locationTermsTitle, termsType: .location)
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.RegisterTermsView)
+        }
     }
 }
 

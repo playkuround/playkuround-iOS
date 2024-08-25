@@ -103,6 +103,10 @@ struct LandmarkView: View {
                     }
             }
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.LandmarkView,
+                                            landmarkID: homeViewModel.getSelectedLandmark().number)
+        }
     }
 }
 

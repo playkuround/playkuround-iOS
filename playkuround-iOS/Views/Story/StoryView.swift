@@ -93,6 +93,9 @@ struct StoryView: View {
                     }
                 }
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.StoryView)
+        }
     }
     
     func getStoryBlockImages(for index: Int) -> [String] {

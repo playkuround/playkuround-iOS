@@ -65,6 +65,9 @@ struct MainView: View {
                         }
                 }
             }
+            .onAppear {
+                GAManager.shared.logScreenEvent(.MainView)
+            }
         }
     }
     

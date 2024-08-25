@@ -106,6 +106,7 @@ struct ProfileBadgeView: View {
         }
         .onAppear {
             selectedBadge = Badge(rawValue: homeViewModel.userData.profileBadge)
+            GAManager.shared.logScreenEvent(.BadgeProfileView)
         }
     }
     

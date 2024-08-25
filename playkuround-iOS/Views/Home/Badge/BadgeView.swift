@@ -112,6 +112,9 @@ struct BadgeView: View {
                 }
             }
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.BadgeView)
+        }
         .ignoresSafeArea(edges: .bottom)
     }
     

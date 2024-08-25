@@ -120,5 +120,8 @@ struct MyPageView: View {
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("serviceTermsViewPresented"))) { _ in
             self.isServiceTermsViewPresented = true
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.MyPageView)
+        }
     }
 }

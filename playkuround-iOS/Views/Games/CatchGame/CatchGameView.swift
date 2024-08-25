@@ -142,6 +142,7 @@ struct CatchGameView: View {
             .onAppear {
                 // 카운트다운 시작
                 viewModel.startCountdown()
+                GAManager.shared.logScreenEvent(.CatchGame)
             }
         }
     }

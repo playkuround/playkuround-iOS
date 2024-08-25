@@ -73,6 +73,7 @@ struct MoonGameView: View {
         }
         .onAppear {
             viewModel.startCountdown()
+            GAManager.shared.logScreenEvent(.MoonGame)
         }
     }
     

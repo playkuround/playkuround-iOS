@@ -120,6 +120,9 @@ struct LoginView: View {
                     }
             }
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.LoginView)
+        }
     }
     
     private func callPOSTAPIemails(target: String) {

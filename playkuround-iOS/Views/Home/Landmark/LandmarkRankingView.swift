@@ -191,6 +191,10 @@ struct LandmarkRankingView: View {
                     }
                 }, height: 30)
             }
+            .onAppear {
+                GAManager.shared.logScreenEvent(.LandmarkRankingView,
+                                                landmarkID: homeViewModel.getSelectedLandmark().number)
+            }
         }
     }
 }

@@ -137,6 +137,9 @@ struct RegisterNickname: View {
             .padding(.top, 30)
             .padding(.bottom, 10)
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.RegisterNicknameView)
+        }
     }
     
     // 서버 API 통해 닉네임이 사용 가능한지 검사

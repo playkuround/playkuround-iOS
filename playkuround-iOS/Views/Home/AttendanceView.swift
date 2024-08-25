@@ -121,6 +121,7 @@ struct AttendanceView: View {
         }
         .onAppear {
             dates = generateDates()
+            GAManager.shared.logScreenEvent(.AttendanceView)
         }
     }
     

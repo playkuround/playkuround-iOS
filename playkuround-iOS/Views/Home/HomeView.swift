@@ -206,6 +206,8 @@ struct HomeView: View {
                 homeViewModel.loadBadge()
                 homeViewModel.loadTotalRanking()
                 homeViewModel.loadAttendance()
+                
+                GAManager.shared.logScreenEvent(.HomeView)
             }
             .onDisappear {
                 // 홈 뷰에서 벗어날 때 위치 업데이트 중지

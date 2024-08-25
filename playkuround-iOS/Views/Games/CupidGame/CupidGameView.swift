@@ -123,6 +123,7 @@ struct CupidGameView: View {
             }
             .onAppear {
                 viewModel.startCountdown()
+                GAManager.shared.logScreenEvent(.CupidGame)
             }
         }
     }

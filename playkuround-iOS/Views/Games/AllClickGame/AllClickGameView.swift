@@ -134,6 +134,7 @@ struct AllClickGameView: View {
             }
             .onAppear {
                 viewModel.startCountdown()
+                GAManager.shared.logScreenEvent(.AllClickGame)
             }
             .onChange(of: viewModel.countdownCompleted) { completed in
                 if completed {

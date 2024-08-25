@@ -134,6 +134,9 @@ struct TimerGameView: View {
                 }
             }
         }
+        .onAppear {
+            GAManager.shared.logScreenEvent(.TimerGame)
+        }
     }
 }
 
