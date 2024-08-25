@@ -12,7 +12,7 @@ final class GAManager {
     static let shared = GAManager()
     
     // 특정 이벤트 로깅
-    func logEvent(logType: GALogType, parameters: [String: Any]?) {
+    func logEvent(_ logType: GALogType, parameters: [String: Any]? = nil) {
         if let parameters = parameters {
             print("LogEvent: \(logType.rawValue), params: \(parameters)")
         } else {
@@ -52,9 +52,9 @@ final class GAManager {
         
         // Login
         case SEND_EMAIL // 이메일 전송
-        case RESEND_EMAIL // 이메일 재전송
         case LOGIN_SUCCESS // 로그인 성공
         case LOGIN_FAIL // 로그인 실패
+        case AUTO_LOGIN // 자동 로그인
         
         // Register
         case REGISTER_START // 회원가입 프로세스 시작
@@ -69,6 +69,7 @@ final class GAManager {
         case OPEN_PRIVACY_POLICY // 개인정보 처리방침
         case TERM_OF_SERVICE // 서비스 이용약관
         case SEND_FEEDBACK // 피드백 보내기
+        case ERROR_REPORT // 오류 제보
         
         // BadgeProfile View
         case BADGE_PROFILE_CHANGE // 뱃지 프로필 변경
@@ -77,9 +78,6 @@ final class GAManager {
         case ATTENDANCE_SUCCESS // 출석 성공
         case ATTENDANCE_FAIL // 출석 실패 (범위 밖)
         
-        // Adventure View
-        case ADVENTURE_GAME_HIT // 게임 룰렛
-        
         // Badge View
         case OPEN_BADGE_DETAIL // 열린 뱃지 설명 클릭
         case OPEN_LOCKED_BADGE // 잠긴 뱃지 클릭
@@ -87,8 +85,8 @@ final class GAManager {
         // Game Common
         case GAME_START // 게임 시작
         case GAME_FINISH // 게임 완료
-        case GAME_RESUME // 게임 일시정지
-        case GAME_RESTART // 게임 이어서
+        case GAME_PAUSE // 게임 일시정지
+        case GAME_RESUME // 게임 이어서
         case GAME_QUIT // 게임 중단
         case UPLOAD_GAME_RESULT // 게임 결과 업로드
     }
