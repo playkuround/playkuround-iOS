@@ -55,10 +55,10 @@ struct NewBadgeView: View {
                         }
                         .padding(.horizontal, 48)
                     }
+                    .onAppear {
+                        GAManager.shared.logScreenEvent(.NewBadgeView, badgeName: badge.rawValue)
+                    }
             }
-        }
-        .onAppear {
-            GAManager.shared.logScreenEvent(.NewBadgeView, badgeName: badge.rawValue)
         }
     }
 }

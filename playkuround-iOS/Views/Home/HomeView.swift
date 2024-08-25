@@ -137,7 +137,7 @@ struct HomeView: View {
                     Spacer()
                     
                     // 임시 구현
-                    Menu {
+                    /* Menu {
                         Section("탐험") {
                             Button("AdventureView 열기") {
                                 let latitude = mapViewModel.userLatitude
@@ -173,6 +173,22 @@ struct HomeView: View {
                                 viewModel.transition(to: .catchGame)
                             }
                         }
+                    } label: {
+                        Image(.shortButtonBlue)
+                            .overlay {
+                                Text(StringLiterals.Home.adventure)
+                                    .font(.neo18)
+                                    .foregroundColor(.kuText)
+                                    .kerning(-0.41)
+                            }
+                    }
+                    .padding(.bottom, shouldPadding ? 60 : 70)*/
+                    
+                    Button {
+                        let latitude = mapViewModel.userLatitude
+                        let longitude = mapViewModel.userLongitude
+                        
+                        homeViewModel.adventure(latitude: latitude, longitude: longitude, mapViewModel: mapViewModel)
                     } label: {
                         Image(.shortButtonBlue)
                             .overlay {
