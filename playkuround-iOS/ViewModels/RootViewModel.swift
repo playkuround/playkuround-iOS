@@ -24,7 +24,15 @@ final class RootViewModel: ObservableObject {
     @Published var newlyUnlockedStoryIndex: Int?
     
     // New Badge View
-    @Published var showNewBadgeView: Bool = false
+    @Published var newBadgeViewShowing: Bool = false
+    @Published var newBadgeList: [Badge] = []
+    
+    // Toast Message View
+    @Published var toastMessageShowing: Bool = false
+    @Published var toastMessage: String? = nil
+    
+    // 서버 점검 중
+    @Published var serverError: Bool = false
     
     var openedGameTypes = UserDefaults.standard.stringArray(forKey: "openedGameTypes") ?? []
     var stories: [Story] = storyList
@@ -94,11 +102,19 @@ final class RootViewModel: ObservableObject {
         if stories.allSatisfy({ !$0.isLocked }) {
             APIManager.callPOSTAPI(endpoint: .dreamOfDuck) { result in
                 switch result {
-                case .success(let data):
+                case .success(let data as BoolResponse):
                     print("Data received in View: \(data)")
                     
+                    // 오리의 꿈 뱃지 띄우기
+                    // 만약 이미 받았다면 response가 false 임
+                    if (data.response) {
+                        self.openNewBadgeView(badgeNames: ["THE_DREAM_OF_DUCK"])
+                    }
                 case .failure(let error):
                     print("Error in View: \(error)")
+                case .success(_):
+                    // BoolResponse로 파싱 실패 시 예외 처리
+                    print("cannot parse to BoolResponse")
                 }
             }
         }
@@ -143,10 +159,61 @@ final class RootViewModel: ObservableObject {
                 TokenManager.reset()
                 // 메인 뷰로 전환
                 self.transition(to: .main)
-                
+                self.openToastMessageView(message: StringLiterals.MyPage.Logout.done)
             case .failure(let error):
                 print("로그아웃 실패")
                 print("Error in View: \(error)")
+            }
+        }
+    }
+    
+    // 새 뱃지 뷰
+    func openNewBadgeView(badgeNames: [String], openNow: Bool = true) {
+        DispatchQueue.main.async {
+            for badge in badgeNames {
+                let newBadge = Badge(rawValue: badge)
+                
+                if let newBadge = newBadge {
+                    self.newBadgeList.append(newBadge)
+                }
+            }
+            
+            // 바로 열기
+            if openNow {
+                if !self.newBadgeList.isEmpty {
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        self.newBadgeViewShowing = true
+                    }
+                }
+            }
+        }
+    }
+    
+    func closeNewBadgeView() {
+        DispatchQueue.main.async {
+            if self.newBadgeList.count == 1 {
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    self.newBadgeViewShowing = false
+                }
+            }
+            
+            self.newBadgeList.removeFirst()
+        }
+    }
+    
+    // 토스트 메시지 3초
+    func openToastMessageView(message: String) {
+        DispatchQueue.main.async {
+            self.toastMessage = message 
+            withAnimation(.easeInOut(duration: 0.3)) {
+                self.toastMessageShowing = true
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.toastMessage = nil
+            withAnimation(.easeInOut(duration: 0.3)) {
+                self.toastMessageShowing = false
             }
         }
     }

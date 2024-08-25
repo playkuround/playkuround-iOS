@@ -120,5 +120,5 @@ struct ProfileBadgeView: View {
 }
 
 #Preview {
-    ProfileBadgeView(homeViewModel: HomeViewModel())
+    ProfileBadgeView(homeViewModel: HomeViewModel(rootViewModel: RootViewModel()))
 }

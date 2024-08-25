@@ -151,5 +151,5 @@ struct LandmarkDetailView: View {
 }
 
 #Preview {
-    LandmarkDetailView(homeViewModel: HomeViewModel(), isDescriptionShowing: .constant(true))
+    LandmarkDetailView(homeViewModel: HomeViewModel(rootViewModel: RootViewModel()), isDescriptionShowing: .constant(true))
 }

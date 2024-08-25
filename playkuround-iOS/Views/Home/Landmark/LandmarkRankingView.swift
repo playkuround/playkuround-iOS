@@ -196,5 +196,5 @@ struct LandmarkRankingView: View {
 }
 
 #Preview {
-    LandmarkRankingView(homeViewModel: HomeViewModel(), isRankingShowing: .constant(true))
+    LandmarkRankingView(homeViewModel: HomeViewModel(rootViewModel: RootViewModel()), isRankingShowing: .constant(true))
 }

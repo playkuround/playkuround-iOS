@@ -202,6 +202,7 @@ struct HomeView: View {
                 mapViewModel.startUpdatingLocation()
                 
                 // 홈 뷰 들어올 때 유저 데이터 받아옴
+                homeViewModel.loadUserNotification()
                 homeViewModel.loadUserData()
                 homeViewModel.loadBadge()
                 homeViewModel.loadTotalRanking()
@@ -216,5 +217,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(viewModel: RootViewModel(), homeViewModel: HomeViewModel(), mapViewModel: MapViewModel())
+    HomeView(viewModel: RootViewModel(), homeViewModel: HomeViewModel(rootViewModel: RootViewModel()), mapViewModel: MapViewModel(rootViewModel: RootViewModel()))
 }

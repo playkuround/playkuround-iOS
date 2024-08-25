@@ -70,5 +70,5 @@ struct CardGameView: View {
 }
 
 #Preview {
-    CardGameView(viewModel: CardGameViewModel(.book, rootViewModel: RootViewModel(), mapViewModel: MapViewModel(), timeStart: 30.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: RootViewModel())
+    CardGameView(viewModel: CardGameViewModel(.book, rootViewModel: RootViewModel(), mapViewModel: MapViewModel(rootViewModel: RootViewModel()), timeStart: 30.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: RootViewModel())
 }

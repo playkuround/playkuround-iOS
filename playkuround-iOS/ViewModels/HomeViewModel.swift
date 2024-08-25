@@ -10,6 +10,8 @@ import Foundation
 import SwiftUI
 
 final class HomeViewModel: ObservableObject {
+    @ObservedObject var rootViewModel: RootViewModel
+    
     // User Profile
     @Published var userData: UserEntity = UserEntity(nickname: "", major: "",
                                                      myRank: MyRank(score: 0, ranking: 0, profileBadge: "NONE"),
@@ -42,6 +44,10 @@ final class HomeViewModel: ObservableObject {
     private var lastIndex = -1
     private var timer: AnyCancellable? = nil
     @Published var isGameNameShowing: Bool = true
+    
+    init(rootViewModel: RootViewModel) {
+        self.rootViewModel = rootViewModel
+    }
 
     // MARK: - User Profile Data
     // 유저 프로필 데이터 불러오는 함수
@@ -80,6 +86,21 @@ final class HomeViewModel: ObservableObject {
                             self.userData.myRank.score = response.response?.myRank?.score ?? 0
                             self.userData.myRank.ranking = response.response?.myRank?.ranking ?? 0
                         }
+                    }
+                    
+                    // 뱃지 열기
+                    var newBadgeNameList: [String] = []
+                    
+                    if let newBadges = response.response?.newBadges {
+                        for newBadge in newBadges {
+                            newBadgeNameList.append(newBadge.name)
+                        }
+                    }
+                    
+                    print("** newBadgeList: \(newBadgeNameList)")
+                    
+                    DispatchQueue.main.async {
+                        self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList)
                     }
                 }
                 
@@ -126,11 +147,25 @@ final class HomeViewModel: ObservableObject {
                             print(self.attendanceList)
                         }
                     }
+                    
+                    // 뱃지 열기
+                    var newBadgeNameList: [String] = []
+                    
+                    if let newBadges = response.response?.newBadges {
+                        for newBadge in newBadges {
+                            newBadgeNameList.append(newBadge.name)
+                        }
+                    }
+                    
+                    print("** newBadgeList: \(newBadgeNameList)")
+                    
+                    DispatchQueue.main.async {
+                        self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList)
+                    }
                 }
                 
             case .failure(let error):
                 print("Error in View: \(error)")
-                
             }
         }
     }
@@ -138,13 +173,31 @@ final class HomeViewModel: ObservableObject {
     func attendance(latitude: Double, longitude: Double) {
         APIManager.callPOSTAPI(endpoint: .attendances, parameters: ["latitude": latitude, "longitude": longitude]) { result in
             switch result {
-            case .success(_):
+            case .success(let data):
                 self.loadAttendance()
                 self.loadUserData()
                 self.loadBadge()
+                self.loadTotalRanking()
+                
+                if let response = data as? APIResponse {
+                    // 뱃지 열기
+                    var newBadgeNameList: [String] = []
+                    
+                    if let newBadges = response.response?.newBadges {
+                        for newBadge in newBadges {
+                            newBadgeNameList.append(newBadge.name)
+                        }
+                    }
+                    
+                    print("** newBadgeList: \(newBadgeNameList)")
+                    
+                    DispatchQueue.main.async {
+                        self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList)
+                    }
+                }
             case .failure(let error):
-                // TODO: 건국대학교 범위 외 혹은 다른 이유로 출석 실패 시 예외 처리 필요 (추후 APIManager 작업 시 구현)
                 print("Error in View: \(error)")
+                self.rootViewModel.openToastMessageView(message: StringLiterals.Home.ToastMessage.attendanceFailed)
             }
         }
     }
@@ -208,12 +261,28 @@ final class HomeViewModel: ObservableObject {
     // MARK: - User Notification
     func loadUserNotification() {
         // TODO: 백엔드와 협의하여 version checking 도입 여부 결정 필요
-        APIManager.callGETAPI(endpoint: .notification, querys: ["version": "1.0.0"]) { result in
+        APIManager.callGETAPI(endpoint: .notification, querys: ["version": "2.0.4", "os": "ios"]) { result in
             switch result {
-            case .success(let data):
-                print("loadUserNotifiation(): \(data)")
+            case .success(let data as NotificationAPIResponse):
+                // 유저 알림 처리
+                if let notis = data.response {
+                    for noti in notis {
+                        // 서버 점검 중
+                        if noti.name == "system_check" {
+                            // 현재 서버와 버전이 맞지 않아 일단 제거, 추후 협의해서 버전 맞춘 후 주석 해제
+                            /* DispatchQueue.main.async {
+                                self.rootViewModel.serverError = true
+                            } */
+                        }
+                        else if noti.name == "new_badge" {
+                            self.rootViewModel.openNewBadgeView(badgeNames: [noti.description])
+                        }
+                    }
+                }
             case .failure(let error):
-                print("Error in View: \(error)")
+                print("** loadUserNotifiation(): \(error)")
+            case .success(_):
+                print("success but wrong type data")
             }
         }
     }
@@ -273,8 +342,8 @@ final class HomeViewModel: ObservableObject {
                 }
                 // 가까운 랜드마크가 없음
                 else {
-                    // TODO: 예외 처리
                     print("가까운 랜드마크 없음")
+                    self.rootViewModel.openToastMessageView(message: StringLiterals.Home.ToastMessage.noNearLandmark)
                 }
                 
             case .failure(let error):

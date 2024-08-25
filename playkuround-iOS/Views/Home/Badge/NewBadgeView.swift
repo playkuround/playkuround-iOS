@@ -8,53 +8,54 @@
 import SwiftUI
 
 struct NewBadgeView: View {
-    let badge: Badge
+    @ObservedObject var rootViewModel: RootViewModel
     
     var body: some View {
         ZStack {
             Color.black.opacity(0.5).ignoresSafeArea()
                 .onTapGesture {
-                    // TODO: 화면 닫기
+                    rootViewModel.closeNewBadgeView()
                 }
             
-            Image(.badgePopup)
-                .overlay {
-                    VStack {
-                        badge.image
-                            .resizable()
-                            .frame(width: 120, height: 120)
+            let badge = rootViewModel.newBadgeList.first
+            
+            if let badge = badge {
+                
+                Image(.badgePopup)
+                    .overlay {
+                        VStack {
+                            badge.image
+                                .resizable()
+                                .frame(width: 120, height: 120)
+                                .padding(.bottom, 16)
+                            
+                            HStack(alignment: .center, spacing: 8) {
+                                // 뱃지 글자 가운데 오도록
+                                Spacer()
+                                    .frame(width: 24)
+                                
+                                Text(badge.title)
+                                    .font(.neo20)
+                                    .kerning(-0.41)
+                                    .foregroundStyle(.kuText)
+                                
+                                Text(StringLiterals.Home.Badge.new)
+                                    .font(.neo15)
+                                    .kerning(-0.41)
+                                    .foregroundStyle(.kuTimebarRed)
+                                    .padding(.bottom, 4)
+                            }
                             .padding(.bottom, 16)
-                        
-                        HStack(alignment: .center, spacing: 8) {
-                            // 뱃지 글자 가운데 오도록
-                            Spacer()
-                                .frame(width: 24)
                             
-                            Text(badge.title)
-                                .font(.neo20)
-                                .kerning(-0.41)
+                            Text(badge.description)
+                                .font(.pretendard15R)
                                 .foregroundStyle(.kuText)
-                            
-                            Text(StringLiterals.Home.Badge.new)
-                                .font(.neo15)
-                                .kerning(-0.41)
-                                .foregroundStyle(.kuTimebarRed)
-                                .padding(.bottom, 4)
+                                .lineSpacing(15 * 0.3)
+                                .multilineTextAlignment(.center)
                         }
-                        .padding(.bottom, 16)
-                        
-                        Text(badge.description)
-                            .font(.pretendard15R)
-                            .foregroundStyle(.kuText)
-                            .lineSpacing(15 * 0.3)
-                            .multilineTextAlignment(.center)
+                        .padding(.horizontal, 48)
                     }
-                    .padding(.horizontal, 48)
-                }
+            }
         }
     }
-}
-
-#Preview {
-    NewBadgeView(badge: .ATTENDANCE_1)
 }
