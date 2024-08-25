@@ -121,6 +121,13 @@ struct HomeView: View {
                                 Image(.myPageButton)
                             }
                             
+                            Button {
+                                homeViewModel.transition(to: .notification)
+                                soundManager.playSound(sound: .buttonClicked)
+                            } label: {
+                                Image(.notiButton)
+                            }
+                            
                             Spacer()
                         }
                         .padding(.horizontal, 30)
@@ -196,6 +203,8 @@ struct HomeView: View {
                     AdventureView(viewModel: viewModel, homeViewModel: homeViewModel)
                 case .badgeProfile:
                     ProfileBadgeView(homeViewModel: homeViewModel)
+                case .notification:
+                    NotificationView(homeViewModel: homeViewModel)
                 }
             }
             .onAppear {
