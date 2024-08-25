@@ -61,6 +61,7 @@
 		0CC01F262BBBD540007BB320 /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC01F252BBBD540007BB320 /* CardGameViewModel.swift */; };
 		0CD0402D2C062A8E009F9BE1 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */; };
 		0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD06A282BAB459500845B24 /* RegisterTermsView.swift */; };
+		0CE1ECD42C7AC8EF00869586 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1ECD32C7AC8EB00869586 /* NotificationView.swift */; };
 		0CEB87C72BB7E2B000CC2E4B /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */; };
 		0CFFF0BE2C08EB1B00397875 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFFF0BD2C08EB1B00397875 /* HomeViewModel.swift */; };
 		0CFFF0C02C09C49000397875 /* CustomMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFFF0BF2C09C49000397875 /* CustomMapAnnotationView.swift */; };
@@ -196,6 +197,7 @@
 		0CC034AD2C739108002FF439 /* LandmarkDescription.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LandmarkDescription.json; sourceTree = "<group>"; };
 		0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		0CD06A282BAB459500845B24 /* RegisterTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTermsView.swift; sourceTree = "<group>"; };
+		0CE1ECD32C7AC8EB00869586 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
 		0CFFF0BD2C08EB1B00397875 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0CFFF0BF2C09C49000397875 /* CustomMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapAnnotationView.swift; sourceTree = "<group>"; };
@@ -426,12 +428,13 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		0C9FDC0E2C7A52B6002F814B /* Web */ = {
+		0C9FDC0E2C7A52B6002F814B /* Notification */ = {
 			isa = PBXGroup;
 			children = (
+				0CE1ECD32C7AC8EB00869586 /* NotificationView.swift */,
 				0C9FDC0F2C7A52BF002F814B /* WebView.swift */,
 			);
-			path = Web;
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		0CA07D6D2BFDA93F00564AEB /* SurviveGame */ = {
@@ -493,7 +496,7 @@
 		0CD0402B2C062A14009F9BE1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0C9FDC0E2C7A52B6002F814B /* Web */,
+				0C9FDC0E2C7A52B6002F814B /* Notification */,
 				0C0CDA2F2C299017003D12BA /* Adventure */,
 				B94C50442C108C98005CB447 /* TotalRanking */,
 				B99CD63B2C1026D1002B3755 /* Badge */,
@@ -993,6 +996,7 @@
 				0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */,
 				0C0CDA2C2C2955B0003D12BA /* LandmarkRankingView.swift in Sources */,
 				C9519D392BB3339C00F69974 /* NavigationBarModifier.swift in Sources */,
+				0CE1ECD42C7AC8EF00869586 /* NotificationView.swift in Sources */,
 				0C7FE6992BB1259800D94162 /* NetworkErrorView.swift in Sources */,
 				C914E9E32BA57DEB00161AB7 /* AnimationCustomView.swift in Sources */,
 				0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */,
