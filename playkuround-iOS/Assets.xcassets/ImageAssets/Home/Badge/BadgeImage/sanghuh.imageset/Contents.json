@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "badgeLock.png",
+      "filename" : "sanghuh1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "badgeLock@2x.png",
+      "filename" : "sanghuh2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "badgeLock@3x.png",
+      "filename" : "sanghuh3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
