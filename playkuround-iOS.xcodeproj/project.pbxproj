@@ -58,6 +58,7 @@
 		0CB974442BFE55AB008E1399 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB974432BFE55AB008E1399 /* Window.swift */; };
 		0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */; };
 		0CC01F262BBBD540007BB320 /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC01F252BBBD540007BB320 /* CardGameViewModel.swift */; };
+		0CC9C6542C7B325700A01FD4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0CC9C6532C7B325700A01FD4 /* Localizable.xcstrings */; };
 		0CD0402D2C062A8E009F9BE1 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */; };
 		0CD06A292BAB459500845B24 /* RegisterTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD06A282BAB459500845B24 /* RegisterTermsView.swift */; };
 		0CEB87C72BB7E2B000CC2E4B /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */; };
@@ -192,6 +193,7 @@
 		0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		0CC01F252BBBD540007BB320 /* CardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModel.swift; sourceTree = "<group>"; };
 		0CC034AD2C739108002FF439 /* LandmarkDescription.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LandmarkDescription.json; sourceTree = "<group>"; };
+		0CC9C6532C7B325700A01FD4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		0CD06A282BAB459500845B24 /* RegisterTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTermsView.swift; sourceTree = "<group>"; };
 		0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
@@ -574,6 +576,7 @@
 				C953D2F82BA47B4B00318869 /* Font.swift */,
 				C953D2FA2BA47F2C00318869 /* StringLiterals.swift */,
 				C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */,
+				0CC9C6532C7B325700A01FD4 /* Localizable.xcstrings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -838,11 +841,13 @@
 			};
 			buildConfigurationList = C9F694DF2BA3251A009A8762 /* Build configuration list for PBXProject "playkuround-iOS" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ko,
+				"zh-Hans",
 			);
 			mainGroup = C9F694DB2BA3251A009A8762;
 			productRefGroup = C9F694E52BA3251A009A8762 /* Products */;
@@ -877,6 +882,7 @@
 				C9C66C982C71FCC70095461D /* QuizData.json in Resources */,
 				C98078BF2BA872A300C04B2D /* duckkuClicked.mp3 in Resources */,
 				0C6B77F62BABCC8F0033CEEF /* location.txt in Resources */,
+				0CC9C6542C7B325700A01FD4 /* Localizable.xcstrings in Resources */,
 				C98078AA2BA871A000C04B2D /* cardCorrect.mp3 in Resources */,
 				C98078C42BA872DF00C04B2D /* moonClicked.mp3 in Resources */,
 				C98078962BA870E400C04B2D /* timerButtonClicked.mp3 in Resources */,
@@ -1064,6 +1070,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1120,6 +1127,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1132,7 +1140,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"playkuround-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = 9SVDHQS4M3;
+				DEVELOPMENT_TEAM = NCLJJYF4QS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "playkuround-iOS/Info.plist";
@@ -1173,7 +1181,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"playkuround-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = 9SVDHQS4M3;
+				DEVELOPMENT_TEAM = NCLJJYF4QS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "playkuround-iOS/Info.plist";

@@ -1,0 +1,1524 @@
+{
+  "sourceLanguage" : "ko",
+  "strings" : {
+    "Game.AllClick.ClassRegistration" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "수강신청"
+          }
+        }
+      }
+    },
+    "Game.AllClick.Register" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "신청"
+          }
+        }
+      }
+    },
+    "Game.AllClick.Score" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SCORE"
+          }
+        }
+      }
+    },
+    "Game.AllClick.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "수강신청 ALL 클릭"
+          }
+        }
+      }
+    },
+    "Game.AllClick.WriteSubject" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "과목명 입력"
+          }
+        }
+      }
+    },
+    "Game.Card.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "책 뒤집기"
+          }
+        }
+      }
+    },
+    "Game.Catch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "덕쿠를 잡아라!"
+          }
+        }
+      }
+    },
+    "Game.Cupid.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "덕큐피트"
+          }
+        }
+      }
+    },
+    "Game.Home" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈"
+          }
+        }
+      }
+    },
+    "Game.Moon.Description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "달을 터치해서 깨주세요!"
+          }
+        }
+      }
+    },
+    "Game.Moon.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MOON을 점령해"
+          }
+        }
+      }
+    },
+    "Game.Play" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "계속하기"
+          }
+        }
+      }
+    },
+    "Game.Quiz.Correct" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "정답입니다!"
+          }
+        }
+      }
+    },
+    "Game.Quiz.Incorrect" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오답입니다!"
+          }
+        }
+      }
+    },
+    "Game.Quiz.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "건쏠지식"
+          }
+        }
+      }
+    },
+    "Game.Result.AdventureScore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "모험 점수"
+          }
+        }
+      }
+    },
+    "Game.Result.BestScore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "최고 점수"
+          }
+        }
+      }
+    },
+    "Game.Result.Out" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "나가기"
+          }
+        }
+      }
+    },
+    "Game.Result.Score" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "점"
+          }
+        }
+      }
+    },
+    "Game.ScoreTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SCORe"
+          }
+        }
+      }
+    },
+    "Game.Survive" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "일감호에서 살아남기"
+          }
+        }
+      }
+    },
+    "Game.Time.Description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10초에 가까워졌을 때 버튼을 눌러 멈춰주세요!\\n±1초까지 점수가 차등 부여 됩니다."
+          }
+        }
+      }
+    },
+    "Game.Time.Failure" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "실패하셨습니다. 다시 시도해보세요!"
+          }
+        }
+      }
+    },
+    "Game.Time.Success" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "성공하셨습니다. 축하합니다!"
+          }
+        }
+      }
+    },
+    "Game.Time.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10초를 맞춰봐"
+          }
+        }
+      }
+    },
+    "Game.TimerTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TIME"
+          }
+        }
+      }
+    },
+    "Home.Adventure" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탐험하기"
+          }
+        }
+      }
+    },
+    "Home.Attendance" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "출석하기"
+          }
+        }
+      }
+    },
+    "Home.AttendanceDone" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "출석완료"
+          }
+        }
+      }
+    },
+    "Home.AttendanceTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "출석체크"
+          }
+        }
+      }
+    },
+    "Home.Badge.AdventureTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탐험 배지"
+          }
+        }
+      }
+    },
+    "Home.Badge.AttendanceTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "출석 배지"
+          }
+        }
+      }
+    },
+    "Home.Badge.New" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "new!"
+          }
+        }
+      }
+    },
+    "Home.Badge.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "배지"
+          }
+        }
+      }
+    },
+    "Home.BadgeNum" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "뱃지 %@개"
+          }
+        }
+      }
+    },
+    "Home.Landmark.BuildingDescriptionTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "건물설명"
+          }
+        }
+      }
+    },
+    "Home.Landmark.Close" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "닫기"
+          }
+        }
+      }
+    },
+    "Home.Landmark.RankingEmpty" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "아직 순위가 없습니다.\\n지금 1위에 도전해보세요!"
+          }
+        }
+      }
+    },
+    "Home.Landmark.RankingSubtext1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "을"
+          }
+        }
+      }
+    },
+    "Home.Landmark.RankingSubtext2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "제일 많이 정복한 사람은"
+          }
+        }
+      }
+    },
+    "Home.Landmark.RankingSubtext3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "님입니다"
+          }
+        }
+      }
+    },
+    "Home.Landmark.RankingTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "정복랭킹"
+          }
+        }
+      }
+    },
+    "Home.Me" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "나"
+          }
+        }
+      }
+    },
+    "Home.NicknameTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "님"
+          }
+        }
+      }
+    },
+    "Home.ProfileBadge.Change" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "변경하기"
+          }
+        }
+      }
+    },
+    "Home.ProfileBadge.Description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "나를 표현할 사진을 선택하세요!"
+          }
+        }
+      }
+    },
+    "Home.ProfileBadge.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "뱃지 아이콘 선택"
+          }
+        }
+      }
+    },
+    "Home.Ranking" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "랭킹"
+          }
+        }
+      }
+    },
+    "Home.RankingUnit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "위"
+          }
+        }
+      }
+    },
+    "Home.ScoreTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "점"
+          }
+        }
+      }
+    },
+    "Home.StartGame" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "게임 시작"
+          }
+        }
+      }
+    },
+    "Home.ToastMessage.AttendanceFailed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "건국대학교 내에서만 출석할 수 있어요"
+          }
+        }
+      }
+    },
+    "Home.ToastMessage.NoNearLandmark" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "건물 근처에서만 탐험할 수 있어요"
+          }
+        }
+      }
+    },
+    "Home.TotalRanking.Empty" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "아직 순위가 없습니다.\\n지금 1위에 도전해보세요!"
+          }
+        }
+      }
+    },
+    "Home.TotalRanking.InformationDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "출석 체크 : 1점\\n탐험 1개 완료 : 5점\\n추가 탐험(모든 탐험 완료 후) : 1점"
+          }
+        }
+      }
+    },
+    "Home.TotalRanking.InformationTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "랭킹기준"
+          }
+        }
+      }
+    },
+    "Home.TotalRanking.Nickname" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "닉네임"
+          }
+        }
+      }
+    },
+    "Home.TotalRanking.Ranking" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "순위"
+          }
+        }
+      }
+    },
+    "Home.TotalRanking.Score" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "점수"
+          }
+        }
+      }
+    },
+    "Home.TotalRanking.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "랭킹"
+          }
+        }
+      }
+    },
+    "Login.Authentication" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "인증하기"
+          }
+        }
+      }
+    },
+    "Login.AuthenticationCode" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "인증코드"
+          }
+        }
+      }
+    },
+    "Login.AuthIncorrect" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "입력한 인증코드가 일치하지 않습니다."
+          }
+        }
+      }
+    },
+    "Login.AuthRemained" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오늘 인증 요청 횟수가 %@회 남았습니다."
+          }
+        }
+      }
+    },
+    "Login.BottomSheet.Description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "인증코드 입력 시간이 초과되었습니다.\\n인증코드를 다시 요청해주세요."
+          }
+        }
+      }
+    },
+    "Login.BottomSheet.Ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "확인"
+          }
+        }
+      }
+    },
+    "Login.BottomSheet.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "인증코드 입력 시간 초과"
+          }
+        }
+      }
+    },
+    "Login.CountOver" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "금일 해당 이메일로 인증 가능한 횟수가 초과되었습니다."
+          }
+        }
+      }
+    },
+    "Login.Description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "건국대학교 이메일을 인증해주세요."
+          }
+        }
+      }
+    },
+    "Login.Email" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "@konkuk.ac.kr"
+          }
+        }
+      }
+    },
+    "Login.GoEmail" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "건국대학교 이메일 바로가기"
+          }
+        }
+      }
+    },
+    "Login.Hello" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "안녕하세요!"
+          }
+        }
+      }
+    },
+    "Login.MailSystemURL" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://kumail.konkuk.ac.kr/adfs/ls/?lc=1042&wa=wsignin1.0&wtrealm=urn%3afederation%3aMicrosoftOnline"
+          }
+        }
+      }
+    },
+    "Login.PlaceHolder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "포탈 아이디"
+          }
+        }
+      }
+    },
+    "Login.RequestCode" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "인증코드 요청"
+          }
+        }
+      }
+    },
+    "Login.ReRequestCode" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "인증코드 재요청"
+          }
+        }
+      }
+    },
+    "Login.ToastMessage.EmailSendFail" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이메일 전송에 실패했어요. 다시 시도해주세요"
+          }
+        }
+      }
+    },
+    "Login.ToastMessage.overNumMail" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "하루 인증 횟수를 초과했어요. 내일 다시 인증해주세요"
+          }
+        }
+      }
+    },
+    "Main.Introduction" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "건국대 안의 놀이터,"
+          }
+        }
+      }
+    },
+    "Main.Login" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로그인"
+          }
+        }
+      }
+    },
+    "MyPage.BugURL" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://docs.google.com/forms/d/e/1FAIpQLScyarAmbF6VPUrRWQ-SNlNCi9WpezXhNj0ixVyeYo9L67oxog/viewform"
+          }
+        }
+      }
+    },
+    "MyPage.CurrentScore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "현재 점수"
+          }
+        }
+      }
+    },
+    "MyPage.FeedbackURL" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://docs.google.com/forms/d/e/1FAIpQLSeBLSqnN9bXpPW3e4FTJR5hrnzikxB-e9toW0FaiWUdbOmHgg/viewform"
+          }
+        }
+      }
+    },
+    "MyPage.HighestScore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "최고 점수"
+          }
+        }
+      }
+    },
+    "MyPage.InstagramURL" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://www.instagram.com/playkuround_/"
+          }
+        }
+      }
+    },
+    "MyPage.Instruction.Privacy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "개인정보 처리 방침"
+          }
+        }
+      }
+    },
+    "MyPage.Instruction.Terms" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이용약관"
+          }
+        }
+      }
+    },
+    "MyPage.Instruction.Version" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱 버전"
+          }
+        }
+      }
+    },
+    "MyPage.Logout.Done" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로그아웃 되었습니다"
+          }
+        }
+      }
+    },
+    "MyPage.Logout.Message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로그아웃 하시겠습니까?"
+          }
+        }
+      }
+    },
+    "MyPage.Logout.No" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "아니오"
+          }
+        }
+      }
+    },
+    "MyPage.Logout.Ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "예"
+          }
+        }
+      }
+    },
+    "MyPage.My.Logout" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로그아웃"
+          }
+        }
+      }
+    },
+    "MyPage.My.Story" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "스토리 다시보기"
+          }
+        }
+      }
+    },
+    "MyPage.Setting.CurrentLanguage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "한국어"
+          }
+        }
+      }
+    },
+    "MyPage.Setting.Language" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "언어"
+          }
+        }
+      }
+    },
+    "MyPage.Shortcut.Bug" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오류 / 버그 제보 및 정보 제공"
+          }
+        }
+      }
+    },
+    "MyPage.Shortcut.Cheer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "플쿠팀 응원하기"
+          }
+        }
+      }
+    },
+    "MyPage.Shortcut.Feedback" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "피드백 보내기"
+          }
+        }
+      }
+    },
+    "MyPage.Shortcut.Instagram" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "플레이쿠라운드 인스타그램"
+          }
+        }
+      }
+    },
+    "MyPage.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "마이페이지"
+          }
+        }
+      }
+    },
+    "MyPage.Title.Instruction" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이용안내"
+          }
+        }
+      }
+    },
+    "MyPage.Title.My" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "마이"
+          }
+        }
+      }
+    },
+    "MyPage.Title.Setting" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설정"
+          }
+        }
+      }
+    },
+    "MyPage.Title.Shortcut" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "바로가기"
+          }
+        }
+      }
+    },
+    "Network.Message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "네트워크 오류가 발생했습니다.\\n잠시만 기다려주세요!"
+          }
+        }
+      }
+    },
+    "Network.ServerError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "서버와 통신에 실패했어요. 다시 시도해주세요"
+          }
+        }
+      }
+    },
+    "Network.ServerMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "서버 점검중입니다.\\n잠시만 기다려주세요!"
+          }
+        }
+      }
+    },
+    "Permission.Description1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "플레이쿠라운드는 GPS를 활용하여\\n건국대학교를 탐험하는 게임이에요!"
+          }
+        }
+      }
+    },
+    "Permission.Description2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "게임 플레이를 위해서는\\n사용자분의 위치 정보가 필요해요."
+          }
+        }
+      }
+    },
+    "Permission.Description3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설정에서 위치 권한 허용 후\\n플레이쿠라운드를 마음껏 즐겨주세요!"
+          }
+        }
+      }
+    },
+    "Permission.DescriptionBold" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GPS를 활용"
+          }
+        }
+      }
+    },
+    "Permission.OpenSetting" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설정으로 이동"
+          }
+        }
+      }
+    },
+    "Permission.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "위치 권한 허용하면\\n플쿠 즐길 준비 완료!"
+          }
+        }
+      }
+    },
+    "Register.AgreeAllTerms" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "약관 전체 동의"
+          }
+        }
+      }
+    },
+    "Register.AgreeLocationTerms" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "위치기반 서비스 이용약관 동의"
+          }
+        }
+      }
+    },
+    "Register.AgreeServiceTerms" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이용약관 동의"
+          }
+        }
+      }
+    },
+    "Register.College" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "대학"
+          }
+        }
+      }
+    },
+    "Register.CollegePlaceholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "소속 대학을 선택해주세요."
+          }
+        }
+      }
+    },
+    "Register.DuplicatedNickname" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "중복되는 닉네임입니다."
+          }
+        }
+      }
+    },
+    "Register.InvalidNickname" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사용할 수 없는 닉네임입니다."
+          }
+        }
+      }
+    },
+    "Register.LocationTermsTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "위치기반 서비스 이용약관"
+          }
+        }
+      }
+    },
+    "Register.Major" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "학과"
+          }
+        }
+      }
+    },
+    "Register.MajorPlaceholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "소속 학과를 선택해주세요."
+          }
+        }
+      }
+    },
+    "Register.MajorSelectionDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "소속 대학 및 학과를 선택해주세요."
+          }
+        }
+      }
+    },
+    "Register.Next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "다음"
+          }
+        }
+      }
+    },
+    "Register.NicknameDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "닉네임을 설정해주세요."
+          }
+        }
+      }
+    },
+    "Register.NicknamePlaceholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "닉네임을 입력해주세요."
+          }
+        }
+      }
+    },
+    "Register.NicknamePolicy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- 닉네임은 한/영 2자에서 8자 사이로 설정 가능합니다.\\n- 띄어쓰기와 특수문자 사용이 불가합니다.\\n- 부적절한 단어 사용 시 추후 사용이 정지될 수 있습니다."
+          }
+        }
+      }
+    },
+    "Register.PrivacyTermsTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "개인정보 수집 및 이용약관"
+          }
+        }
+      }
+    },
+    "Register.ServiceTermsTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이용약관"
+          }
+        }
+      }
+    },
+    "Register.TermsDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "서비스 이용을 위한 약관에 동의해주세요."
+          }
+        }
+      }
+    },
+    "Register.TermsErrorMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이용약관을 불러올 수 없습니다."
+          }
+        }
+      }
+    },
+    "Register.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "회원가입"
+          }
+        }
+      }
+    },
+    "Register.ToastMessage.NicknameDuplicated" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사용중이거나, 사용할 수 없는 닉네임이에요\\n다른 닉네임을 작성해주세요"
+          }
+        }
+      }
+    },
+    "Register.ToastMessage.RegisterFailed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "회원가입에 실패했어요.\\n다시 시도해주세요"
+          }
+        }
+      }
+    },
+    "Story.Lock" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "게임을 플레이하면\\n새로운 스토리가 열려요!"
+          }
+        }
+      }
+    },
+    "Story.New" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "new!"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
