@@ -37,31 +37,31 @@ final class TimerGameViewModel: GameViewModel {
             }
             // 오차 +- 0.25 -> 40점
             else if 9.75 <= timeRemaining && timeRemaining <= 10.25 {
-                timerState = .success
+                timerState = .failed
                 self.score = 40
                 finishGame()
             }
             // 오차 +- 0.5 -> 35점
             else if 9.5 <= timeRemaining && timeRemaining <= 10.5 {
-                timerState = .success
+                timerState = .failed
                 self.score = 35
                 finishGame()
             }
             // 오차 +- 0.75 -> 30점
             else if 9.25 <= timeRemaining && timeRemaining <= 10.75 {
-                timerState = .success
+                timerState = .failed
                 self.score = 30
                 finishGame()
             }
             // 오차 +- 1 -> 20점
             else if 9.0 <= timeRemaining && timeRemaining <= 11.0 {
-                timerState = .success
+                timerState = .failed
                 self.score = 20
                 finishGame()
             }
             // 이외 5점
             else {
-                timerState = .success
+                timerState = .failed
                 self.score = 5
                 finishGame()
             }
