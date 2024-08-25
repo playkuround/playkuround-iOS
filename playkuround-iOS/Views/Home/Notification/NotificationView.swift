@@ -10,14 +10,22 @@ import SwiftUI
 struct NotificationView: View {
     @ObservedObject var homeViewModel: HomeViewModel
     
+    private let soundManager = SoundManager.shared
+    
     @State private var index = 0
     
-    // 임시 구현
+    // 임시 구현 (추후 API 연결 시 HomeViewModel로 이동 예정)
     struct Notification {
         let title: String
         let text: String?
         let imageURL: String?
         let linkURL: String?
+    }
+    
+    enum NotificationType {
+        case textOnly
+        case imageOnly
+        case textAndImage
     }
     
     let notis: [Notification] = [Notification(title: "녹색지대 부스 안내",
@@ -40,30 +48,13 @@ struct NotificationView: View {
                     homeViewModel.transition(to: .home)
                 }
             
-            // 텍스트만 있는 경우
-            if notis[index].imageURL == nil && notis[index].text != nil {
-                if let notiText = notis[index].text {
-                    Image(.notiShortBackground)
-                        .overlay {
-                            
-                        }
-                }
-            }
-            // 사진만 있는 경우
-            else if notis[index].imageURL != nil && notis[index].text == nil {
-                if let notiImageURLString = notis[index].imageURL {
-                    Image(.notiLongBackground)
-                        .overlay {
-                            
-                        }
-                }            }
-            // 둘 다 있는 경우
-            else if let notiText = notis[index].text, let notiImageURLString = notis[index].imageURL {
-                Image(.notiLongBackground)
+            if let notiType = getNotificationType(index) {
+                Image(notiType == .textOnly ? .notiShortBackground : .notiLongBackground)
                     .overlay {
                         HStack(spacing: 12) {
                             Button {
                                 index = max(index - 1, 0)
+                                soundManager.playSound(sound: .buttonClicked)
                             } label: {
                                 Image(.storyLeftArrow)
                             }
@@ -76,38 +67,62 @@ struct NotificationView: View {
                                     .kerning(-0.41)
                                     .padding(.bottom, 16)
                                 
-                                AsyncImage(url: URL(string: notiImageURLString)) { image in
-                                    image
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 210, height: 180)
-                                } placeholder: {
-                                    LoadingImage(loadingColor: .black)
-                                        .frame(width: 210, height: 180)
-                                }
-                                .padding(.bottom, 20)
-                                
-                                ScrollView {
-                                    VStack {
-                                        Text(notiText)
-                                            .font(.pretendard15R)
-                                            .multilineTextAlignment(.center)
-                                            .foregroundColor(.black)
+                                // 사진 텍스트 둘 다
+                                if notiType == .textAndImage, let notiImageURLString = notis[index].imageURL {
+                                    AsyncImage(url: URL(string: notiImageURLString)) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 210, height: 180)
+                                    } placeholder: {
+                                        LoadingImage(loadingColor: .black)
+                                            .frame(width: 210, height: 180)
                                     }
+                                    .padding(.bottom, 20)
                                 }
-                                .frame(height: 54)
-                                .padding(.bottom, 20)
+                                
+                                // 사진만
+                                else if notiType == .imageOnly, let notiImageURLString = notis[index].imageURL {
+                                    AsyncImage(url: URL(string: notiImageURLString)) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 210, height: 250)
+                                    } placeholder: {
+                                        LoadingImage(loadingColor: .black)
+                                            .frame(width: 210, height: 250)
+                                    }
+                                    .padding(.bottom, 20)
+                                }
+                                
+                                if notiType != .imageOnly, let notiText = notis[index].text {
+                                    ScrollView {
+                                        VStack {
+                                            Text(notiText)
+                                                .font(.pretendard15R)
+                                                .multilineTextAlignment(.center)
+                                                .foregroundColor(.black)
+                                        }
+                                    }
+                                    .frame(height: 54)
+                                    .padding(.bottom, 20)
+                                }
                                 
                                 Button {
                                     // TODO: 링크 열기
+                                    soundManager.playSound(sound: .buttonClicked)
                                 } label: {
-                                    Image(.smallButtonBlue)
-                                        .overlay {
-                                            Text("링크")
-                                                .font(.neo18)
-                                                .foregroundStyle(.kuText)
-                                                .kerning(-0.41)
-                                        }
+                                    if notis[index].linkURL != nil {
+                                        Image(.smallButtonBlue)
+                                            .overlay {
+                                                Text("링크")
+                                                    .font(.neo18)
+                                                    .foregroundStyle(.kuText)
+                                                    .kerning(-0.41)
+                                            }
+                                    } else {
+                                        Image(.smallButtonBlue).opacity(0)
+                                    }
                                 }
                                 .padding(.bottom, 20)
                                 
@@ -115,13 +130,15 @@ struct NotificationView: View {
                                     ForEach(Array(notis.enumerated()), id: \.offset) { offset, noti in
                                         if offset == index {
                                             Button {
-                                                
+                                                self.index = offset
+                                                soundManager.playSound(sound: .buttonClicked)
                                             } label: {
                                                 Image(.nowStoryBlock)
                                             }
                                         } else {
                                             Button {
-                                                
+                                                self.index = offset
+                                                soundManager.playSound(sound: .buttonClicked)
                                             } label: {
                                                 Image(.previewStoryBlock)
                                             }
@@ -130,25 +147,36 @@ struct NotificationView: View {
                                 }
                             }
                             .frame(width: 210)
-                            .border(.black)
                             
                             Button {
                                 index = min(index + 1, notis.count - 1)
+                                soundManager.playSound(sound: .buttonClicked)
                             } label: {
                                 Image(.storyRightArrow)
                             }
                             .opacity(index != notis.count - 1 ? 1 : 0)
                         }
-                        .border(.red)
                     }
             }
         }
     }
     
-    enum NotificationType {
-        case textOnly
-        case imageOnly
-        case textAndImage
+    func getNotificationType(_ index: Int) -> NotificationType? {
+        if notis[index].imageURL == nil && notis[index].text != nil {
+            return .textOnly
+        }
+        // 사진만 있는 경우
+        else if notis[index].imageURL != nil && notis[index].text == nil {
+            return .imageOnly
+        }
+        // 둘 다 있는 경우
+        else if notis[index].text != nil && notis[index].imageURL != nil {
+            return .textAndImage
+        }
+        // 예외
+        else {
+            return nil
+        }
     }
 }
 
