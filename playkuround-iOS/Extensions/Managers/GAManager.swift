@@ -13,6 +13,10 @@ final class GAManager {
     
     // 특정 이벤트 로깅
     func logEvent(_ logType: GALogType, parameters: [String: Any]? = nil) {
+        // 앱 버전 설정
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        Analytics.setUserProperty(version, forName: "appVersion")
+        
         if let parameters = parameters {
             print("LogEvent: \(logType.rawValue), params: \(parameters)")
         } else {
@@ -24,11 +28,18 @@ final class GAManager {
     
     // 특정 스크린 열릴 때 로깅
     func logScreenEvent(_ screen: ScreenName, landmarkID: Int? = nil, badgeName: String? = nil) {
+        // 앱 버전 설정
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        Analytics.setUserProperty(version, forName: "appVersion")
+        
         // 특정 뱃지 선택되는 뷰
         if screen == .BadgeDetailView || screen == .NewBadgeView {
             if let badgeName = badgeName {
                 print("ScreenOpenLogEvent: \(screen.rawValue), badgeName: \(badgeName)")
-                Analytics.logEvent("OPEN_SCREEN", parameters: ["SCREEN_NAME": screen.rawValue, "BADGE_NAME": badgeName])
+                Analytics.logEvent(AnalyticsEventScreenView,
+                                   parameters: [AnalyticsParameterScreenName: screen.rawValue,
+                                               AnalyticsParameterScreenClass: screen.rawValue,
+                                                "BADGE_NAME": badgeName])
             }
         }
         // 특정 랜드마크 선택되는 뷰
@@ -36,13 +47,18 @@ final class GAManager {
                     || screen == .LandmarkRankingView || screen == .AdventureView {
             if let landmarkID = landmarkID {
                 print("ScreenOpenLogEvent: \(screen.rawValue), landmarkID: \(landmarkID)")
-                Analytics.logEvent("OPEN_SCREEN", parameters: ["SCREEN_NAME": screen.rawValue, "LANDMARK_ID": landmarkID])
+                Analytics.logEvent(AnalyticsEventScreenView,
+                                   parameters: [AnalyticsParameterScreenName: screen.rawValue,
+                                               AnalyticsParameterScreenClass: screen.rawValue,
+                                                "LANDMARK_ID": landmarkID])
             }
         }
         // 나머지 뷰
         else {
             print("ScreenOpenLogEvent: \(screen.rawValue)")
-            Analytics.logEvent("OPEN_SCREEN", parameters: ["SCREEN_NAME": screen.rawValue])
+            Analytics.logEvent(AnalyticsEventScreenView,
+                               parameters: [AnalyticsParameterScreenName: screen.rawValue,
+                                           AnalyticsParameterScreenClass: screen.rawValue])
         }
     }
     
