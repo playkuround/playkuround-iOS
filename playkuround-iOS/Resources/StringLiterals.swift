@@ -73,7 +73,7 @@ enum StringLiterals {
     
     enum Network {
         static let message = "네트워크 오류가 발생했습니다.\n잠시만 기다려주세요!"
-        static let serverMessage = "서버가 점검중입니다.\n잠시만 기다려주세요!"
+        static let serverMessage = "서버 점검중입니다.\n잠시만 기다려주세요!"
         static let serverError = "서버와 통신에 실패했어요. 다시 시도해주세요"
     }
     
