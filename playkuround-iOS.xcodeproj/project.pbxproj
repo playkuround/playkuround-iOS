@@ -503,7 +503,6 @@
 				0C7609F12C0DA9590087EA55 /* HomeView.swift */,
 				0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */,
 				0C3F4E6D2C0C458300EE9DB6 /* Landmark */,
-				0CA82DB12C70B93400914DC4 /* ProfileBadgeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -549,6 +548,7 @@
 		B99CD63B2C1026D1002B3755 /* Badge */ = {
 			isa = PBXGroup;
 			children = (
+				0CA82DB12C70B93400914DC4 /* ProfileBadgeView.swift */,
 				B9A334ED2C0BA050006A6A24 /* BadgeView.swift */,
 				B99CD63C2C1026E2002B3755 /* BadgeDetailView.swift */,
 				0C3EFF672C7332B600A34CE1 /* NewBadgeView.swift */,

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "adventureBadgeTable1x.png",
+      "filename" : "eventBusiness1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "adventureBadgeTable2x.png",
+      "filename" : "eventBusiness2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "adventureBadgeTable3x.png",
+      "filename" : "eventBusiness3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

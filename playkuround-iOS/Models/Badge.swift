@@ -44,6 +44,10 @@ enum Badge: String, CaseIterable {
     case COLLEGE_OF_ART_AND_DESIGN = "COLLEGE_OF_ART_AND_DESIGN"
     case COLLEGE_OF_EDUCATION = "COLLEGE_OF_EDUCATION"
     
+    // 2024 가을학기 추가 (단과대 2개)
+    case COLLEGE_OF_SANG_HUH = "COLLEGE_OF_SANG_HUH"
+    case COLLEGE_OF_INTERNATIONAL = "COLLEGE_OF_INTERNATIONAL"
+    
     // 경영대 특별 뱃지
     case COLLEGE_OF_BUSINESS_ADMINISTRATION_10 = "COLLEGE_OF_BUSINESS_ADMINISTRATION_10"
     case COLLEGE_OF_BUSINESS_ADMINISTRATION_30 = "COLLEGE_OF_BUSINESS_ADMINISTRATION_30"
@@ -68,6 +72,10 @@ enum Badge: String, CaseIterable {
     case MONTHLY_RANKING_1 = "MONTHLY_RANKING_1"
     case MONTHLY_RANKING_2 = "MONTHLY_RANKING_2"
     case MONTHLY_RANKING_3 = "MONTHLY_RANKING_3"
+    
+    // 2024 가을학기 경영vs건축 이벤트 뱃지
+    case BUSINESS_ARCHITECTURE_EVENT_BUSINESS = "BUSINESS_ARCHITECTURE_EVENT_BUSINESS"
+    case BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE = "BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE"
     
     /// 뱃지 제목
     var title: String {
@@ -104,6 +112,9 @@ enum Badge: String, CaseIterable {
         case .COLLEGE_OF_VETERINARY_MEDICINE: return "수의대"
         case .COLLEGE_OF_EDUCATION: return "사범대"
             
+        case .COLLEGE_OF_SANG_HUH: return "상허교양대"
+        case .COLLEGE_OF_INTERNATIONAL: return "국제대"
+            
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_10: return "인턴"
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_30: return "대리"
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_50: return "과장"
@@ -123,6 +134,9 @@ enum Badge: String, CaseIterable {
         case .MONTHLY_RANKING_1: return "금메달"
         case .MONTHLY_RANKING_2: return "은메달"
         case .MONTHLY_RANKING_3: return "동메달"
+            
+        case .BUSINESS_ARCHITECTURE_EVENT_BUSINESS: return "경영오리 비쿠"
+        case .BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE: return "건축오리 어쿠"
         }
     }
     
@@ -161,6 +175,9 @@ enum Badge: String, CaseIterable {
         case .COLLEGE_OF_VETERINARY_MEDICINE: return "수의학관 탐험 시 잠금 해제됩니다."
         case .COLLEGE_OF_EDUCATION: return "교육과학관 탐험 시 잠금 해제됩니다."
             
+        case .COLLEGE_OF_SANG_HUH: return "산학협동관 1회 이상 탐험 시 잠금 해제됩니다."
+        case .COLLEGE_OF_INTERNATIONAL: return "법학관 1회 이상 탐험 시 잠금 해제됩니다."
+            
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_10: return "경영대 건물에서 10회 게임 실행 시 잠금 해제됩니다."
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_30: return "경영대 건물에서 30회 게임 실행 시 잠금 해제됩니다."
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_50: return "경영대 건물에서 50회 게임 실행 시 잠금 해제됩니다."
@@ -180,6 +197,9 @@ enum Badge: String, CaseIterable {
         case .MONTHLY_RANKING_1: return "월간 전체 랭킹 1등 시 잠금 해제됩니다."
         case .MONTHLY_RANKING_2: return "월간 전체 랭킹 2등 시 잠금 해제됩니다."
         case .MONTHLY_RANKING_3: return "월간 전체 랭킹 3등 시 잠금 해제됩니다."
+            
+        case .BUSINESS_ARCHITECTURE_EVENT_BUSINESS: return "경영X건축 이벤트 와우도 쟁탈전에 참여하는 경영대학 학생에게 지급됩니다."
+        case .BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE: return "경영X건축 이벤트 와우도 쟁탈전에 참여하는 건축대학 학생에게 지급됩니다."
         }
     }
     
@@ -218,6 +238,9 @@ enum Badge: String, CaseIterable {
         case .COLLEGE_OF_VETERINARY_MEDICINE: return "수의과대학을 탐험했어요"
         case .COLLEGE_OF_EDUCATION: return "사범대학을 탐험했어요"
             
+        case .COLLEGE_OF_SANG_HUH: return "산학협동관을 탐험했어요"
+        case .COLLEGE_OF_INTERNATIONAL: return "법학관을 탐험했어요"
+            
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_10: return "네..! 넵의 연속 나는야 새싹 인턴"
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_30: return "이걸 제가요? 어엿한 대리 승급!"
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_50: return "라떼는 말이야… 실무와 관리의 공존 과장"
@@ -237,6 +260,9 @@ enum Badge: String, CaseIterable {
         case .MONTHLY_RANKING_1: return "월간 랭킹 1위 기록을 축하드립니다!"
         case .MONTHLY_RANKING_2: return "월간 랭킹 2위 기록을 축하드립니다!"
         case .MONTHLY_RANKING_3: return "월간 랭킹 3위 기록을 축하드립니다!"
+            
+        case .BUSINESS_ARCHITECTURE_EVENT_BUSINESS: return "경영대학의 힘을 보여줘! 와우도를 차지하자!"
+        case .BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE: return "건축대학의 힘을 보여줘! 와우도를 차지하자!"
         }
     }
     
@@ -275,6 +301,9 @@ enum Badge: String, CaseIterable {
         case .COLLEGE_OF_VETERINARY_MEDICINE: return Image(.veterinaryMedicine)
         case .COLLEGE_OF_EDUCATION: return Image(.education)
             
+        case .COLLEGE_OF_SANG_HUH: return Image(.sanghuh)
+        case .COLLEGE_OF_INTERNATIONAL: return Image(.internatioanl)
+            
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_10: return Image(.intern)
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_30: return Image(.daeri)
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_50: return Image(.gwajang)
@@ -294,6 +323,9 @@ enum Badge: String, CaseIterable {
         case .MONTHLY_RANKING_1: return Image(.ranking1)
         case .MONTHLY_RANKING_2: return Image(.ranking2)
         case .MONTHLY_RANKING_3: return Image(.ranking3)
+            
+        case .BUSINESS_ARCHITECTURE_EVENT_BUSINESS: return Image(.bsnsArchEventBusiness)
+        case .BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE: return Image(.bsnsArchEventArchitecture)
         }
     }
 }
