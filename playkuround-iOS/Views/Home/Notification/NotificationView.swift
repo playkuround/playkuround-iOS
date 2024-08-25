@@ -179,8 +179,3 @@ struct NotificationView: View {
         }
     }
 }
-
-#Preview {
-    NotificationView(homeViewModel: HomeViewModel())
-}
-
