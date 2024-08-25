@@ -321,9 +321,11 @@ class GameViewModel: ObservableObject {
     
     // 모든 API 호출 이후 호출되는 함수
     func afterFetch() {
+        print("after fetch")
         DispatchQueue.main.async {
             withAnimation(.spring) {
                 self.isResultViewPresented = true
+                print("after fetch true")
             }
         }
     }
@@ -332,21 +334,17 @@ class GameViewModel: ObservableObject {
     
     // 서버로 점수 업로드 함수
     final func uploadResult(uploadScore: Int) {
-//        // 사용자 위치 정보
-//        let latitude = mapViewModel.userLatitude
-//        let longitude = mapViewModel.userLongitude
-//        
-        let latitude: Double = 37.54040
-        let longitude: Double = 127.07920
-        let landmarkID = 25 // 신공학관
-        
+        // 사용자 위치 정보
+        let latitude = mapViewModel.userLatitude
+        let longitude = mapViewModel.userLongitude
+    
         print("** ready to upload score: \(uploadScore)점")
         
         // 게임 점수 업로드 이벤트
         GAManager.shared.logEvent(.UPLOAD_GAME_RESULT,
                                   parameters: ["GameType": self.gameType.rawValue, "Score": uploadScore])
         
-//        if let landmarkID = mapViewModel.userLandmarkID {
+        if let landmarkID = mapViewModel.userLandmarkID {
             // Adventure API 호출
             // 전송 실패하더라도 callPOSTAPI 함수 내부에서 재전송 처리
             APIManager.callPOSTAPI(endpoint: .adventures,
@@ -380,13 +378,14 @@ class GameViewModel: ObservableObject {
                     self.fetchBestScore()
                 case .failure(let error):
                     print("Error in View: \(error)")
+                    self.rootViewModel.openToastMessageView(message: StringLiterals.Network.serverError)
                 }
             }
-//        } else {
-//            // 랜드마크 아이디 없는 경우
-//            // 실제 게임은 랜드마크 아이디가 부여된 경우에만 시작되므로 발생X
-//            print("Error: No Landmark ID")
-//        }
+        } else {
+            // 랜드마크 아이디 없는 경우
+            // 실제 게임은 랜드마크 아이디가 부여된 경우에만 시작되므로 발생X
+            print("Error: No Landmark ID")
+        }
     }
     
     // 사용자의 게임 최고 점수 가져오는 함수
@@ -440,6 +439,7 @@ class GameViewModel: ObservableObject {
                     self.bestScore = 0
                 }
                 self.fetchAdventureScore()
+                self.rootViewModel.openToastMessageView(message: StringLiterals.Network.serverError)
             }
         }
     }
@@ -449,29 +449,30 @@ class GameViewModel: ObservableObject {
         APIManager.callGETAPI(endpoint: .scoresRank) { result in
             switch result {
             case .success(let data):
-                if let response = data as? APIResponse {
-                    if let myRank = response.response?.myRank {
-                        DispatchQueue.main.async {
+                DispatchQueue.main.async {
+                    if let response = data as? APIResponse {
+                        if let myRank = response.response?.myRank {
                             self.adventureScore = myRank.score
-                            self.afterFetch()
+                        }
+                        
+                        // 뱃지 있으면 추가
+                        var newBadgeNameList: [String] = []
+                        
+                        if let newBadges = response.response?.newBadges {
+                            for newBadge in newBadges {
+                                newBadgeNameList.append(newBadge.name)
+                            }
+                        }
+                        
+                        // 지금 뱃지 열지 않기
+                        DispatchQueue.main.async {
+                            self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList, openNow: false)
                         }
                     }
+                    print("Adventure Score: \(self.adventureScore)")
                     
-                    // 뱃지 있으면 추가
-                    var newBadgeNameList: [String] = []
-                    
-                    if let newBadges = response.response?.newBadges {
-                        for newBadge in newBadges {
-                            newBadgeNameList.append(newBadge.name)
-                        }
-                    }
-                    
-                    // 지금 뱃지 열지 않기
-                    DispatchQueue.main.async {
-                        self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList, openNow: false)
-                    }
+                    self.afterFetch()
                 }
-                print("Adventure Score: \(self.adventureScore)")
             case .failure(let error):
                 print("Error in View: \(error)")
                 // 에러 떠도 일단 넘어가도록
@@ -479,6 +480,7 @@ class GameViewModel: ObservableObject {
                     self.adventureScore = 0
                 }
                 self.afterFetch()
+                self.rootViewModel.openToastMessageView(message: StringLiterals.Network.serverError)
             }
         }
     }

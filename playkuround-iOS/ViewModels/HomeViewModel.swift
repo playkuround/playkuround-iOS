@@ -322,7 +322,7 @@ final class HomeViewModel: ObservableObject {
     }
     
     // MARK: - Adventure
-    func adventure(latitude: Double, longitude: Double) {
+    func adventure(latitude: Double, longitude: Double, mapViewModel: MapViewModel) {
         print("latitude: \(latitude), longitude: \(longitude)")
         APIManager.callGETAPI(endpoint: .landmarks, querys: ["latitude": latitude, "longitude": longitude]) { result in
             switch result {
@@ -343,6 +343,7 @@ final class HomeViewModel: ObservableObject {
                 if nearestID > 0 {
                     DispatchQueue.main.async {
                         self.selectedLandmarkID = nearestID
+                        mapViewModel.userLandmarkID = nearestID
                     }
                     self.selectRandomGame()
                 }
