@@ -12,20 +12,28 @@ final class GAManager {
     static let shared = GAManager()
     
     // 특정 이벤트 로깅
-    static func logEvent(logType: GALogType, parameters: [String: Any]) {
-        print("LogEvent: \(logType.rawValue), params: \(parameters)")
+    func logEvent(logType: GALogType, parameters: [String: Any]?) {
+        if let parameters = parameters {
+            print("LogEvent: \(logType.rawValue), params: \(parameters)")
+        } else {
+            print("LogEvent: \(logType.rawValue), params: nil")
+        }
+        
         Analytics.logEvent(logType.rawValue, parameters: parameters)
     }
     
     // 특정 스크린 열릴 때 로깅
-    static func logScreenEvent(_ screen: ScreenName, landmarkID: Int? = nil, badgeName: String? = nil) {
+    func logScreenEvent(_ screen: ScreenName, landmarkID: Int? = nil, badgeName: String? = nil) {
+        // 특정 뱃지 선택되는 뷰
         if screen == .BadgeDetailView {
             if let badgeName = badgeName {
                 print("ScreenOpenLogEvent: \(screen.rawValue), badgeName: \(badgeName)")
                 Analytics.logEvent("OPEN_SCREEN", parameters: ["SCREEN_NAME": screen.rawValue, "BADGE_NAME": badgeName])
             }
         }
-        else if screen == .LandmarkView || screen == .LandmarkDetailView || screen == .LandmarkRankingView {
+        // 특정 랜드마크 선택되는 뷰
+        else if screen == .LandmarkView || screen == .LandmarkDetailView
+                    || screen == .LandmarkRankingView || screen == .AdventureView {
             if let landmarkID = landmarkID {
                 print("ScreenOpenLogEvent: \(screen.rawValue), landmarkID: \(landmarkID)")
                 Analytics.logEvent("OPEN_SCREEN", parameters: ["SCREEN_NAME": screen.rawValue, "LANDMARK_ID": landmarkID])
