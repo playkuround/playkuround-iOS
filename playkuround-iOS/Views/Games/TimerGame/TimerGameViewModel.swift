@@ -33,36 +33,42 @@ final class TimerGameViewModel: GameViewModel {
             if timeRemaining == 10.0 {
                 timerState = .perfect
                 self.score = 200
+                soundManager.playSound(sound: .timerCorrect)
                 finishGame()
             }
             // 오차 +- 0.25 -> 40점
             else if 9.75 <= timeRemaining && timeRemaining <= 10.25 {
                 timerState = .failed
                 self.score = 40
+                soundManager.playSound(sound: .timerIncorrect)
                 finishGame()
             }
             // 오차 +- 0.5 -> 35점
             else if 9.5 <= timeRemaining && timeRemaining <= 10.5 {
                 timerState = .failed
                 self.score = 35
+                soundManager.playSound(sound: .timerIncorrect)
                 finishGame()
             }
             // 오차 +- 0.75 -> 30점
             else if 9.25 <= timeRemaining && timeRemaining <= 10.75 {
                 timerState = .failed
                 self.score = 30
+                soundManager.playSound(sound: .timerIncorrect)
                 finishGame()
             }
             // 오차 +- 1 -> 20점
             else if 9.0 <= timeRemaining && timeRemaining <= 11.0 {
                 timerState = .failed
                 self.score = 20
+                soundManager.playSound(sound: .timerIncorrect)
                 finishGame()
             }
             // 이외 5점
             else {
                 timerState = .failed
                 self.score = 5
+                soundManager.playSound(sound: .timerIncorrect)
                 finishGame()
             }
         }
