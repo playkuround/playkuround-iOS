@@ -70,7 +70,7 @@ struct BadgeView: View {
                                 
                                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 4), spacing: 10) {
                                     /// 11~37번째: 탐험 뱃지
-                                    ForEach(Badge.allCases.suffix(27), id: \.self) { badge in
+                                    ForEach(Badge.allCases.suffix(31), id: \.self) { badge in
                                         filterBadgeImage(for: badge)
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
