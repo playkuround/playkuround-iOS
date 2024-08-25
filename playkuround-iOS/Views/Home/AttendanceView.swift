@@ -158,5 +158,5 @@ struct AttendanceView: View {
 }
 
 #Preview {
-    AttendanceView(rootViewModel: RootViewModel(), homeViewModel: HomeViewModel(), mapViewModel: MapViewModel())
+    AttendanceView(rootViewModel: RootViewModel(), homeViewModel: HomeViewModel(rootViewModel: RootViewModel()), mapViewModel: MapViewModel(rootViewModel: RootViewModel()))
 }

@@ -9,10 +9,17 @@ import SwiftUI
 
 struct RootView: View {
     @Environment(\.scenePhase) private var scenePhase
+  
+    @ObservedObject var viewModel: RootViewModel
+    @ObservedObject var mapViewModel: MapViewModel
+    @ObservedObject var homeViewModel: HomeViewModel
     
-    @ObservedObject var viewModel: RootViewModel = RootViewModel()
-    @ObservedObject var mapViewModel: MapViewModel = MapViewModel()
-    @ObservedObject var homeViewModel: HomeViewModel = HomeViewModel()
+    init() {
+        let rootViewModel = RootViewModel()
+        self.viewModel = rootViewModel
+        self.mapViewModel = MapViewModel(rootViewModel: rootViewModel)
+        self.homeViewModel = HomeViewModel(rootViewModel: rootViewModel)
+    }
     
     var body: some View {
         ZStack {
@@ -54,6 +61,11 @@ struct RootView: View {
                 }
             }
             
+            // 새 뱃지
+            if viewModel.newBadgeViewShowing {
+                NewBadgeView(rootViewModel: viewModel)
+            }
+            
             // network error
             if !viewModel.networkManager.isConnected {
                 NetworkErrorView(loadingColor: .white)
@@ -67,6 +79,18 @@ struct RootView: View {
                         && !(mapViewModel.isAuthorized == .authorizedAlways
                              || mapViewModel.isAuthorized == .authorizedWhenInUse) {
                 RequestPermissionView(mapViewModel: mapViewModel)
+            }
+            
+            // 토스트 메시지 (최상단)
+            if viewModel.toastMessageShowing {
+                if let message = viewModel.toastMessage {
+                    ToastAlertView(alertText: message)
+                }
+            }
+            
+            // 서버 점검 중
+            if viewModel.serverError {
+                NetworkErrorView(loadingColor: .white, errorType: .server)
             }
         }
         .onAppear {

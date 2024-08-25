@@ -65,6 +65,11 @@ struct GameResultView: View {
                             // 홈으로 이동
                             rootViewModel.transition(to: .home)
                             rootViewModel.saveOpenedGameType(gameViewModel.gameType)
+                            
+                            // 혹시 받았던 뱃지가 있다면
+                            DispatchQueue.main.async {
+                                rootViewModel.openNewBadgeView(badgeNames: [])
+                            }
                         } label: {
                             Image(.shortButtonBlue)
                                 .overlay {

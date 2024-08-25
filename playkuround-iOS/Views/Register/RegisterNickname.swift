@@ -21,6 +21,8 @@ struct RegisterNickname: View {
     // 서버 요청 대기
     @State private var isLoading: Bool = false
     
+    private let soundManager = SoundManager.shared
+    
     var body: some View {
         ZStack {
             Color.kuBackground.ignoresSafeArea(.all)
@@ -125,6 +127,7 @@ struct RegisterNickname: View {
                         }
                     }
                     .onTapGesture {
+                        soundManager.playSound(sound: .buttonClicked)
                         // 닉네임 올바른지 검사
                         if !isNicknameChecked && isNicknameVaild && nickname.count >= 2 {
                             isLoading = true
@@ -172,17 +175,21 @@ struct RegisterNickname: View {
                         isNicknameDuplicated = true
                         isNicknameChecked = true
                         isLoading = false
+                        self.viewModel.openToastMessageView(message: StringLiterals.Register.ToastMessage.nicknameDuplicated)
                     }
                 } else {
                     isNicknameDuplicated = true
                     isNicknameChecked = true
                     isLoading = false
+                    self.viewModel.openToastMessageView(message: StringLiterals.Network.serverError)
                 }
             case .failure(let error):
                 print("Error in View: \(error)")
                 isNicknameDuplicated = true
                 isNicknameChecked = true
                 isLoading = false
+                self.viewModel.openToastMessageView(message: StringLiterals.Network.serverError)
+                
             }
         }
     }
@@ -211,12 +218,28 @@ struct RegisterNickname: View {
                                 // 뷰 전환
                                 viewModel.transition(to: .home)
                             }
+                            
+                            // 뱃지 열기
+                            var newBadgeNameList: [String] = []
+                            
+                            if let newBadges = response.newBadges {
+                                for newBadge in newBadges {
+                                    newBadgeNameList.append(newBadge.name)
+                                }
+                            }
+                            
+                            print("** newBadgeList: \(newBadgeNameList)")
+                            
+                            DispatchQueue.main.async {
+                                self.viewModel.openNewBadgeView(badgeNames: newBadgeNameList)
+                            }
                         }
                     }
                     else {
                         // 회원가입 실패
                         if let error = apiResponse.errorResponse?.message {
                             print(error)
+                            self.viewModel.openToastMessageView(message: StringLiterals.Register.ToastMessage.registerFailed)
                         }
                     }
                 }
@@ -226,6 +249,7 @@ struct RegisterNickname: View {
                 isNicknameDuplicated = false
                 isNicknameChecked = false
                 isLoading = false
+                self.viewModel.openToastMessageView(message: StringLiterals.Register.ToastMessage.registerFailed)
             }
         }
     }

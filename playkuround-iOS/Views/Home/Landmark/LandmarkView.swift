@@ -111,5 +111,5 @@ struct LandmarkView: View {
 }
 
 #Preview {
-    LandmarkView(homeViewModel: HomeViewModel())
+    LandmarkView(homeViewModel: HomeViewModel(rootViewModel: RootViewModel()))
 }

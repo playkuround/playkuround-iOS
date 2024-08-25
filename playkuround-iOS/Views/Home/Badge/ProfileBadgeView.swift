@@ -116,7 +116,6 @@ struct ProfileBadgeView: View {
     }
     
     func filterBadgeImage(for badge: Badge) -> Image {
-        // 디자인 구현용으로 모두 열린 상태로 반환
         if homeViewModel.badgeList.contains(where: { $0.name == badge.rawValue }) {
             return badge.image
         } else {
@@ -126,5 +125,5 @@ struct ProfileBadgeView: View {
 }
 
 #Preview {
-    ProfileBadgeView(homeViewModel: HomeViewModel())
+    ProfileBadgeView(homeViewModel: HomeViewModel(rootViewModel: RootViewModel()))
 }

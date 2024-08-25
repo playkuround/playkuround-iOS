@@ -80,5 +80,5 @@ struct AdventureView: View {
 }
 
 #Preview {
-    AdventureView(viewModel: RootViewModel(), homeViewModel: HomeViewModel())
+    AdventureView(viewModel: RootViewModel(), homeViewModel: HomeViewModel(rootViewModel: RootViewModel()))
 }

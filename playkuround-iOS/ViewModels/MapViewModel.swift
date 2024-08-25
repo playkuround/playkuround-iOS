@@ -30,6 +30,12 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
     // 사용자의 랜드마크
     @Published var userLandmarkID: Int?
     
+    @ObservedObject var rootViewModel: RootViewModel
+    
+    init(rootViewModel: RootViewModel) {
+        self.rootViewModel = rootViewModel
+    }
+    
     func requestLocationAuthorization() {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
@@ -172,7 +178,7 @@ struct MapViewTestView: View {
 }
 
 #Preview {
-    @ObservedObject var vm = MapViewModel()
+    @ObservedObject var vm = MapViewModel(rootViewModel: RootViewModel())
     
     return Group {
         MapViewTestView(vm: vm)

@@ -273,5 +273,5 @@ struct TotalRankingView: View {
 
 
 #Preview {
-    TotalRankingView(rootViewModel: RootViewModel(), homeViewModel: HomeViewModel())
+    TotalRankingView(rootViewModel: RootViewModel(), homeViewModel: HomeViewModel(rootViewModel: RootViewModel()))
 }

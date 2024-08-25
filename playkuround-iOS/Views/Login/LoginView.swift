@@ -152,11 +152,13 @@ struct LoginView: View {
                             isAuthCodeViewVisible = false
                             isMaximumCount = true
                             mailButtonClicked = false
+                            self.viewModel.openToastMessageView(message: StringLiterals.Login.ToastMessage.overNumMail)
                         }
                     }
                 }
             case .failure(let error):
                 print("Error in View: \(error)")
+                self.viewModel.openToastMessageView(message: StringLiterals.Login.ToastMessage.emailSendFail)
             }
         }
     }

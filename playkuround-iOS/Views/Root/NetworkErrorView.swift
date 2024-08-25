@@ -9,6 +9,12 @@ import SwiftUI
 
 struct NetworkErrorView: View {
     let loadingColor: LoadingColor
+    let errorType: NetworkErrorType
+    
+    init(loadingColor: LoadingColor, errorType: NetworkErrorType = .network) {
+        self.loadingColor = loadingColor
+        self.errorType = errorType
+    }
     
     var body: some View {
         ZStack {
@@ -21,7 +27,8 @@ struct NetworkErrorView: View {
                 Spacer()
                     .frame(height: 20)
                 
-                Text(StringLiterals.Network.message)
+                Text(errorType == .network ?
+                     StringLiterals.Network.message : StringLiterals.Network.serverMessage)
                     .font(.pretendard15R)
                     .foregroundStyle(loadingColor == .white ? .white : .kuBrown)
                     .multilineTextAlignment(.center)
@@ -31,10 +38,15 @@ struct NetworkErrorView: View {
             GAManager.shared.logScreenEvent(.NetworkErrorView)
         }
     }
+    
+    enum NetworkErrorType {
+        case network
+        case server
+    }
 }
 
 #Preview {
-    NetworkErrorView(loadingColor: .white)
+    NetworkErrorView(loadingColor: .white, errorType: .server)
 }
 
 #Preview {

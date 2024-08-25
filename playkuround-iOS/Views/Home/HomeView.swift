@@ -121,6 +121,13 @@ struct HomeView: View {
                                 Image(.myPageButton)
                             }
                             
+                            Button {
+                                homeViewModel.transition(to: .notification)
+                                soundManager.playSound(sound: .buttonClicked)
+                            } label: {
+                                Image(.notiButton)
+                            }
+                            
                             Spacer()
                         }
                         .padding(.horizontal, 30)
@@ -196,12 +203,15 @@ struct HomeView: View {
                     AdventureView(viewModel: viewModel, homeViewModel: homeViewModel)
                 case .badgeProfile:
                     ProfileBadgeView(homeViewModel: homeViewModel)
+                case .notification:
+                    NotificationView(homeViewModel: homeViewModel)
                 }
             }
             .onAppear {
                 mapViewModel.startUpdatingLocation()
                 
                 // 홈 뷰 들어올 때 유저 데이터 받아옴
+                homeViewModel.loadUserNotification()
                 homeViewModel.loadUserData()
                 homeViewModel.loadBadge()
                 homeViewModel.loadTotalRanking()
@@ -218,5 +228,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(viewModel: RootViewModel(), homeViewModel: HomeViewModel(), mapViewModel: MapViewModel())
+    HomeView(viewModel: RootViewModel(), homeViewModel: HomeViewModel(rootViewModel: RootViewModel()), mapViewModel: MapViewModel(rootViewModel: RootViewModel()))
 }

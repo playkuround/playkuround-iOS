@@ -117,5 +117,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(viewModel: RootViewModel(), mapViewModel: MapViewModel())
+    MainView(viewModel: RootViewModel(), mapViewModel: MapViewModel(rootViewModel: RootViewModel()))
 }
