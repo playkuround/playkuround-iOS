@@ -129,6 +129,10 @@ struct MyPageListSectionView: View {
                                     .padding(.top, 18)
                             }
                         }
+                        .onTapGesture {
+                            viewModel.openSettings()
+                            soundManager.playSound(sound: .buttonClicked)
+                        }
                 }
             }
         }

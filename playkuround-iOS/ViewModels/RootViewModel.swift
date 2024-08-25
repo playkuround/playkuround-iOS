@@ -217,6 +217,15 @@ final class RootViewModel: ObservableObject {
             }
         }
     }
+    
+    // 설정 열기
+    func openSettings() {
+        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
+    }
 }
 
 enum ViewType: String {
