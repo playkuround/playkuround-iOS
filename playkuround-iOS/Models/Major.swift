@@ -117,6 +117,198 @@ let majorList: [College] = [
     ])
 ]
 
+// 영어
+let majorListEnglish: [College] = [
+    College(name: "College of Liberal arts", majors: [
+        Major(name: "Department of Korean Language and Literature"),
+        Major(name: "Department of English Language and Literature"),
+        Major(name: "Department of Chinese Language and Literature"),
+        Major(name: "Philosophy"),
+        Major(name: "History"),
+        Major(name: "Geography"),
+        Major(name: "Department of Media and Communication"),
+        Major(name: "Department of Cultural Contents")
+    ]),
+    College(name: "College of Science", majors: [
+        Major(name: "Math Department"),
+        Major(name: "Physics"),
+        Major(name: "Chemistry")
+    ]),
+    College(name: "College of Architecture", majors: [
+        Major(name: "School of Architecture")
+    ]),
+    College(name: "College of Engineering", majors: [
+        Major(name: "School of Social and Environmental Engineering"),
+        Major(name: "Mechanical and Aerospace Engineering"),
+        Major(name: "Electrical and Electronics Engineering"),
+        Major(name: "Chemical Engineering"),
+        Major(name: "School of Computer Science"),
+        Major(name: "Department of Industrial Engineering, College of Industrial and Management Engineering"),
+        Major(name: "Department of New Industrial Convergence, College of Industrial Management Engineering"),
+        Major(name: "Department of Biological Engineering"),
+        Major(name: "Department of K-beauty Industry Convergence")
+    ]),
+    College(name: "College of Social Sciences", majors: [
+        Major(name: "Department of Political Science and Diplomacy"),
+        Major(name: "Department of Economics"),
+        Major(name: "Department of Public Administration"),
+        Major(name: "Department of International Trade"),
+        Major(name: "Department of Applied Statistics"),
+        Major(name: "Department of Interdisciplinary Studies"),
+        Major(name: "Department of Global Business")
+    ]),
+    College(name: "College of Business", majors: [
+        Major(name: "School of Business"),
+        Major(name: "Management of Technology")
+    ]),
+    College(name: "Real Estate Science Institute", majors: [
+        Major(name: "Department of Real Estate")
+    ]),
+    College(name: "KU Institute of Convergence Science and Technology", majors: [
+        Major(name: "Future Energy Engineering"),
+        Major(name: "Smart Vehicle Engineering"),
+        Major(name: "Smart ICT Convergence Engineering"),
+        Major(name: "Cosmetology"),
+        Major(name: "Department of Stem Cell Regeneration"),
+        Major(name: "Department of Biomedical Engineering"),
+        Major(name: "Department of Systems Biology"),
+        Major(name: "Department of Convergence Biotechnology")
+    ]),
+    College(name: "College of Life Sciences", majors: [
+        Major(name: "Department of Life Science Characteristics"),
+        Major(name: "Department of Animal Resources Science"),
+        Major(name: "Department of Food and Resource Sciences"),
+        Major(name: "Department of Animal and Food Biotechnology"),
+        Major(name: "Department of Food Distribution Engineering"),
+        Major(name: "Department of Environmental Health Sciences"),
+        Major(name: "Department of Forestry and Landscape Architecture")
+    ]),
+    College(name: "College of Veterinary Medicine", majors: [
+        Major(name: "Pre-Veterinary Medicine"),
+        Major(name: "Veterinary Medicine")
+    ]),
+    College(name: "College of Art and Design", majors: [
+        Major(name: "Communication Design Department"),
+        Major(name: "Industrial Design"),
+        Major(name: "Department of Costume Design"),
+        Major(name: "Department of Living Design"),
+        Major(name: "Department of Contemporary Art"),
+        Major(name: "Department of Video and Film Studies")
+    ]),
+    College(name: "College of Education", majors: [
+        Major(name: "Japanese Education Department"),
+        Major(name: "Mathematics Education Department"),
+        Major(name: "Physical Education"),
+        Major(name: "Music Education"),
+        Major(name: "Department of Education"),
+        Major(name: "Department of English Education"),
+        Major(name: "Department of Teaching")
+    ]),
+    College(name: "SANG-HUH COLLEGE", majors: [
+        Major(name: "International Studies")
+    ]),
+    College(name: "International Commerce/Cultural Media Studies", majors: [
+        Major(name: "International Commerce"),
+        Major(name: "Culture and Media Studies")
+    ])
+]
+
+// 중국어
+let majorListChinese: [College] = [
+    College(name: "文科学院", majors: [
+        Major(name: "韩国语国文学系"),
+        Major(name: "英语英文学科"),
+        Major(name: "中文系"),
+        Major(name: "哲学系"),
+        Major(name: "史学系"),
+        Major(name: "地理学科"),
+        Major(name: "传媒学系"),
+        Major(name: "文化信息专业")
+    ]),
+    College(name: "理学院", majors: [
+        Major(name: "数学系"),
+        Major(name: "物理学系"),
+        Major(name: "化学系")
+    ]),
+    College(name: "建筑学院", majors: [
+    Major(name: "建筑学部")
+    ]),
+    College(name: "工学院", majors: [
+        Major(name: "社会环境工程学部"),
+        Major(name: "机械航空工程学部"),
+        Major(name: "电气电子工程学部"),
+        Major(name: "化学工程学部"),
+        Major(name: "计算机工程学部"),
+        Major(name: "工业管理工程学部 工业工程系"),
+        Major(name: "工业管理工程学部 新产业融合学系"),
+        Major(name: "生物工程系"),
+        Major(name: "K美容产业融合学系")
+    ]),
+    College(name: "社会科学学院", majors: [
+        Major(name: "政治外交学系"),
+        Major(name: "经济学系"),
+        Major(name: "行政学系"),
+        Major(name: "国际贸易学系"),
+        Major(name: "应用统计学系"),
+        Major(name: "融合人才学系"),
+        Major(name: "全球商业学系")
+    ]),
+    College(name: "管理学院", majors: [
+        Major(name: "管理学系"),
+        Major(name: "技术管理学系")
+    ]),
+    College(name: "房地产科学研究院", majors: [
+        Major(name: "房地产学系")
+    ]),
+    College(name: "KU融合科学技术院", majors: [
+        Major(name: "未来能源工程学系"),
+        Major(name: "智能运行体工程学系"),
+        Major(name: "智能ICT融合工程学系"),
+        Major(name: "化妆品工程学系"),
+        Major(name: "干细胞再生工程学系"),
+        Major(name: "医学生物工程学系"),
+        Major(name: "系统生物工程学系"),
+        Major(name: "融合生物工程学系")
+    ]),
+    College(name: "商虞生命科学学院", majors: [
+        Major(name: "生命科学特性学系"),
+        Major(name: "动物资源科学系"),
+        Major(name: "粮食资源科学系"),
+        Major(name: "畜产食品生命工程学系"),
+        Major(name: "食品流通工程学系"),
+        Major(name: "环境卫生科学系"),
+        Major(name: "林业景观学系")
+    ]),
+    College(name: "兽医学学院", majors: [
+        Major(name: "兽医预科"),
+        Major(name: "兽医学系")
+    ]),
+    College(name: "艺术设计学院", majors: [
+        Major(name: "传播设计学系"),
+        Major(name: "工业设计学系"),
+        Major(name: "服装设计学系"),
+        Major(name: "生活设计学系"),
+        Major(name: "现代美术学系"),
+        Major(name: "影视电影学系")
+    ]),
+    College(name: "师范学院", majors: [
+        Major(name: "日语教育学系"),
+        Major(name: "数学教育学系"),
+        Major(name: "体育教育学系"),
+        Major(name: "音乐教育学系"),
+        Major(name: "教育技术学系"),
+        Major(name: "英语教育学系"),
+        Major(name: "教师教育学系")
+    ]),
+    College(name: "商虞通识学院", majors: [
+        Major(name: "国际学部")
+    ]),
+    College(name: "国际通商/文化媒体学", majors: [
+        Major(name: "国际通商学系"),
+        Major(name: "文化媒体学系")
+    ])
+]
+
 /// Major 테스트용 뷰
 struct MajorTestView: View {
     var body: some View {

@@ -21,3 +21,33 @@ enum ScoreType: String {
     case ALL_CLEAR = "수강신청 ALL 클릭"
     case SURVIVE = "일감호에서 살아남기"
 }
+
+enum ScoreTypeEnglish: String {
+    // 출석 점수
+    case ATTENDANCE = "Attendance Score"
+    
+    // 게임 점수 (RawValue는 게임 이름)
+    case QUIZ = "KU Quiz"
+    case TIME = "Guess 10 seconds"
+    case MOON = "Take over the MOON"
+    case BOOK = "Flip the books"
+    case CATCH = "Catch the Ducku!"
+    case CUPID = "Duck Cupid♥"
+    case ALL_CLEAR = "Class Registration All Click"
+    case SURVIVE = "Surviving the lake"
+}
+
+enum ScoreTypeChinese: String {
+    // 출석 점수
+    case ATTENDANCE = "出席分数"
+    
+    // 게임 점수 (RawValue는 게임 이름)
+    case QUIZ = "谜语"
+    case TIME = "猜猜看10秒"
+    case MOON = "占领出入口"
+    case BOOK = "配对"
+    case CATCH = "捉鸭子"
+    case CUPID = "Duck Cupid♥"
+    case ALL_CLEAR = "听课申请 ALL Click"
+    case SURVIVE = "湖中生存"
+}
