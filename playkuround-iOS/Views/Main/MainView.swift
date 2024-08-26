@@ -24,7 +24,7 @@ struct MainView: View {
                 .ignoresSafeArea(.all)
                 
                 VStack {
-                    Text(StringLiterals.Main.introduction)
+                    Text("Main.Introduction")
                         .font(.neo20)
                         .foregroundStyle(.kuText)
                         .kerning(-0.41)
@@ -37,7 +37,7 @@ struct MainView: View {
                     
                     Image(.shortButtonBlue)
                         .overlay {
-                            Text(StringLiterals.Main.login)
+                            Text("Main.Login")
                                 .font(.neo20)
                                 .foregroundStyle(.kuText)
                                 .kerning(-0.41)

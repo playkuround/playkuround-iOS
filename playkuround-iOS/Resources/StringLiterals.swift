@@ -156,6 +156,7 @@ enum StringLiterals {
         
         enum Title {
             static let my = "마이"
+            static let setting = "설정"
             static let shortcut = "바로가기"
             static let instruction = "이용안내"
         }
@@ -163,6 +164,11 @@ enum StringLiterals {
         enum My: String, CaseIterable {
             case story = "스토리 다시보기"
             case logout = "로그아웃"
+        }
+        
+        enum Setting: String, CaseIterable {
+            case language = "언어"
+            case currentLanguage = "한국어"
         }
         
         enum Shortcut: String, CaseIterable {

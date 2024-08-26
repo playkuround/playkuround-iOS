@@ -82,6 +82,8 @@ final class GAManager {
         case OPEN_INSTAGRAM // 인스타그램 바로가기
         case CHEERING // 응원하기
         
+        case CHANGE_LANGUAGE // 언어 변경 (설정 열기)
+        
         case OPEN_PRIVACY_POLICY // 개인정보 처리방침
         case TERM_OF_SERVICE // 서비스 이용약관
         case SEND_FEEDBACK // 피드백 보내기

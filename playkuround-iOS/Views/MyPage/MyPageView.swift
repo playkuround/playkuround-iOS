@@ -34,8 +34,7 @@ struct MyPageView: View {
                 ScrollView {
                     VStack(alignment: .leading) {
                         MyPageListSectionView(viewModel: viewModel,
-                                              sectionTitle: StringLiterals.MyPage.Title.my,
-                                              rowTitle: StringLiterals.MyPage.My.allCases.map { $0.rawValue })
+                                              sectionType: .My)
                         
                         Rectangle()
                             .fill(.kuBlue3)
@@ -43,8 +42,7 @@ struct MyPageView: View {
                             .padding(.top, 8)
                         
                         MyPageListSectionView(viewModel: viewModel,
-                                              sectionTitle: StringLiterals.MyPage.Title.shortcut,
-                                              rowTitle: StringLiterals.MyPage.Shortcut.allCases.map { $0.rawValue })
+                                              sectionType: .Setting)
                         
                         Rectangle()
                             .fill(.kuBlue3)
@@ -52,8 +50,15 @@ struct MyPageView: View {
                             .padding(.top, 8)
                         
                         MyPageListSectionView(viewModel: viewModel,
-                                              sectionTitle: StringLiterals.MyPage.Title.instruction,
-                                              rowTitle: StringLiterals.MyPage.Instruction.allCases.map { $0.rawValue })
+                                              sectionType: .Shortcut)
+                        
+                        Rectangle()
+                            .fill(.kuBlue3)
+                            .frame(height: 1)
+                            .padding(.top, 8)
+                        
+                        MyPageListSectionView(viewModel: viewModel,
+                                              sectionType: .Instruction)
                     }
                     .padding(.bottom, 30)
                 }
@@ -124,4 +129,11 @@ struct MyPageView: View {
             GAManager.shared.logScreenEvent(.MyPageView)
         }
     }
+}
+
+enum MyPageSection {
+    case My
+    case Setting
+    case Shortcut
+    case Instruction
 }
