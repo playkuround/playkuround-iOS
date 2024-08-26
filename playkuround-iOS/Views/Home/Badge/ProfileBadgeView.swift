@@ -54,21 +54,23 @@ struct ProfileBadgeView: View {
                         ScrollView(.vertical, content: {
                             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 4), spacing: 10) {
                                 ForEach(Badge.allCases, id: \.self) { badge in
-                                    ZStack {
-                                        filterBadgeImage(for: badge)
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .onTapGesture {
-                                                // TODO: 잠기지 않은 경우에만 변경되도록 조건 걸기
-                                                if homeViewModel.badgeList.contains(where: { $0.name == badge.rawValue }) {
-                                                    selectedBadge = badge
-                                                }
-                                            }
-                                        
-                                        if badge == selectedBadge {
-                                            Image(.badgeChecked)
+                                    if let badgeImage = filterBadgeImage(for: badge) {
+                                        ZStack {
+                                            badgeImage
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fit)
+                                                .onTapGesture {
+                                                    // TODO: 잠기지 않은 경우에만 변경되도록 조건 걸기
+                                                    if homeViewModel.badgeList.contains(where: { $0.name == badge.rawValue }) {
+                                                        selectedBadge = badge
+                                                    }
+                                                }
+                                            
+                                            if badge == selectedBadge {
+                                                Image(.badgeChecked)
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fit)
+                                            }
                                         }
                                     }
                                 }
@@ -115,11 +117,11 @@ struct ProfileBadgeView: View {
         }
     }
     
-    func filterBadgeImage(for badge: Badge) -> Image {
+    func filterBadgeImage(for badge: Badge) -> Image? {
         if homeViewModel.badgeList.contains(where: { $0.name == badge.rawValue }) {
             return badge.image
         } else {
-            return Image(.badgeLock)
+            return nil
         }
     }
 }
