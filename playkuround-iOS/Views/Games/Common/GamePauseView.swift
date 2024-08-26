@@ -18,7 +18,7 @@ struct GamePauseView: View {
             VStack {
                 Image(.shortButtonBlue)
                     .overlay {
-                        Text(StringLiterals.Game.play)
+                        Text("Game.Play")
                             .font(.neo20)
                             .foregroundStyle(.kuText)
                             .kerning(-0.41)
@@ -37,7 +37,7 @@ struct GamePauseView: View {
                 
                 Image(.shortButtonGray)
                     .overlay {
-                        Text(StringLiterals.Game.home)
+                        Text("Game.Home")
                             .font(.neo20)
                             .foregroundStyle(.kuText)
                             .kerning(-0.41)

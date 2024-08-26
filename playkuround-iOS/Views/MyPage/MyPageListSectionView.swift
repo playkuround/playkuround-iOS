@@ -24,7 +24,7 @@ struct MyPageListSectionView: View {
             // 마이
             if sectionType == .My {
                 // 스토리 다시보기
-                MyPageListRowView(rowTitle: StringLiterals.MyPage.My.story.rawValue)
+                MyPageListRowView(rowTitle: NSLocalizedString("MyPage.My.Story", comment: ""))
                     .onTapGesture {
                         NotificationCenter.default.post(name: NSNotification.Name("storyViewPresented"),
                                                         object: nil)
@@ -35,7 +35,7 @@ struct MyPageListSectionView: View {
                     }
                 
                 // 로그아웃
-                MyPageListRowView(rowTitle: StringLiterals.MyPage.My.logout.rawValue)
+                MyPageListRowView(rowTitle: NSLocalizedString("MyPage.My.Logout", comment: ""))
                     .onTapGesture {
                         NotificationCenter.default.post(name: NSNotification.Name("logoutViewPresented"),
                                                         object: nil)
@@ -49,12 +49,12 @@ struct MyPageListSectionView: View {
             // 설정
             else if sectionType == .Setting {
                 // 언어
-                MyPageListRowView(rowTitle: StringLiterals.MyPage.Setting.language.rawValue)
+                MyPageListRowView(rowTitle: NSLocalizedString("MyPage.Setting.Language", comment: ""))
                     .overlay {
                         HStack {
                             Spacer()
                             
-                            Text(StringLiterals.MyPage.Setting.currentLanguage.rawValue)
+                            Text("MyPage.Setting.CurrentLanguage")
                                 .font(.pretendard15R)
                                 .foregroundStyle(.kuText)
                                 .padding(.top, 18)
@@ -74,7 +74,7 @@ struct MyPageListSectionView: View {
             // 바로가기
             else if sectionType == .Shortcut {
                 // 플레이쿠라운드 인스타그램
-                MyPageListRowView(rowTitle: StringLiterals.MyPage.Shortcut.instagram.rawValue)
+                MyPageListRowView(rowTitle: NSLocalizedString("MyPage.Shortcut.Instagram", comment: ""))
                     .onTapGesture {
                         linkInstagramURL()
                         soundManager.playSound(sound: .buttonClicked)
@@ -84,7 +84,7 @@ struct MyPageListSectionView: View {
                     }
                 
                 // 플쿠팀 응원하기
-                MyPageListRowView(rowTitle: StringLiterals.MyPage.Shortcut.cheer.rawValue)
+                MyPageListRowView(rowTitle: NSLocalizedString("MyPage.Shortcut.Cheer", comment: ""))
                     .onTapGesture {
                         NotificationCenter.default.post(name: NSNotification.Name("cheerViewPresented"),
                                                         object: nil)
@@ -96,7 +96,7 @@ struct MyPageListSectionView: View {
                     }
 
                 // 피드백 보내기
-                MyPageListRowView(rowTitle: StringLiterals.MyPage.Shortcut.feedback.rawValue)
+                MyPageListRowView(rowTitle: NSLocalizedString("MyPage.Shortcut.Feedback", comment: ""))
                     .onTapGesture {
                         linkFeedbackURL()
                         soundManager.playSound(sound: .buttonClicked)
@@ -106,7 +106,7 @@ struct MyPageListSectionView: View {
                     }
                 
                 // 오류 제보
-                MyPageListRowView(rowTitle: StringLiterals.MyPage.Shortcut.bug.rawValue)
+                MyPageListRowView(rowTitle: NSLocalizedString("MyPage.Shortcut.Bug", comment: ""))
                     .onTapGesture {
                         linkBugURL()
                         soundManager.playSound(sound: .buttonClicked)
@@ -119,7 +119,7 @@ struct MyPageListSectionView: View {
             // 이용안내
             else if sectionType == .Instruction {
                 // 앱 버전
-                MyPageListRowView(rowTitle: StringLiterals.MyPage.Instruction.version.rawValue)
+                MyPageListRowView(rowTitle: NSLocalizedString("MyPage.Instruction.Version", comment: ""))
                     .overlay {
                         HStack {
                             Spacer()
@@ -132,7 +132,7 @@ struct MyPageListSectionView: View {
                     }
                 
                 // 개인정보 처리 방침
-                MyPageListRowView(rowTitle: StringLiterals.MyPage.Instruction.privacy.rawValue)
+                MyPageListRowView(rowTitle: NSLocalizedString("MyPage.Instruction.Privacy", comment: ""))
                     .onTapGesture {
                         NotificationCenter.default.post(name: NSNotification.Name("privacyTermsViewPresented"),
                                                         object: nil)
@@ -143,7 +143,7 @@ struct MyPageListSectionView: View {
                     }
                 
                 // 이용약관
-                MyPageListRowView(rowTitle: StringLiterals.MyPage.Instruction.terms.rawValue)
+                MyPageListRowView(rowTitle: NSLocalizedString("MyPage.Instruction.Terms", comment: ""))
                     .onTapGesture {
                         NotificationCenter.default.post(name: NSNotification.Name("serviceTermsViewPresented"),
                                                         object: nil)
@@ -157,19 +157,19 @@ struct MyPageListSectionView: View {
     }
     
     private func linkInstagramURL() {
-        if let instagramURL = URL(string: StringLiterals.MyPage.instagramURL) {
+        if let instagramURL = URL(string: "https://www.instagram.com/playkuround_/") {
             UIApplication.shared.open(instagramURL)
         }
     }
     
     private func linkFeedbackURL() {
-        if let feedbackURL = URL(string: StringLiterals.MyPage.feedbackURL) {
+        if let feedbackURL = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSeBLSqnN9bXpPW3e4FTJR5hrnzikxB-e9toW0FaiWUdbOmHgg/viewform") {
             UIApplication.shared.open(feedbackURL)
         }
     }
     
     private func linkBugURL() {
-        if let bugURL = URL(string: StringLiterals.MyPage.bugURL) {
+        if let bugURL = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLScyarAmbF6VPUrRWQ-SNlNCi9WpezXhNj0ixVyeYo9L67oxog/viewform") {
             UIApplication.shared.open(bugURL)
         }
     }
@@ -181,13 +181,13 @@ struct MyPageListSectionView: View {
     private func getTitle() -> String {
         switch self.sectionType {
         case .My:
-            return StringLiterals.MyPage.Title.my
+            return NSLocalizedString("MyPage.Title.My", comment: "")
         case .Setting:
-            return StringLiterals.MyPage.Title.setting
+            return NSLocalizedString("MyPage.Title.Setting", comment: "")
         case .Shortcut:
-            return StringLiterals.MyPage.Title.shortcut
+            return NSLocalizedString("MyPage.Title.Shortcut", comment: "")
         case .Instruction:
-            return StringLiterals.MyPage.Title.instruction
+            return NSLocalizedString("MyPage.Title.Instruction", comment: "")
         }
     }
 }

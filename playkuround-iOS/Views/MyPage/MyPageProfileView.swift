@@ -12,7 +12,7 @@ struct MyPageProfileView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("\(user.nickname)님")
+            Text("\(user.nickname)" + NSLocalizedString("Home.NicknameTitle", comment: ""))
                 .font(.neo20)
                 .kerning(-0.41)
                 .foregroundStyle(.kuText)
@@ -26,12 +26,12 @@ struct MyPageProfileView: View {
             Image(.mypageCurrentScore)
                 .overlay {
                     HStack {
-                        Text(StringLiterals.MyPage.currentScore)
+                        Text("MyPage.CurrentScore")
                             .font(.pretendard15R)
                             .foregroundStyle(.kuText)
                             .padding(.trailing, 15)
                         
-                        Text("\(String(describing: user.myRank.score))점 (\(user.myRank.ranking == 0 ? "-" : "\(user.myRank.ranking)")등)")
+                        Text("\(String(describing: user.myRank.score))" + NSLocalizedString("Home.ScoreTitle", comment: "") + " (\(user.myRank.ranking == 0 ? "-" : "\(user.myRank.ranking)")" + NSLocalizedString("Home.RankingUnit", comment: "") + ")")
                             .font(.neo20)
                             .kerning(-0.41)
                             .foregroundStyle(.kuText)
@@ -42,12 +42,12 @@ struct MyPageProfileView: View {
             Image(.mypageHighestScore)
                 .overlay {
                     HStack {
-                        Text(StringLiterals.MyPage.highestScore)
+                        Text("MyPage.HighestScore")
                             .font(.pretendard15R)
                             .foregroundStyle(.kuText)
                             .padding(.trailing, 15)
                         
-                        Text("\(String(describing: user.highestScore))점 (\(user.highestRank)등)")
+                        Text("\(String(describing: user.highestScore))" + NSLocalizedString("Home.ScoreTitle", comment: "") + " (\(user.highestRank)" + NSLocalizedString("Home.RankingUnit", comment: "") +")")
                             .font(.neo20)
                             .kerning(-0.41)
                             .foregroundStyle(.kuText)

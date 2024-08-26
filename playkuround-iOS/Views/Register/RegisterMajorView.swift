@@ -25,18 +25,18 @@ struct RegisterView: View {
             Color.kuBackground.ignoresSafeArea(.all)
             
             VStack(alignment: .leading) {
-                Text(StringLiterals.Register.title)
+                Text("Register.Title")
                     .font(.neo24)
                     .foregroundStyle(.kuText)
                     .kerning(-0.41)
                     .padding(.bottom, 10)
                 
-                Text(StringLiterals.Register.majorSelectionDescription)
+                Text("Register.MajorSelectionDescription")
                     .font(.pretendard15R)
                     .foregroundStyle(.kuText)
                     .padding(.bottom, 47)
                 
-                Text(StringLiterals.Register.college)
+                Text("Register.College")
                     .font(.neo15)
                     .kerning(-0.41)
                     .foregroundStyle(.kuText)
@@ -54,7 +54,7 @@ struct RegisterView: View {
                         .frame(maxWidth: .infinity)
                         .overlay {
                             HStack {
-                                Text(selectedCollege?.name ?? StringLiterals.Register.collegePlaceholder)
+                                Text(selectedCollege?.name ?? NSLocalizedString("Register.CollegePlaceholder", comment: ""))
                                     .font(.pretendard15R)
                                     .foregroundStyle(selectedCollege == nil ? .kuGray2 : .kuText)
                                 
@@ -70,7 +70,7 @@ struct RegisterView: View {
                 Spacer()
                     .frame(height: 70)
                 
-                Text(StringLiterals.Register.major)
+                Text("Register.Major")
                     .font(.neo15)
                     .kerning(-0.41)
                     .foregroundStyle(.kuText)
@@ -90,7 +90,7 @@ struct RegisterView: View {
                         .frame(maxWidth: .infinity)
                         .overlay {
                             HStack {
-                                Text(selectedMajor?.name ?? StringLiterals.Register.majorPlaceholder)
+                                Text(selectedMajor?.name ?? NSLocalizedString("Register.MajorPlaceholder", comment: ""))
                                     .font(.pretendard15R)
                                     .foregroundStyle(selectedCollege == nil ? .kuGray2 : .kuText)
                                 
@@ -113,7 +113,7 @@ struct RegisterView: View {
                     .scaledToFit()
                     .frame(maxWidth: .infinity)
                     .overlay {
-                        Text(StringLiterals.Register.next)
+                        Text("Register.Next")
                             .font(.neo15)
                             .kerning(-0.41)
                             .foregroundStyle(.kuText)

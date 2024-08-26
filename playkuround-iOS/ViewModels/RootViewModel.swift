@@ -159,7 +159,7 @@ final class RootViewModel: ObservableObject {
                 TokenManager.reset()
                 // 메인 뷰로 전환
                 self.transition(to: .main)
-                self.openToastMessageView(message: StringLiterals.MyPage.Logout.done)
+                self.openToastMessageView(message: NSLocalizedString("MyPage.Logout.Done", comment: ""))
             case .failure(let error):
                 print("로그아웃 실패")
                 print("Error in View: \(error)")
@@ -204,7 +204,8 @@ final class RootViewModel: ObservableObject {
     // 토스트 메시지 3초
     func openToastMessageView(message: String) {
         DispatchQueue.main.async {
-            self.toastMessage = message 
+            self.toastMessage = message
+                .replacingOccurrences(of: "<br>", with: "\n")
             withAnimation(.easeInOut(duration: 0.3)) {
                 self.toastMessageShowing = true
             }

@@ -88,7 +88,7 @@ struct CupidGameView: View {
                 
                 VStack {}
                     .customNavigationBar(centerView: {
-                        Text(StringLiterals.Game.Cupid.title)
+                        Text("Game.Cupid.Title")
                             .font(.neo22)
                             .kerning(-0.41)
                             .foregroundStyle(.kuText)

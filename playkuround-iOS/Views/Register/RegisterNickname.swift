@@ -28,13 +28,13 @@ struct RegisterNickname: View {
             Color.kuBackground.ignoresSafeArea(.all)
             
             VStack(alignment: .leading) {
-                Text(StringLiterals.Register.title)
+                Text("Register.Title")
                     .font(.neo24)
                     .foregroundStyle(.kuText)
                     .kerning(-0.41)
                     .padding(.bottom, 10)
                 
-                Text(StringLiterals.Register.nicknameDescription)
+                Text("Register.NicknameDescription")
                     .font(.pretendard15R)
                     .foregroundStyle(.kuText)
                     .padding(.bottom, 60)
@@ -42,13 +42,13 @@ struct RegisterNickname: View {
                 HStack {
                     // 닉네임이 올바르지 않은 경우
                     if !isNicknameVaild {
-                        Text(StringLiterals.Register.invalidNickname)
+                        Text("Register.InvalidNickname")
                             .font(.pretendard14R)
                             .foregroundStyle(.kuRed)
                     } 
                     // 닉네임이 중복된 경우
                     else if isNicknameDuplicated {
-                        Text(StringLiterals.Register.duplicatedNickname)
+                        Text("Register.DuplicatedNickname")
                             .font(.pretendard14R)
                             .foregroundStyle(.kuRed)
                     }
@@ -64,7 +64,7 @@ struct RegisterNickname: View {
                         ZStack {
                             if nickname.isEmpty {
                                 HStack {
-                                    Text(StringLiterals.Register.nicknamePlaceholder)
+                                    Text("Register.NicknamePlaceholder")
                                         .font(.pretendard15R)
                                         .foregroundStyle(.kuGray2)
                                     Spacer()
@@ -97,7 +97,10 @@ struct RegisterNickname: View {
                         }
                     }
                 
-                Text(StringLiterals.Register.nicknamePolicy)
+                let policy = NSLocalizedString("Register.NicknamePolicy", comment: "")
+                    .replacingOccurrences(of: "<br>", with: "\n")
+                
+                Text(policy)
                     .font(.pretendard12R)
                     .foregroundStyle(.kuGray2)
                     .padding(.top, 4)
@@ -120,7 +123,7 @@ struct RegisterNickname: View {
                             // API 요청한 경우
                             ProgressView()
                         } else {
-                            Text(StringLiterals.Register.next)
+                            Text("Register.Next")
                                 .font(.neo15)
                                 .kerning(-0.41)
                                 .foregroundStyle(.kuText)
@@ -175,20 +178,20 @@ struct RegisterNickname: View {
                         isNicknameDuplicated = true
                         isNicknameChecked = true
                         isLoading = false
-                        self.viewModel.openToastMessageView(message: StringLiterals.Register.ToastMessage.nicknameDuplicated)
+                        self.viewModel.openToastMessageView(message: NSLocalizedString("Register.ToastMessage.NicknameDuplicated", comment: ""))
                     }
                 } else {
                     isNicknameDuplicated = true
                     isNicknameChecked = true
                     isLoading = false
-                    self.viewModel.openToastMessageView(message: StringLiterals.Network.serverError)
+                    self.viewModel.openToastMessageView(message: NSLocalizedString("Network.ServerError", comment: ""))
                 }
             case .failure(let error):
                 print("Error in View: \(error)")
                 isNicknameDuplicated = true
                 isNicknameChecked = true
                 isLoading = false
-                self.viewModel.openToastMessageView(message: StringLiterals.Network.serverError)
+                self.viewModel.openToastMessageView(message: NSLocalizedString("Network.ServerError", comment: ""))
                 
             }
         }
@@ -239,7 +242,7 @@ struct RegisterNickname: View {
                         // 회원가입 실패
                         if let error = apiResponse.errorResponse?.message {
                             print(error)
-                            self.viewModel.openToastMessageView(message: StringLiterals.Register.ToastMessage.registerFailed)
+                            self.viewModel.openToastMessageView(message: NSLocalizedString("Register.ToastMessage.RegisterFailed", comment: ""))
                         }
                     }
                 }
@@ -249,7 +252,7 @@ struct RegisterNickname: View {
                 isNicknameDuplicated = false
                 isNicknameChecked = false
                 isLoading = false
-                self.viewModel.openToastMessageView(message: StringLiterals.Register.ToastMessage.registerFailed)
+                self.viewModel.openToastMessageView(message: NSLocalizedString("Register.ToastMessage.RegisterFailed", comment: ""))
             }
         }
     }

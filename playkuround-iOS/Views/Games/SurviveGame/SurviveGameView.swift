@@ -51,7 +51,7 @@ struct SurviveGameView: View {
                     }
                 
                 HStack {
-                    Text(StringLiterals.Game.scoreTitle)
+                    Text("Game.ScoreTitle")
                         .font(.neo22)
                         .foregroundStyle(.kuText)
                         .kerning(-0.41)
@@ -108,7 +108,7 @@ struct SurviveGameView: View {
                 }
             }
             .customNavigationBar(centerView: {
-                Text(StringLiterals.Game.Survive.title)
+                Text("Game.Survive.Title")
                     .font(.neo22)
                     .kerning(-0.41)
                     .foregroundStyle(.kuText)

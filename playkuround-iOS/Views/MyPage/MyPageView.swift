@@ -81,7 +81,7 @@ struct MyPageView: View {
             Spacer()
                 .customNavigationBar(
                     centerView: {
-                        Text(StringLiterals.MyPage.title)
+                        Text("MyPage.Title")
                             .font(.neo22)
                             .kerning(-0.41)
                             .foregroundStyle(.kuText)
@@ -95,10 +95,10 @@ struct MyPageView: View {
                     }, height: 73)
         }
         .fullScreenCover(isPresented: $isServiceTermsViewPresented) {
-            TermsView(title: StringLiterals.Register.serviceTermsTitle, termsType: .service)
+            TermsView(title: "Register.ServiceTermsTitle", termsType: .service)
         }
         .fullScreenCover(isPresented: $isPrivacyTermsViewPresented) {
-            TermsView(title: StringLiterals.Register.privacyTermsTitle, termsType: .privacy)
+            TermsView(title: "Register.PrivacyTermsTitle", termsType: .privacy)
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("storyViewPresented"))) { _ in
             withAnimation(.spring(duration: 0.5, bounce: 0.3)) {

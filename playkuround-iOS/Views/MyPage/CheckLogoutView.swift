@@ -23,7 +23,7 @@ struct CheckLogoutView: View {
                 }
             
             VStack {
-                Text(StringLiterals.MyPage.Logout.message)
+                Text("MyPage.Logout.Message")
                     .font(.neo20)
                     .kerning(-0.41)
                     .foregroundStyle(.white)
@@ -36,7 +36,7 @@ struct CheckLogoutView: View {
                 }, label: {
                     Image(.shortButtonBlue)
                         .overlay {
-                            Text(StringLiterals.MyPage.Logout.ok)
+                            Text("MyPage.Logout.Ok")
                                 .font(.neo20)
                                 .kerning(-0.41)
                                 .foregroundStyle(.black)
@@ -50,7 +50,7 @@ struct CheckLogoutView: View {
                 }, label: {
                     Image(.shortButtonGray)
                         .overlay {
-                            Text(StringLiterals.MyPage.Logout.no)
+                            Text("MyPage.Logout.No")
                                 .font(.neo20)
                                 .kerning(-0.41)
                                 .foregroundStyle(.black)

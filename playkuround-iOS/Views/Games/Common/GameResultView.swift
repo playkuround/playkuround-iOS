@@ -30,16 +30,16 @@ struct GameResultView: View {
                             .overlay {
                                 VStack(alignment: .center) {
                                     // 게임 점수
-                                    Text("\(gameViewModel.score) " + StringLiterals.Game.Result.score)
+                                    Text("\(gameViewModel.score) " + NSLocalizedString("Game.Result.Score", comment: ""))
                                         .font(.neo56)
                                         .foregroundStyle(.kuText)
                                         .kerning(-0.41)
                                         .padding(.bottom, 2)
                                     
                                     // 최고 점수 받아와 표시
-                                    Text(StringLiterals.Game.Result.bestScore
+                                    Text(NSLocalizedString("Game.Result.BestScore", comment: "")
                                          + " \(gameViewModel.bestScore) "
-                                         + StringLiterals.Game.Result.score)
+                                         + NSLocalizedString("Game.Result.Score", comment: ""))
                                         .font(.neo18)
                                         .foregroundStyle(.kuText)
                                         .kerning(-0.41)
@@ -48,9 +48,9 @@ struct GameResultView: View {
                             }
                         
                         // 모험 점수 받아와 표시
-                        Text(StringLiterals.Game.Result.adventureScore 
+                        Text(NSLocalizedString("Game.Result.AdventureScore", comment: "")
                              + " \(gameViewModel.adventureScore) "
-                             + StringLiterals.Game.Result.score)
+                             + NSLocalizedString("Game.Result.Score", comment: ""))
                             .font(.neo24)
                             .foregroundStyle(.kuText)
                             .kerning(-0.41)
@@ -73,7 +73,7 @@ struct GameResultView: View {
                         } label: {
                             Image(.shortButtonBlue)
                                 .overlay {
-                                    Text(StringLiterals.Game.Result.out)
+                                    Text("Game.Result.Out")
                                         .font(.neo18)
                                         .foregroundStyle(.kuText)
                                         .kerning(-0.41)

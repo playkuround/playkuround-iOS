@@ -203,7 +203,7 @@ final class HomeViewModel: ObservableObject {
                 
                 // 출석 실패 이벤트
                 GAManager.shared.logEvent(.ATTENDANCE_FAIL)
-                self.rootViewModel.openToastMessageView(message: StringLiterals.Home.ToastMessage.attendanceFailed)
+                self.rootViewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.AttendanceFailed", comment: ""))
             }
         }
     }
@@ -350,7 +350,7 @@ final class HomeViewModel: ObservableObject {
                 // 가까운 랜드마크가 없음
                 else {
                     print("가까운 랜드마크 없음")
-                    self.rootViewModel.openToastMessageView(message: StringLiterals.Home.ToastMessage.noNearLandmark)
+                    self.rootViewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.NoNearLandmark", comment: ""))
                 }
                 
             case .failure(let error):

@@ -11,7 +11,7 @@ struct AuthenticationCodeView: View {
     @ObservedObject var viewModel: RootViewModel
     
     //건국대학교 이메일 바로가기
-    private let mailSystemURL = URL(string: StringLiterals.Login.mailSystemURL)
+    private let mailSystemURL = URL(string: NSLocalizedString("Login.MailSystemURL", comment: ""))
     
     // 인증코드
     @State private var authCode: String = ""
@@ -33,7 +33,7 @@ struct AuthenticationCodeView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(StringLiterals.Login.goEmail)
+            Text("Login.GoEmail")
                 .font(.pretendard12R)
                 .foregroundStyle(.kuDarkBlue).underline()
                 .padding(.top, 6)
@@ -48,7 +48,7 @@ struct AuthenticationCodeView: View {
             
             Image(.longButtonWhite)
                 .overlay {
-                    TextField(StringLiterals.Login.authenticationCode, text: $authCode)
+                    TextField(NSLocalizedString("Login.AuthenticationCode", comment: ""), text: $authCode)
                         .font(.pretendard15R)
                         .kerning(-0.41)
                         .padding(.leading, 20)
@@ -72,7 +72,7 @@ struct AuthenticationCodeView: View {
             }, label: {
                 Image(authCode.isEmpty ? .longButtonGray : .longButtonBlue)
                     .overlay {
-                        Text(StringLiterals.Login.authentication)
+                        Text("Login.Authentication")
                             .font(.neo15)
                             .foregroundStyle(.kuText)
                             .kerning(-0.41)
@@ -84,7 +84,7 @@ struct AuthenticationCodeView: View {
             if let temp = userSendingCount {
                 let calculatedValue = 5 - temp
                 
-                Text(String(format: StringLiterals.Login.authRemained, "\(calculatedValue)"))
+                Text(String(format: NSLocalizedString("Login.AuthRemained", comment: ""), "\(calculatedValue)"))
                     .font(.pretendard12R)
                     .foregroundStyle(.kuGray2)
                     .padding(.top, 7)
@@ -92,7 +92,7 @@ struct AuthenticationCodeView: View {
             
             // 잘못된 인증코드를 입력 했을 때
             if isAuthCodeWrong {
-                Text(StringLiterals.Login.authIncorrect)
+                Text("Login.AuthIncorrect")
                     .font(.pretendard12R)
                     .foregroundStyle(.kuRed)
                     .padding(.top, 7)

@@ -37,7 +37,7 @@ struct StoryView: View {
                                     .lineSpacing(18 * 0.3)
                                     .padding(.top, 19)
                                 
-                                Text(isLocked || !currentStory.isNew ? "" : StringLiterals.Story.new)
+                                Text(isLocked || !currentStory.isNew ? "" : "Story.New")
                                     .font(.neo15)
                                     .kerning(-0.41)
                                     .foregroundStyle(.kuRed)
@@ -47,9 +47,12 @@ struct StoryView: View {
                             Image(isLocked ? "storyLockImage" : currentStory.image)
                                 .padding(.top, 12)
                             
+                            let storyLockText = NSLocalizedString("Story.Lock", comment: "")
+                                .replacingOccurrences(of: "<br>", with: "\n")
+                            
                             Image(isLocked ? .storyLockDescriptionBackground : .storyDescriptionBlock)
                                 .overlay(alignment: isLocked ? .center : .top) {
-                                    Text(isLocked ? StringLiterals.Story.lock : currentStory.description)
+                                    Text(isLocked ? storyLockText : currentStory.description)
                                         .font(.neo15)
                                         .foregroundStyle(.kuText)
                                         .kerning(-0.41)
@@ -118,7 +121,10 @@ struct StoryView: View {
 func lockDescriptionView() -> some View {
     return Image(.storyLockDescriptionBackground)
         .overlay {
-            Text(StringLiterals.Story.lock)
+            let storyLockText = NSLocalizedString("Story.Lock", comment: "")
+                .replacingOccurrences(of: "<br>", with: "\n")
+            
+            Text(storyLockText)
                 .font(.neo15)
                 .foregroundStyle(.kuText)
                 .kerning(-0.41)

@@ -45,7 +45,7 @@ struct HomeView: View {
                                     .cornerRadius(4)
                             }
                             
-                            Text(homeViewModel.userData.nickname + "님")
+                            Text(homeViewModel.userData.nickname + NSLocalizedString("Home.NicknameTitle", comment: ""))
                                 .font(.neo18)
                                 .foregroundStyle(.kuText)
                                 .kerning(-0.41)
@@ -61,12 +61,12 @@ struct HomeView: View {
                         Image(.rankingKeywordBackground)
                             .overlay {
                                 HStack(spacing: 6) {
-                                    Text(StringLiterals.Home.ranking)
+                                    Text("Home.Ranking")
                                         .font(.neo12)
                                         .foregroundStyle(.white)
                                         .kerning(-0.41)
                                     Spacer()
-                                    Text("\(homeViewModel.userData.myRank.ranking)" + StringLiterals.Home.rankingUnit)
+                                    Text("\(homeViewModel.userData.myRank.ranking)" + NSLocalizedString("Home.RankingUnit", comment: ""))
                                         .font(.neo12)
                                         .foregroundStyle(.white)
                                         .kerning(-0.41)
@@ -77,7 +77,7 @@ struct HomeView: View {
                         Image(.badgeKeywordBackground)
                             .overlay {
                                 HStack {
-                                    Text(String(format: StringLiterals.Home.badgeNum, "\(homeViewModel.badgeList.count)"))
+                                    Text(String(format: NSLocalizedString("Home.BadgeNum", comment: ""), "\(homeViewModel.badgeList.count)"))
                                         .font(.neo12)
                                         .foregroundStyle(.white)
                                         .kerning(-0.41)
@@ -192,7 +192,7 @@ struct HomeView: View {
                     } label: {
                         Image(.shortButtonBlue)
                             .overlay {
-                                Text(StringLiterals.Home.adventure)
+                                Text("Home.Adventure")
                                     .font(.neo18)
                                     .foregroundColor(.kuText)
                                     .kerning(-0.41)

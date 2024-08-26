@@ -41,7 +41,7 @@ struct CardGameView: View {
                     .padding(.horizontal)
                 }
                 .customNavigationBar(centerView: {
-                    Text(StringLiterals.Game.Card.title)
+                    Text("Game.Card.Title")
                         .font(.neo22)
                         .kerning(-0.41)
                         .foregroundStyle(.white)

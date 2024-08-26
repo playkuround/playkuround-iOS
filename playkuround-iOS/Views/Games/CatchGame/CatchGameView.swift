@@ -98,7 +98,7 @@ struct CatchGameView: View {
                         }
                     
                     HStack {
-                        Text(StringLiterals.Game.scoreTitle)
+                        Text("Game.ScoreTitle")
                             .font(.neo22)
                             .foregroundStyle(.kuText)
                             .kerning(-0.41)
@@ -116,7 +116,7 @@ struct CatchGameView: View {
                     .padding(.horizontal, 26)
                 }
                 .customNavigationBar(centerView: {
-                    Text(StringLiterals.Game.Catch.title)
+                    Text("Game.Catch")
                         .font(.neo22)
                         .kerning(-0.41)
                         .foregroundStyle(.kuText)

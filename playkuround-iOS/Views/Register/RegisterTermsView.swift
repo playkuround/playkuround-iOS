@@ -27,13 +27,13 @@ struct RegisterTermsView: View {
             Color.kuBackground.ignoresSafeArea(.all)
             
             VStack(alignment: .leading) {
-                Text(StringLiterals.Register.title)
+                Text("Register.Title")
                     .font(.neo24)
                     .foregroundStyle(.kuText)
                     .kerning(-0.41)
                     .padding(.bottom, 10)
                 
-                Text(StringLiterals.Register.termsDescription)
+                Text("Register.TermsDescription")
                     .font(.pretendard15R)
                     .foregroundStyle(.kuText)
                     .padding(.bottom, 30)
@@ -47,7 +47,7 @@ struct RegisterTermsView: View {
                         HStack {
                             Image(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .blackCheck : .whiteCheck)
                                 .padding(.trailing, 10)
-                            Text(StringLiterals.Register.agreeAllTerms)
+                            Text("Register.AgreeAllTerms")
                                 .font(.neo15)
                                 .kerning(-0.41)
                                 .foregroundStyle(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .kuText : .white)
@@ -80,7 +80,7 @@ struct RegisterTermsView: View {
                         HStack {
                             Image(isServiceTermAgreed ? .blackCheck : .whiteCheck)
                                 .padding(.trailing, 10)
-                            Text(StringLiterals.Register.agreeServiceTerms)
+                            Text("Register.AgreeServiceTerms")
                                 .font(.neo15)
                                 .kerning(-0.41)
                                 .foregroundStyle(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .kuText : .white)
@@ -113,7 +113,7 @@ struct RegisterTermsView: View {
                         HStack {
                             Image(isPrivacyTermAgreed ? .blackCheck : .whiteCheck)
                                 .padding(.trailing, 10)
-                            Text(StringLiterals.Register.agreePrivacyTerms)
+                            Text("Register.AgreePrivacyTerms")
                                 .font(.neo15)
                                 .kerning(-0.41)
                                 .foregroundStyle(isPrivacyTermAgreed ? .kuText : .white)
@@ -147,7 +147,7 @@ struct RegisterTermsView: View {
                         HStack {
                             Image(isLocationTermAgreed ? .blackCheck : .whiteCheck)
                                 .padding(.trailing, 10)
-                            Text(StringLiterals.Register.agreeLocationTerms)
+                            Text("Register.AgreeLocationTerms")
                                 .font(.neo15)
                                 .kerning(-0.41)
                                 .foregroundStyle(isLocationTermAgreed ? .kuText : .white)
@@ -179,7 +179,7 @@ struct RegisterTermsView: View {
                     .scaledToFit()
                     .frame(maxWidth: .infinity)
                     .overlay {
-                        Text(StringLiterals.Register.next)
+                        Text("Register.Next")
                             .font(.neo15)
                             .kerning(-0.41)
                             .foregroundStyle(.kuText)
@@ -196,13 +196,13 @@ struct RegisterTermsView: View {
             .padding(.bottom, 10)
         }
         .fullScreenCover(isPresented: $isServiceTermsViewPresented) {
-            TermsView(title: StringLiterals.Register.serviceTermsTitle, termsType: .service)
+            TermsView(title: NSLocalizedString("Register.ServiceTermsTitle", comment: ""), termsType: .service)
         }
         .fullScreenCover(isPresented: $isPrivacyTermsViewPresented) {
-            TermsView(title: StringLiterals.Register.privacyTermsTitle, termsType: .privacy)
+            TermsView(title: NSLocalizedString("Register.PrivacyTermsTitle", comment: ""), termsType: .privacy)
         }
         .fullScreenCover(isPresented: $isLocationTermsViewPresented) {
-            TermsView(title: StringLiterals.Register.locationTermsTitle, termsType: .location)
+            TermsView(title: NSLocalizedString("Register.LocationTermsTitle", comment: ""), termsType: .location)
         }
         .onAppear {
             GAManager.shared.logScreenEvent(.RegisterTermsView)

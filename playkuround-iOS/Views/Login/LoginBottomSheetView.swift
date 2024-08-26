@@ -16,13 +16,16 @@ struct LoginBottomSheetView: View {
                 Spacer()
                 
                 VStack {
-                    Text(StringLiterals.Login.BottomSheet.title)
+                    Text("Login.BottomSheet.Title")
                         .font(.neo20)
                         .foregroundStyle(.kuText)
                         .kerning(-0.41)
                         .padding(.top, 50)
                     
-                    Text(StringLiterals.Login.BottomSheet.description)
+                    let description = NSLocalizedString("Login.BottomSheet.Description", comment: "")
+                        .replacingOccurrences(of: "<br>", with: "\n")
+                    
+                    Text(description)
                         .font(.pretendard15R)
                         .foregroundStyle(.kuGray2)
                         .padding(.top, 24)
@@ -30,7 +33,7 @@ struct LoginBottomSheetView: View {
                     
                     Image(.longButtonBlue)
                         .overlay {
-                            Text(StringLiterals.Login.BottomSheet.ok)
+                            Text("Login.BottomSheet.Ok")
                                 .font(.neo15)
                                 .foregroundStyle(.kuText)
                                 .kerning(-0.41)

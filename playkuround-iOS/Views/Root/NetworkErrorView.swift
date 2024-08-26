@@ -28,7 +28,8 @@ struct NetworkErrorView: View {
                     .frame(height: 20)
                 
                 Text(errorType == .network ?
-                     StringLiterals.Network.message : StringLiterals.Network.serverMessage)
+                     NSLocalizedString("Network.Message", comment: "")
+                     : NSLocalizedString("Network.ServerMessage", comment: ""))
                     .font(.pretendard15R)
                     .foregroundStyle(loadingColor == .white ? .white : .kuBrown)
                     .multilineTextAlignment(.center)

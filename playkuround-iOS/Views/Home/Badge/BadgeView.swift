@@ -33,7 +33,7 @@ struct BadgeView: View {
                     Image(.attendanceBadgeTable)
                         .overlay(alignment: .top) {
                             VStack {
-                                Text(StringLiterals.Home.Badge.attendanceTitle)
+                                Text("Home.Badge.AttendanceTitle")
                                     .font(.neo20)
                                     .kerning(-0.41)
                                     .foregroundStyle(.kuText)
@@ -73,7 +73,7 @@ struct BadgeView: View {
                     Image(.adventureBadgeTable)
                         .overlay(alignment: .top) {
                             VStack {
-                                Text(StringLiterals.Home.Badge.adventureTitle)
+                                Text("Home.Badge.AdventureTitle")
                                     .font(.neo20)
                                     .kerning(-0.41)
                                     .foregroundStyle(.kuText)
@@ -113,7 +113,7 @@ struct BadgeView: View {
             }
             .scrollIndicators(.hidden)
             .customNavigationBar(centerView: {
-                Text(StringLiterals.Home.Badge.title)
+                Text("Home.Badge.Title")
                     .font(.neo22)
                     .kerning(-0.41)
                     .foregroundStyle(.white)

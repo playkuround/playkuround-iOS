@@ -18,7 +18,7 @@ struct TimerBarView: View {
     
     var body: some View {
         HStack(alignment: .bottom) {
-            Text(StringLiterals.Game.timerTitle)
+            Text("Game.TimerTitle")
                 .font(.neo22)
                 .foregroundStyle(color == .white ? .white : .kuText)
                 .kerning(-0.41)

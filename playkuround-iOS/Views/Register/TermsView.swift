@@ -24,11 +24,11 @@ struct TermsView: View {
             do {
                 text = try String(contentsOf: fileURL)
             } catch {
-                text = StringLiterals.Register.termsErrorMessage
+                text = NSLocalizedString("Register.TermsErrorMessage", comment: "")
                 print("txt 파일 읽는 도중 오류 발생")
             }
         } else {
-            text = StringLiterals.Register.termsErrorMessage
+            text = NSLocalizedString("Register.TermsErrorMessage", comment: "")
             print("파일을 찾을 수 없음")
         }
         
@@ -86,17 +86,17 @@ struct TermsView: View {
 
 #Preview {
     // 다른 뷰에서 호출 시 termsType을 명시해줌
-    TermsView(title: StringLiterals.Register.serviceTermsTitle, termsType: .service)
+    TermsView(title: NSLocalizedString("Register.ServiceTermsTitle", comment: ""), termsType: .service)
 }
 
 #Preview {
     // 다른 뷰에서 호출 시 termsType을 명시해줌
-    TermsView(title: StringLiterals.Register.privacyTermsTitle, termsType: .privacy)
+    TermsView(title: NSLocalizedString("Register.PrivacyTermsTitle", comment: ""), termsType: .privacy)
 }
 
 #Preview {
     // 다른 뷰에서 호출 시 termsType을 명시해줌
-    TermsView(title: StringLiterals.Register.locationTermsTitle, termsType: .location)
+    TermsView(title: NSLocalizedString("Register.LocationTermsTitle", comment: ""), termsType: .location)
 }
 
 /// 이용 약관 종류, RawValue는 파일명

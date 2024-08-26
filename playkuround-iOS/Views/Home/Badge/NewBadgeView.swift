@@ -39,7 +39,7 @@ struct NewBadgeView: View {
                                     .kerning(-0.41)
                                     .foregroundStyle(.kuText)
                                 
-                                Text(StringLiterals.Home.Badge.new)
+                                Text("Home.Badge.New")
                                     .font(.neo15)
                                     .kerning(-0.41)
                                     .foregroundStyle(.kuTimebarRed)

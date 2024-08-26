@@ -61,7 +61,7 @@ struct LandmarkDetailView: View {
                         
                         ScrollView(.vertical) {
                             VStack(spacing: 8) {
-                                Text(StringLiterals.Home.Landmark.buildingDescriptionTitle)
+                                Text("Home.Landmark.BuildingDescriptionTitle")
                                     .font(.neo18)
                                     .kerning(-0.41)
                                     .foregroundStyle(.kuText)
@@ -98,7 +98,7 @@ struct LandmarkDetailView: View {
                         } label: {
                             Image(.smallButtonBlue)
                                 .overlay {
-                                    Text(StringLiterals.Home.Landmark.close)
+                                    Text("Home.Landmark.Close")
                                         .font(.neo18)
                                         .kerning(-0.41)
                                         .foregroundStyle(.kuText)

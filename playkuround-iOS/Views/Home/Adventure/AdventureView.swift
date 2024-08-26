@@ -63,7 +63,7 @@ struct AdventureView: View {
                         } label: {
                             Image(homeViewModel.isStartButtonEnabled ? .shortButtonBlue : .shortButtonGray)
                                 .overlay {
-                                    Text(StringLiterals.Home.startGame)
+                                    Text("Home.StartGame")
                                         .font(.neo18)
                                         .foregroundColor(.kuText)
                                         .kerning(-0.41)

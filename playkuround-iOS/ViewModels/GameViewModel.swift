@@ -378,7 +378,7 @@ class GameViewModel: ObservableObject {
                     self.fetchBestScore()
                 case .failure(let error):
                     print("Error in View: \(error)")
-                    self.rootViewModel.openToastMessageView(message: StringLiterals.Network.serverError)
+                    self.rootViewModel.openToastMessageView(message: NSLocalizedString("Network.ServerError", comment: ""))
                 }
             }
         } else {
@@ -439,7 +439,7 @@ class GameViewModel: ObservableObject {
                     self.bestScore = 0
                 }
                 self.fetchAdventureScore()
-                self.rootViewModel.openToastMessageView(message: StringLiterals.Network.serverError)
+                self.rootViewModel.openToastMessageView(message: NSLocalizedString("Network.ServerError", comment: ""))
             }
         }
     }
@@ -480,7 +480,7 @@ class GameViewModel: ObservableObject {
                     self.adventureScore = 0
                 }
                 self.afterFetch()
-                self.rootViewModel.openToastMessageView(message: StringLiterals.Network.serverError)
+                self.rootViewModel.openToastMessageView(message: NSLocalizedString("Network.ServerError", comment: ""))
             }
         }
     }
