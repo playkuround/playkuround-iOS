@@ -57,7 +57,13 @@
     "+ %@" : {
       "shouldTranslate" : false
     },
+    "10초를 맞춰봐" : {
+      "shouldTranslate" : false
+    },
     "access" : {
+      "shouldTranslate" : false
+    },
+    "AdventureView 열기" : {
       "shouldTranslate" : false
     },
     "authVerify" : {
@@ -492,7 +498,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "points"
+            "value" : "pts"
           }
         },
         "ko" : {
@@ -2197,6 +2203,9 @@
         }
       }
     },
+    "MOON을 점령해" : {
+      "shouldTranslate" : false
+    },
     "MyPage.BugURL" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2839,6 +2848,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "服务器正在维护中. <br>请稍后重试！"
+          }
+        }
+      }
+    },
+    "Network.UploadError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your score isn't uploaded and going to Home."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "점수가 반영되지 않아 홈으로 이동합니다."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的分数没有反映出来，你被带回家了。"
           }
         }
       }
@@ -3677,6 +3709,9 @@
     "가장 가까운 랜드마크 - /api/landmarks" : {
       "shouldTranslate" : false
     },
+    "건쏠지식" : {
+      "shouldTranslate" : false
+    },
     "게임" : {
       "shouldTranslate" : false
     },
@@ -3716,6 +3751,12 @@
       "shouldTranslate" : false
     },
     "단과대학 및 학과 (Section)" : {
+      "shouldTranslate" : false
+    },
+    "덕쿠를 잡아라!" : {
+      "shouldTranslate" : false
+    },
+    "덕큐피트" : {
       "shouldTranslate" : false
     },
     "랜드마크 TOP100 - /api/scores/rank/25" : {
@@ -3769,10 +3810,16 @@
     "인증코드 재발급 - /api/auth/reissue" : {
       "shouldTranslate" : false
     },
+    "일감호에서 살아남기" : {
+      "shouldTranslate" : false
+    },
     "일시정지" : {
       "shouldTranslate" : false
     },
     "종합 TOP100 - /api/scores/rank" : {
+      "shouldTranslate" : false
+    },
+    "책 뒤집기" : {
       "shouldTranslate" : false
     },
     "최고 점수 불러오기" : {
@@ -3794,6 +3841,9 @@
       "shouldTranslate" : false
     },
     "타이머 초기화" : {
+      "shouldTranslate" : false
+    },
+    "탐험" : {
       "shouldTranslate" : false
     },
     "탐험하기 - /api/adventures" : {
