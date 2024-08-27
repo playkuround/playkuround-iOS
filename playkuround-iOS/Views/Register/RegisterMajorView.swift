@@ -122,13 +122,15 @@ struct RegisterView: View {
                         if let selectedMajor = selectedMajor {
                             soundManager.playSound(sound: .buttonClicked)
                             
-                            let major = selectedMajor.name
-                            
-                            // UserDefaults에 저장
-                            UserDefaults.standard.set(major, forKey: "major")
-                            
-                            // 뷰 전환
-                            viewModel.transition(to: .registerNickname)
+                            // let major = selectedMajor.name
+                            if let major = translateMajorToKor(selectedMajor) {
+                                
+                                // UserDefaults에 저장
+                                UserDefaults.standard.set(major, forKey: "major")
+                                
+                                // 뷰 전환
+                                viewModel.transition(to: .registerNickname)
+                            }
                         }
                     }
             }
@@ -254,6 +256,20 @@ struct RegisterView: View {
                 }
             }
         }
+    }
+    
+    private func translateMajorToKor(_ major: Major) -> String? {
+        let majorID = major.id
+        
+        for colleges in majorList {
+            for major in colleges.majors {
+                if major.id == majorID {
+                    return major.name
+                }
+            }
+        }
+        
+        return nil
     }
 }
 

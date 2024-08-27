@@ -18,6 +18,26 @@ struct MapView: View {
     
     private let soundManager = SoundManager.shared
     
+    let landmarkList: [Landmark]
+    
+    init(mapViewModel: MapViewModel, homeViewModel: HomeViewModel) {
+        self.mapViewModel = mapViewModel
+        self.homeViewModel = homeViewModel
+        
+        let currentLanguage = Locale.current.language.languageCode?.identifier
+        
+        switch currentLanguage {
+        case "ko":
+            self.landmarkList = landmarkListKorean
+        case "en":
+            self.landmarkList = landmarkListEnglish
+        case "zh":
+            self.landmarkList = landmarkListChinese
+        default:
+            self.landmarkList = landmarkListKorean
+        }
+    }
+    
     var body: some View {
         let sortedAnnList = annotationList.sorted { $0.landmark.number > $1.landmark.number }
         

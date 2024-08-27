@@ -47,7 +47,7 @@ struct MyPageProfileView: View {
                             .foregroundStyle(.kuText)
                             .padding(.trailing, 15)
                         
-                        Text("\(String(describing: user.highestScore))" + NSLocalizedString("Home.ScoreTitle", comment: "") + " (\(user.highestRank)" + NSLocalizedString("Home.RankingUnit", comment: "") +")")
+                        Text("\(String(describing: user.highestScore))" + NSLocalizedString("Home.ScoreTitle", comment: "") + " (\(user.highestRank)" + NSLocalizedString("Home.RankingUnit", comment: "") + ")")
                             .font(.neo20)
                             .kerning(-0.41)
                             .foregroundStyle(.kuText)

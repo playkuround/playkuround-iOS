@@ -143,14 +143,14 @@
             },
             {
                 "title": "1st floor",
-                "content": "Study, copy room"
+                "content": "Study, Copy Room"
             },
             {
                 "title": "Telephone number",
                 "content": "Store 02-450-3943, Administrative offices 02-450-3776,3779"
             }
         ],
-        "amenity": ["copy room"]
+        "amenity": ["Copy Room"]
     },
     {
         "id": 9,
@@ -180,7 +180,7 @@
                 "content": "Bookbindery 010-3359-4898, In-house printing room 02-450-3133~4"
             }
         ],
-        "amenity": ["copy room"]
+        "amenity": ["Copy Room"]
     },
     {
         "id": 11,
@@ -233,7 +233,7 @@
         "information": [
             {
                 "title": "1st floor",
-                "content": "BLUEPOT, book return, copy room"
+                "content": "BLUEPOT, book return, Copy Room"
             },
             {
                 "title": "3rd Floor",
@@ -241,7 +241,7 @@
             },
             {
                 "title": "Telephone number",
-                "content": "Administrative offices 02-450-3612, copy room 455-5666"
+                "content": "Administrative offices 02-450-3612, Copy Room 455-5666"
             }
         ],
         "amenity": ["Cafe", "Copy Room", "Book Return Machine", "K-CUBE"]

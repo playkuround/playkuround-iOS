@@ -28,7 +28,7 @@ struct LandmarkDescription: Identifiable, Codable {
     let amenity: [String]
 }
 
-let landmarkList: [Landmark] = [
+let landmarkListKorean: [Landmark] = [
     // 서버 API 반환값 및 랜드마크 인덱스는 1부터 시작하므로 0번째는 더미 노드 추가
     Landmark(number: 0, name: "Error: Index Out of Range", latitude: 0, longitude: 0, radius: 0),
     Landmark(number: 1, name: "산학협동관", latitude: 37.539765, longitude: 127.073215, radius: 40),

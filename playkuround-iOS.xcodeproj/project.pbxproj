@@ -33,6 +33,12 @@
 		0C6B77F62BABCC8F0033CEEF /* location.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B77F52BABCC8F0033CEEF /* location.txt */; };
 		0C6B77F82BABCCCD0033CEEF /* privacy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B77F72BABCCCD0033CEEF /* privacy.txt */; };
 		0C6C36CA2C0339960069EE06 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C36C92C0339960069EE06 /* MotionManager.swift */; };
+		0C6F75CC2C7CD2750075FAC3 /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F75CB2C7CD2750075FAC3 /* QuizData.json */; };
+		0C6F75D02C7CDFB80075FAC3 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F75CF2C7CDFB80075FAC3 /* Localizable.xcstrings */; };
+		0C6F75D62C7CEA280075FAC3 /* LandmarkDescriptionEnglish.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F75D52C7CEA200075FAC3 /* LandmarkDescriptionEnglish.json */; };
+		0C6F75D82C7CEA2A0075FAC3 /* LandmarkDescriptionChinese.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F75D72C7CEA2A0075FAC3 /* LandmarkDescriptionChinese.json */; };
+		0C6F75DA2C7CEA3E0075FAC3 /* QuizDataEnglish.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F75D92C7CEA370075FAC3 /* QuizDataEnglish.json */; };
+		0C6F75DC2C7CEA400075FAC3 /* QuizDataChinese.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F75DB2C7CEA400075FAC3 /* QuizDataChinese.json */; };
 		0C7609F22C0DA9590087EA55 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7609F12C0DA9590087EA55 /* HomeView.swift */; };
 		0C7C4E3C2C0777B600ABB4D8 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C4E3B2C0777B600ABB4D8 /* Date+.swift */; };
 		0C7C4E3F2C07A2E200ABB4D8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C4E3E2C07A2E200ABB4D8 /* MapView.swift */; };
@@ -135,7 +141,6 @@
 		C98078C62BA8816B00C04B2D /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */; };
 		C98BDC3E2C75C64500ACBB46 /* LandmarkDescription.json in Resources */ = {isa = PBXBuildFile; fileRef = C98BDC3C2C75C60000ACBB46 /* LandmarkDescription.json */; };
 		C9963C532BBB07040037C662 /* QuizBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9963C522BBB07040037C662 /* QuizBlockView.swift */; };
-		C9C66C982C71FCC70095461D /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = C9C66C972C71FCC70095461D /* QuizData.json */; };
 		C9DAF1F72BB712D900E03D16 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DAF1F62BB712D900E03D16 /* UserEntity.swift */; };
 		C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */; };
 		C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E92BA3251A009A8762 /* ContentView.swift */; };
@@ -172,6 +177,12 @@
 		0C6B77F52BABCC8F0033CEEF /* location.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = location.txt; sourceTree = "<group>"; };
 		0C6B77F72BABCCCD0033CEEF /* privacy.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = privacy.txt; sourceTree = "<group>"; };
 		0C6C36C92C0339960069EE06 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
+		0C6F75CB2C7CD2750075FAC3 /* QuizData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuizData.json; sourceTree = "<group>"; };
+		0C6F75CF2C7CDFB80075FAC3 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		0C6F75D52C7CEA200075FAC3 /* LandmarkDescriptionEnglish.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LandmarkDescriptionEnglish.json; sourceTree = "<group>"; };
+		0C6F75D72C7CEA2A0075FAC3 /* LandmarkDescriptionChinese.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LandmarkDescriptionChinese.json; sourceTree = "<group>"; };
+		0C6F75D92C7CEA370075FAC3 /* QuizDataEnglish.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuizDataEnglish.json; sourceTree = "<group>"; };
+		0C6F75DB2C7CEA400075FAC3 /* QuizDataChinese.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuizDataChinese.json; sourceTree = "<group>"; };
 		0C7609F12C0DA9590087EA55 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0C7C4E3B2C0777B600ABB4D8 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		0C7C4E3E2C07A2E200ABB4D8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -274,7 +285,6 @@
 		C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
 		C98BDC3C2C75C60000ACBB46 /* LandmarkDescription.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LandmarkDescription.json; sourceTree = "<group>"; };
 		C9963C522BBB07040037C662 /* QuizBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBlockView.swift; sourceTree = "<group>"; };
-		C9C66C972C71FCC70095461D /* QuizData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = QuizData.json; path = ../../../../QuizData.json; sourceTree = "<group>"; };
 		C9DAF1F62BB712D900E03D16 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		C9F694E42BA3251A009A8762 /* playkuround-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "playkuround-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playkuround_iOSApp.swift; sourceTree = "<group>"; };
@@ -320,8 +330,10 @@
 		0C3F4E682C0C44AB00EE9DB6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				0C6F75D42C7CEA1B0075FAC3 /* English */,
+				0C6F75D32C7CEA120075FAC3 /* Chinese */,
 				C98BDC3C2C75C60000ACBB46 /* LandmarkDescription.json */,
-				C9C66C972C71FCC70095461D /* QuizData.json */,
+				0C6F75CB2C7CD2750075FAC3 /* QuizData.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -404,6 +416,24 @@
 				B9E2432D2C4538DF00CABED0 /* Story.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0C6F75D32C7CEA120075FAC3 /* Chinese */ = {
+			isa = PBXGroup;
+			children = (
+				0C6F75DB2C7CEA400075FAC3 /* QuizDataChinese.json */,
+				0C6F75D72C7CEA2A0075FAC3 /* LandmarkDescriptionChinese.json */,
+			);
+			path = Chinese;
+			sourceTree = "<group>";
+		};
+		0C6F75D42C7CEA1B0075FAC3 /* English */ = {
+			isa = PBXGroup;
+			children = (
+				0C6F75D92C7CEA370075FAC3 /* QuizDataEnglish.json */,
+				0C6F75D52C7CEA200075FAC3 /* LandmarkDescriptionEnglish.json */,
+			);
+			path = English;
 			sourceTree = "<group>";
 		};
 		0C7C4E3D2C07A2D900ABB4D8 /* Map */ = {
@@ -596,6 +626,7 @@
 				C953D2F22BA4780200318869 /* Fonts */,
 				C953D2F82BA47B4B00318869 /* Font.swift */,
 				C953D2FA2BA47F2C00318869 /* StringLiterals.swift */,
+				0C6F75CF2C7CDFB80075FAC3 /* Localizable.xcstrings */,
 				C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */,
 			);
 			path = Resources;
@@ -867,6 +898,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = C9F694DB2BA3251A009A8762;
 			packageReferences = (
@@ -889,6 +921,7 @@
 				C98BDC3E2C75C64500ACBB46 /* LandmarkDescription.json in Resources */,
 				C98078BD2BA872A300C04B2D /* blackDuckkuClicked.mp3 in Resources */,
 				C98078A12BA8715900C04B2D /* quizCorrect.mp3 in Resources */,
+				0C6F75D62C7CEA280075FAC3 /* LandmarkDescriptionEnglish.json in Resources */,
 				0C5979B82BAB25EE00E8156D /* service.txt in Resources */,
 				C98078A92BA871A000C04B2D /* cardClicked.mp3 in Resources */,
 				C980789C2BA8712700C04B2D /* cupidBad.mp3 in Resources */,
@@ -896,22 +929,26 @@
 				C98078A82BA871A000C04B2D /* cardIncorrect.mp3 in Resources */,
 				C98078B12BA8720D00C04B2D /* classMinusHeart.mp3 in Resources */,
 				C98078AB2BA871A000C04B2D /* cardAllCorrect.mp3 in Resources */,
+				0C6F75DC2C7CEA400075FAC3 /* QuizDataChinese.json in Resources */,
 				C98078912BA8703000C04B2D /* buttonClicked.mp3 in Resources */,
+				0C6F75D82C7CEA2A0075FAC3 /* LandmarkDescriptionChinese.json in Resources */,
 				C98078972BA870E400C04B2D /* timerCorrect.mp3 in Resources */,
 				C9F694EF2BA3251B009A8762 /* Preview Assets.xcassets in Resources */,
 				C98078BE2BA872A300C04B2D /* duckkuWindowOpenAndClose.mp3 in Resources */,
 				C98078982BA870E400C04B2D /* timerIncorrect.mp3 in Resources */,
-				C9C66C982C71FCC70095461D /* QuizData.json in Resources */,
 				C98078BF2BA872A300C04B2D /* duckkuClicked.mp3 in Resources */,
+				0C6F75CC2C7CD2750075FAC3 /* QuizData.json in Resources */,
 				0C6B77F62BABCC8F0033CEEF /* location.txt in Resources */,
 				C98078AA2BA871A000C04B2D /* cardCorrect.mp3 in Resources */,
 				C98078C42BA872DF00C04B2D /* moonClicked.mp3 in Resources */,
 				C98078962BA870E400C04B2D /* timerButtonClicked.mp3 in Resources */,
+				0C6F75DA2C7CEA3E0075FAC3 /* QuizDataEnglish.json in Resources */,
 				0C6B77F82BABCCCD0033CEEF /* privacy.txt in Resources */,
 				C98078B02BA8720D00C04B2D /* classCorrect.mp3 in Resources */,
 				C98078C32BA872DF00C04B2D /* moonHundredClicked.mp3 in Resources */,
 				C98078B62BA8725400C04B2D /* microbeHit.mp3 in Resources */,
 				0CA193592BB5B49A007C04B1 /* Pretendard-Bold.otf in Resources */,
+				0C6F75D02C7CDFB80075FAC3 /* Localizable.xcstrings in Resources */,
 				C98078C62BA8816B00C04B2D /* backgroundMusic.mp3 in Resources */,
 				C98078B72BA8725400C04B2D /* microbeEnd.mp3 in Resources */,
 				C953D2F52BA47B0700318869 /* Pretendard-Regular.otf in Resources */,
@@ -1163,7 +1200,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"playkuround-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = 9SVDHQS4M3;
+				DEVELOPMENT_TEAM = NCLJJYF4QS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "playkuround-iOS/Info.plist";
@@ -1204,7 +1241,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"playkuround-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = 9SVDHQS4M3;
+				DEVELOPMENT_TEAM = NCLJJYF4QS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "playkuround-iOS/Info.plist";
