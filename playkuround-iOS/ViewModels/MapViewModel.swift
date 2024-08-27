@@ -129,6 +129,12 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
             }
         }
     }
+    
+    func setLandmarkID(_ landmarkID: Int) {
+        DispatchQueue.main.async {
+            self.userLandmarkID = landmarkID
+        }
+    }
 }
 
 struct MapViewTestView: View {

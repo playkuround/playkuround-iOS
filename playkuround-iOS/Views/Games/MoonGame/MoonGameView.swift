@@ -64,15 +64,16 @@ struct MoonGameView: View {
                     })
                 }, height: 67)
                 
+                if viewModel.moonTapped == 0 {
+                    Color.black.opacity(0.5)
+                        .ignoresSafeArea()
+                }
+                
                 if viewModel.isPauseViewPresented {
                     GamePauseView(viewModel: viewModel)
                 }
                 else if viewModel.isResultViewPresented {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
-                }
-                else if viewModel.moonTapped == 0 {
-                    Color.black.opacity(0.5)
-                        .ignoresSafeArea()
                 }
             }
         }

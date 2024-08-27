@@ -91,21 +91,21 @@ struct GameResultView: View {
     private func GameTypeToString(_ type: GameType) -> String {
         switch type {
         case .time:
-            return "10초를 맞춰봐"
+            return NSLocalizedString("Game.Time.Title", comment: "")
         case .moon:
-            return "문을 점령해"
+            return NSLocalizedString("Game.Moon.Title", comment: "")
         case .quiz:
-            return "건쏠지식"
+            return NSLocalizedString("Game.Quiz.Title", comment: "")
         case .catchDucku:
-            return "덕쿠를 잡아라!"
+            return NSLocalizedString("Game.Catch", comment: "")
         case .allClear:
-            return "수강신청 ALL클릭"
+            return NSLocalizedString("Game.AllClick.Title", comment: "")
         case .cupid:
-            return "덕큐피트"
+            return NSLocalizedString("Game.Cupid.Title", comment: "")
         case .book:
-            return "책 뒤집기"
+            return NSLocalizedString("Game.Card.Title", comment: "")
         case .survive:
-            return "일감호에서 살아남기"
+            return NSLocalizedString("Game.Survive.Title", comment: "")
         }
     }
 }

@@ -369,7 +369,7 @@ final class HomeViewModel: ObservableObject {
                 if nearestID > 0 {
                     DispatchQueue.main.async {
                         self.selectedLandmarkID = nearestID
-                        mapViewModel.userLandmarkID = nearestID
+                        mapViewModel.setLandmarkID(nearestID)
                     }
                     self.selectRandomGame()
                 }
