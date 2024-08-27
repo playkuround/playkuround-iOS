@@ -21,7 +21,7 @@ enum SubjectType {
 }
 
 /// 수강신청 ALL 클릭 과목 리스트
-let subjectList: [Subject] = [
+let subjectListKorean: [Subject] = [
     // 기초교양-10개
     Subject(type: .basic, title: "대학영어"),
     Subject(type: .basic, title: "대학일본어"),

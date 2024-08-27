@@ -72,7 +72,8 @@ final class AllClickGameViewModel: GameViewModel {
             currentFallingCount += 1
             
             // 내려오는 횟수가 랜덤으로 지정된 횟수일 때에만 새로운 글자를 추가.
-            if currentFallingCount == randomFallingCount, let newSubject = subjectList.randomElement() {
+            if currentFallingCount == randomFallingCount,
+                let newSubject = getLocalizedRandomSubject() {
                 var subject = newSubject
                 subject.xPosition = self.randomXPosition()
                 subject.yPosition = 0
@@ -129,5 +130,23 @@ final class AllClickGameViewModel: GameViewModel {
                 score += 3
             }
         }
+    }
+    
+    private func getLocalizedRandomSubject() -> Subject? {
+        let currentLanguage = Locale.current.language.languageCode?.identifier
+        var randomSubject: Subject?
+        
+        switch currentLanguage {
+        case "ko":
+            randomSubject = subjectListKorean.randomElement()
+        case "en":
+            randomSubject = subjectListEnglish.randomElement()
+        case "zh":
+            randomSubject = subjectListChinese.randomElement()
+        default:
+            randomSubject = subjectListKorean.randomElement()
+        }
+        
+        return randomSubject
     }
 }

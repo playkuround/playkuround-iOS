@@ -22,7 +22,7 @@ struct AllClickTextRainView: View {
 }
 
 #Preview {
-    AllClickTextRainView(subject: subjectList[0])
+    AllClickTextRainView(subject: subjectListKorean[0])
 }
 
 extension View {
