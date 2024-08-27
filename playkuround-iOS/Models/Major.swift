@@ -22,7 +22,7 @@ struct Major: Identifiable, Hashable {
 }
 
 /// 단과대학별 학과/부 리스트
-let majorList: [College] = [
+let majorListKorean: [College] = [
     College(name: "문과대학", majors: [
         Major(name: "국어국문학과", id: 0),
         Major(name: "영어영문학과", id: 1),
@@ -314,7 +314,7 @@ struct MajorTestView: View {
     var body: some View {
         // Menu로 단과대학 구분
         Menu {
-            ForEach(majorList) { college in
+            ForEach(majorListKorean) { college in
                 Menu(college.name) {
                     ForEach(college.majors) { major in
                         Text(major.name)
@@ -331,7 +331,7 @@ struct MajorTestView: View {
         
         // Section으로 단과대학 구분
         Menu {
-            ForEach(majorList) { college in
+            ForEach(majorListKorean) { college in
                 Section(college.name) {
                     ForEach(college.majors) { major in
                         Text(major.name)

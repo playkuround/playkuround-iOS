@@ -17,11 +17,13 @@ struct MyPageProfileView: View {
                 .kerning(-0.41)
                 .foregroundStyle(.kuText)
             
-            Text(user.major)
-                .font(.neo15)
-                .kerning(-0.41)
-                .foregroundStyle(.kuText)
-                .padding(.top, 5)
+            if let majorName = getLocalizedMajorName() {
+                Text(majorName)
+                    .font(.neo15)
+                    .kerning(-0.41)
+                    .foregroundStyle(.kuText)
+                    .padding(.top, 5)
+            }
             
             Image(.mypageCurrentScore)
                 .overlay {
@@ -54,5 +56,49 @@ struct MyPageProfileView: View {
                     }
                 }
         }
+    }
+    
+    private func getLocalizedMajorName() -> String? {
+        let majorKoreanName = self.user.major
+        
+        let currentLanguage = Locale.current.language.languageCode?.identifier
+        
+        if currentLanguage != "zh" && currentLanguage != "en" {
+            return majorKoreanName
+        }
+        
+        var id: Int = -1
+        
+        for colleges in majorListKorean {
+            for major in colleges.majors {
+                if major.name == majorKoreanName {
+                    id = major.id
+                }
+            }
+        }
+        
+        if id < 0 {
+            return nil
+        }
+        
+        if currentLanguage == "zh" {
+            for colleges in majorListChinese {
+                for major in colleges.majors {
+                    if major.id == id {
+                        return major.name
+                    }
+                }
+            }
+        } else {
+            for colleges in majorListEnglish {
+                for major in colleges.majors {
+                    if major.id == id {
+                        return major.name
+                    }
+                }
+            }
+        }
+        
+        return nil
     }
 }

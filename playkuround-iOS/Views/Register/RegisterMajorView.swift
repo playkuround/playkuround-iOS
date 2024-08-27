@@ -150,7 +150,7 @@ struct RegisterView: View {
                     .overlay {
                         ScrollView {
                             VStack(spacing: 0) {
-                                ForEach(majorList) { college in
+                                ForEach(getLocalizedMajorList()) { college in
                                     Button {
                                         selectedCollege = college
                                         // 대학 선택 시 선택 학과 초기화
@@ -261,7 +261,7 @@ struct RegisterView: View {
     private func translateMajorToKor(_ major: Major) -> String? {
         let majorID = major.id
         
-        for colleges in majorList {
+        for colleges in majorListKorean {
             for major in colleges.majors {
                 if major.id == majorID {
                     return major.name
@@ -270,6 +270,21 @@ struct RegisterView: View {
         }
         
         return nil
+    }
+    
+    func getLocalizedMajorList() -> [College] {
+        let currentLanguage = Locale.current.language.languageCode?.identifier
+
+        switch currentLanguage {
+        case "ko":
+            return majorListKorean
+        case "en":
+            return majorListEnglish
+        case "zh":
+            return majorListChinese
+        default:
+            return majorListKorean
+        }
     }
 }
 
