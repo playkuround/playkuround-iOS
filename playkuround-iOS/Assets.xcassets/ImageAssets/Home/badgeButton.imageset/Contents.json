@@ -14,10 +14,49 @@
       "filename" : "badgeButton3.png",
       "idiom" : "universal",
       "scale" : "3x"
+    },
+    {
+      "filename" : "badgeButtonZh1x.png",
+      "idiom" : "universal",
+      "locale" : "zh-Hans",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "badgeButtonZh2x.png",
+      "idiom" : "universal",
+      "locale" : "zh-Hans",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "badgeButtonZh3x.png",
+      "idiom" : "universal",
+      "locale" : "zh-Hans",
+      "scale" : "3x"
+    },
+    {
+      "filename" : "badgeButtonEn1x.png",
+      "idiom" : "universal",
+      "locale" : "en",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "badgeButtonEn2x.png",
+      "idiom" : "universal",
+      "locale" : "en",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "badgeButtonEn3x.png",
+      "idiom" : "universal",
+      "locale" : "en",
+      "scale" : "3x"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "localizable" : true
   }
 }

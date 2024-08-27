@@ -14,10 +14,49 @@
       "filename" : "attendanceBackground3.png",
       "idiom" : "universal",
       "scale" : "3x"
+    },
+    {
+      "filename" : "attendanceBackgroundZh1x.png",
+      "idiom" : "universal",
+      "locale" : "zh-Hans",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "attendanceBackgroundZh2x.png",
+      "idiom" : "universal",
+      "locale" : "zh-Hans",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "attendanceBackgroundZh3x.png",
+      "idiom" : "universal",
+      "locale" : "zh-Hans",
+      "scale" : "3x"
+    },
+    {
+      "filename" : "attendanceBackgroundEng1x.png",
+      "idiom" : "universal",
+      "locale" : "en",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "attendanceBackgroundEng2x.png",
+      "idiom" : "universal",
+      "locale" : "en",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "attendanceBackgroundEng3x.png",
+      "idiom" : "universal",
+      "locale" : "en",
+      "scale" : "3x"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "localizable" : true
   }
 }
