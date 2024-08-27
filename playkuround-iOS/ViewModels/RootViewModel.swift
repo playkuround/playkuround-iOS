@@ -13,29 +13,57 @@ final class RootViewModel: ObservableObject {
     @Published var currentView: ViewType = .main
     
     // loading
-    @Published var isLoading: Bool = true
+    @Published var isLoading: Bool
     
     // Network Manager Instance
-    @Published var networkManager = NetworkManager()
+    @Published var networkManager: NetworkManager
     
     // Story View
-    @Published var showStory: Bool = false
-    @Published var currentStoryIndex: Int = 0
+    @Published var showStory: Bool
+    @Published var currentStoryIndex: Int
     @Published var newlyUnlockedStoryIndex: Int?
     
     // New Badge View
-    @Published var newBadgeViewShowing: Bool = false
-    @Published var newBadgeList: [Badge] = []
+    @Published var newBadgeViewShowing: Bool
+    @Published var newBadgeList: [Badge]
     
     // Toast Message View
-    @Published var toastMessageShowing: Bool = false
-    @Published var toastMessage: String? = nil
+    @Published var toastMessageShowing: Bool
+    @Published var toastMessage: String?
     
     // 서버 점검 중
-    @Published var serverError: Bool = false
+    @Published var serverError: Bool
     
-    var openedGameTypes = UserDefaults.standard.stringArray(forKey: "openedGameTypes") ?? []
-    var stories: [Story] = storyList
+    var openedGameTypes: [String]
+    var stories: [Story]
+    
+    init() {
+        self.currentView = .main
+        self.isLoading = false
+        self.networkManager = NetworkManager()
+        self.showStory = false
+        self.currentStoryIndex = 0
+        self.newlyUnlockedStoryIndex = nil
+        self.newBadgeViewShowing = false
+        self.newBadgeList = []
+        self.toastMessageShowing = false
+        self.toastMessage = nil
+        self.serverError = false
+        self.openedGameTypes = UserDefaults.standard.stringArray(forKey: "openedGameTypes") ?? []
+        
+        let currentLanguage = Locale.current.language.languageCode?.identifier
+                
+        switch currentLanguage {
+        case "ko":
+            self.stories = storyListKorean
+        case "en":
+            self.stories = storyListEnglish
+        case "zh":
+            self.stories = storyListChinese
+        default:
+            self.stories = storyListKorean
+        }
+    }
     
     let soundManager = SoundManager()
     

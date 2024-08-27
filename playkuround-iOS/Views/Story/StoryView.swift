@@ -104,13 +104,48 @@ struct StoryView: View {
     func getStoryBlockImages(for index: Int) -> [String] {
         var images: [String] = []
         
-        for i in 0..<storyList.count {
-            if i < index {
-                images.append("previewStoryBlock")
-            } else if i == index {
-                images.append("nowStoryBlock")
-            } else {
-                images.append("lockStoryBlock")
+        let currentLanguage = Locale.current.language.languageCode?.identifier
+        
+        switch currentLanguage {
+        case "ko":
+            for i in 0..<storyListKorean.count {
+                if i < index {
+                    images.append("previewStoryBlock")
+                } else if i == index {
+                    images.append("nowStoryBlock")
+                } else {
+                    images.append("lockStoryBlock")
+                }
+            }
+        case "en":
+            for i in 0..<storyListEnglish.count {
+                if i < index {
+                    images.append("previewStoryBlock")
+                } else if i == index {
+                    images.append("nowStoryBlock")
+                } else {
+                    images.append("lockStoryBlock")
+                }
+            }
+        case "zh":
+            for i in 0..<storyListChinese.count {
+                if i < index {
+                    images.append("previewStoryBlock")
+                } else if i == index {
+                    images.append("nowStoryBlock")
+                } else {
+                    images.append("lockStoryBlock")
+                }
+            }
+        default:
+            for i in 0..<storyListKorean.count {
+                if i < index {
+                    images.append("previewStoryBlock")
+                } else if i == index {
+                    images.append("nowStoryBlock")
+                } else {
+                    images.append("lockStoryBlock")
+                }
             }
         }
         

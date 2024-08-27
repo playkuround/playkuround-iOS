@@ -16,7 +16,7 @@ struct Story {
     var isNew: Bool = false
 }
 
-let storyList: [Story] = [Story(number: 1,
+let storyListKorean: [Story] = [Story(number: 1,
                                 image: "storyImage1",
                                 title: "덕쿠의 꿈",
                                 description:  "일감호에 사는 INFP 소심한 오리 덕쿠. 오늘도 캠퍼스와 학생들을 바라보며 상상을 한다. \"학교를 다니는 건 어떤 기분일까?\" \"나도 건국대학교 학생이고 싶어!\""),
