@@ -46,6 +46,7 @@ final class HomeViewModel: ObservableObject {
     @Published var isGameNameShowing: Bool = true
     
     let landmarkList: [Landmark]
+    let gameNamesOriginal = ["책 뒤집기", "덕쿠를 잡아라", "수강신청 All 클릭", "덕큐피트", "문을 점령해", "일감호에서 살아남기", "건쏠지식", "10초를 맞춰봐"]
     
     init(rootViewModel: RootViewModel) {
         let currentLanguage = Locale.current.language.languageCode?.identifier
@@ -453,7 +454,20 @@ final class HomeViewModel: ObservableObject {
     }
     
     func getSelectedGameStatus() -> ViewType? {
-        return ViewType(rawValue: self.gameName)
+        if let originalGameName = translateGameName(self.gameName) {
+            return ViewType(rawValue: originalGameName)
+        } else {
+            return nil
+        }
+    }
+    
+    func translateGameName(_ gameName: String) -> String? {
+        if let index = gameNames.firstIndex(of: gameName) {
+            print("\(gameName) -> \(gameNamesOriginal[index])")
+            return gameNamesOriginal[index]
+        } else {
+            return nil
+        }
     }
 }
 
