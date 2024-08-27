@@ -95,10 +95,10 @@ struct MyPageView: View {
                     }, height: 73)
         }
         .fullScreenCover(isPresented: $isServiceTermsViewPresented) {
-            TermsView(title: "Register.ServiceTermsTitle", termsType: .service)
+            TermsView(title: NSLocalizedString("Register.ServiceTermsTitle", comment: "") , termsType: .service)
         }
         .fullScreenCover(isPresented: $isPrivacyTermsViewPresented) {
-            TermsView(title: "Register.PrivacyTermsTitle", termsType: .privacy)
+            TermsView(title: NSLocalizedString("Register.PrivacyTermsTitle", comment: ""), termsType: .privacy)
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("storyViewPresented"))) { _ in
             withAnimation(.spring(duration: 0.5, bounce: 0.3)) {

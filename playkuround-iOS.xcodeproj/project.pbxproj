@@ -18,7 +18,7 @@
 		0C519D992BBAEB6C00DAA206 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C519D982BBAEB6C00DAA206 /* GameViewModel.swift */; };
 		0C519D9C2BBAFD9D00DAA206 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C519D9B2BBAFD9D00DAA206 /* Card.swift */; };
 		0C5979B52BAB215300E8156D /* RegisterMajorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5979B42BAB215300E8156D /* RegisterMajorView.swift */; };
-		0C5979B82BAB25EE00E8156D /* service.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C5979B72BAB25EE00E8156D /* service.txt */; };
+		0C5979B82BAB25EE00E8156D /* serviceKorean.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C5979B72BAB25EE00E8156D /* serviceKorean.txt */; };
 		0C5979BC2BAB26A800E8156D /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5979BB2BAB26A800E8156D /* TermsView.swift */; };
 		0C6396E82BAB4BB8008E046F /* RegisterNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6396E72BAB4BB8008E046F /* RegisterNickname.swift */; };
 		0C691EB12BBD9FF2004021F1 /* TimerGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C691EB02BBD9FF2004021F1 /* TimerGameViewModel.swift */; };
@@ -30,8 +30,8 @@
 		0C6AA4CD2BA56E230032AB24 /* UserNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4CC2BA56E230032AB24 /* UserNotification.swift */; };
 		0C6AA4CF2BA56FB30032AB24 /* ScoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4CE2BA56FB30032AB24 /* ScoreType.swift */; };
 		0C6AA4D12BA6DA340032AB24 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6AA4D02BA6DA340032AB24 /* TokenManager.swift */; };
-		0C6B77F62BABCC8F0033CEEF /* location.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B77F52BABCC8F0033CEEF /* location.txt */; };
-		0C6B77F82BABCCCD0033CEEF /* privacy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B77F72BABCCCD0033CEEF /* privacy.txt */; };
+		0C6B77F62BABCC8F0033CEEF /* locationKorean.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B77F52BABCC8F0033CEEF /* locationKorean.txt */; };
+		0C6B77F82BABCCCD0033CEEF /* privacyKorean.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B77F72BABCCCD0033CEEF /* privacyKorean.txt */; };
 		0C6C36CA2C0339960069EE06 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C36C92C0339960069EE06 /* MotionManager.swift */; };
 		0C6F75CC2C7CD2750075FAC3 /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F75CB2C7CD2750075FAC3 /* QuizData.json */; };
 		0C6F75D02C7CDFB80075FAC3 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F75CF2C7CDFB80075FAC3 /* Localizable.xcstrings */; };
@@ -45,6 +45,12 @@
 		0C7FE6992BB1259800D94162 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE6982BB1259800D94162 /* NetworkErrorView.swift */; };
 		0C7FE69B2BB1290A00D94162 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE69A2BB1290A00D94162 /* LoadingView.swift */; };
 		0C7FE6A12BB1983A00D94162 /* AnimationImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */; };
+		0C8C29502C7E1B9E0071C005 /* serviceEnglish.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C8C294F2C7E1B990071C005 /* serviceEnglish.txt */; };
+		0C8C29522C7E1BA00071C005 /* serviceChinese.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C8C29512C7E1BA00071C005 /* serviceChinese.txt */; };
+		0C8C29542C7E1BA80071C005 /* locationEnglish.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C8C29532C7E1BA80071C005 /* locationEnglish.txt */; };
+		0C8C29562C7E1BB30071C005 /* locationChinese.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C8C29552C7E1BB30071C005 /* locationChinese.txt */; };
+		0C8C29582C7E1BB90071C005 /* privacyEnglish.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C8C29572C7E1BB90071C005 /* privacyEnglish.txt */; };
+		0C8C295A2C7E1BC00071C005 /* privacyChinese.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C8C29592C7E1BC00071C005 /* privacyChinese.txt */; };
 		0C9641E62BB874E200838DA9 /* TimerBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9641E52BB874E200838DA9 /* TimerBarView.swift */; };
 		0C9641EA2BB92D6300838DA9 /* GameResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9641E92BB92D6300838DA9 /* GameResultView.swift */; };
 		0C9B120E2C6F67C600093178 /* ToastAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9B120D2C6F67C600093178 /* ToastAlertView.swift */; };
@@ -162,7 +168,7 @@
 		0C519D982BBAEB6C00DAA206 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		0C519D9B2BBAFD9D00DAA206 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		0C5979B42BAB215300E8156D /* RegisterMajorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMajorView.swift; sourceTree = "<group>"; };
-		0C5979B72BAB25EE00E8156D /* service.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = service.txt; sourceTree = "<group>"; };
+		0C5979B72BAB25EE00E8156D /* serviceKorean.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = serviceKorean.txt; sourceTree = "<group>"; };
 		0C5979BB2BAB26A800E8156D /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		0C6396E72BAB4BB8008E046F /* RegisterNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNickname.swift; sourceTree = "<group>"; };
 		0C691EB02BBD9FF2004021F1 /* TimerGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerGameViewModel.swift; sourceTree = "<group>"; };
@@ -174,8 +180,8 @@
 		0C6AA4CC2BA56E230032AB24 /* UserNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotification.swift; sourceTree = "<group>"; };
 		0C6AA4CE2BA56FB30032AB24 /* ScoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreType.swift; sourceTree = "<group>"; };
 		0C6AA4D02BA6DA340032AB24 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
-		0C6B77F52BABCC8F0033CEEF /* location.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = location.txt; sourceTree = "<group>"; };
-		0C6B77F72BABCCCD0033CEEF /* privacy.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = privacy.txt; sourceTree = "<group>"; };
+		0C6B77F52BABCC8F0033CEEF /* locationKorean.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = locationKorean.txt; sourceTree = "<group>"; };
+		0C6B77F72BABCCCD0033CEEF /* privacyKorean.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = privacyKorean.txt; sourceTree = "<group>"; };
 		0C6C36C92C0339960069EE06 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		0C6F75CB2C7CD2750075FAC3 /* QuizData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuizData.json; sourceTree = "<group>"; };
 		0C6F75CF2C7CDFB80075FAC3 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -189,6 +195,12 @@
 		0C7FE6982BB1259800D94162 /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
 		0C7FE69A2BB1290A00D94162 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		0C7FE6A02BB1983A00D94162 /* AnimationImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationImages.swift; sourceTree = "<group>"; };
+		0C8C294F2C7E1B990071C005 /* serviceEnglish.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = serviceEnglish.txt; sourceTree = "<group>"; };
+		0C8C29512C7E1BA00071C005 /* serviceChinese.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = serviceChinese.txt; sourceTree = "<group>"; };
+		0C8C29532C7E1BA80071C005 /* locationEnglish.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = locationEnglish.txt; sourceTree = "<group>"; };
+		0C8C29552C7E1BB30071C005 /* locationChinese.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = locationChinese.txt; sourceTree = "<group>"; };
+		0C8C29572C7E1BB90071C005 /* privacyEnglish.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = privacyEnglish.txt; sourceTree = "<group>"; };
+		0C8C29592C7E1BC00071C005 /* privacyChinese.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = privacyChinese.txt; sourceTree = "<group>"; };
 		0C9641E52BB874E200838DA9 /* TimerBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerBarView.swift; sourceTree = "<group>"; };
 		0C9641E92BB92D6300838DA9 /* GameResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultView.swift; sourceTree = "<group>"; };
 		0C9B120D2C6F67C600093178 /* ToastAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastAlertView.swift; sourceTree = "<group>"; };
@@ -384,9 +396,15 @@
 		0C5979B62BAB25CB00E8156D /* Texts */ = {
 			isa = PBXGroup;
 			children = (
-				0C5979B72BAB25EE00E8156D /* service.txt */,
-				0C6B77F52BABCC8F0033CEEF /* location.txt */,
-				0C6B77F72BABCCCD0033CEEF /* privacy.txt */,
+				0C8C294F2C7E1B990071C005 /* serviceEnglish.txt */,
+				0C8C29532C7E1BA80071C005 /* locationEnglish.txt */,
+				0C8C29572C7E1BB90071C005 /* privacyEnglish.txt */,
+				0C8C29512C7E1BA00071C005 /* serviceChinese.txt */,
+				0C8C29552C7E1BB30071C005 /* locationChinese.txt */,
+				0C8C29592C7E1BC00071C005 /* privacyChinese.txt */,
+				0C5979B72BAB25EE00E8156D /* serviceKorean.txt */,
+				0C6B77F52BABCC8F0033CEEF /* locationKorean.txt */,
+				0C6B77F72BABCCCD0033CEEF /* privacyKorean.txt */,
 			);
 			path = Texts;
 			sourceTree = "<group>";
@@ -919,14 +937,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				C98BDC3E2C75C64500ACBB46 /* LandmarkDescription.json in Resources */,
+				0C8C29582C7E1BB90071C005 /* privacyEnglish.txt in Resources */,
+				0C8C29562C7E1BB30071C005 /* locationChinese.txt in Resources */,
+				0C8C29522C7E1BA00071C005 /* serviceChinese.txt in Resources */,
 				C98078BD2BA872A300C04B2D /* blackDuckkuClicked.mp3 in Resources */,
 				C98078A12BA8715900C04B2D /* quizCorrect.mp3 in Resources */,
 				0C6F75D62C7CEA280075FAC3 /* LandmarkDescriptionEnglish.json in Resources */,
-				0C5979B82BAB25EE00E8156D /* service.txt in Resources */,
+				0C5979B82BAB25EE00E8156D /* serviceKorean.txt in Resources */,
 				C98078A92BA871A000C04B2D /* cardClicked.mp3 in Resources */,
 				C980789C2BA8712700C04B2D /* cupidBad.mp3 in Resources */,
 				C98078B22BA8720D00C04B2D /* classEnd.mp3 in Resources */,
 				C98078A82BA871A000C04B2D /* cardIncorrect.mp3 in Resources */,
+				0C8C295A2C7E1BC00071C005 /* privacyChinese.txt in Resources */,
 				C98078B12BA8720D00C04B2D /* classMinusHeart.mp3 in Resources */,
 				C98078AB2BA871A000C04B2D /* cardAllCorrect.mp3 in Resources */,
 				0C6F75DC2C7CEA400075FAC3 /* QuizDataChinese.json in Resources */,
@@ -935,15 +957,16 @@
 				C98078972BA870E400C04B2D /* timerCorrect.mp3 in Resources */,
 				C9F694EF2BA3251B009A8762 /* Preview Assets.xcassets in Resources */,
 				C98078BE2BA872A300C04B2D /* duckkuWindowOpenAndClose.mp3 in Resources */,
+				0C8C29542C7E1BA80071C005 /* locationEnglish.txt in Resources */,
 				C98078982BA870E400C04B2D /* timerIncorrect.mp3 in Resources */,
 				C98078BF2BA872A300C04B2D /* duckkuClicked.mp3 in Resources */,
 				0C6F75CC2C7CD2750075FAC3 /* QuizData.json in Resources */,
-				0C6B77F62BABCC8F0033CEEF /* location.txt in Resources */,
+				0C6B77F62BABCC8F0033CEEF /* locationKorean.txt in Resources */,
 				C98078AA2BA871A000C04B2D /* cardCorrect.mp3 in Resources */,
 				C98078C42BA872DF00C04B2D /* moonClicked.mp3 in Resources */,
 				C98078962BA870E400C04B2D /* timerButtonClicked.mp3 in Resources */,
 				0C6F75DA2C7CEA3E0075FAC3 /* QuizDataEnglish.json in Resources */,
-				0C6B77F82BABCCCD0033CEEF /* privacy.txt in Resources */,
+				0C6B77F82BABCCCD0033CEEF /* privacyKorean.txt in Resources */,
 				C98078B02BA8720D00C04B2D /* classCorrect.mp3 in Resources */,
 				C98078C32BA872DF00C04B2D /* moonHundredClicked.mp3 in Resources */,
 				C98078B62BA8725400C04B2D /* microbeHit.mp3 in Resources */,
@@ -953,6 +976,7 @@
 				C98078B72BA8725400C04B2D /* microbeEnd.mp3 in Resources */,
 				C953D2F52BA47B0700318869 /* Pretendard-Regular.otf in Resources */,
 				0C9FDC022C7A4C84002F814B /* GoogleService-Info.plist in Resources */,
+				0C8C29502C7E1B9E0071C005 /* serviceEnglish.txt in Resources */,
 				C98078A22BA8715900C04B2D /* quizIncorrect.mp3 in Resources */,
 				C980789D2BA8712700C04B2D /* cupidGoodOrPerfect.mp3 in Resources */,
 				C9F694EC2BA3251B009A8762 /* Assets.xcassets in Resources */,

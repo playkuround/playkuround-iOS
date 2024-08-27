@@ -10,7 +10,8 @@ import SwiftUI
 struct TermsView: View {
     // 이용 약관 내용
     private let title: String
-    private let text: String
+    private let termsType: TermsType
+    @State private var text: String = ""
     
     // environment dismiss
     @Environment(\.dismiss) var dismiss
@@ -19,21 +20,9 @@ struct TermsView: View {
     
     // 이용 약관을 불러옴
     init(title: String, termsType: TermsType) {
-        // md 파일을 읽어 텍스트를 불러옴
-        if let fileURL = Bundle.main.url(forResource: termsType.rawValue, withExtension: "txt") {
-            do {
-                text = try String(contentsOf: fileURL)
-            } catch {
-                text = NSLocalizedString("Register.TermsErrorMessage", comment: "")
-                print("txt 파일 읽는 도중 오류 발생")
-            }
-        } else {
-            text = NSLocalizedString("Register.TermsErrorMessage", comment: "")
-            print("파일을 찾을 수 없음")
-        }
-        
         // 제목
         self.title = title
+        self.termsType = termsType
     }
     
     var body: some View {
@@ -80,7 +69,37 @@ struct TermsView: View {
         }
         .onAppear {
             GAManager.shared.logScreenEvent(.TermView)
+            self.text = getResourceText(self.termsType)
         }
+    }
+    
+    private func getResourceText(_ type: TermsType) -> String {
+        var fileName: String = ""
+        var text: String = ""
+        
+        switch type {
+        case .service:
+            fileName = NSLocalizedString("Terms.Service", comment: "")
+        case .privacy:
+            fileName = NSLocalizedString("Terms.Privacy", comment: "")
+        case .location:
+            fileName = NSLocalizedString("Terms.Location", comment: "")
+        }
+        
+        // md 파일을 읽어 텍스트를 불러옴
+        if let fileURL = Bundle.main.url(forResource: fileName, withExtension: "txt") {
+            do {
+                text = try String(contentsOf: fileURL)
+            } catch {
+                text = NSLocalizedString("Register.TermsErrorMessage", comment: "")
+                print("txt 파일 읽는 도중 오류 발생")
+            }
+        } else {
+            text = NSLocalizedString("Register.TermsErrorMessage", comment: "")
+            print("파일을 찾을 수 없음")
+        }
+        
+        return text
     }
 }
 
