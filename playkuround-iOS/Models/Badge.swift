@@ -301,9 +301,8 @@ enum Badge: String, CaseIterable {
         case .COLLEGE_OF_VETERINARY_MEDICINE: return "College of Veterinary Medicine"
         case .COLLEGE_OF_EDUCATION: return "College of Education"
             
-        // TODO:
-        case .COLLEGE_OF_SANG_HUH: return ""
-        case .COLLEGE_OF_INTERNATIONAL: return ""
+        case .COLLEGE_OF_SANG_HUH: return "Sang-Huh College"
+        case .COLLEGE_OF_INTERNATIONAL: return "International College"
             
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_10: return "Intern"
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_30: return "Representative"
@@ -325,9 +324,8 @@ enum Badge: String, CaseIterable {
         case .MONTHLY_RANKING_2: return "Silver Medal"
         case .MONTHLY_RANKING_3: return "Bronze medal"
             
-        // TODO:
-        case .BUSINESS_ARCHITECTURE_EVENT_BUSINESS: return ""
-        case .BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE: return ""
+        case .BUSINESS_ARCHITECTURE_EVENT_BUSINESS: return "Business school duck 'Beeku'"
+        case .BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE: return "College of Architecture duck 'Uhku'"
         }
     }
     
@@ -366,9 +364,8 @@ enum Badge: String, CaseIterable {
         case .COLLEGE_OF_VETERINARY_MEDICINE: return "Unlocked upon exploring the Veterinary Medicine building."
         case .COLLEGE_OF_EDUCATION: return "Unlocked when exploring the College of Education building."
             
-        // TODO:
-        case .COLLEGE_OF_SANG_HUH: return ""
-        case .COLLEGE_OF_INTERNATIONAL: return ""
+        case .COLLEGE_OF_SANG_HUH: return "Unlocks after exploring the Industrial Alliance Building at least once."
+        case .COLLEGE_OF_INTERNATIONAL: return "Unlocks after exploring the Law School at least once."
             
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_10: return "Unlocked after 10 game runs in the College of Business building."
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_30: return "Unlocked after 30 game runs in the College of Business building."
@@ -390,9 +387,8 @@ enum Badge: String, CaseIterable {
         case .MONTHLY_RANKING_2: return "Unlocked when ranked #2 overall for the month."
         case .MONTHLY_RANKING_3: return "Unlocked when ranked #3 overall for the month."
             
-        // TODO:
-        case .BUSINESS_ARCHITECTURE_EVENT_BUSINESS: return ""
-        case .BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE: return ""
+        case .BUSINESS_ARCHITECTURE_EVENT_BUSINESS: return "Awarded to business students who participated in the 'Business X Architecture' event 'Wau Island' capture battle."
+        case .BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE: return "Awarded to architecture students who participated in the 'Business X Architecture' event 'Wau Island' capture battle."
         }
     }
     
@@ -431,9 +427,8 @@ enum Badge: String, CaseIterable {
         case .COLLEGE_OF_VETERINARY_MEDICINE: return "You have explored the College of Veterinary Medicine"
         case .COLLEGE_OF_EDUCATION: return "You have explored the College of Education"
             
-        // TODO:
-        case .COLLEGE_OF_SANG_HUH: return ""
-        case .COLLEGE_OF_INTERNATIONAL: return ""
+        case .COLLEGE_OF_SANG_HUH: return "Explored the Industrial Alliance Building."
+        case .COLLEGE_OF_INTERNATIONAL: return "Explored the Law School."
         
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_10: return "I am an intern"
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_30: return "I've been promoted by proxy!"
@@ -455,9 +450,8 @@ enum Badge: String, CaseIterable {
         case .MONTHLY_RANKING_2: return "Congratulations on winning 2nd place!"
         case .MONTHLY_RANKING_3: return "Congratulations on winning 3rd place!"
             
-        // TODO:
-        case .BUSINESS_ARCHITECTURE_EVENT_BUSINESS: return ""
-        case .BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE: return ""
+        case .BUSINESS_ARCHITECTURE_EVENT_BUSINESS: return "Let's show the power of the business school!"
+        case .BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE: return "Let's show the power of the College of Architecture!"
         }
     }
     
@@ -495,6 +489,9 @@ enum Badge: String, CaseIterable {
         case .COLLEGE_OF_BIOLOGICAL_SCIENCES: return "生命科学学院"
         case .COLLEGE_OF_VETERINARY_MEDICINE: return "兽医学院"
         case .COLLEGE_OF_EDUCATION: return "教育学院"
+            
+        case .COLLEGE_OF_SANG_HUH: return "常虛师范大学"
+        case .COLLEGE_OF_INTERNATIONAL: return "国际大学"
       
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_10: return "实习生"
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_30: return "代理"
@@ -516,11 +513,8 @@ enum Badge: String, CaseIterable {
         case .MONTHLY_RANKING_2: return "银牌"
         case .MONTHLY_RANKING_3: return "铜牌"
             
-        // TODO:
-        case .COLLEGE_OF_SANG_HUH: return ""
-        case .COLLEGE_OF_INTERNATIONAL: return ""
-        case .BUSINESS_ARCHITECTURE_EVENT_BUSINESS: return ""
-        case .BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE: return ""
+        case .BUSINESS_ARCHITECTURE_EVENT_BUSINESS: return "商学院鸭子 Beeku"
+        case .BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE: return "建筑学院鸭子 Uhku"
         }
     }
     
@@ -559,6 +553,8 @@ enum Badge: String, CaseIterable {
         case .COLLEGE_OF_VETERINARY_MEDICINE: return "兽医学馆探险时解锁"
         case .COLLEGE_OF_EDUCATION: return "教育科学馆探险时解锁"
 
+        case .COLLEGE_OF_SANG_HUH: return "至少探索一次产业联盟大楼后解锁"
+        case .COLLEGE_OF_INTERNATIONAL: return "探索法学院至少一次后解锁"
             
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_10: return "在经营学院大楼进行10次游戏时会解锁"
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_30: return "在经营学院大楼进行30次游戏时会解锁"
@@ -580,11 +576,8 @@ enum Badge: String, CaseIterable {
         case .MONTHLY_RANKING_2: return "月度总排名第2时解锁。"
         case .MONTHLY_RANKING_3: return "月度总排名第3时解锁。"
             
-        // TODO:
-        case .COLLEGE_OF_SANG_HUH: return ""
-        case .COLLEGE_OF_INTERNATIONAL: return ""
-        case .BUSINESS_ARCHITECTURE_EVENT_BUSINESS: return ""
-        case .BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE: return ""
+        case .BUSINESS_ARCHITECTURE_EVENT_BUSINESS: return "经营X建筑活动Wau也将发放给参与争夺战的经营学院学生"
+        case .BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE: return "经营X建筑活动Wau也将发放给参与争夺战的建筑大学学生"
         }
     }
     
@@ -623,6 +616,8 @@ enum Badge: String, CaseIterable {
         case .COLLEGE_OF_VETERINARY_MEDICINE: return "探索了兽医学学院"
         case .COLLEGE_OF_EDUCATION: return "探索了师范学院"
 
+        case .COLLEGE_OF_SANG_HUH: return "探索了产学合作馆"
+        case .COLLEGE_OF_INTERNATIONAL: return "去法学馆探险了"
             
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_10: return "我是实习生"
         case .COLLEGE_OF_BUSINESS_ADMINISTRATION_30: return "我是代理"
@@ -644,11 +639,8 @@ enum Badge: String, CaseIterable {
         case .MONTHLY_RANKING_2: return "恭喜您获得月度排名第二！"
         case .MONTHLY_RANKING_3: return "恭喜您获得月度排名第三！"
 
-        // TODO:
-        case .COLLEGE_OF_SANG_HUH: return ""
-        case .COLLEGE_OF_INTERNATIONAL: return ""
-        case .BUSINESS_ARCHITECTURE_EVENT_BUSINESS: return ""
-        case .BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE: return ""
+        case .BUSINESS_ARCHITECTURE_EVENT_BUSINESS: return "让我们看看商学院的力量!"
+        case .BUSINESS_ARCHITECTURE_EVENT_ARCHITECTURE: return "展现建筑大学的实力!"
         }
     }
     
