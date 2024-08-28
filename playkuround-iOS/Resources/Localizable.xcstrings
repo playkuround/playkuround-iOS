@@ -1471,8 +1471,8 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Attendance check : 1 point <br>Complete 1 expedition : 5 points <br>Additional exploration (after all exploration is complete) : 1 point"
+            "state" : "translated",
+            "value" : "Game score aggregation + attendance score<br>Attendance score: 10 pts<br>Game Score: Personal best score until reset"
           }
         },
         "ko" : {
@@ -1483,8 +1483,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "签到:1分<br>探险 完成1个:5分<br>追加 探险（所有探险结束后）:1分"
+            "state" : "translated",
+            "value" : "游戏得分合计 + 出勤率得分<br> 出勤率得分: 10分 <br>游戏得分： 重置前个人最好成绩"
           }
         }
       }
