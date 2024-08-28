@@ -137,7 +137,9 @@ struct LandmarkRankingView: View {
                                     Image(.rankingMineRow)
                                         .overlay {
                                             HStack(spacing: 0) {
-                                                Text(String(homeViewModel.userData.myRank.ranking))
+                                                let ranking = homeViewModel.userData.landmarkRank.ranking
+                                                
+                                                Text(ranking == 0 ? "-" : String(ranking))
                                                     .font(.neo18)
                                                     .kerning(-0.41)
                                                     .foregroundStyle(.kuText)
@@ -157,14 +159,16 @@ struct LandmarkRankingView: View {
                                                         .padding(.trailing, 10)
                                                 }
                                                 
-                                                Text("나")
+                                                Text("Home.Me")
                                                     .font(.pretendard15R)
                                                     .foregroundStyle(.kuText)
                                                     .lineLimit(1)
                                                 
                                                 Spacer()
                                                 
-                                                Text(String(homeViewModel.userData.myRank.score.decimalFormatter))
+                                                let score = homeViewModel.userData.landmarkRank.score.decimalFormatter
+                                                
+                                                Text(String(score))
                                                     .font(.neo18)
                                                     .kerning(-0.41)
                                                     .foregroundStyle(.kuText)
