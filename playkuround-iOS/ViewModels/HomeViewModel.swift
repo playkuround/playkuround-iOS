@@ -476,7 +476,7 @@ final class HomeViewModel: ObservableObject {
     
     // 공지 받아오기
     func loadEvents() {
-        /* APIManager.callGETAPI(endpoint: .events) { result in
+        APIManager.callGETAPI(endpoint: .events) { result in
             switch result {
             case .success(let data):
                 if let apiResponse = data as? EventAPIResponse {
@@ -501,24 +501,7 @@ final class HomeViewModel: ObservableObject {
                     self.eventList = []
                 }
             }
-        } */
-        self.eventList = [Event(id: 1,
-                                title: "녹색지대 부스 안내",
-                                imageUrl: "https://shorturl.at/6hQj6",
-                                description: "5/22~24 (수,목) 녹색지대 플레이쿠라운드 팝업스토어 운영",
-                                referenceUrl: "https://www.instagram.com/p/C7LuzJehez-/?utm_source=ig_web_copy_link"),
-                          Event(id: 2,
-                                title: "녹색지대 부스 안내",
-                                imageUrl: "https://shorturl.at/6hQj6",
-                                description: nil,
-                                referenceUrl: nil), // "https://www.instagram.com/p/C7LuzJehez-/?utm_source=ig_web_copy_link"),
-                          Event(id: 3,
-                                title: "녹색지대 부스 안내",
-                                imageUrl: nil,
-                                description: "5/22~24 (수,목) 녹색지대 플레이쿠라운드 팝업스토어 운영",
-                                referenceUrl: nil) // "https://www.instagram.com/p/C7LuzJehez-/?utm_source=ig_web_copy_link")
-        ]
-        self.updateIsNewEvent()
+        }
     }
     
     // 이벤트를 인덱스로 가져옴
