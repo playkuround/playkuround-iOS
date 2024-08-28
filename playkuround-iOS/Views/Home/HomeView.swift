@@ -66,7 +66,11 @@ struct HomeView: View {
                                         .foregroundStyle(.white)
                                         .kerning(-0.41)
                                     Spacer()
-                                    Text("\(homeViewModel.userData.myRank.ranking)" + NSLocalizedString("Home.RankingUnit", comment: ""))
+                                    
+                                    let rank = homeViewModel.userData.myRank.ranking == 0 ?
+                                                "- " : "\(homeViewModel.userData.myRank.ranking)"
+                                    
+                                    Text(rank + NSLocalizedString("Home.RankingUnit", comment: ""))
                                         .font(.neo12)
                                         .foregroundStyle(.white)
                                         .kerning(-0.41)
