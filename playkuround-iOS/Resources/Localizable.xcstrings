@@ -2611,6 +2611,29 @@
         }
       }
     },
+    "MyPage.RankingUnit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "th"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "등"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名"
+          }
+        }
+      }
+    },
     "MyPage.Setting.CurrentLanguage" : {
       "extractionState" : "manual",
       "localizations" : {
