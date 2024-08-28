@@ -36,6 +36,10 @@ final class HomeViewModel: ObservableObject {
     @Published var gameName: String = ""
     @Published var isStartButtonEnabled: Bool = false
     
+    // 공지 이벤트
+    @Published var eventList: [Event] = []
+    @Published var isNewEvent: Bool = false
+    
     private let gameNames: [String]
     private var currentIndex = 0
     private var delayMillis: TimeInterval = 0.05
@@ -467,6 +471,90 @@ final class HomeViewModel: ObservableObject {
             return gameNamesOriginal[index]
         } else {
             return nil
+        }
+    }
+    
+    // 공지 받아오기
+    func loadEvents() {
+        /* APIManager.callGETAPI(endpoint: .events) { result in
+            switch result {
+            case .success(let data):
+                if let apiResponse = data as? EventAPIResponse {
+                    if let eventList = apiResponse.response {
+                        DispatchQueue.main.async {
+                            self.eventList = eventList
+                            self.updateIsNewEvent()
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            self.eventList = []
+                        }
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.eventList = []
+                    }
+                }
+            case .failure(let error):
+                print(error)
+                DispatchQueue.main.async {
+                    self.eventList = []
+                }
+            }
+        } */
+        self.eventList = [Event(id: 1,
+                                title: "녹색지대 부스 안내",
+                                imageUrl: "https://shorturl.at/6hQj6",
+                                description: "5/22~24 (수,목) 녹색지대 플레이쿠라운드 팝업스토어 운영",
+                                referenceUrl: "https://www.instagram.com/p/C7LuzJehez-/?utm_source=ig_web_copy_link"),
+                          Event(id: 2,
+                                title: "녹색지대 부스 안내",
+                                imageUrl: "https://shorturl.at/6hQj6",
+                                description: nil,
+                                referenceUrl: nil), // "https://www.instagram.com/p/C7LuzJehez-/?utm_source=ig_web_copy_link"),
+                          Event(id: 3,
+                                title: "녹색지대 부스 안내",
+                                imageUrl: nil,
+                                description: "5/22~24 (수,목) 녹색지대 플레이쿠라운드 팝업스토어 운영",
+                                referenceUrl: nil) // "https://www.instagram.com/p/C7LuzJehez-/?utm_source=ig_web_copy_link")
+        ]
+        self.updateIsNewEvent()
+    }
+    
+    // 이벤트를 인덱스로 가져옴
+    func getEventByIndex(_ index: Int) -> Event? {
+        if index < 0 || index >= eventList.count {
+            return nil
+        }
+        
+        return eventList[index]
+    }
+    
+    func viewEvent(id: Int) {
+        // 조회 처리
+        if EventManager.shared.updateEventID(id) {
+            print("event id is updated")
+        }
+        self.updateIsNewEvent()
+    }
+    
+    // new 이벤트가 있는지 검사
+    func updateIsNewEvent() {
+        var maxID: Int = -1
+        let topID = EventManager.shared.getTopEventID()
+        
+        for event in self.eventList {
+            if event.id > maxID {
+                maxID = event.id
+            }
+        }
+        
+        DispatchQueue.main.async {
+            if maxID > topID {
+                self.isNewEvent = true
+            } else {
+                self.isNewEvent = false
+            }
         }
     }
 }

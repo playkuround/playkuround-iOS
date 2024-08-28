@@ -14,32 +14,11 @@ struct NotificationView: View {
     
     @State private var index = 0
     
-    // 임시 구현 (추후 API 연결 시 HomeViewModel로 이동 예정)
-    struct Notification {
-        let title: String
-        let text: String?
-        let imageURL: String?
-        let linkURL: String?
-    }
-    
     enum NotificationType {
         case textOnly
         case imageOnly
         case textAndImage
     }
-    
-    let notis: [Notification] = [Notification(title: "녹색지대 부스 안내",
-                                              text: "5/22~24 (수,목) 녹색지대 플레이쿠라운드 팝업스토어 운영",
-                                              imageURL: "https://shorturl.at/6hQj6",
-                                              linkURL: "https://www.instagram.com/p/C7LuzJehez-/?utm_source=ig_web_copy_link"),
-                                 Notification(title: "녹색지대 부스 안내",
-                                              text: nil,
-                                              imageURL: "https://shorturl.at/6hQj6",
-                                              linkURL: "https://www.instagram.com/p/C7LuzJehez-/?utm_source=ig_web_copy_link"),
-                                 Notification(title: "녹색지대 부스 안내",
-                                              text: "5/22~24 (수,목) 녹색지대 플레이쿠라운드 팝업스토어 운영",
-                                              imageURL: nil,
-                                              linkURL: "https://www.instagram.com/p/C7LuzJehez-/?utm_source=ig_web_copy_link")]
     
     var body: some View {
         ZStack {
@@ -48,134 +27,182 @@ struct NotificationView: View {
                     homeViewModel.transition(to: .home)
                 }
             
-            if let notiType = getNotificationType(index) {
-                Image(notiType == .textOnly ? .notiShortBackground : .notiLongBackground)
-                    .overlay {
-                        HStack(spacing: 12) {
-                            Button {
-                                index = max(index - 1, 0)
-                                soundManager.playSound(sound: .buttonClicked)
-                            } label: {
-                                Image(.storyLeftArrow)
-                            }
-                            .opacity(index != 0 ? 1 : 0)
-                            
-                            VStack(spacing: 0) {
-                                Text(notis[index].title)
-                                    .font(.neo20)
-                                    .foregroundColor(.kuText)
-                                    .kerning(-0.41)
-                                    .padding(.bottom, 16)
-                                
-                                // 사진 텍스트 둘 다
-                                if notiType == .textAndImage, let notiImageURLString = notis[index].imageURL {
-                                    AsyncImage(url: URL(string: notiImageURLString)) { image in
-                                        image
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 210, height: 180)
-                                    } placeholder: {
-                                        LoadingImage(loadingColor: .black)
-                                            .frame(width: 210, height: 180)
-                                    }
-                                    .padding(.bottom, 20)
-                                }
-                                
-                                // 사진만
-                                else if notiType == .imageOnly, let notiImageURLString = notis[index].imageURL {
-                                    AsyncImage(url: URL(string: notiImageURLString)) { image in
-                                        image
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 210, height: 250)
-                                    } placeholder: {
-                                        LoadingImage(loadingColor: .black)
-                                            .frame(width: 210, height: 250)
-                                    }
-                                    .padding(.bottom, 20)
-                                }
-                                
-                                if notiType != .imageOnly, let notiText = notis[index].text {
-                                    ScrollView {
-                                        VStack {
-                                            Text(notiText)
-                                                .font(.pretendard15R)
-                                                .multilineTextAlignment(.center)
-                                                .foregroundColor(.black)
-                                        }
-                                    }
-                                    .frame(height: 54)
-                                    .padding(.bottom, 20)
-                                }
-                                
+            if let event = homeViewModel.getEventByIndex(index) {
+                
+                if let notiType = getNotificationType(index) {
+                    Image(notiType == .textOnly ? .notiShortBackground : .notiLongBackground)
+                        .overlay {
+                            HStack(spacing: 12) {
                                 Button {
-                                    // TODO: 링크 열기
+                                    // 조회 처리
+                                    homeViewModel.viewEvent(id: event.id)
+                                    index = max(index - 1, 0)
                                     soundManager.playSound(sound: .buttonClicked)
                                 } label: {
-                                    if notis[index].linkURL != nil {
-                                        Image(.smallButtonBlue)
-                                            .overlay {
-                                                Text("Notification.Link")
-                                                    .font(.neo18)
-                                                    .foregroundStyle(.kuText)
-                                                    .kerning(-0.41)
-                                            }
-                                    } else {
-                                        Image(.smallButtonBlue).opacity(0)
-                                    }
+                                    Image(.storyLeftArrow)
                                 }
-                                .padding(.bottom, 20)
+                                .opacity(index != 0 ? 1 : 0)
                                 
-                                HStack {
-                                    ForEach(Array(notis.enumerated()), id: \.offset) { offset, noti in
-                                        if offset == index {
-                                            Button {
-                                                self.index = offset
-                                                soundManager.playSound(sound: .buttonClicked)
-                                            } label: {
-                                                Image(.nowStoryBlock)
+                                let isNew = self.isNew(event.id)
+                                
+                                VStack(spacing: 0) {
+                                    HStack {
+                                        if isNew {
+                                            Spacer()
+                                                .frame(width: 33)
+                                        }
+                                        
+                                        Text(event.title)
+                                            .font(.neo20)
+                                            .foregroundColor(.kuText)
+                                            .kerning(-0.41)
+                                        
+                                        if isNew {
+                                            Text("new!")
+                                                .font(.neo15)
+                                                .foregroundColor(.kuTimebarRed)
+                                                .kerning(-0.41)
+                                        }
+                                    }
+                                    .padding(.top, 50)
+                                    .padding(.bottom, 16)
+                                    .padding(.horizontal, -40)
+                                    
+                                    // 사진 텍스트 둘 다
+                                    if notiType == .textAndImage, let notiImageURLString = event.imageUrl {
+                                        VStack(spacing: 0) {
+                                            Spacer()
+                                            AsyncImage(url: URL(string: notiImageURLString)) { image in
+                                                image
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 210)
+                                            } placeholder: {
+                                                LoadingImage(loadingColor: .black)
+                                                    .frame(width: 210)
                                             }
-                                        } else {
+                                            Spacer()
+                                        }
+                                        .padding(.bottom, 20)
+                                    }
+                                    
+                                    // 사진만
+                                    else if notiType == .imageOnly, let notiImageURLString = event.imageUrl {
+                                        VStack(spacing: 0) {
+                                            Spacer()
+                                            AsyncImage(url: URL(string: notiImageURLString)) { image in
+                                                image
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 210)
+                                            } placeholder: {
+                                                LoadingImage(loadingColor: .black)
+                                                    .frame(width: 210)
+                                            }
+                                            Spacer()
+                                        }
+                                        .padding(.bottom, 20)
+                                    }
+                                    
+                                    if notiType != .imageOnly, let notiText = event.description {
+                                        ScrollView {
+                                            VStack(alignment: .center) {
+                                                Text(notiText)
+                                                    .font(.pretendard15R)
+                                                    .multilineTextAlignment(.center)
+                                                    .foregroundColor(.black)
+                                            }
+                                        }
+                                        .frame(height: (notiType == .textOnly && event.referenceUrl == nil) ? 120 : 54)
+                                        .padding(.bottom, 20)
+                                    }
+                                    
+                                    if let referenceURL = event.referenceUrl {
+                                        Button {
+                                            openEventLink(referenceURL)
+                                            soundManager.playSound(sound: .buttonClicked)
+                                        } label: {
+                                            Image(.smallButtonBlue)
+                                                .overlay {
+                                                    Text("Notification.Link")
+                                                        .font(.neo18)
+                                                        .foregroundStyle(.kuText)
+                                                        .kerning(-0.41)
+                                                }
+                                        }
+                                        .padding(.bottom, 20)
+                                    }
+                                    
+                                    HStack {
+                                        ForEach(Array(homeViewModel.eventList.enumerated()), id: \.offset) { offset, noti in
                                             Button {
+                                                // 조회 처리
+                                                homeViewModel.viewEvent(id: event.id)
                                                 self.index = offset
                                                 soundManager.playSound(sound: .buttonClicked)
                                             } label: {
-                                                Image(.previewStoryBlock)
+                                                Image(offset == index ?
+                                                    .nowStoryBlock : .previewStoryBlock)
                                             }
                                         }
                                     }
+                                    .padding(.bottom, 42)
                                 }
+                                .frame(width: 210)
+                                
+                                Button {
+                                    // 조회 처리
+                                    homeViewModel.viewEvent(id: event.id)
+                                    index = min(index + 1, homeViewModel.eventList.count - 1)
+                                    soundManager.playSound(sound: .buttonClicked)
+                                } label: {
+                                    Image(.storyRightArrow)
+                                }
+                                .opacity(index != homeViewModel.eventList.count - 1 ? 1 : 0)
                             }
-                            .frame(width: 210)
-                            
-                            Button {
-                                index = min(index + 1, notis.count - 1)
-                                soundManager.playSound(sound: .buttonClicked)
-                            } label: {
-                                Image(.storyRightArrow)
-                            }
-                            .opacity(index != notis.count - 1 ? 1 : 0)
                         }
-                    }
+                        .onDisappear {
+                            // 조회 처리
+                            homeViewModel.viewEvent(id: event.id)
+                            homeViewModel.updateIsNewEvent()
+                        }
+                }
             }
         }
     }
     
     func getNotificationType(_ index: Int) -> NotificationType? {
-        if notis[index].imageURL == nil && notis[index].text != nil {
-            return .textOnly
+        if let event = homeViewModel.getEventByIndex(index) {
+            if event.imageUrl == nil && event.description != nil {
+                return .textOnly
+            }
+            // 사진만 있는 경우
+            else if event.imageUrl != nil && event.description == nil {
+                return .imageOnly
+            }
+            // 둘 다 있는 경우
+            else if event.description != nil && event.imageUrl != nil {
+                return .textAndImage
+            }
+            
         }
-        // 사진만 있는 경우
-        else if notis[index].imageURL != nil && notis[index].text == nil {
-            return .imageOnly
-        }
-        // 둘 다 있는 경우
-        else if notis[index].text != nil && notis[index].imageURL != nil {
-            return .textAndImage
-        }
-        // 예외
-        else {
-            return nil
+        
+        return nil
+    }
+    
+    func isNew(_ index: Int) -> Bool {
+        let topID = EventManager.shared.getTopEventID()
+        print("isNew - topID: \(topID), currID: \(index)")
+        return index > topID
+    }
+    
+    private func openEventLink(_ urlString: String) {
+        if let url = URL(string: urlString) {
+            UIApplication.shared.open(url)
         }
     }
+}
+
+#Preview {
+    NotificationView(homeViewModel: HomeViewModel(rootViewModel: RootViewModel()))
 }

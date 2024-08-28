@@ -126,7 +126,19 @@ struct HomeView: View {
                                 soundManager.playSound(sound: .buttonClicked)
                             } label: {
                                 Image(.notiButton)
+                                    .overlay {
+                                        if homeViewModel.isNewEvent {
+                                            Text("new!")
+                                                .font(.neo15)
+                                                .foregroundColor(.kuTimebarRed)
+                                                .kerning(-0.41)
+                                                .textRainStroke()
+                                                .offset(x: 18, y: -18)
+                                        }
+                                    }
                             }
+                            .disabled(homeViewModel.eventList.isEmpty)
+                            .opacity(homeViewModel.eventList.isEmpty ? 0.5 : 1)
                             
                             Spacer()
                         }
@@ -232,6 +244,7 @@ struct HomeView: View {
                 homeViewModel.loadBadge()
                 homeViewModel.loadTotalRanking()
                 homeViewModel.loadAttendance()
+                homeViewModel.loadEvents()
                 
                 GAManager.shared.logScreenEvent(.HomeView)
             }
