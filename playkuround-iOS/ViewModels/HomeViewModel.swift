@@ -204,33 +204,42 @@ final class HomeViewModel: ObservableObject {
         APIManager.shared.callPOSTAPI(endpoint: .attendances, parameters: ["latitude": latitude, "longitude": longitude]) { result in
             switch result {
             case .success(let data):
-                // 출석 성공 이벤트
-                GAManager.shared.logEvent(.ATTENDANCE_SUCCESS)
-
-                self.loadAttendance()
-                self.loadUserData()
-                self.loadBadge()
-                self.loadTotalRanking()
-                
                 if let response = data as? APIResponse {
-                    // 뱃지 열기
-                    var newBadgeNameList: [String] = []
-                    
-                    if let newBadges = response.response?.newBadges {
-                        for newBadge in newBadges {
-                            newBadgeNameList.append(newBadge.name)
+                    if response.isSuccess {
+                        // 출석 성공 이벤트
+                        GAManager.shared.logEvent(.ATTENDANCE_SUCCESS)
+
+                        self.loadAttendance()
+                        self.loadUserData()
+                        self.loadBadge()
+                        self.loadTotalRanking()
+                        
+                        // 뱃지 열기
+                        var newBadgeNameList: [String] = []
+                        
+                        if let newBadges = response.response?.newBadges {
+                            for newBadge in newBadges {
+                                newBadgeNameList.append(newBadge.name)
+                            }
                         }
+                        
+                        print("** newBadgeList: \(newBadgeNameList)")
+                        
+                        DispatchQueue.main.async {
+                            self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList)
+                        }
+                    } else {
+                        // 출석 실패 이벤트
+                        GAManager.shared.logEvent(.ATTENDANCE_FAIL)
+                        self.rootViewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.AttendanceFailed", comment: ""))
                     }
-                    
-                    print("** newBadgeList: \(newBadgeNameList)")
-                    
-                    DispatchQueue.main.async {
-                        self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList)
-                    }
+                } else {
+                    // 출석 실패 이벤트
+                    GAManager.shared.logEvent(.ATTENDANCE_FAIL)
+                    self.rootViewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.AttendanceFailed", comment: ""))
                 }
             case .failure(let error):
                 print("Error in View: \(error)")
-                
                 // 출석 실패 이벤트
                 GAManager.shared.logEvent(.ATTENDANCE_FAIL)
                 self.rootViewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.AttendanceFailed", comment: ""))
