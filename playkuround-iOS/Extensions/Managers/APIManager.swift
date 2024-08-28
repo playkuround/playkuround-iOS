@@ -69,6 +69,8 @@ final class APIManager {
         case gameScore = "/api/users/game-score"
         // 해당 닉네임이 사용 가능한지 체크
         case availability = "/api/users/availability"
+        // 이벤트(공지) 조회
+        case events = "/api/events"
     }
     
     // POST 요청 API Collections
@@ -216,6 +218,14 @@ final class APIManager {
                 else if endpoint == .availability {
                     print("\n===== /api/users/availability ====\n")
                     let apiResponse = try decoder.decode(BoolResponse.self, from: data)
+                    print("\(apiResponse)")
+                    completion(.success(apiResponse))
+                }
+                
+                // 공지 이벤트 /api/events
+                else if endpoint == .events {
+                    print("\n===== /api/events ====\n")
+                    let apiResponse = try decoder.decode(EventAPIResponse.self, from: data)
                     print("\(apiResponse)")
                     completion(.success(apiResponse))
                 }
@@ -657,6 +667,17 @@ struct APIManagerTestView: View {
                                 }
                             }
                         }
+                        
+                        Button("이벤트 받아오기 - /api/events") {
+                            APIManager.callGETAPI(endpoint: .events) { result in
+                                switch result {
+                                case .success(let data):
+                                    print("/api/events data: \(data)")
+                                case .failure(let error):
+                                    print("/api/events error: \(error)")
+                                }
+                            }
+                        }
                     }
                     
                     // MARK: - POST
@@ -880,5 +901,20 @@ struct NotificationVariableResponse: Codable {
 struct NotificationAPIResponse: Codable {
     let isSuccess: Bool
     let response: [NotificationVariableResponse]?
+    let errorResponse: ErrorResponse?
+}
+
+// 공지 알림 (/api/events)
+struct Event: Codable {
+    let id: Int
+    let title: String
+    let imageUrl: String?
+    let description: String?
+    let referenceUrl: String?
+}
+
+struct EventAPIResponse: Codable {
+    let isSuccess: Bool
+    let response: [Event]?
     let errorResponse: ErrorResponse?
 }
