@@ -323,7 +323,7 @@ final class HomeViewModel: ObservableObject {
                                 self.rootViewModel.serverError = true
                             } */
                         }
-                        else if noti.name == "new_badge" {
+                        else if noti.name == "new_Badge" {
                             self.rootViewModel.openNewBadgeView(badgeNames: [noti.description])
                         }
                     }
