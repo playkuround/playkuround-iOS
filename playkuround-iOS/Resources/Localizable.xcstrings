@@ -1303,6 +1303,29 @@
         }
       }
     },
+    "Home.ToastMessage.NoEvent" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There are no Notices and Events"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "공지사항이 없습니다."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有公告"
+          }
+        }
+      }
+    },
     "Home.ToastMessage.NoNearLandmark" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2866,9 +2889,6 @@
         }
       }
     },
-    "new!" : {
-
-    },
     "No Network Connection" : {
       "shouldTranslate" : false
     },
@@ -3787,7 +3807,7 @@
       "shouldTranslate" : false
     },
     "이벤트 받아오기 - /api/events" : {
-
+      "shouldTranslate" : false
     },
     "인증 코드 확인 - /api/auth/emails" : {
       "shouldTranslate" : false

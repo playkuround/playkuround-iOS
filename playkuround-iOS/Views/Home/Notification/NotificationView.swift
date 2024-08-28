@@ -58,7 +58,7 @@ struct NotificationView: View {
                                             .kerning(-0.41)
                                         
                                         if isNew {
-                                            Text("new!")
+                                            Text("Home.Badge.New")
                                                 .font(.neo15)
                                                 .foregroundColor(.kuTimebarRed)
                                                 .kerning(-0.41)

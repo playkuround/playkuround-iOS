@@ -122,13 +122,17 @@ struct HomeView: View {
                             }
                             
                             Button {
-                                homeViewModel.transition(to: .notification)
                                 soundManager.playSound(sound: .buttonClicked)
+                                if homeViewModel.eventList.isEmpty {
+                                    viewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.NoEvent", comment: ""))
+                                } else {
+                                    homeViewModel.transition(to: .notification)
+                                }
                             } label: {
                                 Image(.notiButton)
                                     .overlay {
                                         if homeViewModel.isNewEvent {
-                                            Text("new!")
+                                            Text("Home.Badge.New")
                                                 .font(.neo15)
                                                 .foregroundColor(.kuTimebarRed)
                                                 .kerning(-0.41)
@@ -137,8 +141,6 @@ struct HomeView: View {
                                         }
                                     }
                             }
-                            .disabled(homeViewModel.eventList.isEmpty)
-                            .opacity(homeViewModel.eventList.isEmpty ? 0.5 : 1)
                             
                             Spacer()
                         }
