@@ -80,7 +80,7 @@ struct ProfileBadgeView: View {
                         
                         Button {
                             if let selectedBadge = selectedBadge {
-                                APIManager.callPOSTAPI(endpoint: .profileBadge, parameters: ["profileBadge": selectedBadge.rawValue]) { result in
+                                APIManager.shared.callPOSTAPI(endpoint: .profileBadge, parameters: ["profileBadge": selectedBadge.rawValue]) { result in
                                     switch result {
                                     case .success(let data):
                                         print("(success) /api/users/profile-badge: \(data)")

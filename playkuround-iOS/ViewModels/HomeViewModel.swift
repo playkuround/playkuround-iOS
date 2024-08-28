@@ -82,7 +82,7 @@ final class HomeViewModel: ObservableObject {
     // MARK: - User Profile Data
     // 유저 프로필 데이터 불러오는 함수
     func loadUserData() {
-        APIManager.callGETAPI(endpoint: .users) { result in
+        APIManager.shared.callGETAPI(endpoint: .users) { result in
             switch result {
             case .success(let data):
                 print("Data received in View: \(data)")
@@ -105,7 +105,7 @@ final class HomeViewModel: ObservableObject {
             }
         }
         
-        APIManager.callGETAPI(endpoint: .scoresRank) { result in
+        APIManager.shared.callGETAPI(endpoint: .scoresRank) { result in
             switch result {
             case .success(let data):
                 print("Data received in View: \(data)")
@@ -143,7 +143,7 @@ final class HomeViewModel: ObservableObject {
     // MARK: - Badge List
     // 유저 뱃지 목록 불러오는 함수
     func loadBadge() {
-        APIManager.callGETAPI(endpoint: .badges) { result in
+        APIManager.shared.callGETAPI(endpoint: .badges) { result in
             switch result {
             case .success(let data):
                 print("Data received in View: \(data)")
@@ -165,7 +165,7 @@ final class HomeViewModel: ObservableObject {
     // MARK: - Attendance
     // 유저 출석 불러오는 함수
     func loadAttendance() {
-        APIManager.callGETAPI(endpoint: .attendances) { result in
+        APIManager.shared.callGETAPI(endpoint: .attendances) { result in
             switch result {
             case .success(let data):
                 print("Attendance GET: \(data)")
@@ -201,7 +201,7 @@ final class HomeViewModel: ObservableObject {
     }
     
     func attendance(latitude: Double, longitude: Double) {
-        APIManager.callPOSTAPI(endpoint: .attendances, parameters: ["latitude": latitude, "longitude": longitude]) { result in
+        APIManager.shared.callPOSTAPI(endpoint: .attendances, parameters: ["latitude": latitude, "longitude": longitude]) { result in
             switch result {
             case .success(let data):
                 // 출석 성공 이벤트
@@ -240,7 +240,7 @@ final class HomeViewModel: ObservableObject {
     
     // MARK: - Total Ranking
     func loadTotalRanking() {
-        APIManager.callGETAPI(endpoint: .scoresRank) { result in
+        APIManager.shared.callGETAPI(endpoint: .scoresRank) { result in
             switch result {
             case .success(let data):
                 print("loadTotalRanking(): \(data)")
@@ -268,7 +268,7 @@ final class HomeViewModel: ObservableObject {
     
     // MARK: - Landmark Ranking
     func loadLandmarkRanking(landmarkID: Int) {
-        APIManager.callGETAPI(endpoint: .scoresRankLandmark, landmarkID: landmarkID) { result in
+        APIManager.shared.callGETAPI(endpoint: .scoresRankLandmark, landmarkID: landmarkID) { result in
             switch result {
             case .success(let data):
                 print("loadLandmarkRanking(): \(data)")
@@ -297,7 +297,7 @@ final class HomeViewModel: ObservableObject {
     // MARK: - User Notification
     func loadUserNotification() {
         // TODO: 백엔드와 협의하여 version checking 도입 여부 결정 필요
-        APIManager.callGETAPI(endpoint: .notification, querys: ["version": "2.0.4", "os": "ios"]) { result in
+        APIManager.shared.callGETAPI(endpoint: .notification, querys: ["version": "2.0.4", "os": "ios"]) { result in
             switch result {
             case .success(let data as NotificationAPIResponse):
                 // 유저 알림 처리
@@ -354,7 +354,7 @@ final class HomeViewModel: ObservableObject {
     // MARK: - Adventure
     func adventure(latitude: Double, longitude: Double, mapViewModel: MapViewModel) {
         print("latitude: \(latitude), longitude: \(longitude)")
-        APIManager.callGETAPI(endpoint: .landmarks, querys: ["latitude": latitude, "longitude": longitude]) { result in
+        APIManager.shared.callGETAPI(endpoint: .landmarks, querys: ["latitude": latitude, "longitude": longitude]) { result in
             switch result {
             case .success(let data):
                 print("Nearest Landmark: \(data)")
@@ -476,7 +476,7 @@ final class HomeViewModel: ObservableObject {
     
     // 공지 받아오기
     func loadEvents() {
-        APIManager.callGETAPI(endpoint: .events) { result in
+        APIManager.shared.callGETAPI(endpoint: .events) { result in
             switch result {
             case .success(let data):
                 if let apiResponse = data as? EventAPIResponse {

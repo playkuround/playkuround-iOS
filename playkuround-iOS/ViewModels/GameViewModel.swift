@@ -444,7 +444,7 @@ class GameViewModel: ObservableObject {
     
     // 사용자의 모험 점수(총점) 가져오는 함수
     func fetchAdventureScore() {
-        APIManager.callGETAPI(endpoint: .scoresRank) { result in
+        APIManager.shared.callGETAPI(endpoint: .scoresRank) { result in
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {

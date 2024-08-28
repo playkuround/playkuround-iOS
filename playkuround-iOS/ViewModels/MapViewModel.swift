@@ -114,7 +114,7 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
     
     // 사용자 랜드마크 업데이트
     func updateLandmark() {
-        APIManager.callGETAPI(endpoint: .landmarks,
+        APIManager.shared.callGETAPI(endpoint: .landmarks,
                               querys: ["latitude": userLatitude,
                                        "longitude": userLongitude]) { result in
             switch result {

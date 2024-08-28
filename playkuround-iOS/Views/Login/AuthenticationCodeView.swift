@@ -109,6 +109,7 @@ struct AuthenticationCodeView: View {
             }
         }
         
+        APIManager.shared.callGETAPI(endpoint: .emails,
                               querys: ["code" : code, "email" : email]) { result in
             switch result {
             case .success(let data):

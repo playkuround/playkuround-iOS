@@ -128,7 +128,7 @@ final class RootViewModel: ObservableObject {
         
         // 모든 스토리를 다 봤을 때 오리의 꿈 api 호출
         if stories.allSatisfy({ !$0.isLocked }) {
-            APIManager.callPOSTAPI(endpoint: .dreamOfDuck) { result in
+            APIManager.shared.callPOSTAPI(endpoint: .dreamOfDuck) { result in
                 switch result {
                 case .success(let data as BoolResponse):
                     print("Data received in View: \(data)")
@@ -179,7 +179,7 @@ final class RootViewModel: ObservableObject {
     // 로그아웃
     func logout() {
         // Logout API 요청
-        APIManager.callPOSTAPI(endpoint: .logout) { result in
+        APIManager.shared.callPOSTAPI(endpoint: .logout) { result in
             switch result {
             case .success(let data):
                 print("Data received in View: \(data)")
