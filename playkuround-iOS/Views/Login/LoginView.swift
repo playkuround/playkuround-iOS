@@ -133,6 +133,14 @@ struct LoginView: View {
         // Save target email to UserDefaults
         UserDefaults.standard.set(target, forKey: "email")
         
+        // 심사용 계정 예외 처리
+        for account in adminAccountInfo {
+            if target.lowercased() == account.email {
+                APIManager.shared.changeServerType(to: .dev) // 개발 서버로 전환
+                UserDefaults.standard.setValue(true, forKey: "IS_ADMIN")
+            }
+        }
+        
         APIManager.shared.callPOSTAPI(endpoint: .emails,
                                parameters: ["target" : target.lowercased()]) { result in
             switch result {
@@ -148,8 +156,13 @@ struct LoginView: View {
                         }
                     }
                     else {
+                        if UserDefaults.standard.bool(forKey: "IS_ADMIN") {
+                            isAuthCodeViewVisible = true
+                            isMaximumCount = false
+                            userSendingCount = 0
+                        }
                         // 하루 인증 횟수를 초과했을 때
-                        if response.errorResponse?.code == "E004" {
+                        else if response.errorResponse?.code == "E004" {
                             isAuthCodeViewVisible = false
                             isMaximumCount = true
                             mailButtonClicked = false
