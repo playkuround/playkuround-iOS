@@ -178,6 +178,10 @@ final class HomeViewModel: ObservableObject {
                         }
                     }
                     
+                    self.loadUserData()
+                    self.loadBadge()
+                    self.loadTotalRanking()
+                    
                     // 뱃지 열기
                     var newBadgeNameList: [String] = []
                     
@@ -353,6 +357,12 @@ final class HomeViewModel: ObservableObject {
     
     // MARK: - Transition among Home-Sub-View
     func transition(to: HomeViewType) {
+        if to == .home {
+            self.loadUserData()
+            self.loadBadge()
+            self.loadTotalRanking()
+        }
+        
         DispatchQueue.main.async {
             withAnimation(.spring(duration: 0.2, bounce: 0.3)) {
                 self.viewStatus = to
