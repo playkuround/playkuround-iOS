@@ -78,7 +78,7 @@ struct NotificationView: View {
                                                     .scaledToFit()
                                                     .frame(width: 210)
                                             } placeholder: {
-                                                LoadingImage(loadingColor: .black)
+                                                LoadingImage(loadingColor: .white)
                                                     .frame(width: 210)
                                             }
                                             Spacer()
@@ -96,7 +96,7 @@ struct NotificationView: View {
                                                     .scaledToFit()
                                                     .frame(width: 210)
                                             } placeholder: {
-                                                LoadingImage(loadingColor: .black)
+                                                LoadingImage(loadingColor: .white)
                                                     .frame(width: 210)
                                             }
                                             Spacer()
