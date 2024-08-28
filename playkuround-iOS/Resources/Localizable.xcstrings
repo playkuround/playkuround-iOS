@@ -1471,19 +1471,19 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Attendance check : 1 point <br>Complete 1 expedition : 5 points <br>Additional exploration (after all exploration is complete) : 1 point"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "출석 체크 : 1점<br>탐험 1개 완료 : 5점<br>추가 탐험(모든 탐험 완료 후) : 1점"
+            "value" : "게임 별 점수의 합계 집계 + 출석점수<br>출석 점수: 10점<br>게임 점수: 랭킹 초기화 전까지 개인 최고 점수"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "签到:1分<br>探险 完成1个:5分<br>追加 探险（所有探险结束后）:1分"
           }
         }
