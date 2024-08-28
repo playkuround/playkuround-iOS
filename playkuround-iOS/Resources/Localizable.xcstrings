@@ -2358,6 +2358,29 @@
         }
       }
     },
+    "MyPage.DeleteAccount.AfterMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your account has been deleted. Thank you for using PLAYKUROUND."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "계정이 삭제되었습니다. 플레이쿠라운드를 이용해주셔서 감사합니다."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您的帐户已被删除。感谢您使用 PLAYKUROUND。"
+          }
+        }
+      }
+    },
     "MyPage.DeleteAccount.Message" : {
       "extractionState" : "manual",
       "localizations" : {

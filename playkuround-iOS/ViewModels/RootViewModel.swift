@@ -191,7 +191,27 @@ final class RootViewModel: ObservableObject {
                 self.openToastMessageView(message: NSLocalizedString("MyPage.Logout.Done", comment: ""))
             case .failure(let error):
                 print("로그아웃 실패")
-                print("Error in View: \(error)")
+                self.openToastMessageView(message:
+                                            NSLocalizedString("Network.ServerError", comment: ""))
+            }
+        }
+    }
+    
+    // 회원 탈퇴
+    func deleteAccount() {
+        APIManager.shared.callGETAPI(endpoint: .users, delete: true) { result in
+            switch result {
+            case .success(let data):
+                TokenManager.reset()
+                UserDefaults.standard.removeObject(forKey: "IS_ADMIN")
+                // 메인 뷰로 전환
+                self.transition(to: .main)
+                let message = NSLocalizedString("MyPage.DeleteAccount.AfterMessage", comment: "")
+                self.openToastMessageView(message: message)
+            case .failure(let error):
+                print("계정 삭제 실패")
+                self.openToastMessageView(message:
+                                            NSLocalizedString("Network.ServerError", comment: ""))
             }
         }
     }
