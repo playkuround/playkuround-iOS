@@ -968,13 +968,36 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "건물설명"
+            "value" : "건물 설명"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "建筑说明"
+          }
+        }
+      }
+    },
+    "Home.Landmark.BuildingInfoTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Building Information"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "건물 정보"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "建筑信息"
           }
         }
       }
