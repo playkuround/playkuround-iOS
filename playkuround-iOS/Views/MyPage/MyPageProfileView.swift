@@ -25,36 +25,43 @@ struct MyPageProfileView: View {
                     .padding(.top, 5)
             }
             
+            let currentScoreLabel = Text("MyPage.CurrentScore")
+                .font(.pretendard15R)
+                .foregroundStyle(.kuText)
+                .padding(.trailing, 15)
+
+            let currentScoreValue = Text("\(String(describing: user.myRank.score))" + NSLocalizedString("Home.ScoreTitle", comment: "") + " (\(user.myRank.ranking == 0 ? "-" : "\(user.myRank.ranking)")" + NSLocalizedString("Home.RankingUnit", comment: "") + ")")
+                .font(.neo20)
+                .kerning(-0.41)
+                .foregroundStyle(.kuText)
+
+            let currentScoreOverlay = HStack {
+                currentScoreLabel
+                currentScoreValue
+            }
+
             Image(.mypageCurrentScore)
-                .overlay {
-                    HStack {
-                        Text("MyPage.CurrentScore")
-                            .font(.pretendard15R)
-                            .foregroundStyle(.kuText)
-                            .padding(.trailing, 15)
-                        
-                        Text("\(String(describing: user.myRank.score))" + NSLocalizedString("Home.ScoreTitle", comment: "") + " (\(user.myRank.ranking == 0 ? "-" : "\(user.myRank.ranking)")" + NSLocalizedString("Home.RankingUnit", comment: "") + ")")
-                            .font(.neo20)
-                            .kerning(-0.41)
-                            .foregroundStyle(.kuText)
-                    }
-                }
+                .overlay(currentScoreOverlay)
                 .padding(.top, 15)
-            
+
+            // Highest Score Section
+            let highestScoreLabel = Text("MyPage.HighestScore")
+                .font(.pretendard15R)
+                .foregroundStyle(.kuText)
+                .padding(.trailing, 15)
+
+            let highestScoreValue = Text("\(String(describing: user.highestScore))" + NSLocalizedString("Home.ScoreTitle", comment: "") + " (\(user.highestRank)" + NSLocalizedString("Home.RankingUnit", comment: "") + ")")
+                .font(.neo20)
+                .kerning(-0.41)
+                .foregroundStyle(.kuText)
+
+            let highestScoreOverlay = HStack {
+                highestScoreLabel
+                highestScoreValue
+            }
+
             Image(.mypageHighestScore)
-                .overlay {
-                    HStack {
-                        Text("MyPage.HighestScore")
-                            .font(.pretendard15R)
-                            .foregroundStyle(.kuText)
-                            .padding(.trailing, 15)
-                        
-                        Text("\(String(describing: user.highestScore))" + NSLocalizedString("Home.ScoreTitle", comment: "") + " (\(user.highestRank)" + NSLocalizedString("Home.RankingUnit", comment: "") + ")")
-                            .font(.neo20)
-                            .kerning(-0.41)
-                            .foregroundStyle(.kuText)
-                    }
-                }
+                .overlay(highestScoreOverlay)
         }
     }
     
