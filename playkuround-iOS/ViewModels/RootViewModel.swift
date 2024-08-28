@@ -185,6 +185,7 @@ final class RootViewModel: ObservableObject {
                 print("Data received in View: \(data)")
                 // 토큰 삭제
                 TokenManager.reset()
+                UserDefaults.standard.removeObject(forKey: "IS_ADMIN")
                 // 메인 뷰로 전환
                 self.transition(to: .main)
                 self.openToastMessageView(message: NSLocalizedString("MyPage.Logout.Done", comment: ""))
