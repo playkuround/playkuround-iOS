@@ -13,6 +13,7 @@ struct MyPageView: View {
     
     @State private var isStoryViewPresented: Bool = false
     @State private var isLogoutPresented: Bool = false
+    @State private var isDeleteAccountPresented: Bool = false
     @State private var isCheerPresented: Bool = false
     @State private var isServiceTermsViewPresented: Bool = false
     @State private var isPrivacyTermsViewPresented: Bool = false
@@ -77,6 +78,10 @@ struct MyPageView: View {
             else if isCheerPresented {
                 CheerPKTeamView()
             }
+            else if isDeleteAccountPresented {
+                CheckDeleteAccountView(viewModel: viewModel,
+                                       isDeleteAccountPresented: $isDeleteAccountPresented)
+            }
             
             Spacer()
                 .customNavigationBar(
@@ -108,6 +113,11 @@ struct MyPageView: View {
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("logoutViewPresented"))) { _ in
             withAnimation(.spring(duration: 0.5, bounce: 0.3)) {
                 self.isLogoutPresented = true
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("isDeleteAccountPresented"))) { _ in
+            withAnimation(.spring(duration: 0.5, bounce: 0.3)) {
+                self.isDeleteAccountPresented = true
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("cheerViewPresented"))) { _ in
