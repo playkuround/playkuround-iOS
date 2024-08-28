@@ -185,10 +185,12 @@ struct RegisterTermsView: View {
                             .foregroundStyle(.kuText)
                     }
                     .onTapGesture {
-                        // 다음 뷰로 이동
-                        // 뷰 전환
-                        viewModel.transition(to: .registerMajor)
-                        soundManager.playSound(sound: .buttonClicked)
+                        if isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed {
+                            // 다음 뷰로 이동
+                            // 뷰 전환
+                            viewModel.transition(to: .registerMajor)
+                            soundManager.playSound(sound: .buttonClicked)
+                        }
                     }
             }
             .padding(.horizontal)
