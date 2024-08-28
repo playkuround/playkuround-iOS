@@ -20,14 +20,14 @@ struct ProfileBadgeView: View {
             Image(.profileBadgeBackground)
                 .overlay {
                     VStack(alignment: .center, spacing: 0) {
-                        Text(StringLiterals.Home.ProfileBadge.title)
+                        Text("Home.ProfileBadge.Title")
                             .font(.neo20)
                             .kerning(-0.41)
                             .foregroundStyle(.kuText)
                             .padding(.top, 70)
                             .padding(.bottom, 4)
                             
-                        Text(StringLiterals.Home.ProfileBadge.description)
+                        Text("Home.ProfileBadge.Description")
                             .font(.pretendard15R)
                             .foregroundStyle(.kuText)
                             .padding(.bottom, 30)
@@ -100,7 +100,7 @@ struct ProfileBadgeView: View {
                         } label: {
                             Image(.shortButtonBlue)
                                 .overlay {
-                                    Text(StringLiterals.Home.ProfileBadge.change)
+                                    Text("Home.ProfileBadge.Change")
                                         .font(.neo18)
                                         .kerning(-0.41)
                                         .foregroundStyle(.kuText)

@@ -21,13 +21,16 @@ struct TotalRankingInformationView: View {
             Image(.rankingInformation)
                 .overlay(alignment: .top) {
                     VStack {
-                        Text(StringLiterals.Home.TotalRanking.informationTitle)
+                        Text("Home.TotalRanking.InformationTitle")
                             .font(.neo22)
                             .kerning(-0.41)
                             .foregroundStyle(.kuText)
                             .padding(.bottom, 30)
                         
-                        Text(StringLiterals.Home.TotalRanking.informationDescription)
+                        let description = NSLocalizedString("Home.TotalRanking.InformationDescription", comment: "")
+                            .replacingOccurrences(of: "<br>", with: "\n")
+                        
+                        Text(description)
                             .multilineTextAlignment(.center)
                             .font(.pretendard15R)
                             .foregroundStyle(.kuText)

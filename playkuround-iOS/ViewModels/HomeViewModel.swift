@@ -20,7 +20,7 @@ final class HomeViewModel: ObservableObject {
     @Published var badgeList: [BadgeResponse] = []
     @Published var attendanceList: [String] = []
     
-    let landmarkDescriptions: [LandmarkDescription] = load("LandmarkDescription.json")
+    let landmarkDescriptions: [LandmarkDescription]
     
     // Landmark
     @Published var selectedLandmarkID: Int = 0
@@ -36,7 +36,7 @@ final class HomeViewModel: ObservableObject {
     @Published var gameName: String = ""
     @Published var isStartButtonEnabled: Bool = false
     
-    private let gameNames = ["책 뒤집기", "덕쿠를 잡아라", "수강신청 All 클릭", "덕큐피트", "문을 점령해", "일감호에서 살아남기", "건쏠지식", "10초를 맞춰봐"]
+    private let gameNames: [String]
     private var currentIndex = 0
     private var delayMillis: TimeInterval = 0.05
     private var speedUpInterval: TimeInterval = 0.25
@@ -45,7 +45,33 @@ final class HomeViewModel: ObservableObject {
     private var timer: AnyCancellable? = nil
     @Published var isGameNameShowing: Bool = true
     
+    let landmarkList: [Landmark]
+    let gameNamesOriginal = ["책 뒤집기", "덕쿠를 잡아라", "수강신청 All 클릭", "덕큐피트", "문을 점령해", "일감호에서 살아남기", "건쏠지식", "10초를 맞춰봐"]
+    
     init(rootViewModel: RootViewModel) {
+        let currentLanguage = Locale.current.language.languageCode?.identifier
+        
+        switch currentLanguage {
+        case "ko":
+            self.landmarkDescriptions = load("LandmarkDescription.json")
+            self.gameNames = ["책 뒤집기", "덕쿠를 잡아라", "수강신청 All 클릭", "덕큐피트", "문을 점령해", "일감호에서 살아남기", "건쏠지식", "10초를 맞춰봐"]
+            self.landmarkList = landmarkListKorean
+        case "en":
+            self.landmarkDescriptions = load("LandmarkDescriptionEnglish.json")
+            self.gameNames = ["Flip the books", "Catch the Ducku!", "Class Registration All Click",
+                             "Duck Cupid♥", "Take over the MOON", "Surviving the lake", "KU Quiz", "Guess 10 seconds"]
+            self.landmarkList = landmarkListEnglish
+        case "zh":
+            self.landmarkDescriptions = load("LandmarkDescriptionChinese.json")
+            self.gameNames = ["配对", "捉鸭子", "听课申请 ALL Click", "Duck Cupid♥",
+                              "占领出入口", "湖中生存", "谜语", "猜猜看10秒"]
+            self.landmarkList = landmarkListChinese
+        default:
+            self.landmarkDescriptions = load("LandmarkDescription.json")
+            self.gameNames = ["책 뒤집기", "덕쿠를 잡아라", "수강신청 All 클릭", "덕큐피트", "문을 점령해", "일감호에서 살아남기", "건쏠지식", "10초를 맞춰봐"]
+            self.landmarkList = landmarkListKorean
+        }
+        
         self.rootViewModel = rootViewModel
     }
 
@@ -203,7 +229,7 @@ final class HomeViewModel: ObservableObject {
                 
                 // 출석 실패 이벤트
                 GAManager.shared.logEvent(.ATTENDANCE_FAIL)
-                self.rootViewModel.openToastMessageView(message: StringLiterals.Home.ToastMessage.attendanceFailed)
+                self.rootViewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.AttendanceFailed", comment: ""))
             }
         }
     }
@@ -343,14 +369,14 @@ final class HomeViewModel: ObservableObject {
                 if nearestID > 0 {
                     DispatchQueue.main.async {
                         self.selectedLandmarkID = nearestID
-                        mapViewModel.userLandmarkID = nearestID
+                        mapViewModel.setLandmarkID(nearestID)
                     }
                     self.selectRandomGame()
                 }
                 // 가까운 랜드마크가 없음
                 else {
                     print("가까운 랜드마크 없음")
-                    self.rootViewModel.openToastMessageView(message: StringLiterals.Home.ToastMessage.noNearLandmark)
+                    self.rootViewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.NoNearLandmark", comment: ""))
                 }
                 
             case .failure(let error):
@@ -428,7 +454,20 @@ final class HomeViewModel: ObservableObject {
     }
     
     func getSelectedGameStatus() -> ViewType? {
-        return ViewType(rawValue: self.gameName)
+        if let originalGameName = translateGameName(self.gameName) {
+            return ViewType(rawValue: originalGameName)
+        } else {
+            return nil
+        }
+    }
+    
+    func translateGameName(_ gameName: String) -> String? {
+        if let index = gameNames.firstIndex(of: gameName) {
+            print("\(gameName) -> \(gameNamesOriginal[index])")
+            return gameNamesOriginal[index]
+        } else {
+            return nil
+        }
     }
 }
 

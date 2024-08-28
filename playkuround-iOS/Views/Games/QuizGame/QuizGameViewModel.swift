@@ -16,9 +16,37 @@ final class QuizGameViewModel: GameViewModel {
     var correctAnswersCount: Int = 0
     var shuffledQuizData: [Quiz] = []  // Shuffle된 퀴즈 데이터를 저장할 배열
     
-    let quizData: [Quiz] = load("QuizData.json")
+    let quizData: [Quiz]
     
     let soundManager = SoundManager.shared
+    
+    override init(_ gameType: GameType = .quiz,
+                  rootViewModel: RootViewModel,
+                  mapViewModel: MapViewModel,
+                  timeStart: Double,
+                  timeEnd: Double,
+                  timeInterval: Double) {
+        
+        let currentLanguage = Locale.current.language.languageCode?.identifier
+        
+        switch currentLanguage {
+        case "ko":
+            self.quizData = load("QuizData.json")
+        case "en":
+            self.quizData = load("QuizDataEnglish.json")
+        case "zh":
+            self.quizData = load("QuizDataChinese.json")
+        default:
+            self.quizData = load("QuizData.json")
+        }
+        
+        super.init(.quiz,
+                   rootViewModel: rootViewModel,
+                   mapViewModel: mapViewModel,
+                   timeStart: timeStart,
+                   timeEnd: timeEnd,
+                   timeInterval: timeInterval)
+    }
     
     override func startGame() {
         currentQuestionIndex = 0

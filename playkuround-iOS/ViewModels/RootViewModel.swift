@@ -13,29 +13,57 @@ final class RootViewModel: ObservableObject {
     @Published var currentView: ViewType = .main
     
     // loading
-    @Published var isLoading: Bool = true
+    @Published var isLoading: Bool
     
     // Network Manager Instance
-    @Published var networkManager = NetworkManager()
+    @Published var networkManager: NetworkManager
     
     // Story View
-    @Published var showStory: Bool = false
-    @Published var currentStoryIndex: Int = 0
+    @Published var showStory: Bool
+    @Published var currentStoryIndex: Int
     @Published var newlyUnlockedStoryIndex: Int?
     
     // New Badge View
-    @Published var newBadgeViewShowing: Bool = false
-    @Published var newBadgeList: [Badge] = []
+    @Published var newBadgeViewShowing: Bool
+    @Published var newBadgeList: [Badge]
     
     // Toast Message View
-    @Published var toastMessageShowing: Bool = false
-    @Published var toastMessage: String? = nil
+    @Published var toastMessageShowing: Bool
+    @Published var toastMessage: String?
     
     // 서버 점검 중
-    @Published var serverError: Bool = false
+    @Published var serverError: Bool
     
-    var openedGameTypes = UserDefaults.standard.stringArray(forKey: "openedGameTypes") ?? []
-    var stories: [Story] = storyList
+    var openedGameTypes: [String]
+    var stories: [Story]
+    
+    init() {
+        self.currentView = .main
+        self.isLoading = false
+        self.networkManager = NetworkManager()
+        self.showStory = false
+        self.currentStoryIndex = 0
+        self.newlyUnlockedStoryIndex = nil
+        self.newBadgeViewShowing = false
+        self.newBadgeList = []
+        self.toastMessageShowing = false
+        self.toastMessage = nil
+        self.serverError = false
+        self.openedGameTypes = UserDefaults.standard.stringArray(forKey: "openedGameTypes") ?? []
+        
+        let currentLanguage = Locale.current.language.languageCode?.identifier
+                
+        switch currentLanguage {
+        case "ko":
+            self.stories = storyListKorean
+        case "en":
+            self.stories = storyListEnglish
+        case "zh":
+            self.stories = storyListChinese
+        default:
+            self.stories = storyListKorean
+        }
+    }
     
     let soundManager = SoundManager()
     
@@ -159,7 +187,7 @@ final class RootViewModel: ObservableObject {
                 TokenManager.reset()
                 // 메인 뷰로 전환
                 self.transition(to: .main)
-                self.openToastMessageView(message: StringLiterals.MyPage.Logout.done)
+                self.openToastMessageView(message: NSLocalizedString("MyPage.Logout.Done", comment: ""))
             case .failure(let error):
                 print("로그아웃 실패")
                 print("Error in View: \(error)")
@@ -204,7 +232,8 @@ final class RootViewModel: ObservableObject {
     // 토스트 메시지 3초
     func openToastMessageView(message: String) {
         DispatchQueue.main.async {
-            self.toastMessage = message 
+            self.toastMessage = message
+                .replacingOccurrences(of: "<br>", with: "\n")
             withAnimation(.easeInOut(duration: 0.3)) {
                 self.toastMessageShowing = true
             }
@@ -215,6 +244,15 @@ final class RootViewModel: ObservableObject {
             withAnimation(.easeInOut(duration: 0.3)) {
                 self.toastMessageShowing = false
             }
+        }
+    }
+    
+    // 설정 열기
+    func openSetting() {
+        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
         }
     }
 }

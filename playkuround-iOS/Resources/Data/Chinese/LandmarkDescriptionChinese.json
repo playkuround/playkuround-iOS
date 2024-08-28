@@ -1,0 +1,626 @@
+[
+    {
+        "id": 0,
+        "description": "",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 1,
+        "description": "这是上教养课时经常使用的建筑. 运气好的话可以听摇滚乐, 请侧耳倾听!",
+        "information": [
+            {
+                "title": "楼外",
+                "content": "自行车租赁所, 补鞋"
+            },
+            {
+                "title": "1楼",
+                "content": "证书签发服务, 学生咨询中心, 自动售货机, Emart24, Restio"
+            },
+            {
+                "title": "2楼",
+                "content": "装订厂 (无人)"
+            },
+            {
+                "title": "特别事项",
+                "content": "223(118)号在1楼, 请注意. "
+            },
+            {
+                "title": "电话号码",
+                "content": "办公室 02-450-4107 (205호), 装订厂 010-5746-0356"
+            }
+        ],
+        "amenity": ["便利店", "咖啡馆", "复印机", "自行车租赁所"]
+    },
+    {
+        "id": 2,
+        "description": "这是入学处和校内风险企业聚集的建筑, 也可以租赁软件. 几乎没有课!",
+        "information": [
+            {
+                "title": "电话号码",
+                "content": "入学处 02-450-0007"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 3,
+        "description": "是兽医大学和动物医院所在的建筑。 还有动物医院，可以见到特别的动物朋友们.",
+        "information": [
+            {
+                "title": "1楼",
+                "content": "宠物医院"
+            },
+            {
+                "title": "2楼",
+                "content": "办公室"
+            },
+            {
+                "title": "电话号码",
+                "content": "办公室 02-450-3038"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 4,
+        "description": "该建筑与动物相关的研究非常活跃, 夏天虽然感觉有点热，但设施非常好!",
+        "information": [
+            {
+                "title": "1楼",
+                "content": "K-CUBE, 复印室, Restio, 充电器"
+            },
+            {
+                "title": "2楼",
+                "content": "办公室"
+            },
+            {
+                "title": "电话号码",
+                "content": "办公室 02-450-3695"
+            }
+        ],
+        "amenity": ["K-CUBE", "咖啡馆", "复印机"]
+    },
+    {
+        "id": 5,
+        "description": "因为玻璃窗多，夏天可能会很热，但这里是进行生命科学相关课程和研究的建筑. ",
+        "information": [
+            {
+                "title": "1楼",
+                "content": "建国大学产品专卖店, Restio"
+            },
+            {
+                "title": "2楼",
+                "content": "K-CUBE"
+            },
+            {
+                "title": "电话号码",
+                "content": "办公室 02-450-4050"
+            }
+        ],
+        "amenity": ["K-CUBE", "咖啡馆"]
+    },
+    {
+        "id": 6,
+        "description": "建国大学的中央图书馆也是代表性的地标! 阅览室在2024年重新装修.",
+        "information": [
+            {
+                "title": "地下",
+                "content": "学生食堂, 学生福利委员会"
+            },
+            {
+                "title": "1楼",
+                "content": "新韩银行, 创业信息中心, 资料室, KU数码休息室"
+            },
+            {
+                "title": "3楼",
+                "content": "阅览室, CU, Superbean"
+            },
+            {
+                "title": "6楼",
+                "content": "K-CUBE, 阅览室"
+            },
+            {
+                "title": "电话号码",
+                "content": "02-450-6172"
+            }
+        ],
+        "amenity": ["便利店", "K-CUBE"]
+    },
+    {
+        "id": 7,
+        "description": "这里是Glocal Campus所属研究和授课的地方, 与特性化学部有很大关系.",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 8,
+        "description": "艺术和设计专业的学生主要使用的建筑, 以充满艺术感的氛围著称!",
+        "information": [
+            {
+                "title": "地下",
+                "content": "KU CINEMATECH"
+            },
+            {
+                "title": "1楼",
+                "content": "美术用具经销店, 复印室"
+            },
+            {
+                "title": "电话号码",
+                "content": "美术用具经销店 02-450-3943, 办公室 02-450-3776,3779"
+            }
+        ],
+        "amenity": ["复印室"]
+    },
+    {
+        "id": 9,
+        "description": "以前是中央图书馆, 现在是开设托业和托福课程等语言相关课程的地方.",
+        "information": [
+            {
+                "title": "特别事项",
+                "content": "语言教育院进行的电话英语免费(推荐)"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 10,
+        "description": "这里是法学院和法学专门图书馆所在的地方!",
+        "information": [
+            {
+                "title": "地下",
+                "content": "院内印刷室"
+            },
+            {
+                "title": "1楼",
+                "content": "大型教室, 法学专门图书馆, 残疾人休息室, 全球休息室, 国际处, 装订所"
+            },
+            {
+                "title": "电话号码",
+                "content": "装订所 010-3359-4898, 院内印刷室 02-450-3133~4"
+            }
+        ],
+        "amenity": ["复印室"]
+    },
+    {
+        "id": 11,
+        "description": "蕴含建国大学历史和文化的博物馆, 可以一眼看到校内的过去和现在. ",
+        "information": [
+            {
+                "title": "特别事项",
+                "content": "营业时间 : 10时~16时"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 12,
+        "description": "是办理学校行政业务的地方, 会去办理各种证件和咨询学士相关事宜. ",
+        "information": [
+            {
+                "title": "楼外",
+                "content": "自行车租赁所"
+            },
+            {
+                "title": "1楼",
+                "content": "KB国民银行, 新韩银行, 发证服务, 收入标签"
+            },
+            {
+                "title": "特别事项",
+                "content": "发证服务(费用500won)"
+            },
+            {
+                "title": "电话号码",
+                "content": "办公室 02-450-3272"
+            }
+        ],
+        "amenity": ["自行车租赁所", "发证服务"]
+    },
+    {
+        "id": 13,
+        "description": "古老的师范大学建筑, 建筑虽然陈旧, 但也能感受到历史和传统. ",
+        "information": [
+            {
+                "title": "电话号码",
+                "content": "办公室 02-450-3802"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 14,
+        "description": "这里是社会科学大学所在的地方, 有很多楼梯,可以运动, 但上去的时候可能会有点累. ",
+        "information": [
+            {
+                "title": "1楼",
+                "content": "BLUEPOT, 汽车, 图书返还箱, 复印室"
+            },
+            {
+                "title": "3楼",
+                "content": "K-CUBE"
+            },
+            {
+                "title": "电话号码",
+                "content": "办公室 02-450-3612, 复印室 455-5666"
+            }
+        ],
+        "amenity": ["咖啡馆", "复印室", "还书机", "K-CUBE"]
+    },
+    {
+        "id": 15,
+        "description": "经营学院学生主要使用的建筑, 以网络漫画的主要背景而闻名!",
+        "information": [
+            {
+                "title": "1楼",
+                "content": "CU, Restio, K-HUB, IT服务中心"
+            },
+            {
+                "title": "电话号码",
+                "content": "办公室 02-450-3581"
+            }
+        ],
+        "amenity": ["便利店", "咖啡馆", "K-CUBE"]
+    },
+    {
+        "id": 16,
+        "description": "是校园内最高的建筑, 是象征建国大学飞跃的建筑. 入学典礼等大型活动也在这里举行. ",
+        "information": [
+            {
+                "title": "地下",
+                "content": "大演出场, 食堂"
+            },
+            {
+                "title": "1楼",
+                "content": "新韩银行, 复印机"
+            },
+            {
+                "title": "电话号码",
+                "content": "停车场 02-450-3677"
+            }
+        ],
+        "amenity": ["复印机"]
+    },
+    {
+        "id": 17,
+        "description": "这里是建筑系学生使用的地方, 离开艺术设计馆后占据了现在的位置. ",
+        "information": [
+            {
+                "title": "1楼",
+                "content": "建筑资料, 复印室, K-HUB, 喷漆车间"
+            },
+            {
+                "title": "3-4층",
+                "content": "工作室"
+            },
+            {
+                "title": "电话号码",
+                "content": "办公室 02-450-3446,4062"
+            }
+        ],
+        "amenity": ["复印机", "K-CUBE"]
+    },
+    {
+        "id": 18,
+        "description": "是房地产系和研究生院使用的建筑. ",
+        "information": [
+            {
+                "title": "1楼",
+                "content": "咖啡馆"
+            },
+            {
+                "title": "电话号码",
+                "content": "办公室 02-450-3582"
+            }
+        ],
+        "amenity": ["咖啡馆"]
+    },
+    {
+        "id": 19,
+        "description": "是一座古老的建筑, 是文科大学所在的地方. 建于1950年代. ",
+        "information": [
+            {
+                "title": "电话号码",
+                "content": "办公室 02-450-3322"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 20,
+        "description": "拥有多个学生福利设施和社团房间的建筑, 是校园生活的中心之一. ",
+        "information": [
+            {
+                "title": "楼外",
+                "content": "自行车租赁所"
+            },
+            {
+                "title": "地下",
+                "content": "男性美容院, 食堂"
+            },
+            {
+                "title": "1楼",
+                "content": "食堂, 1847, 发证服务, 建国纪念品. 建国大学邮政管理局, 新韩银行, CU"
+            },
+            {
+                "title": "2楼",
+                "content": "学生福利处, 大学就业事业团, 古典音乐欣赏室, 区内旅行社, 卡通形象专卖店, 眼镜部, 电子部"
+            },
+            {
+                "title": "电话号码",
+                "content": "食堂 02-450-3943, 1847 456-3059, 建国纪念品 02-450-3319, 建国大学邮政局 02-450-3092, 新韩银行 02-450-3019"
+            }
+        ],
+        "amenity": ["自行车租赁所", "咖啡馆", "发证机", "便利店"]
+    },
+    {
+        "id": 21,
+        "description": "是设有社团房间和淋浴室的建筑, 庆典时还会在露天剧场举行演出. ",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 22,
+        "description": "是工科大学的中心建筑, 外观干净利落..",
+        "information": [
+            {
+                "title": "1楼",
+                "content": "办公室, K-CUBE, Restio, 区内书店"
+            },
+            {
+                "title": "2楼",
+                "content": "工学教育革新中心及事业团"
+            },
+            {
+                "title": "电话号码",
+                "content": "办公室 02-450-3443,3445, 区内书店 02-450-3093"
+            }
+        ],
+        "amenity": ["K-CUBE", "咖啡馆"]
+    },
+    {
+        "id": 23,
+        "description": "作为工大的旧建筑之一, 虽然感觉很古老, 但依然有很多课程. ",
+        "information": [
+            {
+                "title": "特别事项",
+                "content": "B栋在综合授课时间表上标记为空B, 可能会误以为是地下层, 请注意. "
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 24,
+        "description": "在看着A栋的状态下, 右边是C栋. ",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 25,
+        "description": "以最新设施著称的工科大学建筑, 是突显能源效率和环保要素的建筑. ",
+        "information": [
+            {
+                "title": "1楼",
+                "content": "PrimeHall, 休息室, 复印机, KU Smart Factory"
+            }
+        ],
+        "amenity": ["复印机"]
+    },
+    {
+        "id": 26,
+        "description": "该建筑主要由自然科学相关学科使用, 研究和实验非常活跃. ",
+        "information": [
+            {
+                "title": "楼外",
+                "content": "自行车租赁所"
+            },
+            {
+                "title": "1楼",
+                "content": "K-HUB, 办公室"
+            },
+            {
+                "title": "电话号码",
+                "content": "办公室 02-450-3402"
+            }
+        ],
+        "amenity": ["自行车租赁所", "K-CUBE"]
+    },
+    {
+        "id": 27,
+        "description": "是进行创意性研究和教育的地方, 是激发学生挑战精神的建筑物. ",
+        "information": [
+            {
+                "title": "1楼",
+                "content": "饮料, 香烟, 自动售货机, 复印机, 预备军团"
+            },
+            {
+                "title": "2楼",
+                "content": "创业支援团"
+            },
+            {
+                "title": "3楼",
+                "content": "学军团"
+            },
+            {
+                "title": "分馆",
+                "content": "建国乳业总公司"
+            }
+        ],
+        "amenity": ["复印机"]
+    },
+    {
+        "id": 28,
+        "description": "这里是进行艺术相关课程和研究的地方, 是积极进行手工制作的建筑. ",
+        "information": [
+            {
+                "title": "1楼",
+                "content": "展览室"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 29,
+        "description": "这是国际学生生活的宿舍, 是可以体验多种文化和语言的地方. ",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 30,
+        "description": "这里是学生们生活的空间, 可以同时学习和休息的温馨场所. ",
+        "information": [
+            {
+                "title": "楼外",
+                "content": "电动滑板车"
+            },
+            {
+                "title": "Dream Hall",
+                "content": "读书室, 便利店, 洗衣店, 文具店, 小吃店, 咖啡馆"
+            },
+            {
+                "title": "Lake Hall",
+                "content": "Emart24, BHC, 停车场"
+            },
+            {
+                "title": "Frontier Hall",
+                "content": "办公室, 食堂"
+            },
+            {
+                "title": "Vison Hall",
+                "content": ""
+            },
+            {
+                "title": "Grobal Hall",
+                "content": "健身房, 会议室"
+            },
+            {
+                "title": "电话号码",
+                "content": "办公室 02-2024-5000~5003"
+            }
+        ],
+        "amenity": ["咖啡馆", "便利店"]
+    },
+    {
+        "id": 31,
+        "description": "在校园内可以感受到自然的湖水, 是散步或休息的好地方. ",
+        "information": [
+            {
+                "title": "特别事项",
+                "content": "动物"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 32,
+        "description": "这座横跨一甘湖的桥, 是拥有美丽景观的校园名胜之一. ",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 33,
+        "description": "这里是建国大学的象征之一金牛像所在地, 象征着校园的雄伟气魄. ",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 34,
+        "description": "这里是校园内安静的休息场所, 是度过悠闲时光的好地方. ",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 35,
+        "description": "建国大学的创始人铜像, 位于图书馆前面. ",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 36,
+        "description": "这里是举行各种活动和演出的空间, 可以感受到学生们的热情. ",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 37,
+        "description": "这里是享受运动或举行庆典等大型活动的地方, 有重新装修的草地球场. ",
+        "information": [
+            {
+                "title": "特别事项",
+                "content": "申请方法 : 学校主页, 申请时间 : 最长1个月前~当日, 可租赁时间 : 09~22点"
+            },
+            {
+                "title": "电话号码",
+                "content": "询问  02-450-3204"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 38,
+        "description": "这里是举行各种室内体育和活动的场所, 是享受运动的最佳空间. ",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 39,
+        "description": "作为建大的主要出入口之一, 虽然取名为后门, 但现在也起到了正门的作用. ",
+        "information": [
+            {
+                "title": "电话号码",
+                "content": "建国门 02-450-3193, 停车场 02-450-3682"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 40,
+        "description": "这是校园的另一个出入口, 距离很多建筑物很近, 位置也很方便. ",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 41,
+        "description": "这是位于动物医院一侧的出入口, 离动物相关设施很近. ",
+        "information": [
+            {
+                "title": "电话号码",
+                "content": "出入口 02-450-0947, 停车场 02-450-3683"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 42,
+        "description": "进入图书馆的出入口, 是最常用的出入口之一. ",
+        "information": [
+            {
+                "title": "电话号码",
+                "content": "停车场 02-450-3703"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 43,
+        "description": "是往地铁站方向出去的入口, 离地铁很近, 很方便. ",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 44,
+        "description": "是直接通往宿舍的大门, 是宿舍学生必备的门. ",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 45,
+        "description": "工学馆的分馆, 是进行多种实验和研究的空间. ",
+        "information": [
+            {
+                "title": "1楼",
+                "content": "新一代汽车融合技术中心"
+            }
+        ],
+        "amenity": []
+    }
+]

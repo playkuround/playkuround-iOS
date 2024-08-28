@@ -59,13 +59,13 @@ struct LandmarkView: View {
                                 Image(.landmarkMedal)
                                     .padding(.bottom, 8)
                                 
-                                Text(landmarkRank[0].nickname + StringLiterals.Home.nicknameTitle)
+                                Text(landmarkRank[0].nickname + NSLocalizedString("Home.NicknameTitle", comment: ""))
                                     .font(.neo18)
                                     .foregroundStyle(.kuText)
                                     .kerning(-0.41)
                                     .padding(.bottom, 2)
                                 
-                                Text("\(landmarkRank[0].score) " + StringLiterals.Home.scoreTitle)
+                                Text("\(landmarkRank[0].score) " + NSLocalizedString("Home.ScoreTitle", comment: ""))
                                     .font(.neo15)
                                     .foregroundStyle(.kuText)
                                     .kerning(-0.41)
@@ -78,7 +78,7 @@ struct LandmarkView: View {
                             } label: {
                                 Image(.shortButtonBlue)
                                     .overlay {
-                                        Text(StringLiterals.Home.Landmark.rankingTitle)
+                                        Text("Home.Landmark.RankingTitle")
                                             .font(.neo18)
                                             .foregroundStyle(.kuText)
                                             .kerning(-0.41)
@@ -92,7 +92,7 @@ struct LandmarkView: View {
                             } label: {
                                 Image(.shortButtonBlue)
                                     .overlay {
-                                        Text(StringLiterals.Home.Landmark.buildingDescriptionTitle)
+                                        Text("Home.Landmark.BuildingDescriptionTitle")
                                             .font(.neo18)
                                             .foregroundStyle(.kuText)
                                             .kerning(-0.41)

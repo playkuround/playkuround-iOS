@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum StringLiterals {
+/* enum StringLiterals {
     enum Main {
         static let introduction = "건국대 안의 놀이터,"
         static let login = "로그인"
@@ -156,6 +156,7 @@ enum StringLiterals {
         
         enum Title {
             static let my = "마이"
+            static let setting = "설정"
             static let shortcut = "바로가기"
             static let instruction = "이용안내"
         }
@@ -163,6 +164,11 @@ enum StringLiterals {
         enum My: String, CaseIterable {
             case story = "스토리 다시보기"
             case logout = "로그아웃"
+        }
+        
+        enum Setting: String, CaseIterable {
+            case language = "언어"
+            case currentLanguage = "한국어"
         }
         
         enum Shortcut: String, CaseIterable {
@@ -246,4 +252,4 @@ enum StringLiterals {
         static let new = "new!"
         static let lock = "게임을 플레이하면\n새로운 스토리가 열려요!"
     }
-}
+} */

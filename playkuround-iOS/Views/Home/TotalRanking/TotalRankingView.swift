@@ -64,7 +64,7 @@ struct TotalRankingView: View {
                                                             .frame(width: 60, height: 23)
                                                             .foregroundStyle(.kuBrown)
                                                             .overlay {
-                                                                Text("\(rank2.score.decimalFormatter)점")
+                                                                Text("\(rank2.score.decimalFormatter)" + NSLocalizedString("Home.RankingUnit2", comment: ""))
                                                                     .font(.neo18)
                                                                     .kerning(-0.41)
                                                                     .foregroundStyle(.white)
@@ -103,7 +103,7 @@ struct TotalRankingView: View {
                                                         .frame(width: 60, height: 23)
                                                         .foregroundStyle(.kuBrown)
                                                         .overlay {
-                                                            Text("\(rank1.score.decimalFormatter)점")
+                                                            Text("\(rank1.score.decimalFormatter)" + NSLocalizedString("Home.RankingUnit1", comment: ""))
                                                                 .font(.neo18)
                                                                 .kerning(-0.41)
                                                                 .foregroundStyle(.white)
@@ -142,7 +142,7 @@ struct TotalRankingView: View {
                                                             .frame(width: 60, height: 23)
                                                             .foregroundStyle(.kuBrown)
                                                             .overlay {
-                                                                Text("\(rank3.score.decimalFormatter)점")
+                                                                Text("\(rank3.score.decimalFormatter)" + NSLocalizedString("Home.RankingUnit3", comment: ""))
                                                                     .font(.neo18)
                                                                     .kerning(-0.41)
                                                                     .foregroundStyle(.white)
@@ -158,19 +158,19 @@ struct TotalRankingView: View {
                                     Image(.rankingTitleRow)
                                         .overlay {
                                             HStack {
-                                                Text(StringLiterals.Home.TotalRanking.ranking)
+                                                Text("Home.TotalRanking.Ranking")
                                                     .font(.neo15)
                                                     .foregroundStyle(.kuText)
                                                 
                                                 Spacer()
                                                 
-                                                Text(StringLiterals.Home.TotalRanking.nickname)
+                                                Text("Home.TotalRanking.Nickname")
                                                     .font(.neo15)
                                                     .foregroundStyle(.kuText)
                                                 
                                                 Spacer()
                                                 
-                                                Text(StringLiterals.Home.TotalRanking.score)
+                                                Text("Home.TotalRanking.Score")
                                                     .font(.neo15)
                                                     .foregroundStyle(.kuText)
                                             }
@@ -210,7 +210,7 @@ struct TotalRankingView: View {
                                                         .padding(.trailing, 10)
                                                 }
                                                 
-                                                Text("나")
+                                                Text("Home.Me")
                                                     .font(.pretendard15R)
                                                     .foregroundStyle(.kuText)
                                                     .lineLimit(1)
@@ -231,7 +231,10 @@ struct TotalRankingView: View {
                             }
                             else {
                                 // 랭킹에 아무도 없을 때
-                                Text(StringLiterals.Home.TotalRanking.empty)
+                                let text = NSLocalizedString("Home.TotalRanking.Empty", comment: "")
+                                    .replacingOccurrences(of: "<br>", with: "\n")
+                                
+                                Text(text)
                                     .font(.pretendard15R)
                                     .foregroundStyle(.kuText)
                                     .lineSpacing(15 * 0.3)
@@ -241,7 +244,7 @@ struct TotalRankingView: View {
                         }
                 }
                 .customNavigationBar(centerView: {
-                    Text(StringLiterals.Home.TotalRanking.title)
+                    Text("Home.TotalRanking.InformationTitle")
                         .font(.neo22)
                         .kerning(-0.41)
                         .foregroundStyle(.white)

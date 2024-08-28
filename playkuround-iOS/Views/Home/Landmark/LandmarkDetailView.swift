@@ -61,7 +61,7 @@ struct LandmarkDetailView: View {
                         
                         ScrollView(.vertical) {
                             VStack(spacing: 8) {
-                                Text(StringLiterals.Home.Landmark.buildingDescriptionTitle)
+                                Text("Home.Landmark.BuildingDescriptionTitle")
                                     .font(.neo18)
                                     .kerning(-0.41)
                                     .foregroundStyle(.kuText)
@@ -98,7 +98,7 @@ struct LandmarkDetailView: View {
                         } label: {
                             Image(.smallButtonBlue)
                                 .overlay {
-                                    Text(StringLiterals.Home.Landmark.close)
+                                    Text("Home.Landmark.Close")
                                         .font(.neo18)
                                         .kerning(-0.41)
                                         .foregroundStyle(.kuText)
@@ -119,25 +119,33 @@ struct LandmarkDetailView: View {
     func AmenityBoxView(_ amenity: String) -> some View {
         HStack(spacing: 5) {
             // 종류: {'도서반납기', '복사실', '케이큐브', '증명발급서비스', '복사기', '증명서발급기', '편의점', '카페', '따릉이'}
-            if (amenity == "복사실" || amenity == "복사기") {
+            // EN: {Bicycle rental, K-CUBE, Photocopier,
+            // Copy Room, Certificate issuance service, Convenience store,
+            // Cafe, Book Return Machine, Certificate issuing machine}
+            // ZH: {自行车租赁所, 复印机, 复印室, 便利店, K-CUBE, 发证服务, 发证机, 咖啡馆, 还书机}
+            
+            if (amenity == NSLocalizedString("Landmark.Description.Copy1", comment: "")
+                || amenity == NSLocalizedString("Landmark.Description.Copy2", comment: "")) {
                 Image(.copyIcon)
                     .padding(.leading, 8)
-            } else if (amenity == "도서반납기") {
+            } else if (amenity == NSLocalizedString("Landmark.Description.BookMachine", comment: "")) {
                 Image(.bookIcon)
                     .padding(.leading, 8)
-            } else if (amenity == "케이큐브" || amenity == "케이허브") {
+            } else if (amenity == NSLocalizedString("Landmark.Description.KCube", comment: "")
+                       || amenity == NSLocalizedString("Landmark.Description.KHub", comment: "")) {
                 Image(.kCubeIcon)
                     .padding(.leading, 8)
-            } else if (amenity == "증명발급서비스" || amenity == "증명서발급기") {
+            } else if (amenity == NSLocalizedString("Landmark.Description.CertificationMachine", comment: "")
+                       || amenity == NSLocalizedString("Landmark.Description.CertificationService", comment: "")) {
                 Image(.certificateIcon)
                     .padding(.leading, 8)
-            } else if (amenity == "편의점") {
+            } else if (amenity == NSLocalizedString("Landmark.Description.Convinience", comment: "")) {
                 Image(.convenienceIcon)
                     .padding(.leading, 8)
-            } else if (amenity == "카페") {
+            } else if (amenity == NSLocalizedString("Landmark.Description.Cafe", comment: "")) {
                 Image(.cafeIcon)
                     .padding(.leading, 8)
-            } else if (amenity == "따릉이") {
+            } else if (amenity == NSLocalizedString("Landmark.Description.Bike", comment: "")) {
                 Image(.bikeIcon)
                     .padding(.leading, 8)
             }

@@ -90,7 +90,7 @@ struct AttendanceView: View {
                             } label: {
                                 Image(isTodayAttended ? .shortButtonGray : .shortButtonBlue)
                                     .overlay {
-                                        Text(isTodayAttended ? StringLiterals.Home.Attendance.attenanceDone : StringLiterals.Home.Attendance.attendance)
+                                        Text(isTodayAttended ? "Home.AttendanceDone" : "Home.Attendance")
                                             .font(.neo18)
                                             .kerning(-0.41)
                                             .foregroundStyle(.kuText)
@@ -106,7 +106,7 @@ struct AttendanceView: View {
             }
             .padding(.bottom, 67)
             .customNavigationBar(centerView: {
-                Text(StringLiterals.Home.Attendance.attendanceTitle)
+                Text("Home.AttendanceTitle")
                     .font(.neo22)
                     .kerning(-0.41)
                     .foregroundStyle(.white)

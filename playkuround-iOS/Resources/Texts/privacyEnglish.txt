@@ -1,0 +1,232 @@
+Playkuround (hereinafter referred to as "Playkuround") establishes and discloses this Privacy Policy to protect the personal information of data subjects and to handle complaints related to personal information in a prompt and smooth manner in accordance with Article 30 of the Personal Information Protection Act.
+
+This Privacy Policy applies from January 1, 2023.
+
+ Article 1 (Purpose of Processing Personal Information)
+
+Playkuround processes personal information for the following purposes. The processed personal information will not be used for purposes other than those stated below. If the purpose of use changes, Playkuround will take necessary measures such as obtaining separate consent in accordance with Article 18 of the Personal Information Protection Act.
+
+1. Membership Registration and Management
+    
+    Personal information is processed for the purpose of confirming the intention to register as a member, providing member-based services, verifying identity, maintaining and managing membership, and preventing fraudulent use of services.
+    
+2. Provision of Goods or Services
+    
+    Personal information is processed for the purpose of providing services.
+    
+
+ Article 2 (Processing and Retention Period of Personal Information)
+
+1. Playkuround processes and retains personal information within the period for which personal information is retained and used as agreed upon by the data subject, or as stipulated by law.
+2. The retention periods for each category of personal information are as follows:
+    1. Membership Registration and Management
+        
+        Personal information related to membership registration and management will be retained and used from the date of consent to collection and use until 1 year.
+        
+        Retention Basis: Membership registration and management
+        
+        Related Laws:
+        
+        Exceptions:
+        
+
+ Article 3 (Items of Personal Information Processed)
+
+1. Playkuround processes the following items of personal information:
+    1. Membership Registration and Management
+        
+        Required Items: Email, login ID, company name, education, service usage records
+        
+        Optional Items:
+        
+
+ Article 4 (Provision of Personal Information to Third Parties)
+
+1. Playkuround processes personal information within the scope specified in Article 1 (Purpose of Processing Personal Information) and provides personal information to third parties only in cases where the data subject has given consent, or in cases that fall under Articles 17 and 18 of the Personal Information Protection Act.
+2. Playkuround provides personal information to third parties as follows:
+    1. Recipient:
+        
+        Purpose of Use:
+        
+        Retention and Usage Period:
+        
+
+ Article 5 (Entrustment of Personal Information Processing)
+
+1. Playkuround entrusts personal information processing tasks to the following entities for smooth processing:
+    1. Entrusted Entity:
+        
+        Contents of Entrusted Task:
+        
+        Entrustment Period:
+        
+2. When entering into an entrustment contract, Playkuround specifies in documents such as contracts the prohibition of processing personal information for purposes other than the purpose of performing the entrusted tasks, technical and managerial protection measures, restrictions on re-entrustment, management and supervision of the entrusted entity, liability for damages, and ensures that the entrusted entity safely processes personal information.
+3. If the contents of the entrusted task or the entrusted entity change, Playkuround will disclose such changes without delay through this Privacy Policy.
+
+ Article 6 (Procedures and Methods for Destroying Personal Information)
+
+1. Playkuround will promptly destroy personal information when it becomes unnecessary, such as upon the expiration of the personal information retention period or when the processing purpose is achieved.
+2. If personal information needs to be retained despite the expiration of the retention period or the achievement of the processing purpose due to other legal requirements, the relevant personal information will be moved to a separate database (DB) or stored in a different storage location.
+    1. Legal Basis:
+    2. Items Retained: Account information, transaction date
+3. The procedures and methods for destroying personal information are as follows:
+    1. Destruction Procedures
+        
+        Playkuround selects personal information that needs to be destroyed and obtains approval from the person in charge of personal information protection before destroying the information.
+        
+    2. Destruction Methods
+        
+        Personal information in electronic file format is destroyed using technical methods that prevent the recovery of records.
+        
+
+ Article 7 (Rights and Obligations of Data Subjects and Legal Representatives and Their Exercise Methods)
+
+1. Data subjects may exercise their rights to request access, correction, deletion, and suspension of processing of personal information at any time with respect to Playkuround.
+2. The exercise of rights under Paragraph 1 may be done in writing, by email, or by fax in accordance with Article 41(1) of the Enforcement Decree of the Personal Information Protection Act, and Playkuround will respond without delay.
+3. The rights under Paragraph 1 may be exercised through a legal representative or an authorized agent of the data subject. In such cases, a power of attorney in the form prescribed in Annex 11 of the "Notice on Methods of Processing Personal Information (No. 2020-7)" must be submitted.
+4. Requests for access to personal information and suspension of processing may be restricted pursuant to Articles 35(4) and 37(2) of the Personal Information Protection Act.
+5. Requests for correction and deletion of personal information cannot be made if the personal information is specified as a subject of collection under other laws.
+6. Playkuround verifies whether the person making the request for access, correction, deletion, or suspension of processing is the data subject or a legitimate representative.
+
+ Article 8 (Measures to Ensure the Safety of Personal Information)
+
+Playkuround takes the following measures to ensure the safety of personal information:
+
+1. Establishment and Implementation of an Internal Management Plan
+    
+    An internal management plan is established and implemented to ensure the safe processing of personal information.
+    
+2. Encryption of Personal Information
+    
+    The user's personal information is stored and managed in an encrypted format, with passwords stored in encrypted form, known only to the user. Important data is encrypted or protected using security features such as file locks.
+    
+3. Access Control to Personal Information
+    
+    Access to personal information is controlled through the granting, changing, and revoking of access rights to the database system that processes personal information. Unauthorized access from outside is controlled using an intrusion prevention system.
+    
+
+ Article 9 (Installation, Operation, and Rejection of Automatic Personal Information Collection Devices)
+
+1. Playkuround uses 'cookies' that store and retrieve usage information from time to time to provide personalized services to users.
+2. Cookies are small amounts of information sent by the server (http) used to operate websites to the user's computer browser and may be stored on the user's PC hard drive.
+    - Purpose of Using Cookies: Cookies are used to provide optimized information to users by identifying visit and usage patterns, popular search terms, and secure connection status for each service and website visited by the user.
+    - Installation, Operation, and Rejection of Cookies: You can refuse to store cookies by adjusting the options in the Tools > Internet Options > Privacy menu at the top of the web browser.
+    - Difficulty in Using Customized Services: If you refuse to store cookies, there may be difficulties in using customized services.
+
+ Article 10 (Collection, Use, Provision, and Rejection of Behavioral Information)
+
+Playkuround does not collect, use, or provide behavioral information for online customized advertising or other purposes.
+
+ Article 11 (Criteria for Determining Additional Use and Provision of Personal Information)
+
+Playkuround may use or provide personal information without the consent of the data subject in accordance with Articles 15(3) and 17(4) of the Personal Information Protection Act, considering the matters specified in Article 14-2 of the Enforcement Decree of the Personal Information Protection Act.
+
+To this end, Playkuround has considered the following when deciding to use or provide personal information without consent:
+
+- Whether the additional use or provision of personal information is related to the original purpose for which it was collected.
+- Whether the additional use or provision of personal information could have been reasonably anticipated in light of the circumstances under which it was collected or processing practices.
+- Whether the additional use or provision of personal information unjustly infringes on the interests of the data subject.
+- Whether necessary measures have been taken to ensure safety, such as pseudonymization or encryption.
+
+※ The criteria for determining additional use and provision are drafted and disclosed by the business operator/organization at its discretion.
+
+ Article 12 (Processing of Pseudonymized Information)
+
+Playkuround processes pseudonymized information for the following purposes:
+
+- Purpose of Processing Pseudonymized Information:
+    
+    Service operation: User's personal information is pseudonymized to operate ranking systems within games, analyze game performance, and improve services.
+    
+- Retention and Use Period of Pseudonymized Information:
+    
+    Pseudonymized information is retained for the duration necessary to provide services, and it is destroyed immediately upon achieving its purpose. However, if retention is required by law, it will be retained in accordance with the law.
+    
+- Provision of Pseudonymized Information to Third Parties (if applicable):
+    
+    Currently, Playkuround does not provide pseudonymized information to third parties. (Alternatively, if third-party provision is necessary, clearly specify the recipient and the purpose of provision.)
+    
+- Entrustment of Pseudonymized Information Processing (if applicable):
+    
+    Currently, Playkuround does not entrust the processing of pseudonymized information. (Alternatively, if entrustment is necessary, specify the entrusted entity and the contents of the entrusted tasks.)
+    
+- Items of Personal Information Subject to Pseudonymization:
+    
+    The personal information subject to pseudonymization may include user ID, game performance data, location information,
+    
+
+etc. (Specify the exact items as needed.)
+
+- Measures to Ensure Safety under Article 28-4 (Obligations to Secure Safety of Pseudonymized Information):
+    
+    (Details can be directly written.)
+    
+
+ Article 13 (Details of the Personal Information Protection Officer)
+
+1. Playkuround designates a Personal Information Protection Officer who is responsible for overseeing personal information processing, handling complaints from data subjects, and providing relief from damage related to personal information processing.
+    
+    Personal Information Protection Officer:
+    
+    Name: Si-eun Park
+    
+    Position: Administrator
+    
+    Title: Project Manager
+    
+    Contact: [playkuround7@gmail.com](mailto:playkuround7@gmail.com)
+    
+    ※ Connects to the department in charge of personal information protection.
+    
+    Department in Charge of Personal Information Protection:
+    
+    Name: Si-eun Park
+    
+    Position: Administrator
+    
+    Title: Project Manager
+    
+    Contact: [playkuround7@gmail.com](mailto:playkuround7@gmail.com)
+    
+2. Data subjects can contact the Personal Information Protection Officer or the department in charge for all inquiries, complaints, and damage relief related to personal information protection while using the services (or business) of Playkuround. Playkuround will respond to and process data subjects' inquiries without delay.
+
+ Article 14 (Designation of Domestic Representative)
+
+Data subjects may contact the designated domestic representative of Playkuround in accordance with Article 39-11 of the Personal Information Protection Act for matters related to handling complaints and other tasks related to personal information. Playkuround will endeavor to process data subjects' complaints and other tasks related to personal information protection quickly through the domestic representative.
+
+- Name of Domestic Representative: Si-eun Park_PLAYKUROUND
+- Phone Number: +82-10-3861-5403
+- Email Address: [playkuround7@gmail.com](mailto:playkuround7@gmail.com)
+
+ Article 15 (Department for Receiving and Processing Requests for Access to Personal Information)
+
+Data subjects may submit requests for access to personal information under Article 35 of the Personal Information Protection Act to the following department. Playkuround will make efforts to process requests for access to personal information promptly.
+
+Department for Receiving and Processing Requests for Access to Personal Information:
+
+Name: Si-eun Park
+
+Position: Administrator
+
+Title: Project Manager
+
+Contact: [playkuround7@gmail.com](mailto:playkuround7@gmail.com)
+
+ Article 16 (Remedies for Infringement of Rights)
+
+Data subjects may seek resolution of disputes or consultation by applying to the Personal Information Dispute Mediation Committee, the Korea Internet & Security Agency's Personal Information Infringement Report Center, or other relevant institutions for remedies against personal information infringement. For further reporting or consultation regarding personal information infringement, please contact the following institutions:
+
+1. Personal Information Dispute Mediation Committee: 1833-6972 ([www.kopico.go.kr](http://www.kopico.go.kr/))
+2. Personal Information Infringement Report Center: 118 ([privacy.kisa.or.kr](http://privacy.kisa.or.kr/))
+3. Supreme Prosecutors' Office: 1301 ([www.spo.go.kr](http://www.spo.go.kr/))
+4. Cyber Bureau of National Police Agency: 182 ([ecrm.cyber.go.kr](http://ecrm.cyber.go.kr/))
+
+Persons who have been harmed by the decisions or inaction of public institutions with respect to requests made under Articles 35 (Access to Personal Information), 36 (Correction and Deletion of Personal Information), and 37 (Suspension of Processing of Personal Information) of the Personal Information Protection Act may file for administrative appeals as prescribed by the Administrative Appeals Act.
+
+For more information on administrative appeals, please refer to the Central Administrative Appeals Commission website ([www.simpan.go.kr](http://www.simpan.go.kr/)).
+
+ Article 17 (Changes to the Privacy Policy)
+
+1. This Privacy Policy is effective from August 23, 2024.
+2. Previous versions of the Privacy Policy can be found below:
+    - Applicable from July 11, 2022, to March 3, 2024

@@ -1,0 +1,90 @@
+Article 1 (Purpose)
+
+The purpose of these Terms of Use is to define the rights, obligations, and responsibilities between Playkuround (hereinafter referred to as the "Company") and the individual location information subject (hereinafter referred to as the "User") regarding the provision of location-based services by the Company, as well as other necessary matters.
+
+Article 2 (Governing Laws and Regulations)
+
+Matters not specified in these Terms shall be governed by the Act on the Protection and Use of Location Information, the Personal Information Protection Act, the Act on Promotion of Information and Communications Network Utilization and Information Protection, the Framework Act on Telecommunications, the Telecommunications Business Act, and other relevant laws and regulations, as well as the Company's Terms of Service, Privacy Policy, and other guidelines established by the Company.
+
+Article 3 (Service Description and Fees)
+
+1. ① The Company receives location information from location information providers and offers the following location-based services:
+    1. GeoTagging Service: The location information of the User or mobile device included in posts or content saved by the User is stored along with the posts. The stored location information may be kept without further use or may be utilized to categorize or search content based on location.
+2. ② The location-based services described in Paragraph 1 are provided free of charge.
+
+Article 4 (User Rights)
+
+1. ① The User may reserve consent for certain parts of the collection scope of personal location information and the contents of these Terms, or for the purpose of use/provision of personal location information, the scope of third parties to whom the information is provided, and certain parts of the location-based services.
+2. ② The User may withdraw all or part of their consent to the collection, use, and provision of personal location information at any time.
+3. ③ The User may request a temporary suspension of the collection, use, or provision of personal location information at any time. In such cases, the Company shall not refuse the request and possesses the necessary technical means to comply.
+4. ④ The User may request the Company to view or notify the following data and may request corrections if there are errors. The Company shall not refuse such requests without legitimate reasons.
+    1. Records confirming the collection, use, and provision of personal location information pertaining to the User.
+    2. Reasons and contents for providing the User's personal location information to a third party under the Act on the Protection and Use of Location Information or other laws and regulations.
+5. ⑤ If the User withdraws all or part of their consent, the Company shall promptly destroy the collected personal location information and records confirming the collection, use, and provision of such information. However, if only part of the consent is withdrawn, only the corresponding part of the personal location information and related records shall be destroyed.
+6. ⑥ The User may exercise their rights as specified in Paragraphs 1 through 4 by contacting the Company through the contact information provided in Article 13 of these Terms.
+
+Article 5 (Rights of Legal Guardians)
+
+1. ① If the Company intends to collect, use, or provide personal location information from a child under the age of 14, it must obtain consent from both the child and their legal guardian.
+2. ② Legal guardians who consent to the collection, use, or provision of personal location information of children under the age of 14 may exercise the rights to reserve consent, withdraw consent, request temporary suspension, and request viewing or notification.
+
+Article 6 (Retention Grounds and Period for Location Information Usage Records)
+
+The Company automatically records and retains data confirming the collection, use, and provision of personal location information pertaining to the User for at least six months in the location information system, based on Article 16, Paragraph 2 of the Act on the Protection and Use of Location Information.
+
+Article 7 (Service Modification and Suspension)
+
+1. ① The Company may limit, change, or suspend all or part of the services if it is unable to maintain the services due to changes in the policies of location-based service providers, company circumstances, legal obstacles, or other reasons.
+2. ② In case of service suspension as outlined in Paragraph 1, the Company shall notify the Users in advance through the internet or by direct communication.
+
+Article 8 (Immediate Notification upon Provision of Personal Location Information to Third Parties)
+
+1. ① The Company shall not provide the User's personal location information to third parties without the User's consent. When providing services that involve third-party provision, the Company shall inform the User in advance of the recipient and purpose and obtain consent.
+2. ② When providing personal location information to a third party designated by the User, the Company shall immediately notify the User's communication device from which the information was collected of the recipient, date and time of provision, and purpose of provision each time.
+3. ③ However, in the following cases, notification shall be sent to a communication device or email address pre-specified by the User:
+    1. When the communication device from which the personal location information was collected does not have the capability to receive text, voice, or video messages.
+    2. When the User has pre-requested notification to a different communication device or email address other than the one from which the information was collected.
+
+Article 9 (Rights of Protectors of Children Under 8 Years Old, etc.)
+
+1. ① If a protector intends to consent to the use or provision of personal location information for the purpose of protecting the life or body of individuals falling under the following categories (hereinafter referred to as "Children Under 8 Years Old, etc."), such consent shall be deemed as obtained from the individual themselves:
+    1. Children under 8 years old.
+    2. Persons under adult guardianship.
+    3. Persons with mental disabilities as defined in Article 2, Paragraph 2, Subparagraph 2 of the Act on Welfare of Persons with Disabilities, who are classified as severely disabled under Article 2, Paragraph 2 of the Act on Employment Promotion and Vocational Rehabilitation of Persons with Disabilities (limited to those registered as disabled under Article 32 of the Act on Welfare of Persons with Disabilities).
+2. ② Protectors who wish to consent to the use or provision of personal location information for protecting the life or body of Children Under 8 Years Old, etc., must submit a written consent along with documentation proving their status as a protector to the Company.
+3. ③ Protectors who consent to the use or provision of personal location information of Children Under 8 Years Old, etc., may exercise all rights of the User.
+
+Article 10 (Purpose and Duration of Retention and Use of Personal Location Information)
+
+1. ① The Company retains and uses personal location information only for the minimum period necessary to provide location-based services.
+2. ② In most location-based services, the Company uses personal location information on a one-time or temporary basis and destroys it without delay thereafter. However, in services like the "GeoTagging" service, where the User posts or stores personal location information along with posts or content on the Company's services, the personal location information is retained for the duration that the corresponding posts or content are stored.
+
+Article 11 (Compensation for Damages)
+
+If the User suffers damages due to the Company's violation of Articles 15 through 26 of the Act on the Protection and Use of Location Information, the User may claim compensation from the Company. In this case, the Company shall be liable unless it proves the absence of intent or negligence.
+
+Article 12 (Dispute Resolution)
+
+1. ① If a dispute related to location information arises and an agreement cannot be reached between the Company and the User, or if consultation is not possible, the Company may request adjudication from the Korea Communications Commission.
+2. ② The Company or the User may apply for mediation to the Personal Information Dispute Mediation Committee under the Personal Information Protection Act if an agreement cannot be reached regarding disputes related to location information or if consultation is not possible.
+
+Article 13 (Company Information and Location Information Manager)
+
+1. ① The Company's name, address, and contact information are as follows:
+    
+    Name: Playkuround
+    
+    Phone Number: +82-10-3861-5403
+    
+2. ② The Company designates the following individual as the Location Information Manager to handle user complaints arising during service use and to protect the rights of Users concerning personal location information:
+    
+    Location Information Manager: Si-eun Park, PM
+    
+    Email: [playkuround7@gmail.com](mailto:playkuround7@gmail.com)
+    
+
+Supplementary Provisions
+
+Article 1 (Effective Date)
+
+These Terms shall take effect from January 1, 2023.

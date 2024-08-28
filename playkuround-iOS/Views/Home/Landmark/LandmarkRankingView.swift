@@ -59,7 +59,7 @@ struct LandmarkRankingView: View {
                                         .frame(height: 24)
                                     
                                     VStack(alignment: .center, spacing: 5) {
-                                        Text(homeViewModel.getSelectedLandmark().name)
+                                        /* Text(homeViewModel.getSelectedLandmark().name)
                                             .font(.neo18)
                                             .foregroundColor(.kuTextDarkGreen)
                                             .kerning(-0.41) +
@@ -83,7 +83,18 @@ struct LandmarkRankingView: View {
                                         Text(StringLiterals.Home.Landmark.rankingSubtext3)
                                             .font(.neo18)
                                             .foregroundColor(.kuText)
-                                            .kerning(-0.41)
+                                            .kerning(-0.41)*/
+                                        
+                                        let originalString = NSLocalizedString("Home.Landmark.RankingSubtext", comment: "")
+                                        
+                                        let replacedString = originalString
+                                            .replacingOccurrences(of: "[LANDMARK]", with: homeViewModel.getSelectedLandmark().name)
+                                            .replacingOccurrences(of: "[NICKNAME]", with: rankingList[0].nickname)
+                                            .replacingOccurrences(of: "<br>", with: "\n")
+                                        
+                                        Text(replacedString)
+                                            .multilineTextAlignment(.center)
+                                            .lineLimit(nil)
                                     }
                                     
                                     Spacer()
@@ -92,19 +103,19 @@ struct LandmarkRankingView: View {
                                     Image(.rankingTitleRow)
                                         .overlay {
                                             HStack {
-                                                Text(StringLiterals.Home.TotalRanking.ranking)
+                                                Text("Home.TotalRanking.Ranking")
                                                     .font(.neo15)
                                                     .foregroundStyle(.kuText)
                                                 
                                                 Spacer()
                                                 
-                                                Text(StringLiterals.Home.TotalRanking.nickname)
+                                                Text("Home.TotalRanking.Nickname")
                                                     .font(.neo15)
                                                     .foregroundStyle(.kuText)
                                                 
                                                 Spacer()
                                                 
-                                                Text(StringLiterals.Home.TotalRanking.score)
+                                                Text("Home.TotalRanking.Score")
                                                     .font(.neo15)
                                                     .foregroundStyle(.kuText)
                                             }
@@ -166,7 +177,10 @@ struct LandmarkRankingView: View {
                                 .padding(.bottom, shouldPadding ? 37 : 37)
                             } else {
                                 // 랭킹에 아무도 없을 때
-                                Text(StringLiterals.Home.Landmark.rankingEmpty)
+                                let text = NSLocalizedString("Home.Landmark.RankingEmpty", comment: "")
+                                    .replacingOccurrences(of: "<br>", with: "\n")
+                                
+                                Text(text)
                                     .font(.pretendard15R)
                                     .foregroundStyle(.kuText)
                                     .lineSpacing(15 * 0.3)
@@ -178,7 +192,7 @@ struct LandmarkRankingView: View {
                     Spacer()
                 }
                 .customNavigationBar(centerView: {
-                    Text(StringLiterals.Home.Landmark.rankingTitle)
+                    Text("Home.Landmark.RankingTitle")
                         .font(.neo22)
                         .kerning(-0.41)
                         .foregroundStyle(.white)

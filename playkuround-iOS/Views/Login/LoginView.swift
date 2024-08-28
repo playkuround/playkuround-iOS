@@ -15,7 +15,7 @@ struct LoginView: View {
     @FocusState private var focusField: Bool
     
     // 인증코드 요청
-    @State private var mailButtonTitle = StringLiterals.Login.requestCode
+    @State private var mailButtonTitle = NSLocalizedString("Login.RequestCode", comment: "")
     @State private var mailButtonClicked: Bool = false
     
     // 인증시간 초과 바텀시트
@@ -33,26 +33,26 @@ struct LoginView: View {
             Color.kuBackground.ignoresSafeArea(.all)
             
             VStack(alignment: .leading) {
-                Text(StringLiterals.Login.hello)
+                Text("Login.Hello")
                     .font(.neo24)
                     .foregroundStyle(.kuText)
                     .kerning(-0.41)
                     .padding(.bottom, 10)
                 
-                Text(StringLiterals.Login.description)
+                Text("Login.Description")
                     .font(.pretendard15R)
                     .foregroundStyle(.kuText)
                     .padding(.bottom, 48)
                 
                 Image(.longButtonWhite)
                     .overlay {
-                        TextField(StringLiterals.Login.placeHolder, text: $userId)
+                        TextField(NSLocalizedString("Login.PlaceHolder", comment: ""), text: $userId)
                             .font(.pretendard15R)
                             .kerning(-0.41)
                             .focused($focusField)
                             .padding(.leading, 20)
                             .overlay {
-                                Text(StringLiterals.Login.email)
+                                Text("Login.Email")
                                     .font(.pretendard15R)
                                     .foregroundStyle(.gray)
                                     .opacity(userId.isEmpty && !focusField ? 0 : 1)
@@ -70,10 +70,11 @@ struct LoginView: View {
                     GAManager.shared.logEvent(.SEND_EMAIL)
                     
                     if mailButtonClicked {
-                        mailButtonTitle = userId.isEmpty ? StringLiterals.Login.requestCode : StringLiterals.Login.reRequestCode
+                        mailButtonTitle = userId.isEmpty ? NSLocalizedString("Login.RequestCode", comment: "")
+                        : NSLocalizedString("Login.ReRequestCode", comment: "")
                     }
                     
-                    callPOSTAPIemails(target: userId + StringLiterals.Login.email)
+                    callPOSTAPIemails(target: userId + NSLocalizedString("Login.Email", comment: ""))
                     
                     if !isMaximumCount {
                         self.isAuthCodeViewVisible = true
@@ -90,7 +91,7 @@ struct LoginView: View {
                 .disabled(userId.isEmpty)
                 
                 if isMaximumCount {
-                    Text(StringLiterals.Login.countOver)
+                    Text("Login.CountOver")
                         .font(.pretendard12R)
                         .kerning(-0.41)
                         .foregroundStyle(.kuRed)
@@ -101,7 +102,7 @@ struct LoginView: View {
                     AuthenticationCodeView(viewModel: viewModel, 
                                            userSendingCount: $userSendingCount,
                                            isTimerFinished: $isBottomSheetPresented,
-                                           userEmail: userId + StringLiterals.Login.email)
+                                           userEmail: userId + NSLocalizedString("Login.Email", comment: ""))
                 }
                 
                 Spacer()
@@ -152,13 +153,13 @@ struct LoginView: View {
                             isAuthCodeViewVisible = false
                             isMaximumCount = true
                             mailButtonClicked = false
-                            self.viewModel.openToastMessageView(message: StringLiterals.Login.ToastMessage.overNumMail)
+                            self.viewModel.openToastMessageView(message: NSLocalizedString("Login.ToastMessage.overNumMail", comment: ""))
                         }
                     }
                 }
             case .failure(let error):
                 print("Error in View: \(error)")
-                self.viewModel.openToastMessageView(message: StringLiterals.Login.ToastMessage.emailSendFail)
+                self.viewModel.openToastMessageView(message: NSLocalizedString("Login.ToastMessage.EmailSendFail", comment: ""))
             }
         }
     }

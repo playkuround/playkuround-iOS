@@ -33,7 +33,7 @@ struct AllClickGameView: View {
                 
                 VStack(spacing: 0) {
                     HStack(spacing: 0) {
-                        Text(StringLiterals.Game.AllClick.score)
+                        Text("Game.AllClick.Score")
                             .font(.neo22)
                             .foregroundStyle(.kuText)
                             .kerning(-0.41)
@@ -59,7 +59,7 @@ struct AllClickGameView: View {
                     HStack(spacing: 0) {
                         Spacer()
                         
-                        Text(StringLiterals.Game.AllClick.classRegistration)
+                        Text("Game.AllClick.ClassRegistration")
                             .font(shouldFontResize ? .neo17 : .neo20)
                             .kerning(-0.41)
                             .foregroundStyle(.allClickGreen)
@@ -80,7 +80,7 @@ struct AllClickGameView: View {
                         
                         Image(.allClickRegister)
                             .overlay {
-                                Text(StringLiterals.Game.AllClick.register)
+                                Text("Game.AllClick.Register")
                                     .font(.neo18)
                                     .kerning(-0.41)
                                     .foregroundStyle(.white)
@@ -93,7 +93,7 @@ struct AllClickGameView: View {
                     .offset(y: 8)
                 }
                 .customNavigationBar(centerView: {
-                    Text(StringLiterals.Game.AllClick.title)
+                    Text("Game.AllClick.Title")
                         .font(.neo22)
                         .kerning(-0.41)
                         .foregroundStyle(.kuText)

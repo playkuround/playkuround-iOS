@@ -25,18 +25,18 @@ struct RegisterView: View {
             Color.kuBackground.ignoresSafeArea(.all)
             
             VStack(alignment: .leading) {
-                Text(StringLiterals.Register.title)
+                Text("Register.Title")
                     .font(.neo24)
                     .foregroundStyle(.kuText)
                     .kerning(-0.41)
                     .padding(.bottom, 10)
                 
-                Text(StringLiterals.Register.majorSelectionDescription)
+                Text("Register.MajorSelectionDescription")
                     .font(.pretendard15R)
                     .foregroundStyle(.kuText)
                     .padding(.bottom, 47)
                 
-                Text(StringLiterals.Register.college)
+                Text("Register.College")
                     .font(.neo15)
                     .kerning(-0.41)
                     .foregroundStyle(.kuText)
@@ -54,7 +54,7 @@ struct RegisterView: View {
                         .frame(maxWidth: .infinity)
                         .overlay {
                             HStack {
-                                Text(selectedCollege?.name ?? StringLiterals.Register.collegePlaceholder)
+                                Text(selectedCollege?.name ?? NSLocalizedString("Register.CollegePlaceholder", comment: ""))
                                     .font(.pretendard15R)
                                     .foregroundStyle(selectedCollege == nil ? .kuGray2 : .kuText)
                                 
@@ -70,7 +70,7 @@ struct RegisterView: View {
                 Spacer()
                     .frame(height: 70)
                 
-                Text(StringLiterals.Register.major)
+                Text("Register.Major")
                     .font(.neo15)
                     .kerning(-0.41)
                     .foregroundStyle(.kuText)
@@ -90,7 +90,7 @@ struct RegisterView: View {
                         .frame(maxWidth: .infinity)
                         .overlay {
                             HStack {
-                                Text(selectedMajor?.name ?? StringLiterals.Register.majorPlaceholder)
+                                Text(selectedMajor?.name ?? NSLocalizedString("Register.MajorPlaceholder", comment: ""))
                                     .font(.pretendard15R)
                                     .foregroundStyle(selectedCollege == nil ? .kuGray2 : .kuText)
                                 
@@ -113,7 +113,7 @@ struct RegisterView: View {
                     .scaledToFit()
                     .frame(maxWidth: .infinity)
                     .overlay {
-                        Text(StringLiterals.Register.next)
+                        Text("Register.Next")
                             .font(.neo15)
                             .kerning(-0.41)
                             .foregroundStyle(.kuText)
@@ -122,13 +122,15 @@ struct RegisterView: View {
                         if let selectedMajor = selectedMajor {
                             soundManager.playSound(sound: .buttonClicked)
                             
-                            let major = selectedMajor.name
-                            
-                            // UserDefaults에 저장
-                            UserDefaults.standard.set(major, forKey: "major")
-                            
-                            // 뷰 전환
-                            viewModel.transition(to: .registerNickname)
+                            // let major = selectedMajor.name
+                            if let major = translateMajorToKor(selectedMajor) {
+                                
+                                // UserDefaults에 저장
+                                UserDefaults.standard.set(major, forKey: "major")
+                                
+                                // 뷰 전환
+                                viewModel.transition(to: .registerNickname)
+                            }
                         }
                     }
             }
@@ -148,7 +150,7 @@ struct RegisterView: View {
                     .overlay {
                         ScrollView {
                             VStack(spacing: 0) {
-                                ForEach(majorList) { college in
+                                ForEach(getLocalizedMajorList()) { college in
                                     Button {
                                         selectedCollege = college
                                         // 대학 선택 시 선택 학과 초기화
@@ -253,6 +255,35 @@ struct RegisterView: View {
                     isCollegeMenuPresented = false
                 }
             }
+        }
+    }
+    
+    private func translateMajorToKor(_ major: Major) -> String? {
+        let majorID = major.id
+        
+        for colleges in majorListKorean {
+            for major in colleges.majors {
+                if major.id == majorID {
+                    return major.name
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    func getLocalizedMajorList() -> [College] {
+        let currentLanguage = Locale.current.language.languageCode?.identifier
+
+        switch currentLanguage {
+        case "ko":
+            return majorListKorean
+        case "en":
+            return majorListEnglish
+        case "zh":
+            return majorListChinese
+        default:
+            return majorListKorean
         }
     }
 }

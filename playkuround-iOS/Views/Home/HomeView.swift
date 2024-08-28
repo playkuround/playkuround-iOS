@@ -45,7 +45,7 @@ struct HomeView: View {
                                     .cornerRadius(4)
                             }
                             
-                            Text(homeViewModel.userData.nickname + "님")
+                            Text(homeViewModel.userData.nickname + NSLocalizedString("Home.NicknameTitle", comment: ""))
                                 .font(.neo18)
                                 .foregroundStyle(.kuText)
                                 .kerning(-0.41)
@@ -61,12 +61,12 @@ struct HomeView: View {
                         Image(.rankingKeywordBackground)
                             .overlay {
                                 HStack(spacing: 6) {
-                                    Text(StringLiterals.Home.ranking)
+                                    Text("Home.Ranking")
                                         .font(.neo12)
                                         .foregroundStyle(.white)
                                         .kerning(-0.41)
                                     Spacer()
-                                    Text("\(homeViewModel.userData.myRank.ranking)" + StringLiterals.Home.rankingUnit)
+                                    Text("\(homeViewModel.userData.myRank.ranking)" + NSLocalizedString("Home.RankingUnit", comment: ""))
                                         .font(.neo12)
                                         .foregroundStyle(.white)
                                         .kerning(-0.41)
@@ -77,7 +77,7 @@ struct HomeView: View {
                         Image(.badgeKeywordBackground)
                             .overlay {
                                 HStack {
-                                    Text(String(format: StringLiterals.Home.badgeNum, "\(homeViewModel.badgeList.count)"))
+                                    Text(String(format: NSLocalizedString("Home.BadgeNum", comment: ""), "\(homeViewModel.badgeList.count)"))
                                         .font(.neo12)
                                         .foregroundStyle(.white)
                                         .kerning(-0.41)
@@ -137,13 +137,13 @@ struct HomeView: View {
                     Spacer()
                     
                     // 임시 구현
-                    /* Menu {
+                    Menu {
                         Section("탐험") {
                             Button("AdventureView 열기") {
                                 let latitude = mapViewModel.userLatitude
                                 let longitude = mapViewModel.userLongitude
                                 
-                                homeViewModel.adventure(latitude: latitude, longitude: longitude)
+                                homeViewModel.adventure(latitude: latitude, longitude: longitude, mapViewModel: mapViewModel)
                             }
                         }
                         
@@ -163,7 +163,7 @@ struct HomeView: View {
                             Button("덕큐피트") {
                                 viewModel.transition(to: .cupidGame)
                             }
-                            Button("수강신청 ALL 클릭") {
+                            Button("Game.AllClick.Title") {
                                 viewModel.transition(to: .allClickGame)
                             }
                             Button("일감호에서 살아남기") {
@@ -176,15 +176,15 @@ struct HomeView: View {
                     } label: {
                         Image(.shortButtonBlue)
                             .overlay {
-                                Text(StringLiterals.Home.adventure)
+                                Text("Home.Adventure")
                                     .font(.neo18)
                                     .foregroundColor(.kuText)
                                     .kerning(-0.41)
                             }
                     }
-                    .padding(.bottom, shouldPadding ? 60 : 70)*/
+                    .padding(.bottom, shouldPadding ? 60 : 70)
                     
-                    Button {
+                    /* Button {
                         let latitude = mapViewModel.userLatitude
                         let longitude = mapViewModel.userLongitude
                         
@@ -192,13 +192,13 @@ struct HomeView: View {
                     } label: {
                         Image(.shortButtonBlue)
                             .overlay {
-                                Text(StringLiterals.Home.adventure)
+                                Text("Home.Adventure")
                                     .font(.neo18)
                                     .foregroundColor(.kuText)
                                     .kerning(-0.41)
                             }
                     }
-                    .padding(.bottom, shouldPadding ? 60 : 70)
+                    .padding(.bottom, shouldPadding ? 60 : 70) */
                 }
                 .padding(.top, shouldPadding ? 12 : 9)
                 

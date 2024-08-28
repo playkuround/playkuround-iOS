@@ -19,7 +19,10 @@ struct TimerGameView: View {
                 VStack {
                     Spacer()
                     
-                    Text(StringLiterals.Game.Time.description)
+                    let description = NSLocalizedString("Game.Time.Description", comment: "")
+                        .replacingOccurrences(of: "<br>", with: "\n")
+                    
+                    Text(description)
                         .font(.pretendard15R)
                         .foregroundStyle(.kuText)
                         .multilineTextAlignment(.center)
@@ -30,7 +33,7 @@ struct TimerGameView: View {
                 .frame(height: geometry.size.height > 700 ? 90 : 60)
                 .customNavigationBar(
                     centerView: {
-                        Text(StringLiterals.Game.Time.title)
+                        Text("Game.Time.Title")
                             .font(.neo22)
                             .kerning(-0.41)
                             .foregroundStyle(.kuText)
@@ -79,13 +82,13 @@ struct TimerGameView: View {
                                     // 성공 시
                                     if viewModel.timerState == .success
                                         || viewModel.timerState == .perfect {
-                                        Text(StringLiterals.Game.Time.success)
+                                        Text("Game.Time.Success")
                                             .font(.pretendard15R)
                                             .foregroundStyle(.kuGreen)
                                     }
                                     // 실패 시
                                     else if viewModel.timerState == .failed {
-                                        Text(StringLiterals.Game.Time.failure)
+                                        Text("Game.Time.Failure")
                                             .font(.pretendard15R)
                                             .foregroundStyle(.kuRed)
                                     }

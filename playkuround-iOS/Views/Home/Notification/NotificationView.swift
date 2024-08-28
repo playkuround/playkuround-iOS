@@ -115,7 +115,7 @@ struct NotificationView: View {
                                     if notis[index].linkURL != nil {
                                         Image(.smallButtonBlue)
                                             .overlay {
-                                                Text("링크")
+                                                Text("Notification.Link")
                                                     .font(.neo18)
                                                     .foregroundStyle(.kuText)
                                                     .kerning(-0.41)

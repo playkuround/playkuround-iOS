@@ -26,7 +26,7 @@ struct MoonGameView: View {
                 let shouldImagePadding = geometry.size.height >= 700
                 
                 VStack {
-                    Text(StringLiterals.Game.Moon.description)
+                    Text("Game.Moon.Description")
                         .font(.pretendard15R)
                         .foregroundStyle(.white)
                         .padding(.bottom, 10)
@@ -46,7 +46,7 @@ struct MoonGameView: View {
                 }
                 .padding(.top, 70)
                 .customNavigationBar(centerView: {
-                    Text(StringLiterals.Game.Moon.title)
+                    Text("Game.Moon.Title")
                         .font(.neo22)
                         .kerning(-0.41)
                         .foregroundStyle(.white)
@@ -64,15 +64,16 @@ struct MoonGameView: View {
                     })
                 }, height: 67)
                 
+                if viewModel.moonTapped == 0 {
+                    Color.black.opacity(0.5)
+                        .ignoresSafeArea()
+                }
+                
                 if viewModel.isPauseViewPresented {
                     GamePauseView(viewModel: viewModel)
                 }
                 else if viewModel.isResultViewPresented {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
-                }
-                else if viewModel.moonTapped == 0 {
-                    Color.black.opacity(0.5)
-                        .ignoresSafeArea()
                 }
             }
         }

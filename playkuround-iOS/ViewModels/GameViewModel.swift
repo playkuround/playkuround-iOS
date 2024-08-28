@@ -323,9 +323,12 @@ class GameViewModel: ObservableObject {
     func afterFetch() {
         print("after fetch")
         DispatchQueue.main.async {
+            self.isCountdownViewPresented = false
+            self.isPauseViewPresented = false
+            
             withAnimation(.spring) {
                 self.isResultViewPresented = true
-                print("after fetch true")
+                print("after fetch \(self.isResultViewPresented)")
             }
         }
     }
@@ -376,15 +379,15 @@ class GameViewModel: ObservableObject {
                     }
                     
                     self.fetchBestScore()
-                case .failure(let error):
-                    print("Error in View: \(error)")
-                    self.rootViewModel.openToastMessageView(message: StringLiterals.Network.serverError)
+                case .failure(_):
+                    self.handleError()
                 }
             }
         } else {
             // 랜드마크 아이디 없는 경우
             // 실제 게임은 랜드마크 아이디가 부여된 경우에만 시작되므로 발생X
             print("Error: No Landmark ID")
+            self.handleError()
         }
     }
     
@@ -433,13 +436,8 @@ class GameViewModel: ObservableObject {
                 }
                 print("Best Score: \(self.bestScore)")
                 self.fetchAdventureScore()
-            case .failure(let error):
-                print("Error in View: \(error)")
-                DispatchQueue.main.async {
-                    self.bestScore = 0
-                }
-                self.fetchAdventureScore()
-                self.rootViewModel.openToastMessageView(message: StringLiterals.Network.serverError)
+            case .failure(_):
+                self.handleError()
             }
         }
     }
@@ -476,12 +474,16 @@ class GameViewModel: ObservableObject {
             case .failure(let error):
                 print("Error in View: \(error)")
                 // 에러 떠도 일단 넘어가도록
-                DispatchQueue.main.async {
-                    self.adventureScore = 0
-                }
-                self.afterFetch()
-                self.rootViewModel.openToastMessageView(message: StringLiterals.Network.serverError)
+                self.handleError()
             }
+        }
+    }
+    
+    private func handleError() {
+        DispatchQueue.main.async {
+            self.rootViewModel.transition(to: .home)
+            self.rootViewModel.openToastMessageView(message: NSLocalizedString("Network.UploadError", comment: ""))
+            // self.rootViewModel.openNewBadgeView(badgeNames: [])
         }
     }
 }

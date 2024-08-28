@@ -47,7 +47,7 @@ struct QuizGameView: View {
                         if let isCorrectAnswer = viewModel.isCorrectAnswer {
                             //정답일 때
                             if isCorrectAnswer {
-                                Text(StringLiterals.Game.Quiz.correct)
+                                Text("Game.Quiz.Correct")
                                     .font(.pretendard15R)
                                     .foregroundStyle(.kuGreen)
                                     .multilineTextAlignment(.center)
@@ -62,7 +62,7 @@ struct QuizGameView: View {
                             }
                             else {
                                 // 오답 시 게임 종료
-                                Text(StringLiterals.Game.Quiz.incorrect)
+                                Text("Game.Quiz.Incorrect")
                                     .font(.pretendard15R)
                                     .foregroundStyle(.kuRed)
                                     .multilineTextAlignment(.center)
@@ -77,7 +77,7 @@ struct QuizGameView: View {
                 }
                 .padding(.top, shouldImagePadding ? 140 : 90)
                 .customNavigationBar(centerView: {
-                    Text(StringLiterals.Game.Quiz.title)
+                    Text("Game.Quiz.Title")
                         .font(.neo22)
                         .kerning(-0.41)
                         .foregroundStyle(.kuText)

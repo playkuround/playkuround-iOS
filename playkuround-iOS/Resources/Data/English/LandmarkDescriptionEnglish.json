@@ -1,0 +1,626 @@
+[
+    {
+        "id": 0,
+        "description": "",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 1,
+        "description": "This is the building I use for my liberal arts classes, and if you're lucky, you'll hear yodeling!",
+        "information": [
+            {
+                "title": "Outdoors",
+                "content": "Warm weather, shoe repair"
+            },
+            {
+                "title": "1st floor",
+                "content": "Certificate Issuance Service, Student Counseling Center, Vending Machine, E-Mart 24, Restio"
+            },
+            {
+                "title": "2nd floor",
+                "content": "Dream Bookbindery"
+            },
+            {
+                "title": "Peculiarities",
+                "content": "Please note that room 223 (118) is on the first floor"
+            },
+            {
+                "title": "Telephone number",
+                "content": "Administrative offices 02-450-4107 (205), Bookbindery 010-5746-0356"
+            }
+        ],
+        "amenity": ["Convenience store", "Cafe", "Photocopier", "Bicycle rental"]
+    },
+    {
+        "id": 2,
+        "description": "It's home to the admissions office and campus ventures, and you can rent software. There are rarely any classes!",
+        "information": [
+            {
+                "title": "Telephone number",
+                "content": "02-450-0007"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 3,
+        "description": "It's home to a veterinary school and a veterinary clinic, so you can meet some special animal friends..",
+        "information": [
+            {
+                "title": "1st floor",
+                "content": "Veterinary clinics"
+            },
+            {
+                "title": "2nd floor",
+                "content": "Administrative offices"
+            },
+            {
+                "title": "Telephone number",
+                "content": "Administrative offices 02-450-3038"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 4,
+        "description": "It's a building with a lot of animal-related research, so it's a little hot in the summer, but the facilities are great!",
+        "information": [
+            {
+                "title": "1st floor",
+                "content": "K-CUBE, Photocopier, Restio, Charger"
+            },
+            {
+                "title": "2nd floor",
+                "content": "Administrative offices"
+            },
+            {
+                "title": "Telephone number",
+                "content": "Administrative offices 02-450-3695"
+            }
+        ],
+        "amenity": ["K-CUBE", "Cafe", "Photocopier"]
+    },
+    {
+        "id": 5,
+        "description": "It can get hot in the summer with all the windows, but it's a building that houses life science classes and research.",
+        "information": [
+            {
+                "title": "1st floor",
+                "content": "KU Products Store, Restio"
+            },
+            {
+                "title": "2nd floor",
+                "content": "K-CUBE"
+            },
+            {
+                "title": "Telephone number",
+                "content": "Administrative offices 02-450-4050"
+            }
+        ],
+        "amenity": ["K-CUBE", "Cafe"]
+    },
+    {
+        "id": 6,
+        "description": "The central library of Konkuk University and its iconic landmark! The reading room was renovated in 2024.",
+        "information": [
+            {
+                "title": "Underground",
+                "content": "Cafeteria, Student Welfare Committee"
+            },
+            {
+                "title": "1st floor",
+                "content": "Shinhan Bank, Startup Information Center, Data Room, KU Digital Lounge"
+            },
+            {
+                "title": "3rd floor",
+                "content": "Reading Room, CU, Super Bin"
+            },
+            {
+                "title": "6th Floor",
+                "content": "K-CUBE, Reading Room"
+            },
+            {
+                "title": "Telephone number",
+                "content": "02-450-6172"
+            }
+        ],
+        "amenity": ["Convenience store", "K-CUBE"]
+    },
+    {
+        "id": 7,
+        "description": "A research and teaching center on the Global Campus, closely associated with the Department of Characteristic Chemistry",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 8,
+        "description": "This building is mainly used by students majoring in art and design, and has a very artistic atmosphere!",
+        "information": [
+            {
+                "title": "Underground",
+                "content": "KU Cinematheque"
+            },
+            {
+                "title": "1st floor",
+                "content": "Study, Copy Room"
+            },
+            {
+                "title": "Telephone number",
+                "content": "Store 02-450-3943, Administrative offices 02-450-3776,3779"
+            }
+        ],
+        "amenity": ["Copy Room"]
+    },
+    {
+        "id": 9,
+        "description": "This used to be a library, but now it's a place where language-related classes are held, including TOEIC and TOEFL classes",
+        "information": [
+            {
+                "title": "Remarks",
+                "content": "Free over-the-phone English lessons at the language school (recommended)"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 10,
+        "description": "This is where the law school and law library are located, except the timetable says it's closed!",
+        "information": [
+            {
+                "title": "Underground",
+                "content": "Print Room"
+            },
+            {
+                "title": "1st floor",
+                "content": "Large Lecture Hall, Law Library, Disabled Rest Room, Global Lounge, International Office, Bookbindery"
+            },
+            {
+                "title": "Telephone number",
+                "content": "Bookbindery 010-3359-4898, In-house printing room 02-450-3133~4"
+            }
+        ],
+        "amenity": ["Copy Room"]
+    },
+    {
+        "id": 11,
+        "description": "A museum dedicated to the history and culture of Konkuk University, offering a glimpse into the past and present of the campus",
+        "information": [
+            {
+                "title": "Remarks",
+                "content": "Opening hours: 10:00~16:00"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 12,
+        "description": "This is where the administrative work of the school is handled, and you'll go for issuing various certificates and academic inquiries",
+        "information": [
+            {
+                "title": "Outdoor",
+                "content": "Bicycle rental"
+            },
+            {
+                "title": "1st floor",
+                "content": "KB Kookmin Bank, Shinhan Bank, Certificate Issuance Service, Import Promotion Paper"
+            },
+            {
+                "title": "Special Features",
+                "content": "Proof issuance service (500 won)"
+            },
+            {
+                "title": "Telephone number",
+                "content": "Administrative offices 02-450-3272"
+            }
+        ],
+        "amenity": ["Bicycle rental", "Certificate issuance service"]
+    },
+    {
+        "id": 13,
+        "description": "The old Normal University building is old, but it's full of history and tradition.",
+        "information": [
+            {
+                "title": "Telephone number",
+                "content": "Administrative offices 02-450-3802"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 14,
+        "description": "This is where the College of Social Sciences is located, there are a lot of stairs, so it's a good workout, but it can be a little strenuous going up",
+        "information": [
+            {
+                "title": "1st floor",
+                "content": "BLUEPOT, book return, Copy Room"
+            },
+            {
+                "title": "3rd Floor",
+                "content": "K-CUBE"
+            },
+            {
+                "title": "Telephone number",
+                "content": "Administrative offices 02-450-3612, Copy Room 455-5666"
+            }
+        ],
+        "amenity": ["Cafe", "Copy Room", "Book Return Machine", "K-CUBE"]
+    },
+    {
+        "id": 15,
+        "description": "This building is mainly used by business school students, and is also famous as the main setting for the webcomic 'Cheese in the Trap'!",
+        "information": [
+            {
+                "title": "1st floor",
+                "content": "CU, Restio, K-HUB, IT Service Center"
+            },
+            {
+                "title": "Telephone number",
+                "content": "Administrative offices 02-450-3581"
+            }
+        ],
+        "amenity": ["Convenience store", "Cafe", "K-CUBE"]
+    },
+    {
+        "id": 16,
+        "description": "The tallest building on campus, symbolizing the university's leap forward. Big events like commencement ceremonies are held here",
+        "information": [
+            {
+                "title": "Underground",
+                "content": "Large Performance Hall, Dining Room"
+            },
+            {
+                "title": "1st floor",
+                "content": "Shinhan Bank, Photocopier"
+            },
+            {
+                "title": "Telephone number",
+                "content": "Parking Management 02-450-3677"
+            }
+        ],
+        "amenity": ["Photocopier"]
+    },
+    {
+        "id": 17,
+        "description": "Used by architecture students, it took its current location after leaving the Art and Design Building",
+        "information": [
+            {
+                "title": "1st floor",
+                "content": "Building materials, unmanned copy room, K-HUB, painting room"
+            },
+            {
+                "title": "3-4F",
+                "content": "Studio"
+            },
+            {
+                "title": "Telephone number",
+                "content": "Administrative offices 02-450-3446,4062"
+            }
+        ],
+        "amenity": ["Photocopier", "K-CUBE"]
+    },
+    {
+        "id": 18,
+        "description": "A building used by the Department of Real Estate and the Graduate School, called the 'Haebong' Real Estate Building after its donor",
+        "information": [
+            {
+                "title": "1st floor",
+                "content": "Cafe"
+            },
+            {
+                "title": "Telephone number",
+                "content": "Administrative offices 02-450-3582"
+            }
+        ],
+        "amenity": ["Cafe"]
+    },
+    {
+        "id": 19,
+        "description": "Old building, home to the College of Letters, built in the 1950s",
+        "information": [
+            {
+                "title": "Telephone number",
+                "content": "Administrative offices 02-450-3322"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 20,
+        "description": "A building that houses several student welfare facilities and club rooms, and is one of the centers of campus life",
+        "information": [
+            {
+                "title": "Outdoor",
+                "content": "Bicycle rental"
+            },
+            {
+                "title": "Underground",
+                "content": "Barber Shop, Food Market"
+            },
+            {
+                "title": "1st floor",
+                "content": "Restaurant, 1847, Certificate Issuance Service, University Job Plus Center, Konkuk Souvenirs, Konkuk University Post Office, Shinhan Bank Konkuk University Branch, CU"
+            },
+            {
+                "title": "2nd floor",
+                "content": "Student Welfare Office, University Job Center, Classical Music Room, On-site Travel Agency, Character Specialty Store, Optometry Department, Electronics Department"
+            },
+            {
+                "title": "Telephone number",
+                "content": "Restaurant 02-450-3943, 1847 456-3059, Konkuk Souvenirs 02-450-3319, Konkuk University Post Office 02-450-3092, Shinhan Bank Konkuk University Branch 02-450-3019"
+            }
+        ],
+        "amenity": ["Bicycle rental", "Cafe", "Certificate issuing machine", "Convenience store"]
+    },
+    {
+        "id": 21,
+        "description": "A building with club rooms and showers, and during festivals there are performances in the open-air theater",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 22,
+        "description": "The centerpiece building of the College of Engineering, with a neat appearance and housing the administrative offices of the College of Engineering",
+        "information": [
+            {
+                "title": "1st floor",
+                "content": "Administrative offices, K-CUBE, Restio, Bookstore"
+            },
+            {
+                "title": "2nd floor",
+                "content": "Engineering Education Innovation Center and Business Unit"
+            },
+            {
+                "title": "Telephone number",
+                "content": "Administrative offices 02-450-3443,3445, Bookstore 02-450-3093"
+            }
+        ],
+        "amenity": ["K-CUBE", "Cafe"]
+    },
+    {
+        "id": 23,
+        "description": "One of the older buildings in the College of Engineering, it has an old feel to it, but still houses many classes",
+        "information": [
+            {
+                "title": "Remarks",
+                "content": "Building B is labeled as Ball B in the general lecture timetable, which may be mistaken for the basement floor."
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 24,
+        "description": "Facing building A, building C is on the right",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 25,
+        "description": "A state-of-the-art facility for the College of Engineering, the building features energy efficiency and green elements",
+        "information": [
+            {
+                "title": "1st floor",
+                "content": "Prime Hall, Lounge, Photocopier, KU Smart Factory"
+            }
+        ],
+        "amenity": ["Photocopier"]
+    },
+    {
+        "id": 26,
+        "description": "This building is mainly used by natural science-related departments, where research and experiments are actively conducted",
+        "information": [
+            {
+                "title": "Outdoors",
+                "content": "Bicycle rental"
+            },
+            {
+                "title": "1st floor",
+                "content": "K-HUB, Administrative offices"
+            },
+            {
+                "title": "Telephone number",
+                "content": "Administrative offices 02-450-3402"
+            }
+        ],
+        "amenity": ["Bicycle rental", "K-CUBE"]
+    },
+    {
+        "id": 27,
+        "description": "A building that is home to creative research and teaching, and inspires students to challenge themselves",
+        "information": [
+            {
+                "title": "1st floor",
+                "content": "Drinks, cigarettes, vending machines, unmanned photocopier, reserve regiment."
+            },
+            {
+                "title": "2nd floor",
+                "content": "Entrepreneurship Support Group"
+            },
+            {
+                "title": "3rd Floor",
+                "content": "ROTC"
+            },
+            {
+                "title": "Annexes",
+                "content": "Founding Dairy Headquarters"
+            }
+        ],
+        "amenity": ["Photocopier"]
+    },
+    {
+        "id": 28,
+        "description": "A building where art-related classes and research take place, and where there is a lot of hand-making going on",
+        "information": [
+            {
+                "title": "1st floor",
+                "content": "Exhibition room, ceramics room"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 29,
+        "description": "A dormitory for international students, where you can experience different cultures and languages",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 30,
+        "description": "This is where students live, and it's a cozy place to study and relax at the same time",
+        "information": [
+            {
+                "title": "Outdoor",
+                "content": "Electric Scooter"
+            },
+            {
+                "title": "Dream Hall",
+                "content": "Reading room, Convenience store, Laundry, Stationery store, Cafe"
+            },
+            {
+                "title": "Lake Hall",
+                "content": "E-Mart 24, BHC, Visitor Parking Lot"
+            },
+            {
+                "title": "Frontier Hall",
+                "content": "Administrative offices, dormitory dining hall"
+            },
+            {
+                "title": "Vision Hall",
+                "content": ""
+            },
+            {
+                "title": "Global Hall",
+                "content": "Gym, seminar room"
+            },
+            {
+                "title": "Telephone number",
+                "content": "Administrative offices 02-2024-5000~5003"
+            }
+        ],
+        "amenity": ["Cafe", "Convenience store"]
+    },
+    {
+        "id": 31,
+        "description": "A natural lake on campus, perfect for walking or relaxing",
+        "information": [
+            {
+                "title": "Remarks",
+                "content": "Duck, Softshell turtle"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 32,
+        "description": "A bridge that crosses Lake Ilgam, one of the most scenic spots on campus",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 33,
+        "description": "Home to the bull statue, one of the symbols of Konkuk University, which symbolizes the strength of the campus",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 34,
+        "description": "A quiet shelter on campus, a great place to spend some time relaxing",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 35,
+        "description": "A statue of Dr. Sanghuh Yoo Seok-chang, the founder of Konkuk University, located in front of the library",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 36,
+        "description": "A space where various events and performances are held, where you can feel the passion of the students",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 37,
+        "description": "A place to play sports or host large events like festivals, with a newly renovated turf field",
+        "information": [
+            {
+                "title": "Remarks",
+                "content": "Application method: school homepage, application period: up to 1 month before ~ on the day, rental time: 09 ~ 22 hours"
+            },
+            {
+                "title": "Telephone number",
+                "content": "02-450-3204"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 38,
+        "description": "Home to a variety of indoor sports and events, it's a great place to work out",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 39,
+        "description": "One of the main entrances to the building, named the back gate, but now it also serves as the front gate",
+        "information": [
+            {
+                "title": "Telephone number",
+                "content": "KT Telicab Integrated Situation Room 02-450-3193, Parking Management 02-450-3682"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 40,
+        "description": "Another entrance to the campus, conveniently located close to several buildings",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 41,
+        "description": "This door is located on the veterinary hospital side, close to animal-related facilities",
+        "information": [
+            {
+                "title": "Telephone number",
+                "content": "02-450-0947, Parking Management 02-450-3683"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 42,
+        "description": "The entrance to the library, one of the most used entrances",
+        "information": [
+            {
+                "title": "Telephone number",
+                "content": "Parking Management 02-450-3703"
+            }
+        ],
+        "amenity": []
+    },
+    {
+        "id": 43,
+        "description": "This is the entrance to the direction of Guui Station, which is conveniently close to the subway",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 44,
+        "description": "This is the door that leads directly to the dormitory, an essential door for dorm students",
+        "information": [],
+        "amenity": []
+    },
+    {
+        "id": 45,
+        "description": "An annex of the Engineering Building, where various experiments and research are conducted",
+        "information": [
+            {
+                "title": "1st floor",
+                "content": "Next Generation Automotive Convergence Technology Center"
+            }
+        ],
+        "amenity": []
+    }
+]

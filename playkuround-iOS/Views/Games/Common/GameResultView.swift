@@ -30,16 +30,16 @@ struct GameResultView: View {
                             .overlay {
                                 VStack(alignment: .center) {
                                     // 게임 점수
-                                    Text("\(gameViewModel.score) " + StringLiterals.Game.Result.score)
+                                    Text("\(gameViewModel.score) " + NSLocalizedString("Game.Result.Score", comment: ""))
                                         .font(.neo56)
                                         .foregroundStyle(.kuText)
                                         .kerning(-0.41)
                                         .padding(.bottom, 2)
                                     
                                     // 최고 점수 받아와 표시
-                                    Text(StringLiterals.Game.Result.bestScore
+                                    Text(NSLocalizedString("Game.Result.BestScore", comment: "")
                                          + " \(gameViewModel.bestScore) "
-                                         + StringLiterals.Game.Result.score)
+                                         + NSLocalizedString("Game.Result.Score", comment: ""))
                                         .font(.neo18)
                                         .foregroundStyle(.kuText)
                                         .kerning(-0.41)
@@ -48,9 +48,9 @@ struct GameResultView: View {
                             }
                         
                         // 모험 점수 받아와 표시
-                        Text(StringLiterals.Game.Result.adventureScore 
+                        Text(NSLocalizedString("Game.Result.AdventureScore", comment: "")
                              + " \(gameViewModel.adventureScore) "
-                             + StringLiterals.Game.Result.score)
+                             + NSLocalizedString("Game.Result.Score", comment: ""))
                             .font(.neo24)
                             .foregroundStyle(.kuText)
                             .kerning(-0.41)
@@ -73,7 +73,7 @@ struct GameResultView: View {
                         } label: {
                             Image(.shortButtonBlue)
                                 .overlay {
-                                    Text(StringLiterals.Game.Result.out)
+                                    Text("Game.Result.Out")
                                         .font(.neo18)
                                         .foregroundStyle(.kuText)
                                         .kerning(-0.41)
@@ -91,21 +91,21 @@ struct GameResultView: View {
     private func GameTypeToString(_ type: GameType) -> String {
         switch type {
         case .time:
-            return "10초를 맞춰봐"
+            return NSLocalizedString("Game.Time.Title", comment: "")
         case .moon:
-            return "문을 점령해"
+            return NSLocalizedString("Game.Moon.Title", comment: "")
         case .quiz:
-            return "건쏠지식"
+            return NSLocalizedString("Game.Quiz.Title", comment: "")
         case .catchDucku:
-            return "덕쿠를 잡아라!"
+            return NSLocalizedString("Game.Catch", comment: "")
         case .allClear:
-            return "수강신청 ALL클릭"
+            return NSLocalizedString("Game.AllClick.Title", comment: "")
         case .cupid:
-            return "덕큐피트"
+            return NSLocalizedString("Game.Cupid.Title", comment: "")
         case .book:
-            return "책 뒤집기"
+            return NSLocalizedString("Game.Card.Title", comment: "")
         case .survive:
-            return "일감호에서 살아남기"
+            return NSLocalizedString("Game.Survive.Title", comment: "")
         }
     }
 }

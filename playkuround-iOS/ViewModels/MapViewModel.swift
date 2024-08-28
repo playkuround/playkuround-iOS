@@ -129,6 +129,12 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
             }
         }
     }
+    
+    func setLandmarkID(_ landmarkID: Int) {
+        DispatchQueue.main.async {
+            self.userLandmarkID = landmarkID
+        }
+    }
 }
 
 struct MapViewTestView: View {
@@ -142,7 +148,7 @@ struct MapViewTestView: View {
             
             if let landmarkID = vm.userLandmarkID {
                 // 인덱스는 1부터 시작하며, 0번째는 더미 노드가 있으므로 인덱스를 그래도 사용 가능
-                let landmark = landmarkList[landmarkID]
+                let landmark = landmarkListKorean[landmarkID]
                 Text("근처 랜드마크: \(landmark.name)(\(landmark.number))")
             } else {
                 Text("근처 랜드마크: 없음(nil)")

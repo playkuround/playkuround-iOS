@@ -34,12 +34,12 @@ struct NewBadgeView: View {
                                 Spacer()
                                     .frame(width: 24)
                                 
-                                Text(badge.title)
+                                Text(getTranslatedTitle(badge))
                                     .font(.neo20)
                                     .kerning(-0.41)
                                     .foregroundStyle(.kuText)
                                 
-                                Text(StringLiterals.Home.Badge.new)
+                                Text("Home.Badge.New")
                                     .font(.neo15)
                                     .kerning(-0.41)
                                     .foregroundStyle(.kuTimebarRed)
@@ -47,7 +47,7 @@ struct NewBadgeView: View {
                             }
                             .padding(.bottom, 16)
                             
-                            Text(badge.description)
+                            Text(getTranslatedDescription(badge))
                                 .font(.pretendard15R)
                                 .foregroundStyle(.kuText)
                                 .lineSpacing(15 * 0.3)
@@ -59,6 +59,36 @@ struct NewBadgeView: View {
                         GAManager.shared.logScreenEvent(.NewBadgeView, badgeName: badge.rawValue)
                     }
             }
+        }
+    }
+    
+    func getTranslatedTitle(_ badge: Badge) -> String {
+        let currentLanguage = Locale.current.language.languageCode?.identifier
+        
+        switch currentLanguage {
+        case "ko":
+            return badge.titleKorean
+        case "en":
+            return badge.titleEnglish
+        case "zh":
+            return badge.titleChinese
+        default:
+            return badge.titleKorean
+        }
+    }
+    
+    func getTranslatedDescription(_ badge: Badge) -> String {
+        let currentLanguage = Locale.current.language.languageCode?.identifier
+        
+        switch currentLanguage {
+        case "ko":
+            return badge.descriptionKorean
+        case "en":
+            return badge.descriptionEnglish
+        case "zh":
+            return badge.descriptionChinese
+        default:
+            return badge.descriptionKorean
         }
     }
 }
