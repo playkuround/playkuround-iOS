@@ -149,7 +149,7 @@ struct HomeView: View {
                     Spacer()
                     
                     // 임시 구현
-                    Menu {
+                    /* Menu {
                         Section("탐험") {
                             Button("AdventureView 열기") {
                                 let latitude = mapViewModel.userLatitude
@@ -194,9 +194,9 @@ struct HomeView: View {
                                     .kerning(-0.41)
                             }
                     }
-                    .padding(.bottom, shouldPadding ? 60 : 70)
+                    .padding(.bottom, shouldPadding ? 60 : 70) */
                     
-                    /* Button {
+                    Button {
                         let latitude = mapViewModel.userLatitude
                         let longitude = mapViewModel.userLongitude
                         
@@ -210,7 +210,7 @@ struct HomeView: View {
                                     .kerning(-0.41)
                             }
                     }
-                    .padding(.bottom, shouldPadding ? 60 : 70) */
+                    .padding(.bottom, shouldPadding ? 60 : 70)
                 }
                 .padding(.top, shouldPadding ? 12 : 9)
                 
