@@ -9,7 +9,9 @@ import SwiftUI
 import Combine
 
 struct AllClickGameView: View {
-    @ObservedObject var viewModel: AllClickGameViewModel
+    @Environment(\.scenePhase) private var scenePhase
+    
+    @StateObject var viewModel: AllClickGameViewModel
     @ObservedObject var rootViewModel: RootViewModel
     
     @State private var userText: String = ""
@@ -154,6 +156,18 @@ struct AllClickGameView: View {
                         viewModel.soundManager.playSound(sound: .classCorrect)
                         userText = ""
                     }
+                }
+            }
+            .onChange(of: scenePhase) { newPhase in
+                switch newPhase {
+                case .active:
+                    break
+                case .background, .inactive:
+                    if viewModel.gameState == .playing {
+                        viewModel.togglePauseView()
+                    }
+                @unknown default:
+                    break
                 }
             }
         }

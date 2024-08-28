@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct CardGameView: View {
-    @ObservedObject var viewModel: CardGameViewModel
+    @Environment(\.scenePhase) private var scenePhase
+    
+    @StateObject var viewModel: CardGameViewModel
     @ObservedObject var rootViewModel: RootViewModel
     
     var body: some View {
@@ -70,6 +72,18 @@ struct CardGameView: View {
             .onAppear {
                 viewModel.startCountdown()
                 GAManager.shared.logScreenEvent(.CardGame)
+            }
+            .onChange(of: scenePhase) { newPhase in
+                switch newPhase {
+                case .active:
+                    break
+                case .background, .inactive:
+                    if viewModel.gameState == .playing {
+                        viewModel.togglePauseView()
+                    }
+                @unknown default:
+                    break
+                }
             }
         }
     }

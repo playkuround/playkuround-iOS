@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct SurviveGameView: View {
-    @ObservedObject var viewModel: SurviveGameViewModel
+    @Environment(\.scenePhase) private var scenePhase
+    
+    @StateObject var viewModel: SurviveGameViewModel
     @ObservedObject var rootViewModel: RootViewModel
     
     var body: some View {
@@ -138,6 +140,18 @@ struct SurviveGameView: View {
             // 카운트다운 시작
             viewModel.startCountdown()
             GAManager.shared.logScreenEvent(.SurviveGame)
+        }
+        .onChange(of: scenePhase) { newPhase in
+            switch newPhase {
+            case .active:
+                break
+            case .background, .inactive:
+                if viewModel.gameState == .playing {
+                    viewModel.togglePauseView()
+                }
+            @unknown default:
+                break
+            }
         }
     }
     

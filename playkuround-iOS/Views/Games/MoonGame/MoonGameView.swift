@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct MoonGameView: View {
-    @ObservedObject var viewModel: MoonGameViewModel
+    @Environment(\.scenePhase) private var scenePhase
+    
+    @StateObject var viewModel: MoonGameViewModel
     @ObservedObject var rootViewModel: RootViewModel
     @State private var shouldShake = false
     
@@ -76,10 +78,22 @@ struct MoonGameView: View {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
                 }
             }
-        }
-        .onAppear {
-            viewModel.startCountdown()
-            GAManager.shared.logScreenEvent(.MoonGame)
+            .onAppear {
+                viewModel.startCountdown()
+                GAManager.shared.logScreenEvent(.MoonGame)
+            }
+            .onChange(of: scenePhase) { newPhase in
+                switch newPhase {
+                case .active:
+                    break
+                case .background, .inactive:
+                    if viewModel.gameState == .playing {
+                        viewModel.togglePauseView()
+                    }
+                @unknown default:
+                    break
+                }
+            }
         }
     }
     
