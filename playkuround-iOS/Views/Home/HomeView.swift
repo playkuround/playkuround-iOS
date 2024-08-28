@@ -122,10 +122,24 @@ struct HomeView: View {
                             }
                             
                             Button {
-                                homeViewModel.transition(to: .notification)
                                 soundManager.playSound(sound: .buttonClicked)
+                                if homeViewModel.eventList.isEmpty {
+                                    viewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.NoEvent", comment: ""))
+                                } else {
+                                    homeViewModel.transition(to: .notification)
+                                }
                             } label: {
                                 Image(.notiButton)
+                                    .overlay {
+                                        if homeViewModel.isNewEvent {
+                                            Text("Home.Badge.New")
+                                                .font(.neo15)
+                                                .foregroundColor(.kuTimebarRed)
+                                                .kerning(-0.41)
+                                                .textRainStroke()
+                                                .offset(x: 18, y: -18)
+                                        }
+                                    }
                             }
                             
                             Spacer()
@@ -137,7 +151,7 @@ struct HomeView: View {
                     Spacer()
                     
                     // 임시 구현
-                    Menu {
+                    /* Menu {
                         Section("탐험") {
                             Button("AdventureView 열기") {
                                 let latitude = mapViewModel.userLatitude
@@ -182,9 +196,9 @@ struct HomeView: View {
                                     .kerning(-0.41)
                             }
                     }
-                    .padding(.bottom, shouldPadding ? 60 : 70)
+                    .padding(.bottom, shouldPadding ? 60 : 70) */
                     
-                    /* Button {
+                    Button {
                         let latitude = mapViewModel.userLatitude
                         let longitude = mapViewModel.userLongitude
                         
@@ -198,7 +212,7 @@ struct HomeView: View {
                                     .kerning(-0.41)
                             }
                     }
-                    .padding(.bottom, shouldPadding ? 60 : 70) */
+                    .padding(.bottom, shouldPadding ? 60 : 70)
                 }
                 .padding(.top, shouldPadding ? 12 : 9)
                 
@@ -232,6 +246,7 @@ struct HomeView: View {
                 homeViewModel.loadBadge()
                 homeViewModel.loadTotalRanking()
                 homeViewModel.loadAttendance()
+                homeViewModel.loadEvents()
                 
                 GAManager.shared.logScreenEvent(.HomeView)
             }

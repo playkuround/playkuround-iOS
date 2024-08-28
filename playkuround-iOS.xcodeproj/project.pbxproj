@@ -20,6 +20,8 @@
 		0C5979B52BAB215300E8156D /* RegisterMajorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5979B42BAB215300E8156D /* RegisterMajorView.swift */; };
 		0C5979B82BAB25EE00E8156D /* serviceKorean.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C5979B72BAB25EE00E8156D /* serviceKorean.txt */; };
 		0C5979BC2BAB26A800E8156D /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5979BB2BAB26A800E8156D /* TermsView.swift */; };
+		0C5FC0852C7EB1C8009ABA64 /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C5FC0842C7EB1C8009ABA64 /* QuizData.json */; };
+		0C5FC0872C7EB1D8009ABA64 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5FC0862C7EB1D5009ABA64 /* EventManager.swift */; };
 		0C6396E82BAB4BB8008E046F /* RegisterNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6396E72BAB4BB8008E046F /* RegisterNickname.swift */; };
 		0C691EB12BBD9FF2004021F1 /* TimerGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C691EB02BBD9FF2004021F1 /* TimerGameViewModel.swift */; };
 		0C691EB32BBDA028004021F1 /* TimerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C691EB22BBDA028004021F1 /* TimerState.swift */; };
@@ -33,7 +35,6 @@
 		0C6B77F62BABCC8F0033CEEF /* locationKorean.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B77F52BABCC8F0033CEEF /* locationKorean.txt */; };
 		0C6B77F82BABCCCD0033CEEF /* privacyKorean.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C6B77F72BABCCCD0033CEEF /* privacyKorean.txt */; };
 		0C6C36CA2C0339960069EE06 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C36C92C0339960069EE06 /* MotionManager.swift */; };
-		0C6F75CC2C7CD2750075FAC3 /* QuizData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F75CB2C7CD2750075FAC3 /* QuizData.json */; };
 		0C6F75D02C7CDFB80075FAC3 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F75CF2C7CDFB80075FAC3 /* Localizable.xcstrings */; };
 		0C6F75D62C7CEA280075FAC3 /* LandmarkDescriptionEnglish.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F75D52C7CEA200075FAC3 /* LandmarkDescriptionEnglish.json */; };
 		0C6F75D82C7CEA2A0075FAC3 /* LandmarkDescriptionChinese.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F75D72C7CEA2A0075FAC3 /* LandmarkDescriptionChinese.json */; };
@@ -170,6 +171,8 @@
 		0C5979B42BAB215300E8156D /* RegisterMajorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMajorView.swift; sourceTree = "<group>"; };
 		0C5979B72BAB25EE00E8156D /* serviceKorean.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = serviceKorean.txt; sourceTree = "<group>"; };
 		0C5979BB2BAB26A800E8156D /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
+		0C5FC0842C7EB1C8009ABA64 /* QuizData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuizData.json; sourceTree = "<group>"; };
+		0C5FC0862C7EB1D5009ABA64 /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		0C6396E72BAB4BB8008E046F /* RegisterNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNickname.swift; sourceTree = "<group>"; };
 		0C691EB02BBD9FF2004021F1 /* TimerGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerGameViewModel.swift; sourceTree = "<group>"; };
 		0C691EB22BBDA028004021F1 /* TimerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerState.swift; sourceTree = "<group>"; };
@@ -183,7 +186,6 @@
 		0C6B77F52BABCC8F0033CEEF /* locationKorean.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = locationKorean.txt; sourceTree = "<group>"; };
 		0C6B77F72BABCCCD0033CEEF /* privacyKorean.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = privacyKorean.txt; sourceTree = "<group>"; };
 		0C6C36C92C0339960069EE06 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
-		0C6F75CB2C7CD2750075FAC3 /* QuizData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuizData.json; sourceTree = "<group>"; };
 		0C6F75CF2C7CDFB80075FAC3 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		0C6F75D52C7CEA200075FAC3 /* LandmarkDescriptionEnglish.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LandmarkDescriptionEnglish.json; sourceTree = "<group>"; };
 		0C6F75D72C7CEA2A0075FAC3 /* LandmarkDescriptionChinese.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LandmarkDescriptionChinese.json; sourceTree = "<group>"; };
@@ -345,7 +347,7 @@
 				0C6F75D42C7CEA1B0075FAC3 /* English */,
 				0C6F75D32C7CEA120075FAC3 /* Chinese */,
 				C98BDC3C2C75C60000ACBB46 /* LandmarkDescription.json */,
-				0C6F75CB2C7CD2750075FAC3 /* QuizData.json */,
+				0C5FC0842C7EB1C8009ABA64 /* QuizData.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -615,6 +617,7 @@
 		C918F4032BA7148800C0BFDA /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				0C5FC0862C7EB1D5009ABA64 /* EventManager.swift */,
 				0C6AA4BA2BA4A33E0032AB24 /* NetworkManager.swift */,
 				0C6AA4BC2BA553D80032AB24 /* APIManager.swift */,
 				0C6AA4D02BA6DA340032AB24 /* TokenManager.swift */,
@@ -960,7 +963,6 @@
 				0C8C29542C7E1BA80071C005 /* locationEnglish.txt in Resources */,
 				C98078982BA870E400C04B2D /* timerIncorrect.mp3 in Resources */,
 				C98078BF2BA872A300C04B2D /* duckkuClicked.mp3 in Resources */,
-				0C6F75CC2C7CD2750075FAC3 /* QuizData.json in Resources */,
 				0C6B77F62BABCC8F0033CEEF /* locationKorean.txt in Resources */,
 				C98078AA2BA871A000C04B2D /* cardCorrect.mp3 in Resources */,
 				C98078C42BA872DF00C04B2D /* moonClicked.mp3 in Resources */,
@@ -981,6 +983,7 @@
 				C980789D2BA8712700C04B2D /* cupidGoodOrPerfect.mp3 in Resources */,
 				C9F694EC2BA3251B009A8762 /* Assets.xcassets in Resources */,
 				C953D2F62BA47B0700318869 /* NeoDunggeunmoPro-Regular.ttf in Resources */,
+				0C5FC0852C7EB1C8009ABA64 /* QuizData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1086,6 +1089,7 @@
 				B9018CFD2BDB611F00BC819C /* CupidGameViewModel.swift in Sources */,
 				0CBB05902BB07A1400EB56BE /* MapViewModel.swift in Sources */,
 				0CFFF0BE2C08EB1B00397875 /* HomeViewModel.swift in Sources */,
+				0C5FC0872C7EB1D8009ABA64 /* EventManager.swift in Sources */,
 				C97987462BC3D91600BB3698 /* QuizState.swift in Sources */,
 				B9406DE92C42DABC004FEDC2 /* StoryView.swift in Sources */,
 				0CA193562BB5ABEB007C04B1 /* RequestPermissionView.swift in Sources */,
