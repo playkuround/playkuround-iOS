@@ -77,7 +77,7 @@ struct MainView: View {
     // 토큰 재발급 및 검사 함수
     private func reissueToken(token: String) {
         // reissue API 호출
-        APIManager.callPOSTAPI(endpoint: .reissue, parameters: ["refreshToken": token]) { result in
+        APIManager.shared.callPOSTAPI(endpoint: .reissue, parameters: ["refreshToken": token]) { result in
             switch result {
             case .success(let data):
                 // 재발급 완료된 경우 refresh token 만료 전이므로 자동 로그인

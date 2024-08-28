@@ -133,7 +133,7 @@ struct LoginView: View {
         // Save target email to UserDefaults
         UserDefaults.standard.set(target, forKey: "email")
         
-        APIManager.callPOSTAPI(endpoint: .emails,
+        APIManager.shared.callPOSTAPI(endpoint: .emails,
                                parameters: ["target" : target.lowercased()]) { result in
             switch result {
             case .success(let data):

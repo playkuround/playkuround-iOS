@@ -72,6 +72,75 @@
     "enter token value:" : {
       "shouldTranslate" : false
     },
+    "Game.Admin.AdventureInfo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adventure the nearest Landmark"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "가까운 랜드마크 탐험"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "探索您附近的建筑"
+          }
+        }
+      }
+    },
+    "Game.Admin.GameInfo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Game Play (no score)"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "게임 플레이 (점수 반영 X)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "游戏玩法（不计分）"
+          }
+        }
+      }
+    },
+    "Game.Admin.UploadInfo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Playing the game directly so your score will be not uploaded."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "게임을 직접 플레이하여 점수가 반영되지 않습니다"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自己玩游戏，所以你的分数不算数"
+          }
+        }
+      }
+    },
     "Game.AllClick.ClassRegistration" : {
       "extractionState" : "manual",
       "localizations" : {

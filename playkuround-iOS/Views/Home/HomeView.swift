@@ -150,69 +150,71 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    // 임시 구현
-                    /* Menu {
-                        Section("탐험") {
-                            Button("AdventureView 열기") {
-                                let latitude = mapViewModel.userLatitude
-                                let longitude = mapViewModel.userLongitude
-                                
-                                homeViewModel.adventure(latitude: latitude, longitude: longitude, mapViewModel: mapViewModel)
+                    // 어드민용
+                    if UserDefaults.standard.bool(forKey: "IS_ADMIN") {
+                        Menu {
+                            Section("Game.Admin.AdventureInfo") {
+                                Button("Home.Adventure") {
+                                    let latitude = mapViewModel.userLatitude
+                                    let longitude = mapViewModel.userLongitude
+                                    
+                                    homeViewModel.adventure(latitude: latitude, longitude: longitude, mapViewModel: mapViewModel)
+                                }
                             }
+                            
+                            Section("Game.Admin.GameInfo") {
+                                Button("Game.Card.Title") {
+                                    viewModel.transition(to: .cardGame)
+                                }
+                                Button("Game.Time.Title") {
+                                    viewModel.transition(to: .timeGame)
+                                }
+                                Button("Game.Moon.Title") {
+                                    viewModel.transition(to: .moonGame)
+                                }
+                                Button("Game.Quiz.Title") {
+                                    viewModel.transition(to: .quizGame)
+                                }
+                                Button("Game.Cupid.Title") {
+                                    viewModel.transition(to: .cupidGame)
+                                }
+                                Button("Game.AllClick.Title") {
+                                    viewModel.transition(to: .allClickGame)
+                                }
+                                Button("Game.Survive.Title") {
+                                    viewModel.transition(to: .surviveGame)
+                                }
+                                Button("Game.Catch") {
+                                    viewModel.transition(to: .catchGame)
+                                }
+                            }
+                        } label: {
+                            Image(.shortButtonBlue)
+                                .overlay {
+                                    Text("Home.Adventure")
+                                        .font(.neo18)
+                                        .foregroundColor(.kuText)
+                                        .kerning(-0.41)
+                                }
                         }
-                        
-                        Section("게임") {
-                            Button("책 뒤집기") {
-                                viewModel.transition(to: .cardGame)
-                            }
-                            Button("10초를 맞춰봐") {
-                                viewModel.transition(to: .timeGame)
-                            }
-                            Button("MOON을 점령해") {
-                                viewModel.transition(to: .moonGame)
-                            }
-                            Button("건쏠지식") {
-                                viewModel.transition(to: .quizGame)
-                            }
-                            Button("덕큐피트") {
-                                viewModel.transition(to: .cupidGame)
-                            }
-                            Button("Game.AllClick.Title") {
-                                viewModel.transition(to: .allClickGame)
-                            }
-                            Button("일감호에서 살아남기") {
-                                viewModel.transition(to: .surviveGame)
-                            }
-                            Button("덕쿠를 잡아라!") {
-                                viewModel.transition(to: .catchGame)
-                            }
+                        .padding(.bottom, shouldPadding ? 60 : 70)
+                    } else {
+                        Button {
+                            let latitude = mapViewModel.userLatitude
+                            let longitude = mapViewModel.userLongitude
+                            
+                            homeViewModel.adventure(latitude: latitude, longitude: longitude, mapViewModel: mapViewModel)
+                        } label: {
+                            Image(.shortButtonBlue)
+                                .overlay {
+                                    Text("Home.Adventure")
+                                        .font(.neo18)
+                                        .foregroundColor(.kuText)
+                                        .kerning(-0.41)
+                                }
                         }
-                    } label: {
-                        Image(.shortButtonBlue)
-                            .overlay {
-                                Text("Home.Adventure")
-                                    .font(.neo18)
-                                    .foregroundColor(.kuText)
-                                    .kerning(-0.41)
-                            }
+                        .padding(.bottom, shouldPadding ? 60 : 70)
                     }
-                    .padding(.bottom, shouldPadding ? 60 : 70) */
-                    
-                    Button {
-                        let latitude = mapViewModel.userLatitude
-                        let longitude = mapViewModel.userLongitude
-                        
-                        homeViewModel.adventure(latitude: latitude, longitude: longitude, mapViewModel: mapViewModel)
-                    } label: {
-                        Image(.shortButtonBlue)
-                            .overlay {
-                                Text("Home.Adventure")
-                                    .font(.neo18)
-                                    .foregroundColor(.kuText)
-                                    .kerning(-0.41)
-                            }
-                    }
-                    .padding(.bottom, shouldPadding ? 60 : 70)
                 }
                 .padding(.top, shouldPadding ? 12 : 9)
                 

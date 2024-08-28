@@ -175,7 +175,7 @@ struct MyPageListSectionView: View {
     }
     
     private func callPostAPIfakeDoor() {
-        APIManager.callPOSTAPI(endpoint: .fakeDoor) { result in }
+        APIManager.shared.callPOSTAPI(endpoint: .fakeDoor) { result in }
     }
     
     private func getTitle() -> String {

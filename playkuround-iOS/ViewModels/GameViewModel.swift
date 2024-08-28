@@ -350,7 +350,7 @@ class GameViewModel: ObservableObject {
         if let landmarkID = mapViewModel.userLandmarkID {
             // Adventure API 호출
             // 전송 실패하더라도 callPOSTAPI 함수 내부에서 재전송 처리
-            APIManager.callPOSTAPI(endpoint: .adventures,
+            APIManager.shared.callPOSTAPI(endpoint: .adventures,
                                    parameters: ["landmarkId": landmarkID,
                                                 "latitude": latitude,
                                                 "longitude": longitude,
@@ -393,7 +393,7 @@ class GameViewModel: ObservableObject {
     
     // 사용자의 게임 최고 점수 가져오는 함수
     func fetchBestScore() {
-        APIManager.callGETAPI(endpoint: .gameScore) { result in
+        APIManager.shared.callGETAPI(endpoint: .gameScore) { result in
             switch result {
             case .success(let data):
                 if let apiResponse = data as? APIResponse {
@@ -444,7 +444,7 @@ class GameViewModel: ObservableObject {
     
     // 사용자의 모험 점수(총점) 가져오는 함수
     func fetchAdventureScore() {
-        APIManager.callGETAPI(endpoint: .scoresRank) { result in
+        APIManager.shared.callGETAPI(endpoint: .scoresRank) { result in
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {
@@ -480,10 +480,18 @@ class GameViewModel: ObservableObject {
     }
     
     private func handleError() {
-        DispatchQueue.main.async {
-            self.rootViewModel.transition(to: .home)
-            self.rootViewModel.openToastMessageView(message: NSLocalizedString("Network.UploadError", comment: ""))
-            // self.rootViewModel.openNewBadgeView(badgeNames: [])
+        let isAdmin = UserDefaults.standard.bool(forKey: "IS_ADMIN")
+        if isAdmin {
+            DispatchQueue.main.async {
+                self.rootViewModel.transition(to: .home)
+                self.rootViewModel.openToastMessageView(message: NSLocalizedString("Game.Admin.UploadInfo", comment: ""))
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.rootViewModel.transition(to: .home)
+                self.rootViewModel.openToastMessageView(message: NSLocalizedString("Network.UploadError", comment: ""))
+                // self.rootViewModel.openNewBadgeView(badgeNames: [])
+            }
         }
     }
 }

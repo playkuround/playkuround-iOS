@@ -101,7 +101,15 @@ struct AuthenticationCodeView: View {
     }
     
     private func callGETAPIemails(code: String, email: String) {
-        APIManager.callGETAPI(endpoint: .emails,
+        // 심사용 계정 예외 처리
+        for account in adminAccountInfo {
+            if email == account.email && code == account.password {
+                APIManager.shared.changeServerType(to: .dev) // 개발 서버로 전환
+                UserDefaults.standard.setValue(true, forKey: "IS_ADMIN")
+            }
+        }
+        
+        APIManager.shared.callGETAPI(endpoint: .emails,
                               querys: ["code" : code, "email" : email]) { result in
             switch result {
             case .success(let data):

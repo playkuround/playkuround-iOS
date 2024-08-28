@@ -150,7 +150,7 @@ struct RegisterNickname: View {
     
     // 서버 API 통해 닉네임이 사용 가능한지 검사
     private func checkNicknameAvailability() {
-        APIManager.callGETAPI(endpoint: .availability, querys: ["nickname": nickname]) { result in
+        APIManager.shared.callGETAPI(endpoint: .availability, querys: ["nickname": nickname]) { result in
             switch result {
             case .success(let data):
                 if let response = data as? BoolResponse {
@@ -198,7 +198,7 @@ struct RegisterNickname: View {
     }
     
     private func register(email: String, major: String, token: String) {
-        APIManager.callPOSTAPI(endpoint: .register, parameters: ["email": email, "nickname": nickname, "major": major, "authVerifyToken": token]) { result in
+        APIManager.shared.callPOSTAPI(endpoint: .register, parameters: ["email": email, "nickname": nickname, "major": major, "authVerifyToken": token]) { result in
             switch result {
             case .success(let data):
                 // TODO: Token 저장 및 Home으로 전환
