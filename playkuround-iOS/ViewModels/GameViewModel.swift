@@ -326,10 +326,8 @@ class GameViewModel: ObservableObject {
             self.isCountdownViewPresented = false
             self.isPauseViewPresented = false
             
-            withAnimation(.spring) {
-                self.isResultViewPresented = true
-                print("after fetch \(self.isResultViewPresented)")
-            }
+            self.isResultViewPresented = true
+            print("after fetch \(self.isResultViewPresented)")
         }
     }
     
@@ -376,6 +374,8 @@ class GameViewModel: ObservableObject {
                         DispatchQueue.main.async {
                             self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList, openNow: false)
                         }
+                    } else {
+                        self.handleError()
                     }
                     
                     self.fetchBestScore()
@@ -432,7 +432,11 @@ class GameViewModel: ObservableObject {
                         DispatchQueue.main.async {
                             self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList, openNow: false)
                         }
+                    } else {
+                        self.handleError()
                     }
+                } else {
+                    self.handleError()
                 }
                 print("Best Score: \(self.bestScore)")
                 self.fetchAdventureScore()
@@ -451,6 +455,8 @@ class GameViewModel: ObservableObject {
                     if let response = data as? APIResponse {
                         if let myRank = response.response?.myRank {
                             self.adventureScore = myRank.score
+                        } else {
+                            self.handleError()
                         }
                         
                         // 뱃지 있으면 추가
@@ -466,6 +472,8 @@ class GameViewModel: ObservableObject {
                         DispatchQueue.main.async {
                             self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList, openNow: false)
                         }
+                    } else {
+                        self.handleError()
                     }
                     print("Adventure Score: \(self.adventureScore)")
                     
