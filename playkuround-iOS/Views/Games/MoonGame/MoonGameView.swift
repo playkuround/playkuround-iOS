@@ -82,6 +82,8 @@ struct MoonGameView: View {
                 }
                 else if viewModel.isResultViewPresented {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
+                } else if viewModel.isCountdownViewPresented {
+                    CountdownView(countdown: $viewModel.countdown)
                 }
             }
             .onAppear {
@@ -108,10 +110,12 @@ struct MoonGameView: View {
             .padding(.bottom, padding ? 40 : 0)
             .offset(x: shouldShake ? -3 : 3, y: 0)
             .onTapGesture {
-                withAnimation(Animation.easeInOut(duration: 0.1).repeatCount(4)) {
-                    self.shouldShake.toggle()
+                if self.viewModel.moonTapped > 0 {
+                    withAnimation(Animation.easeInOut(duration: 0.1).repeatCount(4)) {
+                        self.shouldShake.toggle()
+                    }
+                    viewModel.moonClick()
                 }
-                viewModel.moonClick()
             }
             .disabled(viewModel.moonTapped == 0)
     }

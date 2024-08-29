@@ -48,9 +48,13 @@ final class MoonGameViewModel: GameViewModel {
             self.soundManager.playSound(sound: .moonClicked)
         }
         else if moonTapped == 1 {
+            // 여러 번 터치 방지로 추가 처리
+            self.moonTapped = 0
+            
             DispatchQueue.main.async {
                 self.moonTapped = 0
                 self.moonState = .duck
+                self.isTimerUpdating = false
                 
                 let leftTime = super.timeRemaining
                 print("left time: \(leftTime)s")
@@ -88,18 +92,24 @@ final class MoonGameViewModel: GameViewModel {
                 self.finishGame()
             }
             self.soundManager.playSound(sound: .moonHundredClicked)
-            finishGame()
+            // finishGame()
         }
     }
     
     override func finishGame() {
-        DispatchQueue.main.async {
+        if self.gameState != .finish {
+            // 여러 번 터치 방지로 추가 처리
             self.gameState = .finish
-        }
-        
-        // 3초 뒤 서버로 점수 업로드
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            super.uploadResult(uploadScore: self.score)
+            
+            DispatchQueue.main.async {
+                self.gameState = .finish
+                
+                // 3초 뒤 서버로 점수 업로드
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    print("score: \(self.score)")
+                    super.uploadResult(uploadScore: self.score)
+                }
+            }
         }
     }
 }

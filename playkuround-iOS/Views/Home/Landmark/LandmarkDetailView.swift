@@ -87,14 +87,21 @@ struct LandmarkDetailView: View {
                                         Text(info.title)
                                             .font(.pretendard15B)
                                             .foregroundStyle(.kuText)
-                                        
-                                        Text(info.content)
-                                            .font(.pretendard15R)
-                                            .foregroundStyle(.kuText)
                                             .multilineTextAlignment(.leading)
-                                            .padding(.bottom, 20)
+                                        
+                                        HStack {
+                                            Text(info.content)
+                                                .font(.pretendard15R)
+                                                .foregroundStyle(.kuText)
+                                                .multilineTextAlignment(.leading)
+                                                .padding(.bottom, 20)
+                                            
+                                            Spacer()
+                                        }
+                                        .frame(width: 250)
                                     }
                                 }
+                                .frame(width: 250)
                             }
                             .padding(.vertical, 18)
                         }
@@ -118,7 +125,6 @@ struct LandmarkDetailView: View {
                 }
         }
         .onAppear {
-            homeViewModel.selectedLandmarkID = 1
             GAManager.shared.logScreenEvent(.LandmarkDetailView,
                                             landmarkID: homeViewModel.getSelectedLandmark().number)
         }

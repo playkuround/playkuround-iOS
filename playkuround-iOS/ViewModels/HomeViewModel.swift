@@ -326,6 +326,10 @@ final class HomeViewModel: ObservableObject {
                         else if noti.name == "new_Badge" {
                             self.rootViewModel.openNewBadgeView(badgeNames: [noti.description])
                         }
+                        // 개인 알람
+                        else if noti.name == "alarm" {
+                            self.rootViewModel.openAlarmMessageView(message: noti.description)
+                        }
                     }
                 }
             case .failure(let error):
@@ -439,10 +443,10 @@ final class HomeViewModel: ObservableObject {
     private func startChangingText() {
         DispatchQueue.main.async {
             self.gameName = self.gameNames[self.currentIndex]
-            self.currentIndex += 1
+            // self.currentIndex += 1
         }
         
-        if currentIndex >= self.gameName.count {
+        if currentIndex >= self.gameNames.count - 1 {
             if self.isSpeedingUp {
                 self.delayMillis += 0.04
                 print("delayMills: \(self.delayMillis)")
@@ -464,6 +468,10 @@ final class HomeViewModel: ObservableObject {
             }
             DispatchQueue.main.async {
                 self.currentIndex = 0
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.currentIndex += 1
             }
         }
         

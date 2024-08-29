@@ -88,6 +88,13 @@ struct RootView: View {
                 }
             }
             
+            // 유저 알람 뷰
+            if viewModel.alarmMessageShowing {
+                if let message = viewModel.alarmMessage {
+                    UserAlarmView(rootViewModel: viewModel, alarmText: message)
+                }
+            }
+            
             // 서버 점검 중
             if viewModel.serverError {
                 NetworkErrorView(loadingColor: .white, errorType: .server)

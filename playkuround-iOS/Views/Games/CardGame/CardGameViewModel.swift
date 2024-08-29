@@ -64,39 +64,45 @@ final class CardGameViewModel: GameViewModel {
     }
     
     func coverToDrawing(index: Int) {
-        if flippedCardIndex.count < 2 && cardList[index].cardState == .cover {
-            soundManager.playSound(sound: .cardClicked)
-            flippedCardIndex.append(index)
-            cardList[index].cardState = .side
-            // 카드 옆면에서 0.15초 대기
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-                self.cardList[index].cardState = .drawing
-                self.checkCard()
+        DispatchQueue.main.async {
+            if self.flippedCardIndex.count < 2 && self.cardList[index].cardState == .cover {
+                self.flippedCardIndex.append(index)
+                self.cardList[index].cardState = .side
+                // 카드 옆면에서 0.15초 대기
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                    self.cardList[index].cardState = .drawing
+                    self.checkCard()
+                }
+                self.soundManager.playSound(sound: .cardClicked)
             }
         }
     }
     
     private func drawingToCover(index: Int) {
-        if cardList[index].cardState == .drawing {
-            cardList[index].cardState = .side
-            // 카드 옆면에서 0.15초 대기
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-                self.cardList[index].cardState = .cover
+        DispatchQueue.main.async {
+            if self.cardList[index].cardState == .drawing {
+                self.cardList[index].cardState = .side
+                // 카드 옆면에서 0.15초 대기
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                    self.cardList[index].cardState = .cover
+                }
             }
         }
     }
     
     // 카드 숨기는 함수
     private func hideCard(index: Int) {
-        withAnimation(.linear(duration: 0.7)) {
-            cardList[index].cardState = .hidden
-        }
-        correctCount += 1
-        
-        if correctCount == 16 {
-            soundManager.playSound(sound: .cardAllCorrect)
-            super.pauseOrRestartTimer()
-            self.finishGame()
+        DispatchQueue.main.async {
+            withAnimation(.linear(duration: 0.7)) {
+                self.cardList[index].cardState = .hidden
+            }
+            self.correctCount += 1
+            
+            if self.correctCount == 16 {
+                self.soundManager.playSound(sound: .cardAllCorrect)
+                super.pauseOrRestartTimer()
+                self.finishGame()
+            }
         }
     }
     

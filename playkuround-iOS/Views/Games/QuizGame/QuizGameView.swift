@@ -25,6 +25,17 @@ struct QuizGameView: View {
                 let shouldImagePadding = geometry.size.height >= 700
                 
                 VStack {
+                    HStack {
+                        Text("\(self.viewModel.score) " + NSLocalizedString("Game.Quiz.LongPoint", comment: ""))
+                            .font(.neo20)
+                            .kerning(-0.41)
+                            .foregroundStyle(.kuText)
+                        Spacer()
+                    }
+                    .padding(.horizontal, 32)
+                    
+                    Image(.quizBackDeco)
+                    
                     if viewModel.currentQuestionIndex < viewModel.shuffledQuizData.count {
                         let quiz = viewModel.shuffledQuizData[viewModel.currentQuestionIndex]
                         
@@ -34,6 +45,7 @@ struct QuizGameView: View {
                             .lineSpacing(6)
                             .foregroundStyle(.kuText)
                             .multilineTextAlignment(.center)
+                            .padding(.top, 30)
                             .padding(.bottom, 20)
                             .padding(.horizontal, 20)
                         
@@ -77,7 +89,7 @@ struct QuizGameView: View {
                         }
                     }
                 }
-                .padding(.top, shouldImagePadding ? 140 : 90)
+                // .padding(.top, shouldImagePadding ? 140 : 90)
                 .customNavigationBar(centerView: {
                     Text("Game.Quiz.Title")
                         .font(.neo22)
@@ -122,4 +134,8 @@ struct QuizGameView: View {
             }
         }
     }
+}
+
+#Preview {
+    QuizGameView(viewModel: QuizGameViewModel(.quiz, rootViewModel: RootViewModel(), mapViewModel: MapViewModel(rootViewModel: RootViewModel()), timeStart: 15.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: RootViewModel())
 }

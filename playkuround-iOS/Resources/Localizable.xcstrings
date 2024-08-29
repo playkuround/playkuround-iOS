@@ -463,6 +463,29 @@
         }
       }
     },
+    "Game.Quiz.LongPoint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "points"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "점"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分"
+          }
+        }
+      }
+    },
     "Game.Quiz.Title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -772,6 +795,29 @@
         }
       }
     },
+    "Home.Alarm.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notification"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알림"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通知"
+          }
+        }
+      }
+    },
     "Home.Attendance" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -945,7 +991,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "뱃지 %@개"
+            "value" : "배지 %@개"
           }
         },
         "zh-Hans" : {
@@ -2715,7 +2761,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "등"
+            "value" : "위"
           }
         },
         "zh-Hans" : {
@@ -3957,9 +4003,6 @@
       "shouldTranslate" : false
     },
     "근처 랜드마크: 없음(nil)" : {
-      "shouldTranslate" : false
-    },
-    "나" : {
       "shouldTranslate" : false
     },
     "닉네임 사용가능 - /api/users/availability" : {
