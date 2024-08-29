@@ -118,7 +118,6 @@ struct LandmarkDetailView: View {
                 }
         }
         .onAppear {
-            homeViewModel.selectedLandmarkID = 1
             GAManager.shared.logScreenEvent(.LandmarkDetailView,
                                             landmarkID: homeViewModel.getSelectedLandmark().number)
         }
