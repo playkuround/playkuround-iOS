@@ -509,6 +509,29 @@
         }
       }
     },
+    "Game.Quiz.Waiting" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d seconds to the next question"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "다음 문제까지 %d초"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " %d秒钟后回答下一个问题"
+          }
+        }
+      }
+    },
     "Game.Result.AdventureScore" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -597,6 +620,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "分"
+          }
+        }
+      }
+    },
+    "Game.Result.Waiting" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " seconds later, switch to the result view"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "초 후 결과 창으로 이동합니다"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "秒钟后，您将进入游戏结果窗口"
           }
         }
       }

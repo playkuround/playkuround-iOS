@@ -67,6 +67,8 @@ struct CardGameView: View {
                     GamePauseView(viewModel: viewModel)
                 } else if viewModel.isResultViewPresented {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
+                } else if viewModel.isWaitingViewPresented {
+                    GameWaitingView(second: $viewModel.countdown)
                 }
             }
             .onAppear {

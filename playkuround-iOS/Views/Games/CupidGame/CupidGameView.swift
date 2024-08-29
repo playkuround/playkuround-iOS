@@ -126,6 +126,8 @@ struct CupidGameView: View {
                         .onAppear {
                             viewModel.stopDuckAnimation()
                         }
+                } else if viewModel.isWaitingViewPresented {
+                    GameWaitingView(second: $viewModel.countdown)
                 }
             }
             .onAppear {

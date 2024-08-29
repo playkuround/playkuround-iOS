@@ -20,6 +20,11 @@ final class QuizGameViewModel: GameViewModel {
     
     let soundManager = SoundManager.shared
     
+    // 3초 대기창
+    @Published var isNextWaiting: Bool = false // 다음 문제 대기 중
+    @Published var isQuizWaitingViewPresented: Bool = false
+    @Published var isFirstQuestion: Bool = true
+    
     override init(_ gameType: GameType = .quiz,
                   rootViewModel: RootViewModel,
                   mapViewModel: MapViewModel,
@@ -57,43 +62,82 @@ final class QuizGameViewModel: GameViewModel {
     }
     
     func loadNextQuestion() {
-        if currentQuestionIndex < shuffledQuizData.count {
-            isCorrectAnswer = nil
-            currentQuestionIndex += 1
-        } else {
-            finishGame()
+        if !self.isNextWaiting {
+            DispatchQueue.main.async {
+                self.isNextWaiting = true
+                
+                if self.currentQuestionIndex < self.shuffledQuizData.count {
+                    // 첫 번째 문제 제외
+                    if self.isFirstQuestion {
+                        self.isFirstQuestion = false
+                        self.afterLoadNextQuestion()
+                    } else {
+                        self.isQuizWaitingViewPresented = true
+                        self.countdown = 3
+                        self.startQuizCountdownProcess()
+                    }
+                } else {
+                    self.finishGame()
+                }
+            }
+        }
+    }
+    
+    func startQuizCountdownProcess() {
+        let queue = DispatchQueue.main
+        queue.asyncAfter(deadline: .now() + 1) {
+            if self.countdown > 1 {
+                self.countdown -= 1
+                self.startQuizCountdownProcess()
+            }
+            else if self.countdown == 1 {
+                self.isQuizWaitingViewPresented = false
+                self.afterLoadNextQuestion()
+            }
+        }
+    }
+    
+    func afterLoadNextQuestion() {
+        DispatchQueue.main.async {
+            self.isBlockEnabled = true
+            self.isCorrectAnswer = nil
+            self.currentQuestionIndex += 1
+            self.isNextWaiting = false
         }
     }
     
     func blockClick() {
-        guard let isCorrectAnswer = isCorrectAnswer else { return }
-        
-        isBlockEnabled = false  // 블록을 비활성화
-        
-        if isCorrectAnswer {
-            correctAnswersCount += 1
-            score += correctAnswersCount * 10
-            soundManager.playSound(sound: .quizCorrect)
+        DispatchQueue.main.async {
+            guard let isCorrectAnswer = self.isCorrectAnswer else { return }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.isBlockEnabled = false  // 블록을 비활성화
+            
+            if isCorrectAnswer {
+                self.correctAnswersCount += 1
+                self.score += self.correctAnswersCount * 10
+                self.soundManager.playSound(sound: .quizCorrect)
+                
                 self.loadNextQuestion()
-                self.isBlockEnabled = true
-            }
-        } else {
-            self.soundManager.playSound(sound: .quizIncorrect)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.finishGame()
+            } else {
+                self.soundManager.playSound(sound: .quizIncorrect)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.finishGame()
+                }
             }
         }
     }
     
     override func finishGame() {
-        gameState = .finish
-        self.calculateScore()
-        
-        // 3초 뒤 서버로 점수 업로드
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            super.uploadResult(uploadScore: self.score)
+        if self.gameState != .finish {
+            DispatchQueue.main.async {
+                self.gameState = .finish
+                self.calculateScore()
+                
+                self.isWaitingViewPresented = true
+                self.countdown = 3
+                
+                self.startResultCountdownProgress()
+            }
         }
     }
     
@@ -109,6 +153,12 @@ final class QuizGameViewModel: GameViewModel {
         }
         else if correctAnswersCount >= 26 {
             score = 400
+        }
+    }
+    
+    override func afterEndCountdown() {
+        DispatchQueue.main.async {
+            super.uploadResult(uploadScore: self.score)
         }
     }
 }

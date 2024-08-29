@@ -141,6 +141,8 @@ struct TimerGameView: View {
                 } else if viewModel.isResultViewPresented {
                     GameResultView(rootViewModel: viewModel.rootViewModel,
                                    gameViewModel: viewModel)
+                } else if viewModel.isWaitingViewPresented {
+                    GameWaitingView(second: $viewModel.countdown)
                 }
             }
         }

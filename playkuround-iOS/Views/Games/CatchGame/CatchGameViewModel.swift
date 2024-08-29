@@ -39,12 +39,25 @@ final class CatchGameViewModel: GameViewModel {
     }
     
     override func finishGame() {
-        gameState = .finish
-        super.pauseOrRestartTimer()
-        self.isTimerUpdating = false
-        
-        // 서버로 점수 업로드
-        uploadResult(uploadScore: self.score)
+        if gameState != .finish {
+            DispatchQueue.main.async {
+                self.gameState = .finish
+                super.pauseOrRestartTimer()
+                self.isTimerUpdating = false
+                
+                self.isWaitingViewPresented = true
+                self.countdown = 3
+                
+                self.startResultCountdownProgress()
+            }
+        }
+    }
+    
+    override func afterEndCountdown() {
+        DispatchQueue.main.async {
+            // 서버로 점수 업로드
+            super.uploadResult(uploadScore: self.score)
+        }
     }
     
     func step(whiteNum: Int, blackNum: Int) {
