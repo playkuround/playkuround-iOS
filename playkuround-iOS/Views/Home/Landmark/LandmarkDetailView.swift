@@ -89,11 +89,16 @@ struct LandmarkDetailView: View {
                                             .foregroundStyle(.kuText)
                                             .multilineTextAlignment(.leading)
                                         
-                                        Text(info.content)
-                                            .font(.pretendard15R)
-                                            .foregroundStyle(.kuText)
-                                            .multilineTextAlignment(.leading)
-                                            .padding(.bottom, 20)
+                                        HStack {
+                                            Text(info.content)
+                                                .font(.pretendard15R)
+                                                .foregroundStyle(.kuText)
+                                                .multilineTextAlignment(.leading)
+                                                .padding(.bottom, 20)
+                                            
+                                            Spacer()
+                                        }
+                                        .frame(width: 250)
                                     }
                                 }
                                 .frame(width: 250)
