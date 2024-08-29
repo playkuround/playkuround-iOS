@@ -74,7 +74,10 @@ struct MapView: View {
         var annotationList: [AnnotationWrapper] = [AnnotationWrapper(type: .user, landmark: landmarkList[0])]
         
         for landmark in landmarkList {
-            annotationList.append(AnnotationWrapper(type: .landmark, landmark: landmark))
+            // 예외 처리 (36번 삭제됨)
+            if landmark.number != 36 {
+                annotationList.append(AnnotationWrapper(type: .landmark, landmark: landmark))
+            }
         }
         
         return annotationList
