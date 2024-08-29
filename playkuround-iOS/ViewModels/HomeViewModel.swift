@@ -326,6 +326,10 @@ final class HomeViewModel: ObservableObject {
                         else if noti.name == "new_Badge" {
                             self.rootViewModel.openNewBadgeView(badgeNames: [noti.description])
                         }
+                        // 개인 알람
+                        else if noti.name == "alarm" {
+                            self.rootViewModel.openAlarmMessageView(message: noti.description)
+                        }
                     }
                 }
             case .failure(let error):

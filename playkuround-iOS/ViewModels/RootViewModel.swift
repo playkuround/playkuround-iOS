@@ -31,6 +31,10 @@ final class RootViewModel: ObservableObject {
     @Published var toastMessageShowing: Bool
     @Published var toastMessage: String?
     
+    // User Alarm Message
+    @Published var alarmMessageShowing: Bool
+    @Published var alarmMessage: String?
+    
     // 서버 점검 중
     @Published var serverError: Bool
     
@@ -48,6 +52,8 @@ final class RootViewModel: ObservableObject {
         self.newBadgeList = []
         self.toastMessageShowing = false
         self.toastMessage = nil
+        self.alarmMessageShowing = false
+        self.alarmMessage = nil
         self.serverError = false
         self.openedGameTypes = UserDefaults.standard.stringArray(forKey: "openedGameTypes") ?? []
         
@@ -274,6 +280,26 @@ final class RootViewModel: ObservableObject {
         
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
+        }
+    }
+    
+    // 유저 알람 열기
+    func openAlarmMessageView(message: String) {
+        DispatchQueue.main.async {
+            self.alarmMessage = message
+            withAnimation(.easeInOut(duration: 0.3)) {
+                self.alarmMessageShowing = true
+            }
+        }
+    }
+    
+    // 유저 알람 닫기
+    func closeAlarmMessageView() {
+        DispatchQueue.main.async {
+            self.alarmMessage = nil
+            withAnimation(.easeInOut(duration: 0.3)) {
+                self.alarmMessageShowing = false
+            }
         }
     }
 }
