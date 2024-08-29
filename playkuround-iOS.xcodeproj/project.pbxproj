@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C048FDE2C7F8FBB000DD175 /* CheckDeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C048FDD2C7F8FBB000DD175 /* CheckDeleteAccountView.swift */; };
 		0C0A70132C80921100F09F84 /* UserAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0A70122C80920E00F09F84 /* UserAlarmView.swift */; };
+		0C0A70172C80EB3B00F09F84 /* GameWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0A70162C80EB3B00F09F84 /* GameWaitingView.swift */; };
 		0C0CDA2C2C2955B0003D12BA /* LandmarkRankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0CDA2B2C2955B0003D12BA /* LandmarkRankingView.swift */; };
 		0C0CDA312C299021003D12BA /* AdventureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0CDA302C299021003D12BA /* AdventureView.swift */; };
 		0C27DDF02BBD714F0049B7B8 /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */; };
@@ -165,6 +166,7 @@
 /* Begin PBXFileReference section */
 		0C048FDD2C7F8FBB000DD175 /* CheckDeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDeleteAccountView.swift; sourceTree = "<group>"; };
 		0C0A70122C80920E00F09F84 /* UserAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAlarmView.swift; sourceTree = "<group>"; };
+		0C0A70162C80EB3B00F09F84 /* GameWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWaitingView.swift; sourceTree = "<group>"; };
 		0C0CDA2B2C2955B0003D12BA /* LandmarkRankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkRankingView.swift; sourceTree = "<group>"; };
 		0C0CDA302C299021003D12BA /* AdventureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureView.swift; sourceTree = "<group>"; };
 		0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				0CEB87C62BB7E2B000CC2E4B /* CountdownView.swift */,
 				0C9641E52BB874E200838DA9 /* TimerBarView.swift */,
 				0C9641E92BB92D6300838DA9 /* GameResultView.swift */,
+				0C0A70162C80EB3B00F09F84 /* GameWaitingView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1033,6 +1036,7 @@
 				0C6AA4CD2BA56E230032AB24 /* UserNotification.swift in Sources */,
 				C918F40D2BA753B400C0BFDA /* AuthenticationTimer.swift in Sources */,
 				0C9FDC102C7A52BF002F814B /* WebView.swift in Sources */,
+				0C0A70172C80EB3B00F09F84 /* GameWaitingView.swift in Sources */,
 				B9955B112C19C3360082FC60 /* Formatter+.swift in Sources */,
 				C97543F22BB3222F00CD6479 /* MyPageProfileView.swift in Sources */,
 				0C7FE6A12BB1983A00D94162 /* AnimationImages.swift in Sources */,
