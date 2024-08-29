@@ -938,19 +938,19 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%@ Badges"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "뱃지 %@개"
+            "value" : "배지 %@개"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "徽章 %@个"
           }
         }
@@ -3957,9 +3957,6 @@
       "shouldTranslate" : false
     },
     "근처 랜드마크: 없음(nil)" : {
-      "shouldTranslate" : false
-    },
-    "나" : {
       "shouldTranslate" : false
     },
     "닉네임 사용가능 - /api/users/availability" : {
