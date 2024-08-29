@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct MoonGameView: View {
-    @ObservedObject var viewModel: MoonGameViewModel
+    @Environment(\.scenePhase) private var scenePhase
+    
+    @StateObject var viewModel: MoonGameViewModel
     @ObservedObject var rootViewModel: RootViewModel
     @State private var shouldShake = false
     
@@ -26,6 +28,12 @@ struct MoonGameView: View {
                 let shouldImagePadding = geometry.size.height >= 700
                 
                 VStack {
+                    TimerBarView(progress: $viewModel.progress, color: .white)
+                        .padding(.bottom, shouldImagePadding ? 44 : 20)
+                        .onReceive(viewModel.timer) { _ in
+                            viewModel.updateTimer()
+                        }
+                    
                     Text("Game.Moon.Description")
                         .font(.pretendard15R)
                         .foregroundStyle(.white)
@@ -42,9 +50,9 @@ struct MoonGameView: View {
                     switch viewModel.moonState {
                     case .fullMoon, .cracked, .moreCracked, .duck:
                         moonImage(named: viewModel.moonState.image.rawValue, padding: shouldImagePadding)
+                            .offset(y: shouldImagePadding ? 44 : 20)
                     }
                 }
-                .padding(.top, 70)
                 .customNavigationBar(centerView: {
                     Text("Game.Moon.Title")
                         .font(.neo22)
@@ -76,10 +84,22 @@ struct MoonGameView: View {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
                 }
             }
-        }
-        .onAppear {
-            viewModel.startCountdown()
-            GAManager.shared.logScreenEvent(.MoonGame)
+            .onAppear {
+                viewModel.startCountdown()
+                GAManager.shared.logScreenEvent(.MoonGame)
+            }
+            .onChange(of: scenePhase) { newPhase in
+                switch newPhase {
+                case .active:
+                    break
+                case .background, .inactive:
+                    if viewModel.gameState == .playing {
+                        viewModel.togglePauseView()
+                    }
+                @unknown default:
+                    break
+                }
+            }
         }
     }
     
@@ -95,4 +115,8 @@ struct MoonGameView: View {
             }
             .disabled(viewModel.moonTapped == 0)
     }
+}
+
+#Preview {
+    MoonGameView(viewModel: MoonGameViewModel(.moon, rootViewModel: RootViewModel(), mapViewModel: MapViewModel(rootViewModel: RootViewModel()), timeStart: 15.0, timeEnd: 0.0, timeInterval: 0.01), rootViewModel: RootViewModel())
 }

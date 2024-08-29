@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct TimerGameView: View {
-    @ObservedObject var viewModel: TimerGameViewModel
+    @Environment(\.scenePhase) private var scenePhase
+    
+    @StateObject var viewModel: TimerGameViewModel
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -144,6 +146,18 @@ struct TimerGameView: View {
         }
         .onAppear {
             GAManager.shared.logScreenEvent(.TimerGame)
+        }
+        .onChange(of: scenePhase) { newPhase in
+            switch newPhase {
+            case .active:
+                break
+            case .background, .inactive:
+                if viewModel.gameState == .playing {
+                    viewModel.togglePauseView()
+                }
+            @unknown default:
+                break
+            }
         }
     }
 }

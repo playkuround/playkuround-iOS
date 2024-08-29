@@ -190,7 +190,9 @@ struct TotalRankingView: View {
                                     Image(.rankingMineRow)
                                         .overlay {
                                             HStack(spacing: 0) {
-                                                Text(String(homeViewModel.userData.myRank.ranking))
+                                                let ranking = homeViewModel.userData.myRank.ranking
+                                                
+                                                Text(ranking == 0 ? "-" : String(ranking))
                                                     .font(.neo18)
                                                     .kerning(-0.41)
                                                     .foregroundStyle(.kuText)

@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct CupidGameView: View {
-    @ObservedObject var viewModel: CupidGameViewModel
+    @Environment(\.scenePhase) private var scenePhase
+    
+    @StateObject var viewModel: CupidGameViewModel
     @ObservedObject var rootViewModel: RootViewModel
     
     var body: some View {
@@ -129,6 +131,18 @@ struct CupidGameView: View {
             .onAppear {
                 viewModel.startCountdown()
                 GAManager.shared.logScreenEvent(.CupidGame)
+            }
+            .onChange(of: scenePhase) { newPhase in
+                switch newPhase {
+                case .active:
+                    break
+                case .background, .inactive:
+                    if viewModel.gameState == .playing {
+                        viewModel.togglePauseView()
+                    }
+                @unknown default:
+                    break
+                }
             }
         }
     }

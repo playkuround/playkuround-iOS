@@ -55,21 +55,34 @@ final class MoonGameViewModel: GameViewModel {
                 let leftTime = super.timeRemaining
                 print("left time: \(leftTime)s")
                 
-                if leftTime >= 13.0 {
-                    // 기본 30 + 추가 30
-                    self.score = 30 + 30
-                } else if leftTime >= 9.0 {
-                    // 기본 30 + 추가 15
-                    self.score = 30 + 15
-                } else if leftTime >= 6.0 {
-                    // 기본 30 + 추가 10
-                    self.score = 30 + 10
-                } else if leftTime >= 4.0 {
-                    // 기본 30 + 추가 5
-                    self.score = 30 + 5
-                } else {
-                    // 기본 30 + 추가 0
-                    self.score = 30
+                // 점수 로직 v1.6
+                if leftTime > 12.0 {
+                    self.score = 40 + 160
+                }
+                else if leftTime > 10.0 {
+                    self.score = 40 + 100
+                }
+                else if leftTime > 8.0 {
+                    self.score = 40 + 80
+                }
+                else if leftTime > 6.0 {
+                    self.score = 40 + 60
+                }
+                else if leftTime > 4.0 {
+                    self.score = 40 + 40
+                }
+                else if leftTime > 2.0 {
+                    self.score = 40 + 30
+                }
+                else if leftTime > 1.0 {
+                    self.score = 40 + 20
+                }
+                else if leftTime > 0.0 {
+                    self.score = 40 + 10
+                }
+                else {
+                    // 실패
+                    self.score = 0
                 }
                 
                 self.finishGame()

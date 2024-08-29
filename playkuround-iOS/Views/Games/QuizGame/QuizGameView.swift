@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct QuizGameView: View {
-    @ObservedObject var viewModel: QuizGameViewModel
+    @Environment(\.scenePhase) private var scenePhase
+    
+    @StateObject var viewModel: QuizGameViewModel
     @ObservedObject var rootViewModel: RootViewModel
     
     @State private var selectedIndex: Int?
@@ -102,10 +104,22 @@ struct QuizGameView: View {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
                 }
             }
-        }
-        .onAppear {
-            viewModel.startGame()
-            GAManager.shared.logScreenEvent(.QuizGame)
+            .onAppear {
+                viewModel.startGame()
+                GAManager.shared.logScreenEvent(.QuizGame)
+            }
+            .onChange(of: scenePhase) { newPhase in
+                switch newPhase {
+                case .active:
+                    break
+                case .background, .inactive:
+                    if viewModel.gameState == .playing {
+                        viewModel.togglePauseView()
+                    }
+                @unknown default:
+                    break
+                }
+            }
         }
     }
 }
