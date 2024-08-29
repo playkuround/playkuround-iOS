@@ -439,10 +439,10 @@ final class HomeViewModel: ObservableObject {
     private func startChangingText() {
         DispatchQueue.main.async {
             self.gameName = self.gameNames[self.currentIndex]
-            self.currentIndex += 1
+            // self.currentIndex += 1
         }
         
-        if currentIndex >= self.gameName.count {
+        if currentIndex >= self.gameNames.count - 1 {
             if self.isSpeedingUp {
                 self.delayMillis += 0.04
                 print("delayMills: \(self.delayMillis)")
@@ -464,6 +464,10 @@ final class HomeViewModel: ObservableObject {
             }
             DispatchQueue.main.async {
                 self.currentIndex = 0
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.currentIndex += 1
             }
         }
         
