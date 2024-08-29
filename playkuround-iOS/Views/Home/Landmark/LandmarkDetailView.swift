@@ -72,20 +72,28 @@ struct LandmarkDetailView: View {
                                     .font(.pretendard15R)
                                     .foregroundStyle(.kuText)
                                     .multilineTextAlignment(.center)
+                                    .padding(.bottom, 20)
+                                
+                                Text("Home.Landmark.BuildingInfoTitle")
+                                    .font(.neo18)
+                                    .kerning(-0.41)
+                                    .foregroundStyle(.kuText)
+                                    .padding(.bottom, 8)
                                 
                                 let information = homeViewModel.landmarkDescriptions[landmarkIndex].information
                                 
-                                ForEach(Array(information.enumerated()), id: \.offset) { index, info in
-                                    Text(info.title)
-                                        .font(.neo18)
-                                        .kerning(-0.41)
-                                        .foregroundStyle(.kuText)
-                                        .padding(.top, 12)
-                                    
-                                    Text(info.content)
-                                        .font(.pretendard15R)
-                                        .foregroundStyle(.kuText)
-                                        .multilineTextAlignment(.center)
+                                VStack(alignment: .leading, spacing: 0) {
+                                    ForEach(Array(information.enumerated()), id: \.offset) { index, info in
+                                        Text(info.title)
+                                            .font(.pretendard15B)
+                                            .foregroundStyle(.kuText)
+                                        
+                                        Text(info.content)
+                                            .font(.pretendard15R)
+                                            .foregroundStyle(.kuText)
+                                            .multilineTextAlignment(.leading)
+                                            .padding(.bottom, 20)
+                                    }
                                 }
                             }
                             .padding(.vertical, 18)
@@ -110,6 +118,7 @@ struct LandmarkDetailView: View {
                 }
         }
         .onAppear {
+            homeViewModel.selectedLandmarkID = 1
             GAManager.shared.logScreenEvent(.LandmarkDetailView,
                                             landmarkID: homeViewModel.getSelectedLandmark().number)
         }

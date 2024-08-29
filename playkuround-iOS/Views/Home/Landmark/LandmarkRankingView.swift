@@ -50,6 +50,8 @@ struct LandmarkRankingView: View {
                                                     .font(.neo20)
                                                     .foregroundColor(.kuText)
                                                     .kerning(-0.41)
+                                                    .minimumScaleFactor(0.5)
+                                                    .lineLimit(1)
                                             }
                                             .offset(y: 81)
                                     }

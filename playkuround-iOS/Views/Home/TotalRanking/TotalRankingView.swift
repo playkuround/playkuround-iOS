@@ -64,10 +64,12 @@ struct TotalRankingView: View {
                                                             .frame(width: 60, height: 23)
                                                             .foregroundStyle(.kuBrown)
                                                             .overlay {
-                                                                Text("\(rank2.score.decimalFormatter)" + NSLocalizedString("Home.RankingUnit2", comment: ""))
+                                                                Text("\(rank2.score.decimalFormatter)" + NSLocalizedString("Ranking.ScoreTitle", comment: ""))
                                                                     .font(.neo18)
                                                                     .kerning(-0.41)
                                                                     .foregroundStyle(.white)
+                                                                    .minimumScaleFactor(0.5)
+                                                                    .lineLimit(1)
                                                             }
                                                             .padding(.bottom, 128)
                                                     }
@@ -103,10 +105,12 @@ struct TotalRankingView: View {
                                                         .frame(width: 60, height: 23)
                                                         .foregroundStyle(.kuBrown)
                                                         .overlay {
-                                                            Text("\(rank1.score.decimalFormatter)" + NSLocalizedString("Home.RankingUnit1", comment: ""))
+                                                            Text("\(rank1.score.decimalFormatter)" + NSLocalizedString("Ranking.ScoreTitle", comment: ""))
                                                                 .font(.neo18)
                                                                 .kerning(-0.41)
                                                                 .foregroundStyle(.white)
+                                                                .minimumScaleFactor(0.5)
+                                                                .lineLimit(1)
                                                         }
                                                         .padding(.bottom, 128)
                                                 }
@@ -142,10 +146,12 @@ struct TotalRankingView: View {
                                                             .frame(width: 60, height: 23)
                                                             .foregroundStyle(.kuBrown)
                                                             .overlay {
-                                                                Text("\(rank3.score.decimalFormatter)" + NSLocalizedString("Home.RankingUnit3", comment: ""))
+                                                                Text("\(rank3.score.decimalFormatter)" + NSLocalizedString("Ranking.ScoreTitle", comment: ""))
                                                                     .font(.neo18)
                                                                     .kerning(-0.41)
                                                                     .foregroundStyle(.white)
+                                                                    .minimumScaleFactor(0.5)
+                                                                    .lineLimit(1)
                                                             }
                                                             .padding(.bottom, 128)
                                                     }

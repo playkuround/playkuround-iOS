@@ -29,8 +29,10 @@ struct MyPageProfileView: View {
                 .font(.pretendard15R)
                 .foregroundStyle(.kuText)
                 .padding(.trailing, 15)
+            
+            let userRank = "(" + (user.myRank.ranking == 0 ? "- " : "\(user.myRank.ranking)")
 
-            let currentScoreValue = Text("\(String(describing: user.myRank.score))" + NSLocalizedString("Home.ScoreTitle", comment: "") + " (\(user.myRank.ranking == 0 ? "-" : "\(user.myRank.ranking)")" + NSLocalizedString("Home.RankingUnit", comment: "") + ")")
+            let currentScoreValue = Text("\(String(describing: user.myRank.score))" + NSLocalizedString("Home.ScoreTitle", comment: "") + userRank + NSLocalizedString("MyPage.RankingUnit", comment: "") + ")")
                 .font(.neo20)
                 .kerning(-0.41)
                 .foregroundStyle(.kuText)
@@ -49,8 +51,10 @@ struct MyPageProfileView: View {
                 .font(.pretendard15R)
                 .foregroundStyle(.kuText)
                 .padding(.trailing, 15)
+            
+            let highestRank = "(" + (user.highestRank == "-" ? "- " : "\(user.highestRank)")
 
-            let highestScoreValue = Text("\(String(describing: user.highestScore))" + NSLocalizedString("Home.ScoreTitle", comment: "") + " (\(user.highestRank)" + NSLocalizedString("Home.RankingUnit", comment: "") + ")")
+            let highestScoreValue = Text("\(String(describing: user.highestScore))" + NSLocalizedString("Home.ScoreTitle", comment: "") + highestRank + NSLocalizedString("MyPage.RankingUnit", comment: "") + ")")
                 .font(.neo20)
                 .kerning(-0.41)
                 .foregroundStyle(.kuText)
