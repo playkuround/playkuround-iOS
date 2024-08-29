@@ -143,6 +143,9 @@ struct CatchGameView: View {
                 } else if viewModel.isResultViewPresented {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
                 }
+                else if viewModel.isWaitingViewPresented {
+                    GameWaitingView(second: $viewModel.countdown)
+                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
             .ignoresSafeArea(edges: .bottom)

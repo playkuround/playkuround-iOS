@@ -456,7 +456,8 @@ final class HomeViewModel: ObservableObject {
                     self.timer?.cancel()
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        self.lastIndex = Int.random(in: 0..<self.gameNames.count)
+                        // self.lastIndex = Int.random(in: 0..<self.gameNames.count)
+                        self.lastIndex = 3
                         self.gameName = self.gameNames[self.lastIndex]
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

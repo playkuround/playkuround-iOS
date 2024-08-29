@@ -69,11 +69,23 @@ final class SurviveGameViewModel: GameViewModel {
     }
     
     override func finishGame() {
-        super.pauseOrRestartTimer()
-        DispatchQueue.main.async {
-            self.isTimerUpdating = false
-            self.gameState = .finish
+        if self.gameState != .finish {
+            super.pauseOrRestartTimer()
             
+            DispatchQueue.main.async {
+                self.isTimerUpdating = false
+                self.gameState = .finish
+                
+                self.isWaitingViewPresented = true
+                self.countdown = 3
+                
+                self.startResultCountdownProgress()
+            }
+        }
+    }
+    
+    override func afterEndCountdown() {
+        DispatchQueue.main.async {
             // 서버로 점수 업로드
             super.uploadResult(uploadScore: self.score)
         }

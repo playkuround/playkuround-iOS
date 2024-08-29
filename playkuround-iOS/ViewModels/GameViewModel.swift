@@ -82,6 +82,9 @@ class GameViewModel: ObservableObject {
     // 게임 결과창 표시 여부
     @Published var isResultViewPresented: Bool = false
     
+    // 게임 종료 후 3초 대기창 표시 여부
+    @Published var isWaitingViewPresented: Bool = false
+    
     // 게임 타입 (개발 시 직접 지정)
     let gameType: GameType
     
@@ -171,10 +174,32 @@ class GameViewModel: ObservableObject {
     func finishGame() {
         DispatchQueue.main.async {
             self.gameState = .finish
+            self.isWaitingViewPresented = true
+            self.countdown = 3
         }
         print("Game is finished")
         // TODO: 게임 종료 처리 (점수 계산 등)
-        
+    }
+    
+    final func startResultCountdownProgress() {
+        print("result countdown: \(self.countdown)s")
+        let queue = DispatchQueue.main
+        queue.asyncAfter(deadline: .now() + 1) {
+            if self.countdown > 1 {
+                self.countdown -= 1
+                self.startResultCountdownProgress()
+            }
+            else if self.countdown == 1 {
+                withAnimation(.spring(duration: 0.1)) {
+                    self.isWaitingViewPresented = false
+                }
+                self.afterEndCountdown()
+            }
+        }
+    }
+    
+    // override해서 사용
+    func afterEndCountdown() {
         // 서버로 점수 업로드
         uploadResult(uploadScore: 0)
     }

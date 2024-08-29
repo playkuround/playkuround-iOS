@@ -109,11 +109,17 @@ struct QuizGameView: View {
                     })
                 }, height: 40)
                 
-                if viewModel.isPauseViewPresented {
+                if viewModel.isQuizWaitingViewPresented {
+                    GameWaitingView(.quiz, second: $viewModel.countdown)
+                }
+                else if viewModel.isPauseViewPresented {
                     GamePauseView(viewModel: viewModel)
                 }
                 else if viewModel.isResultViewPresented {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
+                }
+                else if viewModel.isWaitingViewPresented {
+                    GameWaitingView(second: $viewModel.countdown)
                 }
             }
             .onAppear {

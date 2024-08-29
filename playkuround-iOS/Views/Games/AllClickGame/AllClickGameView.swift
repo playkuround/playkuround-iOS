@@ -137,6 +137,8 @@ struct AllClickGameView: View {
                             viewModel.stopSubjectRain()
                             shouldBecomeFirstResponder = false
                         }
+                } else if viewModel.isWaitingViewPresented {
+                    GameWaitingView(second: $viewModel.countdown)
                 }
             }
             .onAppear {

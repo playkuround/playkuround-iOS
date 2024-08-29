@@ -20,6 +20,9 @@ final class QuizGameViewModel: GameViewModel {
     
     let soundManager = SoundManager.shared
     
+    // 3초 대기창
+    @Published var isQuizWaitingViewPresented: Bool = false
+    
     override init(_ gameType: GameType = .quiz,
                   rootViewModel: RootViewModel,
                   mapViewModel: MapViewModel,
@@ -88,12 +91,16 @@ final class QuizGameViewModel: GameViewModel {
     }
     
     override func finishGame() {
-        gameState = .finish
-        self.calculateScore()
-        
-        // 3초 뒤 서버로 점수 업로드
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            super.uploadResult(uploadScore: self.score)
+        if self.gameState != .finish {
+            DispatchQueue.main.async {
+                self.gameState = .finish
+                self.calculateScore()
+                
+                self.isWaitingViewPresented = true
+                self.countdown = 3
+                
+                self.startResultCountdownProgress()
+            }
         }
     }
     
@@ -109,6 +116,12 @@ final class QuizGameViewModel: GameViewModel {
         }
         else if correctAnswersCount >= 26 {
             score = 400
+        }
+    }
+    
+    override func afterEndCountdown() {
+        DispatchQueue.main.async {
+            super.uploadResult(uploadScore: self.score)
         }
     }
 }

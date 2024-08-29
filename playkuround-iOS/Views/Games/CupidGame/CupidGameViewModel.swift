@@ -42,12 +42,25 @@ final class CupidGameViewModel: GameViewModel {
     }
     
     override func finishGame() {
-        gameState = .finish
-        stopDuckAnimation()
-        stopDuckSpawn()
-        
-        // 서버로 점수 업로드
-        uploadResult(uploadScore: score)
+        if self.gameState != .finish {
+            DispatchQueue.main.async {
+                self.gameState = .finish
+                self.stopDuckAnimation()
+                self.stopDuckSpawn()
+                
+                self.isWaitingViewPresented = true
+                self.countdown = 3
+                
+                self.startResultCountdownProgress()
+            }
+        }
+    }
+    
+    override func afterEndCountdown() {
+        DispatchQueue.main.async {
+            // 서버로 점수 업로드
+            self.uploadResult(uploadScore: self.score)
+        }
     }
     
     func startDuckAnimation() {

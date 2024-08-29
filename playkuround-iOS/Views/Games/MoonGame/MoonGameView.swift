@@ -84,6 +84,8 @@ struct MoonGameView: View {
                     GameResultView(rootViewModel: rootViewModel, gameViewModel: viewModel)
                 } else if viewModel.isCountdownViewPresented {
                     CountdownView(countdown: $viewModel.countdown)
+                } else if viewModel.isWaitingViewPresented {
+                    GameWaitingView(second: $viewModel.countdown)
                 }
             }
             .onAppear {

@@ -103,13 +103,19 @@ final class MoonGameViewModel: GameViewModel {
             
             DispatchQueue.main.async {
                 self.gameState = .finish
+                self.isWaitingViewPresented = true
+                self.countdown = 3
                 
-                // 3초 뒤 서버로 점수 업로드
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    print("score: \(self.score)")
-                    super.uploadResult(uploadScore: self.score)
-                }
+                self.startResultCountdownProgress()
             }
+        }
+    }
+    
+    override func afterEndCountdown() {
+        // 서버로 점수 업로드
+        DispatchQueue.main.async {
+            print("score: \(self.score)")
+            super.uploadResult(uploadScore: self.score)
         }
     }
 }

@@ -43,14 +43,25 @@ final class CardGameViewModel: GameViewModel {
     }
     
     override func finishGame() {
+        if self.gameState != .finish {
+            DispatchQueue.main.async {
+                self.gameState = .finish
+                
+                // 최종 점수 계산
+                // 맞춘 카드 쌍 * 5점, 시간 * 2
+                self.score = self.correctCount * 5 / 2
+                self.score += Int(self.timeRemaining) * 2
+                
+                self.isWaitingViewPresented = true
+                self.countdown = 3
+                
+                self.startResultCountdownProgress()
+            }
+        }
+    }
+    
+    override func afterEndCountdown() {
         DispatchQueue.main.async {
-            self.gameState = .finish
-            
-            // 최종 점수 계산
-            // 맞춘 카드 쌍 * 5점, 시간 * 2
-            self.score = self.correctCount * 5 / 2
-            self.score += Int(self.timeRemaining) * 2
-            
             // 서버로 점수 업로드
             print("score: \(self.score), time: \(self.timeRemaining), correctCount: \(self.correctCount)")
             super.uploadResult(uploadScore: self.score)

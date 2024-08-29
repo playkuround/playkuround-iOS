@@ -75,10 +75,21 @@ final class TimerGameViewModel: GameViewModel {
     }
     
     override func finishGame() {
-        gameState = .finish
+        if self.gameState != .finish {
+            DispatchQueue.main.async {
+                self.gameState = .finish
+                
+                self.isWaitingViewPresented = true
+                self.countdown = 3
+                
+                self.startResultCountdownProgress()
+            }
+        }
+    }
     
-        // 3초 뒤 서버로 점수 업로드
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+    override func afterEndCountdown() {
+        // 서버로 점수 업로드
+        DispatchQueue.main.async {
             super.uploadResult(uploadScore: self.score)
         }
     }
