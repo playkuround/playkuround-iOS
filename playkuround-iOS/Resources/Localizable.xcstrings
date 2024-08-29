@@ -2335,6 +2335,75 @@
         }
       }
     },
+    "MyPage.DeleteAccount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete Account"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "계정 삭제"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除账户"
+          }
+        }
+      }
+    },
+    "MyPage.DeleteAccount.AfterMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your account has been deleted. Thank you for using PLAYKUROUND."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "계정이 삭제되었습니다. 플레이쿠라운드를 이용해주셔서 감사합니다."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您的帐户已被删除。感谢您使用 PLAYKUROUND。"
+          }
+        }
+      }
+    },
+    "MyPage.DeleteAccount.Message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure to delete account?<br>All data will be deleted"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "계정을 삭제하시겠습니까?<br>모든 데이터가 삭제됩니다"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您确定要删除帐户?<br>所有数据将被删除"
+          }
+        }
+      }
+    },
     "MyPage.FeedbackURL" : {
       "extractionState" : "manual",
       "localizations" : {

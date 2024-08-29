@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C048FDE2C7F8FBB000DD175 /* CheckDeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C048FDD2C7F8FBB000DD175 /* CheckDeleteAccountView.swift */; };
 		0C0CDA2C2C2955B0003D12BA /* LandmarkRankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0CDA2B2C2955B0003D12BA /* LandmarkRankingView.swift */; };
 		0C0CDA312C299021003D12BA /* AdventureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0CDA302C299021003D12BA /* AdventureView.swift */; };
 		0C27DDF02BBD714F0049B7B8 /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */; };
@@ -160,6 +161,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C048FDD2C7F8FBB000DD175 /* CheckDeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDeleteAccountView.swift; sourceTree = "<group>"; };
 		0C0CDA2B2C2955B0003D12BA /* LandmarkRankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkRankingView.swift; sourceTree = "<group>"; };
 		0C0CDA302C299021003D12BA /* AdventureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureView.swift; sourceTree = "<group>"; };
 		0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
@@ -734,6 +736,7 @@
 				C97543F32BB3244800CD6479 /* MyPageListSectionView.swift */,
 				C97543F52BB325A300CD6479 /* MyPageListRowView.swift */,
 				C9FE257A2BB3DFAA00F78C63 /* CheckLogoutView.swift */,
+				0C048FDD2C7F8FBB000DD175 /* CheckDeleteAccountView.swift */,
 				C9FE257C2BB40E1C00F78C63 /* CheerPKTeamView.swift */,
 			);
 			path = MyPage;
@@ -1037,6 +1040,7 @@
 				0C9641EA2BB92D6300838DA9 /* GameResultView.swift in Sources */,
 				0CA82DB22C70B93400914DC4 /* ProfileBadgeView.swift in Sources */,
 				C953D3042BA49BB300318869 /* MainView.swift in Sources */,
+				0C048FDE2C7F8FBB000DD175 /* CheckDeleteAccountView.swift in Sources */,
 				C918F4052BA7149A00C0BFDA /* SoundManager.swift in Sources */,
 				0CA07D6F2BFDA96F00564AEB /* SurviveGameView.swift in Sources */,
 				0C7C4E3C2C0777B600ABB4D8 /* Date+.swift in Sources */,

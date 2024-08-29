@@ -44,6 +44,17 @@ struct MyPageListSectionView: View {
                         // 로그아웃 이벤트
                         GAManager.shared.logEvent(.LOGOUT)
                     }
+                
+                // 계정 삭제
+                MyPageListRowView(rowTitle: NSLocalizedString("MyPage.DeleteAccount", comment: ""))
+                    .onTapGesture {
+                        NotificationCenter.default.post(name: NSNotification.Name("isDeleteAccountPresented"),
+                                                        object: nil)
+                        soundManager.playSound(sound: .buttonClicked)
+                        
+                        // 로그아웃 이벤트
+                        GAManager.shared.logEvent(.DELETE_ACCOUNT)
+                    }
             }
             
             // 설정

@@ -81,6 +81,7 @@ final class GAManager {
         case LOGOUT // 로그아웃
         case OPEN_INSTAGRAM // 인스타그램 바로가기
         case CHEERING // 응원하기
+        case DELETE_ACCOUNT // 회원 탈퇴
         
         case CHANGE_LANGUAGE // 언어 변경 (설정 열기)
         

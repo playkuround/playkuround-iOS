@@ -116,6 +116,7 @@ final class APIManager {
     private func fetchDataGET(from endpoint: GETAPICollections,
                                      querys: [String: Any]? = nil,
                                      landmarkID: Int? = nil,
+                                     delete: Bool,
                                      completion: @escaping (Result<Any, Error>) -> Void) {
         // URL과 쿼리 파라미터를 포함하여 URLRequest 생성
         var urlComponents: URLComponents
@@ -167,7 +168,13 @@ final class APIManager {
         }
 
         // HTTP 메소드 설정
-        request.httpMethod = "GET"
+        // 회원 삭제 예외 처리
+        if endpoint == .users && delete {
+            request.httpMethod = "DELETE"
+            print("httpMethod is set to DELETE")
+        } else {
+            request.httpMethod = "GET"
+        }
 
         // 네트워크 요청 수행
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -374,6 +381,7 @@ extension APIManager {
                            querys: [String: Any]? = nil,
                            depth: Int = 0,
                            landmarkID: Int? = nil,
+                           delete: Bool = false,
                            completion: @escaping (Result<Any, Error>) -> Void) {
         // max depth reached return with error
         if depth >= 2 {
@@ -395,6 +403,7 @@ extension APIManager {
         fetchDataGET(from: endpoint, 
                      querys: querys,
                      landmarkID: landmarkID,
+                     delete: delete,
                      completion: { result in
             switch result {
             case .success(let data):
