@@ -59,6 +59,7 @@ struct TotalRankingView: View {
                                                             .foregroundStyle(.kuText)
                                                             .padding(.bottom, 11)
                                                             .padding(.top, 8)
+                                                            .multilineTextAlignment(.leading)
                                                         
                                                         Rectangle()
                                                             .frame(width: 60, height: 23)
@@ -71,7 +72,8 @@ struct TotalRankingView: View {
                                                                     .minimumScaleFactor(0.5)
                                                                     .lineLimit(1)
                                                             }
-                                                            .padding(.bottom, 128)
+                                                        
+                                                        Spacer()
                                                     }
                                                 }
                                                 .padding(.horizontal, 12)
@@ -100,6 +102,7 @@ struct TotalRankingView: View {
                                                         .foregroundStyle(.kuText)
                                                         .padding(.bottom, 11)
                                                         .padding(.top, 8)
+                                                        .multilineTextAlignment(.leading)
                                                     
                                                     Rectangle()
                                                         .frame(width: 60, height: 23)
@@ -112,7 +115,8 @@ struct TotalRankingView: View {
                                                                 .minimumScaleFactor(0.5)
                                                                 .lineLimit(1)
                                                         }
-                                                        .padding(.bottom, 128)
+                                                    
+                                                    Spacer()
                                                 }
                                                 .padding(.horizontal, 12)
                                             }
@@ -141,6 +145,7 @@ struct TotalRankingView: View {
                                                             .foregroundStyle(.kuText)
                                                             .padding(.bottom, 11)
                                                             .padding(.top, 8)
+                                                            .multilineTextAlignment(.leading)
                                                         
                                                         Rectangle()
                                                             .frame(width: 60, height: 23)
@@ -153,7 +158,8 @@ struct TotalRankingView: View {
                                                                     .minimumScaleFactor(0.5)
                                                                     .lineLimit(1)
                                                             }
-                                                            .padding(.bottom, 128)
+                                                        
+                                                        Spacer()
                                                     }
                                                 }
                                                 .padding(.horizontal, 12)
@@ -252,7 +258,7 @@ struct TotalRankingView: View {
                         }
                 }
                 .customNavigationBar(centerView: {
-                    Text("Home.TotalRanking.InformationTitle")
+                    Text("Home.TotalRanking.Title")
                         .font(.neo22)
                         .kerning(-0.41)
                         .foregroundStyle(.white)
