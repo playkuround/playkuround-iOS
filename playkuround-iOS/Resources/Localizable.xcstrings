@@ -700,7 +700,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "When you're close to 10 seconds, press the button to stop!<br>Points are awarded in increments of ±1 second."
+            "value" : "When you're close to 10 seconds, <br>press the button to stop!<br>Points are awarded in increments of ±1 second."
           }
         },
         "ko" : {

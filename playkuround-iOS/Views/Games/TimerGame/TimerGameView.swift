@@ -106,17 +106,19 @@ struct TimerGameView: View {
                                         delayTime: 0.2)
                                     .scaledToFit()
                                     .frame(height: 140)
-                                } else {
+                                }
+                                else if viewModel.timerState == .failed {
+                                    Image(.timeFailed)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 170, height: 120)
+                                        .padding(.top, 20)
+                                }
+                                else {
                                     Button {
                                         viewModel.timeButtonClick()
                                     } label: {
-                                        if viewModel.timerState == .failed {
-                                            Image(.timeFailed)
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 170, height: 120)
-                                                .padding(.top, 20)
-                                        } else if viewModel.timerState == .running {
+                                        if viewModel.timerState == .running {
                                             Image(.timeStopButton)
                                                 .resizable()
                                                 .scaledToFit()
