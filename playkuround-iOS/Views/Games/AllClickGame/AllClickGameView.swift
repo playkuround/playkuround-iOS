@@ -56,7 +56,14 @@ struct AllClickGameView: View {
                     }
                     .padding(.horizontal, 20)
                     
-                    Spacer()
+                    GeometryReader { geometry in
+                        ForEach(viewModel.subjects.indices, id: \.self) { index in
+                            AllClickTextRainView(subject: viewModel.subjects[index])
+                                .position(x: viewModel.subjects[index].xPosition,
+                                          y: viewModel.subjects[index].yPosition)
+                        }
+                    }
+                    .padding(.top, 10)
                     
                     HStack(spacing: 0) {
                         Spacer()
@@ -112,12 +119,6 @@ struct AllClickGameView: View {
                         Image(.brownPauseButton)
                     })
                 }, height: 57)
-                
-                ForEach(viewModel.subjects.indices, id: \.self) { index in
-                    AllClickTextRainView(subject: viewModel.subjects[index])
-                        .position(x: viewModel.subjects[index].xPosition,
-                                  y: viewModel.subjects[index].yPosition)
-                }
                 
                 if viewModel.isCountdownViewPresented {
                     CountdownView(countdown: $viewModel.countdown)
