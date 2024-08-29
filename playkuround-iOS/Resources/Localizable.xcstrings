@@ -3959,9 +3959,6 @@
     "근처 랜드마크: 없음(nil)" : {
       "shouldTranslate" : false
     },
-    "나" : {
-      "shouldTranslate" : false
-    },
     "닉네임 사용가능 - /api/users/availability" : {
       "shouldTranslate" : false
     },

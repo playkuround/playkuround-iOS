@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  playkuround-iOS
+
+  Created by Guryss on 8/29/24.
+  
+*/
+NSLocationWhenInUseUsageDescription = "PlayKuround利用实际用户的位置信息,将各建筑物的游戏分数记录为征服排名。 用户可以在地图上知道自己的位置,也可以确认周边大学建筑物的位置和说明。";

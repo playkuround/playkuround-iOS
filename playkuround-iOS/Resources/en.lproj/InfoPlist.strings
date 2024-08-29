@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  playkuround-iOS
+
+  Created by Guryss on 8/29/24.
+  
+*/
+NSLocationWhenInUseUsageDescription = "PlayKuround records game scores by building in the conquest ranking by utilizing the location information of the actual user. Users can know their location on the map and check the location and description of the surrounding university buildings.";

@@ -151,6 +151,7 @@
 		C98078C62BA8816B00C04B2D /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */; };
 		C98BDC3E2C75C64500ACBB46 /* LandmarkDescription.json in Resources */ = {isa = PBXBuildFile; fileRef = C98BDC3C2C75C60000ACBB46 /* LandmarkDescription.json */; };
 		C9963C532BBB07040037C662 /* QuizBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9963C522BBB07040037C662 /* QuizBlockView.swift */; };
+		C9D415192C80C01D00AB58AC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9D415172C80C01D00AB58AC /* InfoPlist.strings */; };
 		C9DAF1F72BB712D900E03D16 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DAF1F62BB712D900E03D16 /* UserEntity.swift */; };
 		C9F694E82BA3251A009A8762 /* playkuround_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */; };
 		C9F694EA2BA3251A009A8762 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F694E92BA3251A009A8762 /* ContentView.swift */; };
@@ -231,7 +232,6 @@
 		0CB974432BFE55AB008E1399 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		0CBB058F2BB07A1400EB56BE /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		0CC01F252BBBD540007BB320 /* CardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModel.swift; sourceTree = "<group>"; };
-		0CC034AD2C739108002FF439 /* LandmarkDescription.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LandmarkDescription.json; sourceTree = "<group>"; };
 		0CD0402C2C062A8E009F9BE1 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		0CD06A282BAB459500845B24 /* RegisterTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTermsView.swift; sourceTree = "<group>"; };
 		0CE1ECD32C7AC8EB00869586 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
@@ -305,6 +305,9 @@
 		C98078C52BA8816A00C04B2D /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
 		C98BDC3C2C75C60000ACBB46 /* LandmarkDescription.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LandmarkDescription.json; sourceTree = "<group>"; };
 		C9963C522BBB07040037C662 /* QuizBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBlockView.swift; sourceTree = "<group>"; };
+		C9D415182C80C01D00AB58AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C9D4151A2C80C05200AB58AC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C9D4151B2C80C09400AB58AC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		C9DAF1F62BB712D900E03D16 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		C9F694E42BA3251A009A8762 /* playkuround-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "playkuround-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F694E72BA3251A009A8762 /* playkuround_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playkuround_iOSApp.swift; sourceTree = "<group>"; };
@@ -657,6 +660,7 @@
 				C953D2FA2BA47F2C00318869 /* StringLiterals.swift */,
 				0C6F75CF2C7CDFB80075FAC3 /* Localizable.xcstrings */,
 				C914E9E22BA57DEB00161AB7 /* AnimationCustomView.swift */,
+				C9D415172C80C01D00AB58AC /* InfoPlist.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -836,20 +840,11 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
-		C98BDC3B2C75C5DF00ACBB46 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				0CC034AD2C739108002FF439 /* LandmarkDescription.json */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		C9F694DB2BA3251A009A8762 = {
 			isa = PBXGroup;
 			children = (
 				C9F694E62BA3251A009A8762 /* playkuround-iOS */,
 				C9F694E52BA3251A009A8762 /* Products */,
-				C98BDC3B2C75C5DF00ACBB46 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -929,6 +924,7 @@
 				en,
 				Base,
 				"zh-Hans",
+				ko,
 			);
 			mainGroup = C9F694DB2BA3251A009A8762;
 			packageReferences = (
@@ -960,6 +956,7 @@
 				C98078A92BA871A000C04B2D /* cardClicked.mp3 in Resources */,
 				C980789C2BA8712700C04B2D /* cupidBad.mp3 in Resources */,
 				C98078B22BA8720D00C04B2D /* classEnd.mp3 in Resources */,
+				C9D415192C80C01D00AB58AC /* InfoPlist.strings in Resources */,
 				C98078A82BA871A000C04B2D /* cardIncorrect.mp3 in Resources */,
 				0C8C295A2C7E1BC00071C005 /* privacyChinese.txt in Resources */,
 				C98078B12BA8720D00C04B2D /* classMinusHeart.mp3 in Resources */,
@@ -1112,6 +1109,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		C9D415172C80C01D00AB58AC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9D415182C80C01D00AB58AC /* en */,
+				C9D4151A2C80C05200AB58AC /* ko */,
+				C9D4151B2C80C09400AB58AC /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		C9F694F02BA3251B009A8762 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1240,13 +1250,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"playkuround-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = NCLJJYF4QS;
+				DEVELOPMENT_TEAM = 9SVDHQS4M3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "playkuround-iOS/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "플레이쿠라운드";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.arcade-games";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "플레이쿠라운드는 사용자의 위치를 기반으로 게임이 진행됩니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = NSLocationWhenInUseUsageDescription;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
@@ -1281,13 +1291,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"playkuround-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = NCLJJYF4QS;
+				DEVELOPMENT_TEAM = 9SVDHQS4M3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "playkuround-iOS/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "플레이쿠라운드";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.arcade-games";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "플레이쿠라운드는 사용자의 위치를 기반으로 게임이 진행됩니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = NSLocationWhenInUseUsageDescription;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;

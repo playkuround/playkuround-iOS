@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  playkuround-iOS
+
+  Created by Guryss on 8/29/24.
+  
+*/
+NSLocationWhenInUseUsageDescription = "플레이쿠라운드는 실제 사용자의 위치 정보를 활용해 건물별로 게임 점수를 정복 랭킹으로 기록합니다. 사용자는 지도에서 자신의 위치를 알 수 있으며, 주변 대학 건물들의 위치와 설명을 확인할 수 있습니다.";
