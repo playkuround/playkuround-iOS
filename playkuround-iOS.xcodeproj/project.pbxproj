@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C048FDE2C7F8FBB000DD175 /* CheckDeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C048FDD2C7F8FBB000DD175 /* CheckDeleteAccountView.swift */; };
+		0C0A70132C80921100F09F84 /* UserAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0A70122C80920E00F09F84 /* UserAlarmView.swift */; };
 		0C0CDA2C2C2955B0003D12BA /* LandmarkRankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0CDA2B2C2955B0003D12BA /* LandmarkRankingView.swift */; };
 		0C0CDA312C299021003D12BA /* AdventureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0CDA302C299021003D12BA /* AdventureView.swift */; };
 		0C27DDF02BBD714F0049B7B8 /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */; };
@@ -162,6 +163,7 @@
 
 /* Begin PBXFileReference section */
 		0C048FDD2C7F8FBB000DD175 /* CheckDeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDeleteAccountView.swift; sourceTree = "<group>"; };
+		0C0A70122C80920E00F09F84 /* UserAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAlarmView.swift; sourceTree = "<group>"; };
 		0C0CDA2B2C2955B0003D12BA /* LandmarkRankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkRankingView.swift; sourceTree = "<group>"; };
 		0C0CDA302C299021003D12BA /* AdventureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureView.swift; sourceTree = "<group>"; };
 		0C27DDEF2BBD714F0049B7B8 /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 		0C7FE6952BB1256300D94162 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				0C0A70122C80920E00F09F84 /* UserAlarmView.swift */,
 				0CA4C5652BB3281F00268B07 /* RootView.swift */,
 				0C7FE69A2BB1290A00D94162 /* LoadingView.swift */,
 				0C7FE6982BB1259800D94162 /* NetworkErrorView.swift */,
@@ -1105,6 +1108,7 @@
 				C97987462BC3D91600BB3698 /* QuizState.swift in Sources */,
 				B9406DE92C42DABC004FEDC2 /* StoryView.swift in Sources */,
 				0CA193562BB5ABEB007C04B1 /* RequestPermissionView.swift in Sources */,
+				0C0A70132C80921100F09F84 /* UserAlarmView.swift in Sources */,
 				0CB902212BB6E6A300F76311 /* GamePauseView.swift in Sources */,
 				0C519D972BBADD6500DAA206 /* CardGameView.swift in Sources */,
 			);
