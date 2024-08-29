@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct AllClickCustomTextView: UIViewRepresentable {
+    var viewModel: AllClickGameViewModel
+    
     @Binding var text: String
     @Binding var height: CGFloat
     @Binding var shouldBecomeFirstResponder: Bool
     
     func makeCoordinator() -> Coordinator {
-        return AllClickCustomTextView.Coordinator(parent: self)
+        return AllClickCustomTextView.Coordinator(viewModel: viewModel, parent: self)
     }
     
     public func makeUIView(context: Context) -> UITextView {
@@ -31,18 +33,17 @@ struct AllClickCustomTextView: UIViewRepresentable {
         DispatchQueue.main.async {
             self.height = uiView.contentSize.height
             context.coordinator.updateFirstResponder()
-            
-            if uiView.text != text {
-                uiView.text = text
-            }
         }
     }
     
     class Coordinator: NSObject, UITextViewDelegate {
+        var viewModel: AllClickGameViewModel
+        
         var parent: AllClickCustomTextView
         var textView: UITextView?
         
-        init(parent: AllClickCustomTextView) {
+        init(viewModel: AllClickGameViewModel, parent: AllClickCustomTextView) {
+            self.viewModel = viewModel
             self.parent = parent
         }
         
@@ -64,9 +65,10 @@ struct AllClickCustomTextView: UIViewRepresentable {
             self.parent.shouldBecomeFirstResponder = false
         }
         
-        // enter 눌렀을 때 다음 줄로 넘어가지 않도록 함.
         func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
             if text == "\n" {
+                checkRightText(newText: textView.text)
+                clearText()
                 return false
             }
             return true
@@ -86,6 +88,16 @@ struct AllClickCustomTextView: UIViewRepresentable {
         
         func clearText() {
             textView?.text = ""
+        }
+        
+        func checkRightText(newText: String) {
+            if let index = viewModel.subjects.firstIndex(where: { $0.title == newText }) {
+                viewModel.calculateScore(index: index)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    self.viewModel.subjects.remove(at: index)
+                    self.viewModel.soundManager.playSound(sound: .classCorrect)
+                }
+            }
         }
     }
 }

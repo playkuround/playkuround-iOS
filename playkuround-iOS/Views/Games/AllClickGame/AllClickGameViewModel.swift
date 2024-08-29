@@ -73,7 +73,7 @@ final class AllClickGameViewModel: GameViewModel {
             
             // 내려오는 횟수가 랜덤으로 지정된 횟수일 때에만 새로운 글자를 추가.
             if currentFallingCount == randomFallingCount,
-                let newSubject = getLocalizedRandomSubject() {
+               let newSubject = getLocalizedRandomSubject() {
                 var subject = newSubject
                 subject.xPosition = self.randomXPosition()
                 subject.yPosition = 0

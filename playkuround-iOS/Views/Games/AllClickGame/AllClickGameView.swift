@@ -77,12 +77,22 @@ struct AllClickGameView: View {
                         
                         Image(.allClickWritingBox)
                             .overlay(alignment: .leading) {
-                                AllClickCustomTextView(text: $userText,
+                                AllClickCustomTextView(viewModel: viewModel,
+                                                       text: $userText,
                                                        height: $userHeight,
                                                        shouldBecomeFirstResponder: $shouldBecomeFirstResponder)
                                 .frame(height: 30, alignment: .center)
                                 .frame(width: 200)
                                 .padding(.leading, 8)
+                                .overlay(alignment: .leading) {
+                                    if userText.isEmpty {
+                                        Text("Game.AllClick.WriteSubject")
+                                            .font(.neo18)
+                                            .kerning(-0.41)
+                                            .foregroundStyle(.kuGray2)
+                                            .padding(.leading, 16)
+                                    }
+                                }
                             }
                         
                         Spacer()
@@ -147,16 +157,6 @@ struct AllClickGameView: View {
             .onChange(of: viewModel.countdownCompleted) { completed in
                 if completed {
                     shouldBecomeFirstResponder = true
-                }
-            }
-            .onChange(of: userText) { newText in
-                if let index = viewModel.subjects.firstIndex(where: { $0.title == newText }) {
-                    viewModel.calculateScore(index: index)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                        viewModel.subjects.remove(at: index)
-                        viewModel.soundManager.playSound(sound: .classCorrect)
-                        userText = ""
-                    }
                 }
             }
             .onChange(of: scenePhase) { newPhase in
