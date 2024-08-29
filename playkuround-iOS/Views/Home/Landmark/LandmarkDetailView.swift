@@ -87,6 +87,7 @@ struct LandmarkDetailView: View {
                                         Text(info.title)
                                             .font(.pretendard15B)
                                             .foregroundStyle(.kuText)
+                                            .multilineTextAlignment(.leading)
                                         
                                         Text(info.content)
                                             .font(.pretendard15R)
@@ -95,6 +96,7 @@ struct LandmarkDetailView: View {
                                             .padding(.bottom, 20)
                                     }
                                 }
+                                .frame(width: 250)
                             }
                             .padding(.vertical, 18)
                         }
