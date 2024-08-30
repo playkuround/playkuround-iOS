@@ -65,7 +65,6 @@ struct AllClickGameView: View {
                                     Spacer()
                                 }
                             }
-                            .background(.yellow)
                             .overlay {
                                 ForEach(viewModel.subjects.indices, id: \.self) { index in
                                     AllClickTextRainView(subject: viewModel.subjects[index])
