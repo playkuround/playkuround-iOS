@@ -844,7 +844,7 @@ struct Response: Codable {
     let email: String?
     let major: String?
     let highestScore: Int?
-    let highestRank: String?
+    let highestRank: Int?
     let attendanceDays: Int?
     let profileBadge: String?
     

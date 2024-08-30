@@ -52,7 +52,7 @@ struct MyPageProfileView: View {
                 .foregroundStyle(.kuText)
                 .padding(.trailing, 15)
             
-            let highestRank = "(" + (user.highestRank == "-" ? "- " : "\(user.highestRank)")
+            let highestRank = "(" + (user.highestRank == 0 ? "- " : "\(user.highestRank)")
 
             let highestScoreValue = Text("\(String(describing: user.highestScore))" + NSLocalizedString("Home.ScoreTitle", comment: "") + highestRank + NSLocalizedString("MyPage.RankingUnit", comment: "") + ")")
                 .font(.neo20)
