@@ -87,6 +87,7 @@ struct AllClickCustomTextView: UIViewRepresentable {
         }
         
         func clearText() {
+            self.parent.text = ""
             textView?.text = ""
         }
         

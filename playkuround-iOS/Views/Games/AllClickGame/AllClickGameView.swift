@@ -97,7 +97,7 @@ struct AllClickGameView: View {
                                 .frame(width: 200)
                                 .padding(.leading, 8)
                                 .overlay(alignment: .leading) {
-                                    if userText.isEmpty {
+                                    if userText == "" {
                                         Text("Game.AllClick.WriteSubject")
                                             .font(.neo18)
                                             .kerning(-0.41)
