@@ -310,7 +310,9 @@ final class HomeViewModel: ObservableObject {
     // MARK: - User Notification
     func loadUserNotification() {
         // TODO: 백엔드와 협의하여 version checking 도입 여부 결정 필요
-        APIManager.shared.callGETAPI(endpoint: .notification, querys: ["version": "2.0.4", "os": "ios"]) { result in
+        let appVersion: String = self.rootViewModel.currentAppVersion()
+        
+        APIManager.shared.callGETAPI(endpoint: .notification, querys: ["version": appVersion, "os": "ios"]) { result in
             switch result {
             case .success(let data as NotificationAPIResponse):
                 // 유저 알림 처리
@@ -318,10 +320,14 @@ final class HomeViewModel: ObservableObject {
                     for noti in notis {
                         // 서버 점검 중
                         if noti.name == "system_check" {
-                            // 현재 서버와 버전이 맞지 않아 일단 제거, 추후 협의해서 버전 맞춘 후 주석 해제
-                            /* DispatchQueue.main.async {
+                            DispatchQueue.main.async {
                                 self.rootViewModel.serverError = true
-                            } */
+                            }
+                        }
+                        // 업데이트 필요
+                        else if noti.name == "update" {
+                            let updateMessage = NSLocalizedString("Home.ToastMessage.UpdateMessage", comment: "")
+                            self.rootViewModel.openAlarmMessageView(message: updateMessage)
                         }
                         else if noti.name == "new_Badge" {
                             self.rootViewModel.openNewBadgeView(badgeNames: [noti.description])

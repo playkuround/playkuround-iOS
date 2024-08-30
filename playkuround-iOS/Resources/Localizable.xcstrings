@@ -1533,6 +1533,29 @@
         }
       }
     },
+    "Home.ToastMessage.UpdateMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please update PLAYKURUND to the latest version"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "플레이쿠라운드를 최신 버전으로 업데이트 해주세요"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请将您的 PLAYKUROUND 更新到最新版本"
+          }
+        }
+      }
+    },
     "Home.TotalRanking.Empty" : {
       "comment" : "V",
       "extractionState" : "manual",
