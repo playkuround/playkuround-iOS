@@ -25,16 +25,16 @@ struct UserAlarmView: View {
                             .kerning(-0.41)
                             .foregroundStyle(.kuText)
                             .padding(.top, 45)
-                            .padding(.bottom, 30)
                         
-                        HStack(alignment: .center, spacing: 10) {
+                        VStack(alignment: .center, spacing: 0) {
+                            Spacer()
                             Text(alarmText)
                                 .font(.pretendard15R)
                                 .multilineTextAlignment(.center)
                                 .foregroundColor(.kuText)
+                            Spacer()
                         }
-                        .padding(10)
-                        .frame(width: 238, height: 60, alignment: .center)
+                        .frame(width: 238, height: 100, alignment: .center)
                         
                         Spacer()
                     }
@@ -44,5 +44,5 @@ struct UserAlarmView: View {
 }
 
 #Preview {
-    UserAlarmView(rootViewModel: RootViewModel(), alarmText: "1등입니다")
+    UserAlarmView(rootViewModel: RootViewModel(), alarmText: "1등입니다\n2등입니다\n3등입니다")
 }
