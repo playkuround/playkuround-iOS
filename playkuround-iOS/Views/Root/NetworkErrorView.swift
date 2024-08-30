@@ -11,8 +11,8 @@ struct NetworkErrorView: View {
     let loadingColor: LoadingColor
     let errorType: NetworkErrorType
     
-    init(loadingColor: LoadingColor, errorType: NetworkErrorType = .network) {
-        self.loadingColor = loadingColor
+    init(errorType: NetworkErrorType = .network) {
+        self.loadingColor = .white
         self.errorType = errorType
     }
     
@@ -27,9 +27,13 @@ struct NetworkErrorView: View {
                 Spacer()
                     .frame(height: 20)
                 
-                Text(errorType == .network ?
-                     NSLocalizedString("Network.Message", comment: "")
-                     : NSLocalizedString("Network.ServerMessage", comment: ""))
+                let errorMessage = errorType == .network ?
+                NSLocalizedString("Network.Message", comment: "")
+                    .replacingOccurrences(of: "<br>", with: "\n")
+                : NSLocalizedString("Network.ServerMessage", comment: "")
+                    .replacingOccurrences(of: "<br>", with: "\n")
+                
+                Text(errorMessage)
                     .font(.pretendard15R)
                     .foregroundStyle(loadingColor == .white ? .white : .kuBrown)
                     .multilineTextAlignment(.center)
@@ -47,10 +51,10 @@ struct NetworkErrorView: View {
 }
 
 #Preview {
-    NetworkErrorView(loadingColor: .white, errorType: .server)
+    NetworkErrorView(errorType: .server)
 }
 
 #Preview {
-    NetworkErrorView(loadingColor: .black)
+    NetworkErrorView()
 }
 

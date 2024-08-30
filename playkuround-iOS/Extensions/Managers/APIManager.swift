@@ -73,6 +73,8 @@ final class APIManager {
         case availability = "/api/users/availability"
         // 이벤트(공지) 조회
         case events = "/api/events"
+        // 시스템 healty check
+        case systemAvailable = "/api/system-available"
     }
     
     // POST 요청 API Collections
@@ -391,7 +393,7 @@ extension APIManager {
         
         // 토큰 불러오기
         // availability, emails API는 토큰 필요 없음
-        if endpoint != .availability && endpoint != .emails {
+        if endpoint != .availability && endpoint != .emails && endpoint != .systemAvailable {
             let accessToken = TokenManager.token(tokenType: .access)
             if accessToken.isEmpty {
                 completion(.failure(NSError(domain: "No Access Token Found", code: 401)))
@@ -861,6 +863,10 @@ struct Response: Codable {
     
     // 뱃지 (newBadges)
     let newBadges: [BadgeResponse]?
+    
+    // 서버 상태
+    let systemAvailable: Bool?
+    let supportAppVersionList: [SupportAppVersion]?
 }
 
 
@@ -932,4 +938,10 @@ struct EventAPIResponse: Codable {
     let isSuccess: Bool
     let response: [Event]?
     let errorResponse: ErrorResponse?
+}
+
+// 시스템 체크
+struct SupportAppVersion: Codable {
+    let os: String
+    let version: [String]
 }
