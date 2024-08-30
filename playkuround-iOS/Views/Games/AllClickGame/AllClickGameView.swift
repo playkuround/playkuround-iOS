@@ -57,14 +57,24 @@ struct AllClickGameView: View {
                     .padding(.horizontal, 20)
                     
                     GeometryReader { geometry in
-                        ForEach(viewModel.subjects.indices, id: \.self) { index in
-                            AllClickTextRainView(subject: viewModel.subjects[index])
-                                .position(x: viewModel.subjects[index].xPosition,
-                                          y: viewModel.subjects[index].yPosition)
+                        VStack{
+                            HStack {
+                                Spacer()
+                                
+                                VStack {
+                                    Spacer()
+                                }
+                            }
+                            .background(.yellow)
+                            .overlay {
+                                ForEach(viewModel.subjects.indices, id: \.self) { index in
+                                    AllClickTextRainView(subject: viewModel.subjects[index])
+                                        .position(x: viewModel.subjects[index].xPosition,
+                                                  y: viewModel.subjects[index].yPosition)
+                                }
+                            }
                         }
-                    }
-                    .onAppear {
-                        viewModel.setFrameXY(x: geometry.size.width, y: geometry.size.height)
+                        .clipped()
                     }
                     .padding(.top, 10)
                     
