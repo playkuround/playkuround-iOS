@@ -13,7 +13,7 @@ struct UserEntity {
     var myRank: MyRank // 전체 랭킹
     var landmarkRank: MyRank // 랜드마크별 랭킹
     var highestScore: Int
-    var highestRank: String
+    var highestRank: Int
     var attendanceDays: Int
     var profileBadge: String
 }
