@@ -63,9 +63,9 @@ final class AllClickGameViewModel: GameViewModel {
             var indicesToRemove: [Int] = []
             
             for i in self.subjects.indices {
-                self.subjects[i].yPosition += 20
+                self.subjects[i].yPosition += 12
                 
-                if self.subjects[i].yPosition >= 460 {
+                if self.subjects[i].yPosition >= 350 {
                     indicesToRemove.append(i)
                 }
             }
@@ -88,7 +88,7 @@ final class AllClickGameViewModel: GameViewModel {
             
             // 내려오는 횟수가 랜덤으로 지정된 횟수일 때에만 새로운 글자를 추가.
             if currentFallingCount == randomFallingCount,
-                let newSubject = getLocalizedRandomSubject() {
+               let newSubject = getLocalizedRandomSubject() {
                 var subject = newSubject
                 subject.xPosition = self.randomXPosition()
                 subject.yPosition = 0

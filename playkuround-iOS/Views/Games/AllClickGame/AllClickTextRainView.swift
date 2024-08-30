@@ -13,7 +13,7 @@ struct AllClickTextRainView: View {
     var body: some View {
         ZStack {
             Text(subject.title)
-                .font(.neo15)
+                .font(.neo17)
                 .kerning(-0.41)
                 .foregroundStyle(subject.type == .basic ? .kuTimebarRed : .kuText)
                 .textRainStroke()
