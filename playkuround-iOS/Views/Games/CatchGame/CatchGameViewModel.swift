@@ -138,13 +138,15 @@ final class CatchGameViewModel: GameViewModel {
     }
     
     func getRandomNums(_ num: Int) -> [Int] {
-        if num > 16 {
-            return Array(0..<16).shuffled()
+        // 닫힌 상태인 창문만 뽑도록 수정
+        let closedIncies = windowList.enumerated().compactMap { index, window in
+            window.windowState == .close ? index : nil
         }
         
-        var numbers = Array(0..<16)
-        numbers.shuffle()
+        if num > closedIncies.count {
+            return closedIncies.shuffled()
+        }
         
-        return Array(numbers.prefix(num))
+        return Array(closedIncies.shuffled().prefix(num))
     }
 }
