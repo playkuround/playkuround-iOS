@@ -14,6 +14,10 @@ final class AllClickGameViewModel: GameViewModel {
     @Published var life: Int = 3
     @Published var subjects: [Subject] = []
     
+    // 글자 이동 제한
+    private var frameMaxX: CGFloat = 0.0
+    private var frameMaxY: CGFloat = 0.0
+    
     private var subjectRainTimer: Timer?
     let soundManager = SoundManager.shared
     
@@ -33,6 +37,11 @@ final class AllClickGameViewModel: GameViewModel {
         uploadResult(uploadScore: score)
     }
     
+    func setFrameXY(x: CGFloat, y: CGFloat) {
+        self.frameMaxX = x
+        self.frameMaxY = y
+    }
+    
     func startSubjectRain(withInterval interval: TimeInterval = 1.0) {
         var currentFallingCount = 0 // 현재까지 내려온 글자의 수
         var randomFallingCount = 1  // 랜덤으로 지정된 내려오는 횟수
@@ -48,9 +57,9 @@ final class AllClickGameViewModel: GameViewModel {
             var indicesToRemove: [Int] = []
             
             for i in self.subjects.indices {
-                self.subjects[i].yPosition += 20
+                self.subjects[i].yPosition += 12
                 
-                if self.subjects[i].yPosition >= 460 {
+                if self.subjects[i].yPosition >= frameMaxY {
                     indicesToRemove.append(i)
                 }
             }
@@ -96,7 +105,7 @@ final class AllClickGameViewModel: GameViewModel {
     
     func randomXPosition() -> CGFloat {
         var xPosition: CGFloat = 20
-        let temp = Int.random(in: 60...Int(UIScreen.main.bounds.width) - 60)
+        let temp = Int.random(in: 60...Int(frameMaxX) - 60)
         xPosition = CGFloat(temp)
         return xPosition
     }

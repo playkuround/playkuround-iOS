@@ -63,6 +63,9 @@ struct AllClickGameView: View {
                                           y: viewModel.subjects[index].yPosition)
                         }
                     }
+                    .onAppear {
+                        viewModel.setFrameXY(x: geometry.size.width, y: geometry.size.height)
+                    }
                     .padding(.top, 10)
                     
                     HStack(spacing: 0) {
