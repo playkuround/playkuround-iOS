@@ -164,7 +164,7 @@ final class APIManager {
 
         // 인증 헤더 추가
         // 닉네임 체크 availability API는 토큰 필요 X
-        if endpoint != .availability && endpoint != .emails {
+        if endpoint != .availability && endpoint != .emails && endpoint != .systemAvailable {
             let accessToken = TokenManager.token(tokenType: .access)
             request.addValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
         }

@@ -336,6 +336,8 @@ final class RootViewModel: ObservableObject {
                                 
                                 if !version.version.contains(appVersion) {
                                     let updateMessage = NSLocalizedString("Home.ToastMessage.UnsupportVersion", comment: "")
+                                        .replacingOccurrences(of: "<br>", with: "\n")
+                                    
                                     DispatchQueue.main.async {
                                         self.openAlarmMessageView(message: updateMessage)
                                     }
