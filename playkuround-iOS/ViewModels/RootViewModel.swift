@@ -38,6 +38,10 @@ final class RootViewModel: ObservableObject {
     // 서버 점검 중
     @Published var serverError: Bool
     
+    // 서버 체크
+    @Published var serverHealthy: Bool
+    @Published var needUpdate: Bool
+    
     var openedGameTypes: [String]
     var stories: [Story]
     
@@ -55,6 +59,8 @@ final class RootViewModel: ObservableObject {
         self.alarmMessageShowing = false
         self.alarmMessage = nil
         self.serverError = false
+        self.serverHealthy = false
+        self.needUpdate = false
         self.openedGameTypes = UserDefaults.standard.stringArray(forKey: "openedGameTypes") ?? []
         
         let currentLanguage = Locale.current.language.languageCode?.identifier
@@ -299,6 +305,58 @@ final class RootViewModel: ObservableObject {
             self.alarmMessage = nil
             withAnimation(.easeInOut(duration: 0.3)) {
                 self.alarmMessageShowing = false
+            }
+        }
+    }
+    
+    // 시스템 검사
+    func checkSystemAvailable() {
+        APIManager.shared.callGETAPI(endpoint: .systemAvailable) { result in
+            switch result {
+            case .success(let data):
+                if let response = data as? APIResponse {
+                    if let systemAvailable = response.response?.systemAvailable {
+                        if systemAvailable {
+                            print("system is available")
+                        } else {
+                            DispatchQueue.main.async {
+                                self.serverError = true
+                            }
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            self.serverError = true
+                        }
+                    }
+                    
+                    if let supportAppVersions = response.response?.supportAppVersionList {
+                        for version in supportAppVersions {
+                            if version.os == "IOS" {
+                                let appVersion = self.currentAppVersion()
+                                
+                                if !version.version.contains(appVersion) {
+                                    let updateMessage = NSLocalizedString("Home.ToastMessage.UnsupportVersion", comment: "")
+                                        .replacingOccurrences(of: "<br>", with: "\n")
+                                    
+                                    DispatchQueue.main.async {
+                                        self.openAlarmMessageView(message: updateMessage)
+                                    }
+                                    break
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.serverError = true
+                    }
+                }
+            case .failure(let error):
+                print(error)
+                // 서버 응답 없음
+                DispatchQueue.main.async {
+                    self.serverError = true
+                }
             }
         }
     }

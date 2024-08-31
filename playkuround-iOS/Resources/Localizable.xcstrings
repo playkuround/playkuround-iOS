@@ -1533,6 +1533,52 @@
         }
       }
     },
+    "Home.ToastMessage.UnsupportVersion" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are using an unsupported app version<br>Please update your PLAYKUROUND to the latest version"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "지원하지 않는 앱 버전을 사용중이에요<br>플레이쿠라운드를 최신 버전으로 업데이트 해주세요"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您使用的是不支持的应用程序版本<br>请将您的 PLAYKUROUND 更新到最新版本"
+          }
+        }
+      }
+    },
+    "Home.ToastMessage.UpdateMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please update PLAYKURUND to the latest version"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "플레이쿠라운드를 최신 버전으로 업데이트 해주세요"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请将您的 PLAYKUROUND 更新到最新版本"
+          }
+        }
+      }
+    },
     "Home.TotalRanking.Empty" : {
       "comment" : "V",
       "extractionState" : "manual",

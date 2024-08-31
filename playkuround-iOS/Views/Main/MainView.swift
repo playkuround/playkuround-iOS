@@ -35,37 +35,40 @@ struct MainView: View {
                     
                     Spacer()
                     
-                    Image(.shortButtonBlue)
-                        .overlay {
-                            Text("Main.Login")
-                                .font(.neo20)
-                                .foregroundStyle(.kuText)
-                                .kerning(-0.41)
+                    Button {
+                        viewModel.checkSystemAvailable()
+                        
+                        soundManager.playSound(sound: .buttonClicked)
+                        
+                        // 메인 화면 시작 버튼 클릭 이벤트
+                        GAManager.shared.logEvent(.START_BUTTON_CLICK)
+                        
+                        // 위치 권한 허가 요청
+                        mapViewModel.requestLocationAuthorization()
+                        
+                        // 토큰이 없는 경우
+                        if TokenManager.token(tokenType: .refresh).isEmpty || TokenManager.token(tokenType: .access).isEmpty {
+                            // 로그인 화면으로 이동
+                            print("token is empty, transition to login view")
+                            viewModel.transition(to: .login)
                         }
-                        .padding(.bottom, 98)
-                        .onTapGesture {
-                            soundManager.playSound(sound: .buttonClicked)
+                        // 토큰이 존재하는 경우 valid한지 검사
+                        else {
+                            let refreshToken = TokenManager.token(tokenType: .refresh)
                             
-                            // 메인 화면 시작 버튼 클릭 이벤트
-                            GAManager.shared.logEvent(.START_BUTTON_CLICK)
-                            
-                            // 위치 권한 허가 요청
-                            mapViewModel.requestLocationAuthorization()
-                            
-                            // 토큰이 없는 경우
-                            if TokenManager.token(tokenType: .refresh).isEmpty || TokenManager.token(tokenType: .access).isEmpty {
-                                // 로그인 화면으로 이동
-                                print("token is empty, transition to login view")
-                                viewModel.transition(to: .login)
-                            }
-                            // 토큰이 존재하는 경우 valid한지 검사
-                            else {
-                                let refreshToken = TokenManager.token(tokenType: .refresh)
-                                
-                                // reissue API 호출
-                                reissueToken(token: refreshToken)
-                            }
+                            // reissue API 호출
+                            reissueToken(token: refreshToken)
                         }
+                    } label: {
+                        Image(.shortButtonBlue)
+                            .overlay {
+                                Text("Main.Login")
+                                    .font(.neo20)
+                                    .foregroundStyle(.kuText)
+                                    .kerning(-0.41)
+                            }
+                    }
+                    .padding(.bottom, 98)
                 }
             }
             .onAppear {

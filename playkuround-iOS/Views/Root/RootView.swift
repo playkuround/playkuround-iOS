@@ -68,7 +68,7 @@ struct RootView: View {
             
             // network error
             if !viewModel.networkManager.isConnected {
-                NetworkErrorView(loadingColor: .white)
+                NetworkErrorView()
             }
             // loading
             else if viewModel.isLoading {
@@ -97,7 +97,7 @@ struct RootView: View {
             
             // 서버 점검 중
             if viewModel.serverError {
-                NetworkErrorView(loadingColor: .white, errorType: .server)
+                NetworkErrorView(errorType: .server)
             }
         }
         .onAppear {
