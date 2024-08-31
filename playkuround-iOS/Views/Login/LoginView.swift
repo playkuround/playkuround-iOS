@@ -52,7 +52,6 @@ struct LoginView: View {
                         TextField(NSLocalizedString("Login.PlaceHolder", comment: ""), text: $userId)
                             .font(.pretendard15R)
                             .kerning(-0.41)
-                            // .focused($focusField)
                             .focused($focusedField, equals: .userId)
                             .padding(.leading, 20)
                             .overlay {
