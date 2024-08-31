@@ -63,7 +63,7 @@ struct AuthenticationCodeView: View {
                 .padding(.top, 46)
             
             Button(action: {
-                authButtonClicked.toggle()
+                authButtonClicked = true
                 soundManager.playSound(sound: .buttonClicked
                 )
                 if !authCode.isEmpty && authButtonClicked {
