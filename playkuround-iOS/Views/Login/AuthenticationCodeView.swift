@@ -156,6 +156,7 @@ struct AuthenticationCodeView: View {
                         // 잘못된 인증코드를 입력했을 때
                         if apiResponse.errorResponse?.code == "E005" {
                             isAuthCodeWrong = true
+                            authButtonClicked = false
                         }
                     }
                 }
