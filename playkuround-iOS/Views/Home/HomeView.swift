@@ -20,7 +20,14 @@ struct HomeView: View {
             ZStack {
                 Color.kuDarkGreen.ignoresSafeArea(.all)
                 
-                MapView(mapViewModel: mapViewModel, homeViewModel: homeViewModel)
+                if #available(iOS 17, *) {
+                    VStack {
+                        Spacer()
+                        MapViewiOS17(mapViewModel: mapViewModel, homeViewModel: homeViewModel)
+                    }
+                } else {
+                    MapViewiOS16(mapViewModel: mapViewModel, homeViewModel: homeViewModel)
+                }
                 
                 Image(.homeBorder)
                     .resizable()
