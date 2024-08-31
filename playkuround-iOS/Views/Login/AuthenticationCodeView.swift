@@ -63,7 +63,7 @@ struct AuthenticationCodeView: View {
                 .padding(.top, 46)
             
             Button(action: {
-                authButtonClicked.toggle()
+                authButtonClicked = true
                 soundManager.playSound(sound: .buttonClicked
                 )
                 if !authCode.isEmpty && authButtonClicked {
@@ -156,6 +156,7 @@ struct AuthenticationCodeView: View {
                         // 잘못된 인증코드를 입력했을 때
                         if apiResponse.errorResponse?.code == "E005" {
                             isAuthCodeWrong = true
+                            authButtonClicked = false
                         }
                     }
                 }
