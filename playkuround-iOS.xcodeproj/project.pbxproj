@@ -71,6 +71,7 @@
 		0CA193592BB5B49A007C04B1 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CA193582BB5B49A007C04B1 /* Pretendard-Bold.otf */; };
 		0CA4C5662BB3281F00268B07 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA4C5652BB3281F00268B07 /* RootView.swift */; };
 		0CA82DB22C70B93400914DC4 /* ProfileBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA82DB12C70B93400914DC4 /* ProfileBadgeView.swift */; };
+		0CB029E22C833AAE00AA8182 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB029E12C833AA900AA8182 /* UIApplication+.swift */; };
 		0CB465AE2BB3D1C700317455 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB465AD2BB3D1C700317455 /* RootViewModel.swift */; };
 		0CB50B1D2BFDB1330003FE3B /* SurviveGameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB50B1C2BFDB1330003FE3B /* SurviveGameEntity.swift */; };
 		0CB76A282C73AF9900BDF364 /* LeadingFlexBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB76A272C73AF9500BDF364 /* LeadingFlexBox.swift */; };
@@ -226,6 +227,7 @@
 		0CA193582BB5B49A007C04B1 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		0CA4C5652BB3281F00268B07 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		0CA82DB12C70B93400914DC4 /* ProfileBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBadgeView.swift; sourceTree = "<group>"; };
+		0CB029E12C833AA900AA8182 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		0CB465AD2BB3D1C700317455 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		0CB50B1C2BFDB1330003FE3B /* SurviveGameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurviveGameEntity.swift; sourceTree = "<group>"; };
 		0CB76A272C73AF9500BDF364 /* LeadingFlexBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingFlexBox.swift; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 		0C6AA4B92BA4A32A0032AB24 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0CB029E12C833AA900AA8182 /* UIApplication+.swift */,
 				C9519D372BB3338700F69974 /* ViewModifiers */,
 				C918F4032BA7148800C0BFDA /* Managers */,
 				C9519D3A2BB335EC00F69974 /* View+.swift */,
@@ -1069,6 +1072,7 @@
 				0C519D992BBAEB6C00DAA206 /* GameViewModel.swift in Sources */,
 				B98503C22BDCEC2900C3CC8F /* AllClickTextRainView.swift in Sources */,
 				0C6AA4CF2BA56FB30032AB24 /* ScoreType.swift in Sources */,
+				0CB029E22C833AAE00AA8182 /* UIApplication+.swift in Sources */,
 				C953D2FE2BA4807400318869 /* LoginView.swift in Sources */,
 				0C9B120E2C6F67C600093178 /* ToastAlertView.swift in Sources */,
 				C953D2F92BA47B4B00318869 /* Font.swift in Sources */,

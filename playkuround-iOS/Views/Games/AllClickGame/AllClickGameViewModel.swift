@@ -165,13 +165,3 @@ final class AllClickGameViewModel: GameViewModel {
         return randomSubject
     }
 }
-
-// 키보드 닫기 함수
-extension UIApplication {
-    func dismissKeyboard() {
-        guard let windowScene = connectedScenes.first as? UIWindowScene else { return }
-        windowScene.windows
-            .first { $0.isKeyWindow }?
-            .endEditing(true)
-    }
-}

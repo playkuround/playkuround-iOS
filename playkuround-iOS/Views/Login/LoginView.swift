@@ -12,7 +12,7 @@ struct LoginView: View {
     
     // 포탈 아이디
     @State private var userId: String = ""
-    @FocusState private var focusField: Bool
+    // @FocusState private var focusField: Bool
     
     // 인증코드 요청
     @State private var mailButtonTitle = NSLocalizedString("Login.RequestCode", comment: "")
@@ -25,6 +25,9 @@ struct LoginView: View {
     @State private var isMaximumCount: Bool = false
     @State private var userSendingCount: Int?
     @State private var isAuthCodeViewVisible: Bool = false
+    
+    @State private var keyboardOffset: CGFloat = 0
+    @FocusState private var focusedField: FieldFocus?
     
     private let soundManager = SoundManager.shared
     
@@ -49,13 +52,13 @@ struct LoginView: View {
                         TextField(NSLocalizedString("Login.PlaceHolder", comment: ""), text: $userId)
                             .font(.pretendard15R)
                             .kerning(-0.41)
-                            .focused($focusField)
+                            .focused($focusedField, equals: .userId)
                             .padding(.leading, 20)
                             .overlay {
                                 Text("Login.Email")
                                     .font(.pretendard15R)
                                     .foregroundStyle(.gray)
-                                    .opacity(userId.isEmpty && !focusField ? 0 : 1)
+                                    .opacity(userId.isEmpty && focusedField != .userId ? 0 : 1)
                                     .padding(.leading, 190)
                             }
                             .autocorrectionDisabled(true)
@@ -75,6 +78,8 @@ struct LoginView: View {
                     }
                     
                     callPOSTAPIemails(target: userId + NSLocalizedString("Login.Email", comment: ""))
+                    
+                    focusedField = .authCode
                     
                     if !isMaximumCount {
                         self.isAuthCodeViewVisible = true
@@ -103,11 +108,13 @@ struct LoginView: View {
                                            userSendingCount: $userSendingCount,
                                            isTimerFinished: $isBottomSheetPresented,
                                            userEmail: userId + NSLocalizedString("Login.Email", comment: ""))
+                    .focused($focusedField, equals: .authCode)
                 }
                 
                 Spacer()
             }
             .padding(.top, 80)
+            .offset(y: -keyboardOffset)
             
             // 인증 시간 초과 되었을 때
             if isBottomSheetPresented {
@@ -126,6 +133,23 @@ struct LoginView: View {
         }
         .onAppear {
             GAManager.shared.logScreenEvent(.LoginView)
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notification in
+                if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+                    if focusedField == .authCode {
+                        withAnimation(.easeInOut) {
+                            keyboardOffset = keyboardFrame.height / 4
+                        }
+                    }
+                }
+            }
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { _ in
+                withAnimation(.easeInOut) {
+                    keyboardOffset = 0
+                }
+            }
+        }
+        .onTapGesture {
+            UIApplication.shared.dismissKeyboard()
         }
     }
     
@@ -178,6 +202,10 @@ struct LoginView: View {
     }
 }
 
+enum FieldFocus: Hashable {
+    case userId
+    case authCode
+}
 
 #Preview {
     LoginView(viewModel: RootViewModel())
