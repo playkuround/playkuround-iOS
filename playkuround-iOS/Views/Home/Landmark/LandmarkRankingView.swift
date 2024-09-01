@@ -61,32 +61,6 @@ struct LandmarkRankingView: View {
                                         .frame(height: 24)
                                     
                                     VStack(alignment: .center, spacing: 5) {
-                                        /* Text(homeViewModel.getSelectedLandmark().name)
-                                            .font(.neo18)
-                                            .foregroundColor(.kuTextDarkGreen)
-                                            .kerning(-0.41) +
-                                        
-                                        Text(StringLiterals.Home.Landmark.rankingSubtext1)
-                                            .font(.neo18)
-                                            .foregroundColor(.kuText)
-                                            .kerning(-0.41)
-                                        
-                                        Text(StringLiterals.Home.Landmark.rankingSubtext2)
-                                            .font(.neo18)
-                                            .foregroundColor(.kuText)
-                                            .kerning(-0.41)
-                                        
-                                        // 1등 플레이어 닉네임
-                                        Text(rankingList[0].nickname)
-                                            .font(.neo18)
-                                            .foregroundColor(.kuTextDarkGreen)
-                                            .kerning(-0.41) +
-                                        
-                                        Text(StringLiterals.Home.Landmark.rankingSubtext3)
-                                            .font(.neo18)
-                                            .foregroundColor(.kuText)
-                                            .kerning(-0.41)*/
-                                        
                                         let originalString = NSLocalizedString("Home.Landmark.RankingSubtext", comment: "")
                                         
                                         let replacedString = originalString
@@ -94,9 +68,15 @@ struct LandmarkRankingView: View {
                                             .replacingOccurrences(of: "[NICKNAME]", with: rankingList[0].nickname)
                                             .replacingOccurrences(of: "<br>", with: "\n")
                                         
-                                        Text(replacedString)
+                                        TextWithColorSubstring(originalText: replacedString,
+                                                               colorSubText1: homeViewModel.getSelectedLandmark().name,
+                                                               colorSubText2: rankingList[0].nickname,
+                                                               regularFont: .neo18,
+                                                               regularColor: .kuText,
+                                                               color: .kuTextDarkGreen)
                                             .multilineTextAlignment(.center)
                                             .lineLimit(nil)
+                                            .kerning(-0.41)
                                     }
                                     
                                     Spacer()
@@ -215,6 +195,63 @@ struct LandmarkRankingView: View {
                 GAManager.shared.logScreenEvent(.LandmarkRankingView,
                                                 landmarkID: homeViewModel.getSelectedLandmark().number)
             }
+        }
+    }
+}
+
+struct TextWithColorSubstring: View {
+    let originalText: String
+    let colorSubText1: String
+    let colorSubText2: String
+    let regularFont: Font
+    let regularColor: Color
+    let color: Color
+
+    var body: some View {
+        // 첫 번째 colorSubText1 범위 탐색
+        if let colorRange1 = originalText.range(of: colorSubText1) {
+            let beforeRange1 = originalText[..<colorRange1.lowerBound]
+            let colorText1 = originalText[colorRange1]
+            let afterRange1 = originalText[colorRange1.upperBound...]
+            
+            // 두 번째 colorSubText2 범위 탐색
+            if let colorRange2 = afterRange1.range(of: colorSubText2) {
+                let beforeRange2 = afterRange1[..<colorRange2.lowerBound]
+                let colorText2 = afterRange1[colorRange2]
+                let afterRange2 = afterRange1[colorRange2.upperBound...]
+                
+                return Text(beforeRange1)
+                    .font(regularFont)
+                    .foregroundColor(regularColor)
+                + Text(colorText1)
+                    .font(regularFont)
+                    .foregroundColor(color)
+                + Text(beforeRange2)
+                    .font(regularFont)
+                    .foregroundColor(regularColor)
+                + Text(colorText2)
+                    .font(regularFont)
+                    .foregroundColor(color)
+                + Text(afterRange2)
+                    .font(regularFont)
+                    .foregroundColor(regularColor)
+            } else {
+                // colorSubText2가 없을 경우
+                return Text(beforeRange1)
+                    .font(regularFont)
+                    .foregroundColor(regularColor)
+                + Text(colorText1)
+                    .font(regularFont)
+                    .foregroundColor(color)
+                + Text(afterRange1)
+                    .font(regularFont)
+                    .foregroundColor(regularColor)
+            }
+        } else {
+            // colorSubText1이 없을 경우
+            return Text(originalText)
+                .font(regularFont)
+                .foregroundColor(regularColor)
         }
     }
 }
