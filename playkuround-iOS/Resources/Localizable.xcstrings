@@ -60,6 +60,75 @@
     "access" : {
       "shouldTranslate" : false
     },
+    "AppUpdate.Description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You're using an unsupported version<br>Please update PK<br>to the latest version "
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "지원하지 않는 앱 버전을 사용중이에요<br>앱스토어에서 플레이쿠라운드를<br>최신 버전으로 업데이트 해주세요"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您使用的是不支持的应用程序版本<br>请从应用程序商店将<br>PK 升级到最新版本"
+          }
+        }
+      }
+    },
+    "AppUpdate.OpenAppStore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open AppStore"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱스토어로 이동"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开 AppStore"
+          }
+        }
+      }
+    },
+    "AppUpdate.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App update required"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱 업데이트 안내"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "需要更新应用程序"
+          }
+        }
+      }
+    },
     "authVerify" : {
       "shouldTranslate" : false
     },
