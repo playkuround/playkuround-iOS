@@ -51,14 +51,11 @@ final class SurviveGameViewModel: GameViewModel {
     
     init(rootViewModel: RootViewModel, mapViewModel: MapViewModel) {
         self.motionManager = MotionManager()
-        super.init(.catchDucku, rootViewModel: rootViewModel, mapViewModel: mapViewModel, timeStart: 60.0, timeEnd: 0.0, timeInterval: 0.01)
+        super.init(.catchDucku, rootViewModel: rootViewModel, mapViewModel: mapViewModel, timeStart: 120.0, timeEnd: 0.0, timeInterval: 0.01)
         setupGyroUpdates()
     }
     
     override func startGame() {
-        self.addBug(10)
-        self.addBoat(2)
-        
         super.startGame()
         super.startTimer()
         self.isImmuned = false
@@ -212,15 +209,14 @@ final class SurviveGameViewModel: GameViewModel {
         let remainingSecond = Int(self.timeRemaining * 100) / 100
         var newNumBug = 10
         
-        // 남은 초별로 num을 업데이트
-        if remainingSecond == 50 {
-            newNumBug = 5
-        } else if remainingSecond == 40 {
-            newNumBug = 10
-        } else if remainingSecond == 30 {
-            newNumBug = 15
-        } else if remainingSecond <= 20 {
+        if remainingSecond < 20 {
             newNumBug = 20
+        } else if remainingSecond < 30 {
+            newNumBug = 15
+        } else if remainingSecond < 40 {
+            newNumBug = 10
+        } else if remainingSecond < 50 {
+            newNumBug = 5
         }
         
         DispatchQueue.main.async {
@@ -230,16 +226,20 @@ final class SurviveGameViewModel: GameViewModel {
     
     func addBug(_ num: Int) {
         for _ in 0..<num {
-            let newBug = SurviveGameEntity(type: .bug, velocity: 1, frameMaxX: self.frameMaxX, frameMaxY: self.frameMaxY)
+            let newBug = SurviveGameEntity(type: .bug, velocity: 3, frameMaxX: self.frameMaxX, frameMaxY: self.frameMaxY)
             self.bugList.append(newBug)
         }
+        
+        bugList.removeAll { $0.died }
     }
     
     func addBoat(_ num: Int) {
         for _ in 0..<num {
-            let newBoat = SurviveGameEntity(type: .boat, velocity: 2, frameMaxX: self.frameMaxX, frameMaxY: self.frameMaxY)
+            let newBoat = SurviveGameEntity(type: .boat, velocity: 6, frameMaxX: self.frameMaxX, frameMaxY: self.frameMaxY)
             self.boatList.append(newBoat)
         }
+        
+        boatList.removeAll { $0.died }
     }
     
     func duckkuHit() {

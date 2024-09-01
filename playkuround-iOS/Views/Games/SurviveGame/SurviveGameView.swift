@@ -92,14 +92,18 @@ struct SurviveGameView: View {
                         }
                         .overlay {
                             ForEach(viewModel.bugList, id: \.self) { bug in
-                                entityView(type: .bug, angle: bug.angle)
-                                    .offset(x: bug.posX, y: bug.posY)
+                                if !bug.died {
+                                    entityView(type: .bug, angle: bug.angle)
+                                        .offset(x: bug.posX, y: bug.posY)
+                                }
                             }
                             
                             ForEach(viewModel.boatList, id: \.self) { boat in
-                                entityView(type: .boat, angle: boat.angle)
-                                    .rotationEffect(boat.angle)
-                                    .offset(x: boat.posX, y: boat.posY)
+                                if !boat.died {
+                                    entityView(type: .boat, angle: boat.angle)
+                                        .rotationEffect(boat.angle)
+                                        .offset(x: boat.posX, y: boat.posY)
+                                }
                             }
                             
                             Image(viewModel.isTransparent ? .surviveDuckkuHit : .surviveDuckku)

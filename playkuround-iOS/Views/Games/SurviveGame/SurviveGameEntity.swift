@@ -15,6 +15,9 @@ struct SurviveGameEntity: Hashable {
     var posX: CGFloat
     var posY: CGFloat
     
+    // 화면 밖으로 나가면 사라짐
+    var died: Bool = false
+    
     let frameMaxX: CGFloat
     let frameMaxY: CGFloat
     
@@ -38,7 +41,7 @@ struct SurviveGameEntity: Hashable {
             // (x, -frameMaxY/2)
             let newX = Int.random(in: -Int(frameMaxX / 4)..<Int(frameMaxX / 4))
             let newY = -frameMaxY / 2 - 30
-            let newAngle = Double(Int.random(in: 60..<120))
+            let newAngle = Double(Int.random(in: 45..<135))
             
             self.posX = CGFloat(newX)
             self.posY = newY
@@ -47,7 +50,7 @@ struct SurviveGameEntity: Hashable {
             // (x, frameMaxY/2)
             let newX = Int.random(in: -Int(frameMaxX / 4)..<Int(frameMaxX / 4))
             let newY = frameMaxY / 2 + 30
-            let newAngle = Double(Int.random(in: 240..<300))
+            let newAngle = Double(Int.random(in: 225..<315))
             
             self.posX = CGFloat(newX)
             self.posY = newY
@@ -56,7 +59,7 @@ struct SurviveGameEntity: Hashable {
             // (-frameMaxX/2, y)
             let newX = -frameMaxX / 2 - 30
             let newY = Int.random(in: -Int(frameMaxY / 4)..<Int(frameMaxY / 4))
-            let newAngle = Double(Int.random(in: 300..<420) % 360)
+            let newAngle = Double(Int.random(in: 315..<405) % 360)
             
             self.posX = newX
             self.posY = CGFloat(newY)
@@ -65,7 +68,7 @@ struct SurviveGameEntity: Hashable {
             // (frameMaxX/2, y)
             let newX = frameMaxX / 2 + 30
             let newY = Int.random(in: -Int(frameMaxY / 4)..<Int(frameMaxY / 4))
-            let newAngle = Double(Int.random(in: 120..<240))
+            let newAngle = Double(Int.random(in: 135..<225))
             
             self.posX = newX
             self.posY = CGFloat(newY)
@@ -81,9 +84,9 @@ struct SurviveGameEntity: Hashable {
             self.posY += CGFloat(velocity * sin(radians))
         }
         
-        // 만약 범위를 벗어났다면 새로운 위치로 이동
+        // 만약 범위를 벗어났다면 사라지도록
         if posX < -(frameMaxX / 2) - 40 || posX > (frameMaxX / 2) + 40 || posY < (-frameMaxY / 2) - 40 || posY > (frameMaxY / 2) + 40 {
-            newPosition()
+            self.died = true
         }
     }
 }
