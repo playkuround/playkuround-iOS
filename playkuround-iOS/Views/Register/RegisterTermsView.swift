@@ -39,31 +39,39 @@ struct RegisterTermsView: View {
                     .padding(.bottom, 30)
                 
                 // 전체 동의 버튼
-                Image(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .longButtonBlue : .longButtonGray)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: .infinity)
-                    .overlay {
-                        HStack {
-                            Image(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .blackCheck : .whiteCheck)
-                                .padding(.trailing, 10)
-                            Text("Register.AgreeAllTerms")
-                                .font(.neo15)
-                                .kerning(-0.41)
-                                .foregroundStyle(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .kuText : .white)
-                            Spacer()
+                Button {
+                    if isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed {
+                        withAnimation(.spring(duration: 0.2)) {
+                            isServiceTermAgreed = false
+                            isPrivacyTermAgreed = false
+                            isLocationTermAgreed = false
                         }
-                        .padding(20)
-                    }
-                    .onTapGesture {
+                    } else {
+                        soundManager.playSound(sound: .buttonClicked)
                         withAnimation(.spring(duration: 0.2)) {
                             isServiceTermAgreed = true
                             isPrivacyTermAgreed = true
                             isLocationTermAgreed = true
-                            
-                            soundManager.playSound(sound: .buttonClicked)
                         }
                     }
+                } label: {
+                    Image(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .longButtonBlue : .longButtonGray)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: .infinity)
+                        .overlay {
+                            HStack {
+                                Image(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .blackCheck : .whiteCheck)
+                                    .padding(.trailing, 10)
+                                Text("Register.AgreeAllTerms")
+                                    .font(.neo15)
+                                    .kerning(-0.41)
+                                    .foregroundStyle(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .kuText : .white)
+                                Spacer()
+                            }
+                            .padding(20)
+                        }
+                }
                 
                 Image(.grayLine)
                     .resizable()
@@ -72,126 +80,132 @@ struct RegisterTermsView: View {
                     .padding(.vertical, 3)
                 
                 // 서비스 이용 약관 동의 버튼
-                Image(isServiceTermAgreed ? .longButtonBlue : .longButtonGray)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: .infinity)
-                    .overlay {
-                        HStack {
-                            Image(isServiceTermAgreed ? .blackCheck : .whiteCheck)
-                                .padding(.trailing, 10)
-                            Text("Register.AgreeServiceTerms")
-                                .font(.neo15)
-                                .kerning(-0.41)
-                                .foregroundStyle(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .kuText : .white)
-                            Spacer()
-                            Image(isServiceTermAgreed ? .rightBlackArrow : .rightWhiteArrow)
-                                // 버튼 잘 눌릴 수 있게 왼쪽, 위아래로 패딩을 줌
-                                .padding(.leading, 15)
-                                .padding(.vertical, 6)
-                                .onTapGesture {
+                Button {
+                    withAnimation(.spring(duration: 0.2)) {
+                        isServiceTermAgreed.toggle()
+                        soundManager.playSound(sound: .buttonClicked)
+                    }
+                } label: {
+                    Image(isServiceTermAgreed ? .longButtonBlue : .longButtonGray)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: .infinity)
+                        .overlay {
+                            HStack {
+                                Image(isServiceTermAgreed ? .blackCheck : .whiteCheck)
+                                    .padding(.trailing, 10)
+                                Text("Register.AgreeServiceTerms")
+                                    .font(.neo15)
+                                    .kerning(-0.41)
+                                    .foregroundStyle(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .kuText : .white)
+                                Spacer()
+                                Button {
                                     // TermsView 보여줌
                                     isServiceTermsViewPresented = true
                                     soundManager.playSound(sound: .buttonClicked)
+                                } label: {
+                                    Image(isServiceTermAgreed ? .rightBlackArrow : .rightWhiteArrow)
+                                        // 버튼 잘 눌릴 수 있게 왼쪽, 위아래로 패딩을 줌
+                                        .padding(.leading, 15)
+                                        .padding(.vertical, 6)
                                 }
+                            }
+                            .padding(20)
                         }
-                        .padding(20)
-                    }
-                    .onTapGesture(perform: {
-                        withAnimation(.spring(duration: 0.2)) {
-                            isServiceTermAgreed.toggle()
-                            soundManager.playSound(sound: .buttonClicked)
-                        }
-                    })
+                }
                 
                 // 개인정보 수집 및 이용 동의
-                Image(isPrivacyTermAgreed ? .longButtonBlue : .longButtonGray)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: .infinity)
-                    .overlay {
-                        HStack {
-                            Image(isPrivacyTermAgreed ? .blackCheck : .whiteCheck)
-                                .padding(.trailing, 10)
-                            Text("Register.AgreePrivacyTerms")
-                                .font(.neo15)
-                                .kerning(-0.41)
-                                .foregroundStyle(isPrivacyTermAgreed ? .kuText : .white)
-                            Spacer()
-                            Image(isPrivacyTermAgreed ? .rightBlackArrow : .rightWhiteArrow)
-                                // 버튼 잘 눌릴 수 있게 왼쪽, 위아래로 패딩을 줌
-                                .padding(.leading, 15)
-                                .padding(.vertical, 6)
-                                .onTapGesture {
+                Button {
+                    withAnimation(.spring(duration: 0.2)) {
+                        isPrivacyTermAgreed.toggle()
+                        soundManager.playSound(sound: .buttonClicked)
+                    }
+                } label: {
+                    Image(isPrivacyTermAgreed ? .longButtonBlue : .longButtonGray)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: .infinity)
+                        .overlay {
+                            HStack {
+                                Image(isPrivacyTermAgreed ? .blackCheck : .whiteCheck)
+                                    .padding(.trailing, 10)
+                                Text("Register.AgreePrivacyTerms")
+                                    .font(.neo15)
+                                    .kerning(-0.41)
+                                    .foregroundStyle(isPrivacyTermAgreed ? .kuText : .white)
+                                Spacer()
+                                Button {
                                     // TermsView 보여줌
                                     isPrivacyTermsViewPresented = true
                                     soundManager.playSound(sound: .buttonClicked)
+                                } label: {
+                                    Image(isPrivacyTermAgreed ? .rightBlackArrow : .rightWhiteArrow)
+                                        // 버튼 잘 눌릴 수 있게 왼쪽, 위아래로 패딩을 줌
+                                        .padding(.leading, 15)
+                                        .padding(.vertical, 6)
                                 }
-                            
+                            }
+                            .padding(20)
                         }
-                        .padding(20)
-                    }
-                    .onTapGesture {
-                        withAnimation(.spring(duration: 0.2)) {
-                            isPrivacyTermAgreed.toggle()
-                            soundManager.playSound(sound: .buttonClicked)
-                        }
-                    }
+                }
                 
                 // 위치기반 서비스 이용약관 동의
-                Image(isLocationTermAgreed ? .longButtonBlue : .longButtonGray)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: .infinity)
-                    .overlay {
-                        HStack {
-                            Image(isLocationTermAgreed ? .blackCheck : .whiteCheck)
-                                .padding(.trailing, 10)
-                            Text("Register.AgreeLocationTerms")
-                                .font(.neo15)
-                                .kerning(-0.41)
-                                .foregroundStyle(isLocationTermAgreed ? .kuText : .white)
-                            Spacer()
-                            Image(isLocationTermAgreed ? .rightBlackArrow : .rightWhiteArrow)
-                                // 버튼 잘 눌릴 수 있게 왼쪽, 위아래로 패딩을 줌
-                                .padding(.leading, 15)
-                                .padding(.vertical, 6)
-                                .onTapGesture {
+                Button {
+                    withAnimation(.spring(duration: 0.2)) {
+                        isLocationTermAgreed.toggle()
+                        soundManager.playSound(sound: .buttonClicked)
+                    }
+                } label: {
+                    Image(isLocationTermAgreed ? .longButtonBlue : .longButtonGray)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: .infinity)
+                        .overlay {
+                            HStack {
+                                Image(isLocationTermAgreed ? .blackCheck : .whiteCheck)
+                                    .padding(.trailing, 10)
+                                Text("Register.AgreeLocationTerms")
+                                    .font(.neo15)
+                                    .kerning(-0.41)
+                                    .foregroundStyle(isLocationTermAgreed ? .kuText : .white)
+                                Spacer()
+                                Button {
                                     // TermsView 보여줌
                                     isLocationTermsViewPresented = true
                                     soundManager.playSound(sound: .buttonClicked)
+                                } label: {
+                                    Image(isLocationTermAgreed ? .rightBlackArrow : .rightWhiteArrow)
+                                        // 버튼 잘 눌릴 수 있게 왼쪽, 위아래로 패딩을 줌
+                                        .padding(.leading, 15)
+                                        .padding(.vertical, 6)
                                 }
+                            }
+                            .padding(20)
                         }
-                        .padding(20)
-                    }
-                    .onTapGesture {
-                        withAnimation(.spring(duration: 0.2)) {
-                            isLocationTermAgreed.toggle()
-                            soundManager.playSound(sound: .buttonClicked)
-                        }
-                    }
+                }
                 
                 Spacer()
                 
                 // 다음 버튼
-                Image(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .longButtonBlue : .longButtonGray)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: .infinity)
-                    .overlay {
-                        Text("Register.Next")
-                            .font(.neo15)
-                            .kerning(-0.41)
-                            .foregroundStyle(.kuText)
+                Button {
+                    if isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed {
+                        // 다음 뷰로 이동
+                        // 뷰 전환
+                        viewModel.transition(to: .registerMajor)
+                        soundManager.playSound(sound: .buttonClicked)
                     }
-                    .onTapGesture {
-                        if isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed {
-                            // 다음 뷰로 이동
-                            // 뷰 전환
-                            viewModel.transition(to: .registerMajor)
-                            soundManager.playSound(sound: .buttonClicked)
+                } label: {
+                    Image(isServiceTermAgreed && isPrivacyTermAgreed && isLocationTermAgreed ? .longButtonBlue : .longButtonGray)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: .infinity)
+                        .overlay {
+                            Text("Register.Next")
+                                .font(.neo15)
+                                .kerning(-0.41)
+                                .foregroundStyle(.kuText)
                         }
-                    }
+                }
             }
             .padding(.horizontal)
             .padding(.top, 30)
