@@ -326,8 +326,7 @@ final class HomeViewModel: ObservableObject {
                         }
                         // 업데이트 필요
                         else if noti.name == "update" {
-                            let updateMessage = NSLocalizedString("Home.ToastMessage.UpdateMessage", comment: "")
-                            self.rootViewModel.openAlarmMessageView(message: updateMessage)
+                            self.rootViewModel.openAppUpdateAlarm()
                         }
                         else if noti.name == "new_Badge" {
                             self.rootViewModel.openNewBadgeView(badgeNames: [noti.description])
