@@ -40,7 +40,9 @@ final class RootViewModel: ObservableObject {
     
     // 서버 체크
     @Published var serverHealthy: Bool
-    @Published var needUpdate: Bool
+    
+    // 앱 업데이트 안내
+    @Published var appUpdateAlarm: Bool
     
     var openedGameTypes: [String]
     var stories: [Story]
@@ -60,7 +62,7 @@ final class RootViewModel: ObservableObject {
         self.alarmMessage = nil
         self.serverError = false
         self.serverHealthy = false
-        self.needUpdate = false
+        self.appUpdateAlarm = false
         self.openedGameTypes = UserDefaults.standard.stringArray(forKey: "openedGameTypes") ?? []
         
         let currentLanguage = Locale.current.language.languageCode?.identifier
@@ -329,7 +331,8 @@ final class RootViewModel: ObservableObject {
                         }
                     }
                     
-                    if let supportAppVersions = response.response?.supportAppVersionList {
+                    // 메인 뷰에서는 앱 버전 체크하지 않음
+                    /* if let supportAppVersions = response.response?.supportAppVersionList {
                         for version in supportAppVersions {
                             if version.os == "IOS" {
                                 let appVersion = self.currentAppVersion()
@@ -345,7 +348,7 @@ final class RootViewModel: ObservableObject {
                                 }
                             }
                         }
-                    }
+                    }*/
                 } else {
                     DispatchQueue.main.async {
                         self.serverError = true
@@ -358,6 +361,13 @@ final class RootViewModel: ObservableObject {
                     self.serverError = true
                 }
             }
+        }
+    }
+    
+    // 앱 업데이트 알림 뷰 열기
+    func openAppUpdateAlarm() {
+        DispatchQueue.main.async {
+            self.appUpdateAlarm = true
         }
     }
 }

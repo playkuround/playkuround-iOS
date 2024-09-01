@@ -95,6 +95,11 @@ struct RootView: View {
                 }
             }
             
+            // 앱 업데이트 필요
+            if viewModel.appUpdateAlarm {
+                UpdateRequestView()
+            }
+            
             // 서버 점검 중
             if viewModel.serverError {
                 NetworkErrorView(errorType: .server)
