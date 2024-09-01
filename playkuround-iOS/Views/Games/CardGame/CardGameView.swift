@@ -31,13 +31,25 @@ struct CardGameView: View {
                         }
                     
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 4), spacing: 20) {
-                        ForEach(viewModel.cardList.indices, id: \.self) { index in
-                            viewModel.cardView(for: viewModel.cardList[index])
-                                .onTapGesture {
-                                    if viewModel.cardList[index].cardState == .cover {
-                                        viewModel.coverToDrawing(index: index)
-                                    }
+                        ForEach(Array(viewModel.cardList.enumerated()), id: \.offset) { index, card in
+                            VStack {
+                                switch card.cardState {
+                                case .cover:
+                                    Image("frontCard")
+                                case .side:
+                                    Image("sideCard")
+                                case .drawing:
+                                    Image(card.cardType.rawValue)
+                                case .hidden:
+                                    Spacer()
                                 }
+                            }
+                            .frame(width: 66, height: 98)
+                            .onTapGesture {
+                                if !viewModel.isFlipping && card.cardState == .cover && (viewModel.flippedCardIndex1 == -1 || viewModel.flippedCardIndex2 == -1) {
+                                    viewModel.coverToDrawing(index: index)
+                                }
+                            }
                         }
                     }
                     .padding(.horizontal)
