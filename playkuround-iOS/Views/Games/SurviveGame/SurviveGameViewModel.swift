@@ -99,15 +99,13 @@ final class SurviveGameViewModel: GameViewModel {
         }
         
         DispatchQueue.main.async {
+            // 자이로스코프 누적 값 업데이트 (둔감하게 반응하도록 값 감소)
             self.gyroCummX += x * 0.1
             self.gyroCummY += y * 0.1
             
-            self.gyroCummX = min(max(self.gyroCummX, -2), 2)
-            self.gyroCummY = min(max(self.gyroCummY, -2), 2)
-            
             // Gyro data scaling factor
-            let scalingFactor: CGFloat = 1.0
-            let damping: CGFloat = 0.5
+            let scalingFactor: CGFloat = 0.005 // 가속도를 더 낮게 설정
+            let damping: CGFloat = 0.99 // 매우 높은 감쇠율로 관성을 크게 적용
             
             // Update acceleration based on gyro data
             self.accelerationX = CGFloat(self.gyroCummY) * scalingFactor
@@ -243,7 +241,7 @@ final class SurviveGameViewModel: GameViewModel {
     }
     
     func duckkuHit() {
-        self.life -= 1
+        // self.life -= 1
         
         if self.life == 0 {
             soundManager.playSound(sound: .microbeEnd)
