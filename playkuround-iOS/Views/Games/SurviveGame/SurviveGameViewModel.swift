@@ -51,14 +51,11 @@ final class SurviveGameViewModel: GameViewModel {
     
     init(rootViewModel: RootViewModel, mapViewModel: MapViewModel) {
         self.motionManager = MotionManager()
-        super.init(.catchDucku, rootViewModel: rootViewModel, mapViewModel: mapViewModel, timeStart: 60.0, timeEnd: 0.0, timeInterval: 0.01)
+        super.init(.catchDucku, rootViewModel: rootViewModel, mapViewModel: mapViewModel, timeStart: 120.0, timeEnd: 0.0, timeInterval: 0.01)
         setupGyroUpdates()
     }
     
     override func startGame() {
-        self.addBug(10)
-        self.addBoat(2)
-        
         super.startGame()
         super.startTimer()
         self.isImmuned = false
@@ -102,15 +99,13 @@ final class SurviveGameViewModel: GameViewModel {
         }
         
         DispatchQueue.main.async {
+            // 자이로스코프 누적 값 업데이트 (둔감하게 반응하도록 값 감소)
             self.gyroCummX += x * 0.1
             self.gyroCummY += y * 0.1
             
-            self.gyroCummX = min(max(self.gyroCummX, -2), 2)
-            self.gyroCummY = min(max(self.gyroCummY, -2), 2)
-            
             // Gyro data scaling factor
-            let scalingFactor: CGFloat = 1.0
-            let damping: CGFloat = 0.5
+            let scalingFactor: CGFloat = 0.005 // 가속도를 더 낮게 설정
+            let damping: CGFloat = 0.99 // 매우 높은 감쇠율로 관성을 크게 적용
             
             // Update acceleration based on gyro data
             self.accelerationX = CGFloat(self.gyroCummY) * scalingFactor
@@ -212,15 +207,14 @@ final class SurviveGameViewModel: GameViewModel {
         let remainingSecond = Int(self.timeRemaining * 100) / 100
         var newNumBug = 10
         
-        // 남은 초별로 num을 업데이트
-        if remainingSecond == 50 {
-            newNumBug = 5
-        } else if remainingSecond == 40 {
-            newNumBug = 10
-        } else if remainingSecond == 30 {
-            newNumBug = 15
-        } else if remainingSecond <= 20 {
+        if remainingSecond < 20 {
             newNumBug = 20
+        } else if remainingSecond < 30 {
+            newNumBug = 15
+        } else if remainingSecond < 40 {
+            newNumBug = 10
+        } else if remainingSecond < 50 {
+            newNumBug = 5
         }
         
         DispatchQueue.main.async {
@@ -230,20 +224,24 @@ final class SurviveGameViewModel: GameViewModel {
     
     func addBug(_ num: Int) {
         for _ in 0..<num {
-            let newBug = SurviveGameEntity(type: .bug, velocity: 1, frameMaxX: self.frameMaxX, frameMaxY: self.frameMaxY)
+            let newBug = SurviveGameEntity(type: .bug, velocity: 3, frameMaxX: self.frameMaxX, frameMaxY: self.frameMaxY)
             self.bugList.append(newBug)
         }
+        
+        bugList.removeAll { $0.died }
     }
     
     func addBoat(_ num: Int) {
         for _ in 0..<num {
-            let newBoat = SurviveGameEntity(type: .boat, velocity: 2, frameMaxX: self.frameMaxX, frameMaxY: self.frameMaxY)
+            let newBoat = SurviveGameEntity(type: .boat, velocity: 6, frameMaxX: self.frameMaxX, frameMaxY: self.frameMaxY)
             self.boatList.append(newBoat)
         }
+        
+        boatList.removeAll { $0.died }
     }
     
     func duckkuHit() {
-        self.life -= 1
+        // self.life -= 1
         
         if self.life == 0 {
             soundManager.playSound(sound: .microbeEnd)

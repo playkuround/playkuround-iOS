@@ -12,14 +12,10 @@ struct RegisterNickname: View {
     
     // 닉네임이 올바른지 검사
     @State private var isNicknameVaild: Bool = true
-    @State private var isNicknameDuplicated: Bool = false
     @State private var isNicknameChecked: Bool = false
     
     // 닉네임 텍스트
     @State private var nickname: String = ""
-    
-    // 서버 요청 대기
-    @State private var isLoading: Bool = false
     
     private let soundManager = SoundManager.shared
     
@@ -41,14 +37,8 @@ struct RegisterNickname: View {
                 
                 HStack {
                     // 닉네임이 올바르지 않은 경우
-                    if !isNicknameVaild {
+                    if !isNicknameVaild && !nickname.isEmpty {
                         Text("Register.InvalidNickname")
-                            .font(.pretendard14R)
-                            .foregroundStyle(.kuRed)
-                    } 
-                    // 닉네임이 중복된 경우
-                    else if isNicknameDuplicated {
-                        Text("Register.DuplicatedNickname")
                             .font(.pretendard14R)
                             .foregroundStyle(.kuRed)
                     }
@@ -76,23 +66,12 @@ struct RegisterNickname: View {
                                 .autocorrectionDisabled(true)
                                 .textInputAutocapitalization(.never)
                                 .font(.pretendard15R)
-                                .foregroundStyle(.kuText)
+                                .foregroundStyle(isNicknameVaild ? .kuText : .kuRed)
                                 .padding()
                                 .onChange(of: nickname) { newValue in
-                                    // 닉네임이 영문/한글로만 구성, 공백문자 없음, 2~8자 사이 (비어있는 경우는 제외)
-                                    if nicknameValidate(newValue) && newValue.count >= 2 && newValue.count <= 8 && !nickname.contains(" ") || nickname.isEmpty {
-                                        withAnimation(.spring) {
-                                            isNicknameVaild = true
-                                        }
-                                    } else {
-                                        withAnimation(.spring) {
-                                            isNicknameVaild = false
-                                        }
+                                    if !newValue.isEmpty {
+                                        checkNicknameAvailability(newValue)
                                     }
-                                    
-                                    // 닉네임 수정 시 중복 체크 flag 초기화
-                                    isNicknameChecked = false
-                                    isNicknameDuplicated = false
                                 }
                         }
                     }
@@ -107,37 +86,25 @@ struct RegisterNickname: View {
                 
                 Spacer()
                 
-                // 다음 버튼
-                // if 닉네임이 검사된 경우
-                //     if 닉네임이 중복된 경우 deactivate
-                //     else activate
-                // else (닉네임이 검사되기 전)
-                //     if 닉네임이 valid한 경우 active
-                //     else deactivate
-                Image(isNicknameChecked ? (isNicknameDuplicated ? .longButtonGray : .longButtonBlue) : (isNicknameVaild && nickname.count >= 2 ? .longButtonBlue : .longButtonGray))
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: .infinity)
-                    .overlay {
-                        if isLoading {
-                            // API 요청한 경우
-                            ProgressView()
-                        } else {
-                            Text("Register.Next")
+                Button {
+                    if !nickname.isEmpty && isNicknameVaild {
+                        soundManager.playSound(sound: .buttonClicked)
+                        checkNicknameBeforeRegister()
+                    }
+                } label: {
+                    // Image(isNicknameChecked ? (isNicknameDuplicated ? .longButtonGray : .longButtonBlue) : (isNicknameVaild && nickname.count >= 2 ? .longButtonBlue : .longButtonGray))
+                    Image(nickname.isEmpty || !isNicknameVaild ? .longButtonGray : .longButtonBlue)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: .infinity)
+                        .overlay {
+                            Text("Register.Done")
                                 .font(.neo15)
                                 .kerning(-0.41)
                                 .foregroundStyle(.kuText)
                         }
-                    }
-                    .onTapGesture {
-                        soundManager.playSound(sound: .buttonClicked)
-                        // 닉네임 올바른지 검사
-                        if !isNicknameChecked && isNicknameVaild && nickname.count >= 2 {
-                            isLoading = true
-                            // 서버에 API 요청해서 닉네임 올바른지 검사
-                            checkNicknameAvailability()
-                        }
-                    }
+                }
+                .disabled(nickname.isEmpty || !isNicknameVaild)
             }
             .padding(.horizontal)
             .padding(.top, 30)
@@ -148,8 +115,43 @@ struct RegisterNickname: View {
         }
     }
     
+    private func checkNicknameAvailability(_ newNickname: String) {
+        print(newNickname)
+        if newNickname.count < 2 || newNickname.count > 8 || newNickname.contains(" ") || newNickname.isEmpty {
+            withAnimation(.spring(duration: 0.2)) {
+                self.isNicknameVaild = false
+            }
+            print("nickname is invalid 1")
+            return
+        }
+        
+        if !nicknameValidate(newNickname) {
+            withAnimation(.spring(duration: 0.2)) {
+                self.isNicknameVaild = false
+            }
+            print("nickname is invalid 2")
+            return
+        }
+        
+        APIManager.shared.callGETAPI(endpoint: .availability, querys: ["nickname": newNickname]) { result in
+            switch result {
+            case .success(let data):
+                print(data)
+                if let response = data as? BoolResponse {
+                    if response.response {
+                        self.isNicknameVaild = true
+                    } else {
+                        self.isNicknameVaild = false
+                    }
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     // 서버 API 통해 닉네임이 사용 가능한지 검사
-    private func checkNicknameAvailability() {
+    private func checkNicknameBeforeRegister() {
         APIManager.shared.callGETAPI(endpoint: .availability, querys: ["nickname": nickname]) { result in
             switch result {
             case .success(let data):
@@ -157,7 +159,6 @@ struct RegisterNickname: View {
                     print("nickname availability: ", response.response)
                     if response.response {
                         // TODO: 다음 뷰로 이동
-                        isLoading = false
                         print("nickname is available, transfer to next view")
                         // TODO: 회원가입 프로세스 진행
                         
@@ -175,22 +176,15 @@ struct RegisterNickname: View {
                             register(email: email, major: major, token: authVerifyToken)
                         }
                     } else {
-                        isNicknameDuplicated = true
                         isNicknameChecked = true
-                        isLoading = false
                         self.viewModel.openToastMessageView(message: NSLocalizedString("Register.ToastMessage.NicknameDuplicated", comment: ""))
                     }
                 } else {
-                    isNicknameDuplicated = true
-                    isNicknameChecked = true
-                    isLoading = false
                     self.viewModel.openToastMessageView(message: NSLocalizedString("Network.ServerError", comment: ""))
                 }
             case .failure(let error):
                 print("Error in View: \(error)")
-                isNicknameDuplicated = true
                 isNicknameChecked = true
-                isLoading = false
                 self.viewModel.openToastMessageView(message: NSLocalizedString("Network.ServerError", comment: ""))
                 
             }
@@ -249,9 +243,7 @@ struct RegisterNickname: View {
             case .failure(let data):
                 // 회원가입 실패 메시지 (서버 오류 등)
                 print(data)
-                isNicknameDuplicated = false
                 isNicknameChecked = false
-                isLoading = false
                 self.viewModel.openToastMessageView(message: NSLocalizedString("Register.ToastMessage.RegisterFailed", comment: ""))
             }
         }

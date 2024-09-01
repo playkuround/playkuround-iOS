@@ -16,42 +16,44 @@ struct GamePauseView: View {
             Color.black.opacity(0.66).ignoresSafeArea()
             
             VStack {
-                Image(.shortButtonBlue)
-                    .overlay {
-                        Text("Game.Play")
-                            .font(.neo20)
-                            .foregroundStyle(.kuText)
-                            .kerning(-0.41)
-                    }
-                    .padding(.bottom, 12)
-                    .onTapGesture {
-                        soundManager.playSound(sound: .buttonClicked)
-                        
-                        // 게임 이어서 이벤트
-                        GAManager.shared.logEvent(.GAME_RESUME,
-                                                  parameters: ["GameType": viewModel.gameType.rawValue])
-                        
-                        // GamePauseView 닫고 게임 계속 진행
-                        viewModel.togglePauseView()
-                    }
+                Button {
+                    soundManager.playSound(sound: .buttonClicked)
+                    
+                    // 게임 이어서 이벤트
+                    GAManager.shared.logEvent(.GAME_RESUME,
+                                              parameters: ["GameType": viewModel.gameType.rawValue])
+                    
+                    // GamePauseView 닫고 게임 계속 진행
+                    viewModel.togglePauseView()
+                } label: {
+                    Image(.shortButtonBlue)
+                        .overlay {
+                            Text("Game.Play")
+                                .font(.neo20)
+                                .foregroundStyle(.kuText)
+                                .kerning(-0.41)
+                        }
+                        .padding(.bottom, 12)
+                }
                 
-                Image(.shortButtonGray)
-                    .overlay {
-                        Text("Game.Home")
-                            .font(.neo20)
-                            .foregroundStyle(.kuText)
-                            .kerning(-0.41)
-                    }
-                    .onTapGesture {
-                        soundManager.playSound(sound: .buttonClicked)
-                        
-                        // 게임 중단 이벤트
-                        GAManager.shared.logEvent(.GAME_QUIT,
-                                                  parameters: ["GameType": viewModel.gameType.rawValue])
-                        
-                        // 홈 뷰로 이동
-                        viewModel.stopGame()
-                    }
+                Button {
+                    soundManager.playSound(sound: .buttonClicked)
+                    
+                    // 게임 중단 이벤트
+                    GAManager.shared.logEvent(.GAME_QUIT,
+                                              parameters: ["GameType": viewModel.gameType.rawValue])
+                    
+                    // 홈 뷰로 이동
+                    viewModel.stopGame()
+                } label: {
+                    Image(.shortButtonGray)
+                        .overlay {
+                            Text("Game.Home")
+                                .font(.neo20)
+                                .foregroundStyle(.kuText)
+                                .kerning(-0.41)
+                        }
+                }
             }
         }
         .onAppear {

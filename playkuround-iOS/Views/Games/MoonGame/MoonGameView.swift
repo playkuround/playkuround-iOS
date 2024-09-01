@@ -20,9 +20,6 @@ struct MoonGameView: View {
                 Image(.moonBackground)
                     .resizable()
                     .ignoresSafeArea(.all)
-                    .onReceive(viewModel.timer) { _ in
-                        viewModel.updateTimer()
-                    }
                 
                 // 뷰의 사이즈에 따라 Image의 padding값 조절
                 let shouldImagePadding = geometry.size.height >= 700

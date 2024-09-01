@@ -463,6 +463,29 @@
         }
       }
     },
+    "Game.NoUpload" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Game score not uploaded"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "게임 점수가 반영되지 않았습니다"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未反映游戏得分"
+          }
+        }
+      }
+    },
     "Game.Play" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2577,7 +2600,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "계정 삭제"
+            "value" : "탈퇴하기"
           }
         },
         "zh-Hans" : {
@@ -2623,7 +2646,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "계정을 삭제하시겠습니까?<br>모든 데이터가 삭제됩니다"
+            "value" : "정말 탈퇴하시겠습니까?<br>모든 데이터가 삭제됩니다"
           }
         },
         "zh-Hans" : {
@@ -3361,7 +3384,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Please allow location permissions in the settings and enjoy PlayKuround to the fullest!"
+            "value" : "Please allow location permissions<br>in the settings and enjoy PlayKuround to the fullest!"
           }
         },
         "ko" : {
@@ -3431,7 +3454,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Allow location permissions and you're ready to play 'PK"
+            "value" : "Allow location permissions and you're ready to play PK"
           }
         },
         "ko" : {
@@ -3611,6 +3634,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "请选择所属大学."
+          }
+        }
+      }
+    },
+    "Register.Done" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "완료"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成"
           }
         }
       }

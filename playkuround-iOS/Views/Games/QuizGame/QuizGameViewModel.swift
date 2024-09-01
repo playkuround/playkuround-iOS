@@ -114,8 +114,8 @@ final class QuizGameViewModel: GameViewModel {
             
             if isCorrectAnswer {
                 self.correctAnswersCount += 1
-                self.score += self.correctAnswersCount * 10
                 self.soundManager.playSound(sound: .quizCorrect)
+                self.calculateScore()
                 
                 self.loadNextQuestion()
             } else {
@@ -142,16 +142,28 @@ final class QuizGameViewModel: GameViewModel {
     }
     
     private func calculateScore() {
+//        if correctAnswersCount == 0 {
+//            score = 5
+//        }
+//        else if correctAnswersCount >= 1 && correctAnswersCount <= 15 {
+//            score = 10 * correctAnswersCount
+//        }
+//        else if correctAnswersCount >= 16 && correctAnswersCount <= 25 {
+//            score = 10 * ( 2 * correctAnswersCount - 14 )
+//        }
+//        else if correctAnswersCount >= 26 {
+//            score = 400
+//        }
+        
         if correctAnswersCount == 0 {
-            score = 5
+            self.score = 5
         }
-        else if correctAnswersCount >= 1 && correctAnswersCount <= 15 {
-            score = 10 * correctAnswersCount
+        else if correctAnswersCount <= 15 {
+            self.score = 10 * correctAnswersCount
         }
-        else if correctAnswersCount >= 16 && correctAnswersCount <= 25 {
-            score = 10 * ( 2 * correctAnswersCount - 14 )
-        }
-        else if correctAnswersCount >= 26 {
+        else if correctAnswersCount <= 25 {
+            self.score = 20 * (correctAnswersCount - 16) + 180
+        } else {
             score = 400
         }
     }

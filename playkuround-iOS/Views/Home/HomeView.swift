@@ -137,6 +137,7 @@ struct HomeView: View {
                                 if homeViewModel.eventList.isEmpty {
                                     viewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.NoEvent", comment: ""))
                                 } else {
+                                    homeViewModel.loadEvents()
                                     homeViewModel.transition(to: .notification)
                                 }
                             } label: {
