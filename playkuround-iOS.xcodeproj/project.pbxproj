@@ -69,6 +69,7 @@
 		0CA07D712BFDA98400564AEB /* SurviveGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA07D702BFDA98400564AEB /* SurviveGameViewModel.swift */; };
 		0CA193562BB5ABEB007C04B1 /* RequestPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */; };
 		0CA193592BB5B49A007C04B1 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CA193582BB5B49A007C04B1 /* Pretendard-Bold.otf */; };
+		0CA1D3F52C84CF7D001F4E58 /* CupidEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA1D3F42C84CF7B001F4E58 /* CupidEntity.swift */; };
 		0CA4C5662BB3281F00268B07 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA4C5652BB3281F00268B07 /* RootView.swift */; };
 		0CA82DB22C70B93400914DC4 /* ProfileBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA82DB12C70B93400914DC4 /* ProfileBadgeView.swift */; };
 		0CB029E22C833AAE00AA8182 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB029E12C833AA900AA8182 /* UIApplication+.swift */; };
@@ -225,6 +226,7 @@
 		0CA07D702BFDA98400564AEB /* SurviveGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurviveGameViewModel.swift; sourceTree = "<group>"; };
 		0CA193552BB5ABEB007C04B1 /* RequestPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionView.swift; sourceTree = "<group>"; };
 		0CA193582BB5B49A007C04B1 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		0CA1D3F42C84CF7B001F4E58 /* CupidEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupidEntity.swift; sourceTree = "<group>"; };
 		0CA4C5652BB3281F00268B07 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		0CA82DB12C70B93400914DC4 /* ProfileBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBadgeView.swift; sourceTree = "<group>"; };
 		0CB029E12C833AA900AA8182 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
@@ -588,6 +590,7 @@
 		B9018CF92BDB60D400BC819C /* CupidGame */ = {
 			isa = PBXGroup;
 			children = (
+				0CA1D3F42C84CF7B001F4E58 /* CupidEntity.swift */,
 				B9018CFA2BDB60E000BC819C /* CupidGameView.swift */,
 				B9018CFC2BDB611F00BC819C /* CupidGameViewModel.swift */,
 			);
@@ -1087,6 +1090,7 @@
 				B9A334EE2C0BA050006A6A24 /* BadgeView.swift in Sources */,
 				0C691EB12BBD9FF2004021F1 /* TimerGameViewModel.swift in Sources */,
 				0C7C4E3F2C07A2E200ABB4D8 /* MapView.swift in Sources */,
+				0CA1D3F52C84CF7D001F4E58 /* CupidEntity.swift in Sources */,
 				0C31576C2BB7CCC000F270F7 /* Landmark.swift in Sources */,
 				0CB465AE2BB3D1C700317455 /* RootViewModel.swift in Sources */,
 				0C6396E82BAB4BB8008E046F /* RegisterNickname.swift in Sources */,
