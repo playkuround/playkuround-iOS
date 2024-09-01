@@ -31,6 +31,7 @@ struct CheckDeleteAccountView: View {
                     .kerning(-0.41)
                     .foregroundStyle(.white)
                     .padding(.bottom, 15)
+                    .multilineTextAlignment(.center)
                 
                 Button(action: {
                     isDeleteAccountPresented = false
