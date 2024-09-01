@@ -122,28 +122,16 @@ final class AllClickGameViewModel: GameViewModel {
     }
     
     func calculateScore(index: Int) {
-        // 기초교양일 때 -> 기존 점수 + 1
-        if self.subjects[index].type == .basic {
-            if 3 <= self.subjects[index].title.count, self.subjects[index].title.count <= 5 {
-                score += 2
-            }
-            else if 6 <= self.subjects[index].title.count, self.subjects[index].title.count <= 8 {
-                score += 3
-            }
-            else if 9 <= self.subjects[index].title.count {
-                score += 4
-            }
+        let word = self.subjects[index].title
+        
+        if word.count <= 4 {
+            score += 2
+        }
+        else if word.count <= 8 {
+            score += 4
         }
         else {
-            if 3 <= self.subjects[index].title.count, self.subjects[index].title.count <= 5 {
-                score += 1
-            }
-            else if 6 <= self.subjects[index].title.count, self.subjects[index].title.count <= 8 {
-                score += 2
-            }
-            else if 9 <= self.subjects[index].title.count {
-                score += 3
-            }
+            score += 6
         }
     }
     
