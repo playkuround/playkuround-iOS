@@ -44,7 +44,12 @@ struct RegisterView: View {
                 // 단과대 Menu Button
                 Button {
                     withAnimation(.spring) {
-                        isCollegeMenuPresented.toggle()
+                        if isCollegeMenuPresented {
+                            isCollegeMenuPresented = false
+                        } else {
+                            isCollegeMenuPresented = true
+                            isMajorMenuPresented = false
+                        }
                         soundManager.playSound(sound: .buttonClicked)
                     }
                 } label: {
@@ -79,7 +84,12 @@ struct RegisterView: View {
                 Button {
                     if selectedCollege != nil {
                         withAnimation(.spring) {
-                            isMajorMenuPresented.toggle()
+                            if isMajorMenuPresented {
+                                isMajorMenuPresented = false
+                            } else {
+                                isMajorMenuPresented = true
+                                isCollegeMenuPresented = false
+                            }
                             soundManager.playSound(sound: .buttonClicked)
                         }
                     }
