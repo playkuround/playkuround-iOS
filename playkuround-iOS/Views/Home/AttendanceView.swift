@@ -120,23 +120,23 @@ struct AttendanceView: View {
             }, height: 67)
         }
         .onAppear {
-            dates = generateDates()
+            dates = generate30Dates()
             GAManager.shared.logScreenEvent(.AttendanceView)
         }
     }
     
-    private func generateDates() -> [Date] {
+    private func generate30Dates() -> [Date] {
         var calendar = Calendar.current
         calendar.timeZone = TimeZone(identifier: "Asia/Seoul")!
         
         let today = Date()
         let startOfToday = calendar.startOfDay(for: today)
         
-        let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: startOfToday))!
-        guard let fiveWeeksAgo = calendar.date(byAdding: .weekOfYear, value: -4, to: startOfWeek) else { return [] }
+        // 30일 전의 날짜를 계산
+        guard let thirtyDaysAgo = calendar.date(byAdding: .day, value: -29, to: startOfToday) else { return [] }
         
         var dates = [Date]()
-        var currentDate = fiveWeeksAgo
+        var currentDate = thirtyDaysAgo
         while currentDate <= startOfToday {
             dates.append(currentDate)
             guard let newDate = calendar.date(byAdding: .day, value: 1, to: currentDate) else { break }
