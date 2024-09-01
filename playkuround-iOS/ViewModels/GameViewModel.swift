@@ -214,6 +214,9 @@ class GameViewModel: ObservableObject {
         
         // 홈으로 이동
         rootViewModel.transition(to: .home)
+        
+        let message = NSLocalizedString("Game.NoUpload", comment: "")
+        rootViewModel.openToastMessageView(message: message)
     }
  
     // MARK: - 타이머 관련 함수
