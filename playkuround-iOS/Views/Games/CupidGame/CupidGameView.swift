@@ -63,17 +63,13 @@ struct CupidGameView: View {
                         }
                         .overlay {
                             ZStack {
-                                // black
                                 ForEach(Array(viewModel.duckkuList.enumerated()), id: \.offset) { index, duckku in
                                     if !duckku.died {
+                                        // black
                                         Image(.cupidDuckkuBlack)
                                             .offset(x: duckku.posBlack)
-                                    }
-                                }
-                                
-                                // white
-                                ForEach(Array(viewModel.duckkuList.enumerated()), id: \.offset) { index, duckku in
-                                    if !duckku.died {
+                                        
+                                        // white
                                         Image(.cupidDuckkuWhite)
                                             .offset(x: duckku.posWhite)
                                     }
