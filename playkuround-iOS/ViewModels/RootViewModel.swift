@@ -282,6 +282,16 @@ final class RootViewModel: ObservableObject {
         }
     }
     
+    // 토스트 메시지 바로 닫기
+    func closeToastMessageView() {
+        DispatchQueue.main.async {
+            self.toastMessage = nil
+            withAnimation(.easeInOut(duration: 0.3)) {
+                self.toastMessageShowing = false
+            }
+        }
+    }
+    
     // 설정 열기
     func openSetting() {
         guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
