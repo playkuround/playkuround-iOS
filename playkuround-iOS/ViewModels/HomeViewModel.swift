@@ -142,7 +142,7 @@ final class HomeViewModel: ObservableObject {
     
     // MARK: - Badge List
     // 유저 뱃지 목록 불러오는 함수
-    func loadBadge() {
+    func loadBadge(loading: Bool = false) {
         APIManager.shared.callGETAPI(endpoint: .badges) { result in
             switch result {
             case .success(let data):
@@ -153,18 +153,32 @@ final class HomeViewModel: ObservableObject {
                         DispatchQueue.main.async {
                             self.badgeList = badgeList
                             print(self.badgeList.count)
+                            if loading {
+                                self.rootViewModel.closeLoadingView()
+                            }
                         }
+                    } else {
+                        if loading {
+                            self.rootViewModel.closeLoadingView()
+                        }
+                    }
+                } else {
+                    if loading {
+                        self.rootViewModel.closeLoadingView()
                     }
                 }
             case .failure(let error):
                 print("Error in View: \(error)")
+                if loading {
+                    self.rootViewModel.closeLoadingView()
+                }
             }
         }
     }
     
     // MARK: - Attendance
     // 유저 출석 불러오는 함수
-    func loadAttendance() {
+    func loadAttendance(loading: Bool = false) {
         APIManager.shared.callGETAPI(endpoint: .attendances) { result in
             switch result {
             case .success(let data):
@@ -182,6 +196,10 @@ final class HomeViewModel: ObservableObject {
                     self.loadBadge()
                     self.loadTotalRanking()
                     
+                    if loading {
+                        self.rootViewModel.closeLoadingView()
+                    }
+                    
                     // 뱃지 열기
                     var newBadgeNameList: [String] = []
                     
@@ -196,10 +214,17 @@ final class HomeViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList)
                     }
+                } else {
+                    if loading {
+                        self.rootViewModel.closeLoadingView()
+                    }
                 }
                 
             case .failure(let error):
                 print("Error in View: \(error)")
+                if loading {
+                    self.rootViewModel.closeLoadingView()
+                }
             }
         }
     }

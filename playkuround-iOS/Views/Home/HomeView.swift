@@ -60,6 +60,7 @@ struct HomeView: View {
                                 .padding(.trailing, 10)
                         }
                         .onTapGesture {
+                            viewModel.openLoadingView()
                             homeViewModel.transition(to: .badgeProfile)
                         }
                         
@@ -120,6 +121,7 @@ struct HomeView: View {
                             }
                             
                             Button {
+                                // viewModel.openLoadingView()
                                 homeViewModel.transition(to: .ranking)
                                 soundManager.playSound(sound: .buttonClicked)
                             } label: {
@@ -127,6 +129,7 @@ struct HomeView: View {
                             }
                             
                             Button {
+                                // viewModel.openLoadingView()
                                 homeViewModel.transition(to: .myPage)
                                 soundManager.playSound(sound: .buttonClicked)
                             } label: {
@@ -138,6 +141,7 @@ struct HomeView: View {
                                 if homeViewModel.eventList.isEmpty {
                                     viewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.NoEvent", comment: ""))
                                 } else {
+                                    // viewModel.openLoadingView()
                                     homeViewModel.loadEvents()
                                     homeViewModel.transition(to: .notification)
                                 }
@@ -213,6 +217,7 @@ struct HomeView: View {
                         .padding(.bottom, shouldPadding ? 60 : 70)
                     } else {
                         Button {
+                            // viewModel.openLoadingView()
                             let latitude = mapViewModel.userLatitude
                             let longitude = mapViewModel.userLongitude
                             
@@ -247,7 +252,7 @@ struct HomeView: View {
                 case .adventure:
                     AdventureView(viewModel: viewModel, homeViewModel: homeViewModel)
                 case .badgeProfile:
-                    ProfileBadgeView(homeViewModel: homeViewModel)
+                    ProfileBadgeView(homeViewModel: homeViewModel, rootViewModel: viewModel)
                 case .notification:
                     NotificationView(homeViewModel: homeViewModel)
                 }
