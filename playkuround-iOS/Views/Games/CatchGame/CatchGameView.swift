@@ -76,25 +76,25 @@ struct CatchGameView: View {
                                 // 20초 미만 1초마다 1번
                                 if timeRemainingSecond < 2000 {
                                     if timeRemainingSecond % 100 == 0 {
-                                        // 20초 미만일 경우 검은 오리 4개(고정) 하얀 오리 3개(고정)
-                                        viewModel.step(whiteNum: 3, blackNum: 4)
+                                        // 20초 미만 흰4 검3 1초 간격
+                                        viewModel.step(whiteNum: 4, blackNum: 3)
                                     }
                                 }
                                 
                                 // 20초 이상 2초마다 1번
                                 else if timeRemainingSecond < 4000 {
                                     if timeRemainingSecond % 200 == 0 {
-                                        // 40초 미만일 경우 검은 오리 4개(고정) 하얀 오리 3개(고정)
-                                        viewModel.step(whiteNum: 3, blackNum: 4)
+                                        // 40~20초일 경우 흰4 검3 2초 간격
+                                        viewModel.step(whiteNum: 4, blackNum: 3)
                                     }
                                 } 
                                 
                                 // 40초 이상 3초마다 1번
                                 else {
                                     if timeRemainingSecond % 300 == 0 {
-                                        // 60~40초일 경우 검은오리 3개(고정) 하얀 오리 2~3개
-                                        let whiteNum = Int.random(in: 2..<4)
-                                        viewModel.step(whiteNum: whiteNum, blackNum: 3)
+                                        // 60~40초일 경우 흰3 검2~3 3초간격
+                                        let blackNum = Int.random(in: 2..<4)
+                                        viewModel.step(whiteNum: 3, blackNum: blackNum)
                                     }
                                 }
                             }
