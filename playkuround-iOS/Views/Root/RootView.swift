@@ -70,10 +70,6 @@ struct RootView: View {
             if !viewModel.networkManager.isConnected {
                 NetworkErrorView()
             }
-            // loading
-            else if viewModel.isLoading {
-                LoadingView(loadingColor: .white)
-            }
             // Location Permission Request View
             else if viewModel.currentView == .home
                         && !(mapViewModel.isAuthorized == .authorizedAlways
@@ -98,6 +94,11 @@ struct RootView: View {
             // 앱 업데이트 필요
             if viewModel.appUpdateAlarm {
                 UpdateRequestView()
+            }
+            
+            // 로딩뷰
+            if viewModel.isLoading {
+                LoadingView(loadingColor: .white)
             }
             
             // 서버 점검 중

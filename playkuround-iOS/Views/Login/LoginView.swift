@@ -66,6 +66,8 @@ struct LoginView: View {
                     }
                 
                 Button(action: {
+                    viewModel.openLoadingView()
+                    
                     mailButtonClicked.toggle()
                     soundManager.playSound(sound: .buttonClicked)
                     
@@ -147,6 +149,8 @@ struct LoginView: View {
                     keyboardOffset = 0
                 }
             }
+            
+            viewModel.closeLoadingView()
         }
         .onTapGesture {
             UIApplication.shared.dismissKeyboard()
@@ -173,6 +177,7 @@ struct LoginView: View {
                 
                 if let response = data as? APIResponse {
                     if response.isSuccess {
+                        viewModel.closeLoadingView()
                         if let count = response.response?.sendingCount {
                             isAuthCodeViewVisible = true
                             isMaximumCount = false
@@ -180,6 +185,7 @@ struct LoginView: View {
                         }
                     }
                     else {
+                        viewModel.closeLoadingView()
                         if UserDefaults.standard.bool(forKey: "IS_ADMIN") {
                             isAuthCodeViewVisible = true
                             isMaximumCount = false
@@ -193,9 +199,12 @@ struct LoginView: View {
                             self.viewModel.openToastMessageView(message: NSLocalizedString("Login.ToastMessage.overNumMail", comment: ""))
                         }
                     }
+                } else {
+                    viewModel.closeLoadingView()
                 }
             case .failure(let error):
                 print("Error in View: \(error)")
+                viewModel.closeLoadingView()
                 self.viewModel.openToastMessageView(message: NSLocalizedString("Login.ToastMessage.EmailSendFail", comment: ""))
             }
         }

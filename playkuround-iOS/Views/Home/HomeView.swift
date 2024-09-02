@@ -263,6 +263,8 @@ struct HomeView: View {
                 homeViewModel.loadEvents()
                 
                 GAManager.shared.logScreenEvent(.HomeView)
+                
+                viewModel.closeLoadingView()
             }
             .onDisappear {
                 // 홈 뷰에서 벗어날 때 위치 업데이트 중지

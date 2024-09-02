@@ -36,6 +36,8 @@ struct MainView: View {
                     Spacer()
                     
                     Button {
+                        viewModel.openLoadingView()
+                        
                         viewModel.checkSystemAvailable()
                         
                         soundManager.playSound(sound: .buttonClicked)
