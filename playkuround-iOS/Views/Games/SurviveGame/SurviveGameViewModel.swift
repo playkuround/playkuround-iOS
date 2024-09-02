@@ -227,7 +227,7 @@ final class SurviveGameViewModel: GameViewModel {
     }
     
     func duckkuHit() {
-        // self.life -= 1
+        self.life -= 1
         
         if self.life == 0 {
             soundManager.playSound(sound: .microbeEnd)
