@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct ToastAlertView: View {
+    @ObservedObject var rootViewModel: RootViewModel
     let alertText: String
     
     var body: some View {
         ZStack {
             Color.black.opacity(0.5).ignoresSafeArea()
+                .onTapGesture {
+                    rootViewModel.closeToastMessageView()
+                }
+            
             Image(.toastAlert)
                 .overlay {
                     HStack(alignment: .center, spacing: 10) {
@@ -29,5 +34,5 @@ struct ToastAlertView: View {
 }
 
 #Preview {
-    ToastAlertView(alertText: "서버에 연결할 수 없습니다.\n잠시 후 다시 시도해주세요. 테스트 테스트 테스트")
+    ToastAlertView(rootViewModel: RootViewModel(), alertText: "서버에 연결할 수 없습니다.\n잠시 후 다시 시도해주세요. 테스트 테스트 테스트")
 }

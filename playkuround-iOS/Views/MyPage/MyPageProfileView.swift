@@ -43,6 +43,9 @@ struct MyPageProfileView: View {
             }
 
             Image(.mypageCurrentScore)
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: .infinity)
                 .overlay(currentScoreOverlay)
                 .padding(.top, 15)
 
@@ -65,8 +68,12 @@ struct MyPageProfileView: View {
             }
 
             Image(.mypageHighestScore)
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: .infinity)
                 .overlay(highestScoreOverlay)
         }
+        .padding(.horizontal, 20)
     }
     
     private func getLocalizedMajorName() -> String? {

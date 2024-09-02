@@ -1246,7 +1246,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "[LANDMARK]을 <br>제일 많이 정복한 사람은 <br>[NICKNAME]님입니다"
+            "value" : "[LANDMARK]을/를 <br>제일 많이 정복한 사람은 <br>[NICKNAME]님입니다"
           }
         },
         "zh-Hans" : {

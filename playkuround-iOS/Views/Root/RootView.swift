@@ -84,7 +84,7 @@ struct RootView: View {
             // 토스트 메시지 (최상단)
             if viewModel.toastMessageShowing {
                 if let message = viewModel.toastMessage {
-                    ToastAlertView(alertText: message)
+                    ToastAlertView(rootViewModel: viewModel, alertText: message)
                 }
             }
             
