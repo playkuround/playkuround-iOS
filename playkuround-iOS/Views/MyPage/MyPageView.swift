@@ -68,21 +68,6 @@ struct MyPageView: View {
             }
             .padding(.top, 100)
             
-            if isStoryViewPresented {
-                StoryView(rootViewModel: viewModel, showStoryView: $isStoryViewPresented)
-            }
-            else if isLogoutPresented {
-                CheckLogoutView(viewModel: viewModel,
-                                isLogoutPresented: $isLogoutPresented)
-            }
-            else if isCheerPresented {
-                CheerPKTeamView()
-            }
-            else if isDeleteAccountPresented {
-                CheckDeleteAccountView(viewModel: viewModel,
-                                       isDeleteAccountPresented: $isDeleteAccountPresented)
-            }
-            
             Spacer()
                 .customNavigationBar(
                     centerView: {
@@ -98,6 +83,21 @@ struct MyPageView: View {
                             Image(.leftBlackArrow)
                         })
                     }, height: 73)
+            
+            if isStoryViewPresented {
+                StoryView(rootViewModel: viewModel, showStoryView: $isStoryViewPresented)
+            }
+            else if isLogoutPresented {
+                CheckLogoutView(viewModel: viewModel,
+                                isLogoutPresented: $isLogoutPresented)
+            }
+            else if isCheerPresented {
+                CheerPKTeamView()
+            }
+            else if isDeleteAccountPresented {
+                CheckDeleteAccountView(viewModel: viewModel,
+                                       isDeleteAccountPresented: $isDeleteAccountPresented)
+            }
         }
         .fullScreenCover(isPresented: $isServiceTermsViewPresented) {
             TermsView(title: NSLocalizedString("Register.ServiceTermsTitle", comment: "") , termsType: .service)
@@ -146,4 +146,8 @@ enum MyPageSection {
     case Setting
     case Shortcut
     case Instruction
+}
+
+#Preview {
+    MyPageView(viewModel: RootViewModel(), homeViewModel: HomeViewModel(rootViewModel: RootViewModel()))
 }
