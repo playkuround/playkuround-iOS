@@ -129,7 +129,6 @@ struct HomeView: View {
                             }
                             
                             Button {
-                                // viewModel.openLoadingView()
                                 homeViewModel.transition(to: .myPage)
                                 soundManager.playSound(sound: .buttonClicked)
                             } label: {
