@@ -204,7 +204,7 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    func attendance(latitude: Double, longitude: Double) {
+    func attendance(latitude: Double, longitude: Double, loading: Bool = false) {
         APIManager.shared.callPOSTAPI(endpoint: .attendances, parameters: ["latitude": latitude, "longitude": longitude]) { result in
             switch result {
             case .success(let data):
@@ -229,23 +229,36 @@ final class HomeViewModel: ObservableObject {
                         
                         print("** newBadgeList: \(newBadgeNameList)")
                         
+                        if loading {
+                            self.rootViewModel.closeLoadingView()
+                        }
+                        
                         DispatchQueue.main.async {
                             self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList)
                         }
                     } else {
                         // 출석 실패 이벤트
                         GAManager.shared.logEvent(.ATTENDANCE_FAIL)
+                        if loading {
+                            self.rootViewModel.closeLoadingView()
+                        }
                         self.rootViewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.AttendanceFailed", comment: ""))
                     }
                 } else {
                     // 출석 실패 이벤트
                     GAManager.shared.logEvent(.ATTENDANCE_FAIL)
+                    if loading {
+                        self.rootViewModel.closeLoadingView()
+                    }
                     self.rootViewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.AttendanceFailed", comment: ""))
                 }
             case .failure(let error):
                 print("Error in View: \(error)")
                 // 출석 실패 이벤트
                 GAManager.shared.logEvent(.ATTENDANCE_FAIL)
+                if loading {
+                    self.rootViewModel.closeLoadingView()
+                }
                 self.rootViewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.AttendanceFailed", comment: ""))
             }
         }

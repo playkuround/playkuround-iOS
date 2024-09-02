@@ -105,6 +105,7 @@ struct HomeView: View {
                         // TODO: 버튼 클릭 시 각 뷰 표시
                         VStack(spacing: 7) {
                             Button {
+                                viewModel.openLoadingView()
                                 homeViewModel.transition(to: .attendance)
                                 soundManager.playSound(sound: .buttonClicked)
                             } label: {
