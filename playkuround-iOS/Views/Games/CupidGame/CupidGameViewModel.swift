@@ -97,18 +97,18 @@ final class CupidGameViewModel: GameViewModel {
             print("\(minId), distance: \(minDuckku.posBlack)")
             
             // perfect
-            if 0 <= minDuckku.posBlack && minDuckku.posBlack < 8 {
+            if -4 < minDuckku.posBlack && minDuckku.posBlack < 4 {
                 DispatchQueue.main.async {
-                    self.score += 3
+                    self.score += 5
                 }
                 soundManager.playSound(sound: .cupidGoodOrPerfect)
                 openResultTitle(.perfect)
             }
             
             // good
-            else if 8 <= minDuckku.posBlack && minDuckku.posBlack < 16 {
+            else if -8 < minDuckku.posBlack && minDuckku.posBlack < 8 {
                 DispatchQueue.main.async {
-                    self.score += 1
+                    self.score += 2
                 }
                 soundManager.playSound(sound: .cupidGoodOrPerfect)
                 openResultTitle(.good)
