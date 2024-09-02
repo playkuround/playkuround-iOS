@@ -121,7 +121,6 @@ struct HomeView: View {
                             }
                             
                             Button {
-                                // viewModel.openLoadingView()
                                 homeViewModel.transition(to: .ranking)
                                 soundManager.playSound(sound: .buttonClicked)
                             } label: {
@@ -140,7 +139,6 @@ struct HomeView: View {
                                 if homeViewModel.eventList.isEmpty {
                                     viewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.NoEvent", comment: ""))
                                 } else {
-                                    // viewModel.openLoadingView()
                                     homeViewModel.loadEvents()
                                     homeViewModel.transition(to: .notification)
                                 }
@@ -171,6 +169,7 @@ struct HomeView: View {
                         Menu {
                             Section("Game.Admin.AdventureInfo") {
                                 Button("Home.Adventure") {
+                                    viewModel.openLoadingView()
                                     let latitude = mapViewModel.userLatitude
                                     let longitude = mapViewModel.userLongitude
                                     
@@ -216,7 +215,7 @@ struct HomeView: View {
                         .padding(.bottom, shouldPadding ? 60 : 70)
                     } else {
                         Button {
-                            // viewModel.openLoadingView()
+                            viewModel.openLoadingView()
                             let latitude = mapViewModel.userLatitude
                             let longitude = mapViewModel.userLongitude
                             

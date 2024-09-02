@@ -446,10 +446,12 @@ final class HomeViewModel: ObservableObject {
                 // 가까운 랜드마크가 없음
                 else {
                     print("가까운 랜드마크 없음")
+                    self.rootViewModel.closeLoadingView()
                     self.rootViewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.NoNearLandmark", comment: ""))
                 }
                 
             case .failure(let error):
+                self.rootViewModel.closeLoadingView()
                 print("Nearest Landmark Error: \(error)")
             }
         }
@@ -468,7 +470,7 @@ final class HomeViewModel: ObservableObject {
             self.isSpeedingUp = true
             self.lastIndex = -1
         }
-        
+        self.rootViewModel.closeLoadingView()
         startChangingText()
     }
     
