@@ -380,6 +380,20 @@ final class RootViewModel: ObservableObject {
             self.appUpdateAlarm = true
         }
     }
+    
+    // 로딩 뷰 열기
+    func openLoadingView() {
+        DispatchQueue.main.async {
+            self.isLoading = true
+        }
+    }
+    
+    // 로딩 뷰 닫기
+    func closeLoadingView() {
+        DispatchQueue.main.async {
+            self.isLoading = false
+        }
+    }
 }
 
 enum ViewType: String {

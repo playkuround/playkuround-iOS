@@ -88,6 +88,7 @@ struct RegisterNickname: View {
                 
                 Button {
                     if !nickname.isEmpty && isNicknameVaild {
+                        viewModel.openLoadingView()
                         soundManager.playSound(sound: .buttonClicked)
                         checkNicknameBeforeRegister()
                     }
@@ -176,14 +177,17 @@ struct RegisterNickname: View {
                             register(email: email, major: major, token: authVerifyToken)
                         }
                     } else {
+                        viewModel.closeLoadingView()
                         isNicknameChecked = true
                         self.viewModel.openToastMessageView(message: NSLocalizedString("Register.ToastMessage.NicknameDuplicated", comment: ""))
                     }
                 } else {
+                    viewModel.closeLoadingView()
                     self.viewModel.openToastMessageView(message: NSLocalizedString("Network.ServerError", comment: ""))
                 }
             case .failure(let error):
                 print("Error in View: \(error)")
+                viewModel.closeLoadingView()
                 isNicknameChecked = true
                 self.viewModel.openToastMessageView(message: NSLocalizedString("Network.ServerError", comment: ""))
                 
@@ -214,6 +218,9 @@ struct RegisterNickname: View {
                                 
                                 // 뷰 전환
                                 viewModel.transition(to: .home)
+                            } else {
+                                self.viewModel.openToastMessageView(message: NSLocalizedString("Register.ToastMessage.RegisterFailed", comment: ""))
+                                viewModel.closeLoadingView()
                             }
                             
                             // 뱃지 열기
@@ -230,19 +237,25 @@ struct RegisterNickname: View {
                             DispatchQueue.main.async {
                                 self.viewModel.openNewBadgeView(badgeNames: newBadgeNameList)
                             }
+                        } else {
+                            viewModel.closeLoadingView()
                         }
                     }
                     else {
                         // 회원가입 실패
                         if let error = apiResponse.errorResponse?.message {
                             print(error)
+                            viewModel.closeLoadingView()
                             self.viewModel.openToastMessageView(message: NSLocalizedString("Register.ToastMessage.RegisterFailed", comment: ""))
+                        } else {
+                            viewModel.closeLoadingView()
                         }
                     }
                 }
             case .failure(let data):
                 // 회원가입 실패 메시지 (서버 오류 등)
                 print(data)
+                viewModel.closeLoadingView()
                 isNicknameChecked = false
                 self.viewModel.openToastMessageView(message: NSLocalizedString("Register.ToastMessage.RegisterFailed", comment: ""))
             }

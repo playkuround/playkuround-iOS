@@ -350,6 +350,7 @@ class GameViewModel: ObservableObject {
     // 모든 API 호출 이후 호출되는 함수
     func afterFetch() {
         print("after fetch")
+        rootViewModel.closeLoadingView()
         DispatchQueue.main.async {
             self.isCountdownViewPresented = false
             self.isPauseViewPresented = false
@@ -363,6 +364,8 @@ class GameViewModel: ObservableObject {
     
     // 서버로 점수 업로드 함수
     final func uploadResult(uploadScore: Int) {
+        rootViewModel.openLoadingView()
+        
         // 사용자 위치 정보
         let latitude = mapViewModel.userLatitude
         let longitude = mapViewModel.userLongitude
@@ -483,8 +486,6 @@ class GameViewModel: ObservableObject {
                     if let response = data as? APIResponse {
                         if let myRank = response.response?.myRank {
                             self.adventureScore = myRank.score
-                        } else {
-                            self.handleError()
                         }
                         
                         // 뱃지 있으면 추가

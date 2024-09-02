@@ -221,6 +221,7 @@ struct RegisterTermsView: View {
             TermsView(title: NSLocalizedString("Register.LocationTermsTitle", comment: ""), termsType: .location)
         }
         .onAppear {
+            viewModel.closeLoadingView()
             GAManager.shared.logScreenEvent(.RegisterTermsView)
         }
     }

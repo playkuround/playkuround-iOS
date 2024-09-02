@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileBadgeView: View {
     @ObservedObject var homeViewModel: HomeViewModel
+    @ObservedObject var rootViewModel: RootViewModel
     @State private var selectedBadge: Badge? = nil
     
     var body: some View {
@@ -80,6 +81,7 @@ struct ProfileBadgeView: View {
                         
                         Button {
                             if let selectedBadge = selectedBadge {
+                                rootViewModel.openLoadingView()
                                 APIManager.shared.callPOSTAPI(endpoint: .profileBadge, parameters: ["profileBadge": selectedBadge.rawValue]) { result in
                                     switch result {
                                     case .success(let data):
@@ -92,6 +94,7 @@ struct ProfileBadgeView: View {
                                         homeViewModel.loadUserData()
                                         homeViewModel.loadTotalRanking()
                                         homeViewModel.transition(to: .home)
+                                        rootViewModel.closeLoadingView()
                                     case .failure(let error):
                                         print("(fail) /api/users/profile-badge: \(error)")
                                     }
@@ -112,6 +115,7 @@ struct ProfileBadgeView: View {
                 }
         }
         .onAppear {
+            homeViewModel.loadBadge(loading: true)
             selectedBadge = Badge(rawValue: homeViewModel.userData.profileBadge)
             GAManager.shared.logScreenEvent(.BadgeProfileView)
         }
@@ -127,5 +131,5 @@ struct ProfileBadgeView: View {
 }
 
 #Preview {
-    ProfileBadgeView(homeViewModel: HomeViewModel(rootViewModel: RootViewModel()))
+    ProfileBadgeView(homeViewModel: HomeViewModel(rootViewModel: RootViewModel()), rootViewModel: RootViewModel())
 }

@@ -60,6 +60,7 @@ struct HomeView: View {
                                 .padding(.trailing, 10)
                         }
                         .onTapGesture {
+                            viewModel.openLoadingView()
                             homeViewModel.transition(to: .badgeProfile)
                         }
                         
@@ -105,6 +106,7 @@ struct HomeView: View {
                         // TODO: 버튼 클릭 시 각 뷰 표시
                         VStack(spacing: 7) {
                             Button {
+                                viewModel.openLoadingView()
                                 homeViewModel.transition(to: .attendance)
                                 soundManager.playSound(sound: .buttonClicked)
                             } label: {
@@ -168,6 +170,7 @@ struct HomeView: View {
                         Menu {
                             Section("Game.Admin.AdventureInfo") {
                                 Button("Home.Adventure") {
+                                    viewModel.openLoadingView()
                                     let latitude = mapViewModel.userLatitude
                                     let longitude = mapViewModel.userLongitude
                                     
@@ -213,6 +216,7 @@ struct HomeView: View {
                         .padding(.bottom, shouldPadding ? 60 : 70)
                     } else {
                         Button {
+                            viewModel.openLoadingView()
                             let latitude = mapViewModel.userLatitude
                             let longitude = mapViewModel.userLongitude
                             
@@ -247,7 +251,7 @@ struct HomeView: View {
                 case .adventure:
                     AdventureView(viewModel: viewModel, homeViewModel: homeViewModel)
                 case .badgeProfile:
-                    ProfileBadgeView(homeViewModel: homeViewModel)
+                    ProfileBadgeView(homeViewModel: homeViewModel, rootViewModel: viewModel)
                 case .notification:
                     NotificationView(homeViewModel: homeViewModel)
                 }
@@ -264,6 +268,8 @@ struct HomeView: View {
                 homeViewModel.loadEvents()
                 
                 GAManager.shared.logScreenEvent(.HomeView)
+                
+                viewModel.closeLoadingView()
             }
             .onDisappear {
                 // 홈 뷰에서 벗어날 때 위치 업데이트 중지

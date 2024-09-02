@@ -142,7 +142,7 @@ final class HomeViewModel: ObservableObject {
     
     // MARK: - Badge List
     // 유저 뱃지 목록 불러오는 함수
-    func loadBadge() {
+    func loadBadge(loading: Bool = false) {
         APIManager.shared.callGETAPI(endpoint: .badges) { result in
             switch result {
             case .success(let data):
@@ -153,18 +153,32 @@ final class HomeViewModel: ObservableObject {
                         DispatchQueue.main.async {
                             self.badgeList = badgeList
                             print(self.badgeList.count)
+                            if loading {
+                                self.rootViewModel.closeLoadingView()
+                            }
                         }
+                    } else {
+                        if loading {
+                            self.rootViewModel.closeLoadingView()
+                        }
+                    }
+                } else {
+                    if loading {
+                        self.rootViewModel.closeLoadingView()
                     }
                 }
             case .failure(let error):
                 print("Error in View: \(error)")
+                if loading {
+                    self.rootViewModel.closeLoadingView()
+                }
             }
         }
     }
     
     // MARK: - Attendance
     // 유저 출석 불러오는 함수
-    func loadAttendance() {
+    func loadAttendance(loading: Bool = false) {
         APIManager.shared.callGETAPI(endpoint: .attendances) { result in
             switch result {
             case .success(let data):
@@ -182,6 +196,10 @@ final class HomeViewModel: ObservableObject {
                     self.loadBadge()
                     self.loadTotalRanking()
                     
+                    if loading {
+                        self.rootViewModel.closeLoadingView()
+                    }
+                    
                     // 뱃지 열기
                     var newBadgeNameList: [String] = []
                     
@@ -196,15 +214,22 @@ final class HomeViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList)
                     }
+                } else {
+                    if loading {
+                        self.rootViewModel.closeLoadingView()
+                    }
                 }
                 
             case .failure(let error):
                 print("Error in View: \(error)")
+                if loading {
+                    self.rootViewModel.closeLoadingView()
+                }
             }
         }
     }
     
-    func attendance(latitude: Double, longitude: Double) {
+    func attendance(latitude: Double, longitude: Double, loading: Bool = false) {
         APIManager.shared.callPOSTAPI(endpoint: .attendances, parameters: ["latitude": latitude, "longitude": longitude]) { result in
             switch result {
             case .success(let data):
@@ -229,23 +254,36 @@ final class HomeViewModel: ObservableObject {
                         
                         print("** newBadgeList: \(newBadgeNameList)")
                         
+                        if loading {
+                            self.rootViewModel.closeLoadingView()
+                        }
+                        
                         DispatchQueue.main.async {
                             self.rootViewModel.openNewBadgeView(badgeNames: newBadgeNameList)
                         }
                     } else {
                         // 출석 실패 이벤트
                         GAManager.shared.logEvent(.ATTENDANCE_FAIL)
+                        if loading {
+                            self.rootViewModel.closeLoadingView()
+                        }
                         self.rootViewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.AttendanceFailed", comment: ""))
                     }
                 } else {
                     // 출석 실패 이벤트
                     GAManager.shared.logEvent(.ATTENDANCE_FAIL)
+                    if loading {
+                        self.rootViewModel.closeLoadingView()
+                    }
                     self.rootViewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.AttendanceFailed", comment: ""))
                 }
             case .failure(let error):
                 print("Error in View: \(error)")
                 // 출석 실패 이벤트
                 GAManager.shared.logEvent(.ATTENDANCE_FAIL)
+                if loading {
+                    self.rootViewModel.closeLoadingView()
+                }
                 self.rootViewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.AttendanceFailed", comment: ""))
             }
         }
@@ -408,10 +446,12 @@ final class HomeViewModel: ObservableObject {
                 // 가까운 랜드마크가 없음
                 else {
                     print("가까운 랜드마크 없음")
+                    self.rootViewModel.closeLoadingView()
                     self.rootViewModel.openToastMessageView(message: NSLocalizedString("Home.ToastMessage.NoNearLandmark", comment: ""))
                 }
                 
             case .failure(let error):
+                self.rootViewModel.closeLoadingView()
                 print("Nearest Landmark Error: \(error)")
             }
         }
@@ -430,7 +470,7 @@ final class HomeViewModel: ObservableObject {
             self.isSpeedingUp = true
             self.lastIndex = -1
         }
-        
+        self.rootViewModel.closeLoadingView()
         startChangingText()
     }
     

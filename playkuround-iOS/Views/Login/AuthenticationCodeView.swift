@@ -63,6 +63,8 @@ struct AuthenticationCodeView: View {
                 .padding(.top, 46)
             
             Button(action: {
+                viewModel.openLoadingView()
+                
                 authButtonClicked = true
                 soundManager.playSound(sound: .buttonClicked
                 )
@@ -150,9 +152,12 @@ struct AuthenticationCodeView: View {
                                 // 뷰 전환
                                 viewModel.transition(to: .home)
                             }
+                        } else {
+                            viewModel.closeLoadingView()
                         }
                     }
                     else {
+                        viewModel.closeLoadingView()
                         // 잘못된 인증코드를 입력했을 때
                         if apiResponse.errorResponse?.code == "E005" {
                             isAuthCodeWrong = true
@@ -162,6 +167,7 @@ struct AuthenticationCodeView: View {
                 }
             case .failure(let error):
                 print("Error in View: \(error)")
+                viewModel.closeLoadingView()
             }
         }
     }

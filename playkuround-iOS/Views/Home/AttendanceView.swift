@@ -85,7 +85,8 @@ struct AttendanceView: View {
                             let isTodayAttended = checkAttended(Date())
                             
                             Button {
-                                homeViewModel.attendance(latitude: mapViewModel.userLatitude, longitude: mapViewModel.userLongitude)
+                                rootViewModel.openLoadingView()
+                                homeViewModel.attendance(latitude: mapViewModel.userLatitude, longitude: mapViewModel.userLongitude, loading: true)
                                 soundManager.playSound(sound: .buttonClicked)
                             } label: {
                                 Image(isTodayAttended ? .shortButtonGray : .shortButtonBlue)
@@ -122,6 +123,7 @@ struct AttendanceView: View {
         .onAppear {
             dates = generate30Dates()
             GAManager.shared.logScreenEvent(.AttendanceView)
+            rootViewModel.closeLoadingView()
         }
     }
     
