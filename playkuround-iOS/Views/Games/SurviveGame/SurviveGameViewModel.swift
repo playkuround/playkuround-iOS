@@ -94,44 +94,30 @@ final class SurviveGameViewModel: GameViewModel {
     }
     
     private func updateDuckkuPos(x: Double, y: Double, z: Double) {
-        if !self.isTimerUpdating {
+        if !self.isTimerUpdating || self.gameState != .playing {
             return
         }
         
         DispatchQueue.main.async {
-            // 자이로스코프 누적 값 업데이트 (둔감하게 반응하도록 값 감소)
-            self.gyroCummX += x * 0.1
-            self.gyroCummY += y * 0.1
+            self.velocityX += x * 0.3
+            self.velocityY += y * 0.3
             
-            // Gyro data scaling factor
-            let scalingFactor: CGFloat = 0.005 // 가속도를 더 낮게 설정
-            let damping: CGFloat = 0.99 // 매우 높은 감쇠율로 관성을 크게 적용
+            let xS = self.velocityX / 2 * 0.3
+            let yS = self.velocityY / 2 * 0.3
             
-            // Update acceleration based on gyro data
-            self.accelerationX = CGFloat(self.gyroCummY) * scalingFactor
-            self.accelerationY = CGFloat(self.gyroCummX) * scalingFactor
+            let newX = self.duckkuPosX + xS
+            let newY = self.duckkuPosY - yS
             
-            // Update velocity with damping to simulate friction
-            self.velocityX += self.accelerationX
-            self.velocityY += self.accelerationY
-            self.velocityX *= damping
-            self.velocityY *= damping
-            
-            // Update positions
-            let newX = self.duckkuPosX + self.velocityX
-            let newY = self.duckkuPosY + self.velocityY
-            
-            // Constrain positions within frame
             self.duckkuPosX = min(max(newX, -self.frameMaxX / 2), self.frameMaxX / 2)
             self.duckkuPosY = min(max(newY, -self.frameMaxY / 2), self.frameMaxY / 2)
         }
     }
     
-    private func setupGyroUpdates() {
-        motionManager.$gyroData
+    private func setupGyroUpdates() {        
+        motionManager.$accelerometerData
             .compactMap { $0 }
             .sink { [weak self] data in
-                self?.updateDuckkuPos(x: data.rotationRate.x, y: data.rotationRate.y, z: data.rotationRate.z)
+                self?.updateDuckkuPos(x: data.acceleration.x, y: data.acceleration.y, z: data.acceleration.z)
             }
             .store(in: &cancellables)
     }

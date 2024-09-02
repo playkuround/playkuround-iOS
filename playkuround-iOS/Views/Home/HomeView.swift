@@ -142,7 +142,8 @@ struct HomeView: View {
                                 }
                             } label: {
                                 Image(.notiButton)
-                                    .overlay {
+                                // 이번 출시 때 제거
+                                    /* .overlay {
                                         if homeViewModel.isNewEvent {
                                             Text("Home.Badge.New")
                                                 .font(.neo15)
@@ -151,7 +152,7 @@ struct HomeView: View {
                                                 .textRainStroke()
                                                 .offset(x: 18, y: -18)
                                         }
-                                    }
+                                    }*/
                             }
                             
                             Spacer()

@@ -117,11 +117,11 @@ final class CatchGameViewModel: GameViewModel {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 self.windowList[index].windowState = .open
                 self.soundManager.playSound(sound: .duckkuWindowOpenAndClose)
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.65) {
-                self.closeWindow(index: index)
-                self.soundManager.playSound(sound: .duckkuWindowOpenAndClose)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    self.closeWindow(index: index)
+                    self.soundManager.playSound(sound: .duckkuWindowOpenAndClose)
+                }
             }
         }
     }
