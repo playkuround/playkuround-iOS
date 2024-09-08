@@ -4177,6 +4177,29 @@
         }
       }
     },
+    "ToastMessage.BGMCopyright" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BGM - Prod. 브금공방<br><br><Back in my days>"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BGM - Prod. 브금공방<br><br><Back in my days>"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BGM - Prod. 브금공방<br><br><Back in my days>"
+          }
+        }
+      }
+    },
     "Token" : {
       "shouldTranslate" : false
     },

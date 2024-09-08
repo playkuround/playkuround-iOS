@@ -141,6 +141,12 @@ struct MyPageListSectionView: View {
                                 .padding(.top, 18)
                         }
                     }
+                    .onTapGesture {
+                        let message = NSLocalizedString("ToastMessage.BGMCopyright", comment: "")
+                            .replacingOccurrences(of: "<br>", with: "\n")
+                        
+                        viewModel.openToastMessageView(message: message)
+                    }
                 
                 // 개인정보 처리 방침
                 MyPageListRowView(rowTitle: NSLocalizedString("MyPage.Instruction.Privacy", comment: ""))
