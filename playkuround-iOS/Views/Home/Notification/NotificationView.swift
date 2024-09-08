@@ -56,6 +56,7 @@ struct NotificationView: View {
                                             .font(.neo20)
                                             .foregroundColor(.kuText)
                                             .kerning(-0.41)
+                                            .multilineTextAlignment(.center)
                                         
                                         if isNew {
                                             Text("Home.Badge.New")
@@ -66,7 +67,7 @@ struct NotificationView: View {
                                     }
                                     .padding(.top, 50)
                                     .padding(.bottom, 16)
-                                    .padding(.horizontal, -40)
+                                    .padding(.horizontal, -20)
                                     
                                     // 사진 텍스트 둘 다
                                     if notiType == .textAndImage, let notiImageURLString = event.imageUrl {
